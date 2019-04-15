@@ -1,0 +1,113 @@
+.postbox-container .cmb-type-custom-attached-posts .cmb-th + .cmb-td {
+	width: 100%;
+}
+
+.cmb-type-custom-attached-posts .cmb-type-custom_attached_posts {
+	padding-top: 0;
+}
+
+.cmb-type-custom-attached-posts .attached-posts-wrap {
+	display: inline-block;
+	width: 100%;
+}
+
+.cmb-type-custom-attached-posts .column-wrap {
+	float: left;
+	width: 45%;
+}
+
+.cmb-type-custom-attached-posts .retrieved-wrap {
+	margin-right: 10%;
+}
+
+.cmb-type-custom-attached-posts .attached-posts-section {
+	margin-bottom: 5px;
+}
+
+.cmb-type-custom-attached-posts .search-wrap .regular-text {
+	width: 100%;
+	margin: 0 0 7px 0;
+}
+
+.cmb-type-custom-attached-posts .connected {
+	background: #F4F4F4;
+	cursor: pointer;
+	height: 300px;
+	overflow-y: scroll;
+	padding: 0;
+	width: 100%;
+}
+
+.cmb-type-custom-attached-posts .has-thumbnails.connected {
+	height: 30em;
+}
+
+.cmb-type-custom-attached-posts .has-thumbnails li {
+	clear: both;
+}
+.cmb-type-custom-attached-posts .has-thumbnails li::after {
+	content: ' ';
+	display: block;
+	clear: both;
+}
+
+.cmb-type-custom-attached-posts .has-thumbnails li img {
+	margin-right: 10px;
+	vertical-align: middle;
+	float: left;
+}
+
+.cmb-type-custom-attached-posts .has-thumbnails li a {
+	text-indent: 55px;
+}
+
+.attached-posts-wrap .attached {
+	float: right;
+}
+
+.cmb-type-custom-attached-posts .connected li {
+	border-bottom: 1px solid #f1f1f1;
+	margin: 0;
+	padding: 10px 40px 10px 10px;
+	position: relative;
+}
+
+.cmb-type-custom-attached-posts .connected li.odd {
+	background-color: #f9f9f9;
+}
+
+.cmb-type-custom-attached-posts .connected li:hover {
+	background: #e6e6e6;
+}
+
+.attached-posts-wrap .retrieved li.added {
+	opacity: .5;
+}
+
+.attached-posts-wrap .retrieved li.added:hover {
+	background: #fff;
+	cursor: initial;
+}
+
+.attached-posts-wrap .retrieved li.added:hover .add-remove {
+	background-position: 0 -22px;
+}
+
+.connected li .add-remove {
+	display: block;
+	height: 17px;
+	margin-top: -8px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	width: 22px;
+}
+
+ul.hide-selected li.added{
+    display: none;
+}
+
+.cmb2-attached-posts-search-button span {
+	color: #999;
+	margin: .2em -.2em 0 1px;
+}
