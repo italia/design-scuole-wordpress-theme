@@ -1,3 +1,7 @@
 [submodule "inc/vendor/CMB2"]
 	path = inc/vendor/CMB2
 	url = https://github.com/CMB2/CMB2.git
+
+[submodule "inc/vendor/CMB2-field-Leaflet-Geocoder"]
+    	path = inc/vendor/CMB2-field-Leaflet-Geocoder
+    	url = https://github.com/villeristi/CMB2-field-Leaflet-Geocoder.git

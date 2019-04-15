@@ -11,16 +11,17 @@ Design Scuole Italia rispetta le nuove linee guida di design dell’Agenzia per 
 
 Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://italia.github.io/bootstrap-italia/).
 
-Design Italia è sviluppato per [**WordPress 5**](https://it.wordpress.org/) (CMS open-source), su framework [**Bootstrap 4**](https://getbootstrap.com/). 
-
-Design Italia propone una **soluzione open-source e gratuita**, ideale per gli istituti che hanno scelto di utilizzare WordPress per il proprio sito intenet.
 
 ---
 
 ## Come utlizzare Design Scuole Italia
 
-+ in lavorazione
----
+Per scaricare il progetto esegui i seguenti comandi
+
++ git clone https://github.com/italia/design-scuole-wordpress-theme.git
++ cd design-scuole-wordpress-theme/
++ git submodule init
++ git submodule update
 
 
 ## Plugins suggeriti
