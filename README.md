@@ -24,7 +24,7 @@ Per scaricare il progetto esegui i seguenti comandi
 + git submodule update
 
 
-## Plugins suggeriti
+## Plugins suggeriti    
 + in lavorazione
 ---
 

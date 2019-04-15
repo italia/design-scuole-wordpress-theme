@@ -13,7 +13,7 @@ foreach (glob(get_template_directory() ."/inc/admin/*.php") as $filename)
 }
 
 
-require "vendor/CMB2/example-functions.php";
+//require "vendor/CMB2/example-functions.php";
 
 
 

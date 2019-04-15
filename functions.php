@@ -8,14 +8,14 @@
  */
 
 /**
- * Register Custom Post Types
- */
-require get_template_directory() . '/inc/cpt.php';
-
-/**
  * Implement CMB2 Custom Field Manager
  */
 require get_template_directory() . '/inc/cmb2.php';
+
+/**
+ * Gutenberg editor rules
+ */
+require get_template_directory() . '/inc/gutenberg.php';
 
 
 if ( ! function_exists( 'dsi_setup' ) ) :
