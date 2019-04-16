@@ -30,26 +30,6 @@ function dsi_register_servizio_post_type() {
 	);
 	register_post_type( 'servizio', $args );
 
-	/** documenti **/
-	$labels = array(
-		'name'                  => _x( 'Documenti', 'Post Type General Name', 'design_scuole_italia' ),
-		'singular_name'         => _x( 'Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
-		'add_new'               => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
-		'add_new_item'               => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
-	);
-	$args = array(
-		'label'                 => __( 'Documento', 'design_scuole_italia' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor'),
-		'taxonomies'            => array( 'tipologia' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-portfolio',
-		'has_archive'           => true,
-	);
-	register_post_type( 'documento', $args );
-
 }
 
 

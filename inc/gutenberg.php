@@ -7,6 +7,7 @@
  * Templates and Page IDs without editor
  *
  */
+/*
 function dsi_disable_editor( $id = false ) {
 
 
@@ -27,11 +28,12 @@ function dsi_disable_editor( $id = false ) {
 
 	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
 }
-
+*/
 /**
  * Disable Gutenberg by template
  *
  */
+/*
 function dsi_disable_gutenberg( $can_edit, $post_type ) {
 
 	if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
@@ -48,3 +50,4 @@ function dsi_disable_gutenberg( $can_edit, $post_type ) {
 
 add_filter( 'gutenberg_can_edit_post_type', 'dsi_disable_gutenberg', 10, 2 );
 add_filter( 'use_block_editor_for_post_type', 'dsi_disable_gutenberg', 10, 2 );
+*/
