@@ -21,7 +21,7 @@ function dsi_register_servizio_post_type() {
 		'label'                 => __( 'Servizio', 'design_scuole_italia' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array( 'tipologia' ),
+//		'taxonomies'            => array( 'tipologia' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'menu_position'         => 5,
@@ -217,6 +217,14 @@ function dsi_add_servizi_metaboxes() {
 
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
+		'name'       => __('Link Luogo', 'design_scuole_italia' ),
+		'desc'       => __('Link alla scheda Luogo, se esistente', 'design_scuole_italia' ),
+		'id'         => 'link',
+		'type'       => 'text_url',
+	) );
+
+
+	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'name'       => __('Indirizzo *', 'design_scuole_italia' ),
 		'desc'       => __('Indirizzo della sede.', 'design_scuole_italia' ),
 		'id'         => 'indirizzo',
@@ -382,7 +390,12 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'altre_info',
 		'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
 		'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi' , 'design_scuole_italia' ),
-		'type' => 'textarea',
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 
 	) );
 
@@ -410,16 +423,21 @@ function dsi_add_servizi_metaboxes() {
 
 }
 
-add_action( 'edit_form_after_title', 'sdi_add_content_after_title' );
-function sdi_add_content_after_title($post) {
+/**
+ * Aggiungo label sotto il titolo
+ */
+add_action( 'edit_form_after_title', 'sdi_servizio_add_content_after_title' );
+function sdi_servizio_add_content_after_title($post) {
 if($post->post_type == "servizio")
 	_e('<span><i>il <b>Titolo</b> è il <b>Nome del Servizio</b>. Il nome del Servizio deve essere facilmente comprensibile dai cittadini. Il Servizio di raccolta differenziata si chiamerà "Raccolta differenziata". Il Servizio di iscrizione all\'asilo nido si chiamerà "Iscrizione asilo nido". Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 
-
-add_action( 'edit_form_after_title', 'sdi_add_content_before_editor', 100 );
-function sdi_add_content_before_editor($post) {
+/**
+ * Aggiungo testo prima del content
+ */
+add_action( 'edit_form_after_title', 'sdi_servizio_add_content_before_editor', 100 );
+function sdi_servizio_add_content_before_editor($post) {
 	if($post->post_type == "servizio")
 		_e('<h1>Descrizione Estesa e Completa del Servizio</h1>', 'design_scuole_italia' );
 }
