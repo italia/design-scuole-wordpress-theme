@@ -8,9 +8,16 @@
  */
 
 /**
+ * Implement Plugin Activations Rules
+ */
+//require get_template_directory() . '/inc/theme-dependencies.php';
+
+/**
  * Implement CMB2 Custom Field Manager
  */
 require get_template_directory() . '/inc/cmb2.php';
+
+
 
 /**
  * Gutenberg editor rules
