@@ -3,19 +3,72 @@
  * Hook in and register a metabox to handle a theme options page and adds a menu item.
  */
 function dsi_register_main_options_metabox() {
-	$prefix = '_dsi_';
+	$prefix = '';
+
+
+	$args = array(
+		'id'           => 'dsi_options_header',
+		'title'        => esc_html__( 'La Scuola', 'design_scuole_italia' ),
+		'object_types' => array( 'options-page' ),
+		'option_key'   => 'dsi_options',
+		'tab_group'    => 'dsi_options',
+		'tab_title'    => __('Dati di base', "design_scuole_italia"),
+		'position'        => 1, // Menu position. Only applicable if 'parent_slug' is left empty.
+		'icon_url'        => 'dashicons-admin-multisite', // Menu icon. Only applicable if 'parent_slug' is left empty.
+	);
+
+	// 'tab_group' property is supported in > 2.4.0.
+	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		$args['display_cb'] = 'dsi_options_display_with_tabs';
+	}
+
+	$header_options = new_cmb2_box( $args );
+
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'tipologia_scuola',
+		'name'        => __( 'Tipologia *', 'design_scuole_italia' ),
+		'desc' => __( 'La Tipologia della scuola. Es: "Liceo Scientifico Statale"' , 'design_scuole_italia' ),
+		'type' => 'text',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'nome_scuola',
+		'name'        => __( 'Nome Scuola *', 'design_scuole_italia' ),
+		'desc' => __( 'Il Nome della Scuola' , 'design_scuole_italia' ),
+		'type' => 'text',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'luogo_scuola',
+		'name'        => __( 'Città *', 'design_scuole_italia' ),
+		'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
+		'type' => 'text',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+
+
 	/**
 	 * Registers main options page menu item and form.
 	 */
 	$args = array(
 		'id'           => 'dsi_options_carta_identita',
-		'title'        => esc_html__( 'La Scuola', 'design_scuole_italia' ),
+		'title'        => esc_html__( 'Carta di Identità', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
-		'option_key'   => 'dsi_main_options',
+		'option_key'   => 'carta_identita',
 		'tab_group'    => 'dsi_main_options',
-		'tab_title'    => __('La carta di Identità', "design_scuole_italia"),
-		'position'        => 1, // Menu position. Only applicable if 'parent_slug' is left empty.
-		'icon_url'        => 'dashicons-admin-multisite', // Menu icon. Only applicable if 'parent_slug' is left empty.
+		'tab_title'    => __('Carta di Identità', "design_scuole_italia"),
+		'parent_slug'  => 'dsi_options',
+		'tab_group'    => 'dsi_options',
 
 	);
 
@@ -32,15 +85,6 @@ function dsi_register_main_options_metabox() {
 	 * Prefix is not needed.
 	 */
 
-	$main_options->add_field( array(
-		'id' => $prefix . 'titolo',
-		'name'        => __( 'Nome Scuola', 'design_scuole_italia' ),
-		'desc' => __( 'Il Nome della Scuola' , 'design_scuole_italia' ),
-		'type' => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
 
 
 	$main_options->add_field( array(
@@ -259,10 +303,10 @@ function dsi_register_main_options_metabox() {
 		'id'           => 'dsi_options_struttura_organizzativa',
 		'title'        => esc_html__( 'Struttura Organizzativa', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
-		'option_key'   => 'dsi_secondary_options',
-		'parent_slug'  => 'dsi_main_options',
-		'tab_group'    => 'dsi_main_options',
-		'tab_title'    => __('La Struttura Organizzativa', "design_scuole_italia"),	);
+		'option_key'   => 'struttura_organizzativa',
+		'parent_slug'  => 'dsi_options',
+		'tab_group'    => 'dsi_options',
+		'tab_title'    => __('Struttura Organizzativa', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -401,18 +445,21 @@ function dsi_register_main_options_metabox() {
 	) );
 
 
+
+
 	/**
-	 * Registers tertiary options page, and set main item as parent.
+	 * Registers main options page menu item and form.
 	 */
-	/*
 	$args = array(
-		'id'           => 'dsi_tertiary_options_page',
-		'menu_title'   => 'Tertiary Options', // Use menu title, & not title to hide main h2.
+		'id'           => 'dsi_options_menu',
+		'title'        => esc_html__( 'Menu', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
-		'option_key'   => 'dsi_tertiary_options',
-		'parent_slug'  => 'dsi_main_options',
+		'option_key'   => 'menu_principale',
 		'tab_group'    => 'dsi_main_options',
-		'tab_title'    => 'Tertiary',
+		'tab_title'    => __('Opzioni Menu', "design_scuole_italia"),
+		'parent_slug'  => 'dsi_options',
+		'tab_group'    => 'dsi_options',
+
 	);
 
 	// 'tab_group' property is supported in > 2.4.0.
@@ -420,14 +467,128 @@ function dsi_register_main_options_metabox() {
 		$args['display_cb'] = 'dsi_options_display_with_tabs';
 	}
 
-	$tertiary_options = new_cmb2_box( $args );
+	$menu_options = new_cmb2_box( $args );
 
-	$tertiary_options->add_field( array(
-		'name' => 'Test Text Area for Code',
-		'desc' => 'field description (optional)',
-		'id'   => 'textarea_code',
-		'type' => 'textarea_code',
-	) );*/
+	$menu_options->add_field( array(
+		'name' => 'Menu:  Come funziona',
+		'desc' => __( 'Le sottovoci di ogni voce del menu principale (Scuola, Servizi, etc) sono singoli menu Wordpress. <br><a href="nav-menus.php">Configurali da qui associandoli alla relativa posizione</a>. <br> Qui si seguito puoi configurare gli articoli da mettere in evidenza nel mega menu. ', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_main_title'
+	) );
+
+	$menu_options->add_field( array(
+		'name' => 'Mega Menu:  Scuola',
+		'desc' => __( 'Seleziona un lancio da mostrare in evidenza nella tendina del menu "Scuola". <br>In caso di selezione multipla verrà utilizzato solo il primo.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_scuola_title'
+	) );
+	$menu_options->add_field( array(
+		'id' => $prefix . 'item_menu_scuola',
+		'name'    => __( 'Seleziona 1 lancio da mostrare nel menu alla voce "Scuola"', 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => "any",
+			), // override the get_posts args
+		),
+	) );
+
+	$menu_options->add_field( array(
+		'name' => 'Mega Menu:  Servizi',
+		'desc' => __( 'Seleziona un lancio da mostrare in evidenza nella tendina del menu "Servizi". <br>In caso di selezione multipla verrà utilizzato solo il primo.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_servizi_title'
+	) );
+	$menu_options->add_field( array(
+		'id' => $prefix . 'item_menu_servizi',
+		'name'    => __( 'Seleziona 1 lancio da mostrare nel menu alla voce "Servizi"', 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => "any",
+			), // override the get_posts args
+		),
+	) );
+
+	$menu_options->add_field( array(
+		'name' => 'Mega Menu:  Notizie',
+		'desc' => __( 'Seleziona un lancio da mostrare in evidenza nella tendina del menu "Notizie". <br>In caso di selezione multipla verrà utilizzato solo il primo.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_notizie_title'
+	) );
+	$menu_options->add_field( array(
+		'id' => $prefix . 'item_menu_notizie',
+		'name'    => __( 'Seleziona 1 lancio da mostrare nel menu alla voce "Notizie"', 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => "any",
+			), // override the get_posts args
+		),
+	) );
+
+	$menu_options->add_field( array(
+		'name' => 'Mega Menu:  Didattica',
+		'desc' => __( 'Seleziona un lancio da mostrare in evidenza nella tendina del menu "Didattica". <br>In caso di selezione multipla verrà utilizzato solo il primo.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_didattica_title'
+	) );
+	$menu_options->add_field( array(
+		'id' => $prefix . 'item_menu_didattica',
+		'name'    => __( 'Seleziona 1 lancio da mostrare nel menu alla voce "Didattica"', 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => "any",
+			), // override the get_posts args
+		),
+	) );
+
+
+
+	$menu_options->add_field( array(
+		'name' => 'Mega Menu:  La mia classe',
+		'desc' => __( 'Seleziona un lancio da mostrare in evidenza nella tendina del menu "La mia classe". <br>In caso di selezione multipla verrà utilizzato solo il primo.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'menu_classe_title'
+	) );
+	$menu_options->add_field( array(
+		'id' => $prefix . 'item_menu_classe',
+		'name'    => __( 'Seleziona 1 lancio da mostrare nel menu alla voce "La mia classe"', 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => "any",
+			), // override the get_posts args
+		),
+	) );
+
+
+
+
+
+
+
 
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );

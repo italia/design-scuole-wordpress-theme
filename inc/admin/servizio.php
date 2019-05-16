@@ -321,9 +321,7 @@ function dsi_add_servizi_metaboxes() {
 		'desc' => __( 'Prevedere un campo per ciascuna delle cose che occorrono per attivare il Servizio. (Documenti necessari, o altro). Se serve compilare un modulo, mettere un link alla sezione documenti della scheda', 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'repeatable'  => true,
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+
 	) );
 
 	$cmb_undercontent->add_field( array(
@@ -340,9 +338,7 @@ function dsi_add_servizi_metaboxes() {
 		'desc' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi  (ad es. "iscrizione asilo nido" - data + "esito della domanda" - data)', 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'repeatable'  => true,
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+
 	) );
 
 	$cmb_undercontent->add_field( array(
