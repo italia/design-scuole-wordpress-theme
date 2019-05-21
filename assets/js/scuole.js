@@ -2517,6 +2517,11 @@ $usermenu.responsiveDom({
     appendTo: '.menu-user-mobile',
     mediaQuery: '(max-width: 992px)'
 });
+var $description = $('.article-description');
+$description.responsiveDom({
+    appendTo: '.article-description-mobile',
+    mediaQuery: '(max-width: 768px)'
+});
 /* End Transport Responsive DOM */
 
 /* jPush Menu */

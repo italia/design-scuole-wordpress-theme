@@ -163,6 +163,13 @@ function dsi_add_servizi_metaboxes() {
 		),
 
 	) );
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'spid',
+		'name'        => __( 'SPID', 'design_scuole_italia' ),
+		'desc' => __( 'Selezionare se è previsto SPID tra le modalità di autenticazione necessarie per accedere al Servizio.' , 'design_scuole_italia' ),
+		'type' => 'checkbox',
+	) );
+
 
 
 	$cmb_undercontent->add_field( array(
@@ -179,13 +186,7 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'canale_fisico_prenotazione',
 		'name'        => __( 'Canale fisico - Prenotazione', 'design_scuole_italia' ),
 		'desc' => __( 'Se è possibile prenotare un appuntamento nel canale fisico, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
-		'type' => 'wysiwyg',
-		'options' => array(
-			'media_buttons' => false, // show insert/upload button(s)
-			'textarea_rows' => 4, // rows="..."
-			'teeny' => true, // output the minimal editor config used in Press This
-		),
-
+		'type' => 'text_url'
 	) );
 
 
@@ -294,7 +295,7 @@ function dsi_add_servizi_metaboxes() {
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __(' Riferimento pec', 'design_scuole_italia' ),
+		'name'       => __(' Riferimento pec *', 'design_scuole_italia' ),
 		'desc'       => __('Indirizzo di posta elettronica certificata della sede.' ),
 		'id'         => 'pec',
 		'type'       => 'text_medium',
@@ -328,18 +329,45 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'costi_vincoli',
 		'name'        => __( 'Costi e/o vincoli', 'design_scuole_italia' ),
 		'desc' => __( 'Condizioni e termini economici per compleare la procedura di richiesta del Servizio. Specificare anche eventuali vincoli. Ad es. il rinnovo della carta d\'identità ha un costo di euro x. Non è possibile rinnovare la carta identità x mesi prima della scadenza' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 	) );
 
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'fasi_scadenze',
-		'name'        => __( 'Fasi e scadenze *', 'design_scuole_italia' ),
-		'desc' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi  (ad es. "iscrizione asilo nido" - data + "esito della domanda" - data)', 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'repeatable'  => true,
-
+	/**  repeater fasi_scadenze **/
+	$group_field_id = $cmb_undercontent->add_field( array(
+		'id'          => $prefix . 'fasi_scadenze',
+		'name'        => __('<h1>Fasi e Scadenze</h1>', 'design_scuole_italia' ),
+		'type'        => 'group',
+		'description' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi " - data)', 'design_scuole_italia' ),
+		'options'     => array(
+			'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
+			'add_button'     => __( 'Aggiungi una fase', 'design_scuole_italia' ),
+			'remove_button'  => __( 'Rimuovi la fase', 'design_scuole_italia' ),
+			'sortable'       => true,
+			// 'closed'      => true, // true to have the groups closed by default
+			//'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+		),
 	) );
+
+	$cmb_undercontent->add_group_field( $group_field_id, array(
+		'name'       => __('Data fase', 'design_scuole_italia' ),
+		'desc'       => __('Data fase', 'design_scuole_italia' ),
+		'id'         => 'data_fase',
+		'type'       => 'text_date',
+		'date_format' => 'd-m-Y'
+	) );
+
+	$cmb_undercontent->add_group_field( $group_field_id, array(
+		'name'       => __('Fase *', 'design_scuole_italia' ),
+		'desc'       => __('Nome della sede che eroga il servizio', 'design_scuole_italia' ),
+		'id'         => 'desc_fase',
+		'type'       => 'textarea',
+	) );
+	/*** fine fasi e scadenze **/
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'casi_particolari',

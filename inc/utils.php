@@ -109,3 +109,22 @@ if(!function_exists("dsi_get_argomenti_of_post")) {
 		return $argomenti_terms;
 	}
 }
+
+
+/**
+ * Function to get mapbox access token
+ * @return string accesstoken
+ */
+if(!function_exists("dsi_get_mapbox_access_token")) {
+	function dsi_get_mapbox_access_token() {
+		global $post;
+
+		$accesstoken = dsi_get_option( "mapbox_key", "setup" );
+		if ( trim( $accesstoken ) == "" ) {
+			$accesstoken = DSI_ACCESSTOKEN_MAPBOX;
+		}
+
+		return $accesstoken;
+	}
+}
+

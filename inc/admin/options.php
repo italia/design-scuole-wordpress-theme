@@ -583,6 +583,37 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
+	// pagina opzioni
+	/**
+	 * Registers main options page menu item and form.
+	 */
+	$args = array(
+		'id'           => 'dsi_setup_menu',
+		'title'        => esc_html__( 'Configurazione', 'design_scuole_italia' ),
+		'object_types' => array( 'options-page' ),
+		'option_key'   => 'setup',
+		'tab_group'    => 'dsi_main_options',
+		'tab_title'    => __('Configurazione', "design_scuole_italia"),
+		'parent_slug'  => 'dsi_options',
+		'tab_group'    => 'dsi_options',
+
+	);
+
+	// 'tab_group' property is supported in > 2.4.0.
+	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		$args['display_cb'] = 'dsi_options_display_with_tabs';
+	}
+
+	$setup_options = new_cmb2_box( $args );
+
+
+	$setup_options->add_field( array(
+		'id' => $prefix . 'mapbox_key',
+		'name' => 'Access Token MapBox',
+		'desc' => __( 'Inserisci l\'access token mapbox per l\'erogazione delle mappe. Puoi crearlo <a target="_blank" href="https://www.mapbox.com/studio/account/tokens/">da qui</a>', 'design_scuole_italia' ),
+		'type' => 'text'
+    ) );
+
 
 
 
