@@ -44,6 +44,10 @@
     /* IE6-9 */
     opacity: 0.12; }
 
+.bg-alert {
+  background-color: #ba132d;
+  color: #ffffff; }
+
 .primary-bg {
   background-color: #0066cc; }
 

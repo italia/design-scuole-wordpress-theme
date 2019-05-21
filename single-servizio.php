@@ -20,11 +20,7 @@ get_header();
 			the_post();
 
 		    // get all post meta cmb2
-			$stato = dsi_get_meta("stato");
-			if(!$stato)
-    			$desc_stato = dsi_get_meta("desc_stato");
-
-			$esito = dsi_get_meta("esito");
+            $esito = dsi_get_meta("esito");
 			$descrizione = dsi_get_meta("descrizione");
 			$come_si_fa = dsi_get_meta("come_si_fa");
 			$procedura_esito = dsi_get_meta("procedura_esito");

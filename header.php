@@ -49,6 +49,7 @@ $theme_locations = get_nav_menu_locations();
 <!-- End Right menu element-->
 
 <?php get_template_part("template-parts/header/slimheader"); ?>
+<?php get_template_part("template-parts/header/offline"); ?>
 
 <div id="main-wrapper" class="push_container" id="page_top">
 
