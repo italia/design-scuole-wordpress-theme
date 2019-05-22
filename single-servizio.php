@@ -411,7 +411,7 @@ get_header();
 				                <?php
 			                }
                               // check for anchor
-                            if(is_array($link_schede_documenti) && count($link_schede_documenti)>0 && is_array($file_documenti) && count($file_documenti)>0){
+                            if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
                             ?><div id="art-par-documenti"></div><?php
                             }
 
