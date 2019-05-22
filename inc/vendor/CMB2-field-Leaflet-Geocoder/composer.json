@@ -1,0 +1,14 @@
+{
+    "name": "villeristi/cmb2-field-leaflet-geocoder",
+    "description": "Leaflet (with Geocoder) field type for CMB2.",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress", "plugin"],
+    "license": "MIT",
+    "homepage": "https://github.com/villeristi/CMB2-field-Leaflet-Geocoder",
+    "authors": [
+        {
+            "name": "Wille",
+            "email": "ville.ristimaki@nordsoftware.com"
+        }
+    ]
+}
