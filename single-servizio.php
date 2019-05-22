@@ -412,12 +412,14 @@ get_header();
 			                }
                               // check for anchor
                             if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
-                            ?><div id="art-par-documenti"></div><?php
+                            ?>
+                                <h4  class="mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                <?php
                             }
 
 				            if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
 				                ?>
-                                <h4  class="mb-4"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+
                                 <h6><?php _e("Link alle schede dei documenti", "design_scuole_italia"); ?></h6>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
