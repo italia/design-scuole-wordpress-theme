@@ -109,6 +109,7 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'article-simple-thumb', 500, 384 , true);
 			add_image_size( 'item-thumb', 280, 280 , false);
+			add_image_size( 'item-gallery', 730, 485 , true);
 
 		}
 

@@ -206,7 +206,13 @@ function dsi_register_main_options_metabox() {
 		'id' => $prefix . 'prefisso_carte',
 	) );
 
-
+	$main_options->add_field( array(
+		'id' => $prefix . 'descrizione_carte',
+		'title'        => __( 'Le Carte', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'desc' => __( 'Descrizione introduttiva delle carte della Scuola' , 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
 
 	$carte_group_id = $main_options->add_field( array(
 		'id'           => $prefix . 'gruppo_carte',
@@ -279,6 +285,8 @@ function dsi_register_main_options_metabox() {
 		'id' => $prefix . 'data_timeline',
 		'name'        => __( 'Data', 'design_scuole_italia' ),
 		'type' => 'text_date',
+		'date_format' => 'd-m-Y'
+
 	) );
 
 	$main_options->add_group_field( $timeline_group_id, array(
