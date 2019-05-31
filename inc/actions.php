@@ -79,3 +79,12 @@ function dsi_hide_editor() {
 	}
 	}
 }
+
+/**
+ * Add css admin style
+ */
+
+function dsi_admin_css_load() {
+	wp_enqueue_style('style-admin-css', get_stylesheet_directory_uri().'/inc/admin-css/style-admin.css');
+}
+add_action('admin_enqueue_scripts', 'dsi_admin_css_load');

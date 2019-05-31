@@ -69,6 +69,8 @@ get_header();
                 </div><!-- /container -->
             </section><!-- /section -->
 
+			<?php get_template_part("template-parts/header/offline"); ?>
+
             <section class="section bg-white">
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
@@ -108,16 +110,17 @@ get_header();
                                             <a class="list-item scroll-anchor-offset" href="#art-par-casi-particolari" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Casi particolari", "design_scuole_italia"); ?>"><?php _e("Casi particolari", "design_scuole_italia"); ?></a>
                                         </li>
                                         <?php } ?>
+	                                    <?php if(trim($altre_info) != ""){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
+                                            </li>
+	                                    <?php } ?>
                                         <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
                                         </li>
                                         <?php } ?>
-                                        <?php if(trim($altre_info) != ""){ ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
-                                        </li>
-                                        <?php } ?>
+
                                     </ul>
                                 </div>
                             </aside>
@@ -142,7 +145,7 @@ get_header();
 								<?php
 								if(trim($esito) != ""){
 									?>
-                                    <h6><?php _e("Esito", "design_scuole_italia"); ?></h6>
+                                    <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($esito); ?>
@@ -160,6 +163,7 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
+								/*
 								if(trim($procedura_esito) != ""){
 									?>
                                     <h6><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h6>
@@ -169,10 +173,10 @@ get_header();
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
 									<?php
-								}
+								}*/
 								if(trim($canale_digitale) != ""){
 									?>
-                                    <h6><?php _e("Canale digitale", "design_scuole_italia"); ?></h6>
+                                    <h4><?php _e("Servizio online", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($canale_digitale); ?>
@@ -201,7 +205,7 @@ get_header();
 								}
 								if(trim($canale_fisico) != ""){
 									?>
-                                    <h6><?php _e("Canale fisico", "design_scuole_italia"); ?></h6>
+                                    <h6><?php _e("Sedi in cui richiedere il servizio", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <p><?php echo $canale_fisico; ?></p>
@@ -217,19 +221,50 @@ get_header();
 
 								// sedi
 								if(is_array($sedi) && count($sedi)>0) {
-									?>
-                                    <h6><?php _e( "Sedi", "design_scuole_italia" ); ?></h6>
-								<?php
+
 								$c=0;
+								$arrstrutture = array();
 								foreach ($sedi as $sede){
 								$c++;
-								//   print_r($sede);
-								?>
+
+								// recupero i luoghi e le strutture selezionate
+									$id_schede_luoghi = $sede["link_schede_luoghi"][0];
+									$id_schede_struttura_organizzativa = $sede["link_schede_struttura_organizzativa"][0];
+
+									$luogo=get_post($id_schede_luoghi);
+									$struttura=get_post($id_schede_struttura_organizzativa);
+
+									$arrstrutture[$struttura->post_title] = get_permalink($struttura);
+                                    $indirizzo = dsi_get_meta("indirizzo", '_dsi_luogo_', $luogo->ID);
+									$cap = dsi_get_meta("cap", '_dsi_luogo_', $luogo->ID);
+									$orario_pubblico = dsi_get_meta("orario_pubblico", '_dsi_luogo_', $luogo->ID);
+
+									$telefono = dsi_get_meta("telefono", '_dsi_struttura_', $struttura->ID);
+                                    if($telefono == "")
+                                        $telefono = dsi_get_meta("telefono", '_dsi_luogo_', $luogo->ID);
+
+
+									$mail = dsi_get_meta("mail", '_dsi_struttura_', $struttura->ID);
+									if($mail == "")
+									    $mail = dsi_get_meta("mail", '_dsi_luogo_', $luogo->ID);
+
+									$pec = dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID);
+									if($pec == "")
+										$pec = dsi_get_meta("pec", '_dsi_luogo_', $luogo->ID);
+
+									$persone = dsi_get_meta("persone", '_dsi_struttura_', $struttura->ID);
+
+									$posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
+
+
+									?>
+                                    <h6><a href="">Sede di <?php echo $struttura->post_title; ?></a></h6>
+
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="card card-bg rounded mb-5">
                                                 <div class="card-header">
-                                                    <strong><?php echo $sede["nome"]; ?></strong>
+                                                    <strong><?php echo $luogo->post_title; ?></strong>
                                                 </div><!-- /card-header -->
                                                 <div class="card-body p-0">
                                                     <div class="row variable-gutters">
@@ -241,73 +276,73 @@ get_header();
                                                         <div class="col-lg-7">
                                                             <div class="py-4">
                                                                 <ul class="location-list mt-2">
-																	<?php if(isset($sede["indirizzo"])){ ?>
+																	<?php if(isset($indirizzo)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "indirizzo", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <?php echo wpautop($sede["indirizzo"]); ?>
+                                                                                <?php echo wpautop($indirizzo); ?>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["cap"])){ ?>
+																	<?php if(isset($cap)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "CAP", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <p><?php echo $sede["cap"]; ?></p>
+                                                                                <p><?php echo $cap; ?></p>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["orario"])){ ?>
+																	<?php if(isset($orario_pubblico)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "Orari", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <?php echo wpautop($sede["orario"]); ?>
+                                                                                <?php echo wpautop($orario_pubblico); ?>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["mail"])){ ?>
+																	<?php if(isset($mail)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "Email", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <p><a href="mailto:<?php echo $sede["mail"]; ?>"><?php echo $sede["mail"]; ?></a></p>
+                                                                                <p><a href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></p>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["pec"])){ ?>
+																	<?php if(isset($pec)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "PEC", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <p><a href="mailto:<?php echo $sede["pec"]; ?>"><?php echo $sede["pec"]; ?></a></p>
+                                                                                <p><a href="mailto:<?php echo $pec; ?>"><?php echo $pec; ?></a></p>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["telefono"])){ ?>
+																	<?php if(isset($telefono)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "Telefono", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <p><?php echo $sede["telefono"]; ?></p>
+                                                                                <p><?php echo $telefono; ?></p>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
-																	<?php if(isset($sede["persone"])){ ?>
+																	<?php if(isset($persone)){ ?>
                                                                         <li>
                                                                             <div class="location-title">
                                                                                 <span><?php _e( "Rif.", "design_scuole_italia" ); ?></span>
                                                                             </div>
                                                                             <div class="location-content">
-                                                                                <p><?php echo $sede["persone"]; ?></p>
+                                                                                <p><?php echo $persone; ?></p>
                                                                             </div>
                                                                         </li>
 																	<?php } ?>
@@ -323,8 +358,8 @@ get_header();
                                         var mymap = L.map('map_<?php echo $c; ?>', {
                                             zoomControl: false,
                                             scrollWheelZoom: false
-                                        }).setView([<?php echo $sede["posizione_gps"]["lat"]; ?>, <?php echo $sede["posizione_gps"]["lng"]; ?>], 15);
-                                        var marker = L.marker([<?php echo $sede["posizione_gps"]["lat"]; ?>, <?php echo $sede["posizione_gps"]["lng"]; ?>]).addTo(mymap);
+                                        }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
+                                        var marker = L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(mymap);
                                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                                             attribution: '',
                                             maxZoom: 18,
@@ -336,26 +371,17 @@ get_header();
 								}
 								}
 
-								if(is_array($cosa_serve) && count($cosa_serve) > 0) {
+                    			if(trim($cosa_serve) != ""){
 									?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-											<?php
-											foreach ( $cosa_serve as $serve ) {
-												?>
                                                 <div class="card card-bg bg-color rounded mb-3">
                                                     <div class="card-body">
-                                                        <ul class="mb-0">
-                                                            <li><?php echo $serve; ?></li>
-                                                        </ul>
+	                                                    <?php echo $cosa_serve; ?>
                                                     </div>
                                                 </div>
-												<?php
-											}
-											?>
-
-                                        </div><!-- /col-lg-9 -->
+					                    </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
 									<?php
 								}
@@ -411,75 +437,7 @@ get_header();
 				                <?php
 			                }
                               // check for anchor
-                            if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
-                            ?>
-                                <h4  class="mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
-                                <?php
-                            }
 
-				            if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-				                ?>
-
-                                <h6><?php _e("Link alle schede dei documenti", "design_scuole_italia"); ?></h6>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            foreach ( $link_schede_documenti as $link_scheda_documento ) {
-
-                                                $doc = get_post($link_scheda_documento);
-                                                ?>
-                                                <div class="card card-bg card-icon rounded">
-                                                    <div class="card-body">
-                                                        <svg class="icon it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-documents"></use></svg>
-                                                        <div class="card-icon-content">
-                                                            <p><strong><a href="<?php echo get_permalink($link_scheda_documento); ?>"><?php echo $doc->post_title; ?></a></strong></p>
-                                                        </div><!-- /card-icon-content -->
-                                                    </div><!-- /card-body -->
-                                                </div><!-- /card card-bg card-icon rounded -->
-                                                <?php
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-				                <?php
-			                    }
-
-                    			if(is_array($file_documenti) && count($file_documenti)>0) {
-		                		?>
-                                <h6><?php _e("Link ai documenti", "design_scuole_italia"); ?></h6>
-                                <div class="row variable-gutters mb-4">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                $icon = "svg-documents";
-                                                if(substr($nomefile, -3) == "pdf")
-	                                                $icon = "it-pdf-document";
-
-                                                $attach = get_post($idfile);
-                                                $filetocheck = get_attached_file($idfile);
-
-                                                $filesize = filesize($filetocheck);
-                                                ?>
-                                                <div class="card card-bg card-icon rounded">
-                                                    <div class="card-body">
-                                                        <svg class="icon it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
-                                                        <div class="card-icon-content">
-                                                            <p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"><?php echo $attach->post_title; ?></a></strong></p>
-                                                            <small><?php echo intval($filesize/1024); ?> kb</small>
-                                                        </div><!-- /card-icon-content -->
-                                                    </div><!-- /card-body -->
-                                                </div><!-- /card card-bg card-icon rounded -->
-                                                <?php
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-				                    <?php
-			                    }
 
 			                    if(trim($altre_info) != ""){
 			                        ?>
@@ -491,6 +449,93 @@ get_header();
                                 </div><!-- /row -->
 				                    <?php
 			                    }
+
+
+								if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
+									?>
+                                    <h6  class="mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h6>
+									<?php
+								}
+
+								if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+									?>
+
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+												<?php
+												foreach ( $link_schede_documenti as $link_scheda_documento ) {
+
+													$doc = get_post($link_scheda_documento);
+													?>
+                                                    <div class="card card-bg card-icon rounded">
+                                                        <div class="card-body">
+                                                            <svg class="icon it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-news"></use></svg>
+                                                            <div class="card-icon-content">
+                                                                <p><strong><a href="<?php echo get_permalink($link_scheda_documento); ?>"><?php echo $doc->post_title; ?></a></strong></p>
+                                                            </div><!-- /card-icon-content -->
+                                                        </div><!-- /card-body -->
+                                                    </div><!-- /card card-bg card-icon rounded -->
+													<?php
+												}
+												?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+									<?php
+								}
+
+								if(is_array($file_documenti) && count($file_documenti)>0) {
+									?>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+												<?php
+												foreach ( $file_documenti as $idfile => $nomefile ) {
+													$icon = "svg-documents";
+													if(substr($nomefile, -3) == "pdf")
+														$icon = "it-pdf-document";
+
+													$attach = get_post($idfile);
+													$filetocheck = get_attached_file($idfile);
+
+													$filesize = filesize($filetocheck);
+													?>
+                                                    <div class="card card-bg card-icon rounded">
+                                                        <div class="card-body">
+                                                            <svg class="icon it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
+                                                            <div class="card-icon-content">
+                                                                <p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"><?php echo $attach->post_title; ?></a></strong></p>
+                                                                <small><?php echo intval($filesize/1024); ?> kb</small>
+                                                            </div><!-- /card-icon-content -->
+                                                        </div><!-- /card-body -->
+                                                    </div><!-- /card card-bg card-icon rounded -->
+													<?php
+												}
+												?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+									<?php
+								}
+
+								if(count($arrstrutture) > 0){
+									?>
+                                    <h6><?php _e("Per saperne di più", "design_scuole_italia"); ?></h6>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <ul>
+                                            <?php
+                                            foreach ($arrstrutture as $snome => $slink){
+                                            echo "<li><a href='".$slink."' >".$snome."</a></li>";
+                                            }
+                                            ?>
+                                            </ul>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+									<?php
+								}
+
 								?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">

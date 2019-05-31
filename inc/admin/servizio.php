@@ -30,6 +30,30 @@ function dsi_register_servizio_post_type() {
 	);
 	register_post_type( 'servizio', $args );
 
+	$labels = array(
+		'name'              => _x( 'Tipologia', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia', 'taxonomy singular name', 'design_scuole_italia' ),
+		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+		'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+		'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+		'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'tipologia-servizio' ),
+	);
+
+	register_taxonomy( 'tipologia-servizio', array( 'servizio' ), $args );
+
+
 }
 
 
@@ -110,18 +134,15 @@ function dsi_add_servizi_metaboxes() {
 	) );
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'esito',
-		'name'        => __( 'Esito del Servizio *', 'design_scuole_italia' ),
+		'name'        => __( 'A cosa serve *', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa"' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+		'type' => 'textarea'
 	) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'come_si_fa',
 		'name'        => __( 'Come si fa *', 'design_scuole_italia' ),
-		'desc' => __( 'Procedura da seguire per usufruire del Servizio. Es. "Per iscriverti al servizio mensa devi..."' , 'design_scuole_italia' ),
+		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'required'    => 'required'
@@ -130,17 +151,14 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'procedura_esito',
-		'name'        => __( 'Procedure collegate all\'esito *', 'design_scuole_italia' ),
-		'desc' => __( 'Questo campo indica cosa fare per conoscere l\'esito della procedura.  Es. Una volta completata la procedura, riceverai una mail di conferma relativa all\'attivazione del servizio' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+		'name'        => __( 'Procedure collegate*', 'design_scuole_italia' ),
+		'desc' => __( 'Questo campo indica eventuali procedure collegate al servizio. Ad es., se il servizio è l\'iscrizione al servizio mensa, si spiega che ogni 3 mesi si dovrà procedere al pagamento dei pasti utilizzando il servizio on line oppure attraverso il bollettino postale.' , 'design_scuole_italia' ),
+		'type' => 'textarea'
 	) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_digitale',
-		'name'        => __( 'Canale digitale', 'design_scuole_italia' ),
+		'name'        => __( 'Servizi on line', 'design_scuole_italia' ),
 		'desc' => __( 'Link per avviare la procedura di attivazione del servizio. Questo campo mette in relazione "Servizio" con il suo canale digitale di attivazione. Es. "Per richiedere il servizio mensa utilizza la procedura on line prevista nel sito del Comune X (link)"' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
@@ -154,7 +172,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'autenticazione',
 		'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
-		'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie per accedere al Servizio.' , 'design_scuole_italia' ),
+		'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie. Ad es. "Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L\'iscrizione è possibile anche attraverso spid."' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -174,8 +192,8 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_fisico',
-		'name'        => __( 'Canale fisico *', 'design_scuole_italia' ),
-		'desc' => __( 'Breve testo che identifica il luogo ( una o più sedi) per fruire il servizio. Es "Il servizio può essere attivato nella sede dell\'ufficio scolastico del Comune". Es. Il servizio può essere richiesto nella Segreteria scolastica' , 'design_scuole_italia' ),
+		'name'        => __( 'Sedi in cui richiedere il servizio *', 'design_scuole_italia' ),
+		'desc' => __( 'Breve testo che identifica la sede o le sedi dell\'ufficio / struttura organizzativa responsabile in cui è possibile attivare il servizio e spiega se serve prendere appuntamento. Esempi: Il servizio può essere richiesto nelle sedi della segreteria scolastica presentandosi negli orari di apertura. Non è necessario prendere appuntamento / Utilizza il servizio di prenotazione appuntamento / contatta la sede per richiedere un appuntamento.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'required'    => 'required'
@@ -184,8 +202,8 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_fisico_prenotazione',
-		'name'        => __( 'Canale fisico - Prenotazione', 'design_scuole_italia' ),
-		'desc' => __( 'Se è possibile prenotare un appuntamento nel canale fisico, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
+		'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
+		'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
 		'type' => 'text_url'
 	) );
 
@@ -195,7 +213,7 @@ function dsi_add_servizi_metaboxes() {
 		'id'          => $prefix . 'sedi',
 		'name'        => __('<h1>Sedi</h1>', 'design_scuole_italia' ),
 		'type'        => 'group',
-		'description' => __( 'La sede è una sede aperta al pubblico. Es. segreteria scolastica - sede principale', 'design_scuole_italia' ),
+		'description' => __( 'La sede è una luogo/struttura organizzativa aperte al pubblico. Es. segreteria scolastica - sede principale', 'design_scuole_italia' ),
 		'options'     => array(
 			'group_title'    => __( 'Sede {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
 			'add_button'     => __( 'Aggiungi un\'altra Sede', 'design_scuole_italia' ),
@@ -206,111 +224,37 @@ function dsi_add_servizi_metaboxes() {
 		),
 	) );
 
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Nome *', 'design_scuole_italia' ),
-		'desc'       => __('Nome della sede che eroga il servizio', 'design_scuole_italia' ),
-		'id'         => 'nome',
-		'type'       => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
-
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Link Luogo', 'design_scuole_italia' ),
-		'desc'       => __('Link alla scheda Luogo, se esistente', 'design_scuole_italia' ),
-		'id'         => 'link',
-		'type'       => 'text_url',
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Indirizzo *', 'design_scuole_italia' ),
-		'desc'       => __('Indirizzo della sede.', 'design_scuole_italia' ),
-		'id'         => 'indirizzo',
-		'type'       => 'textarea_small',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Orario per il pubblico *', 'design_scuole_italia' ),
-		'desc'       => __('Orario di apertura al pubblico della sede.', 'design_scuole_italia' ),
-		'id'         => 'orario',
-		'type'       => 'textarea_small',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Posizione GPS *', 'design_scuole_italia' ),
-		'desc'       => __('Georeferenziazione della sede e link a posizione in mappa.' ),
-		'id'         => 'posizione_gps',
-		'type'       => 'leaflet_map',
-		'attributes' => array(
-//			'tilelayer'           => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-			'searchbox_position'  => 'topleft', // topright, bottomright, topleft, bottomleft,
-			'search'              => __( 'Digita l\'indirizzo della Sede' , 'design_scuole_italia' ),
-            'not_found'           => __( 'Indirizzo non trovato' , 'design_scuole_italia' ),
-		    'initial_coordinates' => [
-			'lat' => 41.894802, // Go Italy!
-			'lng' => 12.4853384  // Go Italy!
-			],
-            'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
-			'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
-			'required'    => 'required'
-        )
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('CAP *', 'design_scuole_italia' ),
-		'desc'       => __('Codice di avviamento postale della sede.', 'design_scuole_italia' ),
-		'id'         => 'cap',
-		'type'       => 'text_small',
-		'attributes'    => array(
-			'required'    => 'required'
+		'id' => 'link_schede_luoghi',
+		'name'    => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene erogato il servizio', 'design_scuole_italia' ),
+		'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => 'luogo',
+			), // override the get_posts args
 		),
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Riferimento telefonico', 'design_scuole_italia' ),
-		'desc'       => __('Telefono della sede' ),
-		'id'         => 'telefono',
-		'type'       => 'text_medium',
-
-	) );
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Riferimento mail', 'design_scuole_italia' ),
-		'desc'       => __('Indirizzo di posta elettronica della sede.' ),
-		'id'         => 'mail',
-		'type'       => 'text_medium',
-
-	) );
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __(' Riferimento pec *', 'design_scuole_italia' ),
-		'desc'       => __('Indirizzo di posta elettronica certificata della sede.' ),
-		'id'         => 'pec',
-		'type'       => 'text_medium',
-		'attributes'    => array(
-			'required'    => 'required'
+		'id' => 'link_schede_struttura_organizzativa',
+		'name'    => __( 'Seleziona la <a href="edit.php?post_type=struttura">struttura organizzativa</a> che si occupa dell\'erogazione del servizio', 'design_scuole_italia' ),
+		'desc' => __( 'Verrà utilizzata per mostrare i riferimenti di contatto della sede. In caso di servizio erogato da più strutture organizzative, crea una sede per ogni luogo/struttura organizzativa. ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => true, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => 'struttura',
+			), // override the get_posts args
 		),
-
-	) );
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __(' Persone da contattare', 'design_scuole_italia' ),
-		'desc'       => __('Eventuale lista di persone specifiche da contattare che lavorano nella sede.' ),
-		'id'         => 'persone',
-		'type'       => 'textarea_small',
-
 	) );
 
 	/** fine sedi  */
@@ -319,9 +263,18 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'cosa_serve',
 		'name'        => __( 'Cosa Serve *', 'design_scuole_italia' ),
-		'desc' => __( 'Prevedere un campo per ciascuna delle cose che occorrono per attivare il Servizio. (Documenti necessari, o altro). Se serve compilare un modulo, mettere un link alla sezione documenti della scheda', 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'repeatable'  => true,
+		'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link
+
+', 'design_scuole_italia' ),
+		'type'    => 'wysiwyg',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 
 	) );
 
@@ -363,7 +316,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'name'       => __('Fase *', 'design_scuole_italia' ),
-		'desc'       => __('Nome della sede che eroga il servizio', 'design_scuole_italia' ),
+		'desc'       => __('Esempio: "Iscrizione alla gita" oppure "Pagamento della gita"', 'design_scuole_italia' ),
 		'id'         => 'desc_fase',
 		'type'       => 'textarea',
 	) );
@@ -378,9 +331,22 @@ function dsi_add_servizi_metaboxes() {
 	) );
 
 	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'altre_info',
+		'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
+		'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi' , 'design_scuole_italia' ),
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
+
+	) );
+
+	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_documenti',
-		'name'    => __( 'Link alle schede dei documenti', 'design_scuole_italia' ),
-		'desc' => __( 'Link alle schede dei documenti. ' , 'design_scuole_italia' ),
+		'name'    => __( 'Documenti', 'design_scuole_italia' ),
+		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per attivare il servizio: moduli da compilare, riferimenti di legge e altre informazioni. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
 		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
 		'options' => array(
@@ -396,7 +362,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'file_documenti',
-		'name'    => __( 'Link a documenti', 'design_scuole_italia' ),
+		'name'    => __( 'Carica documenti', 'design_scuole_italia' ),
 		'desc' => __( 'Se l\'allegato non è descritto da una scheda documento, link all\'allegato (es. link a una locandina). ' , 'design_scuole_italia' ),
 		'type' => 'file_list',
 		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
@@ -410,18 +376,7 @@ function dsi_add_servizi_metaboxes() {
 	) );
 
 
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'altre_info',
-		'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
-		'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi' , 'design_scuole_italia' ),
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'media_buttons' => false, // show insert/upload button(s)
-			'textarea_rows' => 4, // rows="..."
-			'teeny' => true, // output the minimal editor config used in Press This
-		),
 
-	) );
 
 
 

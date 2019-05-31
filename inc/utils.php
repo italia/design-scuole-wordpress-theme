@@ -34,13 +34,20 @@ if(!function_exists("dsi_get_option")) {
  * @return mixed meta_value
  */
 if(!function_exists("dsi_get_meta")){
-	function dsi_get_meta( $key = '') {
+	function dsi_get_meta( $key = '', $prefix = "", $post_id = "") {
+
+		if($post_id == "")
+			$post_id = get_the_ID();
+
+		if($prefix != "")
+			return get_post_meta( $post_id, $prefix.$key, true );
+
 		if(is_singular("servizio")){
 			$prefix = '_dsi_servizio_';
-			return get_post_meta( get_the_ID(), $prefix.$key, true );
+			return get_post_meta( $post_id, $prefix.$key, true );
 		}
 
-		return get_post_meta( get_the_ID(), $key, true );
+		return get_post_meta( $post_id, $key, true );
 	}
 }
 
