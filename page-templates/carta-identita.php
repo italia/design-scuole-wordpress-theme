@@ -182,7 +182,7 @@ get_header();
 
             <?php
 			// le carte
-            $gruppo_carte = dsi_get_option( "gruppo_carte", "carta_identita" );
+            $gruppo_carte = dsi_get_option( "link_schede_documenti", "carta_identita" );
             if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 	            ?>
                 <section class="section section-padding bg-redbrown bg-white-strip">
@@ -200,6 +200,7 @@ get_header();
                                 <div class="owl-carousel carousel-theme carousel-cards">
                                     <?php
                                     foreach ( $gruppo_carte as $carta ) {
+                                        $doc = get_post($carta);
                                         ?>
                                         <div class="item item-card">
                                             <div class="card card-icon card-bg card-large card-folded card-no-shadow rounded">
@@ -208,13 +209,13 @@ get_header();
                                                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                                              xlink:href="#svg-classes"></use>
                                                     </svg>
-                                                    <h3><a href="<?php echo $carta["link"]; ?>"><?php echo $carta["titolo"]; ?></a></h3>
+                                                    <h3><a href="<?php echo get_permalink($doc); ?>"><?php echo $doc->post_title; ?></a></h3>
                                                 </div><!-- /card-body -->
                                                 <div class="card-body card-body-min-height">
-                                                    <p><?php echo $carta["descrizione"]; ?></p>
+                                                    <p><?php  echo get_the_excerpt($doc); ?></p>
                                                 </div><!-- /card-body -->
                                                 <div class="card-bottom">
-                                                    <a class="read-more" href="<?php echo $carta["link"]; ?>">Scopri</a>
+                                                    <a class="read-more" href="<?php echo get_permalink($doc); ?>">Scopri</a>
                                                 </div><!-- /card-bottom -->
                                             </div><!-- /card -->
                                         </div><!-- /item -->

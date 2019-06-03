@@ -115,10 +115,11 @@ function dsi_register_main_options_metabox() {
 	$main_options->add_field( array(
 		'id' => $prefix . 'citazione',
 			'name'        => __( 'Citazione', 'design_scuole_italia' ),
-		'desc' => __( 'Breve (min. 80 caratteri) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
+		'desc' => __( 'Breve (compresa tra 70 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
-			'required'    => 'required'
+            'maxlength'  => '140',
+			'minlength'  => '70'
 		),
 	) );
 
@@ -165,12 +166,10 @@ function dsi_register_main_options_metabox() {
 		'attributes' => array(
 			'type' => 'number',
 			'pattern' => '\d*',
+			'required'    => 'required'
 		),
 		'sanitization_cb' => 'absint',
 		'escape_cb'       => 'absint',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
 	) );
 
 	$main_options->add_field( array(
@@ -181,12 +180,10 @@ function dsi_register_main_options_metabox() {
 		'attributes' => array(
 			'type' => 'number',
 			'pattern' => '\d*',
+			'required'    => 'required'
 		),
 		'sanitization_cb' => 'absint',
 		'escape_cb'       => 'absint',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
 	) );
 
 	$main_options->add_field( array(
@@ -210,44 +207,29 @@ function dsi_register_main_options_metabox() {
 		'id' => $prefix . 'descrizione_carte',
 		'title'        => __( 'Le Carte', 'design_scuole_italia' ),
 		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'desc' => __( 'Descrizione introduttiva delle carte della Scuola' , 'design_scuole_italia' ),
+		'desc' => __( 'E\' l\'accesso a tutti i documenti della scuola. Es: La scuola raccontata attraverso i documenti più importanti, come il piano triennale dell\'offerta formativa' , 'design_scuole_italia' ),
 		'type' => 'textarea_small',
 	) );
 
-	$carte_group_id = $main_options->add_field( array(
-		'id'           => $prefix . 'gruppo_carte',
-		'type'        => 'group',
-		'repeatable'  => true,
-		'options'     => array(
-			'group_title'   => __( 'Carta {#}', 'design_scuole_italia' ),
-			'add_button'    => __( 'Aggiungi una Carta', 'design_scuole_italia' ),
-			'remove_button' => __( 'Rimuovi la Carta', 'design_scuole_italia' ),
-			'sortable'      => true,  // Allow changing the order of repeated groups.
+
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'link_schede_documenti',
+		'name'    => __( 'Le Carte', 'design_scuole_italia' ),
+		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per presentare la scuola.  <a href="post-new.php?post_type=documento">Qui puoi creare un documento.</a> ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => 'documento',
+			), // override the get_posts args
 		),
 	) );
 
 
-
-	$main_options->add_group_field( $carte_group_id, array(
-		'id' => $prefix . 'titolo',
-		'name'        => __( 'Titolo', 'design_scuole_italia' ),
-		'desc' => __( 'Titolo "Il piano triennale dell\'offerta formativa", oppure "Il piano per l\'inclusione", o altro' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-
-	$main_options->add_group_field( $carte_group_id, array(
-		'id' => $prefix . 'descrizione',
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'desc' => __( 'Descrizione breve del documento (min 160 caratteri).' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-	) );
-
-	$main_options->add_group_field( $carte_group_id, array(
-		'id' => $prefix . 'link',
-		'name'        => __( 'Link', 'design_scuole_italia' ),
-		'desc' => __( 'Link alla scheda di dettaglio' , 'design_scuole_italia' ),
-		'type' => 'text_url'
-	) );
 
 	$main_options->add_field( array(
 		'name'        => __( 'La Storia', 'design_scuole_italia' ),
