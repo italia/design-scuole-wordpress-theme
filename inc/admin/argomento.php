@@ -6,6 +6,7 @@ function dsi_create_argomento_taxonomy() {
 
 	register_taxonomy_for_object_type( 'category', 'servizio' );
 	register_taxonomy_for_object_type( 'category', 'documento' );
+	register_taxonomy_for_object_type( 'category', 'materia' );
 
 }
 ?>

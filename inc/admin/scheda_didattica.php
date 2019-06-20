@@ -1,0 +1,159 @@
+<?php
+/**
+ * Definisce post type e tassonomie relative alle schede didattiche
+ */
+add_action( 'init', 'dsi_register_scheda_didattica_post_type', 0 );
+function dsi_register_scheda_didattica_post_type() {
+
+	/** scheda **/
+	$labels = array(
+		'name'          => _x( 'Schede Didattiche', 'Post Type General Name', 'design_scuole_italia' ),
+		'singular_name' => _x( 'Scheda Didattica', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'add_new'       => _x( 'Aggiungi una Scheda', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'add_new_item'  => _x( 'Aggiungi una nuova Scheda', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'featured_image' => __( 'Immagine di riferimento della scheda', 'design_scuole_italia' ),
+	);
+	$args   = array(
+		'label'         => __( 'Scheda Didattica', 'design_scuole_italia' ),
+		'labels'        => $labels,
+		'supports'      => array( 'title', 'editor', 'author', 'thumbnail'),
+		'taxonomies'    => array( 'category' ),
+		'hierarchical'  => false,
+		'public'        => true,
+		'menu_position' => 5,
+		'menu_icon'     => 'dashicons-media-interactive',
+		'has_archive'   => true,
+	);
+	register_post_type( 'scheda_didattica', $args );
+
+}
+
+
+
+/**
+ * Crea i metabox del post type scheda
+ */
+add_action( 'cmb2_init', 'dsi_add_scheda_didattica_metaboxes' );
+function dsi_add_scheda_didattica_metaboxes() {
+
+	$prefix = '_dsi_scheda_didattica_';
+
+
+	$cmb_sottotitolo = new_cmb2_box( array(
+		'id'           => $prefix . 'box_sottotitolo',
+		'object_types' => array( 'scheda_didattica' ),
+		'context'      => 'after_title',
+		'priority'     => 'high',
+	) );
+
+	$cmb_sottotitolo->add_field( array(
+		'id' => $prefix . 'descrizione',
+		'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
+		'desc' => __( 'Breve descrizione del contenuti della scheda (max 160 caratteri) Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '160',
+			'required'    => 'required'
+		),
+	) );
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id' => $prefix . 'obiettivi',
+		'name'        => __( 'Obiettivi *', 'design_scuole_italia' ),
+		'desc' => __( 'Obiettivi della Scheda' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id' => $prefix . 'tempo_apprendimento',
+		'name'        => __( 'Tempo di apprendimento', 'design_scuole_italia' ),
+		'desc' => __( 'Tempo di apprendimento' , 'design_scuole_italia' ),
+		'type' => 'text'
+	) );
+
+
+	$cmb_undercontent = new_cmb2_box( array(
+		'id'           => $prefix . 'box_elementi_scheda',
+		'title'         => __( 'Dettagli Scheda Didattica', 'design_scuole_italia' ),
+		'object_types' => array( 'scheda_didattica' ),
+		'context'      => 'normal',
+		'priority'     => 'high',
+	) );
+
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'link_schede_materiale_didattico',
+		'name'    => __( 'Materiali didattici', 'design_scuole_italia' ),
+		'desc' => __( 'Inserisci qui tutti i documenti creati come Materiale Didattico. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => array('documento', 'scheda_didattica'),
+			), // override the get_posts args
+		),
+	) );
+
+
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'file_documenti',
+		'name'    => __( 'Carica documenti', 'design_scuole_italia' ),
+		'desc' => __( 'Se il Materiale Didattico non è descritto da una scheda documento, link al materiale didattivo. ' , 'design_scuole_italia' ),
+		'type' => 'file_list',
+		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+		// 'query_args' => array( 'type' => 'image' ), // Only images attachment
+		// Optional, override default text strings
+		'text' => array(
+			'add_upload_files_text' => __('Aggiungi un nuovo Documento', 'design_scuole_italia' ), // default: "Add or Upload Files"
+			'remove_image_text' => __('Rimuovi Documento', 'design_scuole_italia' ), // default: "Remove Image"
+			'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
+		),
+	) );
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'descrizione_attivita',
+		'name'        => __( 'Descrizione dell\'attività', 'design_scuole_italia' ),
+		'desc' => __( 'Descrizione dell\'attività. Es. "Dopo aver letto la scheda, rispondi alle domande di verifica" oppure, "Di seguito trovi i passi da seguire per seminare una pianta in primavera"
+' , 'design_scuole_italia' ),
+		'type' => 'textarea'
+	) );
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'fasi_attivita',
+		'name'        => __( 'Fasi attività', 'design_scuole_italia' ),
+		'desc' => __( 'lista numerata di domande o di fasi di un compito da svolgere' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'repeatable'  => true,
+		'options'     => array(
+			'sortable'      => true,  // Allow changing the order of repeated groups.
+		),
+	) );
+
+
+}
+
+
+/**
+ * Aggiungo label sotto il titolo
+ */
+add_action( 'edit_form_after_title', 'sdi_scheda_didattica_add_content_after_title' );
+function sdi_scheda_didattica_add_content_after_title($post) {
+	if($post->post_type == "scheda_didattica")
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Scheda</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+}
+
+
+/**
+ * Aggiungo testo prima del content
+ */
+add_action( 'edit_form_after_title', 'sdi_scheda_didattica_add_content_before_editor', 100 );
+function sdi_scheda_didattica_add_content_before_editor($post) {
+	if($post->post_type == "scheda_didattica")
+		_e('<h1>Descrizione Estesa e Completa della scheda</h1>', 'design_scuole_italia' );
+}

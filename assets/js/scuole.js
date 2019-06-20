@@ -3408,7 +3408,91 @@ jQuery(document).ready(function($) {
 			}
 		}
   });
-
+  $('.carousel-single').owlCarousel({
+		nav: true,
+		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+		dots: false,
+		margin: 30,
+		loop: false,
+		autoplay: false,
+		autoplayTimeout: 4000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+      576: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+			768: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      nav: false,
+			},
+      992: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      nav: false,
+      },
+			1400: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+			}
+		}
+  });
+  $('.carousel-large').owlCarousel({
+		nav: true,
+		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+		dots: false,
+		margin: 30,
+		loop: false,
+		autoplay: false,
+		autoplayTimeout: 4000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+			items: 1,
+			stagePadding: 10,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+      576: {
+			items: 1,
+			stagePadding: 10,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+			768: {
+			items: 2,
+			stagePadding: 10,
+      dots: true,
+      nav: false,
+			},
+      992: {
+			items: 2,
+			stagePadding: 10,
+      dots: true,
+      nav: false,
+      },
+			1400: {
+			items: 3,
+			stagePadding: 10,
+			}
+		}
+  });
 
   calendaryears = $(".carousel-calendar-years");
   calendarevents = $(".carousel-calendar");

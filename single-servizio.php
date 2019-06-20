@@ -39,7 +39,7 @@ get_header();
 			$altre_info = dsi_get_meta("altre_info");
 
 			?>
-            <section class="section py-2 bg-white">
+            <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
                     <div class="row variable-gutters">
                         <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">

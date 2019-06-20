@@ -180,7 +180,7 @@ function dsi_add_struttura_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'pec',
 		'name'       => __( 'Pec', 'design_scuole_italia' ),
-		'desc'       => __( 'Telefono del luogo. ', 'design_scuole_italia' ),
+		'desc'       => __( 'Indirizzo di Posta Elettronica Certificata. ', 'design_scuole_italia' ),
 		'type'       => 'text',
 	) );
 
