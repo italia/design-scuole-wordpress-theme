@@ -285,7 +285,14 @@ get_header();
 			</section><!-- /section -->
 			<?php } ?>
 		<?php  	endwhile; // End of the loop. ?>
-	</main><!-- #main -->
+
+
+		<?php
+        global $related_type;
+		$related_type = "card-white";
+        get_template_part("template-parts/single/more-posts"); ?>
+
+    </main><!-- #main -->
 
 <?php
 get_footer();
