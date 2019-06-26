@@ -2,7 +2,9 @@
 /**
  * Box correlati per tassonomia argomento
  */
-global $post;
+global $post, $related_type;
+if(!$related_type)
+    $related_type = "card-vertical-thumb";
 $oldpost = $post;
 $argomenti = dsi_get_argomenti_of_post();
 if(count($argomenti)) {
@@ -42,7 +44,7 @@ if(count($argomenti)) {
 						foreach ( $posts_array as $post ) {
 							?>
 							<div class="item">
-								<?php get_template_part( "template-parts/single/card-vertical-thumb", $post->post_type ); ?>
+								<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
 							</div><!-- /item -->
 						<?php } ?>
 					</div><!-- /carousel-large -->

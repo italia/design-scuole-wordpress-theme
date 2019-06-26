@@ -6,7 +6,7 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post;
+global $post, $autore;
 get_header();
 
 ?>
@@ -34,13 +34,7 @@ get_header();
                         </div><!-- /title-content -->
                         <div class="card card-avatar card-comments">
                             <div class="card-body p-0">
-                                <div class="card-avatar-img">
-                                    <img src="<?php echo dsi_get_user_avatar($autore); ?>">
-                                </div><!-- /card-avatar-img -->
-                                <div class="card-avatar-content">
-                                    <p class="font-weight-normal">da <strong class="text-underline"><u><?php echo $autore->display_name; ?></u></strong></p>
-                                    <small><?php echo dsi_get_user_role($autore); ?></small>
-                                </div><!-- /card-avatar-content -->
+                                <?php get_template_part("template-parts/autore/card"); ?>
                                 <div class="comments ml-auto">
                                     <p><?php echo $post->comment_count; ?></p>
                                 </div><!-- /comments -->

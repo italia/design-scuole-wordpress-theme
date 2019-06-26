@@ -48,6 +48,9 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("luogo")) {
 			$prefix = '_dsi_luogo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
+		}else if (is_singular("struttura")) {
+			$prefix = '_dsi_struttura_';
+			return get_post_meta( $post_id, $prefix . $key, true );
 		}
 
 		return get_post_meta( $post_id, $key, true );

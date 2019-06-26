@@ -16,7 +16,6 @@ get_header();
 	<main id="main-container" class="main-container redbrown">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-
 		<?php while ( have_posts() ) :  the_post();
 			$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 			$autore = get_user_by("ID", $post->post_author);
@@ -31,7 +30,6 @@ get_header();
 			$posizione_gps = dsi_get_meta("posizione_gps");
 			$cap = dsi_get_meta("cap");
 			$orario_pubblico = dsi_get_meta("orario_pubblico");
-			$telefono = dsi_get_meta("telefono");
 			$mail = dsi_get_meta("mail");
 			$altre_info = dsi_get_meta("info");
 			$servizi_presenti = dsi_get_meta("servizi_presenti");
@@ -51,7 +49,7 @@ get_header();
 						<div class="col-md-<?php echo $colsize; ?>">
 							<div class="title-content">
 								<h1><?php the_title(); ?></h1>
-								<p class="mb-0"><?php echo $descrizione_breve; ?>
+                                <p class="mb-0"><?php echo $descrizione_breve; ?></p>
 									<?php get_template_part("template-parts/common/badges-argomenti"); ?>
 							</div><!-- /title-content -->
 						</div><!-- /col-md-6 -->
@@ -66,7 +64,7 @@ get_header();
 							<aside class="aside-main aside-sticky">
 								<div class="aside-title">
 									<a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
-										<span>Dettagli del luogo <?php the_title(); ?></span>
+										<span><?php _e("Dettagli del luogo", "design_scuole_italia"); ?> <?php the_title(); ?></span>
 										<svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
 									</a>
 								</div>
@@ -282,7 +280,7 @@ get_header();
 					<div class="title-section text-center mb-5">
 						<h3 class="h4"><?php _e("Gallery", "design_scuole_italia"); ?> <?php the_title(); ?></h3>
 					</div><!-- /title-large -->
-                    <?php get_template_part("template-parts/common/gallery", $post->post_type); ?>
+                    <?php get_template_part("template-parts/single/gallery", $post->post_type); ?>
 				</div><!-- /container -->
 			</section><!-- /section -->
 			<?php } ?>

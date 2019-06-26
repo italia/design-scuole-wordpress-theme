@@ -1,5 +1,5 @@
 <?php
-global $post;
+global $post, $autore;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
@@ -17,13 +17,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 		<?php  } ?>
 	</div><!-- /card-body -->
 	<div class="card-comments-wrapper">
-		<div class="card-avatar-img">
-			<img src="<?php echo dsi_get_user_avatar($autore); ?>">
-		</div><!-- /card-avatar-img -->
-		<div class="card-avatar-content">
-			<p class="font-weight-normal">da <strong class="text-underline"><u><?php echo $autore->display_name; ?></u></strong></p>
-			<small><?php echo dsi_get_user_role($autore); ?></small>
-		</div><!-- /card-avatar-content -->
+		<?php get_template_part("template-parts/autore/card"); ?>
 		<div class="comments">
 			<p><?php echo $post->comment_count; ?></p>
 		</div><!-- /comments -->

@@ -405,22 +405,19 @@ function dsi_register_main_options_metabox() {
 		'desc' => __( 'Seleziona una persona. Se non la trovi inseriscila <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
 		'id'             => $prefix . 'responsabile_commissione',
 		'taxonomy'       => 'persona', //Enter Taxonomy Slug
-		'type'           => 'taxonomy_select',
-		'text'           => array(
-			'no_terms_text' => __('Nessuna persona trovata. Inseriscila', 'design_scuole_italia' ),
-		),
+		'type'    => 'select',
+		'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
         )
     );
+
+
 
 	$secondary_options->add_field( array(
 			'name'       => __('Persone ', 'design_scuole_italia' ),
 			'desc' => __( 'Eventuale lista delle persone che fanno parte della struttura. Inseriscile <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
 			'id'             => $prefix . 'persone_commissione',
-			'taxonomy'       => 'persona', //Enter Taxonomy Slug
-			'type'           => 'taxonomy_multicheck_inline',
-			'text'           => array(
-				'no_terms_text' => __('Nessuna persona trovata. Inseriscila', 'design_scuole_italia' ),
-			),
+			'type'           => 'multicheck_inline',
+			'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
 		)
 	);
 

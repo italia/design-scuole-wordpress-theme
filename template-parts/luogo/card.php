@@ -8,7 +8,6 @@ $telefono = dsi_get_meta("telefono", '_dsi_luogo_', $luogo->ID);
 if(isset($struttura->ID) && dsi_get_meta("telefono", '_dsi_struttura_', $struttura->ID) != "")
 	$telefono = dsi_get_meta("telefono", '_dsi_struttura_', $struttura->ID);
 
-
 $mail = dsi_get_meta("mail", '_dsi_luogo_', $luogo->ID);
 if(isset($struttura->ID) && dsi_get_meta("mail", '_dsi_struttura_', $struttura->ID) != "")
 	$mail = dsi_get_meta("mail", '_dsi_struttura_', $struttura->ID);
@@ -16,8 +15,19 @@ if(isset($struttura->ID) && dsi_get_meta("mail", '_dsi_struttura_', $struttura->
 if(isset($struttura->ID) && dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID) != "")
 	$pec = dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID);
 
-if(isset($struttura->ID))
-	$persone = dsi_get_meta("persone", '_dsi_struttura_', $struttura->ID);
+if(isset($struttura->ID)){
+	$arr_persone = dsi_get_meta("persone", '_dsi_struttura_', $struttura->ID);
+	$persone = "";
+	if(is_array($arr_persone)){
+		foreach ($arr_persone as $id_persona){
+			$utente = get_user_by("id", $id_persona);
+			$persone .= $utente->display_name." ";
+		}
+    }
+
+}
+
+
 
 $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 
@@ -29,7 +39,11 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 	<div class="col-lg-9">
 		<div class="card card-bg rounded mb-5">
 			<div class="card-header">
-				<strong><?php echo $luogo->post_title; ?></strong>
+                <?php if(is_singular("luogo")){ ?>
+                    <strong><?php echo $luogo->post_title; ?></strong>
+                <?php }else { ?>
+                    <a href="<?php echo get_permalink($luogo); ?>"><strong><?php echo $luogo->post_title; ?></strong></a>
+	            <?php } ?>
 			</div><!-- /card-header -->
 			<div class="card-body p-0">
 				<div class="row variable-gutters">
@@ -41,7 +55,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 					<div class="col-lg-7">
 						<div class="py-4">
 							<ul class="location-list mt-2">
-								<?php if(isset($indirizzo)){ ?>
+								<?php if(isset($indirizzo) && $indirizzo != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "indirizzo", "design_scuole_italia" ); ?></span>
@@ -51,7 +65,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($cap)){ ?>
+								<?php if(isset($cap) && $cap != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "CAP", "design_scuole_italia" ); ?></span>
@@ -61,7 +75,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($orario_pubblico)){ ?>
+								<?php if(isset($orario_pubblico) && $orario_pubblico != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "Orari", "design_scuole_italia" ); ?></span>
@@ -71,7 +85,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($mail)){ ?>
+								<?php if(isset($mail) && $mail != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "Email", "design_scuole_italia" ); ?></span>
@@ -81,7 +95,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($pec)){ ?>
+								<?php if(isset($pec) && $pec != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "PEC", "design_scuole_italia" ); ?></span>
@@ -91,7 +105,9 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($telefono)){ ?>
+								<?php
+                                if(isset($telefono) && $telefono != ""){
+	                                ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "Telefono", "design_scuole_italia" ); ?></span>
@@ -101,7 +117,7 @@ $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 										</div>
 									</li>
 								<?php } ?>
-								<?php if(isset($persone)){ ?>
+								<?php if(isset($persone) && $persone != ""){ ?>
 									<li>
 										<div class="location-title">
 											<span><?php _e( "Rif.", "design_scuole_italia" ); ?></span>

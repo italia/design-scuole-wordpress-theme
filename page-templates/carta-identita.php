@@ -94,7 +94,7 @@ get_header();
 			    ?>
                 <section class="section section-padding bg-gray-light">
                     <div class="container">
-	                    <?php get_template_part("template-parts/common/gallery", $post->post_type); ?>
+	                    <?php get_template_part("template-parts/single/gallery", $post->post_type); ?>
                     </div><!-- /container -->
                 </section><!-- /section -->
                 <?php
