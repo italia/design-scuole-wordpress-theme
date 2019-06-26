@@ -52,6 +52,13 @@ function dsi_create_pages_on_theme_activation(){
 			update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
 		}
 	}
+
+	//  popolo le tipologie di struttura
+	wp_insert_term('Scuola', 'tipologia-struttura');
+	wp_insert_term('Segreteria', 'tipologia-struttura');
+	wp_insert_term('Presidenza', 'tipologia-struttura');
+	wp_insert_term('Commissione', 'tipologia-struttura');
+	wp_insert_term('Organi Consiliari', 'tipologia-struttura');
 }
 
 

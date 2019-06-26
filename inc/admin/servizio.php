@@ -13,6 +13,8 @@ function dsi_register_servizio_post_type() {
 		'add_new'               => _x( 'Aggiungi un Servizio', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'               => _x( 'Aggiungi un Servizio', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'featured_image' => __( 'Logo Identificativo del Servizio', 'design_scuole_italia' ),
+		'edit_item'      => _x( 'Modifica il Servizio', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'view_item'      => _x( 'Visualizza il Servizio', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'set_featured_image' => __( 'Seleziona Logo' ),
 		'remove_featured_image' => __( 'Rimuovi Logo' , 'design_scuole_italia' ),
 		'use_featured_image' => __( 'Usa come Logo' , 'design_scuole_italia' ),
@@ -121,6 +123,9 @@ function dsi_add_servizi_metaboxes() {
 		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare una sintetica descrizione del Servizio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '160'
+		),
 	) );
 
 

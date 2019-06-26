@@ -29,6 +29,31 @@ function dsi_register_struttura_post_type() {
 	);
 	register_post_type( 'struttura', $args );
 
+
+	$labels = array(
+		'name'              => _x( 'Tipologia', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia', 'taxonomy singular name', 'design_scuole_italia' ),
+		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+		'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+		'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+		'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'tipologia-struttura' ),
+	);
+
+	register_taxonomy( 'tipologia-struttura', array( 'struttura' ), $args );
+
+
 }
 
 
@@ -53,8 +78,9 @@ function dsi_add_struttura_metaboxes() {
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'tipologia',
 		'name'        => __( 'Tipologia struttura', 'design_scuole_italia' ),
-		'desc' => __( '"Presidenza" / "Segreteria" / "Scuola"' , 'design_scuole_italia' ),
-		'type' => 'text',
+		'type'             => 'taxonomy_radio_inline',
+		'taxonomy'       => 'tipologia-struttura',
+		'remove_default' => 'true'
 	) );
 
 

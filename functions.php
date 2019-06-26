@@ -110,6 +110,8 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 			add_image_size( 'article-simple-thumb', 500, 384 , true);
 			add_image_size( 'item-thumb', 280, 280 , true);
 			add_image_size( 'item-gallery', 730, 485 , true);
+			add_image_size( 'vertical-card', 190, 290 , true);
+
 
 		}
 
@@ -176,7 +178,7 @@ function dsi_scripts() {
 
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, true);
-	if(is_singular("servizio"))
+	if(is_singular(array("servizio", "struttura", "luogo")))
 		wp_enqueue_script( 'dsi-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, false);
 
 	wp_enqueue_script( 'dsi-scuole-js', get_template_directory_uri() . '/assets/js/scuole.js', array(), false, true);
