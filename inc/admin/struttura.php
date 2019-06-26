@@ -219,11 +219,6 @@ function dsi_add_struttura_metaboxes() {
 
 
 
-
-
-
-
-
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'altre_info',
 		'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
