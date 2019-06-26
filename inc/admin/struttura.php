@@ -179,8 +179,8 @@ function dsi_add_struttura_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix .'sedi',
-		'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno', 'design_scuole_italia' ),
-		'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
+		'name'    => __( 'Luoghi', 'design_scuole_italia' ),
+		'desc' => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
 		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
 		'options' => array(
