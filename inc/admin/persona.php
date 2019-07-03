@@ -267,7 +267,10 @@ function dsi_add_persone_metaboxes() {
 		'id'      => $prefix . 'data_nascita',
 		'type'    => 'text_date',
 		'attributes'    => array(
-			'required'    => 'required'
+			'required'    => 'required',
+			'data-datepicker' => json_encode( array(
+				'yearRange' => '-100:+0',
+			) ),
 		),
 	) );
 
