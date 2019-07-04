@@ -202,7 +202,11 @@ get_header();
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9">
 								<?php get_template_part("template-parts/single/bottom"); ?>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
 							</article>
 						</div><!-- /col-lg-8 -->
 					</div><!-- /row -->

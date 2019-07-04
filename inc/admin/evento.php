@@ -77,12 +77,6 @@ function dsi_add_eventi_metaboxes() {
 		'priority'     => 'high',
 	) );
 
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'sottotitolo',
-		'name'        => __( 'Sottotitolo', 'design_scuole_italia' ),
-		'desc' => __( 'Indica un sottotitolo che può avere il Evento, oppure un nome che identifica informalmente il Evento. Ad esempio il Evento "Sistema Unico di Segnalazioni" potrebbe avere come sottotitolo/titolo alternativo "IoSegnalo".' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
 
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
@@ -96,7 +90,7 @@ function dsi_add_eventi_metaboxes() {
 	) );
 
 	$cmb_sottotitolo->add_field( array(
-		'id' => 'link_schede_luoghi',
+		'id' =>  $prefix . 'link_schede_luoghi',
 		'name'    => __( 'Luogo dell\'evento', 'design_scuole_italia' ),
 		'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene organizzato l\'evento. ' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
@@ -170,7 +164,7 @@ function dsi_add_eventi_metaboxes() {
 		),
 	) );
 
-	$cmb_sottotitolo->add_field( array(
+	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'descrizione_destinatari',
 		'name'        => __( 'Descrizione dei destinatari *', 'design_scuole_italia' ),
 		'desc' => __( 'Descrizione testuale dei principali interlocutori dell\'Evento. Questo elenco compare nel frontend..' , 'design_scuole_italia' ),
@@ -239,7 +233,16 @@ function dsi_add_eventi_metaboxes() {
 		'type'             => 'text_money',
 		'before_field' => '&euro;',
 	) );
-
+	$cmb_undercontent->add_group_field( $group_field_id,  array(
+		'id'      => 'descrizione',
+		'name'    => __( 'Descrizione della tipologia di biglietto ', 'design_scuole_italia' ),
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
+	) );
 	$cmb_undercontent->add_field( array(
 		'id'      => $prefix . 'organizzato_da_scuola',
 		'name'    => __( 'Organizzato dalla scuola', 'design_scuole_italia' ),
@@ -378,7 +381,6 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_inizio',
 		'name' => 'Data / Ora Inizio Evento',
 		'type' => 'text_datetime_timestamp',
-		'date_format' => 'l j F Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
@@ -389,7 +391,6 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_fine',
 		'name' => 'Data / Ora Fine Evento',
 		'type' => 'text_datetime_timestamp',
-		'date_format' => 'j M Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
