@@ -163,8 +163,8 @@ $file_documenti = dsi_get_meta("file_documenti");
 									$timestamp_fine= dsi_get_meta("timestamp_fine");
 									$begin = new DateTime(date_i18n("c",$timestamp_inizio));
 									$end = new DateTime(date_i18n("c",$timestamp_fine));
-									$ora_inizio = date_i18n("h:i", $timestamp_inizio);
-									$ora_fine = date_i18n("h:i", $timestamp_fine);
+									$ora_inizio = date_i18n("H:i", $timestamp_inizio);
+									$ora_fine = date_i18n("H:i", $timestamp_fine);
 									for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
                                         <div class="calendar-date">
                                             <div class="calendar-date-day">
@@ -173,7 +173,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                             </div><!-- /calendar-date-day -->
                                             <div class="calendar-date-description rounded">
                                                 <div class="calendar-date-description-content">
-                                                    <p><?php echo $ora_inizio; ?><?php if($ora_fine != $ora_inizio) echo "- ".$ora_fine; ?></p>
+                                                    <p><?php echo $ora_inizio; ?><?php if($ora_fine != $ora_inizio) echo " - ".$ora_fine; ?></p>
                                                 </div><!-- /calendar-date-description-content -->
                                             </div><!-- /calendar-date-description -->
                                         </div><!-- /calendar-date -->

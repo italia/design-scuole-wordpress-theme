@@ -157,14 +157,14 @@ function dsi_get_date_evento($post){
 	if($timestamp_inizio >= $timestamp_fine){
 		$ret .=  date_i18n("j F Y", $timestamp_inizio);
 		$ret .= __(" alle ", "design_scuole_italia");
-		$ret .=  date_i18n("h:i", $timestamp_inizio);
+		$ret .=  date_i18n("H:i", $timestamp_inizio);
 		return $ret;
 	}
 
 	$data_inizio = date_i18n("j F Y", $timestamp_inizio);
 	$data_fine = date_i18n("j F Y", $timestamp_fine);
-	$ora_inizio = date_i18n("h:i", $timestamp_inizio);
-	$ora_fine = date_i18n("h:i", $timestamp_fine);
+	$ora_inizio = date_i18n("H:i", $timestamp_inizio);
+	$ora_fine = date_i18n("H:i", $timestamp_fine);
 	if($data_inizio == $data_fine){
 		$ret .= __("Il ", "design_scuole_italia");
 		$ret .= $data_inizio;
