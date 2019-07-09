@@ -460,7 +460,7 @@ function dsi_register_main_options_metabox() {
 
 	$menu_options->add_field( array(
 		'name' => 'Menu:  Come funziona',
-		'desc' => __( 'Le sottovoci di ogni voce del menu principale (Scuola, Servizi, etc) sono singoli menu Wordpress. <br><a href="nav-menus.php">Configurali da qui associandoli alla relativa posizione</a>. <br> Qui si seguito puoi configurare gli articoli da mettere in evidenza nel mega menu. ', 'design_scuole_italia' ),
+		'desc' => __( 'Le sottovoci di ogni voce del menu principale (Scuola, Servizi, etc) sono singoli menu Wordpress. <br><a href="nav-menus.php">Configurali da qui associandoli alla relativa posizione</a>. <br> Qui di seguito puoi configurare gli articoli da mettere in evidenza nel mega menu. ', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id'   => 'menu_main_title'
 	) );
