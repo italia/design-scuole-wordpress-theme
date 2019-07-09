@@ -88,11 +88,16 @@ function dsi_add_eventi_metaboxes() {
 			'required' => 'required'
 		),
 	) );
-
+	$cmb_sottotitolo->add_field( array(
+		'name' => 'Luogo della Scuola',
+		'desc' => __( 'Seleziona un luogo se questo è un <a href="edit.php?post_type=luogo">Luogo della Scuola</a>', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'label_luogo_scuola'
+	) );
 	$cmb_sottotitolo->add_field( array(
 		'id' =>  $prefix . 'link_schede_luoghi',
-		'name'    => __( 'Luogo dell\'evento', 'design_scuole_italia' ),
-		'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene organizzato l\'evento. ' , 'design_scuole_italia' ),
+		'name'    => __( 'Luogo', 'design_scuole_italia' ),
+		'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo della Scuola</a> in cui viene organizzato l\'evento. ' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
 		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
 		'options' => array(
@@ -104,6 +109,64 @@ function dsi_add_eventi_metaboxes() {
 			), // override the get_posts args
 		),
 	) );
+	$cmb_sottotitolo->add_field( array(
+		'name' => 'Luogo dell\'evento',
+		'desc' => __( 'Se l\'evento è organizzato in un luogo esterno valorizza i campi che seguono', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id'   => 'label_luogo_evento'
+	) );
+	$cmb_sottotitolo->add_field( array(
+		'id' =>  $prefix . 'nome_luogo_custom',
+		'name'    => __( 'Nome del luogo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'desc' => __( 'Inserisci il nome del luogo (lascia vuoto hai selezionato un Luogo della Scuola )' , 'design_scuole_italia' ),
+		'type'    => 'text',
+	) );
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id'         => $prefix . 'indirizzo_luogo_custom',
+		'name'       => __( 'Indirizzo Completo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'desc'       => __( 'Indirizzo completo del luogo: Via, civico, cap, città e Provincia (es: Via Vaglia, 6, 00139 - Roma RM) (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
+		'type'       => 'text'
+	) );
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id'         => $prefix . 'posizione_gps_luogo_custom',
+		'name'       => __( 'Posizione GPS  (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
+		'type'       => 'leaflet_map',
+		'attributes' => array(
+//			'tilelayer'           => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+			'searchbox_position'  => 'topleft', // topright, bottomright, topleft, bottomleft,
+			'search'              => __( 'Digita l\'indirizzo del Luogo' , 'design_scuole_italia' ),
+			'not_found'           => __( 'Indirizzo non trovato' , 'design_scuole_italia' ),
+			'initial_coordinates' => [
+				'lat' => 41.894802, // Go Italy!
+				'lng' => 12.4853384  // Go Italy!
+			],
+			'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
+			'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
+			'required'    => 'required'
+		)
+	) );
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id'         => $prefix . 'quartiere_luogo_custom',
+		'name'       => __( 'Quartiere   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'desc'       => __( 'Se il territorio è mappato in quartieri, riportare il Quartiere dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
+		'type'       => 'text',
+	) );
+
+
+	$cmb_sottotitolo->add_field( array(
+		'id'         => $prefix . 'circoscrizione_luogo_custom',
+		'name'       => __( 'Circoscrizione   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'desc'       => __( 'Se il territorio è mappato in circoscrizioni, riportare la Circoscrizione dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
+		'type'       => 'text',
+	) );
+
 
 
 	$cmb_undercontent = new_cmb2_box( array(

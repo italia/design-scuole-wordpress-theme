@@ -480,7 +480,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'post_type'      => "any",
 			), // override the get_posts args
 		),
@@ -501,7 +501,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'post_type'      => "any",
 			), // override the get_posts args
 		),
@@ -522,7 +522,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'post_type'      => "any",
 			), // override the get_posts args
 		),
@@ -543,7 +543,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'post_type'      => "any",
 			), // override the get_posts args
 		),
@@ -566,7 +566,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => 100,
 				'post_type'      => "any",
 			), // override the get_posts args
 		),

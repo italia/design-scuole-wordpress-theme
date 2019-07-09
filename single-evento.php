@@ -10,6 +10,7 @@ global $post, $autore, $luogo, $c;
 get_header();
 
 $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
+$nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 
@@ -75,7 +76,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
                                         </li>
-										<?php 	if(count($link_schede_luoghi)) { ?>
+										<?php 	if(count($link_schede_luoghi) || ($nome_luogo_custom != "")) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-luogo" title="Vai al paragrafo <?php _e("Luogo", "design_scuole_italia"); ?>"><?php _e("Luogo", "design_scuole_italia"); ?></a>
                                             </li>
@@ -147,13 +148,16 @@ $file_documenti = dsi_get_meta("file_documenti");
 
 								<?php
 								$c = 0;
-								if(count($link_schede_luoghi)) {
+								if(is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) {
 									foreach ( $link_schede_luoghi as $idluogo ) {
 										$c ++;
 										$luogo = get_post( $idluogo );
 										get_template_part( "template-parts/luogo/card", "large" );
 									}
-								}
+								}else if ($nome_luogo_custom != "" )  {
+									get_template_part( "template-parts/luogo/card", "custom" );
+
+									}
 								?>
 
                                 <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
