@@ -267,8 +267,10 @@ function dsi_register_main_options_metabox() {
 		'id' => $prefix . 'data_timeline',
 		'name'        => __( 'Data', 'design_scuole_italia' ),
 		'type' => 'text_date',
-		'date_format' => 'd-m-Y'
-
+		'date_format' => 'd-m-Y',
+		'data-datepicker' => json_encode( array(
+			'yearRange' => '-100:+0',
+		) ),
 	) );
 
 	$main_options->add_group_field( $timeline_group_id, array(
