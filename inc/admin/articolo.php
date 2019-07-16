@@ -9,6 +9,25 @@ function dsi_add_articolo_metaboxes() {
 
 	$prefix = '_dsi_articolo_';
 
+
+	$cmb_sottotitolo = new_cmb2_box( array(
+		'id'           => $prefix . 'box_sottotitolo',
+//		'title'        => __( 'Sottotitolo', 'design_scuole_italia' ),
+		'object_types' => array( 'post' ),
+		'context'      => 'after_title',
+		'priority'     => 'high',
+	) );
+	$cmb_sottotitolo->add_field( array(
+		'id' => $prefix . 'descrizione',
+		'name'        => __( 'Abstract', 'design_scuole_italia' ),
+		'desc' => __( 'Indicare un sintetico abstract (max 160 caratteri)' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '160'
+		),
+	) );
+
+
 	$cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_articolo',
 		'title'         => __( 'Dettagli Articolo', 'design_scuole_italia' ),

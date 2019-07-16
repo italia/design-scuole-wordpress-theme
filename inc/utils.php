@@ -57,6 +57,9 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("documento")) {
 			$prefix = '_dsi_documento_';
 			return get_post_meta( $post_id, $prefix . $key, true );
+		}else if (is_singular("post")) {
+			$prefix = '_dsi_articolo_';
+			return get_post_meta( $post_id, $prefix . $key, true );
 		}
 
 		return get_post_meta( $post_id, $key, true );
