@@ -94,7 +94,13 @@ get_header();
 			    ?>
                 <section class="section section-padding bg-gray-light">
                     <div class="container">
+                        <div class="row variable-gutters">
+                            <div class="col">
+                                <div class="owl-carousel carousel-theme carousel-simple">
 	                    <?php get_template_part("template-parts/single/gallery", $post->post_type); ?>
+                                </div><!-- /carousel-large -->
+                            </div><!-- /col -->
+                        </div><!-- /row -->
                     </div><!-- /container -->
                 </section><!-- /section -->
                 <?php

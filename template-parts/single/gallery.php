@@ -1,9 +1,7 @@
 <?php
 global $gallery;
 ?>
-<div class="row variable-gutters">
-	<div class="col">
-		<div class="owl-carousel carousel-theme carousel-simple">
+
 			<?php
 			foreach ($gallery as $ida=>$urlg){
 				$attach = get_post($ida);
@@ -21,6 +19,3 @@ global $gallery;
 				<?php
 			}
 			?>
-		</div><!-- /carousel-large -->
-	</div><!-- /col -->
-</div><!-- /row -->

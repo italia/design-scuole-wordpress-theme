@@ -5641,6 +5641,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.17);
     margin: 0 0 0 0;
     background-color: #ffffff; }
+    .card.card-bg.bg-redbrown {
+      color: #455b71 !important; }
+      .card.card-bg.bg-redbrown small {
+        color: #455b71 !important; }
+      .card.card-bg.bg-redbrown a:hover {
+        color: #455b71 !important; }
     .card.card-bg a:hover {
       text-decoration: none;
       color: inherit;
@@ -5649,6 +5655,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2); }
       .purplelight .card.card-bg.bg-color {
         background-color: #fbeaff; }
+      .redbrown .card.card-bg.bg-color {
+        background-color: #ffebee; }
       .bg-redbrown .card.card-bg.bg-color {
         background-color: #ffffff;
         color: #455b71; }
@@ -5658,6 +5666,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
           color: #ffffff; }
         .card.card-bg.bg-color.bg-dark small {
           color: #ffffff; }
+    .card.card-bg.bg-redbrown {
+      background-color: #ffebee !important; }
   .card.card-no-shadow {
     box-shadow: none; }
   .card.card-icon .icon {
@@ -5680,9 +5690,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   .card.card-icon .card-icon-content p {
     font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
     font-size: 1rem;
-    margin: 0 0 0 0; }
+    margin: 0 0 0 0;
+    line-height: 1.5; }
   .card.card-icon .card-icon-content small {
-    font-size: .88rem; }
+    font-size: .88rem;
+    display: block;
+    line-height: 1.5; }
   .card.card-icon-main .icon {
     width: 40px;
     height: 40px;

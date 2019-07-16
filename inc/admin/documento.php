@@ -176,7 +176,7 @@ function dsi_add_documento_metaboxes() {
 
 
 	$cmb_aftercontent->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'data_timeline',
+		'id' => 'data_timeline',
 		'name'        => __( 'Data', 'design_scuole_italia' ),
 		'type' => 'text_date',
 		'date_format' => 'd-m-Y',
@@ -186,15 +186,11 @@ function dsi_add_documento_metaboxes() {
 	) );
 
 	$cmb_aftercontent->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'titolo_timeline',
+		'id' => 'titolo_timeline',
 		'name'        => __( 'Titolo', 'design_scuole_italia' ),
 		'type' => 'text',
 	) );
-	$cmb_aftercontent->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'descrizione_timeline',
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'type' => 'textarea_small',
-	) );
+
 
 
 

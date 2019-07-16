@@ -280,7 +280,13 @@ get_header();
 					<div class="title-section text-center mb-5">
 						<h3 class="h4"><?php _e("Gallery", "design_scuole_italia"); ?> <?php the_title(); ?></h3>
 					</div><!-- /title-large -->
+                    <div class="row variable-gutters">
+                        <div class="col">
+                            <div class="owl-carousel carousel-theme carousel-simple">
                     <?php get_template_part("template-parts/single/gallery", $post->post_type); ?>
+                            </div><!-- /carousel-large -->
+                        </div><!-- /col -->
+                    </div><!-- /row -->
 				</div><!-- /container -->
 			</section><!-- /section -->
 			<?php } ?>

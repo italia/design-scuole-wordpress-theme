@@ -1,5 +1,5 @@
 <?php
-global $post;
+global $post, $licenza;
 ?>
 <div class="article-footer">
     <p><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
@@ -9,6 +9,10 @@ global $post;
 		$date_update = new DateTime($post->post_modified);
 		echo $date_update->format('d.m.Y');
 		?></p>
-    <p><?php _e("Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia.", "design_scuole_italia"); ?></p>
+    <p><?php
+        if(trim($licenza)!= "")
+            echo $licenza;
+        else
+            _e("Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia.", "design_scuole_italia"); ?></p>
 </div><!-- /article-footer -->
 

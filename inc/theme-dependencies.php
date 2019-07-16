@@ -95,6 +95,11 @@ function dsi_register_required_plugins() {
 			'slug'     => 'disable-gutenberg',
 			'required' => true,
 		),
+		array(
+			'name'     => 'Albo Pretorio On line',
+			'slug'     => 'albo-pretorio-on-line',
+			'required' => false,
+		),
 /*
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.

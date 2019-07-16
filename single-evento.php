@@ -110,7 +110,17 @@ $file_documenti = dsi_get_meta("file_documenti");
 								<?php
 								global $gallery;
 								$gallery = dsi_get_meta("gallery");
-								get_template_part("template-parts/single/gallery");
+                            	if ( is_array( $gallery ) && count( $gallery ) > 0 ) {
+                            	    ?>
+                                <div class="row variable-gutters">
+                                    <div class="col">
+                                        <div class="owl-carousel carousel-theme carousel-simple">
+                                    <?php get_template_part( "template-parts/single/gallery" , $post->post_type); ?>
+                                        </div><!-- /carousel-large -->
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+		                            <?php
+	                            }
 
 								$video = dsi_get_meta("video");
 								if($video) { ?>
