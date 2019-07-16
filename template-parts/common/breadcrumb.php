@@ -19,6 +19,7 @@
 		                    'labels'          => array(),
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
+			                     'documento'  => 'tipologia-documento',
 		                    ),
 		                    'echo'            => true
 	                    );
