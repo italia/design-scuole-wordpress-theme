@@ -16,7 +16,9 @@
 		                    'network'         => false,
 		                    'show_title'      => true,
 		                    'show_browse'     => false,
-		                    'labels'          => array(),
+		                    'labels'          => array(
+			                    'search'      => esc_html__( 'Risultati Ricerca: %s','design_scuole_italia' ),
+                            ),
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
 			                     'documento'  => 'tipologia-documento',

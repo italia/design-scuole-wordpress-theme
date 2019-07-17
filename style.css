@@ -6,3 +6,26 @@ Version: 0.0.1
 License: GNU General Public License v2 or later
 Text Domain: design_scuole_italia
 */
+
+.cat-filters .custom-control .custom-control-input .checked ~ .custom-control-label {
+    color: white;
+    background-color: #455b71; }
+.cat-filters .custom-control.custom-checkbox-primary .checked ~ .custom-control-label {
+    color: white;
+    background-color: #0073e6; }
+
+.cat-filters .custom-control.custom-checkbox-redbrown .checked ~ .custom-control-label {
+    color: white;
+    background-color: #D1344C; }
+.cat-filters .custom-control.custom-checkbox-greendark .checked ~ .custom-control-label {
+    color: white;
+    background-color: #0E8A5F; }
+.cat-filters .custom-control.custom-checkbox-purplelight .checked ~ .custom-control-label {
+    color: white;
+    background-color: #B21DD0; }
+.cat-filters .custom-control.custom-checkbox-bluelectric .checked ~ .custom-control-label {
+    color: white;
+    background-color: #0D00FF; }
+.cat-filters .custom-control.custom-checkbox-grey .checked ~ .custom-control-label {
+    color: white;
+    background-color: #455b71; }

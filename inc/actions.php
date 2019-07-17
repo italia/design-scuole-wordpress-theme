@@ -95,3 +95,39 @@ function dsi_admin_css_load() {
 	wp_enqueue_style('style-admin-css', get_stylesheet_directory_uri().'/inc/admin-css/style-admin.css');
 }
 add_action('admin_enqueue_scripts', 'dsi_admin_css_load');
+
+
+
+
+/**
+ * filter for search
+ */
+function dsi_search_filters( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_search) {
+			$allowed_types = array("any", "school","news","education","service", "class");
+			if(isset($_GET["type"]) && in_array($_GET["type"], $allowed_types))
+				$type = $_GET["type"];
+			else
+				$type = "any";
+
+			// associazione tra types e post_type
+			if($type === "school")
+				$post_types = array("documento", "luogo", "materia", "struttura", "page");
+			else if($type === "news")
+				$post_types = array("evento", "post");
+			else if($type === "education")
+				$post_types = array("programma", "scheda_didattica", "scheda_progetto");
+			else if($type === "service")
+				$post_types = array("servizio");
+			else if($type === "class")
+				$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");
+			else
+				$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+
+
+
+			$query->set('post_type', $post_types);
+
+	}
+}
+add_action( 'pre_get_posts', 'dsi_search_filters' );

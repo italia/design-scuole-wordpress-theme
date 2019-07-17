@@ -8,90 +8,62 @@
 						<div class="row variable-gutters">
 							<div class="col">
 								<h2>
-									Cerca
+									<?php _e("Cerca","design_scuole_italia"); ?>
 									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
 										<svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
 									</button>
 								</h2>
 								<div class="form-group search-form">
 									<svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use></svg>
-									<label>Email address</label>
-									<input type="email" class="form-control" aria-describedby="search-form" placeholder="Cerca servizi, notizie o documenti">
+									<label><?php _e("Cerca","design_scuole_italia"); ?></label>
+									<input type="text" name="s" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
 								</div>
 								<div class="cat-filters">
 									<div class="custom-control custom-checkbox custom-checkbox-primary">
-										<input type="checkbox" class="custom-control-input" id="tutto" checked>
-										<label class="custom-control-label" for="tutto">Tutto</label>
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any" >
+										<label class="custom-control-label" for="tutto"><?php _e("Tutto","design_scuole_italia"); ?></label>
 									</div>
 									<div class="custom-control custom-checkbox custom-checkbox-redbrown">
-										<input type="checkbox" class="custom-control-input" id="scuola">
-										<label class="custom-control-label" for="scuola">Scuola</label>
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "school") echo "checked"; ?>" id="scuola" name="type" value="school">
+										<label class="custom-control-label" for="scuola"><?php _e("Scuola","design_scuole_italia"); ?></label>
 									</div>
 									<div class="custom-control custom-checkbox custom-checkbox-greendark">
-										<input type="checkbox" class="custom-control-input" id="notizie">
-										<label class="custom-control-label" for="notizie">Notizie</label>
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news">
+										<label class="custom-control-label" for="notizie"><?php _e("Notizie","design_scuole_italia"); ?></label>
 									</div>
 									<div class="custom-control custom-checkbox custom-checkbox-purplelight">
-										<input type="checkbox" class="custom-control-input" id="servizi">
-										<label class="custom-control-label" for="servizi">Servizi</label>
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "service") echo "checked"; ?>" id="servizi" name="type" value="service">
+										<label class="custom-control-label" for="servizi"><?php _e("Servizi","design_scuole_italia"); ?></label>
 									</div>
 									<div class="custom-control custom-checkbox custom-checkbox-bluelectric">
-										<input type="checkbox" class="custom-control-input" id="didattica">
-										<label class="custom-control-label" for="didattica">Didattica</label>
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "education") echo "checked"; ?>" id="didattica" name="type" value="education">
+										<label class="custom-control-label" for="didattica"><?php _e("Didattica","design_scuole_italia"); ?></label>
 									</div>
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" id="la-mia-classe">
-										<label class="custom-control-label" for="la-mia-classe">La mia classe</label>
+									<div class="custom-control custom-checkbox custom-checkbox-grey">
+										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "class") echo "checked"; ?>" id="la-mia-classe" name="type" value="class">
+										<label class="custom-control-label" for="la-mia-classe"><?php _e("La mia classe","design_scuole_italia"); ?></label>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="row variable-gutters">
-							<div class="col-lg-5">
-								<div class="searches-list-wrapper">
-									<h4>Ricerche frequenti</h4>
-									<ul class="searches-list">
-										<li>
-											<a href="#">I numeri della scuola</a>
-											<span>La scuola</span>
-										</li>
-										<li>
-											<a href="#">Organigramma</a>
-											<span>La scuola</span>
-										</li>
-										<li>
-											<a href="#">Trasporto scolastico</a>
-											<span>Servizi</span>
-										</li>
-										<li>
-											<a href="#">Festività natalizie</a>
-											<span>Notizie</span>
-										</li>
-										<li>
-											<a href="#">Meccanica quantistica</a>
-											<span>Didattica</span>
-										</li>
-										<li>
-											<a href="#">Matematica for dummies</a>
-											<span>Didattica</span>
-										</li>
-									</ul><!-- /searches-list -->
-								</div><!-- /searches-list-wrapper -->
-							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-12">
 								<div class="badges-wrapper">
-									<h4>Tag</h4>
+									<h4><?php _e("Argomenti","design_scuole_italia"); ?></h4>
 									<div class="badges">
-										<a href="#" title="Vai all'argomento: Famiglia" class="badge badge-sm badge-pill badge-outline-primary">Famiglia</a>
-										<a href="#" title="Vai all'argomento: Pagamenti" class="badge badge-sm badge-pill badge-outline-primary">Pagamenti</a>
-										<a href="#" title="Vai all'argomento: Alimentazione" class="badge badge-sm badge-pill badge-outline-primary">Alimentazione</a>
-										<a href="#" title="Vai all'argomento: Matematica" class="badge badge-sm badge-pill badge-outline-primary">Matematica</a>
-										<a href="#" title="Vai all'argomento: Gite scolastiche" class="badge badge-sm badge-pill badge-outline-primary">Gite scolastiche</a>
-										<a href="#" title="Vai all'argomento: Calendario didattico" class="badge badge-sm badge-pill badge-outline-primary">Calendario didattico</a>
-										<a href="#" title="Vai all'argomento: Rientro pomeridiano" class="badge badge-sm badge-pill badge-outline-primary">Rientro pomeridiano</a>
-										<a href="#" title="Vai all'argomento: Mensa scolastica" class="badge badge-sm badge-pill badge-outline-primary">Mensa scolastica</a>
-										<a href="#" title="Vai all'argomento: Tutto" class="badge badge-sm badge-pill badge-outline-primary">...</a>
-									</div><!-- /badges -->
+                                        <?php
+                                        $categories = get_categories(array(
+	                                        'orderby' => 'count',
+	                                        'order'   => 'ASC',
+	                                        'hide_empty'   => 0,
+	                                        'parent'  => 0,
+	                                        'number' => 20
+                                        ));
+                                        foreach ($categories as $category){
+                                            $catlink = get_category_link($category);  ?>
+                                            <a href="<?php echo $catlink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $category->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $category->name; ?></a>
+                                       <?php } ?>
+                                    </div><!-- /badges -->
 								</div><!-- /badges-wrapper -->
 							</div>
 						</div>
