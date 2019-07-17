@@ -111,20 +111,7 @@ function dsi_search_filters( $query ) {
 				$type = "any";
 
 			// associazione tra types e post_type
-			if($type === "school")
-				$post_types = array("documento", "luogo", "materia", "struttura", "page");
-			else if($type === "news")
-				$post_types = array("evento", "post");
-			else if($type === "education")
-				$post_types = array("programma", "scheda_didattica", "scheda_progetto");
-			else if($type === "service")
-				$post_types = array("servizio");
-			else if($type === "class")
-				$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");
-			else
-				$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
-
-
+			$post_types = dsi_get_post_types_grouped($type);
 
 			$query->set('post_type', $post_types);
 

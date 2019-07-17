@@ -23,26 +23,52 @@
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any" >
 										<label class="custom-control-label" for="tutto"><?php _e("Tutto","design_scuole_italia"); ?></label>
 									</div>
-									<div class="custom-control custom-checkbox custom-checkbox-redbrown">
-										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "school") echo "checked"; ?>" id="scuola" name="type" value="school">
-										<label class="custom-control-label" for="scuola"><?php _e("Scuola","design_scuole_italia"); ?></label>
-									</div>
+                                    <?php
+                                    // check if post type is used
+                                    $post_types = dsi_get_post_types_grouped("school");
+                                    if(dsi_count_grouped_posts($post_types)) {
+	                                    ?>
+                                        <div class="custom-control custom-checkbox custom-checkbox-redbrown">
+                                            <input type="submit" class="custom-control-input <?php if ( isset( $_GET["type"] ) && $_GET["type"] == "school" ) { echo "checked"; } ?>" id="scuola" name="type" value="school">
+                                            <label class="custom-control-label" for="scuola"><?php _e( "Scuola", "design_scuole_italia" ); ?></label>
+                                        </div>
+	                                    <?php }
+                                    // check if post type is used
+                                    $post_types = dsi_get_post_types_grouped("news");
+                                    if(dsi_count_grouped_posts($post_types)) {
+                                    ?>
 									<div class="custom-control custom-checkbox custom-checkbox-greendark">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news">
 										<label class="custom-control-label" for="notizie"><?php _e("Notizie","design_scuole_italia"); ?></label>
 									</div>
+									<?php }
+                                    // check if post type is used
+                                    $post_types = dsi_get_post_types_grouped("service");
+                                    if(dsi_count_grouped_posts($post_types)) {
+                                    ?>
 									<div class="custom-control custom-checkbox custom-checkbox-purplelight">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "service") echo "checked"; ?>" id="servizi" name="type" value="service">
 										<label class="custom-control-label" for="servizi"><?php _e("Servizi","design_scuole_italia"); ?></label>
 									</div>
+									<?php }
+                                    // check if post type is used
+                                    $post_types = dsi_get_post_types_grouped("education");
+                                    if(dsi_count_grouped_posts($post_types)) {
+                                    ?>
 									<div class="custom-control custom-checkbox custom-checkbox-bluelectric">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "education") echo "checked"; ?>" id="didattica" name="type" value="education">
 										<label class="custom-control-label" for="didattica"><?php _e("Didattica","design_scuole_italia"); ?></label>
 									</div>
+									<?php }
+                                    // check if post type is used
+                                    $post_types = dsi_get_post_types_grouped("class");
+                                    if(dsi_count_grouped_posts($post_types)) {
+                                    ?>
 									<div class="custom-control custom-checkbox custom-checkbox-grey">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "class") echo "checked"; ?>" id="la-mia-classe" name="type" value="class">
 										<label class="custom-control-label" for="la-mia-classe"><?php _e("La mia classe","design_scuole_italia"); ?></label>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>

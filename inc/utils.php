@@ -250,3 +250,50 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 	}
 	return null;
 }
+
+
+/**
+ * Ritorna l'associazione tra i type ricercabili e i post_type wordpress
+ * @param string $type
+ *
+ * @return array
+ */
+function dsi_get_post_types_grouped($type = ""){
+	if($type == "")
+		$type = "any";
+	if($type === "school")
+		$post_types = array("documento", "luogo", "materia", "struttura", "page");
+	else if($type === "news")
+		$post_types = array("evento", "post");
+	else if($type === "education")
+		$post_types = array("programma", "scheda_didattica", "scheda_progetto");
+	else if($type === "service")
+		$post_types = array("servizio");
+	else if($type === "class")
+		$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");
+	else
+		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+
+	return $post_types;
+
+}
+
+/**
+ *
+ * Contatore dei post totali raggruppati in base al gruppo di ricerca di appartenenza
+ *
+ * @param $post_types
+ *
+ * @return bool|int
+ */
+function dsi_count_grouped_posts($post_types){
+	if(!is_array($post_types))
+		return false;
+	$count = 0;
+	foreach ($post_types as $post_type){
+		$count_posts = wp_count_posts($post_type);
+		$count += $count_posts->publish;
+	}
+	return $count;
+
+}
