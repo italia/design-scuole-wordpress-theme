@@ -3,7 +3,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content perfect-scrollbar">
 			<div class="modal-body">
-				<form>
+                <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<div class="container">
 						<div class="row variable-gutters">
 							<div class="col">
