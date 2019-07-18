@@ -439,6 +439,7 @@ function dsi_register_main_options_metabox() {
 	/**
 	 * Registers main options page menu item and form.
 	 */
+	/*
 	$args = array(
 		'id'           => 'dsi_options_menu',
 		'title'        => esc_html__( 'Menu', 'design_scuole_italia' ),
@@ -571,7 +572,7 @@ function dsi_register_main_options_metabox() {
 			), // override the get_posts args
 		),
 	) );
-
+*/
 	// pagina opzioni
 	/**
 	 * Registers main options page menu item and form.

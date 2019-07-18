@@ -13,7 +13,7 @@ function dsi_disable_editor( $id = false ) {
 
 	// escludo Gutenberg per i post type del tema
 	$excluded_templates = array(
-		'page-templates/carta-identita.php',
+		'page-templates/la-scuola.php',
 	);
 
 	$excluded_ids = array(// get_option( 'page_on_front' )

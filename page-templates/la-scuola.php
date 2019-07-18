@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Carta di Identità
+/* Template Name: la Scuola
  *
  * carta identità template file
  *

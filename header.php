@@ -102,36 +102,18 @@ $theme_locations = get_nav_menu_locations();
 	                        if(isset($theme_locations[$theme_location]))
     	                        $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
+		                        $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
+		                        if($landing_url)
+			                        $items_wrap = '<ul id="%1$s" class="%2$s"><li class="menu-title"><h3><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></h3></li>%3$s</ul>';
+		                        else
+			                        $items_wrap = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+
 		                        ?>
-                                <li class="text-redbrown menu-dropdown-megamenu-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-megamenu" href="#"
-                                       title="<?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
-                                    <ul class="menu-dropdown dl-submenu menu-dropdown-megamenu">
-                                        <li class="container">
-                                            <div class="row variable-gutters">
-						                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1,"menu_class" => "megamenu-list", "container_class" => "col-lg-4")) ?>
-						                        <?php
-						                        // check if has an item
-						                        $items = dsi_get_option($option_location,"menu_principale");
-						                        if(is_array($items) && count($items) > 0){
-							                        global $item;
-							                        $item = get_post($items[0]);
-							                        if(!is_wp_error($item)){
-								                        ?>
-                                                        <div class="col-lg-7 offset-lg-1">
-                                                            <div class="megamenu-content">
-										                        <?php get_template_part("template-parts/header/menu-article", $item->post_type); ?>
-                                                            </div>
-                                                        </div><!-- /col-lg-7 -->
-								                        <?php
-							                        }
-						                        }
-						                        ?>
-                                            </div><!-- /row -->
-                                        </li>
-                                    </ul>
+                                <li class="text-redbrown menu-dropdown-simple-wrapper">
+                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
+	                                <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "")) ?>
                                 </li>
-		                        <?php
+                                <?php
 	                        }
 	                        ?>
 	                        <?php
@@ -142,36 +124,19 @@ $theme_locations = get_nav_menu_locations();
 	                        if(isset($theme_locations[$theme_location]))
 		                        $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
+		                        $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
+		                        if($landing_url)
+			                        $items_wrap = '<ul id="%1$s" class="%2$s"><li class="menu-title"><h3><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></h3></li>%3$s</ul>';
+		                        else
+		                            $items_wrap = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+
 		                        ?>
-                                <li class="text-purplelight menu-dropdown-megamenu-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-megamenu" href="#"
-                                       title="<?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
-                                    <ul class="menu-dropdown dl-submenu menu-dropdown-megamenu">
-                                        <li class="container">
-                                            <div class="row variable-gutters">
-						                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "menu_class" => "megamenu-list", "container_class" => "col-lg-4")) ?>
-						                        <?php
-						                        // check if has an item
-						                        $items = dsi_get_option($option_location,"menu_principale");
-						                        if(is_array($items) && count($items) > 0){
-							                        global $item;
-							                        $item = get_post($items[0]);
-							                        if(!is_wp_error($item)){
-								                        ?>
-                                                        <div class="col-lg-7 offset-lg-1">
-                                                            <div class="megamenu-content">
-										                        <?php get_template_part("template-parts/header/menu-article", $item->post_type); ?>
-                                                            </div>
-                                                        </div><!-- /col-lg-7 -->
-								                        <?php
-							                        }
-						                        }
-						                        ?>
-                                            </div><!-- /row -->
-                                        </li>
-                                    </ul>
+                                <li class="text-purplelight menu-dropdown-simple-wrapper">
+                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
+			                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "")) ?>
                                 </li>
 		                        <?php
+
 	                        }
 	                        ?>
 	                        <?php
@@ -182,34 +147,16 @@ $theme_locations = get_nav_menu_locations();
 	                        if(isset($theme_locations[$theme_location]))
 		                        $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
+		                        $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
+		                        if($landing_url)
+			                        $items_wrap = '<ul id="%1$s" class="%2$s"><li class="menu-title"><h3><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></h3></li>%3$s</ul>';
+		                        else
+			                        $items_wrap = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+
 		                        ?>
-                                <li class="text-greendark menu-dropdown-megamenu-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-megamenu" href="#"
-                                       title="<?php _e("Notizie","design_scuole_italia"); ?>"><?php _e("Notizie","design_scuole_italia"); ?></a>
-                                    <ul class="menu-dropdown dl-submenu menu-dropdown-megamenu">
-                                        <li class="container">
-                                            <div class="row variable-gutters">
-						                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1,"menu_class" => "megamenu-list", "container_class" => "col-lg-4")) ?>
-						                        <?php
-						                        // check if has an item
-						                        $items = dsi_get_option($option_location,"menu_principale");
-						                        if(is_array($items) && count($items) > 0){
-							                        global $item;
-							                        $item = get_post($items[0]);
-							                        if(!is_wp_error($item)){
-								                        ?>
-                                                        <div class="col-lg-7 offset-lg-1">
-                                                            <div class="megamenu-content">
-										                        <?php get_template_part("template-parts/header/menu-article", $item->post_type); ?>
-                                                            </div>
-                                                        </div><!-- /col-lg-7 -->
-								                        <?php
-							                        }
-						                        }
-						                        ?>
-                                            </div><!-- /row -->
-                                        </li>
-                                    </ul>
+                                <li class="text-greendark menu-dropdown-simple-wrapper">
+                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Notizie","design_scuole_italia"); ?>"><?php _e("Notizie","design_scuole_italia"); ?></a>
+			                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "")) ?>
                                 </li>
 		                        <?php
 	                        }
@@ -222,78 +169,20 @@ $theme_locations = get_nav_menu_locations();
 							if(isset($theme_locations[$theme_location]))
 								$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
 							if(isset($menu_obj) && !is_wp_error($menu_obj)) {
+								$landing_url = dsi_get_template_page_url("page-templates/didattica.php");
+								if($landing_url)
+									$items_wrap = '<ul id="%1$s" class="%2$s"><li class="menu-title"><h3><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></h3></li>%3$s</ul>';
+								else
+									$items_wrap = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+
 								?>
-                                <li class="text-bluelectric menu-dropdown-megamenu-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-megamenu" href="#"
-                                       title="<?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
-                                    <ul class="menu-dropdown dl-submenu menu-dropdown-megamenu">
-                                        <li class="container">
-                                            <div class="row variable-gutters">
-												<?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1,"menu_class" => "megamenu-list", "container_class" => "col-lg-4")) ?>
-												<?php
-												// check if has an item
-												$items = dsi_get_option($option_location,"menu_principale");
-												if(is_array($items) && count($items) > 0){
-													global $item;
-													$item = get_post($items[0]);
-													if(!is_wp_error($item)){
-														?>
-                                                        <div class="col-lg-7 offset-lg-1">
-                                                            <div class="megamenu-content">
-	                                                            <?php get_template_part("template-parts/header/menu-article", $item->post_type); ?>
-                                                            </div>
-                                                        </div><!-- /col-lg-7 -->
-														<?php
-													}
-												}
-												?>
-                                            </div><!-- /row -->
-                                        </li>
-                                    </ul>
+                                <li class="text-bluelectric menu-dropdown-simple-wrapper">
+                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
+									<?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "")) ?>
                                 </li>
 								<?php
 							}
 							?>
-	                        <?php
-	                        // check if classe has menu
-	                        $theme_location = "menu-classe";
-	                        $option_location = "item_menu_classe";
-	                        unset($menu_obj);
-	                        if(isset($theme_locations[$theme_location]))
-		                        $menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
-	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
-		                        ?>
-                                <li class="menu-dropdown-megamenu-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-megamenu" href="#"
-                                       title="<?php _e("La mia classe","design_scuole_italia"); ?>"><?php _e("La mia classe","design_scuole_italia"); ?></a>
-                                    <ul class="menu-dropdown dl-submenu menu-dropdown-megamenu">
-                                        <li class="container">
-                                            <div class="row variable-gutters">
-						                        <?php wp_nav_menu(array("menu" => $menu_obj,"depth" => 1, "menu_class" => "megamenu-list", "container_class" => "col-lg-4")) ?>
-						                        <?php
-						                        // check if has an item
-						                        $items = dsi_get_option($option_location,"menu_principale");
-						                        if(is_array($items) && count($items) > 0){
-							                        global $item;
-							                        $item = get_post($items[0]);
-							                        if(!is_wp_error($item)){
-								                        ?>
-                                                        <div class="col-lg-7 offset-lg-1">
-                                                            <div class="megamenu-content">
-										                        <?php get_template_part("template-parts/header/menu-article", $item->post_type); ?>
-                                                            </div>
-                                                        </div><!-- /col-lg-7 -->
-								                        <?php
-							                        }
-						                        }
-						                        ?>
-                                            </div><!-- /row -->
-                                        </li>
-                                    </ul>
-                                </li>
-		                        <?php
-	                        }
-	                        ?>
                         </ul><!-- /nav-list -->
 	                    <?php wp_nav_menu(array("theme_location" => "menu-topright", "depth" => 1,  "menu_class" => "nav-list nav-list-secondary", "container" => "")) ?>
 

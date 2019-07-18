@@ -1,0 +1,2 @@
+<?php
+/* Template Name: Didattica  */

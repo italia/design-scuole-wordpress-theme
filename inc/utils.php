@@ -297,3 +297,21 @@ function dsi_count_grouped_posts($post_types){
 	return $count;
 
 }
+
+/**
+ * recupera il template in base al nome
+ * @param $TEMPLATE_NAME
+ *
+ * @return string|null
+ */
+function dsi_get_template_page_url($TEMPLATE_NAME){
+	$url = null;
+	$pages = get_pages(array(
+		'meta_key' => '_wp_page_template',
+		'meta_value' => $TEMPLATE_NAME
+	));
+	if(isset($pages[0])) {
+		$url = get_page_link($pages[0]->ID);
+	}
+	return $url;
+}
