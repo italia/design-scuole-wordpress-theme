@@ -61,6 +61,7 @@
 									</div>
 									<?php }
                                     // check if post type is used
+                                    /*
                                     $post_types = dsi_get_post_types_grouped("class");
                                     if(dsi_count_grouped_posts($post_types)) {
                                     ?>
@@ -68,7 +69,7 @@
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "class") echo "checked"; ?>" id="la-mia-classe" name="type" value="class">
 										<label class="custom-control-label" for="la-mia-classe"><?php _e("La mia classe","design_scuole_italia"); ?></label>
 									</div>
-									<?php } ?>
+									<?php } */ ?>
 								</div>
 							</div>
 						</div>

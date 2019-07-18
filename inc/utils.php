@@ -269,8 +269,8 @@ function dsi_get_post_types_grouped($type = ""){
 		$post_types = array("programma", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
 		$post_types = array("servizio");
-	else if($type === "class")
-		$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");
+	/*else if($type === "class")
+		$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");*/
 	else
 		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
