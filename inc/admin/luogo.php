@@ -347,27 +347,27 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_dati_luoghi->add_field( array(
 		'id'         => $prefix . 'cod_edificio',
-		'name'       => __( 'Codice edificio *', 'design_scuole_italia' ),
+		'name'       => __( 'Codice edificio ', 'design_scuole_italia' ),
 		'desc'       => __( 'Codice dell\'edificio', 'design_scuole_italia' ),
 		'type'       => 'text_medium'
 	) );
 
 	$cmb_dati_luoghi->add_field( array(
 		'id'         => $prefix . 'cod_comune',
-		'name'       => __( 'Codice Comune *', 'design_scuole_italia' ),
+		'name'       => __( 'Codice Comune', 'design_scuole_italia' ),
 		'desc'       => __( 'Codice catastale del Comune dell\'edificio', 'design_scuole_italia' ),
 		'type'       => 'text_medium'
 	) );
 
 	$cmb_dati_luoghi->add_field( array(
 		'id'         => $prefix . 'desc_cod_comune',
-		'name'       => __( 'Descrizione codice comune *', 'design_scuole_italia' ),
+		'name'       => __( 'Descrizione codice comune', 'design_scuole_italia' ),
 		'desc'       => __( 'Descrizione codice catastale del Comune dell\'edificio', 'design_scuole_italia' ),
 		'type'       => 'textarea_small'
 	) );
 	$cmb_dati_luoghi->add_field( array(
 		'id' => $prefix . 'uso_scolastico',
-		'name'       => __( 'Uso Scolastico *', 'design_scuole_italia' ),
+		'name'       => __( 'Uso Scolastico', 'design_scuole_italia' ),
 		'desc' => __( 'Indica se l\'edificio e\' stato costruito appositamente per uso scolastico ', 'design_scuole_italia' ),
 		'type' => 'radio_inline',
 		'default' => 'true',
@@ -379,7 +379,7 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_dati_luoghi->add_field( array(
 		'id' => $prefix . 'altri_usi',
-		'name'       => __( 'Altri Usi *', 'design_scuole_italia' ),
+		'name'       => __( 'Altri Usi', 'design_scuole_italia' ),
 		'desc' => __( 'Indica se l\'edificio e\' stato costruito per altri usi e poi adattato permanentemente per uso scolastico ', 'design_scuole_italia' ),
 		'type' => 'radio_inline',
 		'default' => 'true',
@@ -393,7 +393,7 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_dati_luoghi->add_field( array(
 		'id'         => $prefix . 'eta_costruzione',
-		'name'       => __( 'Fascia Età Costruzione *', 'design_scuole_italia' ),
+		'name'       => __( 'Fascia Età Costruzione', 'design_scuole_italia' ),
 		'desc'       => __( 'Fascia di eta\' di costruzione dell\'edificio', 'design_scuole_italia' ),
 		'type'       => 'text_medium'
 	) );
