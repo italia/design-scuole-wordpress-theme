@@ -7,13 +7,13 @@ function dsi_register_materia_post_type() {
 
 	/** materia **/
 	$labels = array(
-		'name'          => _x( 'Materie', 'Post Type General Name', 'design_scuole_italia' ),
-		'singular_name' => _x( 'Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
-		'add_new'       => _x( 'Aggiungi una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
-		'add_new_item'  => _x( 'Aggiungi una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'name'          => _x( 'Programmi', 'Post Type General Name', 'design_scuole_italia' ),
+		'singular_name' => _x( 'Programma di una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'add_new'       => _x( 'Aggiungi un Programma', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'add_new_item'  => _x( 'Aggiungi un Programma di una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
 	);
 	$args   = array(
-		'label'         => __( 'Materia', 'design_scuole_italia' ),
+		'label'         => __( 'Programma di una Materia', 'design_scuole_italia' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title', 'editor', 'author' ),
 		'taxonomies'    => array( 'classe' ),
@@ -23,19 +23,19 @@ function dsi_register_materia_post_type() {
 		'menu_icon'     => 'dashicons-translation',
 		'has_archive'   => true,
 	);
-	register_post_type( 'materia', $args );
+	register_post_type( 'programma_materia', $args );
 
 
 	$labels = array(
-		'name'              => _x( 'Classi', 'taxonomy general name', 'design_scuole_italia' ),
-		'singular_name'     => _x( 'Classe', 'taxonomy singular name', 'design_scuole_italia' ),
-		'search_items'      => __( 'Cerca Classe', 'design_scuole_italia' ),
-		'all_items'         => __( 'Tutte le classi', 'design_scuole_italia' ),
-		'edit_item'         => __( 'Modifica la Classe', 'design_scuole_italia' ),
-		'update_item'       => __( 'Aggiorna la Classe', 'design_scuole_italia' ),
-		'add_new_item'      => __( 'Aggiungi una Classe', 'design_scuole_italia' ),
-		'new_item_name'     => __( 'Nuova Classe', 'design_scuole_italia' ),
-		'menu_name'         => __( 'Classe', 'design_scuole_italia' ),
+		'name'              => _x( 'Materie', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Materia', 'taxonomy singular name', 'design_scuole_italia' ),
+		'search_items'      => __( 'Cerca Materia', 'design_scuole_italia' ),
+		'all_items'         => __( 'Tutte le materie', 'design_scuole_italia' ),
+		'edit_item'         => __( 'Modifica la Materia', 'design_scuole_italia' ),
+		'update_item'       => __( 'Aggiorna la Materia', 'design_scuole_italia' ),
+		'add_new_item'      => __( 'Aggiungi una Materia', 'design_scuole_italia' ),
+		'new_item_name'     => __( 'Nuova Materia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Materia', 'design_scuole_italia' ),
 	);
 
 	$args = array(
@@ -44,10 +44,11 @@ function dsi_register_materia_post_type() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'classe' ),
+		'rewrite'           => array( 'slug' => 'materia' ),
 	);
 
-	register_taxonomy( 'classe', array( 'materia' ), $args );
+	register_taxonomy( 'materia', array( 'programma_materia' ), $args );
+
 
 }
 
@@ -65,7 +66,7 @@ function dsi_add_materia_metaboxes() {
 
 	$cmb_sottotitolo = new_cmb2_box( array(
 		'id'           => $prefix . 'box_sottotitolo',
-		'object_types' => array( 'materia' ),
+		'object_types' => array( 'programma_materia' ),
 		'context'      => 'after_title',
 		'priority'     => 'high',
 	) );
@@ -126,7 +127,7 @@ function dsi_add_materia_metaboxes() {
 	$cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_materia',
 		'title'         => __( 'Dettagli Materia', 'design_scuole_italia' ),
-		'object_types' => array( 'materia' ),
+		'object_types' => array( 'programma_materia' ),
 		'context'      => 'normal',
 		'priority'     => 'high',
 	) );
@@ -289,8 +290,8 @@ function dsi_add_materia_metaboxes() {
  */
 add_action( 'edit_form_after_title', 'sdi_materia_add_content_after_title' );
 function sdi_materia_add_content_after_title($post) {
-	if($post->post_type == "materia")
-		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Materia</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+	if($post->post_type == "programma_materia")
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome del Programma della Materia</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 
@@ -299,7 +300,7 @@ function sdi_materia_add_content_after_title($post) {
  */
 add_action( 'edit_form_after_title', 'sdi_materia_add_content_before_editor', 100 );
 function sdi_materia_add_content_before_editor($post) {
-	if($post->post_type == "materia")
+	if($post->post_type == "programma_materia")
 		_e('<h1>Descrizione Estesa e Completa della materia</h1>', 'design_scuole_italia' );
 }
 
@@ -307,5 +308,5 @@ function sdi_materia_add_content_before_editor($post) {
 add_action('add_meta_boxes', 'sdi_materia_change_author_metabox');
 function sdi_materia_change_author_metabox() {
 	global $wp_meta_boxes;
-	$wp_meta_boxes['materia']['normal']['core']['authordiv']['title']= 'Insegnante';
+	$wp_meta_boxes['programma_materia']['normal']['core']['authordiv']['title']= 'Insegnante';
 }

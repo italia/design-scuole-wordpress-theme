@@ -262,7 +262,7 @@ function dsi_get_post_types_grouped($type = ""){
 	if($type == "")
 		$type = "any";
 	if($type === "school")
-		$post_types = array("documento", "luogo", "materia", "struttura", "page");
+		$post_types = array("documento", "luogo", "programma_materia", "struttura", "page");
 	else if($type === "news")
 		$post_types = array("evento", "post");
 	else if($type === "education")
@@ -270,7 +270,7 @@ function dsi_get_post_types_grouped($type = ""){
 	else if($type === "service")
 		$post_types = array("servizio");
 	/*else if($type === "class")
-		$post_types = array("luogo", "materia", "programma", "scheda_didattica", "scheda_progetto");*/
+		$post_types = array("luogo", "programma_materia", "programma", "scheda_didattica", "scheda_progetto");*/
 	else
 		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
@@ -315,3 +315,5 @@ function dsi_get_template_page_url($TEMPLATE_NAME){
 	}
 	return $url;
 }
+
+

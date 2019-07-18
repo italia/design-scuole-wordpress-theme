@@ -408,7 +408,7 @@ function dsi_register_main_options_metabox() {
 		'id'             => $prefix . 'responsabile_commissione',
 		'taxonomy'       => 'persona', //Enter Taxonomy Slug
 		'type'    => 'select',
-		'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
+		'options' => dsi_get_user_options(),
         )
     );
 
@@ -419,7 +419,7 @@ function dsi_register_main_options_metabox() {
 			'desc' => __( 'Eventuale lista delle persone che fanno parte della struttura. Inseriscile <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
 			'id'             => $prefix . 'persone_commissione',
 			'type'           => 'multicheck_inline',
-			'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
+			'options' => dsi_get_user_options(),
 		)
 	);
 

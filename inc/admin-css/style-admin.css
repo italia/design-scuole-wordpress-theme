@@ -10,3 +10,36 @@
 .cmb-type-custom-attached-posts .cmb-th{
     font-size:18px;
 }
+
+
+/* cmb2 */
+.cmb2_textarea{
+    width:90% !important;
+}
+.cmb-row .regular-text{
+    width:90% !important;
+}
+
+/* classe */
+.taxonomy-classe #col-left{
+    width:70%;
+}
+
+.taxonomy-classe #col-right{
+    width:30%;
+}
+
+.taxonomy-classe #_dsi_classe_lunedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_martedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_mercoledi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_giovedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_venerdi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_sabato_repeat .cmb-repeat-group-field {
+    width:25%;
+    padding:0px 0px 6px 0px !important;
+    float:left;
+}
+
+.taxonomy-classe #edittag{
+    max-width:none;
+}

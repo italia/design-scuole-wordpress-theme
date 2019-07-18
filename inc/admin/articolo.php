@@ -40,7 +40,7 @@ function dsi_add_articolo_metaboxes() {
 			'name'       => __('Persone ', 'design_scuole_italia' ),
 			'desc' => __( 'Link a schede persone dell\'amminsitrazione citate', 'design_scuole_italia' ),
 			'type'    => 'multicheck_inline',
-			'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
+			'options' => dsi_get_user_options(),
 
 		)
 	);

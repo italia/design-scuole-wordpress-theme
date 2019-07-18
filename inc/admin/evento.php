@@ -242,7 +242,7 @@ function dsi_add_eventi_metaboxes() {
 			'name'       => __('Persone dell\'amministrazione ', 'design_scuole_italia' ),
 			'desc' => __( 'Link a schede del personale scolastico che parteciperanno all\'evento e che si vogliono mettere in risalto, per esempio un dirigente scolastico o un prof. che hanno promosso l\'evento ', 'design_scuole_italia' ),
 			'type'    => 'multicheck_inline',
-			'options' => dsi_get_user_options( array( 'fields' => array( 'user_login' ) ) ),
+			'options' => dsi_get_user_options(),
 
 		)
 	);
