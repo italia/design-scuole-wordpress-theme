@@ -61,8 +61,13 @@ function dsi_add_scheda_didattica_metaboxes() {
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'obiettivi',
 		'name'        => __( 'Obiettivi *', 'design_scuole_italia' ),
-		'desc' => __( 'Obiettivi della Scheda' , 'design_scuole_italia' ),
-		'type' => 'textarea',
+		'desc' => __( 'Obiettivi del progetto' , 'design_scuole_italia' ),
+		'type' => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 		'attributes'    => array(
 			'required'    => 'required'
 		),
@@ -77,6 +82,14 @@ function dsi_add_scheda_didattica_metaboxes() {
 		'type' => 'text'
 	) );
 
+	$cmb_sottotitolo->add_field( array(
+		'id' => $prefix . 'livello',
+		'name'        => __( 'Livello', 'design_scuole_italia' ),
+		'desc' => __( 'Indicazione dei cicli scolastici per i quali la scheda è utile: scuola primaria / scuola secondaria di primo grado /  
+scuola secondaria secondo grado / percorsi di istruzione e formazione professionale' , 'design_scuole_italia' ),
+		'type' => 'text'
+	) );
+
 
 	$cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_scheda',
@@ -85,6 +98,37 @@ function dsi_add_scheda_didattica_metaboxes() {
 		'context'      => 'normal',
 		'priority'     => 'high',
 	) );
+
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'descrizione_attivita',
+		'name'        => __( 'Descrizione dell\'attività', 'design_scuole_italia' ),
+		'desc' => __( 'Descrizione dell\'attività. Es. "Dopo aver letto la scheda, rispondi alle domande di verifica" oppure, "Di seguito trovi i passi da seguire per seminare una pianta in primavera"
+' , 'design_scuole_italia' ),
+		'type' => 'textarea'
+	) );
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'fasi_attivita',
+		'name'        => __( 'Fasi attività', 'design_scuole_italia' ),
+		'desc' => __( 'lista di task da svolgere' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'repeatable'  => true,
+		'options'     => array(
+			'sortable'      => true,  // Allow changing the order of repeated groups.
+		),
+	) );
+
+
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'fasi_verifica',
+		'name'        => __( 'Verifica apprendimento', 'design_scuole_italia' ),
+		'desc' => __( 'lista  di domande o di fasi di un compito da svolgere' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'repeatable'  => true,
+		'options'     => array(
+			'sortable'      => true,  // Allow changing the order of repeated groups.
+		),
+	) );
+
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_materiale_didattico',
@@ -117,23 +161,6 @@ function dsi_add_scheda_didattica_metaboxes() {
 			'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
 		),
 	) );
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'descrizione_attivita',
-		'name'        => __( 'Descrizione dell\'attività', 'design_scuole_italia' ),
-		'desc' => __( 'Descrizione dell\'attività. Es. "Dopo aver letto la scheda, rispondi alle domande di verifica" oppure, "Di seguito trovi i passi da seguire per seminare una pianta in primavera"
-' , 'design_scuole_italia' ),
-		'type' => 'textarea'
-	) );
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'fasi_attivita',
-		'name'        => __( 'Fasi attività', 'design_scuole_italia' ),
-		'desc' => __( 'lista numerata di domande o di fasi di un compito da svolgere' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'repeatable'  => true,
-		'options'     => array(
-			'sortable'      => true,  // Allow changing the order of repeated groups.
-		),
-	) );
 
 
 }
@@ -155,5 +182,5 @@ function sdi_scheda_didattica_add_content_after_title($post) {
 add_action( 'edit_form_after_title', 'sdi_scheda_didattica_add_content_before_editor', 100 );
 function sdi_scheda_didattica_add_content_before_editor($post) {
 	if($post->post_type == "scheda_didattica")
-		_e('<h1>Descrizione Estesa e Completa della scheda</h1>', 'design_scuole_italia' );
+		_e('<h1>L\'argomento della scheda</h1>', 'design_scuole_italia' );
 }

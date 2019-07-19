@@ -17,7 +17,7 @@ if(count($argomenti)) {
 	$posts_array = get_posts(
 		array(
 			'posts_per_page' => 6,
-			'post_type'      => array( "scheda_progetto"),
+			'post_type'      => array( "scheda_didattica"),
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array(
 				array(
@@ -37,7 +37,7 @@ if(count($argomenti)) {
 			<div class="row variable-gutters">
 				<div class="col-lg-12">
 
-					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Schede progetto correlate", "design_scuole_italia"); ?></h3>
+					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Schede didattiche correlate", "design_scuole_italia"); ?></h3>
 
 					<div class="owl-carousel carousel-theme carousel-large">
 						<?php

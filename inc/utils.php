@@ -66,6 +66,9 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("scheda_progetto")) {
 			$prefix = '_dsi_scheda_progetto_';
 			return get_post_meta( $post_id, $prefix . $key, true );
+		}else if (is_singular("scheda_didattica")) {
+			$prefix = '_dsi_scheda_didattica_';
+			return get_post_meta( $post_id, $prefix . $key, true );
 		}
 
 		return get_post_meta( $post_id, $key, true );

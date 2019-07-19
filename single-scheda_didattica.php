@@ -11,8 +11,8 @@ get_header();
 
 $link_schede_materiale_didattico = dsi_get_meta("link_schede_materiale_didattico");
 $file_documenti = dsi_get_meta("file_documenti");
-$link_progetti = dsi_get_meta("link_progetti");
-$altre_info = dsi_get_meta("note");
+
+
 
 
 ?>
@@ -38,6 +38,7 @@ $altre_info = dsi_get_meta("note");
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                             <div class="section-title">
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
+                                <h4 class="text-bluelectric mb-3"><?php echo dsi_get_meta("livello"); ?></h4>
                                 <p><?php echo dsi_get_meta("descrizione"); ?></p>
                             </div><!-- /title-section -->
                         </div><!-- /col-lg-5 col-md-8 -->
@@ -72,23 +73,21 @@ $altre_info = dsi_get_meta("note");
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title">
                                     <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
-                                        <span><?php _e("Indice del Programma", "design_scuole_italia"); ?></span>
+                                        <span><?php _e("Indice Scheda Didattica", "design_scuole_italia"); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
                                 </div>
                                 <div id="lista-paragrafi" class="link-list-wrapper collapse show">
                                     <ul class="link-list">
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-materia" title="Vai al paragrafo <?php _e("La Materia", "design_scuole_italia"); ?>"><?php _e("La Materia", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-obiettivi" title="Vai al paragrafo <?php _e("Obiettivi", "design_scuole_italia"); ?>"><?php _e("Obiettivi", "design_scuole_italia"); ?></a>
                                         </li>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("I Contenuti", "design_scuole_italia"); ?>"><?php _e("I Contenuti", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("Il Contenuto", "design_scuole_italia"); ?>"><?php _e("Il Contenuto", "design_scuole_italia"); ?></a>
                                         </li>
-                                	<?php if(trim($altre_info) != ""){ ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?></a>
-                                        </li>
-                                    <?php } ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Risorse", "design_scuole_italia"); ?>"><?php _e("Risorse", "design_scuole_italia"); ?></a>
+                                            </li>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-correlati" title="Vai al paragrafo <?php _e("Contenuti correlati", "design_scuole_italia"); ?>"><?php _e("Contenuti correlati", "design_scuole_italia"); ?></a>
                                         </li>
@@ -99,45 +98,67 @@ $altre_info = dsi_get_meta("note");
                         </div>
                         <div class="col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
-                                <h4 id="art-par-materia"><?php _e("La Materia", "design_scuole_italia"); ?></h4>
+                                <h4 id="art-par-obiettivi"><?php _e("Obiettivo", "design_scuole_italia"); ?></h4>
+	                            <?php
+	                            $obiettivi = dsi_get_meta("obiettivi");
+	                            echo wpautop($obiettivi);
+
+
+	                            $tempo_apprendimento = dsi_get_meta("tempo_apprendimento");
+	                            if($tempo_apprendimento != "") {
+		                            ?>
+                                    <h6><?php _e( "Tempo di apprendimento", "design_scuole_italia" ); ?></h6>
+                                    <p>
+		                            <?php
+		                            _e("Apprendimento in: ", "design_scuole_italia");
+		                            echo $tempo_apprendimento;
+		                            ?>
+                                    </p>
+
+                                    <?php
+	                            }
+	                            ?>
+                                <h4 id="art-par-contenuti"><?php _e("L'argomento", "design_scuole_italia"); ?></h4>
 								<?php the_content(); ?>
+
+                                <?php
+                                $descrizione_attivita = dsi_get_meta("descrizione_attivita");
+                                ?>
+                                <h4><?php _e("Attività", "design_scuole_italia"); ?></h4>
 								<?php
+								echo wpautop($descrizione_attivita);
 
-								$video = dsi_get_meta("video");
-								if($video) { ?>
-                                    <div class="video-container my-4">
-										<?php echo wp_oembed_get ($video); ?>
-                                    </div>
-								<?php } ?>
-                                <h6><?php _e("Obiettivi", "design_scuole_italia"); ?></h6>
-								<?php
-								$obiettivi = dsi_get_meta("obiettivi");
-								echo wpautop($obiettivi);
-								?>
-
-                                <h6><?php _e("Attività", "design_scuole_italia"); ?></h6>
-
-								<?php
-								$attivita = dsi_get_meta("attivita");
-
+								$attivita = dsi_get_meta("fasi_attivita");
 								if(is_array($attivita) && count($attivita) > 0){
+								    ?>
+                                <?php
 									foreach ($attivita as $step) {
 										?>
                                         <div class="text-border-left">
-                                            <div class="text-icon">
-                                                <span><?php echo $step["titolo_attivita"]; ?></span>
-                                            </div>
-                                            <p><?php echo $step["descrizione_attivita"]; ?></p>
+                                            <p><?php echo wpautop($step); ?></p>
                                         </div><!-- /text-border-left -->
 										<?php
 									}
 								}
-								?>
 
-                                <h4 id="art-par-contenuti"><?php _e("I Contenuti", "design_scuole_italia"); ?></h4>
+								$verifica = dsi_get_meta("fasi_verifica");
+	                            if(is_array($verifica) && count($verifica) > 0) {
+
+		                            ?>
+                                    <h6><?php _e( "Verifica apprendimento", "design_scuole_italia" ); ?></h6>
+
+		                            <?php
+		                            foreach ($verifica as $step) {
+			                            ?>
+                                        <div class="text-border-left">
+                                            <p><?php echo wpautop($step); ?></p>
+                                        </div><!-- /text-border-left -->
+			                            <?php
+		                            }
+	                            }
+                                    ?>
+                                <h4 id="art-par-info"><?php _e("Risorse", "design_scuole_italia"); ?></h4>
 								<?php if((is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
-
-                                    <h6><?php _e("Risorse", "design_scuole_italia"); ?></h6>
                                     <div class="card-deck card-deck-spaced">
 										<?php
 										if(is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) {
@@ -159,37 +180,14 @@ $altre_info = dsi_get_meta("note");
                                     </div><!-- /card-deck card-deck-spaced -->
 								<?php } ?>
 
-								<?php if ( ( is_array( $link_progetti ) && count( $link_progetti ) > 0 )) {
-								    ?>
-                                <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
-                                <div class="card-deck card-deck-spaced">
-                                        <?php
-									foreach ( $link_progetti as $link_progetto ) {
-										$documento = get_post( $link_progetto );
-										get_template_part( "template-parts/documento/card" );
-									}
-                                    ?></div>
-                                    <?php }  ?>
 
-                                <?php
-                                if(trim($altre_info) != ""){
-                                ?>
-                                <h4 id="art-par-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
-	                            <?php echo wpautop($altre_info); ?>
-                                <?php } ?>
+
 								<?php get_template_part("template-parts/single/bottom"); ?>
                             </article>
                         </div><!-- /col-lg-6 -->
-                        <div class="col-lg-3 aside-border-left">
+                        <div class="col-lg-3 ">
                             <div class="aside-sticky">
-								<?php
-								global $badgeclass;
-								$badgeclass = "badge-outline-bluelectric";
-								get_template_part("template-parts/common/badges-materie");
 
-								get_template_part("template-parts/common/badges-classi");
-
-								?>
 
                             </div>
                         </div><!-- /col-lg-3 -->
@@ -197,9 +195,7 @@ $altre_info = dsi_get_meta("note");
                 </div><!-- /container -->
             </section>
 
-
-
-			<?php get_template_part("template-parts/single/more-programma_materia"); ?>
+			<?php get_template_part("template-parts/single/more-scheda_didattica"); ?>
 
 		<?php  	endwhile; // End of the loop. ?>
     </main><!-- #main -->

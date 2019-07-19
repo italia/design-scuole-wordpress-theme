@@ -59,7 +59,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 	) );
 
 	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'obiettivi',
+		'id' => $prefix . 'obiettivi *',
 		'name'        => __( 'Obiettivi *', 'design_scuole_italia' ),
 		'desc' => __( 'Obiettivi del progetto' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
