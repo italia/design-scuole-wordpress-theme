@@ -139,7 +139,7 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
                 </div><!-- /container -->
             </section>
 
-			<?php get_template_part("template-parts/single/more-posts"); ?>
+			<?php get_template_part("template-parts/single/more-scheda_progetto"); ?>
 
 		<?php  	endwhile; // End of the loop. ?>
     </main><!-- #main -->
