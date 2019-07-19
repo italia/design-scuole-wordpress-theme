@@ -178,13 +178,13 @@ function dsi_scripts() {
 
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, false);
-	if(is_singular(array("servizio", "struttura", "luogo", "evento", "post")))
+	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post")))
 		wp_enqueue_script( 'dsi-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, false);
 
 
 	wp_enqueue_script( 'dsi-scuole-js', get_template_directory_uri() . '/assets/js/scuole.js', array(), false, true);
 
-	if(is_singular(array("evento"))){
+	if(is_singular(array("evento","scheda_progetto"))){
 		wp_enqueue_script( 'clndr-json2', get_template_directory_uri() . '/assets/components/clndr/json2.js', array(), false, false);
 		wp_enqueue_script( 'clndr-moment', get_template_directory_uri() . '/assets/components/clndr/moment-2.8.3.js', array(), false, false);
 		wp_enqueue_script( 'clndr-underscore', get_template_directory_uri() . '/assets/components/clndr/underscore.js', array(), false, false);

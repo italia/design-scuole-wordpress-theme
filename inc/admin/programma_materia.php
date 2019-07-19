@@ -104,7 +104,12 @@ function dsi_add_materia_metaboxes() {
 		'id'         => $prefix . 'obiettivi',
 		'name'       => __( 'Obiettivi', 'design_scuole_italia' ),
 		'desc'       => __( 'Obiettivi del programma', 'design_scuole_italia' ),
-		'type' => 'textarea',
+		'type' => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 
 	) );
 

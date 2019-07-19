@@ -39,6 +39,25 @@ function dsi_get_program_options( $query_args = false) {
 
 
 
+function dsi_get_classe_options( $query_args = false) {
+
+	$classi = get_terms( array(
+		'taxonomy' => 'classe',
+		'hide_empty' => false,
+	));
+
+	$options = array();
+	if ( $classi ) {
+		foreach ( $classi as $classe ) {
+			$options[ $classe->term_id ] = $classe->name;
+		}
+	}
+
+	return $options;
+}
+
+
+
 
 
 // includo i singoli file di template di backend

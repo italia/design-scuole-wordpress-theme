@@ -23,7 +23,7 @@ global $post;
 </script>
 <script type="text/javascript">
     moment.locale('it');
-    <?php if(is_singular("evento")){
+    <?php if(is_singular(array("evento", "scheda_progetto"))){
     $timestamp_inizio = dsi_get_meta("timestamp_inizio");
     $timestamp_fine= dsi_get_meta("timestamp_fine");
     $begin = new DateTime(date_i18n("c",$timestamp_inizio));

@@ -63,6 +63,9 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("programma_materia")) {
 			$prefix = '_dsi_materia_';
 			return get_post_meta( $post_id, $prefix . $key, true );
+		}else if (is_singular("scheda_progetto")) {
+			$prefix = '_dsi_scheda_progetto_';
+			return get_post_meta( $post_id, $prefix . $key, true );
 		}
 
 		return get_post_meta( $post_id, $key, true );
@@ -196,7 +199,11 @@ if(!function_exists("dsi_get_mapbox_access_token")) {
  *
  */
 function dsi_get_date_evento($post){
-	$prefix = '_dsi_evento_';
+	if($post->post_type == "evento")
+		$prefix = '_dsi_evento_';
+	else if($post->post_type == "scheda_progetto")
+		$prefix = '_dsi_scheda_progetto_';
+
 	$ret = "";
 	$timestamp_inizio = dsi_get_meta("timestamp_inizio", $prefix, $post->ID);
 	$timestamp_fine= dsi_get_meta("timestamp_fine", $prefix, $post->ID);
@@ -214,20 +221,27 @@ function dsi_get_date_evento($post){
 	if($data_inizio == $data_fine){
 		$ret .= __("Il ", "design_scuole_italia");
 		$ret .= $data_inizio;
-		$ret .= __(" dalle ", "design_scuole_italia");
-		$ret .= $ora_inizio;
-		$ret .= __(" alle ", "design_scuole_italia");
-		$ret .= $ora_fine;
+		if($post->post_type == "evento"){
+			$ret .= __(" dalle ", "design_scuole_italia");
+			$ret .= $ora_inizio;
+			$ret .= __(" alle ", "design_scuole_italia");
+			$ret .= $ora_fine;
+
+		}
 
 	}else{
 		$ret .= __("dal ", "design_scuole_italia");
 		$ret .= $data_inizio;
-		$ret .= __(" alle ", "design_scuole_italia");
-		$ret .= $ora_inizio;
+		if($post->post_type == "evento") {
+			$ret .= __( " alle ", "design_scuole_italia" );
+			$ret .= $ora_inizio;
+		}
 		$ret .= __(" al ", "design_scuole_italia");
 		$ret .= $data_fine;
-		$ret .= __(" alle ", "design_scuole_italia");
-		$ret .= $ora_fine;
+		if($post->post_type == "evento") {
+			$ret .= __( " alle ", "design_scuole_italia" );
+			$ret .= $ora_fine;
+		}
 	}
 
 	return $ret;
