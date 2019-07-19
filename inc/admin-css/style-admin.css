@@ -15,6 +15,7 @@
 /* cmb2 */
 .cmb2_textarea{
     width:90% !important;
+    height:120px;
 }
 .cmb-row .regular-text{
     width:90% !important;
@@ -43,3 +44,17 @@
 .taxonomy-classe #edittag{
     max-width:none;
 }
+
+/* materia */
+
+#_dsi_materia_attivita_repeat .inside .cmb-type-text,#_dsi_materia_attivita_repeat .inside .cmb-type-textarea{
+    width:50%;
+    float:left;
+    border:0px;
+}
+#_dsi_materia_libri_repeat .inside .cmb-type-text{
+    width:25%;
+    float:left;
+    border:0px;
+}
+

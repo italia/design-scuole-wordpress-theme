@@ -15,7 +15,7 @@ function dsi_register_materia_post_type() {
 	$args   = array(
 		'label'         => __( 'Programma di una Materia', 'design_scuole_italia' ),
 		'labels'        => $labels,
-		'supports'      => array( 'title', 'editor', 'author' ),
+		'supports'      => array( 'title', 'editor', 'author' ,'thumbnail'),
 		'taxonomies'    => array( 'classe' ),
 		'hierarchical'  => false,
 		'public'        => true,
@@ -83,46 +83,6 @@ function dsi_add_materia_metaboxes() {
 	) );
 
 
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'scuole',
-		'name'        => __( 'Scuole', 'design_scuole_italia' ),
-		'desc' => __( 'Se istituto comprensivo o istituto ominicomprensivo inserire la lista dei nomi delle scuole, con link alla "scheda scuola"' , 'design_scuole_italia' ),
-		'type' => 'wysiwyg',
-		'options' => array(
-			'media_buttons' => false, // show insert/upload button(s)
-			'textarea_rows' => 4, // rows="..."
-			'teeny' => true, // output the minimal editor config used in Press This
-		),
-
-	) );
-
-
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'ciclo',
-		'name'        => __( 'Ciclo Scolastico', 'design_scuole_italia' ),
-		'desc' => __( 'Ciclo scolastico della materia' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'ciclo_secondo_livello',
-		'name'        => __( 'Secondo livello ciclo scolastico', 'design_scuole_italia' ),
-		'desc' => __( 'Sottotipologia ciclo scolastico della materia' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'ciclo_tipologia',
-		'name'        => __( 'Tipologia', 'design_scuole_italia' ),
-		'desc' => __( 'Se scuola secondaria, riportare tipologia' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'ciclo_indirizzo',
-		'name'        => __( 'Tipologia', 'design_scuole_italia' ),
-		'desc' => __( 'Se scuola secondaria, riportare indirizzo' , 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-
-
 
 	$cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_materia',
@@ -166,14 +126,14 @@ function dsi_add_materia_metaboxes() {
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'titolo_attivita',
-		'name'    => __( 'Titolo della attività', 'design_scuole_italia' ),
+		'description'    => __( 'Titolo della attività', 'design_scuole_italia' ),
 		'type'    => 'text'
 
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'descrizione_attivita',
-		'name'    => __( 'Testo descrittivo della attività', 'design_scuole_italia' ),
+		'description'    => __( 'Testo descrittivo della attività', 'design_scuole_italia' ),
 		'type'    => 'textarea'
 
 	) );
@@ -196,28 +156,28 @@ function dsi_add_materia_metaboxes() {
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'titolo_libro',
-		'name'    => __( 'Titolo del Libro', 'design_scuole_italia' ),
+		'description'    => __( 'Titolo del Libro', 'design_scuole_italia' ),
 		'type'    => 'text'
 
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'autore_libro',
-		'name'    => __( 'Autore del libro', 'design_scuole_italia' ),
+		'description'    => __( 'Autore del libro', 'design_scuole_italia' ),
 		'type'    => 'text'
 
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'editore_libro',
-		'name'    => __( 'Editore del libro', 'design_scuole_italia' ),
+		'description'    => __( 'Editore del libro', 'design_scuole_italia' ),
 		'type'    => 'text'
 
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'isbn_libro',
-		'name'    => __( 'Codice ISBN', 'design_scuole_italia' ),
+		'description'    => __( 'Codice ISBN', 'design_scuole_italia' ),
 		'type'    => 'text'
 
 	) );
@@ -304,9 +264,11 @@ function sdi_materia_add_content_before_editor($post) {
 		_e('<h1>Descrizione Estesa e Completa della materia</h1>', 'design_scuole_italia' );
 }
 
-/** cambio la label autore */
+/** cambio la label autore e sposto in colonna destra in alto */
 add_action('add_meta_boxes', 'sdi_materia_change_author_metabox');
 function sdi_materia_change_author_metabox() {
 	global $wp_meta_boxes;
 	$wp_meta_boxes['programma_materia']['normal']['core']['authordiv']['title']= 'Insegnante';
+	array_unshift($wp_meta_boxes['programma_materia']['side']['core'], $wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
+	unset($wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
 }
