@@ -292,7 +292,8 @@ function dsi_count_grouped_posts($post_types){
 	$count = 0;
 	foreach ($post_types as $post_type){
 		$count_posts = wp_count_posts($post_type);
-		$count += $count_posts->publish;
+		if(isset($count_posts->publish))
+			$count += $count_posts->publish;
 	}
 	return $count;
 
