@@ -139,6 +139,7 @@ function dsi_add_materia_metaboxes() {
 	) );
 
 	/**  repeater libri **/
+	/*
 	$group_field_id = $cmb_undercontent->add_field( array(
 		'id'          => $prefix . 'libri',
 		'name'        => __('<h1>Libri</h1>', 'design_scuole_italia' ),
@@ -181,7 +182,7 @@ function dsi_add_materia_metaboxes() {
 		'type'    => 'text'
 
 	) );
-
+*/
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_materiale_didattico',
@@ -268,7 +269,10 @@ function sdi_materia_add_content_before_editor($post) {
 add_action('add_meta_boxes', 'sdi_materia_change_author_metabox');
 function sdi_materia_change_author_metabox() {
 	global $wp_meta_boxes;
-	$wp_meta_boxes['programma_materia']['normal']['core']['authordiv']['title']= 'Insegnante';
-	array_unshift($wp_meta_boxes['programma_materia']['side']['core'], $wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
-	unset($wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
+	if(isset($wp_meta_boxes['programma_materia'])){
+		$wp_meta_boxes['programma_materia']['normal']['core']['authordiv']['title']= 'Insegnante';
+		array_unshift($wp_meta_boxes['programma_materia']['side']['core'], $wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
+		unset($wp_meta_boxes['programma_materia']['normal']['core']['authordiv']);
+
+	}
 }

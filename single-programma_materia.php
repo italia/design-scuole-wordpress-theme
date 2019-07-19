@@ -1,0 +1,207 @@
+<?php
+/**
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package Design_Scuole_Italia
+ */
+global $post, $autore;
+get_header();
+
+$link_schede_materiale_didattico = dsi_get_meta("link_schede_materiale_didattico");
+$file_documenti = dsi_get_meta("file_documenti");
+$link_progetti = dsi_get_meta("link_progetti");
+$altre_info = dsi_get_meta("note");
+
+
+?>
+    <main id="main-container" class="main-container bluelectric">
+		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+
+		<?php while ( have_posts() ) :  the_post();
+			if(has_post_thumbnail($post))
+				$image_url = get_the_post_thumbnail_url($post, "item-thumb");
+			else
+				$image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+			$autore = get_user_by("ID", $post->post_author);
+			?>
+
+            <section class="section bg-white py-2 py-lg-3 py-xl-5">
+                <div class="container">
+                    <div class="row variable-gutters">
+                        <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">
+                            <div class="section-thumb mx-3">
+                                <img src="<?php echo $image_url; ?>">
+                            </div><!-- /section-thumb -->
+                        </div><!-- /col-lg-2 -->
+                        <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+                            <div class="section-title">
+                                <h2 class="mb-3"><?php the_title(); ?></h2>
+                                <p><?php echo dsi_get_meta("descrizione"); ?></p>
+                            </div><!-- /title-section -->
+                        </div><!-- /col-lg-5 col-md-8 -->
+                        <div class="col-lg-3 col-md-4 offset-lg-1">
+                            <aside class="badges-wrapper badges-main mt-0">
+                                <h4><?php _e("Insegnante", "design_scuole_italia"); ?></h4>
+                                <div class="card card-avatar card-comments mt-3">
+                                    <div class="card-body p-0">
+										<?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                    </div><!-- /card-body -->
+                                </div><!-- /card card-avatar -->
+                            </aside>
+							<?php
+							global $badgeclass;
+							$badgeclass = "badge-outline-bluelectric";
+							get_template_part("template-parts/common/badges-argomenti");
+							?>
+							<?php get_template_part("template-parts/single/actions"); ?>
+
+
+                        </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
+                    </div><!-- /row -->
+                </div><!-- /container -->
+            </section><!-- /section -->
+
+
+
+            <section class="section bg-white">
+                <div class="container container-border-top">
+                    <div class="row variable-gutters">
+                        <div class="col-lg-3 aside-border px-0">
+                            <aside class="aside-main aside-sticky">
+                                <div class="aside-title">
+                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                        <span><?php _e("Indice", "design_scuole_italia"); ?></span>
+                                        <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
+                                    </a>
+                                </div>
+                                <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                    <ul class="link-list">
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-materia" title="Vai al paragrafo <?php _e("La Materia", "design_scuole_italia"); ?>"><?php _e("La Materia", "design_scuole_italia"); ?></a>
+                                        </li>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("I Contenuti", "design_scuole_italia"); ?>"><?php _e("I Contenuti", "design_scuole_italia"); ?></a>
+                                        </li>
+                                	<?php if(trim($altre_info) != ""){ ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-correlati" title="Vai al paragrafo <?php _e("Contenuti correlati", "design_scuole_italia"); ?>">Contenuti correlati<?php _e("", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <article class="article-wrapper pt-4 px-3">
+                                <h4 id="art-par-materia"><?php _e("La Materia", "design_scuole_italia"); ?></h4>
+								<?php the_content(); ?>
+								<?php
+
+								$video = dsi_get_meta("video");
+								if($video) { ?>
+                                    <div class="video-container my-4">
+										<?php echo wp_oembed_get ($video); ?>
+                                    </div>
+								<?php } ?>
+                                <h6><?php _e("Obiettivi", "design_scuole_italia"); ?></h6>
+								<?php
+								$obiettivi = dsi_get_meta("obiettivi");
+								echo wpautop($obiettivi);
+								?>
+
+                                <h6><?php _e("Attività", "design_scuole_italia"); ?></h6>
+
+								<?php
+								$attivita = dsi_get_meta("attivita");
+
+								if(is_array($attivita) && count($attivita) > 0){
+									foreach ($attivita as $step) {
+										?>
+                                        <div class="text-border-left">
+                                            <div class="text-icon">
+                                                <span><?php echo $step["titolo_attivita"]; ?></span>
+                                            </div>
+                                            <p><?php echo $step["descrizione_attivita"]; ?></p>
+                                        </div><!-- /text-border-left -->
+										<?php
+									}
+								}
+								?>
+
+                                <h4 id="art-par-contenuti"><?php _e("I Contenuti", "design_scuole_italia"); ?></h4>
+								<?php if((is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+
+                                    <h6><?php _e("Risorse", "design_scuole_italia"); ?></h6>
+                                    <div class="card-deck card-deck-spaced">
+										<?php
+										if(is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) {
+											global $documento;
+											foreach ( $link_schede_materiale_didattico as $link_scheda_documento ) {
+												$documento = get_post( $link_scheda_documento );
+												get_template_part( "template-parts/documento/card" );
+											}
+										}
+
+										global $idfile, $nomefile;
+										if(is_array($file_documenti) && count($file_documenti)>0) {
+
+											foreach ( $file_documenti as $idfile => $nomefile ) {
+												get_template_part( "template-parts/documento/file" );
+											}
+										}
+										?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+								<?php } ?>
+
+								<?php if ( ( is_array( $link_progetti ) && count( $link_progetti ) > 0 )) {
+								    ?>
+                                <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
+                                <div class="card-deck card-deck-spaced">
+                                        <?php
+									foreach ( $link_progetti as $link_progetto ) {
+										$documento = get_post( $link_progetto );
+										get_template_part( "template-parts/documento/card" );
+									}
+                                    ?></div>
+                                    <?php }  ?>
+
+                                <?php
+                                if(trim($altre_info) != ""){
+                                ?>
+                                <h4 id="art-par-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
+	                            <?php echo wpautop($altre_info); ?>
+                                <?php } ?>
+								<?php get_template_part("template-parts/single/bottom"); ?>
+                            </article>
+                        </div><!-- /col-lg-6 -->
+                        <div class="col-lg-3 aside-border-left">
+                            <div class="aside-sticky">
+								<?php
+								global $badgeclass;
+								$badgeclass = "badge-outline-bluelectric";
+								get_template_part("template-parts/common/badges-materie");
+
+								get_template_part("template-parts/common/badges-classi");
+
+								?>
+
+                            </div>
+                        </div><!-- /col-lg-3 -->
+                    </div><!-- /row -->
+                </div><!-- /container -->
+            </section>
+
+
+
+			<?php get_template_part("template-parts/single/more-programma_materia"); ?>
+
+		<?php  	endwhile; // End of the loop. ?>
+    </main><!-- #main -->
+<?php
+get_footer();

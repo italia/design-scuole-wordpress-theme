@@ -60,6 +60,9 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("post")) {
 			$prefix = '_dsi_articolo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
+		}else if (is_singular("programma_materia")) {
+			$prefix = '_dsi_materia_';
+			return get_post_meta( $post_id, $prefix . $key, true );
 		}
 
 		return get_post_meta( $post_id, $key, true );
@@ -128,6 +131,43 @@ if(!function_exists("dsi_get_argomenti_of_post")) {
 		}
 
 		$argomenti_terms = wp_get_object_terms( $singular->ID, 'category' );
+		return $argomenti_terms;
+	}
+}
+
+
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array arguomenti
+ */
+if(!function_exists("dsi_get_materie_of_post")) {
+	function dsi_get_materie_of_post( $singular = false ) {
+		global $post;
+
+		if ( ! $singular) {
+			$singular = $post;
+		}
+
+		$argomenti_terms = wp_get_object_terms( $singular->ID, 'materia' );
+		return $argomenti_terms;
+	}
+}
+
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array arguomenti
+ */
+if(!function_exists("dsi_get_classi_of_post")) {
+	function dsi_get_classi_of_post( $singular = false ) {
+		global $post;
+
+		if ( ! $singular) {
+			$singular = $post;
+		}
+
+		$argomenti_terms = wp_get_object_terms( $singular->ID, 'classe' );
 		return $argomenti_terms;
 	}
 }

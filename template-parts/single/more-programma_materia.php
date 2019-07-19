@@ -6,7 +6,7 @@ global $post, $related_type;
 if(!$related_type)
     $related_type = "card-vertical-thumb";
 $oldpost = $post;
-$argomenti = dsi_get_argomenti_of_post();
+$argomenti = dsi_get_classi_of_post();
 if(count($argomenti)) {
 	// estraggo gli id
 	$arr_ids = array();
@@ -17,11 +17,11 @@ if(count($argomenti)) {
 	$posts_array = get_posts(
 		array(
 			'posts_per_page' => 6,
-			'post_type'      => array( "post", "events", "circolari" ),
+			'post_type'      => array( "programma_materia",),
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array(
 				array(
-					'taxonomy' => 'category',
+					'taxonomy' => 'classe',
 					'field'    => 'term_id',
 					'terms'    => $arr_ids,
 				)
@@ -37,7 +37,7 @@ if(count($argomenti)) {
 			<div class="row variable-gutters">
 				<div class="col-lg-12">
 
-					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></h3>
+					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?></h3>
 
 					<div class="owl-carousel carousel-theme carousel-large">
 						<?php
