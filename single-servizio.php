@@ -228,13 +228,13 @@ get_header();
 										$c++;
 
 										// recupero i luoghi e le strutture selezionate
-										if(isset($sede["link_schede_luoghi"][0])){
-											$id_schede_luoghi = $sede["link_schede_luoghi"][0];
+										if(isset($sede["link_schede_luoghi"])){
+											$id_schede_luoghi = $sede["link_schede_luoghi"];
 											$luogo=get_post($id_schede_luoghi);
                                         }
 
-										if(isset($sede["link_schede_struttura_organizzativa"][0])) {
-											$id_schede_struttura_organizzativa = $sede["link_schede_struttura_organizzativa"][0];
+										if(isset($sede["link_schede_struttura_organizzativa"])) {
+											$id_schede_struttura_organizzativa = $sede["link_schede_struttura_organizzativa"];
 											$struttura = get_post( $id_schede_struttura_organizzativa );
 										}
 
@@ -243,7 +243,7 @@ get_header();
 	                                        $arrstrutture[ $struttura->post_title ] = get_permalink( $struttura );
 
 	                                        ?>
-                                            <h6><a href="">Sede di <?php echo $struttura->post_title; ?></a></h6>
+                                            <h6><a href="<?php echo get_permalink($struttura); ?>"><?php echo $struttura->post_title; ?></a></h6>
 	                                        <?php get_template_part( "template-parts/luogo/card" ); ?>
 	                                        <?php
                                         }

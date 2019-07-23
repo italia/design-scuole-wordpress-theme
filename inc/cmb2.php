@@ -25,7 +25,7 @@ function dsi_get_user_options( $query_args = false) {
 
 function dsi_get_program_options( $query_args = false) {
 
-	$programs = get_posts("post_type=programma_materia&posts_per_page=-1");
+	$programs = get_posts("post_type=programma_materia&posts_per_page=-1&orderby=title&order=ASC");
 
 	$options = array();
 	if ( $programs ) {
@@ -38,6 +38,34 @@ function dsi_get_program_options( $query_args = false) {
 }
 
 
+function dsi_get_luoghi_options( $query_args = false) {
+
+	$programs = get_posts("post_type=luogo&posts_per_page=-1&orderby=title&order=ASC");
+
+	$options = array();
+	if ( $programs ) {
+		foreach ( $programs as $program ) {
+			$options[ $program->ID ] = $program->post_title;
+		}
+	}
+
+	return $options;
+}
+
+
+function dsi_get_strutture_options( $query_args = false) {
+
+	$programs = get_posts("post_type=struttura&posts_per_page=-1&orderby=title&order=ASC");
+
+	$options = array();
+	if ( $programs ) {
+		foreach ( $programs as $program ) {
+			$options[ $program->ID ] = $program->post_title;
+		}
+	}
+
+	return $options;
+}
 
 function dsi_get_classe_options( $query_args = false) {
 

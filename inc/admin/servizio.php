@@ -120,11 +120,12 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare una sintetica descrizione del Servizio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
-			'maxlength'  => '160'
+			'maxlength'  => '160',
+			'required'    => 'required'
 		),
 	) );
 
@@ -141,7 +142,10 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'esito',
 		'name'        => __( 'A cosa serve *', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa"' , 'design_scuole_italia' ),
-		'type' => 'textarea'
+		'type' => 'textarea',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
 	) );
 
 	$cmb_undercontent->add_field( array(
@@ -234,32 +238,16 @@ function dsi_add_servizi_metaboxes() {
 		'id' => 'link_schede_luoghi',
 		'name'    => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene erogato il servizio', 'design_scuole_italia' ),
 		'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => true, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'luogo',
-			), // override the get_posts args
-		),
+		'type'    => 'select',
+		'options' => dsi_get_luoghi_options(),
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
 		'id' => 'link_schede_struttura_organizzativa',
 		'name'    => __( 'Seleziona la <a href="edit.php?post_type=struttura">struttura organizzativa</a> che si occupa dell\'erogazione del servizio', 'design_scuole_italia' ),
 		'desc' => __( 'Verrà utilizzata per mostrare i riferimenti di contatto della sede. In caso di servizio erogato da più strutture organizzative, crea una sede per ogni luogo/struttura organizzativa. ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => true, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'struttura',
-			), // override the get_posts args
-		),
+		'type'    => 'select',
+		'options' => dsi_get_strutture_options(),
 	) );
 
 	/** fine sedi  */
