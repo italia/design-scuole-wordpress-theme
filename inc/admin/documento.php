@@ -107,8 +107,11 @@ function dsi_add_documento_metaboxes() {
 			'name'       => __('Autore/i ', 'design_scuole_italia' ),
 			'desc' => __( 'Eventuale Lista autori che hanno pubblicato il documento. Es link alla scheda del Dirigente scolastico. Inseriscile <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
 			'id'             => $prefix . 'autori',
-			'type'           => 'multicheck_inline',
+			'type'    => 'pw_multiselect',
 			'options' => dsi_get_user_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
 		)
 	);
 

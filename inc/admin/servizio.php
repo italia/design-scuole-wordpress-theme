@@ -238,7 +238,7 @@ function dsi_add_servizi_metaboxes() {
 		'id' => 'link_schede_struttura_organizzativa',
 		'name'    => __( 'Seleziona la <a href="edit.php?post_type=struttura">struttura organizzativa</a> che si occupa dell\'erogazione del servizio', 'design_scuole_italia' ),
 		'desc' => __( 'Verrà utilizzata per mostrare i riferimenti di contatto della sede. In caso di servizio erogato da più strutture organizzative, crea una sede per ogni luogo/struttura organizzativa. ' , 'design_scuole_italia' ),
-		'type'    => 'select',
+		'type'    => 'pw_select',
 		'options' => dsi_get_strutture_options(),
 	) );
 
@@ -247,7 +247,7 @@ function dsi_add_servizi_metaboxes() {
 		'id' => 'link_schede_luoghi',
 		'name'    => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene erogato il servizio', 'design_scuole_italia' ),
 		'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
-		'type'    => 'select',
+		'type'    => 'pw_select',
 		'options' => dsi_get_luoghi_options(),
 	) );
 

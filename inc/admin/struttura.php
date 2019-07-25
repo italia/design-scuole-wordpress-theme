@@ -158,8 +158,11 @@ function dsi_add_struttura_metaboxes() {
 			'name'       => __('Responsabile ', 'design_scuole_italia' ),
 			'desc' => __( 'Link alla scheda responsabile della struttura. ', 'design_scuole_italia' ),
 			'id' => $prefix . 'responsabile',
-			'type'    => 'multicheck_inline',
+			'type'    => 'pw_multiselect',
 			'options' => dsi_get_user_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
 		)
 	);
 
@@ -169,8 +172,11 @@ function dsi_add_struttura_metaboxes() {
 			'name'       => __('Persone ', 'design_scuole_italia' ),
 			'desc' => __( 'Eventuale lista delle persone che lavorano nella struttura', 'design_scuole_italia' ),
 			'id' => $prefix . 'persone',
-			'type'           => 'multicheck_inline',
+			'type'    => 'pw_multiselect',
 			'options' => dsi_get_user_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
 		)
 	);
 

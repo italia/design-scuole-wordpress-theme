@@ -1,0 +1,9 @@
+.cmb-type-pw-multiselect .select2-selection__choice,
+.cmb-type-pw-multiselect .select2-search--inline {
+	margin-bottom: 0;
+	line-height: inherit;
+}
+
+.cmb-type-pw-multiselect .select2-selection__choice {
+	cursor: move !important;
+}

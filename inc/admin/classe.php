@@ -109,7 +109,7 @@ function dsi_register_classe_metabox() {
 		$cmb_term->add_group_field( $group_field_id, array(
 			'id'               => 'programma',
 			'name'             => __( 'Programma', 'design_scuole_italia' ),
-			'type'             => 'select',
+			'type'             => 'pw_select',
 			'show_option_none' => true,
 			'options'          => dsi_get_program_options(),
 		) );

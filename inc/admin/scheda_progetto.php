@@ -78,8 +78,11 @@ function dsi_add_scheda_progetto_metaboxes() {
 			'name'       => __('Partecipanti ', 'design_scuole_italia' ),
 			'desc' => __( 'lista dei link alle sezioni che hanno partecipato' , 'design_scuole_italia' ),
 			'id'             => $prefix . 'classi',
-			'type'    => 'multicheck_inline',
+			'type'    => 'pw_multiselect',
 			'options' => dsi_get_classe_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
 		)
 	);
 

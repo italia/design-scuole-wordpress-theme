@@ -39,9 +39,11 @@ function dsi_add_articolo_metaboxes() {
 			'id' => $prefix . 'persone',
 			'name'       => __('Persone ', 'design_scuole_italia' ),
 			'desc' => __( 'Link a schede persone dell\'amminsitrazione citate', 'design_scuole_italia' ),
-			'type'    => 'multicheck_inline',
+			'type'    => 'pw_multiselect',
 			'options' => dsi_get_user_options(),
-
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
 		)
 	);
 
