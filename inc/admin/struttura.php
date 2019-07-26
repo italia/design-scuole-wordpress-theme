@@ -147,7 +147,7 @@ function dsi_add_struttura_metaboxes() {
 			'show_thumbnails' => false, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => -1,
 				'post_type'      => 'servizio',
 			), // override the get_posts args
 		),
@@ -193,7 +193,7 @@ function dsi_add_struttura_metaboxes() {
 			'show_thumbnails' => true, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => -1,
 				'post_type'      => 'luogo',
 			), // override the get_posts args
 		),
