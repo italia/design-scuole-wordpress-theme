@@ -41,14 +41,18 @@ function dsi_get_program_options( $query_args = false) {
 }
 
 
-function dsi_get_luoghi_options( $query_args = false) {
-
-	$programs = get_posts("post_type=luogo&posts_per_page=-1&orderby=title&order=ASC");
+function dsi_get_luoghi_options( $parent = false, $addnone=false) {
+	if($parent)
+		$luoghi = get_posts("post_type=luogo&posts_per_page=-1&orderby=title&order=ASC&post_parent=0");
+	else
+		$luoghi = get_posts("post_type=luogo&posts_per_page=-1&orderby=title&order=ASC");
 
 	$options = array();
-	if ( $programs ) {
-		foreach ( $programs as $program ) {
-			$options[ $program->ID ] = $program->post_title;
+	if($addnone)
+		$options[0]=__("No","design_scuole_italia");
+	if ( $luoghi ) {
+		foreach ( $luoghi as $luogo ) {
+			$options[ $luogo->ID ] = $luogo->post_title;
 		}
 	}
 

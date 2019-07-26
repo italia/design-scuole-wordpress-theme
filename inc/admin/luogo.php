@@ -18,7 +18,7 @@ function dsi_register_luogo_post_type() {
 		'label'         => __( 'Luogo', 'design_scuole_italia' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title', 'editor', 'thumbnail' ),
-		'hierarchical'  => false,
+		'hierarchical'  => true,
 		'public'        => true,
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-pressthis',
@@ -28,8 +28,8 @@ function dsi_register_luogo_post_type() {
 
 	/** tipologia luogo **/
 	$labels = array(
-		'name'          => _x( 'Tipologie', 'Post Type General Name', 'design_scuole_italia' ),
-		'singular_name' => _x( 'Tipologia', 'Post Type Singular Name', 'design_scuole_italia' ),
+		'name'          => _x( 'Tipologie Luoghi', 'Post Type General Name', 'design_scuole_italia' ),
+		'singular_name' => _x( 'Tipologia luogo', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'separate_items_with_commas' => __( 'Esprime la struttura di navigazione della sezione luoghi. Es: Palestra / Mensa / Edificio Scolastico/ Biblioteca / Auditorium / Teatro /Laboratorio', 'design_scuole_italia' ),
 		'choose_from_most_used' => "",
 
@@ -105,6 +105,17 @@ function dsi_add_luogo_metaboxes() {
 	) );
 
 
+	// verifico se il luogo ha un parent, in caso recupero da li i dati geo
+
+
+	$cmb_aftercontent_luoghi->add_field( array(
+		'id'         => $prefix . 'childof',
+		'name'       => __( 'Il luogo è all\'interno di un altro luogo', 'design_scuole_italia' ),
+		'desc'       => __( 'Se il luogo è interno ad un altro luogo (es una palestra all\'interno della struttura prinipale) vengono recuperati automaticamente i dati geo', 'design_scuole_italia' ),
+		'type'       => 'select',
+		'options' => dsi_get_luoghi_options(true, true),
+	) );
+
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'indirizzo',
@@ -112,7 +123,8 @@ function dsi_add_luogo_metaboxes() {
 		'desc'       => __( 'Indirizzo del luogo.', 'design_scuole_italia' ),
 		'type'       => 'text',
 		'attributes' => array(
-			'required' => 'required'
+			'data-conditional-id'    => $prefix . 'childof',
+			'data-conditional-value' => '0',
 		),
 	) );
 
@@ -123,7 +135,6 @@ function dsi_add_luogo_metaboxes() {
 		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  .', 'design_scuole_italia' ),
 		'type'       => 'leaflet_map',
 		'attributes' => array(
-//			'tilelayer'           => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
 			'searchbox_position'  => 'topleft', // topright, bottomright, topleft, bottomleft,
 			'search'              => __( 'Digita l\'indirizzo della Sede' , 'design_scuole_italia' ),
 			'not_found'           => __( 'Indirizzo non trovato' , 'design_scuole_italia' ),
@@ -133,7 +144,6 @@ function dsi_add_luogo_metaboxes() {
 			],
 			'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
 			'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
-			'required'    => 'required'
 		)
 	) );
 
@@ -143,7 +153,8 @@ function dsi_add_luogo_metaboxes() {
 		'desc'       => __( 'Codice di avviamento postale del luogo', 'design_scuole_italia' ),
 		'type'       => 'text_small',
 		'attributes' => array(
-			'required' => 'required'
+			'data-conditional-id'    => $prefix . 'childof',
+			'data-conditional-value' => '0',
 		),
 	) );
 
@@ -151,17 +162,25 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'mail',
-		'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
+		'name'       => __( 'Riferimento mail *', 'design_scuole_italia' ),
 		'desc'       => __( 'Indirizzo di posta elettronica del luogo. ', 'design_scuole_italia' ),
 		'type'       => 'text_email',
+		'attributes' => array(
+			'data-conditional-id'    => $prefix . 'childof',
+			'data-conditional-value' => '0',
+		),
 	) );
 
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'telefono',
-		'name'       => __( 'Riferimento telefonico', 'design_scuole_italia' ),
+		'name'       => __( 'Riferimento telefonico *', 'design_scuole_italia' ),
 		'desc'       => __( 'Telefono del luogo. ', 'design_scuole_italia' ),
 		'type'       => 'text',
+		'attributes' => array(
+			'data-conditional-id'    => $prefix . 'childof',
+			'data-conditional-value' => '0',
+		),
 	) );
 
 
@@ -200,7 +219,7 @@ function dsi_add_luogo_metaboxes() {
 			'add_button'     => __( 'Aggiungi', 'design_scuole_italia' ),
 			'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
 			'sortable'       => true,
-			 'closed'      => false, // true to have the groups closed by default
+			'closed'      => false, // true to have the groups closed by default
 			//'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
 		),
 	) );
@@ -305,22 +324,16 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'anno_costruzione',
-		'name'       => __( 'Anno di Costruzione *', 'design_scuole_italia' ),
+		'name'       => __( 'Anno di Costruzione ', 'design_scuole_italia' ),
 		'desc'       => __( 'Anno in cui e\' stato costruito l\'edificio', 'design_scuole_italia' ),
-		'type'       => 'text_small',
-		'attributes' => array(
-			'required' => 'required'
-		),
+		'type'       => 'text_small'
 	) );
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'numero_piani',
-		'name'       => __( 'Numero di Piani *', 'design_scuole_italia' ),
+		'name'       => __( 'Numero di Piani ', 'design_scuole_italia' ),
 		'desc'       => __( 'Numero di piani in cui e\' articolato l\'edificio', 'design_scuole_italia' ),
-		'type'       => 'text_small',
-		'attributes' => array(
-			'required' => 'required'
-		),
+		'type'       => 'text_small'
 	) );
 
 
@@ -439,4 +452,48 @@ add_action( 'edit_form_after_title', 'sdi_luogo_add_content_before_editor', 100 
 function sdi_luogo_add_content_before_editor($post) {
 	if($post->post_type == "luogo")
 		_e('<h1>Descrizione del luogo</h1>', 'design_scuole_italia' );
+}
+
+
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_luogo_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_luogo_admin_script', 11 );
+
+function dsi_luogo_admin_script() {
+	global $post_type;
+	if( 'luogo' == $post_type )
+		wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/luogo.js' );
+}
+
+/**
+ * salvo il parent cmb2
+ */
+
+add_action( 'save_post_luogo', 'dsi_save_luogo' );
+function dsi_save_luogo( $post_id) {
+	$post_type = get_post_type($post_id);
+	// If this isn't a 'book' post, don't update it.
+	if ( "luogo" != $post_type ) return;
+	//Check it's not an auto save routine
+	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+		return;
+
+	//Perform permission checks! For example:
+	if ( !current_user_can('edit_post', $post_id) )
+		return;
+
+
+	$parentid = dsi_get_meta("childof", "_dsi_luogo_", $post_id);
+	if($parentid == "")
+		$parentid = 0;
+	remove_action( 'save_post_luogo','dsi_save_luogo' );
+	wp_update_post(
+		array(
+			'ID'          => $post_id,
+			'post_parent' => $parentid
+		)
+	);
+	add_action( 'save_post_luogo', 'dsi_save_luogo' );
 }

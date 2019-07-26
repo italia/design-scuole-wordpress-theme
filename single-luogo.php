@@ -26,16 +26,29 @@ get_header();
 			$gallery = dsi_get_meta("gallery");
 			$video = dsi_get_meta("video");
 			$link_strutture = dsi_get_meta("link_strutture");
-			$indirizzo = dsi_get_meta("indirizzo");
-			$posizione_gps = dsi_get_meta("posizione_gps");
-			$cap = dsi_get_meta("cap");
 			$orario_pubblico = dsi_get_meta("orario_pubblico");
-			$mail = dsi_get_meta("mail");
 			$altre_info = dsi_get_meta("info");
 			$servizi_presenti = dsi_get_meta("servizi_presenti");
 			$modalita_accesso = dsi_get_meta("modalita_accesso");
 			$gestito_da_nome  = dsi_get_meta("gestito_da_nome");
 			$gestito_da_link  = dsi_get_meta("gestito_da_link");
+
+			if($post->post_parent == 0){
+				$indirizzo = dsi_get_meta("indirizzo");
+				$posizione_gps = dsi_get_meta("posizione_gps");
+				$cap = dsi_get_meta("cap");
+				$mail = dsi_get_meta("mail");
+				$telefono = dsi_get_meta("telefono");
+			}else{
+				$indirizzo = dsi_get_meta("indirizzo", "_dsi_luogo_", $post->post_parent);
+				$posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $post->post_parent);
+				$cap = dsi_get_meta("cap", "_dsi_luogo_", $post->post_parent);
+				$mail = dsi_get_meta("mail", "_dsi_luogo_", $post->post_parent);
+				$telefono = dsi_get_meta("telefono", "_dsi_luogo_", $post->post_parent);
+            }
+
+
+
 			?>
 			<section class="section bg-white article-title">
 				<?php if(has_post_thumbnail($post)){ ?>
