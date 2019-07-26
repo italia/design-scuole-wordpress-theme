@@ -58,3 +58,11 @@
     border:0px;
 }
 
+/* struttura org */
+.cmb2-id--dsi-struttura-link-schede-servizi .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id--dsi-struttura-sedi .cmb2-attached-posts-search-button{
+    display:none !important;
+}
