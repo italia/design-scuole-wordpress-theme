@@ -35,3 +35,7 @@ Text Domain: design_scuole_italia
     word-wrap:break-word;
     max-width:70%
 }
+
+.article-wrapper li {
+    font-family: Lora, Georgia, serif;
+}
