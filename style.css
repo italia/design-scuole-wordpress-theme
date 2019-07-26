@@ -30,3 +30,8 @@ Text Domain: design_scuole_italia
     color: white;
     background-color: #455b71; }
 
+
+.location-content{
+    word-wrap:break-word;
+    max-width:70%
+}
