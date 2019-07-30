@@ -321,17 +321,15 @@ function dsi_get_post_types_grouped($type = ""){
 	if($type == "")
 		$type = "any";
 	if($type === "school")
-		$post_types = array("documento", "luogo", "programma_materia", "struttura", "page");
+		$post_types = array("documento", "luogo", "struttura", "page");
 	else if($type === "news")
 		$post_types = array("evento", "post");
 	else if($type === "education")
-		$post_types = array("programma", "scheda_didattica", "scheda_progetto");
+		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
 		$post_types = array("servizio");
-	/*else if($type === "class")
-		$post_types = array("luogo", "programma_materia", "programma", "scheda_didattica", "scheda_progetto");*/
 	else
-		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
 	return $post_types;
 

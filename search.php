@@ -9,65 +9,70 @@
 
 get_header();
 ?>
-    <main id="main-container" class="main-container greendark">
-
+    <main id="main-container" class="main-container petrol">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <section class="section bg-white">
-            <div class="container ">
 
+        <section class="section bg-white py-2 py-lg-3 py-xl-5">
+            <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col-lg-12">
-
-
-                        <header class="page-header">
-                            <h1 class="page-title">
+                    <div class="col-lg-5 col-md-8 offset-lg-2">
+                        <div class="section-title">
+                            <p><?php _e("Risultati della ricerca per:", "design_scuole_italia"); ?></p>
+                            <h2 class="mb-0"><?php echo get_search_query() ?></h2>
+                            <p>
 								<?php
-								/* translators: %s: search query. */
-								printf( esc_html__( 'Risultati della ricerca per : %s', 'design_scuole_italia' ), '<span>' . get_search_query() . '</span>' );
-
-								if(isset($_GET["type"]) && $_GET["type"] != ""){
-									if($_GET["type"] == "any")
-										$str = __("su <span>tutto il sito</span>","design_scuole_italia");
-									else if($_GET["type"] == "school")
-										$str = __("nel <span>materiale relativo alla scuola</span>","design_scuole_italia");
-									else if($_GET["type"] == "news")
-										$str = __("in <span>notizie ed eventi</span>","design_scuole_italia");
-									else if($_GET["type"] == "service")
-										$str = __("nei <span>servizi</span>","design_scuole_italia");
-									else if($_GET["type"] == "education")
-										$str = __("nella <span>didattica</span>","design_scuole_italia");
-									else if($_GET["type"] == "class")
-										$str = __("nelle <span>materiale relativo alle classi</span>","design_scuole_italia");
-
-									echo " ".$str;
+                                $str = "";
+								if(isset($_GET["type"]) && $_GET["type"] != "") {
+									if ( $_GET["type"] == "any" ) {
+										$str = __( "su <span>tutto il sito</span>", "design_scuole_italia" );
+									} else if ( $_GET["type"] == "school" ) {
+										$str = __( "nel <span>materiale relativo alla scuola</span>", "design_scuole_italia" );
+									} else if ( $_GET["type"] == "news" ) {
+										$str = __( "in <span>notizie ed eventi</span>", "design_scuole_italia" );
+									} else if ( $_GET["type"] == "service" ) {
+										$str = __( "nei <span>servizi</span>", "design_scuole_italia" );
+									} else if ( $_GET["type"] == "education" ) {
+										$str = __( "nella <span>didattica</span>", "design_scuole_italia" );
+									} else if ( $_GET["type"] == "class" ) {
+										$str = __( "nelle <span>materiale relativo alle classi</span>", "design_scuole_italia" );
+									}
 								}
+								echo " ".$str;
 								?>
-                            </h1>
-                        </header><!-- .page-header -->
-                    </div>
-                </div>
+                            </p>
+                        </div><!-- /title-section -->
+                    </div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
+
+                    <div class="col-lg-3 col-md-4 offset-lg-1">
+						<?php get_template_part("template-parts/single/actions"); ?>
+                    </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section><!-- /section -->
+
+
+
+        <section class="section bg-white border-top border-bottom d-block d-lg-none">
+            <div class="container d-flex justify-content-between align-items-center py-3">
+                <h3 class="h6 text-uppercase mb-0"><strong>Filtri</strong></h3>
+                <a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#">
+                    <svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
+                </a>
             </div>
         </section>
-
-        <section class="section bg-white pt-5">
-            <div class="container ">
-
-                <div class="row variable-gutters">
-                    <div class="col-lg-12 row">
+        <section class="section bg-gray-light">
+            <div class="container">
+                <div class="row variable-gutters sticky-sidebar-container">
+                    <div class="col-lg-3 bg-white bg-white-left">
+	                    <?php get_template_part("template-parts/search/filters"); ?>
+                    </div>
+                    <div class="col-lg-7 offset-lg-1 pt84">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :
 								the_post();
-
-								/*
-								 * Include the Post-Type-specific template for the content.
-								 * If you want to override this in a child theme, then include a file
-								 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-								 */
-								echo "<div class=\"col-lg-6 mb-4\">";
-								get_template_part( 'template-parts/search/item', get_post_type() );
-								echo "</div>";
+								get_template_part( 'template-parts/list/article', get_post_type() );
 
 							endwhile;
 							?>
@@ -81,9 +86,9 @@ get_header();
 
 						endif;
 						?>
-                    </div>
-                </div>
-            </div>
+                    </div><!-- /col-lg-8 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
         </section>
     </main>
 

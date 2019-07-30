@@ -194,17 +194,20 @@ add_action( 'admin_enqueue_scripts', 'dsi_admin_css_load' );
  */
 function dsi_search_filters( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search ) {
-		$allowed_types = array( "any", "school", "news", "education", "service", "class" );
+		$allowed_types = array( "any", "school", "news", "education", "service" );
 		if ( isset( $_GET["type"] ) && in_array( $_GET["type"], $allowed_types ) ) {
 			$type = $_GET["type"];
-		} else {
-			$type = "any";
+			$post_types = dsi_get_post_types_grouped( $type );
+			$query->set( 'post_type', $post_types );
+
 		}
 
-		// associazione tra types e post_type
-		$post_types = dsi_get_post_types_grouped( $type );
+		if ( isset( $_GET["post_types"] ) ) {
+			$query->set( 'post_type', $_GET["post_types"] );
 
-		$query->set( 'post_type', $post_types );
+		}
+
+			// associazione tra types e post_type
 
 	}
 }

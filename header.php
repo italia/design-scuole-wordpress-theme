@@ -47,6 +47,12 @@ $theme_locations = get_nav_menu_locations();
     </div>
 </nav>
 <!-- End Right menu element-->
+<?php
+
+if(is_search())
+    get_template_part("template-parts/header/search-filters");
+?>
+
 
 <?php get_template_part("template-parts/header/slimheader"); ?>
 
