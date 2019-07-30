@@ -210,3 +210,9 @@ function dsi_search_filters( $query ) {
 }
 
 add_action( 'pre_get_posts', 'dsi_search_filters' );
+
+
+function dsi_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'dsi_excerpt_length', 999 );

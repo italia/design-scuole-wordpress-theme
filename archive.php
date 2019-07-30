@@ -9,33 +9,30 @@
 
 get_header();
 ?>
-    <main id="main-container" class="main-container">
+    <main id="main-container" class="main-container petrol">
 
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <section class="section bg-white">
+        <section class="section bg-white py-3 py-lg-3 py-xl-4 pb-xl-5">
             <div class="container ">
                 <div class="row variable-gutters">
-                    <div class="col-lg-12">
-                                <?php if ( have_posts() ) : ?>
+                    <div class="col-lg-5 col-md-8 offset-lg-2">
+                        <div class="section-title">
+                            <?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
+                        </div><!-- /title-section -->
+                    </div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
+                    <div class="col-lg-3 col-md-4 offset-lg-1">
+	                    <?php get_template_part("template-parts/single/actions"); ?>
+                    </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section><!-- /section -->
 
-                        <header class="page-header">
-							<?php
-							the_archive_title( '<h1 class="page-title">', '</h1>' );
-							the_archive_description( '<div class="archive-description">', '</div>' );
-							?>
-                        </header><!-- .page-header -->
-                        </header><!-- .page-header -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section bg-white pt-5">
-            <div class="container ">
-
-                <div class="row variable-gutters">
-                    <div class="col-lg-12 row">
+        <section class="section bg-gray-light">
+            <div class="container">
+                <div class="row variable-gutters d-flex justify-content-center">
+                    <div class="col-lg-8 pt84">
 						<?php
+						if ( have_posts() ) :
 						/* Start the Loop */
 						while ( have_posts() ) :
 							the_post();
@@ -45,9 +42,7 @@ get_header();
 							 * If you want to override this in a child theme, then include a file
 							 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 							 */
-							echo "<div class=\"col-lg-6 mb-4\">";
-							get_template_part( 'template-parts/search/item', get_post_type() );
-							echo "</div>";
+							get_template_part( 'template-parts/list/article', get_post_type() );
 
 						endwhile;
 						?>

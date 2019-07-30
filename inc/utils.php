@@ -39,34 +39,36 @@ if(!function_exists("dsi_get_meta")){
 		if($post_id == "")
 			$post_id = get_the_ID();
 
+		$post_type = get_post_type($post_id);
+
 		if($prefix != "")
 			return get_post_meta( $post_id, $prefix.$key, true );
 
-		if(is_singular("servizio")){
+		if(is_singular("servizio") || (isset($post_type) && $post_type == "servizio")){
 			$prefix = '_dsi_servizio_';
 			return get_post_meta( $post_id, $prefix.$key, true );
-		}else if (is_singular("luogo")) {
+		}else if (is_singular("luogo")  || (isset($post_type) && $post_type == "luogo")) {
 			$prefix = '_dsi_luogo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("struttura")) {
+		}else if (is_singular("struttura")  || (isset($post_type) && $post_type == "struttura")) {
 			$prefix = '_dsi_struttura_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("evento")) {
+		}else if (is_singular("evento")  || (isset($post_type) && $post_type == "evento")) {
 			$prefix = '_dsi_evento_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("documento")) {
+		}else if (is_singular("documento")  || (isset($post_type) && $post_type == "documento")) {
 			$prefix = '_dsi_documento_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("post")) {
+		}else if (is_singular("post")  || (isset($post_type) && $post_type == "post")) {
 			$prefix = '_dsi_articolo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("programma_materia")) {
+		}else if (is_singular("programma_materia")  || (isset($post_type) && $post_type == "programma_materia")) {
 			$prefix = '_dsi_materia_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("scheda_progetto")) {
+		}else if (is_singular("scheda_progetto")  || (isset($post_type) && $post_type == "scheda_progetto")) {
 			$prefix = '_dsi_scheda_progetto_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("scheda_didattica")) {
+		}else if (is_singular("scheda_didattica")  || (isset($post_type) && $post_type == "scheda_didattica")) {
 			$prefix = '_dsi_scheda_didattica_';
 			return get_post_meta( $post_id, $prefix . $key, true );
 		}
@@ -334,6 +336,67 @@ function dsi_get_post_types_grouped($type = ""){
 	return $post_types;
 
 }
+
+
+/**
+ * @param $post_type
+ *
+ * ritorna il gruppo di appartenenza del post type
+ * @return string
+ *
+ */
+function dsi_get_post_types_group($post_type){
+	$group = "news";
+	if(in_array($post_type, array("documento", "luogo", "programma_materia", "struttura", "page")))
+		$group = "school";
+	else if(in_array($post_type, array("programma", "scheda_didattica", "scheda_progetto")))
+		$group = "education";
+	else if(in_array($post_type, array("servizio")))
+		$group = "service";
+
+
+	return $group;
+}
+
+/**
+ * @param $post_type
+ *
+ * ritorna il suffisso della classe relativa al colore
+ * @return string
+ */
+function dsi_get_post_types_color_class($post_type) {
+	$class = "greendark";
+	$group = dsi_get_post_types_group($post_type);
+	if($group == "school")
+		$class = "redbrown";
+	else if($group == "education")
+		$class = "bluelectric";
+	else if($group == "service")
+		$class = "purplelight";
+	return $class;
+}
+
+/**
+ * @param $post_type
+ *
+ * ritorna il nome dell'svg utilizzato per la preview del post type
+ * @return string
+ */
+function dsi_get_post_types_icon_class($post_type) {
+	$icon = "newspaper";
+	$group = dsi_get_post_types_group($post_type);
+	if($group == "school")
+		$icon = "school-building";
+	else if($group == "education")
+		$icon = "school";
+	else if($group == "service")
+		$icon = "hand-point-up";
+
+	if($post_type == "documento")
+		$icon = "generic-document";
+		return $icon;
+}
+
 
 /**
  *
