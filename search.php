@@ -17,8 +17,16 @@ get_header();
                 <div class="row variable-gutters">
                     <div class="col-lg-5 col-md-8 offset-lg-2">
                         <div class="section-title">
-                            <p><?php _e("Risultati della ricerca per:", "design_scuole_italia"); ?></p>
-                            <h2 class="mb-0"><?php echo get_search_query() ?></h2>
+                            <p><?php
+                                if(get_search_query() != "")
+                                    _e("Risultati della ricerca per:", "design_scuole_italia");
+                                ?></p>
+                            <h2 class="mb-0"><?php if(get_search_query() != "")
+                                                        echo get_search_query();
+                                                    else
+                                                        _e("Ricerca generica", "design-scuole-italia");
+
+                            ?></h2>
                             <p>
 								<?php
                                 $str = "";
@@ -36,7 +44,9 @@ get_header();
 									} else if ( $_GET["type"] == "class" ) {
 										$str = __( "nelle <span>materiale relativo alle classi</span>", "design_scuole_italia" );
 									}
-								}
+								}else{
+									$str = __( "in base ai filtri selezionati", "design_scuole_italia" );
+                                }
 								echo " ".$str;
 								?>
                             </p>

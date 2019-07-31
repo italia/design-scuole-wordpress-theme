@@ -206,6 +206,9 @@ function dsi_search_filters( $query ) {
 			$query->set( 'post_type', $_GET["post_types"] );
 
 		}
+		if ( isset( $_GET["post_terms"] ) ) {
+			$query->set( 'category__in', $_GET["post_terms"]);
+		}
 
 			// associazione tra types e post_type
 
