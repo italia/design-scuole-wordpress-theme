@@ -317,7 +317,7 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
  *
  * @return array
  */
-function dsi_get_post_types_grouped($type = ""){
+function dsi_get_post_types_grouped($type = "", $category = false){
 	if($type == "")
 		$type = "any";
 	if($type === "school")
@@ -331,6 +331,13 @@ function dsi_get_post_types_grouped($type = ""){
 	else
 		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
+	// rimuovo post types che non hanno la categoria
+	if($category){
+		if (($key = array_search("page", $post_types)) !== false) {
+			unset($post_types[$key]);
+		}
+
+	}
 	return $post_types;
 
 }
