@@ -14,7 +14,7 @@ if ( isset( $_GET["type"] ) && in_array( $_GET["type"], $allowed_types ) ) {
 	$post_types = dsi_get_post_types_grouped( $type );
 
 } else {
-    if(isset( $_GET["type"] ))
+    if(isset( $_GET["post_types"] ))
     	$post_types = $_GET["post_types"];
     else
 	    $post_types = array();
