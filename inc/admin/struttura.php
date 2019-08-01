@@ -197,6 +197,27 @@ function dsi_add_struttura_metaboxes() {
 	);
 
 
+	$cmb_undercontent->add_field( array(
+			'name'       => __('Persone ', 'design_scuole_italia' ),
+			'desc' => __( 'Eventuale lista delle persone che lavorano nella struttura', 'design_scuole_italia' ),
+			'id' => $prefix . 'persone',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_user_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+			),
+		)
+	);
+
+	$cmb_undercontent->add_field( array(
+			'name'       => __('Altri Componenti ', 'design_scuole_italia' ),
+			'desc' => __( 'Persone che non fanno parte del personale scolastico, separate da virgola', 'design_scuole_italia' ),
+			'id' => $prefix . 'altri_componenti',
+			'type'    => 'text',
+		)
+	);
+
+
 
 
 	$cmb_undercontent->add_field( array(

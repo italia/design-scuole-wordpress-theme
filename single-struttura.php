@@ -24,6 +24,9 @@ get_header();
 
 			$responsabile = dsi_get_meta("responsabile");
 			$persone = dsi_get_meta("persone");
+			$altri_componenti = dsi_get_meta("altri_componenti");
+
+
 			$sedi = dsi_get_meta("sedi");
 			$altre_info = dsi_get_meta("altre_info");
 			$telefono = dsi_get_meta("telefono");
@@ -68,7 +71,7 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Cosa fa", "design_scuole_italia"); ?>"><?php _e("Cosa fa", "design_scuole_italia"); ?></a>
                                         </li>
-	                                    <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0)){ ?>
+	                                    <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){ ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione", "design_scuole_italia"); ?>"><?php _e("Organizzazione", "design_scuole_italia"); ?></a>
                                         </li>
@@ -143,7 +146,7 @@ get_header();
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->
 								<?php } ?>
-                                <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0)){ ?>
+                                <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){ ?>
                                 <h4 id="art-par-organizzazione"><?php _e("Organizzazione", "design_scuole_italia"); ?></h4>
                                 <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
                                 <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
@@ -183,6 +186,12 @@ get_header();
 	                                ?>
                                 </div><!-- /card-deck -->
 								<?php } ?>
+
+	                                <?php if($altri_componenti != ""){ ?>
+                                        <h6><?php _e("Componenti esterni", "design_scuole_italia"); ?></h6>
+                                        <p><small><?php echo $altri_componenti; ?></small></p>
+	                                <?php } ?>
+
                                 <?php } ?>
                                 <?php if(is_array($sedi) && count($sedi)>0) {
                                     ?>
