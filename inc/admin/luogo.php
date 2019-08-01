@@ -1,6 +1,6 @@
 <?php
 /**
- * Definisce post type e tassonomie relative alla struttura organizzativa
+ * Definisce post type e tassonomie relative al luogo
  */
 add_action( 'init', 'dsi_register_luogo_post_type', 0 );
 function dsi_register_luogo_post_type() {
@@ -46,8 +46,6 @@ function dsi_register_luogo_post_type() {
 	);
 
 	register_taxonomy( 'luoghi-della-scuola', array( 'luogo'), $args );
-
-
 }
 
 
@@ -497,3 +495,7 @@ function dsi_save_luogo( $post_id) {
 	);
 	add_action( 'save_post_luogo', 'dsi_save_luogo' );
 }
+
+
+// relazione bidirezionale struttura / luoghi
+new dsi_bidirectional_cmb2("_dsi_luogo_", "luogo", "link_strutture", "box_elementi_dati", "_dsi_struttura_sedi");

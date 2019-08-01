@@ -276,4 +276,8 @@ function sdi_struttura_add_content_before_editor($post) {
 		_e('<h1>Cosa fa </h1> Elenco/descrizione dei compiti assegnati alla struttura', 'design_scuole_italia' );
 }
 
+// relazione bidirezionale struttura / progetti
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_progetti", "box_elementi_struttura", "_dsi_scheda_progetto_link_strutture");
+
+// relazione bidirezionale struttura / luoghi
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "sedi", "box_elementi_struttura", "_dsi_luogo_link_strutture");
