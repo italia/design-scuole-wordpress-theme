@@ -39,3 +39,7 @@ Text Domain: design_scuole_italia
 .article-wrapper li {
     font-family: Lora, Georgia, serif;
 }
+
+.single .article-wrapper>p>a{
+    text-decoration:underline;
+}
