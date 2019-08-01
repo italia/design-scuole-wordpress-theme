@@ -35,8 +35,6 @@ function dsi_register_scheda_progetto_post_type() {
  */
 add_action( 'cmb2_init', 'dsi_add_scheda_progetto_metaboxes' );
 function dsi_add_scheda_progetto_metaboxes() {
-
-	$prefix = '_dsi_scheda_progetto_';
 	$prefix = '_dsi_scheda_progetto_';
 
 
@@ -91,7 +89,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 
 
 	$cmb_undercontent = new_cmb2_box( array(
-		'id'           => $prefix . 'box_sottoilcontent',
+		'id'           => $prefix . 'box_elementi_struttura',
 		'title' =>  __( 'Luogo', 'design_scuole_italia' ),
 		'object_types' => array( 'scheda_progetto' ),
 		'context'      => 'normal',
@@ -167,6 +165,21 @@ function dsi_add_scheda_progetto_metaboxes() {
 	) );
 
 
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'link_strutture',
+		'name'    => __( 'Strutture', 'design_scuole_italia' ),
+		'before' => __( '<p>Relazione con le strutture che erogano il progetto. </p>' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => -1,
+				'post_type'      => 'struttura',
+			), // override the get_posts args
+		),
+	) );
 
 	$cmb_side = new_cmb2_box( array(
 		'id'           => $prefix . 'box_side',
@@ -217,3 +230,6 @@ function sdi_scheda_progetto_add_content_before_editor($post) {
 	if($post->post_type == "scheda_progetto")
 		_e('<h1>Risultati</h1><p>Ampio testo descrittivo delle attività svolte nel progetto, può includere una fotogalleria di immagini e/o include a un video di youtube</p>', 'design_scuole_italia' );
 }
+
+
+new dsi_bidirectional_cmb2("_dsi_scheda_progetto_", "scheda_progetto", "link_strutture", "box_elementi_struttura", "_dsi_struttura_link_schede_progetti");

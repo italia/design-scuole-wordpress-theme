@@ -101,5 +101,109 @@ foreach (glob(get_template_directory() ."/inc/admin/*.php") as $filename)
 	require $filename;
 }
 
+/**
+ * Rende i campi cmb2 bidirezionali
+ * @param $type_from
+ * @param $field_from
+ * @param $field_to
+ * @param $metabox_from
+ */
 
-//require "vendor/CMB2/example-functions.php";
+/**
+ * bidirectional relation
+ */
+
+class dsi_bidirectional_cmb2 {
+	private $prefix;
+	private $post_type_from;
+	private $post_field_from;
+	private $box_from;
+	private $post_field_to;
+
+	public function __construct ($prefix, $post_type_from, $post_field_from, $box_from, $post_field_to) {
+
+		$this->prefix = $prefix;
+		$this->post_type_from = $post_type_from;
+		$this->post_field_from = $prefix.$post_field_from;
+		$this->box_from = $prefix.$box_from;
+		$this->post_field_to = $post_field_to;
+
+		add_action( 'pre_post_update', array(&$this, 'get_old_values') );
+		add_action( 'before_delete_post', array(&$this,'posts_delete') );
+		add_action( 'cmb2_save_field_'.$this->post_field_from, array(&$this,'posts_bidirectional'), 10, 3 );
+	}
+
+	public function get_old_values( $post_ID ) {
+		// check if post type is not a 'revision'. Otherwise the hook fires more than once.
+		if ( $this->post_type_from === get_post_type( $post_ID ) ) {
+			$old_values = get_post_meta( $post_ID, $this->post_field_from, true );
+			// Retrieve a CMB2 instance
+			$cmb = cmb2_get_metabox( $this->box_from );
+			//$old_values = $cmb->get_field( '_cmb2_attached_posts_ids' )->escaped_value();
+			$cmb->update_field_property($this->post_field_from, 'old_values', $old_values );
+		}
+	}
+
+	public function posts_delete( $post_ID ) {
+		if ( ! $unbind_posts = get_post_meta( $post_ID, $this->post_field_from, true ) ) {
+			return;
+		}
+		foreach ( $unbind_posts as $value => $id ) {
+			$post_values = get_post_meta( $id, $this->post_field_from, true );
+			$pos = array_search( $post_ID, $post_values );
+			unset( $post_values[ $pos ] );
+			update_post_meta( $id, $this->post_field_from, $post_values );
+		}
+	}
+
+
+	public function posts_bidirectional( $updated, $action, $field ) {
+		if ( ! $updated ) {
+			return;
+		}
+		// getting old values
+		$old_values = $field->args['old_values'];
+		// getting current post id
+		$object_id = $field->object_id;
+		// getting meta key
+		$meta_key = $this->post_field_from;
+		$meta_key_dest = $this->post_field_to;
+
+		// getting new values from the Attached Posts field
+		//$related_posts = $field->escaped_value();
+		$related_posts = get_post_meta( $object_id, $meta_key, true );
+		// update meta field for each selected post with current Post ID
+		foreach ( (array) $related_posts as $post => $id ) {
+			$field_ids = get_post_meta( $id, $meta_key_dest, true );
+			if($field_ids == "")
+				$field_ids = array();
+			if ( is_array($field_ids) && in_array( $object_id ,$field_ids ) ) {
+				continue;
+			} else {
+				$field_ids[] = $object_id;
+			}
+			update_post_meta( $id, $meta_key_dest, $field_ids );
+
+		}
+		// deleting removed relationships
+		$unbind_posts = array();
+
+		if ( ! empty( $related_posts ) && ! empty( $old_values ) ) {
+			$unbind_posts = array_diff( $old_values, $related_posts );
+		} elseif ( ! empty( $old_values ) ) {
+			$unbind_posts = $old_values;
+		}
+
+		foreach ( (array) $unbind_posts as $value => $post_id ) {
+			// check if there is no meta field by some reason
+			if ( ! $post_values = get_post_meta( $post_id, $meta_key_dest, true ) ) {
+				continue;
+			}
+
+			$pos = array_search( $object_id, $post_values );
+			unset( $post_values[ $pos ] );
+			update_post_meta( $post_id, $meta_key_dest, $post_values );
+		}
+	}
+}
+

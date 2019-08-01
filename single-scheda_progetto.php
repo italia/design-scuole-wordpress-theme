@@ -6,12 +6,12 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post, $autore, $luogo, $c;
+global $post, $autore, $luogo, $c, $struttura;
 get_header();
 
 $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
-
+$link_strutture = dsi_get_meta("link_strutture");
 
 ?>
     <main id="main-container" class="main-container bluelectric">
@@ -40,12 +40,21 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 								global $badgeclass;
 								$badgeclass = "badge-outline-bluelectric";
 								get_template_part("template-parts/common/badges-argomenti");
-								?>
+                                ?>
                                 <aside class="badges-wrapper badges-main mt-0">
-                                    <h4><?php _e("Insegnante", "design_scuole_italia"); ?></h4>
+                                    <h4><?php _e( "Responsabile", "design_scuole_italia" ); ?></h4>
                                     <div class="card card-avatar card-comments mt-3">
                                         <div class="card-body p-0">
-				                            <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                            <?php
+                                            if(!is_array($link_strutture)) {
+                                                get_template_part( "template-parts/autore/card", "insegnante" );
+                                            }else{
+                                                    foreach ($link_strutture as $idstruttura){
+                                                        $struttura = get_post($idstruttura);
+                                                        get_template_part("template-parts/struttura/card", "header");
+                                                    }
+                                            }
+                                                ?>
                                         </div><!-- /card-body -->
                                     </div><!-- /card card-avatar -->
                                 </aside>

@@ -6,7 +6,7 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post, $servizio, $autore, $luogo, $c;
+global $post, $servizio, $progetto, $autore, $luogo, $c;
 get_header();
 ?>
 
@@ -20,6 +20,8 @@ get_header();
 			$descrizione = dsi_get_meta("descrizione");
 			$didattica = dsi_get_meta("didattica");
 			$link_schede_servizi = dsi_get_meta("link_schede_servizi");
+			$link_schede_progetti = dsi_get_meta("link_schede_progetti");
+
 			$responsabile = dsi_get_meta("responsabile");
 			$persone = dsi_get_meta("persone");
 			$sedi = dsi_get_meta("sedi");
@@ -130,6 +132,17 @@ get_header();
                                     ?>
                                 </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
+								<?php if($link_schede_progetti){ ?>
+                                    <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
+                                    <div class="card-deck card-deck-spaced mb-4">
+										<?php
+										foreach ($link_schede_progetti as $idprogetto){
+											$progetto = get_post($idprogetto);
+											get_template_part("template-parts/progetto/card");
+										}
+										?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+								<?php } ?>
                                 <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0)){ ?>
                                 <h4 id="art-par-organizzazione"><?php _e("Organizzazione", "design_scuole_italia"); ?></h4>
                                 <?php if(is_array($responsabile) && count($responsabile)>0){ ?>

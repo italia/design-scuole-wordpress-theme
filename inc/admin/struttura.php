@@ -153,6 +153,22 @@ function dsi_add_struttura_metaboxes() {
 		),
 	) );
 
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'link_schede_progetti',
+		'name'    => __( 'Progetti ', 'design_scuole_italia' ),
+		'before' => __( '<p>Link alle schede progetti gestite dalla struttura. </p>' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => -1,
+				'post_type'      => 'scheda_progetto',
+			), // override the get_posts args
+		),
+	) );
+
 
 	$cmb_undercontent->add_field( array(
 			'name'       => __('Responsabile ', 'design_scuole_italia' ),
@@ -260,4 +276,4 @@ function sdi_struttura_add_content_before_editor($post) {
 		_e('<h1>Cosa fa </h1> Elenco/descrizione dei compiti assegnati alla struttura', 'design_scuole_italia' );
 }
 
-
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_progetti", "box_elementi_struttura", "_dsi_scheda_progetto_link_strutture");

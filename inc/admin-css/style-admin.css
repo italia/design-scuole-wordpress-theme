@@ -63,6 +63,10 @@
     display:none !important;
 }
 
+.cmb2-id--dsi-struttura-link-schede-progetti .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
 .cmb2-id--dsi-struttura-sedi .cmb2-attached-posts-search-button{
     display:none !important;
 }
