@@ -326,22 +326,15 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_struttura_organizzativa',
-		'name'    => __( 'Organizzato da', 'design_scuole_italia' ),
+		'name'    => __( 'Organizzato da *', 'design_scuole_italia' ),
 		'description' => __( 'Se è organizzato dalla scuola, card della struttura organizzativa responsabile (es. Segreteria , oppure Presidenza) ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => false, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => array("struttura"),
-			), // override the get_posts args
-		),
+		'type'    => 'pw_select',
+		'options' => dsi_get_strutture_options(),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix.'organizzato_da_scuola',
 			'data-conditional-value'  => "si",
 		),
+
 	) );
 
 
