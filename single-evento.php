@@ -40,7 +40,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 								<?php get_template_part("template-parts/common/badges-argomenti"); ?>
 								<?php
 								$link_schede_notizia = dsi_get_meta("link_schede_notizia");
-								if(count($link_schede_notizia)){
+								if(is_array($link_schede_notizia) && count($link_schede_notizia) > 0){
 									foreach ($link_schede_notizia as $id_notizia){
 										$notizia = get_post($id_notizia);
 										?>
@@ -139,17 +139,19 @@ $file_documenti = dsi_get_meta("file_documenti");
                                 <div class="card-deck card-deck-spaced mb-2">
 									<?php
 									$persone_amministrazione = dsi_get_meta("persone_amministrazione");
-									foreach ($persone_amministrazione as $idutente) {
-										$autore = get_user_by("ID", $idutente);
-										?>
-                                        <div class="card card-bg card-avatar rounded">
-                                            <a href="<?php echo get_author_posts_url($idutente); ?>">
-                                                <div class="card-body">
-													<?php get_template_part("template-parts/autore/card"); ?>
-                                                </div>
-                                            </a>
-                                        </div><!-- /card card-bg card-avatar rounded -->
-										<?php
+									if(is_array($persone_amministrazione)) {
+										foreach ( $persone_amministrazione as $idutente ) {
+											$autore = get_user_by( "ID", $idutente );
+											?>
+                                            <div class="card card-bg card-avatar rounded">
+                                                <a href="<?php echo get_author_posts_url( $idutente ); ?>">
+                                                    <div class="card-body">
+														<?php get_template_part( "template-parts/autore/card" ); ?>
+                                                    </div>
+                                                </a>
+                                            </div><!-- /card card-bg card-avatar rounded -->
+											<?php
+										}
 									}
 									?>
                                 </div><!-- /card-deck -->
@@ -235,10 +237,12 @@ $file_documenti = dsi_get_meta("file_documenti");
 										global $icon_color, $second_icon_color;
 										$icon_color        = "greendark";
 										$second_icon_color = "#c8edc3";
-										foreach ( $link_strutture as $id_struttura ) {
-											$struttura = get_post( $id_struttura );
+										if(is_array($link_strutture)) {
+											foreach ( $link_strutture as $id_struttura ) {
+												$struttura = get_post( $id_struttura );
 
-											get_template_part( "template-parts/struttura/card" );
+												get_template_part( "template-parts/struttura/card" );
+											}
 										}
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->

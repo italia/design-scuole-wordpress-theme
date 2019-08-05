@@ -49,7 +49,7 @@ $theme_locations = get_nav_menu_locations();
 <!-- End Right menu element-->
 <?php
 
-if(is_search() || is_category())
+if(is_search() || is_archive())
     get_template_part("template-parts/header/search-filters");
 ?>
 
