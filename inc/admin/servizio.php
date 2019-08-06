@@ -33,8 +33,8 @@ function dsi_register_servizio_post_type() {
 	register_post_type( 'servizio', $args );
 
 	$labels = array(
-		'name'              => _x( 'Tipologia', 'taxonomy general name', 'design_scuole_italia' ),
-		'singular_name'     => _x( 'Tipologia', 'taxonomy singular name', 'design_scuole_italia' ),
+		'name'              => _x( 'Tipologia Servizio', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia Servizio', 'taxonomy singular name', 'design_scuole_italia' ),
 		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
 		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
 		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),

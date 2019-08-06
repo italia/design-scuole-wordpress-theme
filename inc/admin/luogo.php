@@ -27,25 +27,29 @@ function dsi_register_luogo_post_type() {
 	register_post_type( 'luogo', $args );
 
 	/** tipologia luogo **/
-	$labels = array(
-		'name'          => _x( 'Tipologie Luoghi', 'Post Type General Name', 'design_scuole_italia' ),
-		'singular_name' => _x( 'Tipologia luogo', 'Post Type Singular Name', 'design_scuole_italia' ),
-		'separate_items_with_commas' => __( 'Esprime la struttura di navigazione della sezione luoghi. Es: Palestra / Mensa / Edificio Scolastico/ Biblioteca / Auditorium / Teatro /Laboratorio', 'design_scuole_italia' ),
-		'choose_from_most_used' => "",
 
+	$labels = array(
+		'name'              => _x( 'Tipologia Luogo', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia Luogo', 'taxonomy singular name', 'design_scuole_italia' ),
+		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+		'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+		'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+		'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
 	);
 
 	$args = array(
-		'hierarchical'      => false,
+		'hierarchical'      => true,
 		'labels'            => $labels,
-		'description' => 'sa sd ads as',
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'persona' ),
+		'rewrite'           => array( 'slug' => 'tipologia-luogo' ),
 	);
 
-	register_taxonomy( 'luoghi-della-scuola', array( 'luogo'), $args );
+	register_taxonomy( 'tipologia-luogo', array( 'luogo' ), $args );
 }
 
 

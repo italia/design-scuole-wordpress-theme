@@ -27,6 +27,12 @@ require get_template_directory() . '/inc/utils.php';
  */
 require get_template_directory() . '/inc/breadcrumb.php';
 
+
+/**
+ * Activation Hooks
+ */
+require get_template_directory() . '/inc/activation.php';
+
 /**
  * Actions & Hooks
  */

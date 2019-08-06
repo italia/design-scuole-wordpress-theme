@@ -1,5 +1,31 @@
 <?php
+add_action( 'init', 'dsi_register_articolo_post_tax', 0 );
+function dsi_register_articolo_post_tax() {
 
+	$labels = array(
+		'name'              => _x( 'Tipologia Articolo ', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia Articolo', 'taxonomy singular name', 'design_scuole_italia' ),
+		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+		'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+		'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+		'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'tipologia-articolo' ),
+	);
+
+	register_taxonomy( 'tipologia-articolo', array( 'post' ), $args );
+
+}
 
 /**
  * Crea i metabox del post type post

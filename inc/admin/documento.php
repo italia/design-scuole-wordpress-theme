@@ -26,8 +26,8 @@ function dsi_register_documento_post_type() {
 	register_post_type( 'documento', $args );
 
 	$labels = array(
-		'name'              => _x( 'Tipologia', 'taxonomy general name', 'design_scuole_italia' ),
-		'singular_name'     => _x( 'Tipologia', 'taxonomy singular name', 'design_scuole_italia' ),
+		'name'              => _x( 'Tipologia Documento', 'taxonomy general name', 'design_scuole_italia' ),
+		'singular_name'     => _x( 'Tipologia Documento', 'taxonomy singular name', 'design_scuole_italia' ),
 		'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
 		'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
 		'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),

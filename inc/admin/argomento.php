@@ -19,14 +19,28 @@ function dsi_create_argomento_taxonomy() {
 
 add_filter('pre_get_posts', 'dsi_query_post_type');
 function dsi_query_post_type($query) {
-	if( is_category()) {
-		$post_type = get_query_var('post_type');
-		if($post_type)
-			$post_type = $post_type;
-		else
-			$post_type = array('post','servizio', 'documento', 'materia','luogo','struttura','evento','programma_materia','nav_menu_item'); // don't forget nav_menu_item to allow menus to work!
-		$query->set('post_type',$post_type);
-		return $query;
+	if ( !is_admin() && $query->is_main_query() ) {
+		if ( is_category() ) {
+			$post_type = get_query_var( 'post_type' );
+			if ( $post_type ) {
+				$post_type = $post_type;
+			} else {
+				$post_type = array(
+					'post',
+					'servizio',
+					'documento',
+					'materia',
+					'luogo',
+					'struttura',
+					'evento',
+					'programma_materia',
+					'nav_menu_item'
+				);
+			} // don't forget nav_menu_item to allow menus to work!
+			$query->set( 'post_type', $post_type );
+
+			return $query;
+		}
 	}
 }
 ?>
