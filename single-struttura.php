@@ -88,10 +88,13 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <?php } ?>
+                                        <?php }
+                                         if($telefono || $mail || $pec){
+                                        ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-more" title="Vai al paragrafo <?php _e("Per saperne di più", "design_scuole_italia"); ?>"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                         </li>
+                                         <?php } ?>
                                     </ul>
                                 </div>
 							</aside>
@@ -216,7 +219,9 @@ get_header();
                                         <?php echo wpautop($altre_info); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-	                            <?php } ?>
+	                            <?php }
+	                            if($telefono || $mail || $pec){
+	                            ?>
                                 <h4 id="art-par-more"><?php _e("Per saperne di più", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
@@ -227,6 +232,7 @@ get_header();
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
+                                <?php } ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
 								<?php get_template_part("template-parts/single/bottom"); ?>
