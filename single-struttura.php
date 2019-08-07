@@ -34,7 +34,6 @@ get_header();
 			$pec = dsi_get_meta("pec");
 
 			?>
-			<section class="section bg-white article-title">
 				<?php if(has_post_thumbnail($post)){ ?>
                 <section class="section bg-white article-title">
 					<div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
