@@ -23,6 +23,10 @@
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
 			                     'documento'  => 'tipologia-documento',
 			                     'post'  => 'category',
+			                     'luogo'  => 'tipologia-luogo',
+			                     'programma_materia'  => 'materia',
+			                     'struttura'  => 'tipologia-struttura',
+
 		                    ),
 		                    'echo'            => true
 	                    );
