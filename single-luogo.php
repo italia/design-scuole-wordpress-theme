@@ -50,12 +50,16 @@ get_header();
 
 
 			?>
-			<section class="section bg-white article-title">
+
 				<?php if(has_post_thumbnail($post)){ ?>
+                <section class="section bg-white article-title">
 					<div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
 					<?php
 					$colsize = 6;
 				}else{
+				    ?>
+                    <section class="section bg-white article-title article-title-small">
+                    <?php
 					$colsize = 12;
 				} ?>			<div class="container">
 					<div class="row variable-gutters">

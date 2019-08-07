@@ -23,10 +23,14 @@ $link_strutture = dsi_get_meta("link_strutture");
 			?>
             <section class="section bg-white article-title">
 				<?php if(has_post_thumbnail($post)){ ?>
-                    <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                <section class="section bg-white article-title">
+                <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
 					<?php
 					$colsize = 6;
 				}else{
+					?>
+                    <section class="section bg-white article-title article-title-small">
+		                <?php
 					$colsize = 12;
 				} ?>
                 <div class="container">

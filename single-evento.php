@@ -22,12 +22,16 @@ $file_documenti = dsi_get_meta("file_documenti");
 			$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 			$autore = get_user_by("ID", $post->post_author);
 			?>
-            <section class="section bg-white article-title">
+
 				<?php if(has_post_thumbnail($post)){ ?>
+        <section class="section bg-white article-title">
                     <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
 					<?php
 					$colsize = 6;
 				}else{
+				?>
+                <section class="section bg-white article-title article-title-small">
+		            <?php
 					$colsize = 12;
 				} ?>
                 <div class="container">

@@ -43,3 +43,9 @@ Text Domain: design_scuole_italia
 .single .article-wrapper>p>a{
     text-decoration:underline;
 }
+
+
+.article-title-small {
+    height: auto !important;
+    padding-bottom: 20px !important;
+    }

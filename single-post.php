@@ -21,12 +21,16 @@ $persone = dsi_get_meta("persone");
 			$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 			$autore = get_user_by("ID", $post->post_author);
 			?>
-            <section class="section bg-white article-title article-title-author">
 				<?php if(has_post_thumbnail($post)){ ?>
-                    <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                <section class="section bg-white article-title article-title-author">
+
+                <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
 					<?php
 					$colsize = 6;
 				}else{
+					?>
+                    <section class="section bg-white article-title article-title-small article-title-author">
+		                <?php
 					$colsize = 12;
 				} ?>
                 <div class="container">

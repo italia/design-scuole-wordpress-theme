@@ -19,10 +19,15 @@ get_header();
 		?>
         <section class="section bg-white article-title article-title-author">
             <?php if(has_post_thumbnail($post)){ ?>
+            <section class="section bg-white article-title article-title-author">
+
             <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
             <?php
 	            $colsize = 6;
             }else{
+            ?>
+                <section class="section bg-white article-title article-title-small article-title-author">
+		            <?php
                 $colsize = 12;
             } ?>
             <div class="container">
