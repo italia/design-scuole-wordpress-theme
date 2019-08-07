@@ -361,7 +361,7 @@ get_header();
 								}
 
 
-								if(count($arrstrutture) > 0){
+								if(isset($arrstrutture) && is_array($arrstrutture) && count($arrstrutture) > 0){
 									?>
                                     <h6><?php _e("Per saperne di più", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">

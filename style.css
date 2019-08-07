@@ -49,3 +49,7 @@ Text Domain: design_scuole_italia
     height: auto !important;
     padding-bottom: 20px !important;
     }
+
+.article-title-small .title-content{
+    padding-bottom:20px
+}
