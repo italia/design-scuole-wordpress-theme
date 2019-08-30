@@ -9,7 +9,7 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 				<div class="col">
 					<div class="title-section text-center mb-5">
 						<h3 class="mb-2"><?php _e( "Le carte dalla scuola", "design_scuole_italia" ); ?></h3>
-						<p><?php echo dsi_get_option( "descrizione_carte", "carta_identita" ); ?></p>
+						<p><?php echo dsi_get_option( "descrizione_carte", "la_scuola" ); ?></p>
 					</div><!-- /title-section -->
 				</div><!-- /col -->
 			</div><!-- /row -->
