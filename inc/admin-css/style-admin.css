@@ -78,3 +78,7 @@
 .cmb2-id-link-strutture-commissioni .cmb2-attached-posts-search-button{
     display:none !important;
 }
+
+.cmb2-id-link_schede_documenti .cmb2-attached-posts-search-button{
+    display:none !important;
+}

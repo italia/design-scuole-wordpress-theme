@@ -295,7 +295,7 @@ function dsi_register_main_options_metabox() {
 			'show_thumbnails' => false, // Show thumbnails on the left
 			'filter_boxes'    => true, // Show a text box for filtering the results
 			'query_args'      => array(
-				'posts_per_page' => 10,
+				'posts_per_page' => -1,
 				'post_type'      => 'documento',
 			), // override the get_posts args
 		),
