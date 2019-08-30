@@ -226,9 +226,9 @@ get_header();
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <ul>
-                                            <?php if($telefono){ ?><li><strong>Telefono:</strong> <?php echo $telefono; ?></li><?php } ?>
-	                                        <?php if($mail){ ?><li><strong>Email:</strong> <?php echo $mail; ?></li><?php } ?>
-	                                        <?php if($pec){ ?><li><strong>PEC:</strong> <?php echo $pec; ?></li><?php } ?>
+                                            <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
+	                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+	                                        <?php if($pec){ ?><li><strong><?php _e("PEC", "design_scuole_italia"); ?>:</strong> <?php echo $pec; ?></li><?php } ?>
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->

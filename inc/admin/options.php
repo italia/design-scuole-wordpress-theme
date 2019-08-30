@@ -123,9 +123,137 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
+
+
+	$main_options->add_field( array(
+		'name'        => __( 'La Storia', 'design_scuole_italia' ),
+		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id' => $prefix . 'prefisso_storia',
+	) );
+
+
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'descrizione_scuola',
+		'title'        => __( 'La Storia', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'desc' => __( 'Descrizione introduttiva della timeline' , 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
+
+	$timeline_group_id = $main_options->add_field( array(
+		'id'           => $prefix . 'timeline',
+		'type'        => 'group',
+		'name'        => 'Timeline',
+		'desc' => __( 'Ogni fase è costruita attraverso data, titolo (max 60 caratteri) e descrizione breve (max 140 caratteri). NB: Se è un istituto comprende le tappe delle scuole che ne fanno parte' , 'design_scuole_italia' ),
+		'repeatable'  => true,
+		'options'     => array(
+			'group_title'   => __( 'Fase {#}', 'design_scuole_italia' ),
+			'add_button'    => __( 'Aggiungi un elemento', 'design_scuole_italia' ),
+			'remove_button' => __( 'Rimuovi l\'elemento ', 'design_scuole_italia' ),
+			'sortable'      => true,  // Allow changing the order of repeated groups.
+		),
+	) );
+
+
+	$main_options->add_group_field( $timeline_group_id, array(
+		'id' => $prefix . 'data_timeline',
+		'name'        => __( 'Data', 'design_scuole_italia' ),
+		'type' => 'text_date',
+		'date_format' => 'd-m-Y',
+		'data-datepicker' => json_encode( array(
+			'yearRange' => '-100:+0',
+		) ),
+	) );
+
+	$main_options->add_group_field( $timeline_group_id, array(
+		'id' => $prefix . 'titolo_timeline',
+		'name'        => __( 'Titolo', 'design_scuole_italia' ),
+		'type' => 'text',
+	) );
+	$main_options->add_group_field( $timeline_group_id, array(
+		'id' => $prefix . 'descrizione_timeline',
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
+
+	$main_options->add_field( array(
+		'name'        => __( 'Le Strutture', 'design_scuole_italia' ),
+		'desc' => __('Organizzazione scolastica', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id' => $prefix . 'prefisso_strutture_scuola',
+	) );
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'descrizione_strutture',
+		'title'        => __( 'Le Strutture', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'desc' => __( 'Es: Una scuola è fatta di persone. Ecco come siamo organizzati e come possiamo entrare in contatto' , 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
+
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'link_strutture_evidenza',
+		'name'    => __( 'Le Strutture', 'design_scuole_italia' ),
+		'desc' => __( 'Seleziona qui le principali strutture organizzative (es: La Dirigenza, La segreteria, etc)  <a href="post-new.php?post_type=struttura">Qui puoi creare una struttura.</a> ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => -1,
+				'post_type'      => 'struttura',
+			), // override the get_posts args
+		),
+	) );
+
+
+	$main_options->add_field( array(
+		'name'        => __( 'Commissioni', 'design_scuole_italia' ),
+		'desc' => __('Commissioni e Gruppi di Lavoro', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id' => $prefix . 'prefisso_commissioni_scuola',
+	) );
+
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'link_strutture_commissioni',
+		'name'    => __( 'Commissioni e Gruppi di Lavoro', 'design_scuole_italia' ),
+		'desc' => __( 'Seleziona qui le principali strutture organizzative di tipo Commissione o Gruppo di lavoro.  <a href="post-new.php?post_type=struttura">Qui puoi creare una struttura.</a> ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => -1,
+				'post_type'      => 'struttura',
+			), // override the get_posts args
+		),
+	) );
+
+
+	$main_options->add_field( array(
+		'name'        => __( 'I Luoghi', 'design_scuole_italia' ),
+		'desc' => __('Immagini dei luoghi della Scuola', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id' => $prefix . 'prefisso_luoghi_storia',
+	) );
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'descrizione_gallery_luoghi',
+		'title'        => __( 'I Luoghi', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'desc' => __( 'Es: Testo descrittivo dei luoghi della scuola' , 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
+
 	$main_options->add_field( array(
 		'desc' => 'Una selezione di circa 5 immagini significative della scuola/istituto',
-		'id'           => $prefix . 'immagini',
+		'id'           => $prefix . 'immagini_luoghi',
 		'name'        => __( 'Gallery', 'design_scuole_italia' ),
 		'type' => 'file_list',
 		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
@@ -139,6 +267,40 @@ function dsi_register_main_options_metabox() {
 			'remove_text' => 'Elimina', // default: "Remove"
 		),
 	) );
+
+	$main_options->add_field( array(
+		'name'        => __( 'Le carte della scuola', 'design_scuole_italia' ),
+		'desc' => __('Utilizza le carte per presentare il Piano triennale dell\'offerta formativa (PTOF), il Piano di inclusione e il Regolamento di Istituto o altri documenti.', 'design_scuole_italia' ),
+		'type' => 'title',
+		'id' => $prefix . 'prefisso_carte',
+	) );
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'descrizione_carte',
+		'title'        => __( 'Le Carte', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
+		'desc' => __( 'E\' l\'accesso a tutti i documenti della scuola. Es: La scuola raccontata attraverso i documenti più importanti, come il piano triennale dell\'offerta formativa' , 'design_scuole_italia' ),
+		'type' => 'textarea_small',
+	) );
+
+
+
+	$main_options->add_field( array(
+		'id' => $prefix . 'link_schede_documenti',
+		'name'    => __( 'Le Carte', 'design_scuole_italia' ),
+		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per presentare la scuola.  <a href="post-new.php?post_type=documento">Qui puoi creare un documento.</a> ' , 'design_scuole_italia' ),
+		'type'    => 'custom_attached_posts',
+		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+		'options' => array(
+			'show_thumbnails' => false, // Show thumbnails on the left
+			'filter_boxes'    => true, // Show a text box for filtering the results
+			'query_args'      => array(
+				'posts_per_page' => 10,
+				'post_type'      => 'documento',
+			), // override the get_posts args
+		),
+	) );
+
 
 	$main_options->add_field( array(
 		'name'        => __( 'I numeri della Scuola', 'design_scuole_italia' ),
@@ -196,93 +358,6 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-	$main_options->add_field( array(
-		'name'        => __( 'Le carte della scuola', 'design_scuole_italia' ),
-		'desc' => __('Utilizza le carte per presentare il Piano triennale dell\'offerta formativa (PTOF), il Piano di inclusione e il Regolamento di Istituto o altri documenti.', 'design_scuole_italia' ),
-		'type' => 'title',
-		'id' => $prefix . 'prefisso_carte',
-	) );
-
-	$main_options->add_field( array(
-		'id' => $prefix . 'descrizione_carte',
-		'title'        => __( 'Le Carte', 'design_scuole_italia' ),
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'desc' => __( 'E\' l\'accesso a tutti i documenti della scuola. Es: La scuola raccontata attraverso i documenti più importanti, come il piano triennale dell\'offerta formativa' , 'design_scuole_italia' ),
-		'type' => 'textarea_small',
-	) );
-
-
-
-	$main_options->add_field( array(
-		'id' => $prefix . 'link_schede_documenti',
-		'name'    => __( 'Le Carte', 'design_scuole_italia' ),
-		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per presentare la scuola.  <a href="post-new.php?post_type=documento">Qui puoi creare un documento.</a> ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => false, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'documento',
-			), // override the get_posts args
-		),
-	) );
-
-
-
-	$main_options->add_field( array(
-		'name'        => __( 'La Storia', 'design_scuole_italia' ),
-		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
-		'type' => 'title',
-		'id' => $prefix . 'prefisso_storia',
-	) );
-
-
-
-	$main_options->add_field( array(
-		'id' => $prefix . 'descrizione_scuola',
-		'title'        => __( 'La Storia', 'design_scuole_italia' ),
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'desc' => __( 'Descrizione introduttiva della timeline' , 'design_scuole_italia' ),
-		'type' => 'textarea_small',
-	) );
-
-	$timeline_group_id = $main_options->add_field( array(
-		'id'           => $prefix . 'timeline',
-		'type'        => 'group',
-		'name'        => 'Timeline',
-		'desc' => __( 'Ogni fase è costruita attraverso data, titolo (max 60 caratteri) e descrizione breve (max 140 caratteri). NB: Se è un istituto comprende le tappe delle scuole che ne fanno parte' , 'design_scuole_italia' ),
-		'repeatable'  => true,
-		'options'     => array(
-			'group_title'   => __( 'Fase {#}', 'design_scuole_italia' ),
-			'add_button'    => __( 'Aggiungi un elemento', 'design_scuole_italia' ),
-			'remove_button' => __( 'Rimuovi l\'elemento ', 'design_scuole_italia' ),
-			'sortable'      => true,  // Allow changing the order of repeated groups.
-		),
-	) );
-
-
-	$main_options->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'data_timeline',
-		'name'        => __( 'Data', 'design_scuole_italia' ),
-		'type' => 'text_date',
-		'date_format' => 'd-m-Y',
-		'data-datepicker' => json_encode( array(
-			'yearRange' => '-100:+0',
-		) ),
-	) );
-
-	$main_options->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'titolo_timeline',
-		'name'        => __( 'Titolo', 'design_scuole_italia' ),
-		'type' => 'text',
-	) );
-	$main_options->add_group_field( $timeline_group_id, array(
-		'id' => $prefix . 'descrizione_timeline',
-		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
-		'type' => 'textarea_small',
-	) );
 
 
 
