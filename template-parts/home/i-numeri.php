@@ -1,8 +1,8 @@
 <?php
 global $post;
 
-$studenti = dsi_get_option( "studenti", "carta_identita" );
-$classi = dsi_get_option( "classi", "carta_identita" );
+$studenti = dsi_get_option( "studenti", "la_scuola" );
+$classi = dsi_get_option( "classi", "la_scuola" );
 $media = intval($studenti / $classi);
 ?>
 
@@ -12,7 +12,7 @@ $media = intval($studenti / $classi);
 				<div class="col-md-6">
 					<div class="title-section">
 						<h3 class="mb-3 mb-xl-5"><?php _e("La scuola in numeri", "design_scuole_italia"); ?></h3>
-						<p class="mb-0"><?php echo dsi_get_option("numeri_descrizione", "carta_identita"); ?></p>
+						<p class="mb-0"><?php echo dsi_get_option("numeri_descrizione", "la_scuola"); ?></p>
 					</div><!-- /title-section -->
 				</div><!-- /col-md-6 -->
 			</div><!-- /row -->
@@ -45,7 +45,7 @@ $media = intval($studenti / $classi);
 				</div><!-- /col-md-4 -->
 			</div><!-- /row -->
 			<?php
-			$url_scuoleinchiaro = dsi_get_option( "url_scuoleinchiaro", "carta_identita" );
+			$url_scuoleinchiaro = dsi_get_option( "url_scuoleinchiaro", "la_scuola" );
 			if($url_scuoleinchiaro != ""){
 				?>
 				<div class="row variable-gutters mb-4">
