@@ -380,7 +380,37 @@ function dsi_register_main_options_metabox() {
 		$args['display_cb'] = 'dsi_options_display_with_tabs';
 	}
 
-	$secondary_options = new_cmb2_box( $args );
+	$servizi_options = new_cmb2_box( $args );
+
+	$servizi_options->add_field( array(
+		'id' => $prefix . 'testo_servizi',
+		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'desc' => __( 'es: "I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
+
+	$servizi_options->add_field( array(
+			'name'       => __('Tipologie Servizi', 'design_scuole_italia' ),
+			'desc' => __( 'Servizi aggregati per tipologie. Seleziona le tipologie da mostrare. ', 'design_scuole_italia' ),
+			'id' => $prefix . 'tipologie_servizi',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_tipologia_servizi_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona e ordina le tipologie di servizi da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+			),
+		)
+	);
+
+
+
+
+
+
+
 
 	/**
 	 * Registers Notizie option page.

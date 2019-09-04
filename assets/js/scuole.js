@@ -3784,6 +3784,40 @@ jQuery(document).ready(function($) {
 			}
 		}
   });
+  $('.carousel-simple-pager').owlCarousel({
+		nav: false,
+		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+		dots: true,
+		margin: 30,
+		loop: false,
+		autoplay: false,
+		autoplayTimeout: 4000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+			items: 1,
+			stagePadding: 0,
+      margin: 0,
+			},
+      576: {
+			items: 1,
+			stagePadding: 0,
+      margin: 0,
+			},
+			768: {
+			items: 2,
+			stagePadding: 0,
+			},
+      992: {
+			items: 2,
+			stagePadding: 0,
+      },
+			1400: {
+			items: 2,
+			stagePadding: 0,
+			}
+		}
+  });
   $('.carousel-single').owlCarousel({
 		nav: true,
 		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
@@ -3822,6 +3856,49 @@ jQuery(document).ready(function($) {
       },
 			1400: {
 			items: 1,
+			stagePadding: 0,
+      dots: true,
+			}
+		}
+  });
+  $('.carousel-double').owlCarousel({
+		nav: true,
+		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+		dots: false,
+		margin: 30,
+		loop: false,
+		autoplay: false,
+		autoplayTimeout: 4000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+      576: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      margin: 0,
+      nav: false,
+			},
+			768: {
+			items: 1,
+			stagePadding: 0,
+      dots: true,
+      nav: false,
+			},
+      992: {
+			items: 2,
+			stagePadding: 0,
+      dots: true,
+      nav: false,
+      },
+			1400: {
+			items: 2,
 			stagePadding: 0,
       dots: true,
 			}
@@ -4011,6 +4088,41 @@ jQuery(document).ready(function($) {
       }
     });
   });
+  
+  
+  $('.carousel-hours').owlCarousel({
+		nav: true,
+		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+		dots: false,
+		margin: 25,
+		loop: false,
+		autoplay: false,
+		autoplayTimeout: 4000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+			items: 1,
+      stagePadding: 80,
+      margin: 10,
+			},
+      576: {
+			items: 2,
+      stagePadding: 120,
+			},
+			768: {
+			items: 2,
+      stagePadding: 120,
+			},
+      992: {
+			items: 2,
+      stagePadding: 120,
+      },
+			1200: {
+			items: 3,
+			stagePadding: 200,
+			}
+		}
+  });
 
 });
 /* End Carousel */
@@ -4060,3 +4172,21 @@ jQuery(document).ready(function($) {
   }
 });
 /* End Sticky Sidebar */
+
+/* Simple Toggle */
+$(document).ready(function() {
+  if ($(".dropdown-toggle").length) {
+    $('.dropdown-toggle').click(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).toggleClass('active');
+      $(this).next('.dropdown-content').slideToggle(100);
+    });
+    $(document).click(function (e) {
+      $('.dropdown-content').slideUp(100);
+      $('.dropdown-content').removeClass('active');
+      $('.dropdown-toggle').removeClass('active');
+    });
+  }
+});
+/* End Simple Toggle */

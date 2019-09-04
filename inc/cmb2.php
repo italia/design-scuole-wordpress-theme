@@ -92,6 +92,27 @@ function dsi_get_classe_options( $query_args = false) {
 }
 
 
+/**
+ * Lista di tipologia di servizi
+ * @param bool $query_args
+ *
+ * @return array
+ */
+function dsi_get_tipologia_servizi_options( $query_args = false) {
+
+	$items = get_terms( array(
+		'taxonomy' => 'tipologia-servizio',
+		'hide_empty' => false,
+	));
+
+	$options = array();
+	if ( $items ) {
+		foreach ( $items as $item ) {
+			$options[ $item->term_id ] = $item->name;
+		}
+	}
+	return $options;
+}
 
 
 
