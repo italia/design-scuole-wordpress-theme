@@ -1,7 +1,7 @@
 <?php
 /* Template Name: la Scuola
  *
- * carta identità template file
+ * la scuola template file
  *
  * @package Design_Scuole_Italia
  */

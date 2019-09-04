@@ -406,12 +406,6 @@ function dsi_register_main_options_metabox() {
 	);
 
 
-
-
-
-
-
-
 	/**
 	 * Registers Notizie option page.
 	 */
@@ -430,7 +424,28 @@ function dsi_register_main_options_metabox() {
 		$args['display_cb'] = 'dsi_options_display_with_tabs';
 	}
 
-	$secondary_options = new_cmb2_box( $args );
+	$notizie_options = new_cmb2_box( $args );
+	$notizie_options->add_field( array(
+		'id' => $prefix . 'testo_notizie',
+		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Le notizie del liceo scientifico Enriques dedicate a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
+	$notizie_options->add_field( array(
+			'name'       => __('Tipologie Notizie', 'design_scuole_italia' ),
+			'desc' => __( 'Articoli aggregati per tipologie (es: articoli, circolari, notizie), . Seleziona le tipologie da mostrare. ', 'design_scuole_italia' ),
+			'id' => $prefix . 'tipologie_notizie',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_tipologia_articoli_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona e ordina le tipologie di articoli da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+			),
+		)
+	);
 
 
 	/**

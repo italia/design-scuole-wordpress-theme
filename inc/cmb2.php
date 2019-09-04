@@ -114,6 +114,27 @@ function dsi_get_tipologia_servizi_options( $query_args = false) {
 	return $options;
 }
 
+/**
+ * Lista di tipologia di articoli
+ * @param bool $query_args
+ *
+ * @return array
+ */
+function dsi_get_tipologia_articoli_options( $query_args = false) {
+
+	$items = get_terms( array(
+		'taxonomy' => 'tipologia-articolo',
+		'hide_empty' => false,
+	));
+
+	$options = array();
+	if ( $items ) {
+		foreach ( $items as $item ) {
+			$options[ $item->term_id ] = $item->name;
+		}
+	}
+	return $options;
+}
 
 
 // includo i singoli file di template di backend
