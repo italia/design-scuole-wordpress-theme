@@ -26,7 +26,7 @@ if($ct%2)
 
 		</div><!-- /carousel-large -->
 		<div class="pt-3 text-center">
-			<a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>"><strong>Vedi tutti</strong></a>
+			<a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
 		</div>
 	</div><!-- /container -->
 </section><!-- /section -->

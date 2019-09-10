@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying search results pages
+ * The template for displaying archive
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#archive
  *
  * @package Design_Scuole_Italia
  */

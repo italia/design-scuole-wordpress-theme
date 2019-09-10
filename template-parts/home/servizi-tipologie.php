@@ -33,7 +33,7 @@ if($ct%2)
 
 		</div><!-- /row -->
 		<div class="pt-3 text-center">
-			<a class="text-underline" href="<?php echo get_term_link($tipologia_servizio); ?>"><strong>Vedi tutti</strong></a>
+			<a class="text-underline" href="<?php echo get_term_link($tipologia_servizio); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
 		</div>
 	</div><!-- /container -->
 </section><!-- /section -->

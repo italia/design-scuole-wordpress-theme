@@ -58,5 +58,3 @@ $media = intval($studenti / $classi);
 			?>
 		</div><!-- /container -->
 	</section><!-- /section -->
-
-<?php

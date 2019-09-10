@@ -466,10 +466,27 @@ function dsi_register_main_options_metabox() {
 		$args['display_cb'] = 'dsi_options_display_with_tabs';
 	}
 
-	$secondary_options = new_cmb2_box( $args );
+    $didattica_options = new_cmb2_box( $args );
+    $didattica_options->add_field( array(
+        'id' => $prefix . 'testo_didattica',
+        'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+        'desc' => __( 'es: "La didattica del liceo scientifico Enriques ' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
 
 
-
+    $didattica_options->add_field( array(
+        'id' => $prefix . 'testo_sezione_progetti',
+        'name'        => __( 'Descrizione Sezione Progetti', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Scopri i progetti della scuola divisi per anno scolastico e per materia' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
 
 
 	// pagina opzioni
