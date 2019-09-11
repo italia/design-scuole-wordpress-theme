@@ -89,10 +89,18 @@ function dsi_add_eventi_metaboxes() {
 		),
 	) );
 	$cmb_sottotitolo->add_field( array(
-		'name' => 'Luogo della Scuola',
+		'name' => 'Luogo della Scuola *',
+        'id' =>  $prefix . 'is_luogo_scuola',
 		'desc' => __( 'Seleziona un luogo se questo è un <a href="edit.php?post_type=luogo">Luogo della Scuola</a>', 'design_scuole_italia' ),
-		'type' => 'title',
-		'id'   => 'label_luogo_scuola'
+        'type'    => 'radio_inline',
+        'options' => array(
+            'true' => __( 'Si', 'design_scuole_italia' ),
+            'false'   => __( 'No', 'design_scuole_italia' ),
+        ),
+        'default' => 'true',
+        'attributes' => array(
+            'required' => 'required'
+        ),
 	) );
 	$cmb_sottotitolo->add_field( array(
 		'id' =>  $prefix . 'link_schede_luoghi',
@@ -108,32 +116,40 @@ function dsi_add_eventi_metaboxes() {
 				'post_type'      => 'luogo',
 			), // override the get_posts args
 		),
+        'attributes'    => array(
+        'data-conditional-id'     => $prefix.'is_luogo_scuola',
+        'data-conditional-value'  => "true",
+        ),
 	) );
-	$cmb_sottotitolo->add_field( array(
-		'name' => 'Luogo dell\'evento',
-		'desc' => __( 'Se l\'evento è organizzato in un luogo esterno valorizza i campi che seguono', 'design_scuole_italia' ),
-		'type' => 'title',
-		'id'   => 'label_luogo_evento'
-	) );
+
+
 	$cmb_sottotitolo->add_field( array(
 		'id' =>  $prefix . 'nome_luogo_custom',
-		'name'    => __( 'Nome del luogo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'    => __( 'Nome del luogo ', 'design_scuole_italia' ),
 		'desc' => __( 'Inserisci il nome del luogo (lascia vuoto hai selezionato un Luogo della Scuola )' , 'design_scuole_italia' ),
 		'type'    => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "false",
+        ),
 	) );
 
 
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'indirizzo_luogo_custom',
-		'name'       => __( 'Indirizzo Completo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Indirizzo Completo ', 'design_scuole_italia' ),
 		'desc'       => __( 'Indirizzo completo del luogo: Via, civico, cap, città e Provincia (es: Via Vaglia, 6, 00139 - Roma RM) (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
-		'type'       => 'text'
+		'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "false",
+        ),
 	) );
 
 
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'posizione_gps_luogo_custom',
-		'name'       => __( 'Posizione GPS  (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Posizione GPS ', 'design_scuole_italia' ),
 		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'leaflet_map',
 		'attributes' => array(
@@ -147,24 +163,35 @@ function dsi_add_eventi_metaboxes() {
 			],
 			'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
 			'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
-			'required'    => 'required'
+			'required'    => 'required',
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "false",
+
 		)
 	) );
 
 
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'quartiere_luogo_custom',
-		'name'       => __( 'Quartiere   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Quartiere ', 'design_scuole_italia' ),
 		'desc'       => __( 'Se il territorio è mappato in quartieri, riportare il Quartiere dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "false",
+        ),
 	) );
 
 
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'circoscrizione_luogo_custom',
-		'name'       => __( 'Circoscrizione   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Circoscrizione', 'design_scuole_italia' ),
 		'desc'       => __( 'Se il territorio è mappato in circoscrizioni, riportare la Circoscrizione dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "false",
+        ),
 	) );
 
 
@@ -177,6 +204,35 @@ function dsi_add_eventi_metaboxes() {
 		'priority'     => 'high',
 	) );
 
+
+    $group_field_id = $cmb_undercontent->add_field( array(
+        'id'          => $prefix . 'date',
+        'name'        => __('<h1>Date</h1>' , 'design_scuole_italia' ),
+        'type'        => 'group',
+        'description' => __( 'Se l\'evento si svolge in più giorni o fasi indica qui di seguito i diversi appuntamenti. Es: inizo attività, pausa pranzo, seconda sessione, etc', 'design_scuole_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi una data evento', 'design_scuole_italia' ),
+            'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
+            'sortable'       => true,
+            'closed'      => false, // true to have the groups closed by default
+            //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        )
+    ) );
+
+
+    $cmb_undercontent->add_group_field( $group_field_id,  array(
+        'id'      => 'data',
+        'name'    => __( 'Data / orario ', 'design_scuole_italia' ),
+        'type' => 'text_datetime_timestamp',
+    ) );
+
+    $cmb_undercontent->add_group_field( $group_field_id,  array(
+        'id'      => 'descrizione',
+        'name'    => __( 'Descrizione', 'design_scuole_italia' ),
+        'type'             => 'textarea',
+
+    ) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_notizia',
@@ -269,7 +325,7 @@ function dsi_add_eventi_metaboxes() {
 
 	$group_field_id = $cmb_undercontent->add_field( array(
 		'id'          => $prefix . 'prezzo',
-		'name'        => __('<h1>Prezzo</h1> Se l\'evento è a pagamento' , 'design_scuole_italia' ),
+		'name'        => __('<h1>Prezzo</h1>' , 'design_scuole_italia' ),
 		'type'        => 'group',
 		'description' => __( 'Biglietto intero - prezzo - testo che spiega le condizioni / Biglietto ridotto - prezzo - testo che spiega le condizioni / Biglietto gratuito - gratis - testo che spiega le condizioni', 'design_scuole_italia' ),
 		'options'     => array(
@@ -429,8 +485,8 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_side = new_cmb2_box( array(
 		'id'           => $prefix . 'box_side',
-		'title'        => __( 'Data / Orario Evento', 'design_scuole_italia' ),
-		'object_types' => array( 'evento' ),
+		'title'        => __( 'Data inizio e fine evento *', 'design_scuole_italia' ),
+        'object_types' => array( 'evento' ),
 		'context'      => 'side',
 		'priority'     => 'high',
 	) );
@@ -455,6 +511,7 @@ function dsi_add_eventi_metaboxes() {
 		),
 	) );
 
+
 }
 
 /**
@@ -476,3 +533,14 @@ function sdi_evento_add_content_before_editor($post) {
 		_e('<h1>Descrizione Estesa dell\'evento</h1>', 'design_scuole_italia' );
 }
 
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_evento_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_evento_admin_script', 11 );
+
+function dsi_evento_admin_script() {
+    global $post_type;
+    if( 'evento' == $post_type )
+        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/evento.js' );
+}

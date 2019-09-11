@@ -65,6 +65,11 @@ get_header();
 
 						endif;
 						?>
+                        <?php if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){ ?>
+                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("evento"); ?>" ><?php _e("Consulta gli eventi futuri", "design_scuole_italia"); ?></a></p>
+                        <?php }else{ ?>
+                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("evento"); ?>?archive=true" ><?php _e("Consulta l'archivio", "design_scuole_italia"); ?></a></p>
+                        <?php } ?>
 					</div><!-- /col-lg-8 -->
 				</div><!-- /row -->
 			</div><!-- /container -->

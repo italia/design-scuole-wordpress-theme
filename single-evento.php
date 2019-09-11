@@ -179,25 +179,44 @@ $file_documenti = dsi_get_meta("file_documenti");
                                 <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
                                 <div class="calendar-vertical mb-5">
 									<?php
-									$timestamp_inizio = dsi_get_meta("timestamp_inizio");
-									$timestamp_fine= dsi_get_meta("timestamp_fine");
-									$begin = new DateTime(date_i18n("c",$timestamp_inizio));
-									$end = new DateTime(date_i18n("c",$timestamp_fine));
-									$ora_inizio = date_i18n("H:i", $timestamp_inizio);
-									$ora_fine = date_i18n("H:i", $timestamp_fine);
-									for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
-                                        <div class="calendar-date">
-                                            <div class="calendar-date-day">
-                                                <p><?php  echo date_i18n("d", $i->getTimestamp()); ?></p>
-                                                <small><?php  echo date_i18n("M", $i->getTimestamp()); ?></small>
-                                            </div><!-- /calendar-date-day -->
-                                            <div class="calendar-date-description rounded">
-                                                <div class="calendar-date-description-content">
-                                                    <p><?php echo $ora_inizio; ?><?php if($ora_fine != $ora_inizio) echo " - ".$ora_fine; ?></p>
-                                                </div><!-- /calendar-date-description-content -->
-                                            </div><!-- /calendar-date-description -->
-                                        </div><!-- /calendar-date -->
-									<?php } ?>
+                                    $date = dsi_get_meta("date");
+
+                                    if(is_array($date)){
+                                        foreach ($date as $data){
+                                    ?>
+                                    <div class="calendar-date">
+                                        <div class="calendar-date-day">
+                                            <p><?php  echo date_i18n("d", $data["data"]); ?></p>
+                                            <small><?php  echo date_i18n("M", $data["data"]); ?></small>
+                                        </div><!-- /calendar-date-day -->
+                                        <div class="calendar-date-description rounded">
+                                            <div class="calendar-date-description-content">
+                                                <p><?php  echo date_i18n("H:i", $data["data"]); ?> - <?php echo $data["descrizione"]; ?></p>
+                                            </div><!-- /calendar-date-description-content -->
+                                        </div><!-- /calendar-date-description -->
+                                    </div><!-- /calendar-date -->
+                                    <?php }
+                                    }else {
+                                        $timestamp_inizio = dsi_get_meta("timestamp_inizio");
+                                        $timestamp_fine = dsi_get_meta("timestamp_fine");
+                                        $begin = new DateTime(date_i18n("c", $timestamp_inizio));
+                                        $end = new DateTime(date_i18n("c", $timestamp_fine));
+                                        $ora_inizio = date_i18n("H:i", $timestamp_inizio);
+                                        $ora_fine = date_i18n("H:i", $timestamp_fine);
+                                        for ($i = $begin; $i <= $end; $i->modify('+1 day')) { ?>
+                                            <div class="calendar-date">
+                                                <div class="calendar-date-day">
+                                                    <p><?php echo date_i18n("d", $i->getTimestamp()); ?></p>
+                                                    <small><?php echo date_i18n("M", $i->getTimestamp()); ?></small>
+                                                </div><!-- /calendar-date-day -->
+                                                <div class="calendar-date-description rounded">
+                                                    <div class="calendar-date-description-content">
+                                                        <p><?php echo $ora_inizio; ?><?php if ($ora_fine != $ora_inizio) echo " - " . $ora_fine; ?></p>
+                                                    </div><!-- /calendar-date-description-content -->
+                                                </div><!-- /calendar-date-description -->
+                                            </div><!-- /calendar-date -->
+                                        <?php }
+                                    } ?>
                                 </div><!-- /calendar-vertical -->
 								<?php
 
