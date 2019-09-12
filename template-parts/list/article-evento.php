@@ -18,7 +18,7 @@ $timestamp_fine= dsi_get_meta("timestamp_fine", "_dsi_evento_", $post->ID);
 	<div class="card-body">
 		<div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
 
-			<a href="<?php the_permalink(); ?>>">
+			<a href="<?php the_permalink(); ?>">
 				<div class="date">
 					<span class="year"><?php echo date_i18n("Y", $timestamp_inizio); ?></span>
 					<span class="day"><?php echo date_i18n("d", $timestamp_inizio); ?></span>
