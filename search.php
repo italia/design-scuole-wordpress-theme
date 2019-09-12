@@ -15,7 +15,7 @@ get_header();
         <section class="section bg-white py-2 py-lg-3 py-xl-5">
             <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-2">
+                    <div class="col-lg-5 col-md-8 offset-lg-3">
                         <div class="section-title">
                             <p><?php
                                 if(get_search_query() != "")

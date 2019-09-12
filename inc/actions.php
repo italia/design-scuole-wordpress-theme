@@ -145,3 +145,24 @@ function dsi_eventi_filters( $query ) {
 }
 
 add_action( 'pre_get_posts', 'dsi_eventi_filters' );
+
+/**
+ * Personalizzo archive title
+ */
+add_filter( 'get_the_archive_title', function ($title) {
+
+    if ( is_category() ) {
+        $title = __("Argomento", "design_scuole_italia").": ".single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_tax("tipologia-articolo") ) {
+        $title = single_term_title('', false);
+    } elseif ( is_tax("tipologia-servizio") ) {
+        $title = __("Servizi per ", "design_scuole_italia").": ".single_term_title('', false);
+    } elseif ( is_post_type_archive() ) {
+        $title = post_type_archive_title('', false);
+    }
+
+    return $title;
+
+});
