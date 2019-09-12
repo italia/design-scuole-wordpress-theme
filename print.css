@@ -1,0 +1,3 @@
+.nav-container, .menu-open, .menu-search, .footer-wrapper, .aside-list, .aside-main, .label-filter, .svg-search, .header-search, .toggle-actions , #art-par-correlati, #comments, .comments, .mini-clndr {
+    display:none !important;
+}

@@ -182,6 +182,9 @@ function dsi_scripts() {
 
 	wp_enqueue_script( 'dsi-modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js');
 
+	// print css
+    wp_enqueue_style('dsi-print-style',get_template_directory_uri() . '/print.css', array(),'20190912','print' );
+
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, false);
 	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post")) || is_archive() || is_search())
