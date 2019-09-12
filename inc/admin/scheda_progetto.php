@@ -23,6 +23,8 @@ function dsi_register_scheda_progetto_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-media-document',
 		'has_archive'   => true,
+        'capability_type' => array('scheda_progetto', 'schede_progetto'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'scheda_progetto', $args );
 

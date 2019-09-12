@@ -95,6 +95,11 @@ function dsi_register_required_plugins() {
 			'slug'     => 'disable-gutenberg',
 			'required' => true,
 		),
+        array(
+            'name'     => 'Members',
+            'slug'     => 'members',
+            'required' => true,
+        ),
 		/*
 		array(
 			'name'     => 'Albo Pretorio On line',

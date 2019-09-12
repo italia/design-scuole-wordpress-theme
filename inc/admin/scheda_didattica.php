@@ -23,6 +23,8 @@ function dsi_register_scheda_didattica_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-media-interactive',
 		'has_archive'   => true,
+        'capability_type' => array('scheda_didattica', 'schede_didattica'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'scheda_didattica', $args );
 

@@ -22,6 +22,8 @@ function dsi_register_documento_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-portfolio',
 		'has_archive'   => true,
+        'capability_type' => array('documento', 'documenti'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'documento', $args );
 
@@ -44,6 +46,12 @@ function dsi_register_documento_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-documento' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_documenti',
+            'edit_terms'    => 'edit_tipologia_documenti',
+            'delete_terms'  => 'delete_tipologia_documenti',
+            'assign_terms'  => 'assign_tipologia_documenti'
+        )
 	);
 
 	register_taxonomy( 'tipologia-documento', array( 'documento' ), $args );

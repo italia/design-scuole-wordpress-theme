@@ -29,7 +29,10 @@ function dsi_register_evento_post_type() {
 		'menu_position'         => 5,
 		'menu_icon'             => 'dashicons-calendar-alt',
 		'has_archive'           => true,
-	);
+        'capability_type' => array('evento', 'eventi'),
+        'map_meta_cap'    => true,
+
+    );
 	register_post_type( 'evento', $args );
 
 	$labels = array(
@@ -51,6 +54,12 @@ function dsi_register_evento_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-evento' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_eventi',
+            'edit_terms'    => 'edit_tipologia_eventi',
+            'delete_terms'  => 'delete_tipologia_eventi',
+            'assign_terms'  => 'assign_tipologia_eventi'
+        )
 	);
 
 	register_taxonomy( 'tipologia-evento', array( 'evento' ), $args );

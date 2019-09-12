@@ -21,6 +21,12 @@ function dsi_register_articolo_post_tax() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-articolo' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_articoli',
+            'edit_terms'    => 'edit_tipologia_articoli',
+            'delete_terms'  => 'delete_tipologia_articoli',
+            'assign_terms'  => 'assign_tipologia_articoli'
+        )
 	);
 
 	register_taxonomy( 'tipologia-articolo', array( 'post' ), $args );

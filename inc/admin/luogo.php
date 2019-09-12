@@ -23,6 +23,8 @@ function dsi_register_luogo_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-pressthis',
 		'has_archive'   => true,
+        'capability_type' => array('luogo', 'luoghi'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'luogo', $args );
 
@@ -47,6 +49,12 @@ function dsi_register_luogo_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-luogo' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_luoghi',
+            'edit_terms'    => 'edit_tipologia_luoghi',
+            'delete_terms'  => 'delete_tipologia_luoghi',
+            'assign_terms'  => 'assign_tipologia_luoghi'
+        )
 	);
 
 	register_taxonomy( 'tipologia-luogo', array( 'luogo' ), $args );

@@ -22,6 +22,8 @@ function dsi_register_materia_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-translation',
 		'has_archive'   => true,
+        'capability_type' => array('programma', 'programmi'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'programma_materia', $args );
 
@@ -45,6 +47,12 @@ function dsi_register_materia_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'materia' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_materie',
+            'edit_terms'    => 'edit_materie',
+            'delete_terms'  => 'delete_materie',
+            'assign_terms'  => 'assign_materie'
+        )
 	);
 
 	register_taxonomy( 'materia', array( 'programma_materia' ), $args );

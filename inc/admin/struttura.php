@@ -28,6 +28,8 @@ function dsi_register_struttura_post_type() {
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-networking',
 		'has_archive'   => true,
+        'capability_type' => array('struttura', 'strutture'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'struttura', $args );
 
@@ -51,6 +53,12 @@ function dsi_register_struttura_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-struttura' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_strutture',
+            'edit_terms'    => 'edit_tipologia_strutture',
+            'delete_terms'  => 'delete_tipologia_strutture',
+            'assign_terms'  => 'assign_tipologia_strutture'
+        )
 	);
 
 	register_taxonomy( 'tipologia-struttura', array( 'struttura' ), $args );

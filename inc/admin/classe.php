@@ -22,6 +22,12 @@ function dsi_register_classe_tax() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'classe' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_classi',
+            'edit_terms'    => 'edit_classi',
+            'delete_terms'  => 'delete_classi',
+            'assign_terms'  => 'assign_classi'
+        )
 	);
 
 	register_taxonomy( 'classe', array( 'programma_materia' ), $args );

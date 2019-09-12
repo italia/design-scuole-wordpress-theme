@@ -29,6 +29,8 @@ function dsi_register_servizio_post_type() {
 		'menu_position'         => 5,
 		'menu_icon'             => 'dashicons-id-alt',
 		'has_archive'           => true,
+        'capability_type' => array('servizio', 'servizi'),
+        'map_meta_cap'    => true,
 	);
 	register_post_type( 'servizio', $args );
 
@@ -51,6 +53,12 @@ function dsi_register_servizio_post_type() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'tipologia-servizio' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_servizi',
+            'edit_terms'    => 'edit_tipologia_servizi',
+            'delete_terms'  => 'delete_tipologia_servizi',
+            'assign_terms'  => 'assign_tipologia_servizi'
+        )
 	);
 
 	register_taxonomy( 'tipologia-servizio', array( 'servizio' ), $args );
