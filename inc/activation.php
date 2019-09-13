@@ -120,6 +120,28 @@ function dsi_create_pages_on_theme_activation() {
     }
 
 
+    // template page per I Numeri
+    $new_page_title    = __( 'i numeri della Scuola', 'design_scuole_italia' ); // Page's title
+    $new_page_content  = '';                           // Content goes here
+    $new_page_template = 'page-templates/numeri.php';       // The template to use for the page
+    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug'    => 'numeri-scuola'
+    );
+    // If the page doesn't already exist, create it
+    if ( ! isset( $page_check->ID ) ) {
+        $new_page_id = wp_insert_post( $new_page );
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $new_page_id, '_wp_page_template', $new_page_template );
+        }
+    }
+
     /**
 	 * popolamento delle materie
 	 */
@@ -232,10 +254,10 @@ function dsi_create_pages_on_theme_activation() {
 		'menu-item-type' => 'custom', // optional
 	));
 
-	// todo
+    $numeri_landing_url = dsi_get_template_page_url("page-templates/numeri.php");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('I numeri della scuola', "design_scuole_italia"),
-		'menu-item-url' => "#",
+		'menu-item-url' => $numeri_landing_url,
 		'menu-item-status' => 'publish',
 		'menu-item-type' => 'custom', // optional
 	));
