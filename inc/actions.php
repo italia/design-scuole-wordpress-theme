@@ -34,6 +34,10 @@ function dsi_hide_editor() {
 		if ( $template_file == 'page-templates/didattica.php' ) { // edit the template name
 			remove_post_type_support( 'page', 'editor' );
 		}
+
+        if ( $template_file == 'page-templates/persone.php' ) { // edit the template name
+            remove_post_type_support( 'page', 'editor' );
+        }
 	}
 }
 

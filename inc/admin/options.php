@@ -24,6 +24,13 @@ function dsi_register_main_options_metabox() {
 
 	$header_options = new_cmb2_box( $args );
 
+    $header_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni',
+        'name'        => __( 'Configurazione Scuola', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione delle informazioni di base' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
 
 	$header_options->add_field( array(
 		'id' => $prefix . 'tipologia_scuola',
@@ -58,7 +65,7 @@ function dsi_register_main_options_metabox() {
 
 
 	/**
-	 * Registers main options page menu item and form.
+	 * Registers options page "La Scuola".
 	 */
 	$args = array(
 		'id'           => 'dsi_options_la_scuola',
@@ -86,8 +93,17 @@ function dsi_register_main_options_metabox() {
 	 */
 
 
+    $scuola_landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
 
-	$main_options->add_field( array(
+    $main_options->add_field( array(
+        'id' => $prefix . 'scuola_istruzioni',
+        'name'        => __( 'Sezione La Scuola', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$scuola_landing_url.'">la pagina di panoramica della Scuola</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+        ) );
+
+
+    $main_options->add_field( array(
 		'id' => $prefix . 'immagine',
 		'name'        => __( 'Immagine', 'design_scuole_italia' ),
 		'desc' => __( 'Immagine di presentazione della scuola' , 'design_scuole_italia' ),
@@ -382,7 +398,17 @@ function dsi_register_main_options_metabox() {
 
 	$servizi_options = new_cmb2_box( $args );
 
-	$servizi_options->add_field( array(
+
+    $servizi_landing_url = dsi_get_template_page_url("page-templates/servizi.php");
+    $servizi_options->add_field( array(
+        'id' => $prefix . 'servizi_istruzioni',
+        'name'        => __( 'Sezione I Servizi', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$servizi_landing_url.'">la pagina di panoramica dei Servizi</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $servizi_options->add_field( array(
 		'id' => $prefix . 'testo_servizi',
 		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
 		'desc' => __( 'es: "I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
@@ -425,7 +451,17 @@ function dsi_register_main_options_metabox() {
 	}
 
 	$notizie_options = new_cmb2_box( $args );
-	$notizie_options->add_field( array(
+
+    $notizie_landing_url = dsi_get_template_page_url("page-templates/notizie.php");
+    $notizie_options->add_field( array(
+        'id' => $prefix . 'notizie_istruzioni',
+        'name'        => __( 'Sezione Le Notizie', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$notizie_landing_url.'">la pagina di panoramica delle Notizie</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $notizie_options->add_field( array(
 		'id' => $prefix . 'testo_notizie',
 		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
 		'desc' => __( 'es: "Le notizie del liceo scientifico Enriques dedicate a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
@@ -467,6 +503,15 @@ function dsi_register_main_options_metabox() {
 	}
 
     $didattica_options = new_cmb2_box( $args );
+
+    $didattica_landing_url = dsi_get_template_page_url("page-templates/didattica.php");
+    $didattica_options->add_field( array(
+        'id' => $prefix . 'didattica_istruzioni',
+        'name'        => __( 'Sezione Didattica', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$didattica_landing_url.'">la pagina di panoramica della Didattica</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_didattica',
         'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
@@ -488,8 +533,58 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+    /**
+     * Persone
+     */
 
-	// pagina opzioni
+    $args = array(
+        'id'           => 'dsi_options_persone',
+        'title'        => esc_html__( 'Le Persone', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'persone',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Pagina "Persone"', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $persone_options = new_cmb2_box( $args );
+
+    $persone_landing_url = dsi_get_template_page_url("page-templates/persone.php");
+    $persone_options->add_field( array(
+        'id' => $prefix . 'persone_istruzioni',
+        'name'        => __( 'Sezione Persone', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$didattica_landing_url.'">la pagina delle Persone</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $persone_options->add_field( array(
+        'id' => $prefix . 'testo_sezione_persone',
+        'name'        => __( 'Descrizione Sezione Persone', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Le persone del liceo scientifico xxx, insegnanti, personale ATA e docenti' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
+
+    $persone_options->add_field( array(
+        'id' => $prefix . 'strutture_persone',
+        'name'        => __( 'Seleziona e ordina le strutture organizzative a cui fanno capo le persone', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona le strutture organizzative di cui vuoi mostrare le persone. <a href="'.$persone_landing_url.'">La pagina con la lista delle persone sarà popolata automaticamente</a>. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_strutture_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina le strutture di cui mostrare le persone', 'design_scuole_italia' ),
+        ),
+    ) );
+
+
+    // pagina opzioni
 	/**
 	 * Registers main options page menu item and form.
 	 */
@@ -512,6 +607,12 @@ function dsi_register_main_options_metabox() {
 
 	$setup_options = new_cmb2_box( $args );
 
+    $setup_options->add_field( array(
+        'id' => $prefix . 'altro_istruzioni',
+        'name'        => __( 'Altre Informazioni', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione delle opzioni generali del tema.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
 
 	$setup_options->add_field( array(
 		'id' => $prefix . 'mapbox_key',
