@@ -557,7 +557,7 @@ function dsi_register_main_options_metabox() {
     $persone_options->add_field( array(
         'id' => $prefix . 'persone_istruzioni',
         'name'        => __( 'Sezione Persone', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$didattica_landing_url.'">la pagina delle Persone</a>.' , 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$persone_landing_url.'">la pagina delle Persone</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
