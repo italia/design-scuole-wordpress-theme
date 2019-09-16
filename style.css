@@ -97,7 +97,6 @@ table,thead,tbody,tfoot,tr, td,th{
     margin: auto;
     border:1px solid #dedede;
     padding: 1rem;
-    width: 50%;
 }
 .table    { display: table;  }
 .tr       { display: table-row;  }
