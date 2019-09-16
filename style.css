@@ -103,6 +103,14 @@ table,thead,tbody,tfoot,tr, td,th{
     padding: 1rem;
 
 }
+table td{
+    font-family: Lora, Georgia, serif;
+}
+table td ul{
+    text-align:left;
+    font-family: Lora, Georgia, serif;
+}
+
 .table    { display: table;  }
 .tr       { display: table-row;  }
 .thead    { display: table-header-group }
