@@ -92,12 +92,16 @@ Text Domain: design_scuole_italia
 /** fine footer widgets **/
 
 /** tables **/
+table{
+    table-layout: fixed;
+    width: 100%;
+}
 table,thead,tbody,tfoot,tr, td,th{
     text-align: center;
     margin: auto;
     border:1px solid #dedede;
     padding: 1rem;
-    width: 100%;
+
 }
 .table    { display: table;  }
 .tr       { display: table-row;  }
