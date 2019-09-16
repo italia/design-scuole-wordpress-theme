@@ -43,6 +43,10 @@ Text Domain: design_scuole_italia
 .single .article-wrapper>p>a{
     text-decoration:underline;
 }
+.page .article-wrapper a{
+    color: #0073e6 ;
+    text-decoration:underline;
+}
 
 
 .article-title-small {
@@ -86,3 +90,58 @@ Text Domain: design_scuole_italia
     padding:3px 0px;
 }
 /** fine footer widgets **/
+
+/** tables **/
+table,thead,tbody,tfoot,tr, td,th{
+    text-align: center;
+    margin: auto;
+    border:1px solid #dedede;
+    padding: 1rem;
+    width: 50%;
+}
+.table    { display: table; width: 50%; }
+.tr       { display: table-row;  }
+.thead    { display: table-header-group }
+.tbody    { display: table-row-group }
+.tfoot    { display: table-footer-group }
+.col      { display: table-column }
+.colgroup { display: table-column-group }
+.td, .th   { display: table-cell; width: 50%; }
+.caption  { display: table-caption }
+
+.table,
+.thead,
+.tbody,
+.tfoot,
+.tr,
+.td,
+.th{
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+}
+.table{
+    background: #fff;
+    margin: auto;
+    border:none;
+    padding: 0;
+    margin-bottom: 5rem;
+}
+
+.th{
+    font-weight: 700;
+    border:1px solid #dedede;
+&:nth-child(odd){
+     border-right:none;
+ }
+}
+.td{
+    font-weight: 300;
+    border:1px solid #dedede;
+    border-top:none;
+&:nth-child(odd){
+     border-right:none;
+ }
+}
+/** fine tables **/
+
