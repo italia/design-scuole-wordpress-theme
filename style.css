@@ -99,14 +99,14 @@ table,thead,tbody,tfoot,tr, td,th{
     padding: 1rem;
     width: 50%;
 }
-.table    { display: table; width: 50%; }
+.table    { display: table;  }
 .tr       { display: table-row;  }
 .thead    { display: table-header-group }
 .tbody    { display: table-row-group }
 .tfoot    { display: table-footer-group }
 .col      { display: table-column }
 .colgroup { display: table-column-group }
-.td, .th   { display: table-cell; width: 50%; }
+.td, .th   { display: table-cell; }
 .caption  { display: table-caption }
 
 .table,
