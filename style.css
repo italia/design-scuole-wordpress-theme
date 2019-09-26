@@ -157,3 +157,21 @@ table td ul{
 }
 /** fine tables **/
 
+
+.footer-inline-menu {
+    display: flex;
+    font-weight: 600;
+}
+.footer-inline-menu ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+.footer-inline-menu ul li{
+    float:left;
+    padding:20px;
+}
+
+.at-tableclass a{
+    text-decoration:none !important;
+}

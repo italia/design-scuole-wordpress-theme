@@ -142,6 +142,32 @@ function dsi_create_pages_on_theme_activation() {
         }
     }
 
+
+
+    // template page per Amministrazione Trasparente
+    $new_page_title    = __( 'Amministrazione Trasparente', 'design_scuole_italia' ); // Page's title
+    $new_page_content  = '[at-sezioni col="2" bar="0" con="0"]';                           // Content goes here
+    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug'    => 'amministrazione-trasparente'
+    );
+    // If the page doesn't already exist, create it
+    if ( ! isset( $page_check->ID ) ) {
+        $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
+
+    }else{
+        $amministrazione_trasparente_page_id = $page_check->ID;
+    }
+    // setto il setup di amministrazione trasparente
+    $amm_options = get_option('wpgov_at');
+    $amm_options["page_id"] = $amministrazione_trasparente_page_id;
+    update_option("wpgov_at", $amm_options);
     /**
 	 * popolamento delle materie
 	 */
@@ -347,45 +373,65 @@ function dsi_create_pages_on_theme_activation() {
 	update_option( 'menu_check', true );
 
 
-	/**
-	 * creo il menu Didattica
-	 */
-	$name = __('Didattica', "design_scuole_italia");
+    /**
+     * creo il menu Didattica
+     */
+    $name = __('Didattica', "design_scuole_italia");
 
-	wp_delete_nav_menu($name);
-	$menu_id = wp_create_nav_menu($name);
-	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    wp_delete_nav_menu($name);
+    $menu_id = wp_create_nav_menu($name);
+    $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	// todo
-	wp_update_nav_menu_item($menu->term_id, 0, array(
-		'menu-item-title' => __('I cicli scolastici e le classi', "design_scuole_italia"),
-		'menu-item-url' => "#",
-		'menu-item-status' => 'publish',
-		'menu-item-type' => 'custom', // optional
-	));
-
-
-	wp_update_nav_menu_item($menu->term_id, 0, array(
-		'menu-item-title' => __('Le schede didattiche', "design_scuole_italia"),
-		'menu-item-status' => 'publish',
-		'menu-item-object' => 'scheda_didattica',
-		'menu-item-type' => 'post_type_archive'
-	));
-
-	wp_update_nav_menu_item($menu->term_id, 0, array(
-		'menu-item-title' => __('I progetti delle classi', "design_scuole_italia"),
-		'menu-item-status' => 'publish',
-		'menu-item-object' => 'scheda_progetto',
-		'menu-item-type' => 'post_type_archive'
-	));
-
-	$locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
-	$locations_primary_arr["menu-didattica"] = $menu->term_id;
-	set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
-	update_option( 'menu_check', true );
+    // todo
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('I cicli scolastici e le classi', "design_scuole_italia"),
+        'menu-item-url' => "#",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+    ));
 
 
-	/**
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Le schede didattiche', "design_scuole_italia"),
+        'menu-item-status' => 'publish',
+        'menu-item-object' => 'scheda_didattica',
+        'menu-item-type' => 'post_type_archive'
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('I progetti delle classi', "design_scuole_italia"),
+        'menu-item-status' => 'publish',
+        'menu-item-object' => 'scheda_progetto',
+        'menu-item-type' => 'post_type_archive'
+    ));
+
+    $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+    $locations_primary_arr["menu-didattica"] = $menu->term_id;
+    set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+    update_option( 'menu_check', true );
+
+    /**
+     * creo il menu Footer
+     */
+    $name = __('Footer', "design_scuole_italia");
+
+    wp_delete_nav_menu($name);
+    $menu_id = wp_create_nav_menu($name);
+    $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
+        'menu-item-url' =>  get_page_link( get_page_by_path( 'amministrazione-trasparente' ) ),
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+    ));
+
+    $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+    $locations_primary_arr["menu-footer"] = $menu->term_id;
+    set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+
+
+    /**
      * creo i permessi e le capabilities
      */
 

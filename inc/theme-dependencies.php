@@ -96,6 +96,11 @@ function dsi_register_required_plugins() {
 			'required' => true,
 		),
         array(
+            'name'     => 'Amministrazione Trasparente',
+            'slug'     => 'amministrazione-trasparente',
+            'required' => true,
+        ),
+        array(
             'name'     => 'Members',
             'slug'     => 'members',
             'required' => true,

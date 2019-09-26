@@ -344,8 +344,13 @@ class Breadcrumb_Trail {
 
 				if ( is_post_type_archive() )
 					$this->add_post_type_archive_items();
+                elseif (is_tax("tipologie") ){
+                    $ammlink = get_page_link( get_page_by_path( 'amministrazione-trasparente' ) );
+                    $this->items[] =  "<a href='".$ammlink."'>".__("Amministrazione Trasparente", "design_scuole_italia")."</a>";
+					$this->add_term_archive_items();
 
-				elseif ( is_category() || is_tag() || is_tax() )
+                }
+                elseif ( is_category() || is_tag() || is_tax() )
 					$this->add_term_archive_items();
 
 				elseif ( is_author() )
@@ -623,7 +628,7 @@ class Breadcrumb_Trail {
 		}
 
 		// If there's a single post type for the taxonomy, use it.
-		if ( false === $done_post_type && 1 === count( $taxonomy->object_type ) && post_type_exists( $taxonomy->object_type[0] ) ) {
+		if ( false === $done_post_type && 1 === count( $taxonomy->object_type ) && isset($taxonomy->object_type[0]) &&  post_type_exists( $taxonomy->object_type[0] ) ) {
 
 			// If the post type is 'post'.
 			if ( 'post' === $taxonomy->object_type[0] ) {

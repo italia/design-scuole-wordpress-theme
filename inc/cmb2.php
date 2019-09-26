@@ -91,6 +91,23 @@ function dsi_get_classe_options( $query_args = false) {
 	return $options;
 }
 
+function dsi_get_tipologie_amministrazione_trasparente( $query_args = false) {
+
+    $classi = get_terms( array(
+        'taxonomy' => 'tipologie',
+        'hide_empty' => false,
+    ));
+
+    $options = array();
+    if ( $classi ) {
+        foreach ( $classi as $classe ) {
+            $options[ $classe->term_id ] = $classe->name;
+        }
+    }
+
+    return $options;
+}
+
 
 /**
  * Lista di tipologia di servizi

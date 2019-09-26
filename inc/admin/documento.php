@@ -2,7 +2,7 @@
 /**
  * Definisce post type e tassonomie relative ai documenti
  */
-add_action( 'init', 'dsi_register_documento_post_type', 0 );
+add_action( 'init', 'dsi_register_documento_post_type', 100 );
 function dsi_register_documento_post_type() {
 
 	/** documenti **/
@@ -56,8 +56,12 @@ function dsi_register_documento_post_type() {
 
 	register_taxonomy( 'tipologia-documento', array( 'documento' ), $args );
 
-}
 
+    register_taxonomy_for_object_type( 'category', 'documento' );
+    register_taxonomy_for_object_type( 'tipologie', 'documento' );
+
+    unregister_post_type( 'amm-trasparente' );
+}
 
 /**
  * Crea i metabox del post type eventi
@@ -87,8 +91,38 @@ function dsi_add_documento_metaboxes() {
 		),
 	) );
 
+//    if ( is_plugin_active( 'amministrazione-trasparente/amministrazionetrasparente.php' ) ) {
 
 
+        $cmb_sottotitolo->add_field(array(
+            'id' => $prefix . 'is_amministrazione_trasparente',
+            'name' => __('Amministrazione Trasparente *', 'design_scuole_italia'),
+            'desc' => __('Seleziona se il documento fa parte di Amministrazione Trasparente', 'design_scuole_italia'),
+            'type' => 'radio_inline',
+            'default' => 'false',
+            'options' => array(
+                'true' => __('Si', 'design_scuole_italia'),
+                'false' => __('No', 'design_scuole_italia'),
+            ),
+        ));
+
+
+
+        $cmb_sottotitolo->add_field(array(
+                'name' => __('Tipologia di Amministrazione Trasparente ', 'design_scuole_italia'),
+                'desc' => __('Collega alla sezione di Amministrazione Trasparente. ', 'design_scuole_italia'),
+                'id' => $prefix . 'tipologia_ammtrasp',
+                'taxonomy'       => 'tipologie', //Enter Taxonomy Slug
+                'type'           => 'taxonomy_select',
+                'remove_default' => true, // Removes the default metabox provided by WP core.
+                'attributes' => array(
+                    'data-conditional-id' => $prefix . 'is_amministrazione_trasparente',
+                    'data-conditional-value' => "true",
+                ),
+            )
+        );
+
+  //  }
 	$cmb_aftercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_dati',
 		'title'        => __( 'Dati Pubblici', 'design_scuole_italia' ),
