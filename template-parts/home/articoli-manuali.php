@@ -1,8 +1,8 @@
 <?php
 
-$home_articoli_manuali_ = dsi_get_option("home_articoli_manuali_", "homepage");
+$home_articoli_manuali = dsi_get_option("home_articoli_manuali", "homepage");
 
-if(is_array($home_articoli_manuali_) && count($home_articoli_manuali_)){
+if(is_array($home_articoli_manuali) && count($home_articoli_manuali)){
 
 
 ?>
@@ -14,10 +14,10 @@ if(is_array($home_articoli_manuali_) && count($home_articoli_manuali_)){
         </div><!-- /title-section -->
         <div class="row variable-gutters">
                 <?php
-                foreach ( $home_articoli_manuali_ as $idpost ) {
+                foreach ( $home_articoli_manuali as $idpost ) {
                     $post = get_post($idpost);
                    ?>
-                <div class="col-lg-4 mt-4">
+                <div class="col-lg-4 mb-4">
                     <?php
                     if($post->post_type == "evento")
                         get_template_part("template-parts/evento/card");

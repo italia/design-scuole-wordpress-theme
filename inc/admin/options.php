@@ -102,12 +102,10 @@ function dsi_register_main_options_metabox() {
         ),
     ));
 
-
-
     $home_options->add_field(array(
             'name' => __('Selezione articoli ', 'design_scuole_italia'),
             'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
-            'id' => $prefix . 'home_articoli_manuali_',
+            'id' => $prefix . 'home_articoli_manuali',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
             'options' => array(
@@ -120,6 +118,48 @@ function dsi_register_main_options_metabox() {
             ),
             'attributes' => array(
                 'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+                'data-conditional-value' => "false",
+            ),
+        )
+    );
+
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_2',
+        'name'        => __( 'Sezione Servizi', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Servizi mostrati in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_is_selezione_automatica_servizi',
+        'name' => __('Selezione Automatica', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare automaticamente i servizi (mostra gli ultimi)', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
+
+
+    $home_options->add_field(array(
+            'name' => __('Selezione articoli ', 'design_scuole_italia'),
+            'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
+            'id' => $prefix . 'home_servizi_manuali',
+            'type'    => 'custom_attached_posts',
+            'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+            'options' => array(
+                'show_thumbnails' => false, // Show thumbnails on the left
+                'filter_boxes'    => true, // Show a text box for filtering the results
+                'query_args'      => array(
+                    'posts_per_page' => -1,
+                    'post_type'      => 'servizio',
+                ), // override the get_posts args
+            ),
+            'attributes' => array(
+                'data-conditional-id' => $prefix . 'home_is_selezione_automatica_servizi',
                 'data-conditional-value' => "false",
             ),
         )
