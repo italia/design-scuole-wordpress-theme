@@ -11,7 +11,11 @@ function dsi_hide_editor() {
 	global $pagenow;
 	if ( $pagenow == "post.php" ) {
 		// Get the Post ID.
-		$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'];
+        if(isset($_GET['post']))
+		    $post_id = $_GET['post'];
+        else if(isset($_POST['post_ID']))
+            $post_id = $_POST['post_ID'];
+
 		if ( ! isset( $post_id ) ) {
 			return;
 		}

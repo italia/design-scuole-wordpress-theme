@@ -173,6 +173,10 @@ table td ul{
     padding:20px;
 }
 
-.at-tableclass a{
+/** amministrazione trasparente **/
+.ammtrasm-tableclass a{
     text-decoration:none !important;
 }
+.ammtrasm-tableclass h3 a { text-decoration:none; cursor: default; }
+.ammtrasm-tableclass h3 {  border: 1px solid #eee; padding: 8px 10px; background: #FBFBFB; }
+.ammtrasm-tableclass ul li a { text-decoration: none; }

@@ -95,11 +95,11 @@ function dsi_register_required_plugins() {
 			'slug'     => 'disable-gutenberg',
 			'required' => true,
 		),
-        array(
+       /* array(
             'name'     => 'Amministrazione Trasparente',
             'slug'     => 'amministrazione-trasparente',
             'required' => true,
-        ),
+        ),*/
         array(
             'name'     => 'Members',
             'slug'     => 'members',

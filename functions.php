@@ -8,9 +8,21 @@
  */
 
 /**
+ * Define
+ */
+require get_template_directory() . '/inc/define.php';
+
+/**
+ * Vocabolario
+ */
+require get_template_directory() . '/inc/vocabolario.php';
+
+
+/**
  * Implement Plugin Activations Rules
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
+
 
 /**
  * Implement CMB2 Custom Field Manager
@@ -37,11 +49,6 @@ require get_template_directory() . '/inc/activation.php';
  * Actions & Hooks
  */
 require get_template_directory() . '/inc/actions.php';
-
-/**
- * Define
- */
-require get_template_directory() . '/inc/define.php';
 
 
 

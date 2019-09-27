@@ -94,16 +94,18 @@ function dsi_get_classe_options( $query_args = false) {
 function dsi_get_tipologie_amministrazione_trasparente( $query_args = false) {
 
     $classi = get_terms( array(
-        'taxonomy' => 'tipologie',
+        'taxonomy' => 'amministrazione-trasparente',
         'hide_empty' => false,
     ));
 
     $options = array();
     if ( $classi ) {
         foreach ( $classi as $classe ) {
-            $options[ $classe->term_id ] = $classe->name;
+            if($classe->parent != 0)
+                $options[ $classe->term_id ] = $classe->name;
         }
     }
+    sort($options);
 
     return $options;
 }

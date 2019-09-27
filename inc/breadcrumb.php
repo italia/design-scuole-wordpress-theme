@@ -344,13 +344,7 @@ class Breadcrumb_Trail {
 
 				if ( is_post_type_archive() )
 					$this->add_post_type_archive_items();
-                elseif (is_tax("tipologie") ){
-                    $ammlink = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
 
-                    $this->items[] =  "<a href='".$ammlink."'>".__("Amministrazione Trasparente", "design_scuole_italia")."</a>";
-					$this->add_term_archive_items();
-
-                }
                 elseif ( is_category() || is_tag() || is_tax() )
 					$this->add_term_archive_items();
 
@@ -647,7 +641,7 @@ class Breadcrumb_Trail {
 				// Core filter hook.
 				$label = apply_filters( 'post_type_archive_title', $label, $post_type_object->name );
 
-				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), $label );
+			//	$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), $label );
 			}
 		}
 
