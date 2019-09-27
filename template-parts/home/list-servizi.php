@@ -15,7 +15,14 @@
         }
         ?>
     </div><!-- /row -->
-    <div class="pb-5 text-center">
-        <a class="text-underline" href="<?php echo get_post_type_archive_link("servizio"); ?>"><strong><?php _e("Vedi tutti i servizi", "design_scuole_italia"); ?></strong></a>
-    </div>
+    <?php
+    $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
+    if($landing_url) {
+        ?>
+        <div class="pb-5 text-center">
+            <a class="text-underline" href="<?php echo $landing_url; ?>"><strong><?php _e("Scopri di più", "design_scuole_italia"); ?></strong></a>
+        </div>
+        <?php
+    }
+ ?>
 </div><!-- /container --><?php

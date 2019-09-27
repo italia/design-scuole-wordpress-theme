@@ -63,8 +63,70 @@ function dsi_register_main_options_metabox() {
 	) );
 
 
+    /**
+     * Registers options page "Home".
+     */
 
-	/**
+    $args = array(
+        'id'           => 'dsi_options_home',
+        'title'        => esc_html__( 'Home Page', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'homepage',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Home Page', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $home_options = new_cmb2_box( $args );
+
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_1',
+        'name'        => __( 'Sezione Notizie', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione Notizie / Articoli / Eventi mostrati in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_is_selezione_automatica',
+        'name' => __('Selezione Automatica', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare automaticamente gli articoli in base alla configurazione della Pagina "Notizie"', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
+
+
+
+    $home_options->add_field(array(
+            'name' => __('Selezione articoli ', 'design_scuole_italia'),
+            'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
+            'id' => $prefix . 'home_articoli_manuali_',
+            'type'    => 'custom_attached_posts',
+            'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+            'options' => array(
+                'show_thumbnails' => false, // Show thumbnails on the left
+                'filter_boxes'    => true, // Show a text box for filtering the results
+                'query_args'      => array(
+                    'posts_per_page' => -1,
+                    'post_type'      => array('post', 'page', 'evento'),
+                ), // override the get_posts args
+            ),
+            'attributes' => array(
+                'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+                'data-conditional-value' => "false",
+            ),
+        )
+    );
+
+
+    /**
 	 * Registers options page "La Scuola".
 	 */
 	$args = array(
@@ -72,7 +134,6 @@ function dsi_register_main_options_metabox() {
 		'title'        => esc_html__( 'La Scuola', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'la_scuola',
-		'tab_group'    => 'dsi_main_options',
 		'tab_title'    => __('Pagina "Scuola"', "design_scuole_italia"),
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',

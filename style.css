@@ -161,9 +161,10 @@ table td ul{
 .footer-inline-menu {
     display: flex;
     font-weight: 600;
+    list-style: none;
 }
+
 .footer-inline-menu ul {
-    list-style: none !important;
     padding: 0;
     margin: 0;
 }

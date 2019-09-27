@@ -14,7 +14,16 @@ get_header();
         if ( have_posts() ) :
 
             get_template_part("template-parts/home/hero", "home");
-            get_template_part("template-parts/home/articoli", "eventi");
+
+            $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
+            if($home_is_selezione_automatica == "false"){
+                get_template_part("template-parts/home/articoli", "manuali");
+            }else{
+                get_template_part("template-parts/home/articoli", "eventi");
+            }
+
+
+
         ?>
         <section class="section bg-white">
         <?php get_template_part("template-parts/home/hero", "servizi"); ?>
