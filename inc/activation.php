@@ -147,6 +147,7 @@ function dsi_create_pages_on_theme_activation() {
     // template page per Amministrazione Trasparente
     $new_page_title    = __( 'Amministrazione Trasparente', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '[at-sezioni col="2" bar="0" con="0"]';                           // Content goes here
+    $new_page_template = 'page-templates/amministrazione-trasparente.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
     // Store the above data in an array
     $new_page = array(
@@ -160,14 +161,18 @@ function dsi_create_pages_on_theme_activation() {
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
         $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
-
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+        }
     }else{
         $amministrazione_trasparente_page_id = $page_check->ID;
+        update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
     }
     // setto il setup di amministrazione trasparente
     $amm_options = get_option('wpgov_at');
     $amm_options["page_id"] = $amministrazione_trasparente_page_id;
     update_option("wpgov_at", $amm_options);
+
     /**
 	 * popolamento delle materie
 	 */
@@ -419,9 +424,11 @@ function dsi_create_pages_on_theme_activation() {
     $menu_id = wp_create_nav_menu($name);
     $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
+    $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
+
     wp_update_nav_menu_item($menu->term_id, 0, array(
         'menu-item-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
-        'menu-item-url' =>  get_page_link( get_page_by_path( 'amministrazione-trasparente' ) ),
+        'menu-item-url' =>  $ammtrasp_landing_url,
         'menu-item-status' => 'publish',
         'menu-item-type' => 'custom', // optional
     ));

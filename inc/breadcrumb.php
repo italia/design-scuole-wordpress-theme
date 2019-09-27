@@ -345,7 +345,8 @@ class Breadcrumb_Trail {
 				if ( is_post_type_archive() )
 					$this->add_post_type_archive_items();
                 elseif (is_tax("tipologie") ){
-                    $ammlink = get_page_link( get_page_by_path( 'amministrazione-trasparente' ) );
+                    $ammlink = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
+
                     $this->items[] =  "<a href='".$ammlink."'>".__("Amministrazione Trasparente", "design_scuole_italia")."</a>";
 					$this->add_term_archive_items();
 
