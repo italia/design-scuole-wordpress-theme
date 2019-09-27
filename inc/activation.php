@@ -353,7 +353,7 @@ function dsi_create_pages_on_theme_activation() {
 
 	$term = get_term_by("name", "Circolari", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
-		'menu-item-title' => __('Le circolati', "design_scuole_italia"),
+		'menu-item-title' => __('Le circolari', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
 		'menu-item-type' => 'taxonomy',
 		'menu-item-object' => 'tipologia-articolo',
