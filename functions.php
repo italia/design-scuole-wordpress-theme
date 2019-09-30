@@ -17,7 +17,6 @@ require get_template_directory() . '/inc/define.php';
  */
 require get_template_directory() . '/inc/vocabolario.php';
 
-
 /**
  * Extend User Taxonomy
  */
@@ -28,7 +27,6 @@ require get_template_directory() . '/inc/extend-tax-to-user.php';
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
-
 /**
  * Implement CMB2 Custom Field Manager
  */
@@ -38,6 +36,11 @@ require get_template_directory() . '/inc/cmb2.php';
  * Utils functions
  */
 require get_template_directory() . '/inc/utils.php';
+
+/**
+ * Notifications functions
+ */
+require get_template_directory() . '/inc/notification.php';
 
 /**
  * Breadcrumb class

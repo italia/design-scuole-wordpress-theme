@@ -1,13 +1,23 @@
 <?php
 $current_user = wp_get_current_user();
-?>
-<!--    <div class="header-notification-alert has-notifications">
-        <a href="#">
+
+$last_notification = get_user_meta($current_user->ID,"last_notification", true);
+
+$link_notification = get_permalink($last_notification);
+
+if($last_notification){
+    ?>
+    <div class="header-notification-alert has-notifications">
+        <a href="<?php echo $link_notification; ?>">
             <svg class="svg-bell-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell-solid"></use></svg>
         </a>
     </div>
-    //-->
     <!-- /header-notification-alert -->
+
+<?php
+}
+
+?>
 
     <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#">
         <div class="avatar-wrapper">

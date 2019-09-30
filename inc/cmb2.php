@@ -26,6 +26,40 @@ function dsi_get_user_options( $query_args = false) {
 	return $user_options;
 }
 
+
+
+function dsi_get_roles_options() {
+    if ( ! function_exists( 'get_editable_roles' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/user.php';
+    }
+    $editable_roles = get_editable_roles();
+    $options = array();
+
+    foreach ($editable_roles as $role => $details) {
+        $options[ esc_attr($role) ] = translate_user_role($details['name']);
+    }
+
+    return $options;
+}
+
+
+function dsi_get_gruppi_options( $query_args = false) {
+
+    $classi = get_terms( array(
+        'taxonomy' => 'gruppo-utente',
+        'hide_empty' => false,
+    ));
+
+    $options = array();
+    if ( $classi ) {
+        foreach ( $classi as $classe ) {
+            $options[ $classe->term_id ] = $classe->name;
+        }
+    }
+
+    return $options;
+}
+
 function dsi_get_program_options( $query_args = false) {
 
 	$programs = get_posts("post_type=programma_materia&posts_per_page=-1&orderby=title&order=ASC");
