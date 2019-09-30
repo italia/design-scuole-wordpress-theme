@@ -1,15 +1,30 @@
-# perfect-scrollbar
+<p align="center">
+  <a href="https://mdbootstrap.com/docs/jquery/getting-started/download/?utm_source=GitHub&utm_medium=PerfectScrollbar">
+    <img src="https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png">
+  </a>
+</p>
 
-Minimalistic but perfect custom scrollbar plugin
+<h1 align="center">perfect-scrollbar</h1>
 
-[![npm](https://img.shields.io/npm/v/perfect-scrollbar.svg)](https://www.npmjs.com/package/perfect-scrollbar)
-[![Travis CI](https://travis-ci.org/utatti/perfect-scrollbar.svg?branch=master)](https://travis-ci.org/utatti/perfect-scrollbar)
+<p align="center">Minimalistic but perfect custom scrollbar plugin<p>
 
-***To read documentation for versions < 1.0, please visit [`v0.8.1`](https://github.com/utatti/perfect-scrollbar/tree/0.8.1).***
+
+<p align="center">	
+  <a href="https://npmcharts.com/compare/perfect-scrollbar?minimal=true"><img src="https://img.shields.io/npm/dm/perfect-scrollbar.svg" alt="Downloads"></a>
+  <a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>	
+  <a href="https://badge.fury.io/js/perfect-scrollbar"><img src="https://badge.fury.io/js/perfect-scrollbar.svg" alt="npm"></a>	
+  <a href="https://twitter.com/intent/tweet/?text=Thanks+@mdbootstrap+for+maintaining+amazing+and+free+Perfect+Scrollbar+Plugin%20https://mdbootstrap.com/freebies/perfect-scrollbar/&hashtags=javascript,code,webdesign,github"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>	
+</p>
+
+## [Official documentation](https://mdbootstrap.com/freebies/perfect-scrollbar/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+***The official documentation can be found [here](https://mdbootstrap.com/freebies/perfect-scrollbar/?utm_source=GitHub&utm_medium=PerfectScrollbar).***
+***To read documentation for versions < 1.0, please visit [`v0.8.1`](https://github.com/mdbootstrap/perfect-scrollbar/tree/0.8.1).***
+
+________
 
 ## Why perfect-scrollbar?
 
-perfect-scrollbar is minimalistic but *perfect* (for me, and maybe for most
+perfect-scrollbar is minimalistic but *perfect* (for us, and maybe for most
 developers) scrollbar plugin.
 
 * No change on design layout
@@ -18,11 +33,20 @@ developers) scrollbar plugin.
 * Scrollbar style is fully customizable
 * Efficient update on layout change
 
-I hope you love it!
+We hope you will love it!
 
-## Demo
+## Live preview
 
-It's on the [GitHub Pages](http://utatti.github.io/perfect-scrollbar/).
+Check out the [Live Preview](https://mdbootstrap.com/snippets/jquery/filipkapusta/765760/?utm_source=GitHub&utm_medium=PerfectScrollbar) snippet. You can fork it right away for testing and experimenting purposes.
+
+## More useful plugins
+
+***You'll find some example plugins below, you can explore all of them [here](https://mdbootstrap.com/plugins/jquery/?utm_source=GitHub&utm_medium=PerfectScrollbar)***
+
+[Datatable Plugin](https://mdbootstrap.com/docs/jquery/tables/datatables/?utm_source=GitHub&utm_medium=PerfectScrollbar)| [Treeview Plugin](https://mdbootstrap.com/plugins/jquery/treeview/?utm_source=GitHub&utm_medium=PerfectScrollbar)| [Filter Plugin](https://mdbootstrap.com/plugins/jquery/filter/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+------------ | ------------- | -------------
+<a href="https://mdbootstrap.com/docs/jquery/tables/datatables/?utm_source=GitHub&utm_medium=PerfectScrollbar"><img  src="https://mdbootstrap.com/img/Marketing/products/jquery/plugins/datatable.jpg" alt="Filter Plugin"></a> | <a href="https://mdbootstrap.com/plugins/jquery/treeview/?utm_source=GitHub&utm_medium=PerfectScrollbar"><img   src="https://mdbootstrap.com/img/Marketing/products/jquery/plugins/treeview.jpg" alt="Filter Plugin"></a> | <a href="https://mdbootstrap.com/plugins/jquery/filter/?utm_source=GitHub&utm_medium=PerfectScrollbar"><img  src="https://mdbootstrap.com/img/Marketing/products/jquery/plugins/filter.jpg" alt="Filter Plugin"></a>
+_________
 
 ## Table of Contents
 
@@ -35,40 +59,34 @@ It's on the [GitHub Pages](http://utatti.github.io/perfect-scrollbar/).
 * [Helpdesk](#helpdesk)
 * [IE Support](#ie-support)
 * [License](#license)
+* [Related resources](#related-resources)
+* [Social media](#social-media)
 
 ## Install
 
+#### Download now
+
+You can manually download perfect-scrollbar [here](https://mdbootstrap.com/freebies/perfect-scrollbar/?utm_source=GitHub&utm_medium=PerfectScrollbar).
+
 #### npm
 
-The best way to install and use perfect-scrollbar is with npm. It's registered
+You can install and use perfect-scrollbar with npm. It's registered
 as [perfect-scrollbar](https://www.npmjs.com/package/perfect-scrollbar).
 
 ```
 $ npm install perfect-scrollbar
 ```
-
-#### Manual download
-
-You can manually download perfect-scrollbar
-from [Releases](https://github.com/utatti/perfect-scrollbar/releases).
-
 #### From sources
 
 If you want to use the development version of the plugin, build from source
 manually. The development version may be unstable.
 
 ```
-$ git clone https://github.com/utatti/perfect-scrollbar.git
+$ git clone https://github.com/mdbootstrap/perfect-scrollbar.git
 $ cd perfect-scrollbar
 $ npm install
 $ npm run build
 ```
-
-#### JSFiddle
-
-You can fork the following JSFiddles for testing and experimenting purposes:
-
-* [perfect-scrollbar JSFiddle](https://jsfiddle.net/utatti/dyvL31r6/)
 
 #### Unofficial sources
 
@@ -97,7 +115,7 @@ needed, using browser-native scroll is always recommended.
 ## Caveats
 
 perfect-scrollbar emulates some scrolls, but not all of the kinds. It also *does not* work
-in some situations. You can find these cases in [Caveats](https://github.com/utatti/perfect-scrollbar/wiki/Caveats).
+in some situations. You can find these cases in [Caveats](https://github.com/mdbootstrap/perfect-scrollbar/wiki/Caveats).
 Basically, items listed in the caveats are hacky to implement and may not be
 implemented in the future. If the features are really needed, please consider
 using browser-native scroll.
@@ -320,9 +338,9 @@ console.log(ps.reach.y); // => 'start' or 'end' or null
 ## Helpdesk
 
 If you have any idea to improve this project or any problem using this, please
-feel free to upload an [issue](https://github.com/utatti/perfect-scrollbar/issues).
+feel free to upload an [issue](https://github.com/mdbootstrap/perfect-scrollbar/issues).
 
-For common problems, there is a [FAQ](https://github.com/utatti/perfect-scrollbar/wiki/FAQ) wiki
+For common problems, there is a [FAQ](https://github.com/mdbootstrap/perfect-scrollbar/wiki/FAQ) wiki
 page. Please check the page before uploading an issue.
 
 Also, the project is not actively maintained. No maintainer is paid, and most of
@@ -335,7 +353,7 @@ way to fix an issue.
 The plugin is developed to work in modern MS browsers including Edge and IE11,
 but may have some issues in IE11 mainly because of IE rendering bug concerning
 sync update on scroll properties. The problem is mentioned in
-[Caveats](https://github.com/utatti/perfect-scrollbar/wiki/Caveats) too.
+[Caveats](https://github.com/mdbootstrap/perfect-scrollbar/wiki/Caveats) too.
 
 IE<11 is not supported, and patches to fix problems in IE<=10 will not be
 accepted. When old IEs should be supported, please fork the project and make
@@ -344,3 +362,31 @@ modification locally.
 ## License
 
 [MIT](LICENSE)
+
+## Related resources
+
+- [Material Scrollbar](https://mdbootstrap.com/docs/jquery/javascript/scroll/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+
+- [Table scroll](https://mdbootstrap.com/docs/jquery/tables/scroll/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+
+- [Full screen scroller](https://mdbootstrap.com/plugins/jquery/screen-scroller/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+
+- [Scrollspy](https://mdbootstrap.com/docs/jquery/navigation/scrollspy/?utm_source=GitHub&utm_medium=PerfectScrollbar)
+
+## Social Media
+
+ - [Twitter](https://twitter.com/MDBootstrap)
+
+ - [Facebook](https://www.facebook.com/mdbootstrap) 
+
+ - [Pinterest](https://pl.pinterest.com/mdbootstrap)
+
+ - [Dribbble](https://dribbble.com/mdbootstrap)
+
+ - [LinkedIn](https://www.linkedin.com/company/material-design-for-bootstrap)
+ 
+ - [YouTube](https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA)
+
+## MDB PRO
+
+ - [Material Design for Bootstrap PRO](https://mdbootstrap.com/products/jquery-ui-kit/?utm_source=GitHub&utm_medium=PerfectScrollbar)

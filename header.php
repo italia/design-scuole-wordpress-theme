@@ -62,7 +62,7 @@ if(is_search() || is_archive())
 
         <div class="container header-top">
             <div class="row variable-gutters">
-                <div class="col-10 d-flex align-items-center">
+                <div class="col-8 d-flex align-items-center">
                     <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button">
                         <span class="hamburger-box">
                           <span class="hamburger-inner"></span>
@@ -76,20 +76,28 @@ if(is_search() || is_archive())
                             <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
                         </h1>
                     </div><!-- /logo-header -->
+                    <div class="sticky-main-nav">
+
+                    </div><!-- /sticky-main-nav -->
                 </div><!-- /col -->
-                <div class="col-2 d-flex align-items-center justify-content-end">
+                <div class="col-4 d-flex align-items-center justify-content-end">
                     <div class="header-search d-flex align-items-center">
                         <a class="d-flex align-items-center" href="#" data-target="#search-modal" data-toggle="modal">
                             <p class="d-none d-lg-block"><strong>Cerca</strong></p>
                             <svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use></svg>
                         </a>
                     </div><!-- /header-search -->
+                    <div class="header-utils-sticky">
+
+                    </div>
 					<?php
+                    /*
 					if(!is_user_logged_in()) {
 						get_template_part("template-parts/header/header-anon");
 					}else{
 						get_template_part("template-parts/header/header-logged");
 					}
+                    */
 					?>
                 </div><!-- /col -->
             </div><!-- /row -->

@@ -30,6 +30,10 @@
                 target         = '.cbp-spmenu-right';
                 push_direction = 'toleft';
             }
+            else if ($(this).is('.' + o.showSearchClass)) {
+                target         = '.cbp-spmenu-search';
+                push_direction = 'search';
+            }
             else if ($(this).is('.' + o.showTopClass)) {
                 target = '.cbp-spmenu-top';
             }
@@ -57,7 +61,7 @@
         var jPushMenu = {
             close: function (o) {
                 $('.jPushMenuBtn,body,.cbp-spmenu')
-                    .removeClass('disabled ' + o.activeClass + ' ' + o.menuOpenClass + ' ' + o.pushBodyClass + '-toleft ' + o.pushBodyClass + '-toright');
+                    .removeClass('disabled ' + o.activeClass + ' ' + o.menuOpenClass + ' ' + o.pushBodyClass + '-toleft ' + o.pushBodyClass + '-toright' + o.pushBodyClass + '-search');
             }
         }
 
@@ -89,6 +93,7 @@
         pushBodyClass      : 'push-body',
         showLeftClass      : 'menu-left',
         showRightClass     : 'menu-right',
+        showSearchClass    : 'menu-search',
         showTopClass       : 'menu-top',
         showBottomClass    : 'menu-bottom',
         activeClass        : 'menu-active',
