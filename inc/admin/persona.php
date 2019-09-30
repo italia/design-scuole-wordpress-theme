@@ -3,6 +3,38 @@
  * Definisce i campi custom degli user come persone
  */
 
+
+/**
+ * Definisce post type e tassonomie relative ai documenti
+ */
+add_action( 'init', 'dsi_register_user_terms');
+function dsi_register_user_terms()
+{
+    $labels = array(
+        'name'              => _x( 'Gruppo Utente', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Gruppo Utente', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca', 'design_scuole_italia' ),
+        'all_items'         => __( 'Tutti i gruppi', 'design_scuole_italia' ),
+        'edit_item'         => __( 'Modifica il gruppo', 'design_scuole_italia' ),
+        'update_item'       => __( 'Aggiorna il gruppo', 'design_scuole_italia' ),
+        'add_new_item'      => __( 'Aggiungi una gruppo', 'design_scuole_italia' ),
+        'new_item_name'     => __( 'Nuovo gruppo', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Gruppi', 'design_scuole_italia' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'gruppo-utente' ),
+    );
+
+    register_taxonomy( 'gruppo-utente',  'user' , $args );
+
+}
+
 add_filter( 'gettext', 'dsi_change_user_to_person' );
 add_filter( 'ngettext', 'dsi_change_user_to_person' );
 
@@ -324,3 +356,4 @@ function dsi_get_cmb2_user( $query_args ) {
 
 	return $user_options;
 }
+?>

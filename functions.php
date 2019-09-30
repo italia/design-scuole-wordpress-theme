@@ -19,6 +19,11 @@ require get_template_directory() . '/inc/vocabolario.php';
 
 
 /**
+ * Extend User Taxonomy
+ */
+require get_template_directory() . '/inc/extend-tax-to-user.php';
+
+/**
  * Implement Plugin Activations Rules
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
