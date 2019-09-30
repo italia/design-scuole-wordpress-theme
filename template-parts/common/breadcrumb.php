@@ -22,7 +22,7 @@
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
 			                     'documento'  => 'tipologia-documento',
-			                     'post'  => 'category',
+			                     'post'  =>     'tipologia-articolo',
 			                     'luogo'  => 'tipologia-luogo',
 			                     'programma_materia'  => 'materia',
 			                     'struttura'  => 'tipologia-struttura',

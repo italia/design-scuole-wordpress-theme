@@ -254,21 +254,24 @@ function dsi_add_articolo_metaboxes() {
 }
 
 
-add_action( 'transition_post_status', 'dsi_feedback_circolare', 10, 3 );
+add_action( 'save_post', 'dsi_feedback_circolare', 100, 2 );
 
-function dsi_feedback_circolare( $new_status, $old_status, $post )
+function dsi_feedback_circolare( $post_id, $post )
 {
-    if ( 'publish' !== $new_status)
+
+    if ( 'publish' !== $post->post_status)
         return;
 
     if ( 'post' !== $post->post_type )
         return; // restrict the filter to a specific post type
 
     $notificato = get_post_meta($post->ID, "notificato", true);
+
     if($notificato == "true")
         return; // già notificato, non procedo
 
     $require_feedback = dsi_get_meta("require_feedback", '_dsi_articolo_', $post->ID);
+
     if($require_feedback == "false")
         return;
 
