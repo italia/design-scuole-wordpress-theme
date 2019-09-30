@@ -33,7 +33,7 @@ if($post->post_type == "luogo") {
                     </div>
                 </a>
             <?php } ?>
-			<a href="<?php the_permalink(); ?>>">
+			<a href="<?php the_permalink(); ?>">
 				<div class="date">
 					<span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
 					<span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?></span>

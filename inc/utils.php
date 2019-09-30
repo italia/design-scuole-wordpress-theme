@@ -442,4 +442,62 @@ function dsi_get_template_page_url($TEMPLATE_NAME){
 	return $url;
 }
 
+/**
+ * ritorna l'array dei feedback delle circolari
+ * @return array
+ */
+function dsi_get_circolari_feedback_options(){
+    return array(
+        "false" => __('Nessun Feedback ', 'design_scuole_italia'),
+        'presa_visione' => __('Presa Visione', 'design_scuole_italia'),
+        'si_no' => __('Si / No', 'design_scuole_italia'),
+        'si_no_visione' => __('Si / No / Presa Visione', 'design_scuole_italia'),
+    );
+}
 
+/**
+ * controlla se l'utente è abilitato a firmare la circolare
+ * @param $user
+ * @param $post
+ * @return bool
+ */
+function dsi_user_can_sign_circolare($user, $post){
+
+    $destinatari_circolari = dsi_get_meta("destinatari_circolari", "", $post->ID);
+    if($destinatari_circolari == "all"){
+        return true;
+    }elseif ($destinatari_circolari == "ruolo"){
+        $ruoli_circolari = dsi_get_meta("ruoli_circolari", "", $post->ID);
+        if( array_intersect($ruoli_circolari, $user->roles ) ) {
+            return true;
+        }
+    }elseif ($destinatari_circolari == "gruppo"){
+        $gruppi_circolari = dsi_get_meta("gruppi_circolari", "", $post->ID);
+        if(is_object_in_term($user->ID, "gruppo-utente", $gruppi_circolari)){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+/**
+ * Controllo se l'utente ha già firmato la circolare
+ * @param $user
+ * @param $post
+ * @return bool
+ */
+function dsi_user_has_signed_circolare($user, $post){
+    $signed = get_post_meta($post->ID, "_dsi_has_signed", true);
+    if(!$signed)
+        $signed = array();
+    if(in_array($user->ID, $signed)){
+        $sign = get_user_meta($user->ID, "_dsi_signed_".$post->ID, true);
+        if($sign)
+            return $sign;
+
+        return true;
+    }
+    return false;
+}

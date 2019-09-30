@@ -58,12 +58,15 @@ require get_template_directory() . '/inc/activation.php';
  */
 require get_template_directory() . '/inc/actions.php';
 
-
-
 /**
  * Gutenberg editor rules
  */
 require get_template_directory() . '/inc/gutenberg.php';
+
+/**
+ * Welcome page
+ */
+require get_template_directory() . '/inc/welcome.php';
 
 
 if ( ! function_exists( 'dsi_setup' ) ) :

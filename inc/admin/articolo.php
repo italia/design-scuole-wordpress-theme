@@ -109,12 +109,7 @@ function dsi_add_articolo_metaboxes() {
         'desc' => __(' Se la circolare è di tipologia "assemblea sindacale" l\'azione richiesta è "Sì/NO. Se la circolare è di tipologia "sciopero" l\'azione richiesta è "Adesione sì/no/presa visione".', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => "false",
-        'options' => array(
-            "false" => __('Nessun Feedback ', 'design_scuole_italia'),
-            'presa_visione' => __('Presa Visione', 'design_scuole_italia'),
-            'si_no' => __('Si / No', 'design_scuole_italia'),
-            'si_no_visione' => __('Si / No / Presa Visione', 'design_scuole_italia'),
-        ),
+        'options' => dsi_get_circolari_feedback_options(),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
             'data-conditional-value' => "circolari",
@@ -265,7 +260,7 @@ function dsi_feedback_circolare( $post_id, $post )
     if ( 'post' !== $post->post_type )
         return; // restrict the filter to a specific post type
 
-    $notificato = get_post_meta($post->ID, "notificato", true);
+    $notificato = get_post_meta($post->ID, "_dsi_notificato", true);
 
     if($notificato == "true")
         return; // già notificato, non procedo
@@ -293,6 +288,35 @@ function dsi_feedback_circolare( $post_id, $post )
         foreach ($users as $user){
             dsi_notify_circolare_to_user($user->ID, $post);
         }
-        update_post_meta($post->ID, "notificato", "true");
+        update_post_meta($post->ID, "_dsi_notificato", "true");
+    }
+}
+
+
+add_action("get_header", "dsi_save_sign_init", 100);
+function dsi_save_sign_init(){
+    global $post, $current_user;
+    if(is_single()){
+
+        if(isset($_REQUEST["sign"]) && $_REQUEST["sign"] != ""){
+
+            $nonce = $_REQUEST['dsi'];
+            if ( ! wp_verify_nonce( $nonce, 'sign' ) ) {
+                die( 'Security check' );
+            } else {
+                // registro la firma sul post
+                $signed = get_post_meta($post->ID, "_dsi_has_signed", true);
+                if(!$signed)
+                    $signed = array();
+
+                if(!in_array($current_user->ID, $signed)){
+                    $signed[]=$current_user->ID;
+                }
+                update_post_meta($post->ID, "_dsi_has_signed", $signed);
+                // registro la tipologia di firma sull'utente
+                update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $_REQUEST["sign"]);
+
+            }
+        }
     }
 }

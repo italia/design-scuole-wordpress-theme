@@ -71,6 +71,9 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                 }
                                 ?>
                                 <?php
+                                if(has_term("circolari", "tipologia-articolo", $post)){
+                                    get_template_part( "template-parts/single/feedback-circolare");
+                                }
                                 if(is_array($luoghi) && count($luoghi)>0){
                                     ?>
                                     <h4 class="mb-4"><?php _e("Luoghi", "design_scuole_italia"); ?></h4>
