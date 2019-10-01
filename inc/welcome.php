@@ -26,10 +26,9 @@ add_action( 'wp_dashboard_setup', 'dsi_add_dashboard_widget' );
 
 function dsi_add_dashboard_widget() {
 
-    add_meta_box('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget', 'dashboard', 'core', 'high');
+    wp_add_dashboard_widget ('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget');
 
-    add_meta_box('dsi_circolari_signed_widget', 'Circolari Firmate', 'dsi_circolari_signed_dashboard_widget', 'dashboard', 'side', 'high');
-
+    wp_add_dashboard_widget('dsi_circolari_signed_widget', 'Circolari Firmate', 'dsi_circolari_signed_dashboard_widget');
 }
 
 function dsi_circolari_dashboard_widget() {
