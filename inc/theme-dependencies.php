@@ -95,16 +95,35 @@ function dsi_register_required_plugins() {
 			'slug'     => 'disable-gutenberg',
 			'required' => true,
 		),
-       /* array(
-            'name'     => 'Amministrazione Trasparente',
-            'slug'     => 'amministrazione-trasparente',
-            'required' => true,
-        ),*/
         array(
             'name'     => 'Members',
             'slug'     => 'members',
-            'required' => true,
+            'required' => false,
         ),
+        array(
+            'name'     => 'Amministrazione Aperta',
+            'slug'     => 'amministrazione-aperta',
+            'required' => false,
+        ),
+        array(
+            'name'     => 'ANAC XML Bandi di Gara',
+            'slug'     => 'avcp',
+            'required' => false,
+        ),
+        array(
+            'name'     => 'ANAC XML Viewer',
+            'slug'     => 'anac-xml-viewer',
+            'required' => false,
+        ),
+
+
+
+        /* array(
+             'name'     => 'Amministrazione Trasparente',
+             'slug'     => 'amministrazione-trasparente',
+             'required' => true,
+         ),*/
+
 		/*
 		array(
 			'name'     => 'Albo Pretorio On line',
