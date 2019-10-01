@@ -68,6 +68,11 @@ require get_template_directory() . '/inc/gutenberg.php';
  */
 require get_template_directory() . '/inc/welcome.php';
 
+/**
+ * Admin menu
+ */
+require get_template_directory() . '/inc/menu-order.php';
+
 
 if ( ! function_exists( 'dsi_setup' ) ) :
 	/**
@@ -86,7 +91,10 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		load_theme_textdomain( 'design_scuole_italia', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+
+        load_theme_textdomain( 'easy-appointments', get_template_directory() . '/languages' );
+
+        // Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*

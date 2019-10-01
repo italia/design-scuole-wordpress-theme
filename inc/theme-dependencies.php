@@ -115,6 +115,11 @@ function dsi_register_required_plugins() {
             'slug'     => 'anac-xml-viewer',
             'required' => false,
         ),
+        array(
+            'name'     => 'Easy Appointments',
+            'slug'     => 'easy-appointments',
+            'required' => false,
+        ),
 
 
 
