@@ -293,7 +293,11 @@ function dsi_feedback_circolare( $post_id, $post )
 }
 
 
+/**
+ * Firma circolare
+ */
 add_action("get_header", "dsi_save_sign_init", 100);
+
 function dsi_save_sign_init(){
     global $post, $current_user;
     if(is_single()){
@@ -316,7 +320,107 @@ function dsi_save_sign_init(){
                 // registro la tipologia di firma sull'utente
                 update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $_REQUEST["sign"]);
 
+                // tolgo l'id post dalla lista circolari utente
+                $lista_circolari = get_user_meta($current_user->ID, "_dsi_circolari", true);
+                if(!$lista_circolari)
+                    $lista_circolari = array();
+
+                if(is_array($lista_circolari)){
+                    if (($key = array_search($post->ID, $lista_circolari)) !== false) {
+                        unset($lista_circolari[$key]);
+                    }
+                   
+                    update_user_meta($current_user->ID, "_dsi_circolari", $lista_circolari);
+                }
+                
+                // aggiungo l'id in un array delle circolari firmate
+                $lista_circolari_firmate = get_user_meta($current_user->ID, "_dsi_circolari_signed", true);
+                if(!$lista_circolari_firmate)
+                    $lista_circolari_firmate = array();
+
+                if(is_array($lista_circolari_firmate)){
+                    if(!in_array($post->ID, $lista_circolari_firmate)){
+                        $lista_circolari_firmate[] = $post->ID;
+                    }
+                    update_user_meta($current_user->ID, "_dsi_circolari_signed", $lista_circolari_firmate);
+                }
+
+
+                // tolgo il flag dell'alert
+                delete_user_meta($current_user->ID,"_dsi_last_notification");
+
+
             }
         }
     }
 }
+
+//  in caso di articolo di tipo circolare aggiungo il metabox di riferimento
+
+
+function add_custom_meta_box()
+{
+    add_meta_box("circolari-meta-box", "Report Circolari", "dsi_circolari_meta_box", "post", "normal");
+}
+
+add_action("add_meta_boxes", "add_custom_meta_box");
+function dsi_circolari_meta_box($post)
+{
+    if(dsi_is_circolare($post)) {
+        $notificato =  get_post_meta($post->ID, "_dsi_notificato", "true");
+        if($notificato){
+            ?>
+            <p><i>Notifica già inviata. Modifiche ulteriori agli attributi delle circolari non genereranno nuove notifiche.</i></p>
+            <?php
+        }
+
+        ?>
+        <h3>Lista Firmatari</h3>
+        <?php
+        $signed = get_post_meta($post->ID, "_dsi_has_signed", true);
+        if(!$signed)
+            $signed = array();
+        if(count($signed) == 0){
+            echo "<p>Nessuna firma ancora registrata</p>";
+        }else{
+            echo "<ul>";
+            foreach ($signed as $sign){
+                $user = get_user_by("id", $sign);
+                $response = get_user_meta($user->ID, "_dsi_signed_".$post->ID, true);
+
+                echo "<li>";
+                echo $user->display_name;
+                if($response){
+                    echo " - ".strtoupper(str_replace("_", " ", $response));
+                }
+                echo "</li>";
+            }
+
+            echo "</ul>";
+        }
+
+    }else{ ?><style type="text/css">#circolari-meta-box{display:none;}</style> <?php }
+
+
+}
+
+/**
+ * Genera la notice alla circolare
+ */
+function dsi_circolari_admin_notice(){
+    global $pagenow;
+    if ( $pagenow == 'post.php' ) {
+        global $post;
+        if($post->post_type == "post"){
+            if(dsi_is_circolare($post)){
+                $notificato =  get_post_meta($post->ID, "_dsi_notificato", "true");
+                if($notificato) {
+                    echo '<div class="notice notice-warning is-dismissible">
+             <p>Attenzione: questa circolare è già stata notificata agli utenti indicati. Eventuali modifiche ai destinatari modificherà la raggiungibilità della circolare, ma NON genererà nuove notifiche.</p>
+         </div>';
+                }
+            }
+        }
+    }
+}
+add_action('admin_notices', 'dsi_circolari_admin_notice');

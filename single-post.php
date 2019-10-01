@@ -21,7 +21,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
 
         <?php while ( have_posts() ) :  the_post();
 
-            if(has_term("circolari", "tipologia-articolo", $post)){
+            if(dsi_is_circolare($post)){
                 get_template_part("template-parts/single/header-circolare");
             }else{
                 get_template_part("template-parts/single/header-post");
@@ -71,7 +71,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                 }
                                 ?>
                                 <?php
-                                if(has_term("circolari", "tipologia-articolo", $post)){
+                                if(dsi_is_circolare($post)){
                                     get_template_part( "template-parts/single/feedback-circolare");
                                 }
                                 if(is_array($luoghi) && count($luoghi)>0){

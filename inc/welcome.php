@@ -16,6 +16,88 @@ function dsi_welcome_panel(){
 }
 
 
+
+/**
+ * Gestione widget dashboard admin
+ *
+ */
+
+add_action( 'wp_dashboard_setup', 'dsi_add_dashboard_widget' );
+
+function dsi_add_dashboard_widget() {
+
+    add_meta_box('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget', 'dashboard', 'core', 'high');
+
+    add_meta_box('dsi_circolari_signed_widget', 'Circolari Firmate', 'dsi_circolari_signed_dashboard_widget', 'dashboard', 'side', 'high');
+
+}
+
+function dsi_circolari_dashboard_widget() {
+    $userID = get_current_user_id();
+
+    echo "<div class='circolari_post_class_wrap'>";
+
+    // verifico le circolari associate all'utente
+    $lista_circolari = get_user_meta($userID, "_dsi_circolari", true);
+    if(is_array($lista_circolari) && count($lista_circolari) > 0 ) {
+
+        echo "<ul>";
+        foreach ($lista_circolari  as $idcircolare) {
+            $circolare = get_post($idcircolare);
+            $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
+            $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
+            $feedback_array = dsi_get_circolari_feedback_options();
+
+            echo "<li>";
+            echo "Circ. n. ".$numerazione_circolare."<br>";
+            echo " <a href='".get_permalink($circolare)."'>".$circolare->post_title.'</a><br>';
+            echo "Feedback richiesto: ".$feedback_array[$require_feedback].'<hr>';
+            echo "</li>";
+        }
+        echo "</ul>";
+    }else{
+        echo "<p>Nessuna circolare presente</p>";
+    }
+    echo "</div>";
+}
+
+
+function dsi_circolari_signed_dashboard_widget() {
+    $userID = get_current_user_id();
+
+    echo "<div class='circolari_post_class_wrap'>";
+
+    // verifico le circolari associate all'utente
+    $lista_circolari = get_user_meta($userID, "_dsi_circolari_signed", true);
+    if(is_array($lista_circolari) && count($lista_circolari) > 0 ) {
+
+        echo "<ul>";
+        foreach ($lista_circolari as $idcircolare) {
+            $circolare = get_post($idcircolare);
+            $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
+            $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
+            $feedback_array = dsi_get_circolari_feedback_options();
+            $firma = get_user_meta($userID, "_dsi_signed_".$idcircolare, true);
+
+            echo "<li>";
+            echo "Circ. n. " . $numerazione_circolare . "<br>";
+            echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
+            echo "Feedback registrato: " .strtoupper(str_replace("_", " ",  $firma )). '<hr>';
+
+            echo "</li>";
+        }
+        echo "</ul>";
+    }else{
+        echo "<p>Nessuna circolare presente</p>";
+    }
+    echo "</div>";
+}
+
+
+
+add_action('wp_dashboard_setup', 'dsi_remove_all_dashboard_meta_boxes', 100 );
+
+
 /**
  * Mostra solo i metabox del progetto
  */
@@ -33,3 +115,20 @@ function dsi_remove_all_dashboard_meta_boxes()
     $wp_meta_boxes['dashboard']['side']['core'] = array();
 }
 
+/**
+ * Forzo a 2 colonne la dashboard admin
+ * @param $columns
+ * @return mixed
+ */
+function dsi_screen_layout_columns($columns) {
+    $columns['dashboard'] = 2;
+    return $columns;
+}
+
+add_filter('screen_layout_columns', 'dsi_screen_layout_columns');
+
+function dsi_screen_layout_dashboard() {
+    return 2;
+}
+
+add_filter('get_user_option_screen_layout_dashboard', 'dsi_screen_layout_dashboard');

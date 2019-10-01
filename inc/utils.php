@@ -501,3 +501,15 @@ function dsi_user_has_signed_circolare($user, $post){
     }
     return false;
 }
+
+/**
+ * check if is circolare
+ * @param $post
+ * @return bool
+ */
+function dsi_is_circolare($post){
+    if(has_term("circolari", "tipologia-articolo", $post))
+        return true;
+
+    return false;
+}

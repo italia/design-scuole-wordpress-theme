@@ -723,6 +723,29 @@ function dsi_register_main_options_metabox() {
     ) );
 
 
+    $setup_options->add_field( array(
+        'id' => $prefix . 'mail_circolari',
+        'name'        => __( 'Configurazione email Circolari', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione della mail inviata in caso di assegnazione di una circolare.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $setup_options->add_field( array(
+        'id' => $prefix . 'mail_circolare_oggetto',
+        'name' => 'Oggetto della mail',
+        'type' => 'text',
+        'default' => 'Nuova circolare dalla scuola '.dsi_get_option("nome_scuola")
+    ) );
+
+
+    $setup_options->add_field( array(
+        'id' => $prefix . 'mail_circolare_messaggio',
+        'name' => 'Messaggio della mail',
+        'type' => 'textarea',
+        'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione: '.wp_login_url(),
+    ) );
+
+
 
 
 

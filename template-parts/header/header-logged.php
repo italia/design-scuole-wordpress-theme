@@ -1,7 +1,7 @@
 <?php
 $current_user = wp_get_current_user();
 
-$last_notification = get_user_meta($current_user->ID,"last_notification", true);
+$last_notification = get_user_meta($current_user->ID,"_dsi_last_notification", true);
 
 $link_notification = get_permalink($last_notification);
 
