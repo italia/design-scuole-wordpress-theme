@@ -43,15 +43,17 @@ function dsi_circolari_dashboard_widget() {
         echo "<ul>";
         foreach ($lista_circolari  as $idcircolare) {
             $circolare = get_post($idcircolare);
-            $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
-            $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
-            $feedback_array = dsi_get_circolari_feedback_options();
+            if($circolare) {
+                $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
+                $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
+                $feedback_array = dsi_get_circolari_feedback_options();
 
-            echo "<li>";
-            echo "Circ. n. ".$numerazione_circolare."<br>";
-            echo " <a href='".get_permalink($circolare)."'>".$circolare->post_title.'</a><br>';
-            echo "Feedback richiesto: ".$feedback_array[$require_feedback].'<hr>';
-            echo "</li>";
+                echo "<li>";
+                echo "Circ. n. " . $numerazione_circolare . "<br>";
+                echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
+                echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
+                echo "</li>";
+            }
         }
         echo "</ul>";
     }else{
@@ -73,17 +75,18 @@ function dsi_circolari_signed_dashboard_widget() {
         echo "<ul>";
         foreach ($lista_circolari as $idcircolare) {
             $circolare = get_post($idcircolare);
-            $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
-            $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
-            $feedback_array = dsi_get_circolari_feedback_options();
-            $firma = get_user_meta($userID, "_dsi_signed_".$idcircolare, true);
+            if($circolare) {
 
-            echo "<li>";
-            echo "Circ. n. " . $numerazione_circolare . "<br>";
-            echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
-            echo "Feedback registrato: " .strtoupper(str_replace("_", " ",  $firma )). '<hr>';
+                $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
+                $firma = get_user_meta($userID, "_dsi_signed_" . $idcircolare, true);
 
-            echo "</li>";
+                echo "<li>";
+                echo "Circ. n. " . $numerazione_circolare . "<br>";
+                echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
+                echo "Feedback registrato: " . strtoupper(str_replace("_", " ", $firma)) . '<hr>';
+
+                echo "</li>";
+            }
         }
         echo "</ul>";
     }else{
