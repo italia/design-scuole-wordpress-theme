@@ -112,7 +112,14 @@ function dsi_remove_all_dashboard_meta_boxes()
         }
     }
     $wp_meta_boxes['dashboard']['normal']['core'] = $keep_boxes;
-    $wp_meta_boxes['dashboard']['side']['core'] = array();
+
+    $keep_boxes = array();
+    foreach ($wp_meta_boxes['dashboard']['side']['core'] as $wp_meta_box) {
+        if (substr($wp_meta_box["id"], 0, 4) == "dsi_") {
+            $keep_boxes[] = $wp_meta_box;
+        }
+    }
+    $wp_meta_boxes['dashboard']['side']['core'] = $keep_boxes;
 }
 
 /**
