@@ -54,7 +54,7 @@ function dsi_add_articolo_metaboxes() {
     $cmb_tipologie->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => __( 'Tipologia articolo', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona "Articoli" se vuoi vada ad arricchire la sezione "Presentazione" della scuole (Es: Presentazione del nuovo anno da parte del dirigente). In Caso di "Circolare" compilare i campi che seguono.' , 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona "Articoli" se vuoi vada ad arricchire la sezione "Presentazione" della scuole (Es: Presentazione del nuovo anno da parte del dirigente). ' , 'design_scuole_italia' ),
         'type'             => 'taxonomy_radio_inline',
         'taxonomy'       => 'tipologia-articolo',
         'show_option_none' => false,
