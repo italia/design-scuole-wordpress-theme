@@ -251,10 +251,14 @@ function dsi_create_pages_on_theme_activation() {
 	wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
 	wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
 
+    $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
+    if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
-	wp_delete_term("Circolari", 'tipologia-articolo');
-    wp_delete_term("Notizie", 'tipologia-articolo');
-    wp_delete_term("Articoli", 'tipologia-articolo');
+    $del = get_term_by('name', 'Notizie', 'tipologia-articolo');
+    if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
+
+    $del = get_term_by('name', 'Articoli', 'tipologia-articolo');
+    if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
 	wp_insert_term( 'Notizia', 'tipologia-articolo' );
 	wp_insert_term( 'Articolo', 'tipologia-articolo' );
@@ -292,7 +296,7 @@ function dsi_create_pages_on_theme_activation() {
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	$term = get_term_by("name", "Articoli", "tipologia-articolo");
+	$term = get_term_by("name", "Articolo", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Presentazione', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
@@ -391,7 +395,7 @@ function dsi_create_pages_on_theme_activation() {
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	$term = get_term_by("name", "Notizie", "tipologia-articolo");
+	$term = get_term_by("name", "Notizia", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Le notizie', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
