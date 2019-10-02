@@ -256,7 +256,31 @@ function dsi_create_pages_on_theme_activation() {
 	wp_insert_term( 'Articoli', 'tipologia-articolo' );
 	wp_insert_term( 'Circolari', 'tipologia-articolo' );
 
-	/**
+
+    wp_insert_term( 'Documento Generico', 'tipologia-documento' );
+    wp_insert_term( 'Albo Pretorio', 'tipologia-documento' );
+
+    wp_insert_term( 'Documento Generico', 'tipologia-documento' );
+    wp_insert_term( 'Albo Pretorio', 'tipologia-documento' );
+
+    wp_insert_term( 'Bandi e gare', 'albo-pretorio' );
+    wp_insert_term( 'Contratti - Personale ATA', 'albo-pretorio' );
+    wp_insert_term( 'Contratti - Personale Docente', 'albo-pretorio' );
+    wp_insert_term( 'Contratti e convenzioni', 'albo-pretorio' );
+    wp_insert_term( 'Convocazioni', 'albo-pretorio' );
+    wp_insert_term( 'Delibere Consiglio di Istituto', 'albo-pretorio' );
+    wp_insert_term( 'Documenti altre P.A.', 'albo-pretorio' );
+    wp_insert_term( 'Esiti esami', 'albo-pretorio' );
+    wp_insert_term( 'Graduatorie', 'albo-pretorio' );
+    wp_insert_term( 'Organi collegiali', 'albo-pretorio' );
+    wp_insert_term( 'Organi collegiali - Elezioni', 'albo-pretorio' );
+    wp_insert_term( 'Privacy', 'albo-pretorio' );
+    wp_insert_term( 'Programmi annuali e Consuntivi', 'albo-pretorio' );
+    wp_insert_term( 'Regolamenti', 'albo-pretorio' );
+    wp_insert_term( 'Sicurezza', 'albo-pretorio' );
+
+
+    /**
 	 * creo il menu Scuola
 	 */
 	$name = __('La Scuola', "design_scuole_italia");

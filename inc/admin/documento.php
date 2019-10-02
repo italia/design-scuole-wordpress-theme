@@ -85,7 +85,34 @@ function dsi_register_documento_post_type() {
 
     register_taxonomy( 'amministrazione-trasparente', array( 'documento' ), $args );
 
+    $labels = array(
+        'name'              => _x( 'Albo Pretorio', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Albo Pretorio', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca ', 'design_scuole_italia' ),
+        'all_items'         => __( 'Tutte', 'design_scuole_italia' ),
+        'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
+        'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
+        'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
+        'new_item_name'     => __( 'Nuova', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Albo Pretorio', 'design_scuole_italia' ),
+    );
 
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'albo-pretorio' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_documenti',
+            'edit_terms'    => 'edit_tipologia_documenti',
+            'delete_terms'  => 'delete_tipologia_documenti',
+            'assign_terms'  => 'assign_tipologia_documenti'
+        )
+    );
+
+    register_taxonomy( 'albo-pretorio', array( 'documento' ), $args );
 
     register_taxonomy_for_object_type( 'category', 'documento' );
 
@@ -99,7 +126,24 @@ function dsi_add_documento_metaboxes() {
 
 	$prefix = '_dsi_documento_';
 
-	$cmb_sottotitolo = new_cmb2_box( array(
+
+    $cmb_side = new_cmb2_box( array(
+        'id'           => $prefix . 'box_side',
+		'title'        => __( 'Scadenza', 'design_scuole_italia' ),
+        'object_types' => array( 'documento' ),
+        'context'      => 'side',
+        'priority'     => 'default',
+    ) );
+
+
+    $cmb_side->add_field( array(
+        'name'       => __('Data Scadenza', 'design_scuole_italia' ),
+        'desc' => __( 'Data di scadenza del documento, una volta raggiunta questo sarà automaticamente archiviato come "Scaduto".' , 'design_scuole_italia' ),
+        'id'             => $prefix . 'data_scadenza',
+        'type'    => 'text_date',
+    ) );
+
+    $cmb_sottotitolo = new_cmb2_box( array(
 		'id'           => $prefix . 'box_sottotitolo',
 //		'title'        => __( 'Sottotitolo', 'design_scuole_italia' ),
 		'object_types' => array( 'documento' ),
@@ -111,13 +155,68 @@ function dsi_add_documento_metaboxes() {
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'descrizione',
 		'name'       => __( 'Descrizione *', 'design_scuole_italia' ),
-		'desc'       => __( 'Indicare una sintetica descrizione del Evento. Vincoli: 160 caratteri spazi inclusi.', 'design_scuole_italia' ),
+		'desc'       => __( 'Indicare una sintetica descrizione del Documento. Vincoli: 160 caratteri spazi inclusi.', 'design_scuole_italia' ),
 		'type'       => 'textarea',
 		'attributes' => array(
 			'maxlength' => '160',
 			'required'  => 'required'
 		),
 	) );
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'name'        => __( 'Tipologia documento', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona se è un Documento generico, Albo pretorio o altro.' , 'design_scuole_italia' ),
+        'type'             => 'taxonomy_radio_inline',
+        'taxonomy'       => 'tipologia-documento',
+        'show_option_none' => false,
+        'remove_default' => 'true',
+        'default'          => 'documento-generico',
+        'attributes' => array(
+            'required'  => 'required'
+        ),
+    ) );
+
+    $cmb_sottotitolo->add_field(array(
+        'id' => $prefix . 'numerazione_albo',
+        'name' => __('Numerazione Progressiva Annuale', 'design_scuole_italia'),
+        'type' => 'text_small',
+        'default' => dsi_get_numerazione_albo(),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "albo-pretorio",
+            'readonly' => 'readonly',
+        ),
+    ));
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'albo-pretorio',
+        'name'        => __( 'Categoria Albo', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona se è un Documento generico, Albo pretorio o altro.' , 'design_scuole_italia' ),
+        'type'             => 'taxonomy_select',
+        'taxonomy'       => 'albo-pretorio',
+        'show_option_none' => true,
+        'remove_default' => 'true',
+        'default'          => '',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "albo-pretorio",
+        ),
+    ) );
+
+    $cmb_sottotitolo->add_field( array(
+        'name'       => __('Responsabile Albo', 'design_scuole_italia' ),
+        'desc' => __( 'Uno o più utenti responsabili del procedimento.  Es link alla scheda del Dirigente scolastico. Inseriscile <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
+        'id'             => $prefix . 'responabile_albo',
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_user_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "albo-pretorio",
+        ),
+    ) );
+
 
 
         $cmb_sottotitolo->add_field(array(
@@ -187,7 +286,7 @@ function dsi_add_documento_metaboxes() {
 		)
 	);
 
-
+/*
 	$cmb_aftercontent->add_field( array(
 			'id' => $prefix . 'licenza',
 			'name'       => __('Licenza di distribuzione *', 'design_scuole_italia' ),
@@ -198,7 +297,7 @@ function dsi_add_documento_metaboxes() {
 			),
 		)
 	);
-
+*/
 
 	$cmb_aftercontent->add_field( array(
 		'id' => $prefix . 'file_documenti',
@@ -350,3 +449,120 @@ function sdi_documento_add_content_before_editor($post) {
 
 
 
+// aggiungo gli status "scaduto" e "annullato" per gestire albo pretorio
+// Register Custom Post Status
+function dsi_register_custom_post_status(){
+    register_post_status( 'scaduto', array(
+        'label'                     => _x( 'Scaduto', 'post' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Scaduto <span class="count">(%s)</span>', 'Scaduti <span class="count">(%s)</span>' ),
+    ) );
+    register_post_status( 'annullato', array(
+        'label'                     => _x( 'Annullato', 'post' ),
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Annullato <span class="count">(%s)</span>', 'Annullati <span class="count">(%s)</span>' ),
+    ) );
+}
+add_action( 'init', 'dsi_register_custom_post_status' );
+// Display Custom Post Status Option in Post Edit
+function dsi_display_custom_post_status_option(){
+    global $post;
+    $screen = get_current_screen();
+    if (($screen->base == "post") && ($screen->id == "documento")) {
+
+        if($post->post_type == 'documento') {
+              if ($post->post_status == 'scaduto') {
+                  $selected_scaduto = 'selected';
+              }
+              if ($post->post_status == 'annullato') {
+                  $selected_annullato = 'selected';
+              }
+              echo '<script>
+        jQuery(document).ready(function(){
+        jQuery("select#post_status").append("<option value=\"scaduto\" ' . $selected_scaduto . '>Scaduto</option>");
+        //jQuery(".misc-pub-section label").append("<span id=\"post-status-display\"> Scaduto</span>");
+        
+        jQuery("select#post_status").append("<option value=\"annullato\" ' . $selected_annullato . '>Annullato</option>");
+        //jQuery(".misc-pub-section label").append("<span id=\"post-status-display\"> Annullato</span>");
+});
+</script>
+';
+          }
+      }
+}
+add_action('admin_footer', 'DSI_display_custom_post_status_option');
+
+
+function dsi_get_numerazione_albo(){
+
+    // conto quanti documenti albo sono stati pubblicati nell'anno
+    $albi = get_posts( array(
+        'post_type' => 'documento',
+        'date_query' => array(
+            array('year' => date("Y"))
+        ),
+        'posts_per_page' => -1,
+        'post_status' => array("publish", "annullato", "scaduto"),
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'tipologia-documento',
+                'field' => 'slug',
+                'terms' => "albo-pretorio", // Where term_id of Term 1 is "1".
+                'include_children' => false
+            )
+        )
+    ));
+
+    $count = count($albi)+1;
+
+
+    $num = str_pad($count, 5, '0', STR_PAD_LEFT). "/".date("Y");
+    return $num;
+}
+
+
+// aggiungo il cron per cambiare lo stato ai documenti
+
+register_activation_hook(__FILE__, 'dsi_cron_documenti');
+
+function dsi_cron_documenti() {
+    if (! wp_next_scheduled ( 'dsi_cron_documenti_daily' )) {
+        wp_schedule_event(time(), 'daily', 'dsi_cron_documenti_daily');
+    }
+}
+
+add_action('dsi_cron_documenti_daily', 'dsi_check_documenti_daily');
+
+function dsi_check_documenti_daily() {
+    // todo:
+
+    // cerco tutti i documenti con data di scadenza passata
+    /*
+    $scaduti = get_posts("");
+
+    $args = array(
+        "post_type" => "documento",
+        'meta_key' => '_dsi_documento_data_scadenza',
+
+    );
+    $query->set('meta_key', '_dsi_documento_data_scadenza' );
+    $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
+    $query->set( 'meta_query', array(
+        array(
+            'key' => '_dsi_evento_timestamp_inizio'
+        ),
+        array(
+            'key' => '_dsi_evento_timestamp_fine',
+            'value' => time(),
+            'compare' => '>=',
+            'type' => 'numeric'
+        )
+    ));
+*/
+}
