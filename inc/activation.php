@@ -252,8 +252,12 @@ function dsi_create_pages_on_theme_activation() {
 	wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
 
 
-	wp_insert_term( 'Notizie', 'tipologia-articolo' );
-	wp_insert_term( 'Articoli', 'tipologia-articolo' );
+	wp_delete_term("Circolari", 'tipologia-articolo');
+    wp_delete_term("Notizie", 'tipologia-articolo');
+    wp_delete_term("Articoli", 'tipologia-articolo');
+
+	wp_insert_term( 'Notizia', 'tipologia-articolo' );
+	wp_insert_term( 'Articolo', 'tipologia-articolo' );
 
 
     wp_insert_term( 'Documento Generico', 'tipologia-documento' );

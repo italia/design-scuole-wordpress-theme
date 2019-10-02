@@ -85,11 +85,9 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
                                         <?php
-                                        if(has_term("articoli", "tipologia-articolo", $post)) {
                                             if (comments_open() || get_comments_number()) :
                                                 comments_template();
                                             endif;
-                                        }
                                         ?>
                                     </div>
                                 </div>
