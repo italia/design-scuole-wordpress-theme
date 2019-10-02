@@ -11,6 +11,7 @@ function dsi_register_documento_post_type() {
 		'singular_name' => _x( 'Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'       => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'  => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'edit_item'       => _x( 'Modifica il Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
 	);
 	$args   = array(
 		'label'         => __( 'Documento', 'design_scuole_italia' ),

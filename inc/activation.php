@@ -254,7 +254,6 @@ function dsi_create_pages_on_theme_activation() {
 
 	wp_insert_term( 'Notizie', 'tipologia-articolo' );
 	wp_insert_term( 'Articoli', 'tipologia-articolo' );
-	wp_insert_term( 'Circolari', 'tipologia-articolo' );
 
 
     wp_insert_term( 'Documento Generico', 'tipologia-documento' );
@@ -397,14 +396,12 @@ function dsi_create_pages_on_theme_activation() {
 		'menu-item-object-id' => $term->term_id,
 	));
 
-	$term = get_term_by("name", "Circolari", "tipologia-articolo");
-	wp_update_nav_menu_item($menu->term_id, 0, array(
-		'menu-item-title' => __('Le circolari', "design_scuole_italia"),
-		'menu-item-status' => 'publish',
-		'menu-item-type' => 'taxonomy',
-		'menu-item-object' => 'tipologia-articolo',
-		'menu-item-object-id' => $term->term_id,
-	));
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Le circolari', "design_scuole_italia"),
+        'menu-item-status' => 'publish',
+        'menu-item-object' => 'circolare',
+        'menu-item-type' => 'post_type_archive'
+    ));
 
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Gli eventi', "design_scuole_italia"),

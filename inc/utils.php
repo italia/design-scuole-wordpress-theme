@@ -71,7 +71,10 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("scheda_didattica")  || (isset($post_type) && $post_type == "scheda_didattica")) {
 			$prefix = '_dsi_scheda_didattica_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}
+		}else if (is_singular("circolare")  || (isset($post_type) && $post_type == "circolare")) {
+            $prefix = '_dsi_circolare_';
+            return get_post_meta( $post_id, $prefix . $key, true );
+        }
 
 		return get_post_meta( $post_id, $key, true );
 	}
@@ -508,7 +511,8 @@ function dsi_user_has_signed_circolare($user, $post){
  * @return bool
  */
 function dsi_is_circolare($post){
-    if(has_term("circolari", "tipologia-articolo", $post))
+
+    if($post->post_type == "circolare")
         return true;
 
     return false;

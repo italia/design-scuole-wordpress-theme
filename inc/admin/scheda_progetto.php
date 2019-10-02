@@ -11,6 +11,7 @@ function dsi_register_scheda_progetto_post_type() {
 		'singular_name' => _x( 'Scheda Progetto', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'       => _x( 'Aggiungi una Scheda', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'  => _x( 'Aggiungi una nuova Scheda', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'edit_item'       => _x( 'Modifica la Scheda', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'featured_image' => __( 'Immagine di riferimento della scheda', 'design_scuole_italia' ),
 	);
 	$args   = array(

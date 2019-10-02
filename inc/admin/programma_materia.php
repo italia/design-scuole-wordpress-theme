@@ -11,6 +11,7 @@ function dsi_register_materia_post_type() {
 		'singular_name' => _x( 'Programma di una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'       => _x( 'Aggiungi un Programma', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'  => _x( 'Aggiungi un Programma di una Materia', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'edit_item'       => _x( 'Modifica il Programma', 'Post Type Singular Name', 'design_scuole_italia' ),
 	);
 	$args   = array(
 		'label'         => __( 'Programma di una Materia', 'design_scuole_italia' ),

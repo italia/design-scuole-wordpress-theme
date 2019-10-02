@@ -11,6 +11,7 @@ function dsi_create_argomento_taxonomy() {
 	register_taxonomy_for_object_type( 'category', 'struttura' );
 	register_taxonomy_for_object_type( 'category', 'evento' );
 	register_taxonomy_for_object_type( 'category', 'programma_materia' );
+    register_taxonomy_for_object_type( 'category', 'circolare' );
 
 
 }

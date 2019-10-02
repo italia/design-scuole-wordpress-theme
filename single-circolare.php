@@ -12,6 +12,7 @@ $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $luoghi = dsi_get_meta("luoghi");
 $persone = dsi_get_meta("persone");
+$numerazione_circolare = dsi_get_meta("numerazione_circolare");
 
 
 ?>
@@ -21,7 +22,7 @@ $persone = dsi_get_meta("persone");
         <?php while ( have_posts() ) :  the_post();
 
 
-                get_template_part("template-parts/single/header-post");
+                get_template_part("template-parts/single/header-circolare");
             ?>
 
             <section class="section bg-white py-5">
@@ -67,6 +68,7 @@ $persone = dsi_get_meta("persone");
                                 }
                                 ?>
                                 <?php
+                                get_template_part( "template-parts/single/feedback-circolare");
 
                                 if(is_array($luoghi) && count($luoghi)>0){
                                     ?>
