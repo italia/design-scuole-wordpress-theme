@@ -169,6 +169,8 @@ add_filter( 'get_the_archive_title', function ($title) {
         $title = single_tag_title( '', false );
     } elseif ( is_tax("tipologia-articolo") ) {
         $title = single_term_title('', false);
+    } elseif ( is_tax("tipologia-documento") ) {
+        $title = single_term_title('', false);
     } elseif ( is_tax("tipologia-servizio") ) {
         $title = __("Servizi per ", "design_scuole_italia").": ".single_term_title('', false);
     } elseif ( is_post_type_archive() ) {
