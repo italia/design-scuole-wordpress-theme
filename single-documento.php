@@ -22,6 +22,7 @@ get_header();
 			$link_servizi_collegati = dsi_get_meta( "link_servizi_collegati" );
 			$timeline               = dsi_get_meta( "timeline" );
 			$ufficio                = dsi_get_meta( "ufficio" );
+			$numerazione_albo       = dsi_get_meta( "numerazione_albo" );
 			?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -33,6 +34,9 @@ get_header();
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                             <div class="section-title">
+                                <?php if(dsi_is_albo($post) && $numerazione_albo){ ?>
+                                    <small class="h6 text-redbrown"><?php echo $numerazione_albo; ?></small>
+                                <?php } ?>
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
                                 <p><?php echo dsi_get_meta( "descrizione" ); ?></p>
                             </div><!-- /title-section -->
@@ -48,6 +52,8 @@ get_header();
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section><!-- /section -->
+
+            <?php get_template_part("template-parts/header/offline"); ?>
 
 
             <section class="section bg-white">
@@ -153,6 +159,17 @@ get_header();
                                     class="mb-4"><?php _e( "Il Documento", "design_scuole_italia" ); ?></h4>
 
                                 <h6><?php _e( "Allegati", "design_scuole_italia" ); ?></h6>
+                                <?php
+                                if(dsi_is_albo($post) && $post->post_status == "annullato"){
+                                    ?>
+                                    <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                       <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Albo Annullato", "design_scuole_italia"); ?></h5>
+                                    </div>
+                                    </div>
+                                    <?php
+                                }else{
+                                ?>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-12">
                                         <div class="card-deck card-deck-spaced">
@@ -167,9 +184,8 @@ get_header();
                                         </div><!-- /card-deck card-deck-spaced -->
                                     </div><!-- /col-lg-12 -->
                                 </div><!-- /row -->
-
 								<?php
-
+                                }
 								if ( trim( $servizi_collegati ) != "" ) {
 									?>
                                     <h4 id="art-par-servizio"><?php _e( "Accedi al servizio", "design_scuole_italia" ); ?></h4>

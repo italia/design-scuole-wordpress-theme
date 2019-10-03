@@ -517,3 +517,17 @@ function dsi_is_circolare($post){
 
     return false;
 }
+
+
+/**
+ * check if is circolare
+ * @param $post
+ * @return bool
+ */
+function dsi_is_albo($post){
+
+    if(has_term("albo-pretorio", "tipologia-documento", $post))
+        return true;
+
+    return false;
+}
