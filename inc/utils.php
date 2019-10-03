@@ -326,13 +326,13 @@ function dsi_get_post_types_grouped($type = "", $category = false){
 	if($type === "school")
 		$post_types = array("documento", "luogo", "struttura", "page");
 	else if($type === "news")
-		$post_types = array("evento", "post");
+		$post_types = array("evento", "post", "circolare");
 	else if($type === "education")
 		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
 		$post_types = array("servizio");
 	else
-		$post_types = array("evento", "post", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+		$post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
 	// rimuovo post types che non hanno la categoria
 	if($category){

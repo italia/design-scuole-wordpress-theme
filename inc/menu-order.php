@@ -6,7 +6,7 @@ function dsi_custom_admin_menu() {
    // swap_admin_menu_sections('Pagine','Articoli');              // Swap location of Posts Section with Pages Section
    // rename_admin_menu_section('Media','Photos & Video');    // Rename Media Section to "Photos & Video"
     remove_admin_menu_section("WP<b>Gov</b>.it");
-    remove_admin_menu_item("Articoli", "Tipologia");
+   // remove_admin_menu_item("Articoli", "Tipologia");
     rename_admin_menu_section("Bacheca", "Bacheca Scuola");
 
     rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");

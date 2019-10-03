@@ -213,7 +213,7 @@ function dsi_scripts() {
 
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, true);
-	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post")) || is_archive() || is_search())
+	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post", "circolare")) || is_archive() || is_search())
 		wp_enqueue_script( 'dsi-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, false);
 
 

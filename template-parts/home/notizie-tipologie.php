@@ -10,7 +10,7 @@ if($ct%2)
 <section class="section <?php echo $container_class; ?> py-5">
 	<div class="container">
 		<div class="title-section text-center mb-5">
-			<h3 class="h4"><?php echo $tipologia_notizia->name; ?></h3>
+			<h3 class="h4"><?php if($tipologia_notizia)echo $tipologia_notizia->name; ?></h3>
 		</div><!-- /title-large -->
         <div class="owl-carousel carousel-theme carousel-large">
 			<?php
@@ -32,8 +32,10 @@ if($ct%2)
 			<?php } ?>
 
 		</div><!-- /carousel-large -->
+        <?php if($tipologia_notizia){ ?>
 		<div class="pt-3 text-center">
 			<a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong>Vedi tutti</strong></a>
 		</div>
+        <?php } ?>
 	</div><!-- /container -->
 </section><!-- /section -->

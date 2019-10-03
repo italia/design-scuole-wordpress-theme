@@ -28,6 +28,7 @@ function dsi_query_post_type($query) {
 			} else {
 				$post_type = array(
 					'post',
+                    'circolare',
 					'servizio',
 					'documento',
 					'materia',
