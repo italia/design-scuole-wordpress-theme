@@ -34,29 +34,21 @@ get_header();
 			$pec = dsi_get_meta("pec");
 
 			?>
-				<?php if(has_post_thumbnail($post)){ ?>
-                <section class="section bg-white article-title">
-					<div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
-					<?php
-					$colsize = 6;
-				}else{
-					?>
-                    <section class="section bg-white article-title article-title-small">
-		                <?php
-					$colsize = 12;
-				} ?>
-                <div class="container">
-					<div class="row variable-gutters">
-						<div class="col-md-<?php echo $colsize; ?>">
-							<div class="title-content">
-								<h1><?php the_title(); ?></h1>
-                                <p class="mb-0"><?php echo $descrizione; ?></p>
-									<?php get_template_part("template-parts/common/badges-argomenti"); ?>
-							</div><!-- /title-content -->
-						</div><!-- /col-md-6 -->
-					</div><!-- /row -->
-				</div><!-- /container -->
-			</section><!-- /section -->
+
+
+        <section class="section bg-white article-title">
+            <div class="title-img" <?php if(has_post_thumbnail($post)){ ?> style="background-image: url('<?php echo $image_url; ?>');" <?php } ?>></div>
+            <div class="container">
+                <div class="row variable-gutters">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="title-content">
+                            <h1><?php the_title(); ?></h1>
+                            <p class="mb-0"><?php echo $descrizione; ?></p>
+                        </div><!-- /title-content -->
+                    </div><!-- /col-md-6 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section><!-- /section -->
 
 			<section class="section bg-white">
 				<div class="container container-border-top">
