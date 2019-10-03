@@ -83,6 +83,7 @@ if(is_array($link_strutture_commissioni) && ($link_strutture_commissioni > 0)) {
 													</ul>
 
 										<?php } ?>
+                                        <a class="btn btn-redbrown mt-4" href="<?php echo get_permalink($commissione); ?>"><?php _e("Vai alla scheda", "design_scuole_italia"); ?></a>
 									</div><!-- /responsive-tabs-container -->
 								</div>
 								<?php
