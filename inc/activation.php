@@ -158,6 +158,8 @@ function dsi_create_pages_on_theme_activation() {
         'post_author'  => 1,
         'post_slug'    => 'amministrazione-trasparente'
     );
+
+
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
         $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
@@ -254,14 +256,14 @@ function dsi_create_pages_on_theme_activation() {
     $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
     if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
-    $del = get_term_by('name', 'Notizie', 'tipologia-articolo');
+    $del = get_term_by('name', 'Notizia', 'tipologia-articolo');
     if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
-    $del = get_term_by('name', 'Articoli', 'tipologia-articolo');
+    $del = get_term_by('name', 'Articolo', 'tipologia-articolo');
     if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
-	wp_insert_term( 'Notizia', 'tipologia-articolo' );
-	wp_insert_term( 'Articolo', 'tipologia-articolo' );
+	wp_insert_term( 'Notizie', 'tipologia-articolo' );
+	wp_insert_term( 'Articoli', 'tipologia-articolo' );
 
 
     wp_insert_term( 'Documento Generico', 'tipologia-documento' );
@@ -296,7 +298,7 @@ function dsi_create_pages_on_theme_activation() {
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	$term = get_term_by("name", "Articolo", "tipologia-articolo");
+	$term = get_term_by("name", "Articoli", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Presentazione', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
@@ -395,7 +397,7 @@ function dsi_create_pages_on_theme_activation() {
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	$term = get_term_by("name", "Notizia", "tipologia-articolo");
+	$term = get_term_by("name", "Notizie", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Le notizie', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
@@ -481,6 +483,27 @@ function dsi_create_pages_on_theme_activation() {
 
     $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
     $locations_primary_arr["menu-footer"] = $menu->term_id;
+    set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+
+    /**
+     * creo il menu Top
+     */
+    $name = __('Top', "design_scuole_italia");
+
+    wp_delete_nav_menu($name);
+    $menu_id = wp_create_nav_menu($name);
+    $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Privacy Policy', "design_scuole_italia"),
+        'menu-item-url' =>  get_privacy_policy_url(),
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+    ));
+
+    $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+    $locations_primary_arr["menu-topright"] = $menu->term_id;
     set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
 
 

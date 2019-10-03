@@ -10,12 +10,12 @@
 get_header();
 $class = "greendark";
 if(is_tax("tipologia-articolo")){
-$slug = get_query_var('taxonomy');
-if($slug == "articolo")
+$slug = get_query_var('term');
+if($slug == "articoli")
     $class = "redbrown";
 }
 ?>
-	<main id="main-container" class="main-container  <?php echo $class; ?>>">
+	<main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
 		<section class="section bg-white py-2 py-lg-3 py-xl-5">
