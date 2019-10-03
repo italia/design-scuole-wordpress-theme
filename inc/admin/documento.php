@@ -551,6 +551,8 @@ function dsi_append_documenti_post_status_list(){
     if(dsi_is_albo($post)){
         if(($post->post_status == "publish") || ($post->post_status == "annullato") || ($post->post_status == "scaduto")){
             echo "$('input[name=_dsi_documento_tipologia]:radio:not(:checked)').attr('disabled', true);";
+            echo "$('#delete-action').hide();";
+
         }
     }
 
