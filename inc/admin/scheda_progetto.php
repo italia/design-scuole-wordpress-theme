@@ -75,8 +75,16 @@ function dsi_add_scheda_progetto_metaboxes() {
 	) );
 
 
+    $cmb_sottotitolo->add_field( array(
+            'name'       => __('Partecipanti', 'design_scuole_italia' ),
+            'desc' => __( 'descrizione dei partecipanti al progetto' , 'design_scuole_italia' ),
+            'id'             => $prefix . 'partecipanti',
+            'type'    => 'textarea',
+        )
+    );
+
 	$cmb_sottotitolo->add_field( array(
-			'name'       => __('Partecipanti ', 'design_scuole_italia' ),
+			'name'       => __('Classi collegate ', 'design_scuole_italia' ),
 			'desc' => __( 'lista dei link alle sezioni che hanno partecipato' , 'design_scuole_italia' ),
 			'id'             => $prefix . 'classi',
 			'type'    => 'pw_multiselect',
