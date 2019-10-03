@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-	<main id="main-container" class="main-container petrol">
+	<main id="main-container" class="main-container redbrown">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
 		<section class="section bg-white py-2 py-lg-3 py-xl-5">

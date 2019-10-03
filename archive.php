@@ -7,9 +7,17 @@
  * @package Design_Scuole_Italia
  */
 
+$class = "petrol";
+
+if(is_post_type_archive("scheda_didattica")){
+    $class = "bluelectric";
+} else if(is_post_type_archive("scheda_progetto")){
+    $class = "bluelectric";
+}
 get_header();
 ?>
-    <main id="main-container" class="main-container petrol">
+
+    <main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white py-2 py-lg-3 py-xl-5">
