@@ -38,7 +38,7 @@ function dsi_register_materia_post_type() {
 		'update_item'       => __( 'Aggiorna la Materia', 'design_scuole_italia' ),
 		'add_new_item'      => __( 'Aggiungi una Materia', 'design_scuole_italia' ),
 		'new_item_name'     => __( 'Nuova Materia', 'design_scuole_italia' ),
-		'menu_name'         => __( 'Materia', 'design_scuole_italia' ),
+		'menu_name'         => __( 'Materie', 'design_scuole_italia' ),
 	);
 
 	$args = array(

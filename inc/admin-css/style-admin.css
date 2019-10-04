@@ -41,9 +41,27 @@
     float:left;
 }
 
+.taxonomy-classe #_dsi_classe_libri_repeat .inside .cmb-type-text{
+    width:25%;
+    float:left;
+    border:0px;
+}
+
 .taxonomy-classe #edittag{
     max-width:none;
 }
+
+.taxonomy-classe .term-slug-wrap, .taxonomy-classe .term-description-wrap{
+    display:none;
+}
+
+.taxonomy-classe .column-description, .taxonomy-classe .column-posts{
+    display:none}
+.taxonomy-classe .form-wrap h2{
+    font-size:20px;
+    margin-top:0px;
+}
+
 
 /* materia */
 

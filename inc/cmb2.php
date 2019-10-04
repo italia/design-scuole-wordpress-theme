@@ -94,7 +94,7 @@ function dsi_get_luoghi_options( $parent = false, $addnone=false) {
 }
 
 
-function dsi_get_strutture_options( $query_args = false) {
+function dsi_get_strutture_options( ) {
 
 	$programs = get_posts("post_type=struttura&posts_per_page=-1&orderby=title&order=ASC");
 
@@ -107,6 +107,23 @@ function dsi_get_strutture_options( $query_args = false) {
 
 	return $options;
 }
+
+function dsi_get_strutture_scuole_options( ) {
+
+    $programs = get_posts("post_type=struttura&tipologia-struttura=scuola&posts_per_page=-1&orderby=title&order=ASC");
+
+    $options = array();
+    if ( $programs ) {
+        foreach ( $programs as $program ) {
+            $options[ $program->ID ] = $program->post_title;
+        }
+    }
+
+    return $options;
+}
+
+
+
 
 function dsi_get_classe_options( $query_args = false) {
 

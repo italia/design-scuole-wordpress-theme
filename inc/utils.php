@@ -81,6 +81,12 @@ if(!function_exists("dsi_get_meta")){
 }
 
 
+if(!function_exists("dsi_get_term_meta")){
+    function dsi_get_term_meta( $key , $prefix, $term_id) {
+            return get_term_meta($term_id, $prefix.$key, true );
+
+    }
+}
 /**
  * Wrapper function for user avatar
  * @param object user
@@ -530,4 +536,13 @@ function dsi_is_albo($post){
         return true;
 
     return false;
+}
+
+/**
+ * Converte l'anno scolastico nel formato da stampare
+ */
+function dsi_convert_anno_scuola($anno){
+    $nextanno = $anno+1;
+    return $anno."/".$nextanno;
+
 }

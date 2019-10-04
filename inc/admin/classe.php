@@ -16,7 +16,7 @@ function dsi_register_classe_tax() {
 	);
 
 	$args = array(
-		'hierarchical'      => true,
+		'hierarchical'      => false,
 		'labels'            => $labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,
@@ -47,9 +47,38 @@ function dsi_register_classe_metabox() {
 		// 'new_term_section' => true, // Will display in the "Add New Category" section
 	) );
 
-	$cmb_term->add_field(
+    $options_anno = array();
+    for($i = date("Y")-10; $i < (date("Y")+10); $i++){
+        $options_anno[$i] = $i."/".($i+1);
+    }
+    $cmb_term->add_field( array(
+        'name'    =>  __( 'Anno scolastico', 'design_scuole_italia' ),
+        'id'   => $prefix.'anno_scolastico',
+        'type'    => 'pw_select',
+        'options' => $options_anno,
+        'default' => date("Y"),
+    ) );
+
+    $cmb_term->add_field(  array(
+        'id' => $prefix.'struttura_organizzativa',
+        'name'    => __( 'Seleziona la Scuola  di cui fa parte la classe', 'design_scuole_italia' ),
+        'desc' => __( 'NB: La scuola è una <a href="edit.php?post_type=struttura">Struttura organizzativa</a> di tipologia "Scuola. Se non esiste creala prima <a href="edit.php?post_type=struttura">qui</a>"' , 'design_scuole_italia' ),
+        'type'    => 'pw_select',
+        'options' => dsi_get_strutture_scuole_options(),
+    ) );
+
+    $cmb_term->add_field(  array(
+        'id' => $prefix.'settore',
+        'name'    => __( 'Settore, Indirizzo o Percorso specifico', 'design_scuole_italia' ),
+        'desc' => __( 'Indica qui se la classe ha caratteristiche didattiche specifiche che la distinguono dalle altre classi. Es: sperimentale, settore economico, etc' , 'design_scuole_italia' ),
+        'type'    => 'text',
+    ) );
+
+
+/** calendario  **/
+    $cmb_term->add_field(
 		array(
-			'name' => __( 'Calendario delle Lezioni', 'design_scuole_italia' ),
+			'name' => __( '<br>Calendario delle Lezioni', 'design_scuole_italia' ),
 			'type' => 'title',
 			'id'   => $prefix.'calendario_title'
 		)
@@ -69,56 +98,145 @@ function dsi_register_classe_metabox() {
 	foreach ($arr_ggs as $ggkey=>$ggvalue) {
 
 
-		$group_field_id = $cmb_term->add_field( array(
-			'id'          => $prefix . $ggkey,
-			'type'        => 'group',
-			'name'        => __(ucfirst($ggvalue), 'design_scuole_italia' ),
-			'description' => __( 'Inserisci gli orari del '.$ggvalue, 'design_scuole_italia' ),
+        $group_field_id = $cmb_term->add_field(array(
+            'id' => $prefix . $ggkey,
+            'type' => 'group',
+            'name' => __(ucfirst($ggvalue), 'design_scuole_italia'),
+            'description' => __('Inserisci gli orari del ' . $ggvalue, 'design_scuole_italia'),
 
-			// 'repeatable'  => false, // use false if you want non-repeatable group
-			'options'     => array(
-				'group_title'   => __( 'Lezione {#}', 'design_scuole_italia' ),
-				// since version 1.1.4, {#} gets replaced by row number
-				'add_button'    => __( 'Aggiungi una lezione', 'design_scuole_italia' ),
-				'remove_button' => __( 'Rimuovi', 'design_scuole_italia' ),
-				'sortable'      => true,
-				// 'closed'         => true, // true to have the groups closed by default
-				// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-			),
-			'attributes'  => array(
-				'data-conditional-id'    => $prefix . 'calendario_enabled',
-				'data-conditional-value' => 1,
-			),
-		) );
+            // 'repeatable'  => false, // use false if you want non-repeatable group
+            'options' => array(
+                'group_title' => __('Lezione {#}', 'design_scuole_italia'),
+                // since version 1.1.4, {#} gets replaced by row number
+                'add_button' => __('Aggiungi una lezione', 'design_scuole_italia'),
+                'remove_button' => __('Rimuovi', 'design_scuole_italia'),
+                'sortable' => true,
+                 'closed'         => true, // true to have the groups closed by default
+                // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+            ),
+            'attributes' => array(
+                'data-conditional-id' => $prefix . 'calendario_enabled',
+                'data-conditional-value' => 1,
+            ),
+        ));
 
-		$cmb_term->add_group_field( $group_field_id, array(
-			'name' => __( 'Ora inizio', 'design_scuole_italia' ),
-			'id'   => 'ora_inizio',
-			'type' => 'text_time'
-		) );
-		$cmb_term->add_group_field( $group_field_id, array(
-			'name' => __( 'Ora fine', 'design_scuole_italia' ),
-			'id'   => 'ora_fine',
-			'type' => 'text_time'
-		) );
+        $cmb_term->add_group_field($group_field_id, array(
+            'name' => __('Ora inizio', 'design_scuole_italia'),
+            'id' => 'ora_inizio',
+            'type' => 'text_time',
+        ));
+        $cmb_term->add_group_field($group_field_id, array(
+            'name' => __('Ora fine', 'design_scuole_italia'),
+            'id' => 'ora_fine',
+            'type' => 'text_time'
+        ));
 
 
-		$cmb_term->add_group_field( $group_field_id, array(
-				'name'     => __( 'Materia', 'design_scuole_italia' ),
-				'id'       => 'materia',
-				'taxonomy' => 'materia', //Enter Taxonomy Slug
-				'type'     => 'taxonomy_select',
+        $cmb_term->add_group_field($group_field_id, array(
+                'name' => __('Materia', 'design_scuole_italia'),
+                'id' => 'materia',
+                'taxonomy' => 'materia', //Enter Taxonomy Slug
+                'type' => 'taxonomy_select',
 
-				'remove_default' => 'true'
-			)
-		);
-		$cmb_term->add_group_field( $group_field_id, array(
-			'id'               => 'programma',
-			'name'             => __( 'Programma', 'design_scuole_italia' ),
-			'type'             => 'pw_select',
-			'show_option_none' => true,
-			'options'          => dsi_get_program_options(),
-		) );
-	}
+                'remove_default' => 'true'
+            )
+        );
+        $cmb_term->add_group_field($group_field_id, array(
+            'id' => 'programma',
+            'name' => __('Programma', 'design_scuole_italia'),
+            'type' => 'pw_select',
+            'show_option_none' => true,
+            'options' => dsi_get_program_options(),
+        ));
+
+    }
+
+
+    /**  repeater libri **/
+
+    $group_field_id = $cmb_term->add_field( array(
+        'id'          => $prefix . 'libri',
+        'name'        => __('<h1>Libri</h1>', 'design_scuole_italia' ),
+        'type'        => 'group',
+        'description' => __( 'Lista libri obbligatori', 'design_scuole_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Libro {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi un libro', 'design_scuole_italia' ),
+            'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
+            'sortable'       => true,
+            // 'closed'      => true, // true to have the groups closed by default
+            //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ) );
+
+    $cmb_term->add_group_field( $group_field_id, array(
+        'id' => 'titolo_libro',
+        'description'    => __( 'Titolo del Libro', 'design_scuole_italia' ),
+        'type'    => 'text'
+
+    ) );
+
+    $cmb_term->add_group_field( $group_field_id, array(
+        'id' => 'autore_libro',
+        'description'    => __( 'Autore del libro', 'design_scuole_italia' ),
+        'type'    => 'text'
+
+    ) );
+
+    $cmb_term->add_group_field( $group_field_id, array(
+        'id' => 'editore_libro',
+        'description'    => __( 'Editore del libro', 'design_scuole_italia' ),
+        'type'    => 'text'
+
+    ) );
+
+    $cmb_term->add_group_field( $group_field_id, array(
+        'id' => 'isbn_libro',
+        'description'    => __( 'Codice ISBN', 'design_scuole_italia' ),
+        'type'    => 'text'
+
+    ) );
+
+
+
 }
 add_action( 'cmb2_admin_init', 'dsi_register_classe_metabox' );
+
+add_action( 'admin_print_scripts-edit-tags.php', 'dsi_classe_admin_script', 11 );
+add_action( 'admin_print_scripts-term.php', 'dsi_classe_admin_script', 11 );
+
+
+function dsi_classe_admin_script() {
+
+        wp_enqueue_script( 'classe-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/classe.js' );
+}
+
+
+
+function add_classe_columns($columns){
+    $columns['anno'] = 'Anno';
+    $columns['scuola'] = 'Scuola';
+    return $columns;
+}
+add_filter('manage_edit-classe_columns', 'add_classe_columns');
+
+function add_classe_column_content($content,$column_name,$term_id){
+    $anno = dsi_get_term_meta("anno_scolastico", "_dsi_classe_", $term_id);
+    $anno = dsi_convert_anno_scuola($anno);
+
+    $idscuola = dsi_get_term_meta("struttura_organizzativa", "_dsi_classe_", $term_id);
+
+    $scuola = get_post($idscuola);
+    switch ($column_name) {
+        case 'anno':
+            $content = $anno;
+        break;
+        case 'scuola':
+          if($scuola) $content = $scuola->post_title;
+        break;
+        default:
+            break;
+    }
+    return $content;
+}
+add_filter('manage_classe_custom_column', 'add_classe_column_content',10,3);

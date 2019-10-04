@@ -634,6 +634,33 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+
+    $group_field_id = $didattica_options->add_field(array(
+        'id' => $prefix . "struttura_scuola_x",
+        'type' => 'group',
+        'name' => __("La Scuola X", 'design_scuole_italia'),
+        'description' => __('Definisci la scuola x all\'interno dell\'architettura scolastica' , 'design_scuole_italia'),
+
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options' => array(
+            'group_title' => __(' Ciclo {#}', 'design_scuole_italia'),
+            'add_button' => __('Aggiungi un ciclo', 'design_scuole_italia'),
+            'remove_button' => __('Rimuovi', 'design_scuole_italia'),
+            'sortable' => true,
+
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'calendario_enabled',
+            'data-conditional-value' => 1,
+        ),
+    ));
+
+    $didattica_options->add_group_field($group_field_id, array(
+        'name' => __('Ora inizio', 'design_scuole_italia'),
+        'id' => 'descrizione',
+        'type' => 'textarea',
+    ));
+
     /**
      * Persone
      */
@@ -744,14 +771,6 @@ function dsi_register_main_options_metabox() {
         'type' => 'textarea',
         'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione: '.wp_login_url(),
     ) );
-
-
-
-
-
-
-
-
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 

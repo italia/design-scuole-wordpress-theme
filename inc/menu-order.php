@@ -13,6 +13,18 @@ function dsi_custom_admin_menu() {
     swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
     swap_admin_menu_sections('Media','Circolari');
 
+    $classe = add_menu_page(
+        'Classi',
+        'Classi',
+        'manage_options',
+        'edit-tags.php?taxonomy=classe&post_type=programma_materia',
+        '',
+        'dashicons-format-quote',
+        8
+    );
+    remove_admin_menu_item("edit.php?post_type=programma_materia",'edit-tags.php?taxonomy=classe&post_type=programma_materia');
+
+
 }
 
 /* wp-admin-menu-classes.php

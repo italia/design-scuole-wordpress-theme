@@ -241,6 +241,7 @@ function dsi_create_pages_on_theme_activation() {
 	wp_insert_term( 'Presidenza', 'tipologia-struttura' );
 	wp_insert_term( 'Commissione', 'tipologia-struttura' );
 	wp_insert_term( 'Organi Consiliari', 'tipologia-struttura' );
+    wp_insert_term( 'Associazioni scolatiche', 'tipologia-struttura' );
 
 	wp_insert_term( 'Palestra', 'tipologia-luogo' );
 	wp_insert_term( 'Mensa', 'tipologia-luogo' );
