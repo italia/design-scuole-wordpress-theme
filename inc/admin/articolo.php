@@ -42,30 +42,6 @@ function dsi_add_articolo_metaboxes() {
 	$prefix = '_dsi_articolo_';
 
 
-	$cmb_tipologie = new_cmb2_box( array(
-		'id'           => $prefix . 'box_sottotitolo',
-//		'title'        => __( 'Sottotitolo', 'design_scuole_italia' ),
-		'object_types' => array( 'post' ),
-		'context'      => 'after_title',
-		'priority'     => 'high',
-	) );
-
-
-    $cmb_tipologie->add_field( array(
-        'id' => $prefix . 'tipologia',
-        'name'        => __( 'Tipologia articolo', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona "Articoli" se vuoi vada ad arricchire la sezione "Presentazione" della scuole (Es: Presentazione del nuovo anno da parte del dirigente). ' , 'design_scuole_italia' ),
-        'type'             => 'taxonomy_radio_inline',
-        'taxonomy'       => 'tipologia-articolo',
-        'show_option_none' => false,
-        'remove_default' => 'true',
-        'default'          => 'articoli',
-        'attributes' => array(
-            'required'  => 'required'
-        ),
-    ) );
-
-
     $cmb_abstrat = new_cmb2_box( array(
         'id'           => $prefix . 'box_abstract',
         'object_types' => array( 'post' ),

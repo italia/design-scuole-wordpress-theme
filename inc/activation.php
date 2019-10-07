@@ -160,6 +160,23 @@ function dsi_create_pages_on_theme_activation() {
     );
 
 
+
+    // template page per Presentazione
+    $new_page_title    = __( 'Presentazione', 'design_scuole_italia' ); // Page's title
+    $new_page_content  = 'Una selezione di articoli della scuola che raccontano chi siamo';                           // Content goes here
+    $new_page_template = 'page-templates/presentazione.php';       // The template to use for the page
+    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug'    => 'presentazione'
+    );
+
+
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
         $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
@@ -313,7 +330,7 @@ function dsi_create_pages_on_theme_activation() {
 
 	wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
 	wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
-
+/*
     $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
     if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
 
@@ -322,7 +339,7 @@ function dsi_create_pages_on_theme_activation() {
 
     $del = get_term_by('name', 'Articolo', 'tipologia-articolo');
     if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
-
+*/
 	wp_insert_term( 'Notizie', 'tipologia-articolo' );
 	wp_insert_term( 'Articoli', 'tipologia-articolo' );
 
@@ -359,13 +376,14 @@ function dsi_create_pages_on_theme_activation() {
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-	$term = get_term_by("name", "Articoli", "tipologia-articolo");
-	wp_update_nav_menu_item($menu->term_id, 0, array(
+//	$term = get_term_by("name", "Articoli", "tipologia-articolo");
+    $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
 		'menu-item-title' => __('Presentazione', "design_scuole_italia"),
 		'menu-item-status' => 'publish',
-		'menu-item-type' => 'taxonomy',
-		'menu-item-object' => 'tipologia-articolo',
-		'menu-item-object-id' => $term->term_id,
+		'menu-item-type' => 'custom',
+		'menu-item-url' => $presentazione_landing_url,
 	));
 
 	wp_update_nav_menu_item($menu->term_id, 0, array(

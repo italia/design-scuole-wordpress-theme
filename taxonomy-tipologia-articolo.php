@@ -9,11 +9,12 @@
 
 get_header();
 $class = "greendark";
+/*
 if(is_tax("tipologia-articolo")){
 $slug = get_query_var('term');
 if($slug == "articoli")
     $class = "redbrown";
-}
+}*/
 ?>
 	<main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>

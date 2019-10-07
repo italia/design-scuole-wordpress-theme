@@ -170,9 +170,9 @@ add_filter( 'get_the_archive_title', function ($title) {
     } elseif ( is_tax("tipologia-articolo") ) {
 
         $title = single_term_title('', false);
-        if($title == "Articoli"){
+    /*    if($title == "Articoli"){
             $title = "Presentazione";
-        }
+        }*/
     } elseif ( is_tax("tipologia-documento") ) {
         $title = single_term_title('', false);
     } elseif ( is_tax("tipologia-servizio") ) {

@@ -83,11 +83,10 @@ $persone = dsi_get_meta("persone");
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
                                         <?php
-                                        if(has_term("articoli", "tipologia-articolo", $post)) {
                                             if (comments_open() || get_comments_number()) :
                                                 comments_template();
                                             endif;
-                                        }
+
                                         ?>
                                     </div>
                                 </div>
