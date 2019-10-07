@@ -1,5 +1,39 @@
 <?php
 
+
+/** funzioni di popolamento didattica */
+if(!function_exists("dsi_didattica_array")){
+    function dsi_didattica_array() {
+
+        $didarr = [
+            "Scuola dell'Infanzia",
+            "Scuola Primaria",
+            "Scuola Secondaria di primo grado" => [
+                "Standard", "Indirizzo Musicale"
+            ],
+            "Scuola Scuola Secondaria di secondo grado" => [
+                "Liceo" => [
+                    "Liceo Artistico", "Liceo Classico", "Liceo Linguistico", "Liceo Musicale e Coreutico", "Liceo Scientifico opzione Scienze Applicate", "Liceo delle Scienze Umane opzione Economico-Sociale"
+                ],
+                "Istituto Tecnico" => [
+                    "Settore Economico" => ["Amministrazione", "Finanza e marketing", "Turismo"],
+                    "Settore Tecnologico"=> ["Meccanica, Meccatronica ed energia", "Trasporti e logistica", "Elettronica ed elettrotecnica", "Informatica e telecomunicazioni", "Grafica e comunicazione", "Chimica, materiali e biotecnologie", "Sistema Moda", "Agraria, Agroalimentare e Agroindustria", "Costruzioni, Ambiente e Territorio"]
+                ],
+                "Istituto Professionale" => [
+                    "Settore Servizi" => ["Servizi per l’agricoltura e lo sviluppo rurale","Servizi socio-sanitari", "Servizi per l’enogastronomia e l’ospitalità alberghiera","Servizi commerciali"],
+                    "Settore Industria e Artigianato" => ["Produzioni artigianali e industriali" , "Manutenzione e assistenza tecnica"],
+                ],
+            ],
+            "Percorsi di Istruzione e Formazione Professionale"
+            ];
+        return $didarr;
+
+    }
+}
+
+
+
+
 /** funzioni di popolamento amministrazione trasparente */
 if(!function_exists("dsi_amministrazione_trasparente_array")){
     function dsi_amministrazione_trasparente_array() {

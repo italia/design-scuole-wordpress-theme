@@ -63,6 +63,37 @@ function dsi_register_struttura_post_type() {
 
 	register_taxonomy( 'tipologia-struttura', array( 'struttura' ), $args );
 
+    $labels = array(
+        'name'              => _x( 'Percorsi di studio e formazione', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Percorso di studio', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca Percorso', 'design_scuole_italia' ),
+        'all_items'         => __( 'Tutti', 'design_scuole_italia' ),
+        'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
+        'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
+        'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
+        'new_item_name'     => __( 'Nuovo Percorso', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Percorsi di Studio', 'design_scuole_italia' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => false,
+        'query_var'         => true,
+        'public'         => false,
+        'rewrite'           => array( 'slug' => 'percorsi-di-studio' ),
+        'show_in_menu'      => true,
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_strutture',
+            'edit_terms'    => 'edit_tipologia_strutture',
+            'delete_terms'  => 'delete_tipologia_strutture',
+            'assign_terms'  => 'assign_tipologia_strutture'
+        )
+    );
+
+    register_taxonomy( 'percorsi-di-studio', array( 'struttura' ), $args );
+
 
 }
 
@@ -93,6 +124,19 @@ function dsi_add_struttura_metaboxes() {
 		'taxonomy'       => 'tipologia-struttura',
 		'remove_default' => 'true'
 	) );
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'percorsi',
+        'name'        => __( 'Percorsi di studio della Scuola', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_multicheck_hierarchy_child',
+        'select_all_button' => false,
+        'taxonomy'       => 'percorsi-di-studio',
+        'remove_default' => 'true',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "scuola",
+        ),
+    ) );
 
 
 	$cmb_sottotitolo->add_field( array(

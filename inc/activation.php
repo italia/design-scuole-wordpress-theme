@@ -212,6 +212,66 @@ function dsi_create_pages_on_theme_activation() {
 	}
 
 
+
+
+    /*
+    * popolo le tipologie di didattica
+     *
+     */
+    $arrdida = dsi_didattica_array();
+
+ //   print_r($arrdida);
+   // exit();
+    foreach ( $arrdida as $key => $value ) {
+
+        if (!is_array($value)) {
+            if (!term_exists( $value , 'percorsi-di-studio'))
+                wp_insert_term($value, 'percorsi-di-studio');
+        } else {
+            if (!term_exists( $key , 'percorsi-di-studio')){
+                $parent = wp_insert_term($key, 'percorsi-di-studio');
+                $parent_id = $parent["term_id"];
+                // ciclo sul livello successivo
+                foreach ($value as $vkey => $vvalue) {
+                    if (!is_array($vvalue)) {
+                        if (!term_exists( $vvalue , 'percorsi-di-studio'))
+                            wp_insert_term($vvalue, 'percorsi-di-studio', array("parent" => $parent_id));
+                    } else {
+                        if (!term_exists( $vkey , 'percorsi-di-studio')) {
+                            $vparent = wp_insert_term($vkey, 'percorsi-di-studio', array("parent" => $parent_id));
+                            $vparent_id = $vparent["term_id"];
+                            // ciclo sul livello successivo
+                            foreach ($vvalue as $vvkey => $vvvalue) {
+                                if (!is_array($vvvalue)) {
+                                    if (!term_exists( $vvvalue , 'percorsi-di-studio'))
+                                        wp_insert_term($vvvalue, 'percorsi-di-studio', array("parent" => $vparent_id));
+                                } else {
+                                    if (!term_exists( $vvkey , 'percorsi-di-studio')) {
+                                        $vvparent = wp_insert_term($vvkey, 'percorsi-di-studio', array("parent" => $vparent_id));
+                                        $vvparent_id = $vvparent["term_id"];
+                                        // ciclo sul livello successivo
+                                        foreach ($vvvalue as $vvvkey => $vvvvalue) {
+                                            if (!is_array($vvvvalue)) {
+                                                wp_insert_term($vvvvalue, 'percorsi-di-studio', array("parent" => $vvparent_id));
+                                            } else {
+                                                $vvparent = wp_insert_term($vvvkey, 'percorsi-di-studio', array("parent" => $vvparent_id));
+
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
     /*
     * popolo le tipologie di amministrazione trasparente
      *

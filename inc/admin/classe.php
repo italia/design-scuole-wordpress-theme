@@ -68,11 +68,13 @@ function dsi_register_classe_metabox() {
     ) );
 
     $cmb_term->add_field(  array(
-        'id' => $prefix.'settore',
+        'id' => $prefix.'percorso_studi',
         'name'    => __( 'Settore, Indirizzo o Percorso specifico', 'design_scuole_italia' ),
-        'desc' => __( 'Indica qui se la classe ha caratteristiche didattiche specifiche che la distinguono dalle altre classi. Es: sperimentale, settore economico, etc' , 'design_scuole_italia' ),
-        'type'    => 'text',
+        'desc' => __( 'NB: Puoi selezionare i percorsi di studio che hai associato alle Strutture di tipo scuola' , 'design_scuole_italia' ),
+        'type'    => 'pw_select',
+        'options' => dsi_get_strutture_percorsi_scuole_options(),
     ) );
+
 
 
 /** calendario  **/

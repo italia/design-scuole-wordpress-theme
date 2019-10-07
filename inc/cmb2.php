@@ -5,6 +5,8 @@ require "vendor/CMB2-conditional-logic/cmb2-conditional-logic.php";
 require "vendor/CMB2-field-Leaflet-Geocoder/cmb-field-leaflet-map.php";
 require "vendor/cmb2-attached-posts/cmb2-attached-posts-field.php";
 
+require "vendor/CMB2-taxonomy-hierarchy-child.php";
+
 add_filter( 'pw_cmb2_field_select2_asset_path', function ($var){return get_stylesheet_directory_uri()."/inc/vendor/cmb-field-select2-master";});
 require "vendor/cmb-field-select2-master/cmb-field-select2.php";
 
@@ -121,6 +123,32 @@ function dsi_get_strutture_scuole_options( ) {
 
     return $options;
 }
+
+
+function dsi_get_strutture_percorsi_scuole_options( ) {
+
+    $programs = get_posts("post_type=struttura&tipologia-struttura=scuola&posts_per_page=-1&orderby=title&order=ASC");
+
+    $options = array();
+    if ( $programs ) {
+        foreach ( $programs as $program ) {
+            // per ogni scuola seleziono i percorsi abilitati
+               $percorsi = dsi_get_meta("percorsi", "", $program->ID);
+        //    print_r($percorsi);
+               if(is_array($percorsi)){
+                   foreach ($percorsi as $percorso){
+
+                       $term_percorso = get_term_by("slug", $percorso, "percorsi-di-studio");
+                       $options[ $percorso ] = $term_percorso->name;
+                   }
+
+               }
+        }
+    }
+
+    return $options;
+}
+
 
 
 
