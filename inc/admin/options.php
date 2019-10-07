@@ -613,6 +613,8 @@ function dsi_register_main_options_metabox() {
         'type' => 'title',
     ) );
 
+
+
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_didattica',
         'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
@@ -624,6 +626,14 @@ function dsi_register_main_options_metabox() {
     ) );
 
 
+    $didattica_options->add_field(  array(
+        'id' => $prefix.'scuole_didattica',
+        'name'    => __( 'Seleziona e ordina le scuole che vuoi mostrare nella sezione didattica', 'design_scuole_italia' ),
+        'desc' => __( 'NB: La scuola è una <a href="edit.php?post_type=struttura">Struttura organizzativa</a> di tipologia "Scuola. Se non esiste creala prima <a href="edit.php?post_type=struttura">qui</a>"' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_strutture_scuole_options(),
+    ) );
+
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_sezione_progetti',
         'name'        => __( 'Descrizione Sezione Progetti', 'design_scuole_italia' ),
@@ -634,32 +644,6 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
-
-    $group_field_id = $didattica_options->add_field(array(
-        'id' => $prefix . "struttura_scuola_x",
-        'type' => 'group',
-        'name' => __("La Scuola X", 'design_scuole_italia'),
-        'description' => __('Definisci la scuola x all\'interno dell\'architettura scolastica' , 'design_scuole_italia'),
-
-        // 'repeatable'  => false, // use false if you want non-repeatable group
-        'options' => array(
-            'group_title' => __(' Ciclo {#}', 'design_scuole_italia'),
-            'add_button' => __('Aggiungi un ciclo', 'design_scuole_italia'),
-            'remove_button' => __('Rimuovi', 'design_scuole_italia'),
-            'sortable' => true,
-
-        ),
-        'attributes' => array(
-            'data-conditional-id' => $prefix . 'calendario_enabled',
-            'data-conditional-value' => 1,
-        ),
-    ));
-
-    $didattica_options->add_group_field($group_field_id, array(
-        'name' => __('Ora inizio', 'design_scuole_italia'),
-        'id' => 'descrizione',
-        'type' => 'textarea',
-    ));
 
     /**
      * Persone
