@@ -23,6 +23,9 @@ get_header();
 			$timeline               = dsi_get_meta( "timeline" );
 			$ufficio                = dsi_get_meta( "ufficio" );
 			$numerazione_albo       = dsi_get_meta( "numerazione_albo" );
+            $altre_info = dsi_get_meta("altre_info");
+            $protocollo = dsi_get_meta("protocollo");
+            $riferimenti_normativi = dsi_get_meta("riferimenti_normativi");
 			?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -40,9 +43,9 @@ get_header();
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
                                 <p><?php echo dsi_get_meta( "descrizione" ); ?></p>
                             </div><!-- /title-section -->
-                            <div class="article-description-mobile">
+                         <!--   <div class="article-description-mobile">
 
-                            </div><!-- /article-description-mobile -->
+                            </div>-->
                         </div><!-- /col-lg-5 col-md-8 -->
                         <div class="col-lg-3 col-md-4 offset-lg-1">
 							<?php get_template_part( "template-parts/single/actions" ); ?>
@@ -99,10 +102,12 @@ get_header();
                                                title="Vai al paragrafo <?php _e( "Contatti", "design_scuole_italia" ); ?>"><?php _e( "Contatti", "design_scuole_italia" ); ?></a>
                                         </li>
                                          <?php } ?>
+                                        <?php if(($altre_info != "") || ($protocollo != "")  || ($riferimenti_normativi != "")) {   ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info"
                                                title="Vai al paragrafo <?php _e( "Ulteriori informazioni", "design_scuole_italia" ); ?>"><?php _e( "Ulteriori informazioni", "design_scuole_italia" ); ?></a>
                                         </li>
+                                        <?php } ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
                                                title="Vai al paragrafo <?php _e( "Contenuti correlati", "design_scuole_italia" ); ?>"><?php _e( "Contenuti correlati", "design_scuole_italia" ); ?></a>
@@ -117,7 +122,7 @@ get_header();
                                 <h4 id="art-par-descrizione"><?php _e( "Descrizione", "design_scuole_italia" ); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="article-description">
+                                        <div class="article-description-nomove">
 											<?php the_content(); ?>
                                         </div><!-- /article-description -->
                                     </div><!-- /col-lg-9 -->
@@ -155,36 +160,38 @@ get_header();
 										?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <h4 id="art-par-documento"
-                                    class="mb-4"><?php _e( "Il Documento", "design_scuole_italia" ); ?></h4>
+                                <?php if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
+                                    <h4 id="art-par-documento"
+                                        class="mb-4"><?php _e("Il Documento", "design_scuole_italia"); ?></h4>
 
-                                <h6><?php _e( "Allegati", "design_scuole_italia" ); ?></h6>
-                                <?php
-                                if(dsi_is_albo($post) && $post->post_status == "annullato"){
-                                    ?>
-                                    <div class="row variable-gutters mb-4">
-                                    <div class="col-lg-12">
-                                       <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Albo Annullato", "design_scuole_italia"); ?></h5>
-                                    </div>
-                                    </div>
+                                    <h6><?php _e("Allegati", "design_scuole_italia"); ?></h6>
                                     <?php
-                                }else{
-                                ?>
-                                <div class="row variable-gutters mb-4">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-											<?php global $idfile, $nomefile;
-											if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) {
+                                    if (dsi_is_albo($post) && $post->post_status == "annullato") {
+                                        ?>
+                                        <div class="row variable-gutters mb-4">
+                                            <div class="col-lg-12">
+                                                <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Albo Annullato", "design_scuole_italia"); ?></h5>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="row variable-gutters mb-4">
+                                            <div class="col-lg-12">
+                                                <div class="card-deck card-deck-spaced">
+                                                    <?php global $idfile, $nomefile;
+                                                    if (is_array($file_documenti) && count($file_documenti) > 0) {
 
-												foreach ( $file_documenti as $idfile => $nomefile ) {
-													get_template_part( "template-parts/documento/file" );
-												}
-											}
-											?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-								<?php
+                                                        foreach ($file_documenti as $idfile => $nomefile) {
+                                                            get_template_part("template-parts/documento/file");
+                                                        }
+                                                    }
+                                                    ?>
+                                                </div><!-- /card-deck card-deck-spaced -->
+                                            </div><!-- /col-lg-12 -->
+                                        </div><!-- /row -->
+                                        <?php
+                                    }
                                 }
 								if ( trim( $servizi_collegati ) != "" ) {
 									?>
@@ -258,41 +265,48 @@ get_header();
                                         </div><!-- /card-deck card-deck-spaced -->
                                     </div><!-- /col-lg-12 -->
                                 </div><!-- /row -->
-                                <?php } ?>
-                                <h4 id="art-par-info"><?php _e( "Ulteriori informazioni", "design_scuole_italia" ); ?></h4>
-                                <div class="row variable-gutters mb-4">
-                                    <div class="col-lg-9">
-                                        <?php $altre_info = dsi_get_meta("altre_info");
-                                        if($altre_info) echo "<p>".$altre_info."</p>";
-                                            $protocollo = dsi_get_meta("protocollo");
-                                            if($protocollo){
+                                <?php }
+
+
+
+                                if(($altre_info != "") || ($protocollo != "")  || ($riferimenti_normativi != "")) {
+
+                                    ?>
+                                    <h4 id="art-par-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-9">
+                                            <?php
+                                            if ($altre_info) echo "<p>" . $altre_info . "</p>";
+                                            if ($protocollo) {
                                                 echo "<p>";
-	                                            _e( "Protocollo: ", "design_scuole_italia" );
-	                                            echo  "<strong>".$protocollo."</strong>";
-	                                            $data_protocollo = dsi_get_meta("data_protocollo");
-	                                            if($data_protocollo){
-		                                            _e( " del  ", "design_scuole_italia" );
-		                                            echo  "<strong>".$data_protocollo."</strong>";
+                                                _e("Protocollo: ", "design_scuole_italia");
+                                                echo "<strong>" . $protocollo . "</strong>";
+                                                $data_protocollo = dsi_get_meta("data_protocollo");
+                                                if ($data_protocollo) {
+                                                    _e(" del  ", "design_scuole_italia");
+                                                    echo "<strong>" . $data_protocollo . "</strong>";
                                                 }
-	                                            echo "</p>";
+                                                echo "</p>";
                                             }
 
-                                        $riferimenti_normativi = dsi_get_meta("riferimenti_normativi");
-                                            if($riferimenti_normativi) {
-	                                            ?>
-                                                <h6><?php _e( "Riferimenti normativi", "design_scuole_italia" ); ?></h6>
+                                            if ($riferimenti_normativi) {
+                                                ?>
+                                                <h6><?php _e("Riferimenti normativi", "design_scuole_italia"); ?></h6>
                                                 <div class="card card-bg bg-color rounded">
                                                     <div class="card-body">
-			                                            <?php
+                                                        <?php
                                                         echo $riferimenti_normativi;
-			                                            ?>
+                                                        ?>
                                                     </div>
                                                 </div>
-	                                            <?php
+                                                <?php
                                             }
-                                                ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
+                                            ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                    ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
 										<?php get_template_part( "template-parts/single/bottom" ); ?>

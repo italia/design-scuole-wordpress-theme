@@ -3382,6 +3382,7 @@ $usermenu.responsiveDom({
     appendTo: '.menu-user-mobile',
     mediaQuery: '(max-width: 1200px)'
 });
+
 var $description = $('.article-description');
 $description.responsiveDom({
     appendTo: '.article-description-mobile',

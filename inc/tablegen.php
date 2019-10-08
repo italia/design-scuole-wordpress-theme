@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="<?php echo plugin_dir_url(__FILE__); ?>includes/excellentexport.min.js"></script>
+
 <div class="table-responsive">
 
 <table class="order-table table table-striped" id="gare">
