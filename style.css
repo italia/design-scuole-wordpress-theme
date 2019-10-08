@@ -188,3 +188,8 @@ table td ul{
     word-break: break-word;
     min-width:570px;
 }
+.single-avcp table{
+    margin-bottom:10px;
+    word-break: break-word;
+
+}
