@@ -208,8 +208,6 @@ add_filter('admin_footer', 'dsi_ammap_getJs', 100);
  * Fix plugin bandi
  */
 
-
-
 add_action( 'after_setup_theme', 'dsi_replace_bandi_shortcode' );
 
 function dsi_replace_bandi_shortcode() {
@@ -232,3 +230,12 @@ function dsi_bandi_shortcode($atts) {
     $atshortcode = ob_get_clean();
     return $atshortcode;
 }
+
+/** add responsive class to table **/
+
+function dsi_bootstrap_responsive_table( $content ) {
+    $content = str_replace( ['<table>', '</table>'], ['<div class="table-responsive"><table class="table table-bordered table-hover">', '</table></div>'], $content );
+
+    return $content;
+}
+add_filter( 'the_content', 'dsi_bootstrap_responsive_table' );

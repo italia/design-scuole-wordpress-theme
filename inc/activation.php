@@ -163,7 +163,7 @@ function dsi_create_pages_on_theme_activation() {
 
     // template page per Presentazione
     $new_page_title    = __( 'Presentazione', 'design_scuole_italia' ); // Page's title
-    $new_page_content  = 'Una selezione di articoli della scuola che raccontano chi siamo';                           // Content goes here
+    $new_page_content  = 'La nostra scuola: identità, insegnamenti e storia.';                           // Content goes here
     $new_page_template = 'page-templates/presentazione.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
     // Store the above data in an array

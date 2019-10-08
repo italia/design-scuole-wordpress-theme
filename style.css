@@ -187,6 +187,7 @@ table td ul{
     font-size: 14px;
     word-break: break-word;
     min-width:570px;
+    margin-bottom: 10px;
 }
 .single-avcp table{
     margin-bottom:10px;
