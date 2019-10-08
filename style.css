@@ -180,3 +180,11 @@ table td ul{
 .ammtrasm-tableclass h3 a { text-decoration:none; cursor: default; }
 .ammtrasm-tableclass h3 {  border: 1px solid #eee; padding: 8px 10px; background: #FBFBFB; }
 .ammtrasm-tableclass ul li a { text-decoration: none; }
+
+
+/** table bandi **/
+.table{
+    font-size: 14px;
+    word-break: break-word;
+    min-width:570px;
+}

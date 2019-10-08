@@ -202,3 +202,33 @@ function dsi_ammap_getJs(){
     wp_enqueue_script( 'ammap_functions');
 }
 add_filter('admin_footer', 'dsi_ammap_getJs', 100);
+
+
+/**
+ * Fix plugin bandi
+ */
+
+
+
+add_action( 'after_setup_theme', 'dsi_replace_bandi_shortcode' );
+
+function dsi_replace_bandi_shortcode() {
+    remove_shortcode( 'avcp' );
+    remove_shortcode( 'anac' );
+    remove_shortcode( 'gare' );
+
+
+    add_shortcode( 'avcp', 'dsi_bandi_shortcode' );
+    add_shortcode( 'anac', 'dsi_bandi_shortcode' );
+    add_shortcode( 'gare', 'dsi_bandi_shortcode' );
+
+}
+
+function dsi_bandi_shortcode($atts) {
+    extract(shortcode_atts(array('anno' => 'all'), $atts));
+
+    ob_start();
+    require get_template_directory() . '/inc/tablegen.php';
+    $atshortcode = ob_get_clean();
+    return $atshortcode;
+}
