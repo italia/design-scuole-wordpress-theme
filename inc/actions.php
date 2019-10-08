@@ -234,7 +234,7 @@ function dsi_bandi_shortcode($atts) {
 /** add responsive class to table **/
 
 function dsi_bootstrap_responsive_table( $content ) {
-    $content = str_replace( ['<table>', '</table>'], ['<div class="table-responsive"><table class="table table-bordered table-hover">', '</table></div>'], $content );
+    $content = str_replace( ['<table>', '</table>'], ['<div class="table-responsive"><table class="table  table-striped table-bordered table-hover">', '</table></div>'], $content );
 
     return $content;
 }
