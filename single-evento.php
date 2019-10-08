@@ -138,42 +138,50 @@ $file_documenti = dsi_get_meta("file_documenti");
 								echo wpautop($descrizione_destinatari);
 								?>
 
-                                <h6><?php _e("Parteciperanno", "design_scuole_italia"); ?></h6>
+                                <?php
+                                $persone_amministrazione = dsi_get_meta("persone_amministrazione");
+                                if(is_array($persone_amministrazione)) {
 
-                                <div class="card-deck card-deck-spaced mb-2">
-									<?php
-									$persone_amministrazione = dsi_get_meta("persone_amministrazione");
-									if(is_array($persone_amministrazione)) {
-										foreach ( $persone_amministrazione as $idutente ) {
-											$autore = get_user_by( "ID", $idutente );
-											?>
+                                    ?>
+                                    <h6><?php _e("Parteciperanno", "design_scuole_italia"); ?></h6>
+
+                                    <div class="card-deck card-deck-spaced mb-2">
+                                        <?php
+                                        foreach ($persone_amministrazione as $idutente) {
+                                            $autore = get_user_by("ID", $idutente);
+                                            ?>
                                             <div class="card card-bg card-avatar rounded">
-                                                <a href="<?php echo get_author_posts_url( $idutente ); ?>">
+                                                <a href="<?php echo get_author_posts_url($idutente); ?>">
                                                     <div class="card-body">
-														<?php get_template_part( "template-parts/autore/card" ); ?>
+                                                        <?php get_template_part("template-parts/autore/card"); ?>
                                                     </div>
                                                 </a>
                                             </div><!-- /card card-bg card-avatar rounded -->
-											<?php
-										}
-									}
-									?>
-                                </div><!-- /card-deck -->
+                                            <?php
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck -->
+                                    <?php
+                                }
 
-                                <h4 id="art-par-luogo"><?php _e("Luogo", "design_scuole_italia"); ?></h4>
+                                if((is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) || ($nome_luogo_custom != "" )) {
+                                    ?>
 
-								<?php
-								$c = 0;
-								if(is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) {
-									foreach ( $link_schede_luoghi as $idluogo ) {
-										$c ++;
-										$luogo = get_post( $idluogo );
-										get_template_part( "template-parts/luogo/card", "large" );
-									}
-								}else if ($nome_luogo_custom != "" )  {
-									get_template_part( "template-parts/luogo/card", "custom" );
+                                    <h4 id="art-par-luogo"><?php _e("Luogo", "design_scuole_italia"); ?></h4>
 
-									}
+                                    <?php
+                                    $c = 0;
+                                    if (is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) {
+                                        foreach ($link_schede_luoghi as $idluogo) {
+                                            $c++;
+                                            $luogo = get_post($idluogo);
+                                            get_template_part("template-parts/luogo/card", "large");
+                                        }
+                                    } else if ($nome_luogo_custom != "") {
+                                        get_template_part("template-parts/luogo/card", "custom");
+
+                                    }
+                                }
 								?>
 
                                 <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
@@ -183,11 +191,14 @@ $file_documenti = dsi_get_meta("file_documenti");
 
                                     if(is_array($date)){
                                         foreach ($date as $data){
+
                                     ?>
                                     <div class="calendar-date">
                                         <div class="calendar-date-day">
-                                            <p><?php  echo date_i18n("d", $data["data"]); ?></p>
-                                            <small><?php  echo date_i18n("M", $data["data"]); ?></small>
+                                            <?php if($old_data != date_i18n("dMY", $data["data"])){ ?>
+                                                <p><?php  echo date_i18n("d", $data["data"]); ?></p>
+                                                <small><?php  echo date_i18n("M", $data["data"]); ?></small>
+                                                <?php } ?>
                                         </div><!-- /calendar-date-day -->
                                         <div class="calendar-date-description rounded">
                                             <div class="calendar-date-description-content">
@@ -195,7 +206,10 @@ $file_documenti = dsi_get_meta("file_documenti");
                                             </div><!-- /calendar-date-description-content -->
                                         </div><!-- /calendar-date-description -->
                                     </div><!-- /calendar-date -->
-                                    <?php }
+                                    <?php
+                                            $old_data = date_i18n("dMY", $data["data"]);
+
+                                        }
                                     }else {
                                         $timestamp_inizio = dsi_get_meta("timestamp_inizio");
                                         $timestamp_fine = dsi_get_meta("timestamp_fine");
