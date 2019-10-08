@@ -186,7 +186,7 @@ get_header();
 								<?php } ?>
 
 	                                <?php if($altri_componenti != ""){ ?>
-                                        <h6><?php _e("Componenti esterni", "design_scuole_italia"); ?></h6>
+                                        <h6><?php _e("Altri componenti", "design_scuole_italia"); ?></h6>
                                         <p><small><?php echo $altri_componenti; ?></small></p>
 	                                <?php } ?>
 
