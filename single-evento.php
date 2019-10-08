@@ -264,8 +264,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                 <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
 								<?php
 								$organizzato_da_scuola = dsi_get_meta("organizzato_da_scuola");
-								$link_strutture= dsi_get_meta("link_struttura_organizzativa");
-
+								$link_struttura = dsi_get_meta("link_struttura_organizzativa");
 								if($organizzato_da_scuola == "si") {
 									?>
                                     <h6><?php _e( "Organizzato da", "design_scuole_italia" ); ?></h6>
@@ -274,27 +273,46 @@ $file_documenti = dsi_get_meta("file_documenti");
 										global $icon_color, $second_icon_color;
 										$icon_color        = "greendark";
 										$second_icon_color = "#c8edc3";
-										if(is_array($link_strutture)) {
-											foreach ( $link_strutture as $id_struttura ) {
-												$struttura = get_post( $id_struttura );
+										if($link_struttura) {
+												$struttura = get_post( $link_struttura );
 
 												get_template_part( "template-parts/struttura/card" );
-											}
 										}
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->
 									<?php
 								}
 								?>
-                                <div class="in-evidence mb-5 py-4 pl-2 pr-2">
-                                    <ul class="mb-0">
-										<?php if(dsi_get_meta("website") != ""){ ?><li><strong class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong> <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a></li><?php } ?>
-										<?php if(dsi_get_meta("contatto_telefono") != ""){ ?><li><strong class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?></li><?php } ?>
-										<?php if(dsi_get_meta("contatto_email") != ""){ ?><li><strong class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong> <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a></li><?php } ?>
-										<?php if(dsi_get_meta("patrocinato") != ""){ ?><li><strong class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?></li><?php } ?>
-										<?php if(dsi_get_meta("sponsor") != ""){ ?><li><strong class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?></li><?php } ?>
-                                    </ul>
-                                </div>
+                                <?php if((dsi_get_meta("website") != "") || (dsi_get_meta("contatto_telefono") != "") || (dsi_get_meta("contatto_email") != "") || (dsi_get_meta("patrocinato") != "") || (dsi_get_meta("sponsor") != "") ) { ?>
+                                    <div class="in-evidence mb-5 py-4 pl-2 pr-2">
+                                        <ul class="mb-0">
+                                            <?php if (dsi_get_meta("website") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
+                                                <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("contatto_telefono") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("contatto_email") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
+                                                <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("patrocinato") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("sponsor") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?>
+                                                </li><?php } ?>
+                                        </ul>
+                                    </div>
+                                    <?php
+                                }
+ ?>
 								<?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                     <h4 id="art-par-altro"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                     <h6><?php _e("Documenti", "design_scuole_italia"); ?></h6>
