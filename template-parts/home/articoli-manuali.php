@@ -22,7 +22,7 @@ if(is_array($home_articoli_manuali) && count($home_articoli_manuali)){
                     if($post->post_type == "evento")
                         get_template_part("template-parts/evento/card");
                     else
-                        get_template_part("template-parts/single/card", "vertical-thumb");
+                        get_template_part("template-parts/single/card-vertical-thumb", $post->post_type);
                     ?>
                 </div><!-- /col-lg-4 -->
                     <?php
