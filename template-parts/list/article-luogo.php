@@ -6,7 +6,8 @@ $class = dsi_get_post_types_color_class($post->post_type);
 $icon = dsi_get_post_types_icon_class($post->post_type);
 
 
-$excerpt =  dsi_get_meta("descrizione", "", $post->ID);
+$excerpt =  dsi_get_meta("descrizione_breve", "", $post->ID);
+
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
@@ -14,6 +15,13 @@ $argomenti = dsi_get_argomenti_of_post();
 
 
 $posizione_gps = false;
+
+	if ( $post->post_parent == 0 ) {
+		$posizione_gps = dsi_get_meta( "posizione_gps", '_dsi_luogo_', $post->ID );
+	} else {
+		$parent        = get_post( $post->post_parent );
+		$posizione_gps = dsi_get_meta( "posizione_gps", "_dsi_luogo_", $post->post_parent );
+	}
 
 ?>
 <article class="card card-bg card-article card-article-<?php echo $class; ?>">
