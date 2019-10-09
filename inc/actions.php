@@ -307,6 +307,10 @@ function dsi_change_externale_string( $translated, $untranslated, $domain ) {
                 $translated = 'Aggiungi un luogo';
                 break;
 
+            case 'Add New Worker' :
+                $translated = 'Aggiungi un referente';
+                break;
+
             case 'Address' :
                 $translated = 'Indirizzo';
                 break;
