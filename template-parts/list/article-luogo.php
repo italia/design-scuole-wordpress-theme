@@ -28,7 +28,7 @@ $posizione_gps = false;
 	<div class="card-body">
 		<div class="card-article-img"  <?php if($image_url && !$posizione_gps) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if($posizione_gps != false){ ?>
-                <a href="#">
+                <a href="<?php the_permalink(); ?>">
                     <div class="map-wrapper">
                         <div class="map" id="map_<?php echo $post->ID; ?>"></div>
                     </div>
