@@ -94,7 +94,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         }
                                         ?>
 
-                                        <a class="btn btn-redbrown mt-4" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della Scuola.", "design_scuole_italia"); ?></a>
+                                        <a class="btn btn-redbrown mt-4" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della Scuola", "design_scuole_italia"); ?></a>
 
                                     </div>
                                 </div>

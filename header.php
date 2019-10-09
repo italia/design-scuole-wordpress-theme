@@ -83,7 +83,7 @@ if(is_search() || is_archive())
                 <div class="col-4 d-flex align-items-center justify-content-end">
                     <div class="header-search d-flex align-items-center">
                         <a class="d-flex align-items-center" href="#" data-target="#search-modal" data-toggle="modal">
-                            <p class="d-none d-lg-block"><strong>Cerca</strong></p>
+                            <p class="d-none d-lg-block"><strong><?php _e("Cerca", "design_scuole_italia"); ?></strong></p>
                             <svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use></svg>
                         </a>
                     </div><!-- /header-search -->

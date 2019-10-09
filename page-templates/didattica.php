@@ -19,7 +19,7 @@ get_header();
 
       //      get_template_part("template-parts/home/didattica", "orari");
             get_template_part("template-parts/home/didattica", "cicli");
-        //    get_template_part("template-parts/home/didattica", "risorse");
+            get_template_part("template-parts/home/didattica", "risorse");
             get_template_part("template-parts/home/didattica", "progetti");
             get_template_part("template-parts/home/didattica", "schede");
 

@@ -203,3 +203,7 @@ table td ul{
     word-break: break-word;
 
 }
+
+.big-quote-wrapper{
+    overflow:hidden;
+}

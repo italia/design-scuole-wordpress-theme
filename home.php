@@ -29,10 +29,9 @@ get_header();
         <?php get_template_part("template-parts/home/hero", "servizi"); ?>
         <?php get_template_part("template-parts/home/list", "servizi"); ?>
         </section>
-
-        <?php
-            //  get_template_part("template-parts/home/didattica", "cicli");
-            //  get_template_part("template-parts/home/didattica", "risorse");
+            <?php
+              get_template_part("template-parts/home/didattica", "cicli");
+              get_template_part("template-parts/home/didattica", "risorse");
 
         endif; // End of the loop.
         ?>

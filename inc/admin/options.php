@@ -678,7 +678,7 @@ function dsi_register_main_options_metabox() {
         'type'    => 'pw_multiselect',
         'options' => dsi_get_strutture_scuole_options(),
     ) );
-
+/*
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_sezione_progetti',
         'name'        => __( 'Descrizione Sezione Progetti', 'design_scuole_italia' ),
@@ -688,7 +688,7 @@ function dsi_register_main_options_metabox() {
             'maxlength'  => '140'
         ),
     ) );
-
+*/
 
     /**
      * Persone

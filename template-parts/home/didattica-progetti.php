@@ -1,6 +1,6 @@
 <?php
 global $progetto;
-$testo_sezione_progetti = dsi_get_option("testo_sezione_progetti", "didattica");
+//$testo_sezione_progetti = dsi_get_option("testo_sezione_progetti", "didattica");
 
 ?>
 <section class="section bg-white">
@@ -10,7 +10,7 @@ $testo_sezione_progetti = dsi_get_option("testo_sezione_progetti", "didattica");
                 <div class="col">
                     <div class="section-title text-center mb-4">
                         <h2><?php _e("I Progetti", "design_scuole_italia"); ?></h2>
-                        <p class="mb-4"><?php echo $testo_sezione_progetti; ?></p>
+                        <p class="mb-4"><?php _e("Scopri i progetti dell'Istituto", "design_scuole_italia") ?></p>
                         <div class="clearfix">
                             <a class="btn btn-bluelectric" style="min-width: 200px;" href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><?php _e("Scopri", "design_scuole_italia"); ?></a>
                         </div>
