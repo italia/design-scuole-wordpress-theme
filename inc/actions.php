@@ -239,3 +239,86 @@ function dsi_bootstrap_responsive_table( $content ) {
     return $content;
 }
 add_filter( 'the_content', 'dsi_bootstrap_responsive_table' );
+
+
+
+
+add_filter( 'gettext', 'dsi_change_externale_string', 999, 3 );
+
+function dsi_change_externale_string( $translated, $untranslated, $domain ) {
+
+    if ( is_admin() ) {
+
+        // traduco il plugin degli appuntamenti
+        switch ( $translated) {
+            case 'Appointments' :
+                $translated = 'Appuntamenti';
+                break;
+
+            case 'Locations' :
+                $translated = 'Luoghi';
+                break;
+            case 'Location' :
+                $translated = 'Luogo';
+                break;
+
+            case 'Services' :
+            case 'Service' :
+
+            $translated = 'Attività';
+                break;
+
+            case 'Workers' :
+            case 'Worker' :
+                $translated = 'Persone';
+                break;
+
+            case 'Connections' :
+                $translated = 'Relazioni';
+                break;
+
+            case 'Customize' :
+                $translated = 'Personalizza';
+                break;
+
+            case 'Customer' :
+                $translated = 'Prenotato da';
+                break;
+
+            case 'Descrtiption' :
+            case 'Description' :
+                $translated = 'Descrizione';
+                break;
+
+            case 'Add New Appointment' :
+                $translated = 'Aggiungi una prenotazione';
+                break;
+
+
+            case 'Add New Connection' :
+                $translated = 'Aggiungi una relazione';
+                break;
+
+            case 'Bulk Add New Connections' :
+                $translated = 'Aggiungi relazione di gruppo';
+                break;
+
+            case 'Add New Location' :
+                $translated = 'Aggiungi un luogo';
+                break;
+
+            case 'Address' :
+                $translated = 'Indirizzo';
+                break;
+
+            case 'Actions' :
+                $translated = 'Azioni';
+                break;
+
+        }
+
+    }
+
+    return $translated;
+
+}
