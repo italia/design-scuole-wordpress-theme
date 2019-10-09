@@ -270,7 +270,7 @@ function dsi_change_externale_string( $translated, $untranslated, $domain ) {
 
             case 'Workers' :
             case 'Worker' :
-                $translated = 'Persone';
+                $translated = 'Referenti';
                 break;
 
             case 'Connections' :
