@@ -56,7 +56,7 @@ function dsi_register_classe_metabox() {
         'id'   => $prefix.'anno_scolastico',
         'type'    => 'pw_select',
         'options' => $options_anno,
-        'default' => date("Y"),
+        'default' => dsi_get_current_anno_scolastico(),
     ) );
 
     $cmb_term->add_field(  array(

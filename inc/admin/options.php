@@ -659,7 +659,7 @@ function dsi_register_main_options_metabox() {
     ) );
 
 
-
+/*
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_didattica',
         'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
@@ -669,7 +669,7 @@ function dsi_register_main_options_metabox() {
             'maxlength'  => '140'
         ),
     ) );
-
+*/
 
     $didattica_options->add_field(  array(
         'id' => $prefix.'scuole_didattica',

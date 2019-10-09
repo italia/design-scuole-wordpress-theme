@@ -36,11 +36,14 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
         $terms_query_args = array(
             'hide_empty' => false,
             'parent' => 0,
+            'meta_key' =>  'dsi_order',
+            'orderby'       =>  'meta_value',
+            'order'       =>  'ASC',
         );
 
         $post_type = empty($field->args['post_type']) ? null : $field->args['post_type'];
 
-        if (!empty($post_type)) {
+        /*if (!empty($post_type)) {
             $terms_query_args['meta_query'] = array(
                 'relation' => 'OR',
                 array(
@@ -53,7 +56,7 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
                     'compare' => 'LIKE'
                 )
             );
-        }
+        }*/
 
         $terms = get_terms($field_type_object->field->args('taxonomy'), $terms_query_args);
 

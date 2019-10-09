@@ -30,7 +30,7 @@ function dsi_create_pages_on_theme_activation() {
 	}
 
 
-	// template page per La Home di Sezione Nozizie
+	// template page per La Home di Sezione Notizie
 	$new_page_title    = __( 'Notizie', 'design_scuole_italia' ); // Page's title
 	$new_page_content  = '';                           // Content goes here
 	$new_page_template = 'page-templates/notizie.php';       // The template to use for the page
@@ -160,6 +160,17 @@ function dsi_create_pages_on_theme_activation() {
     );
 
 
+    // If the page doesn't already exist, create it
+    if ( ! isset( $page_check->ID ) ) {
+        $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+        }
+    }else{
+        $amministrazione_trasparente_page_id = $page_check->ID;
+        update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+    }
+
 
     // template page per Presentazione
     $new_page_title    = __( 'Presentazione', 'design_scuole_italia' ); // Page's title
@@ -176,16 +187,43 @@ function dsi_create_pages_on_theme_activation() {
         'post_slug'    => 'presentazione'
     );
 
+    // If the page doesn't already exist, create it
+    if ( ! isset( $page_check->ID ) ) {
+        $presentazione_page_id = wp_insert_post( $new_page );
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $presentazione_page_id, '_wp_page_template', $new_page_template );
+        }
+    }else{
+        $presentazione_page_id = $page_check->ID;
+        update_post_meta( $presentazione_page_id, '_wp_page_template', $new_page_template );
+    }
+
+
+
+    // template page per pagina dei cicli scolastici
+    $new_page_title    = __( 'I cicli scolastici e le classi', 'design_scuole_italia' ); // Page's title
+    $new_page_content  = '';                           // Content goes here
+    $new_page_template = 'page-templates/cicli-scolastici.php';       // The template to use for the page
+    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug'    => 'cicli-scolastici'
+    );
 
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
-        $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
+        $cicli_page_id = wp_insert_post( $new_page );
         if ( ! empty( $new_page_template ) ) {
-            update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+            update_post_meta( $cicli_page_id, '_wp_page_template', $new_page_template );
         }
     }else{
-        $amministrazione_trasparente_page_id = $page_check->ID;
-        update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+        $cicli_page_id = $page_check->ID;
+        update_post_meta( $cicli_page_id, '_wp_page_template', $new_page_template );
     }
 
     /**
@@ -239,15 +277,23 @@ function dsi_create_pages_on_theme_activation() {
 
  //   print_r($arrdida);
    // exit();
+    $order=0;
     foreach ( $arrdida as $key => $value ) {
 
         if (!is_array($value)) {
-            if (!term_exists( $value , 'percorsi-di-studio'))
-                wp_insert_term($value, 'percorsi-di-studio');
+            if (!term_exists( $value , 'percorsi-di-studio')){
+                $newterm= wp_insert_term($value, 'percorsi-di-studio');
+//                wp_update_term($newterm["term_id"], 'percorsi-di-studio', array('order' => $order));
+                update_term_meta($newterm["term_id"], "dsi_order", $order);
+
+                $order++;
+            }
         } else {
             if (!term_exists( $key , 'percorsi-di-studio')){
                 $parent = wp_insert_term($key, 'percorsi-di-studio');
                 $parent_id = $parent["term_id"];
+                update_term_meta($parent["term_id"], "dsi_order", $order);
+                $order++;
                 // ciclo sul livello successivo
                 foreach ($value as $vkey => $vvalue) {
                     if (!is_array($vvalue)) {
@@ -284,6 +330,15 @@ function dsi_create_pages_on_theme_activation() {
                 }
             }
 
+        }
+
+    }
+    // aggiorno le description dei percorsi
+   $arrdidadesc = dsi_didattica_desc_array();
+    foreach ($arrdidadesc as $key => $desc) {
+        if($desc != ""){
+            $term = get_term_by("name", $key, 'percorsi-di-studio');
+            wp_update_term($term->term_id, 'percorsi-di-studio', array("description" => $desc));
         }
     }
 
@@ -514,14 +569,13 @@ function dsi_create_pages_on_theme_activation() {
     $menu_id = wp_create_nav_menu($name);
     $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
 
-    // todo
+    $cicli_landing_url = dsi_get_template_page_url("page-templates/cicli-scolastici.php");
     wp_update_nav_menu_item($menu->term_id, 0, array(
         'menu-item-title' => __('I cicli scolastici e le classi', "design_scuole_italia"),
-        'menu-item-url' => "#",
+        'menu-item-url' => $cicli_landing_url,
         'menu-item-status' => 'publish',
         'menu-item-type' => 'custom', // optional
     ));
-
 
     wp_update_nav_menu_item($menu->term_id, 0, array(
         'menu-item-title' => __('Le schede didattiche', "design_scuole_italia"),
@@ -559,6 +613,16 @@ function dsi_create_pages_on_theme_activation() {
         'menu-item-status' => 'publish',
         'menu-item-type' => 'custom', // optional
     ));
+
+    $term = get_term_by("name", "Albo Pretorio", "tipologia-documento");
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Albo Pretorio', "design_scuole_italia"),
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'taxonomy',
+        'menu-item-object' => 'tipologia-documento',
+        'menu-item-object-id' => $term->term_id,
+    ));
+
 
     $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
     $locations_primary_arr["menu-footer"] = $menu->term_id;

@@ -135,11 +135,12 @@ function dsi_get_strutture_percorsi_scuole_options( ) {
             // per ogni scuola seleziono i percorsi abilitati
                $percorsi = dsi_get_meta("percorsi", "", $program->ID);
         //    print_r($percorsi);
-               if(is_array($percorsi)){
+               if(is_array($percorsi) && count($percorsi) > 0){
                    foreach ($percorsi as $percorso){
 
                        $term_percorso = get_term_by("slug", $percorso, "percorsi-di-studio");
-                       $options[ $percorso ] = $term_percorso->name;
+                       if($term_percorso)
+                           $options[ $term_percorso->term_id ] = $term_percorso->name;
                    }
 
                }

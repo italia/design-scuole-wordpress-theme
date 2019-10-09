@@ -546,3 +546,19 @@ function dsi_convert_anno_scuola($anno){
     return $anno."/".$nextanno;
 
 }
+
+
+/**
+ * ritorna l'anno scolastico corrente
+ * @param bool $year
+ * @return false|int|string
+ */
+function dsi_get_current_anno_scolastico($year = true){
+    $today_month = date("n");
+    if($today_month < 8){
+        if($year) return date("Y")-1; else return dsi_convert_anno_scuola(date("Y")-1);
+    }else{
+        if($year) return date("Y"); else return dsi_convert_anno_scuola(date("Y"));
+    }
+
+}
