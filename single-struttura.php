@@ -18,7 +18,7 @@ get_header();
 		<?php while ( have_posts() ) :  the_post();
 			$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 			$descrizione = dsi_get_meta("descrizione");
-			$didattica = dsi_get_meta("didattica");
+			//$didattica = dsi_get_meta("didattica");
 			$link_schede_servizi = dsi_get_meta("link_schede_servizi");
 			$link_schede_progetti = dsi_get_meta("link_schede_progetti");
 
@@ -105,23 +105,66 @@ get_header();
                                        <?php the_content(); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <?php if($didattica){ ?>
-                                <h6><?php _e("Didattica", "design_scuole_italia"); ?></h6>
-                                <div class="card-deck card-deck-spaced mb-4">
-                                    <?php foreach ($didattica as $dida){ ?>
-                                        <div class="card card-bg card-icon-main rounded">
-                                            <a href="<?php echo $dida["url_ciclo"]; ?>">
-                                                <div class="card-body">
-                                                    <svg class="icon svg-school"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-school"></use></svg>
-                                                    <div class="card-icon-content">
-                                                        <p><strong><?php echo $dida["nome_ciclo"]; ?></strong></p>
-                                                    </div><!-- /card-icon-content -->
-                                                </div><!-- /card-body -->
-                                            </a>
-                                        </div><!-- /card card-bg card-icon-main rounded -->
-                                    <?php } ?>
-                                </div><!-- /card-deck card-deck-spaced -->
-                                <?php } ?>
+
+                                <?php
+                                // se è un parent
+                                global $struttura;
+                                if($post->post_parent == 0){
+                                    // controllo se il luogo ha child
+                                    $args = array(
+                                        'post_parent' => $post->ID,
+                                        'post_type'   => 'struttura',
+                                        'numberposts' => -1,
+                                        'post_status' => 'publish'
+                                    );
+                                    $children = get_children( $args );
+                                    if(is_array($children) && count($children)>0){
+
+                                        echo "<h6>".__("Ne fanno parte", "design_scuole_italia")."</h6>";
+                                        echo '<div class="card-deck card-deck-spaced">';
+                                        foreach ($children as $struttura) {
+                                            get_template_part("template-parts/struttura/card");
+                                        }
+                                        echo "</div>";
+                                    }
+                                }else{
+                                    // è un child
+
+                                    echo "<h6>".__("Dipende da", "design_scuole_italia")."</h6>";
+                                    echo '<div class="card-deck card-deck-spaced">';
+                                    $struttura = get_post($post->post_parent);
+                                    get_template_part("template-parts/struttura/card");
+                                    echo "</div>";
+                                }
+                                ?>
+
+
+                                <?php
+
+
+                                // controllo se è una scuola, e in caso se ha associato una tassonomia legata ai percorsi di studio
+                                if(dsi_is_scuola($post)){
+                                    // recupero i percorsi di studio
+                                    $percorsi = dsi_get_percorsi_of_scuola($post);
+                                    if(is_array($percorsi) && count($percorsi) > 0){
+                                        ?>
+                                        <h6><?php _e("Didattica", "design_scuole_italia"); ?></h6>
+                                        <div class="card-deck card-deck-spaced mb-4">
+                                            <?php foreach ($percorsi as $percorso){ ?>
+                                                <div class="card card-bg card-icon-main rounded">
+                                                        <div class="card-body">
+                                                            <svg class="icon svg-school"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-school"></use></svg>
+                                                            <div class="card-icon-content">
+                                                                <p><strong><?php echo $percorso->name; ?></strong></p>
+                                                            </div><!-- /card-icon-content -->
+                                                        </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon-main rounded -->
+                                            <?php } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                        <?php
+                                    }
+                                }
+                                ?>
                                 <?php if($link_schede_servizi){ ?>
                                 <h6><?php _e("Servizi", "design_scuole_italia"); ?></h6>
                                 <div class="card-deck card-deck-spaced mb-4">

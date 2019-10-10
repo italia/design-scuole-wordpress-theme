@@ -5,7 +5,7 @@
 add_action( 'init', 'dsi_register_struttura_post_type', 0 );
 function dsi_register_struttura_post_type() {
 
-	/** programma **/
+	/** struttura **/
 	$labels = array(
 		'name'          => _x( 'Strutture', 'Post Type General Name', 'design_scuole_italia' ),
 		'singular_name' => _x( 'Struttura', 'Post Type Singular Name', 'design_scuole_italia' ),
@@ -23,7 +23,7 @@ function dsi_register_struttura_post_type() {
 		'label'         => __( 'Struttura Organizzativa', 'design_scuole_italia' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title', 'editor', 'thumbnail' ),
-		'hierarchical'  => false,
+		'hierarchical'  => true,
 		'public'        => true,
 		'menu_position' => 5,
 		'menu_icon'     => 'dashicons-networking',
@@ -150,7 +150,16 @@ function dsi_add_struttura_metaboxes() {
 	) );
 
 
-	$cmb_undercontent = new_cmb2_box( array(
+    $cmb_sottotitolo->add_field( array(
+        'id'         => $prefix . 'childof',
+        'name'       => __( 'La struttura dipende da un\'altra  struttura. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Ad esempio se è una scuola figlia di un istituto, seleziona l\'istituto di cui fa parte', 'design_scuole_italia' ),
+        'type'       => 'select',
+        'options' => dsi_get_strutture_options(),
+    ) );
+
+
+    $cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_struttura',
 		'title'         => __( 'Dettagli Struttura', 'design_scuole_italia' ),
 		'object_types' => array( 'struttura' ),
@@ -159,7 +168,7 @@ function dsi_add_struttura_metaboxes() {
 	) );
 
 
-
+/*
 	$group_field_id = $cmb_undercontent->add_field( array(
 		'id'          => $prefix . 'didattica',
 		'name'        => __('<h1>Didattica</h1>', 'design_scuole_italia' ),
@@ -187,7 +196,7 @@ function dsi_add_struttura_metaboxes() {
 		'name'    => __( 'Link della relativa sezione didattica', 'design_scuole_italia' ),
 		'type'             => 'text_url',
 	) );
-
+*/
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_servizi',
@@ -354,3 +363,37 @@ new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_progetti
 
 // relazione bidirezionale struttura / luoghi
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "sedi", "box_elementi_struttura", "_dsi_luogo_link_strutture");
+
+
+/**
+ * salvo il parent cmb2
+ */
+
+add_action( 'save_post_struttura', 'dsi_save_struttura' );
+function dsi_save_struttura($post_id) {
+
+    $post_type = get_post_type($post_id);
+    // If this isn't a 'book' post, don't update it.
+    if ( "struttura" != $post_type ) return;
+    //Check it's not an auto save routine
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+        return;
+
+    //Perform permission checks! For example:
+    if ( !current_user_can('edit_post', $post_id) )
+        return;
+
+
+    $parentid = dsi_get_meta("childof", "", $post_id);
+
+    if($parentid == "")
+        $parentid = 0;
+    remove_action( 'save_post_struttura','dsi_save_struttura' );
+    wp_update_post(
+        array(
+            'ID'          => $post_id,
+            'post_parent' => $parentid
+        )
+    );
+    add_action( 'save_post_struttura', 'dsi_save_struttura' );
+}

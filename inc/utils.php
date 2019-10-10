@@ -152,6 +152,21 @@ if(!function_exists("dsi_get_argomenti_of_post")) {
 	}
 }
 
+/**
+ * recupero i percorsi di studio della scuola
+ */
+if(!function_exists("dsi_get_percorsi_of_scuola")) {
+    function dsi_get_percorsi_of_scuola( $singular = false ) {
+        global $post;
+
+        if ( ! $singular) {
+            $singular = $post;
+        }
+
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'percorsi-di-studio' );
+        return $argomenti_terms;
+    }
+}
 
 
 /**
@@ -547,6 +562,18 @@ function dsi_convert_anno_scuola($anno){
 
 }
 
+/**
+ * controllo se una struttura è una scuola
+ * @param $post
+ * @return bool
+ */
+function dsi_is_scuola($post){
+
+    if(has_term("scuola", "tipologia-struttura", $post))
+        return true;
+
+    return false;
+}
 
 /**
  * ritorna l'anno scolastico corrente
