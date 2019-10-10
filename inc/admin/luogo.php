@@ -204,7 +204,42 @@ function dsi_add_luogo_metaboxes() {
 		),
 	) );
 
-	$cmb_aftercontent_luoghi->add_field( array(
+
+    $elementi_field_id = $cmb_aftercontent_luoghi->add_field( array(
+        'id'          => $prefix . 'elementi_di_interesse',
+        'name'        => __('<h1>Elementi di interesse</h1>', 'design_scuole_italia' ),
+        'type'        => 'group',
+        'description' => __( 'Inserisci se ci elementi di interesse di questo luogo. <b>NB: se il luogo ha dei luoghi "figli" all\'interno non inserirli qui, verranno recuperati e mostrati automaticamente.</b>', 'design_scuole_italia' ),
+        'options'     => array(
+            'group_title'    => __( 'Elemento {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
+            'add_button'     => __( 'Aggiungi', 'design_scuole_italia' ),
+            'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
+            'sortable'       => true,
+            'closed'      => false, // true to have the groups closed by default
+            //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ) );
+
+
+    $cmb_aftercontent_luoghi->add_group_field( $elementi_field_id, array(
+        'id' => 'titolo',
+        'name'    => __( 'Titolo', 'design_scuole_italia' ),
+        'type'             => 'text'
+    ) );
+
+
+    $cmb_aftercontent_luoghi->add_group_field( $elementi_field_id, array(
+        'id' => 'descrizione',
+        'name'    => __( 'Descrizione', 'design_scuole_italia' ),
+        'type'             => 'textarea',
+
+    ) );
+
+
+
+
+
+    $cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'servizi_presenti',
 		'name'       => __( 'Servizi presenti nel luogo', 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',

@@ -48,9 +48,14 @@ if(isset($struttura->ID)){
 	<div class="col-lg-9">
 		<div class="card card-bg rounded mb-5">
 			<div class="card-header">
-                <?php if(is_singular("luogo")){ ?>
+                <?php if(is_singular("luogo") && ($luogo->post_parent == 0)){ ?>
                     <strong><?php echo $card_title; ?></strong>
-                <?php }else { ?>
+                <?php }else if(is_singular("luogo") && ($luogo->post_parent > 0)){
+                    // sono nel luogo child, stampo il nome e il link del parent
+                    ?>
+                    <a href="<?php echo get_permalink($luogo->post_parent); ?>"><strong><?php echo get_the_title($luogo->post_parent); ?></strong></a>
+                    <?php
+                } else { ?>
                     <a href="<?php echo get_permalink($luogo); ?>"><strong><?php echo $luogo->post_title; ?></strong></a>
 	            <?php } ?>
 			</div><!-- /card-header -->
