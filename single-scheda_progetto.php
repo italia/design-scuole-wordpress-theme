@@ -74,7 +74,7 @@ $link_strutture = dsi_get_meta("link_strutture");
                             </aside>
 
                         </div>
-                        <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper pt-4 px-3">
 
                                 <div class="row variable-gutters">

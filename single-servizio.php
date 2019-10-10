@@ -126,7 +126,7 @@ get_header();
                             </aside>
 
                         </div>
-                        <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">

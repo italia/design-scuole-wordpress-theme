@@ -97,7 +97,7 @@ $altre_info = dsi_get_meta("note");
                             </aside>
 
                         </div>
-                        <div class="col-lg-6">
+                        <div class="main-content col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
                                 <h4 id="art-par-materia"><?php _e("La Materia", "design_scuole_italia"); ?></h4>
 								<?php the_content(); ?>

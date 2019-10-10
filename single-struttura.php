@@ -92,7 +92,7 @@ get_header();
 							</aside>
 
 						</div>
-						<div class="col-lg-8 col-md-8 offset-lg-1">
+						<div class="main-content col-lg-8 col-md-8 offset-lg-1">
 							<article class="article-wrapper pt-4">
 								<div class="row variable-gutters">
 									<div class="col-lg-12 d-flex justify-content-end">

@@ -28,7 +28,7 @@ $persone = dsi_get_meta("persone");
                 <div class="container">
                     <div class="row variable-gutters">
 
-                        <div class="col-lg-9 col-md-8 order-lg-1">
+                        <div class="main-content col-lg-9 col-md-8 order-lg-1">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
                                     <div class="col-lg-8">
