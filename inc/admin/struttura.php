@@ -155,6 +155,7 @@ function dsi_add_struttura_metaboxes() {
         'name'       => __( 'La struttura dipende da un\'altra  struttura. ', 'design_scuole_italia' ),
         'desc'       => __( 'Ad esempio se è una scuola figlia di un istituto, seleziona l\'istituto di cui fa parte', 'design_scuole_italia' ),
         'type'       => 'select',
+        'show_option_none' => true,
         'options' => dsi_get_strutture_options(),
     ) );
 
