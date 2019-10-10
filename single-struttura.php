@@ -68,7 +68,7 @@ get_header();
                                         </li>
 	                                    <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){ ?>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione", "design_scuole_italia"); ?>"><?php _e("Organizzazione", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
                                         </li>
                                         <?php } ?>
                                         <?php if(is_array($sedi) && count($sedi)>0) { ?>
@@ -80,13 +80,13 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <?php }
+                                        <?php }/*
                                          if($telefono || $mail || $pec){
                                         ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-more" title="Vai al paragrafo <?php _e("Per saperne di più", "design_scuole_italia"); ?>"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                         </li>
-                                         <?php } ?>
+                                         <?php }*/ ?>
                                     </ul>
                                 </div>
 							</aside>
@@ -144,8 +144,8 @@ get_header();
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->
 								<?php } ?>
-                                <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){ ?>
-                                <h4 id="art-par-organizzazione"><?php _e("Organizzazione", "design_scuole_italia"); ?></h4>
+                                <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec){ ?>
+                                <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
                                 <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
                                 <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
                                 <div class="card-deck card-deck-spaced mb-2">
@@ -187,13 +187,33 @@ get_header();
 
 	                                <?php if($altri_componenti != ""){ ?>
                                         <h6><?php _e("Altri componenti", "design_scuole_italia"); ?></h6>
-                                        <p><small><?php echo $altri_componenti; ?></small></p>
+                                        <p><?php echo $altri_componenti; ?></p>
 	                                <?php } ?>
 
+                                    <?php
+                                    if($telefono || $mail || $pec){
+                                        ?>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9">
+                                        <h6><?php _e("Contatti", "design_scuole_italia"); ?></h6>
+                                <div class="card card-bg bg-color rounded">
+                                    <div class="card-body pb-1">
+                                                <ul>
+                                                    <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
+                                                    <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+                                                    <?php if($pec){ ?><li><strong><?php _e("PEC", "design_scuole_italia"); ?>:</strong> <?php echo $pec; ?></li><?php } ?>
+                                                </ul>
+                                    </div></div>
+                                    </div></div>
+
+                                    <?php }
+                                    ?>
                                 <?php } ?>
                                 <?php if(is_array($sedi) && count($sedi)>0) {
                                     ?>
-                                <h4 id="art-par-sede"><?php _e("Sede", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-12">
+                                <h4 id="art-par-sede" class="mt-4"><?php _e("Sede", "design_scuole_italia"); ?></h4>
                                     <?php
 	                                $c=0;
 	                                foreach ($sedi as $idluogo){
@@ -203,6 +223,8 @@ get_header();
 
                                     }
                                     ?>
+                                    </div>
+                                </div>
                                 <?php } ?>
 	                            <?php if($altre_info != ""){ ?>
                                 <h4 id="art-par-info" class="mb-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
@@ -212,6 +234,7 @@ get_header();
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
 	                            <?php }
+	                            /*
 	                            if($telefono || $mail || $pec){
 	                            ?>
                                 <h4 id="art-par-more"><?php _e("Per saperne di più", "design_scuole_italia"); ?></h4>
@@ -224,7 +247,7 @@ get_header();
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <?php } ?>
+                                <?php } */ ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
 								<?php get_template_part("template-parts/single/bottom"); ?>
