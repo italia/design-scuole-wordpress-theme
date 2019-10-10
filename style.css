@@ -39,7 +39,9 @@ Text Domain: design_scuole_italia
 .main-content li {
     font-family: Lora, Georgia, serif;
 }
-
+.card-body li{
+    font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
+}
 .single .article-wrapper>p>a{
     text-decoration:underline;
 }
