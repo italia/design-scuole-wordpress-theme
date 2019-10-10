@@ -368,12 +368,12 @@ function dsi_create_pages_on_theme_activation() {
 	* popolo le tipologie di struttura
 	 *
 	 */
-	wp_insert_term( 'Scuola', 'tipologia-struttura' );
-	wp_insert_term( 'Segreteria', 'tipologia-struttura' );
-	wp_insert_term( 'Presidenza', 'tipologia-struttura' );
+    wp_insert_term( 'Dirigenza Scolastica', 'tipologia-struttura' );
+    wp_insert_term( 'Segreteria', 'tipologia-struttura' );
+    wp_insert_term( 'Scuola', 'tipologia-struttura' );
 	wp_insert_term( 'Commissione', 'tipologia-struttura' );
-	wp_insert_term( 'Organi Consiliari', 'tipologia-struttura' );
-    wp_insert_term( 'Associazioni scolastiche', 'tipologia-struttura' );
+	wp_insert_term( 'Organo Collegiale', 'tipologia-struttura' );
+    wp_insert_term( 'Associazione scolastica', 'tipologia-struttura' );
 
 	wp_insert_term( 'Palestra', 'tipologia-luogo' );
 	wp_insert_term( 'Mensa', 'tipologia-luogo' );
@@ -382,6 +382,7 @@ function dsi_create_pages_on_theme_activation() {
 	wp_insert_term( 'Auditorium', 'tipologia-luogo' );
 	wp_insert_term( 'Teatro', 'tipologia-luogo' );
 	wp_insert_term( 'Laboratorio', 'tipologia-luogo' );
+    wp_insert_term( 'Giardino', 'tipologia-luogo' );
 
 	wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
 	wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
@@ -400,10 +401,14 @@ function dsi_create_pages_on_theme_activation() {
 
 
     wp_insert_term( 'Documento Generico', 'tipologia-documento' );
-    wp_insert_term( 'Albo Pretorio', 'tipologia-documento' );
-
-    wp_insert_term( 'Documento Generico', 'tipologia-documento' );
-    wp_insert_term( 'Albo Pretorio', 'tipologia-documento' );
+    wp_insert_term( 'Bandi e Gare', 'tipologia-documento' );
+    wp_insert_term( 'Contratto', 'tipologia-documento' );
+    wp_insert_term( 'Delibera', 'tipologia-documento' );
+    wp_insert_term( 'Verbale', 'tipologia-documento' );
+    wp_insert_term( 'Regolamento', 'tipologia-documento' );
+    wp_insert_term( 'Documento Programmatico', 'tipologia-documento' );
+    wp_insert_term( 'Documento Didattico', 'tipologia-documento' );
+    wp_insert_term( 'Modulistica', 'tipologia-documento' );
 
     wp_insert_term( 'Bandi e gare', 'albo-pretorio' );
     wp_insert_term( 'Contratti - Personale ATA', 'albo-pretorio' );
