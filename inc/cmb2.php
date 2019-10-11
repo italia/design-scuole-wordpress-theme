@@ -142,6 +142,25 @@ function dsi_get_tipologie_strutture_options( ) {
     return $options;
 }
 
+
+
+function dsi_get_tipologie_luoghi_options( ) {
+
+    $classi = get_terms( array(
+        'taxonomy' => 'tipologia-luogo',
+        'hide_empty' => false,
+    ));
+
+    $options = array();
+    if ( $classi ) {
+        foreach ( $classi as $classe ) {
+            $options[ $classe->term_id ] = $classe->name;
+        }
+    }
+
+    return $options;
+}
+
 function dsi_get_strutture_percorsi_scuole_options( ) {
 
     $programs = get_posts("post_type=struttura&tipologia-struttura=scuola&posts_per_page=-1&orderby=title&order=ASC");

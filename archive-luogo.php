@@ -9,66 +9,66 @@
 
 get_header();
 ?>
-	<main id="main-container" class="main-container redbrown">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <main id="main-container" class="main-container redbrown">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-		<section class="section bg-white py-2 py-lg-3 py-xl-5">
-			<div class="container">
-				<div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
-						<div class="section-title">
-							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
-						</div><!-- /title-section -->
-					</div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
+        <?php
+        get_template_part("template-parts/home/hero", "luoghi");
 
-					<div class="col-lg-3 col-md-4 offset-lg-1">
-						<?php get_template_part("template-parts/single/actions"); ?>
-					</div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section><!-- /section -->
+        // recupero la lista delle strutture
+        $i=0;
+        $strutture_luoghi = dsi_get_option("strutture_luoghi", "luoghi");
+        foreach ($strutture_luoghi as $id_tipologia_luogo) {
+
+            $tipologia_luogo = get_term_by("id", $id_tipologia_luogo, "tipologia-luogo");
+            if (!is_wp_error($tipologia_luogo)) {
 
 
+                $luoghi = get_posts("post_type=luogo&tipologia-luogo=" . $tipologia_luogo->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
+                if (is_array($luoghi) && count($luoghi) > 0) {
+                    $i++;
+                    $classcolor = "bg-white";
+                    if ($i % 2)
+                        $classcolor = "bg-gray-light";
 
-		<section class="section bg-white border-top border-bottom d-block d-lg-none">
-			<div class="container d-flex justify-content-between align-items-center py-3">
-				<h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
-				<a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#">
-					<svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
-				</a>
-			</div>
-		</section>
-		<section class="section bg-gray-light">
-			<div class="container">
-				<div class="row variable-gutters sticky-sidebar-container">
-					<div class="col-lg-3 bg-white bg-white-left">
-						<?php get_template_part("template-parts/search/filters", "luogo"); ?>
-					</div>
-					<div class="col-lg-7 offset-lg-1 pt84">
-						<?php if ( have_posts() ) : ?>
-							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
+                    ?>
+                    <section class="section <?php echo $classcolor; ?> py-4">
+                        <div class="container">
+                            <?php
+                                if (is_array($luoghi) && count($luoghi) > 0) {
+                                    ?>
 
-							endwhile;
-							?>
-							<nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
-								<?php echo dsi_bootstrap_pagination(); ?>
-							</nav>
-						<?php
-						else :
-
-							get_template_part( 'template-parts/content', 'none' );
-
-						endif;
-						?>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section>
-	</main>
+                                    <div class="row variable-gutters mt-4">
+                                        <div class="col-lg-3  mb-4">
+                                            <h4 class="text-lg-right mb-3">
+                                                <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php echo $tipologia_luogo->name; ?></a>
+                                            </h4>
+                                        </div><!-- /col-lg-3 -->
+                                        <div class="col-lg-9">
+                                            <div class="row variable-gutters">
+                                                <?php
+                                                foreach ($luoghi as $luogo) {
+                                                    ?>
+                                                    <div class="col-lg-4 mb-4">
+                                                        <?php get_template_part("template-parts/luogo/card", "ico"); ?>
+                                                    </div><!-- /col-lg-4 -->
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div><!-- /row -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                            ?>
+                        </div><!-- /container -->
+                    </section><!-- /section -->
+                    <?php
+                }
+            }
+        }
+        ?>
+    </main>
 
 <?php
 get_footer();

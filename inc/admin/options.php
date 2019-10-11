@@ -791,6 +791,59 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+
+
+    /**
+     * Luoghi
+     */
+
+    $args = array(
+        'id'           => 'dsi_options_luoghi',
+        'title'        => esc_html__( 'Luoghi', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'luoghi',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Luoghi', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $luoghi_options = new_cmb2_box( $args );
+
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'luoghi_istruzioni',
+        'name'        => __( 'Sezione Organizzazione', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("luogo").'">la pagina dei luoghi scolastici</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'testo_sezione_luoghi',
+        'name'        => __( 'Descrizione Sezione Luoghi', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Questi i luoghi della scuola"' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'strutture_luoghi',
+        'name'        => __( 'Seleziona e ordina le tipologie di luoghi  da mostrare', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona le tipologie di luoghi che vuoi mostrare. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_tipologie_luoghi_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina le tipologie di luoghi da mostrare nella pagina Luoghi', 'design_scuole_italia' ),
+        ),
+    ) );
+
+
     // pagina opzioni
 	/**
 	 * Registers main options page menu item and form.
