@@ -384,8 +384,8 @@ function dsi_save_struttura($post_id) {
     if ( !current_user_can('edit_post', $post_id) )
         return;
 
-
-    $parentid = dsi_get_meta("childof", "", $post_id);
+    $parentid = $_POST["_dsi_struttura_childof"];
+    //$parentid = dsi_get_meta("childof", "", $post_id);
 
     if($parentid == "")
         $parentid = 0;

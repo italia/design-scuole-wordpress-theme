@@ -74,7 +74,7 @@ function dsi_register_main_options_metabox() {
         'option_key'   => 'homepage',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
-        'tab_title'    => __('Home Page', "design_scuole_italia"),	);
+        'tab_title'    => __('Home', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
     if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -174,7 +174,7 @@ function dsi_register_main_options_metabox() {
 		'title'        => esc_html__( 'La Scuola', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'la_scuola',
-		'tab_title'    => __('Pagina "Scuola"', "design_scuole_italia"),
+		'tab_title'    => __('Scuola', "design_scuole_italia"),
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
 
@@ -485,7 +485,7 @@ function dsi_register_main_options_metabox() {
         'title'        => esc_html__( 'Presentazione', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'presentazione',
-        'tab_title'    => __('Pagina "Presentazione"', "design_scuole_italia"),
+        'tab_title'    => __('Presentazione', "design_scuole_italia"),
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
 
@@ -535,7 +535,7 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'servizi',
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-		'tab_title'    => __('Pagina "Servizi"', "design_scuole_italia"),	);
+		'tab_title'    => __('Servizi', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -589,7 +589,7 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'notizie',
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-		'tab_title'    => __('Pagina "Notizie"', "design_scuole_italia"),	);
+		'tab_title'    => __('Notizie', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -641,7 +641,7 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'didattica',
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-		'tab_title'    => __('Pagina "Didattica"', "design_scuole_italia"),	);
+		'tab_title'    => __('Didattica', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -701,7 +701,7 @@ function dsi_register_main_options_metabox() {
         'option_key'   => 'persone',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
-        'tab_title'    => __('Pagina "Persone"', "design_scuole_italia"),	);
+        'tab_title'    => __('Persone', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
     if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -740,6 +740,56 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+
+    /**
+     * Organizzazione
+     */
+
+    $args = array(
+        'id'           => 'dsi_options_organizzazione',
+        'title'        => esc_html__( 'Organizzazione', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'organizzazione',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Organizzazione', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $organizzazione_options = new_cmb2_box( $args );
+
+
+    $organizzazione_options->add_field( array(
+        'id' => $prefix . 'organizzazione_istruzioni',
+        'name'        => __( 'Sezione Organizzazione', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("struttura").'">la pagina dell\'Organizzazione scolastica</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $organizzazione_options->add_field( array(
+        'id' => $prefix . 'testo_sezione_organizzazione',
+        'name'        => __( 'Descrizione Sezione Organizzazione', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Questa la nostra organizzazione scolastica"' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
+
+    $organizzazione_options->add_field( array(
+        'id' => $prefix . 'strutture_organizzazione',
+        'name'        => __( 'Seleziona e ordina le tipologie di strutture organizzative da mostrare', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona le tipologie di strutture organizzative di cui vuoi mostrare. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_tipologie_strutture_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina le tipologie di strutture da mostrare nella pagina Organizzazione', 'design_scuole_italia' ),
+        ),
+    ) );
 
     // pagina opzioni
 	/**

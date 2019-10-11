@@ -9,67 +9,98 @@
 
 get_header();
 ?>
-	<main id="main-container" class="main-container redbrown">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <main id="main-container" class="main-container redbrown">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+        <?php
+        get_template_part("template-parts/home/hero", "strutture");
 
-		<section class="section bg-white py-2 py-lg-3 py-xl-5">
-			<div class="container">
-				<div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
-						<div class="section-title">
-							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
-							<?php the_archive_description("<p>","</p>"); ?>
-						</div><!-- /title-section -->
-					</div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
+        // recupero la lista delle strutture
+        $i=0;
+        $strutture_organizzazione = dsi_get_option("strutture_organizzazione", "organizzazione");
+        foreach ($strutture_organizzazione as $id_tipologia_struttura) {
+            $i++;
+            $tipologia_struttura = get_term_by("id", $id_tipologia_struttura, "tipologia-struttura");
+            if (!is_wp_error($tipologia_struttura)) {
+                $classcolor = "bg-white";
+                if ($i % 2)
+                    $classcolor = "bg-gray-light";
 
-					<div class="col-lg-3 col-md-4 offset-lg-1">
-						<?php get_template_part("template-parts/single/actions"); ?>
-					</div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section><!-- /section -->
+                $haschild = false;
+                $strutture = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
+                $strutture_parent = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=0&posts_per_page=-1&orderby=title&order=ASC");
+                if (is_array($strutture) && count($strutture) > 0) {
+                    foreach ($strutture_parent as $child){
+                        $strutture_child = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=".$child->ID."&posts_per_page=1&orderby=title&order=ASC");
+                        if(is_array($strutture_child) && count($strutture_child)>0)
+                            $haschild = true;
+                    }
+                    ?>
+                    <section class="section <?php echo $classcolor; ?> py-5">
+                        <div class="container">
+                            <div class="title-section text-center mb-5">
+                                <h3 class="h4"><a
+                                            href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
+                                </h3>
+                            </div><!-- /title-large -->
+                            <?php
+                            if($haschild){ // adotto la struttura a 2 colonne
 
+                                foreach ($strutture_parent as $struttura) {
 
+                                    ?>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-4  mb-4">
+                                            <?php get_template_part("template-parts/struttura/card", "dark"); ?>
+                                        </div><!-- /col-lg-3 -->
+                                        <div class="col-lg-8">
+                                            <div class="row variable-gutters">
+                                                <?php
+                                                $strutture_child = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=" . $struttura->ID . "&posts_per_page=-1&orderby=title&order=ASC");
+                                                foreach ($strutture_child as $struttura) {
+                                                    ?>
+                                                    <div class="col-lg-6 mb-4">
+                                                        <?php get_template_part("template-parts/struttura/card"); ?>
+                                                    </div><!-- /col-lg-4 -->
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div><!-- /row -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                            }else{ // struttura classica
+                                if (is_array($strutture) && count($strutture) > 0) {
 
-		<section class="section bg-white border-top border-bottom d-block d-lg-none">
-			<div class="container d-flex justify-content-between align-items-center py-3">
-				<h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
-				<a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#">
-					<svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
-				</a>
-			</div>
-		</section>
-		<section class="section bg-gray-light">
-			<div class="container">
-				<div class="row variable-gutters sticky-sidebar-container">
-					<div class="col-lg-3 bg-white bg-white-left">
-						<?php get_template_part("template-parts/search/filters", "struttura"); ?>
-					</div>
-					<div class="col-lg-7 offset-lg-1 pt84">
-						<?php if ( have_posts() ) : ?>
-							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
+                                    ?>
 
-							endwhile;
-							?>
-							<nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
-								<?php echo dsi_bootstrap_pagination(); ?>
-							</nav>
-						<?php
-						else :
-
-							get_template_part( 'template-parts/content', 'none' );
-
-						endif;
-						?>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section>
-	</main>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-12">
+                                            <div class="row variable-gutters">
+                                                <?php
+                                                foreach ($strutture as $struttura) {
+                                                    ?>
+                                                    <div class="col-lg-4 mb-4">
+                                                        <?php get_template_part("template-parts/struttura/card"); ?>
+                                                    </div><!-- /col-lg-4 -->
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div><!-- /row -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div><!-- /container -->
+                    </section><!-- /section -->
+                    <?php
+                }
+            }
+        }
+        ?>
+    </main>
 
 <?php
 get_footer();
