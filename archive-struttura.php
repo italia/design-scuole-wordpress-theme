@@ -37,19 +37,15 @@ get_header();
                             $haschild = true;
                     }
                     ?>
-                    <section class="section <?php echo $classcolor; ?> py-5">
+                    <section class="section <?php echo $classcolor; ?> py-4">
                         <div class="container">
-                            <div class="title-section text-center mb-5">
-                                <h3 class="h4"><a
-                                            href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
-                                </h3>
-                            </div><!-- /title-large -->
-                            <?php
-                            if($haschild){ // adotto la struttura a 2 colonne
+                            <?php if($haschild){ // adotto la struttura a 2 colonne ?>
+                                <div class="title-section text-center mb-5">
+                                    <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
+                                    </h3>
+                                </div><!-- /title-large -->
+                                <?php foreach ($strutture_parent as $struttura) { ?>
 
-                                foreach ($strutture_parent as $struttura) {
-
-                                    ?>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-4  mb-4">
                                             <?php get_template_part("template-parts/struttura/card", "dark"); ?>
@@ -73,16 +69,20 @@ get_header();
                                 }
                             }else{ // struttura classica
                                 if (is_array($strutture) && count($strutture) > 0) {
-
                                     ?>
 
-                                    <div class="row variable-gutters mb-4">
-                                        <div class="col-lg-12">
+                                    <div class="row variable-gutters mt-4">
+                                        <div class="col-lg-4  mb-4">
+                                            <h4 class="text-lg-right mb-3">
+                                            <a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
+                                            </h4>
+                                        </div><!-- /col-lg-3 -->
+                                        <div class="col-lg-8">
                                             <div class="row variable-gutters">
                                                 <?php
                                                 foreach ($strutture as $struttura) {
                                                     ?>
-                                                    <div class="col-lg-4 mb-4">
+                                                    <div class="col-lg-6 mb-4">
                                                         <?php get_template_part("template-parts/struttura/card"); ?>
                                                     </div><!-- /col-lg-4 -->
                                                     <?php
