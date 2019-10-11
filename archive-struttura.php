@@ -18,7 +18,7 @@ get_header();
         $i=0;
         $strutture_organizzazione = dsi_get_option("strutture_organizzazione", "organizzazione");
         foreach ($strutture_organizzazione as $id_tipologia_struttura) {
-            $i++;
+
             $tipologia_struttura = get_term_by("id", $id_tipologia_struttura, "tipologia-struttura");
             if (!is_wp_error($tipologia_struttura)) {
 
@@ -27,6 +27,7 @@ get_header();
                 $strutture = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
                 $strutture_parent = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=0&posts_per_page=-1&orderby=title&order=ASC");
                 if (is_array($strutture) && count($strutture) > 0) {
+                    $i++;
                     $classcolor = "bg-white";
                     if ($i % 2)
                         $classcolor = "bg-gray-light";
