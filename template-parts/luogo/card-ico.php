@@ -1,15 +1,14 @@
 <?php
 global $luogo, $struttura, $c;
 
+$card_title = $luogo->post_title;
 
 // controllo se è un parent, in caso recupero i dati del genitore
 if($luogo->post_parent == 0){
-    $card_title = $luogo->post_title;
     $indirizzo = dsi_get_meta("indirizzo", '', $luogo->ID);
 
 }else{
     $parent = get_post($luogo->post_parent);
-    $card_title = $parent->post_title;
 
     $indirizzo = dsi_get_meta("indirizzo", "", $luogo->post_parent);
 }

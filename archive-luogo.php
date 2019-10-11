@@ -8,6 +8,7 @@
  */
 
 get_header();
+global $luogo;
 ?>
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
