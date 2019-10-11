@@ -13,6 +13,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
 
     <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
+
         <?php if ( have_posts() ) :
 
         /* Start the Loop */
@@ -20,30 +21,12 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         the_post();
         ?>
 
-        <section class="section bg-white py-2 py-lg-3 py-xl-5">
-            <div class="container">
-                <div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
-                        <div class="section-title">
-                            <?php the_title( '<h2 class="mb-0">', '</h2>' ); ?>
-                            <?php the_content(); ?>
-                        </div><!-- /title-section -->
-                    </div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
-
-                    <div class="col-lg-3 col-md-4 offset-lg-1">
-                        <?php get_template_part("template-parts/single/actions"); ?>
-                    </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
-                </div><!-- /row -->
-            </div><!-- /container -->
-        </section><!-- /section -->
-
+            <?php get_template_part("template-parts/home/hero", "page"); ?>
         <section class="section bg-gray-light">
             <div class="container">
                 <div class="row variable-gutters sticky-sidebar-container">
-                    <div class="col-lg-3 bg-white bg-white-left">
-                        <?php //get_template_part("template-parts/search/filters", "articolo"); ?>
-                    </div>
-                    <div class="col-lg-7 offset-lg-1 pt84">
+
+                    <div class="col-lg-10 offset-lg-1 pt84">
                             <?php
                             // recupero i post salvati nella pagina di configurazione
                             $presentazione = dsi_get_option("articoli_presentazione", "presentazione");
