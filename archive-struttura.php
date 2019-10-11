@@ -21,14 +21,15 @@ get_header();
             $i++;
             $tipologia_struttura = get_term_by("id", $id_tipologia_struttura, "tipologia-struttura");
             if (!is_wp_error($tipologia_struttura)) {
-                $classcolor = "bg-white";
-                if ($i % 2)
-                    $classcolor = "bg-gray-light";
+
 
                 $haschild = false;
                 $strutture = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
                 $strutture_parent = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=0&posts_per_page=-1&orderby=title&order=ASC");
                 if (is_array($strutture) && count($strutture) > 0) {
+                    $classcolor = "bg-white";
+                    if ($i % 2)
+                        $classcolor = "bg-gray-light";
                     foreach ($strutture_parent as $child){
                         $strutture_child = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=".$child->ID."&posts_per_page=1&orderby=title&order=ASC");
                         if(is_array($strutture_child) && count($strutture_child)>0)
