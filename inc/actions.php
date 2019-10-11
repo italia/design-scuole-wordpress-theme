@@ -44,7 +44,10 @@ function dsi_hide_editor() {
         }
 
         if ( $template_file == 'page-templates/numeri.php' ) { // edit the template name
-            remove_post_type_support( 'page', 'editor' );
+          //  remove_post_type_support( 'page', 'editor' );
+        }
+        if ( $template_file == 'page-templates/storia.php' ) { // edit the template name
+            //  remove_post_type_support( 'page', 'editor' );
         }
 	}
 }
