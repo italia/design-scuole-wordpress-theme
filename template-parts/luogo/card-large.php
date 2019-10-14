@@ -44,7 +44,17 @@ if(isset($struttura->ID)){
 ?>
 <div class="card card-bg rounded mb-5">
 	<div class="card-header">
-		<strong class="d-block"><?php echo $card_title; ?></strong>
+        <?php if(is_singular("luogo") && ($luogo->post_parent == 0)){ ?>
+            <strong class="d-block"><?php echo $card_title; ?></strong>
+        <?php }else if(is_singular("luogo") && ($luogo->post_parent > 0)){
+            // sono nel luogo child, stampo il nome e il link del parent
+            ?>
+            <a href="<?php echo get_permalink($luogo->post_parent); ?>"><strong class="d-block"><?php echo get_the_title($luogo->post_parent); ?></strong></a>
+            <?php
+        } else { ?>
+            <a href="<?php echo get_permalink($luogo); ?>"><strong class="d-block"><?php echo $card_title; ?></strong></a>
+        <?php } ?>
+
 		<small class="d-block"><?php echo wpautop($indirizzo); ?></small>
 		<!-- <small class="d-block">Quartiere Tufello - 4° Circoscrizione</small> //-->
 	</div><!-- /card-header -->

@@ -107,7 +107,23 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'priority'     => 'high',
 	) );
 
-	$cmb_undercontent->add_field( array(
+    $cmb_undercontent->add_field( array(
+        'name' => 'Luogo della Scuola *',
+        'id' =>  $prefix . 'is_luogo_scuola',
+        'desc' => __( 'Seleziona se il progetto viene svolto in un <a href="edit.php?post_type=luogo">Luogo della Scuola</a>', 'design_scuole_italia' ),
+        'type'    => 'radio_inline',
+        'options' => array(
+            'true' => __( 'Si', 'design_scuole_italia' ),
+            'false'   => __( 'No', 'design_scuole_italia' ),
+        ),
+        'default' => 'true',
+        'attributes' => array(
+            'required' => 'required'
+        ),
+    ) );
+
+
+    $cmb_undercontent->add_field( array(
 		'id' =>  $prefix . 'link_schede_luoghi',
 		'name'    => __( 'Luogo', 'design_scuole_italia' ),
 		'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo </a> in cui si è tenuto il progetto' , 'design_scuole_italia' ),
@@ -121,27 +137,40 @@ function dsi_add_scheda_progetto_metaboxes() {
 				'post_type'      => 'luogo',
 			), // override the get_posts args
 		),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "true",
+        ),
 	) );
 
 	$cmb_undercontent->add_field( array(
 		'id' =>  $prefix . 'nome_luogo_custom',
-		'name'    => __( 'Nome del luogo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'    => __( 'Nome del luogo', 'design_scuole_italia' ),
 		'desc' => __( 'Inserisci il nome del luogo (lascia vuoto hai selezionato un Luogo della Scuola )' , 'design_scuole_italia' ),
 		'type'    => 'text',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "false",
+        ),
 	) );
+
 
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'indirizzo_luogo_custom',
-		'name'       => __( 'Indirizzo Completo (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Indirizzo Completo', 'design_scuole_italia' ),
 		'desc'       => __( 'Indirizzo completo del luogo: Via, civico, cap, città e Provincia (es: Via Vaglia, 6, 00139 - Roma RM) (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
-		'type'       => 'text'
+		'type'       => 'text',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "false",
+        ),
 	) );
 
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'posizione_gps_luogo_custom',
-		'name'       => __( 'Posizione GPS  (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Posizione GPS ', 'design_scuole_italia' ),
 		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'leaflet_map',
 		'attributes' => array(
@@ -155,24 +184,34 @@ function dsi_add_scheda_progetto_metaboxes() {
 			],
 			'initial_zoom'        => 5, // Zoomlevel when there's no coordinates set,
 			'default_zoom'        => 12, // Zoomlevel after the coordinates have been set & page saved
-			'required'    => 'required'
-		)
+			'required'    => 'required',
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "false",
+    ),
 	) );
 
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'quartiere_luogo_custom',
-		'name'       => __( 'Quartiere   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Quartiere ', 'design_scuole_italia' ),
 		'desc'       => __( 'Se il territorio è mappato in quartieri, riportare il Quartiere dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'text',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "false",
+        ),
 	) );
 
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'circoscrizione_luogo_custom',
-		'name'       => __( 'Circoscrizione   (se NON è un luogo della Scuola)', 'design_scuole_italia' ),
+		'name'       => __( 'Circoscrizione ', 'design_scuole_italia' ),
 		'desc'       => __( 'Se il territorio è mappato in circoscrizioni, riportare la Circoscrizione dove si svolge l\'evento (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'text',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_luogo_scuola',
+            'data-conditional-value' => "false",
+        ),
 	) );
 
 
@@ -220,6 +259,21 @@ function dsi_add_scheda_progetto_metaboxes() {
 		),
 	) );
 
+
+    $options_anno = array();
+    for($i = date("Y")-10; $i < (date("Y")+10); $i++){
+        $options_anno[$i] = $i."/".($i+1);
+    }
+    $cmb_side->add_field( array(
+        'name'    =>  __( 'Anno scolastico di riferimento', 'design_scuole_italia' ),
+        //'desc'    =>  __( 'Se non valorizzato verrà assegnato l\'anno in base alla data di inizo progetto, o in assenza alla data di pubblicazione.', 'design_scuole_italia' ),
+        'id'   => $prefix.'anno_scolastico',
+        'type'    => 'pw_select',
+        'options' => $options_anno,
+        'default' => dsi_get_current_anno_scolastico(),
+    ) );
+
+
 }
 
 
@@ -244,3 +298,17 @@ function sdi_scheda_progetto_add_content_before_editor($post) {
 
 
 new dsi_bidirectional_cmb2("_dsi_scheda_progetto_", "scheda_progetto", "link_strutture", "box_elementi_struttura", "_dsi_struttura_link_schede_progetti");
+
+
+
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_progetto_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_progetto_admin_script', 11 );
+
+function dsi_progetto_admin_script() {
+    global $post_type;
+    if( 'scheda_progetto' == $post_type )
+        wp_enqueue_script( 'progetto-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/progetto.js' );
+}

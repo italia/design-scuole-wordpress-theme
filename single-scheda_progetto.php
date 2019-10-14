@@ -9,6 +9,8 @@
 global $post, $autore, $luogo, $c, $struttura;
 get_header();
 
+$is_luogo_scuola = dsi_get_meta("is_luogo_scuola");
+
 $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_strutture = dsi_get_meta("link_strutture");
@@ -98,7 +100,7 @@ $link_strutture = dsi_get_meta("link_strutture");
 
 									<?php
 									$c = 0;
-									if ( is_array( $link_schede_luoghi ) && count( $link_schede_luoghi ) > 0 ) {
+									if ( $is_luogo_scuola == "true" && is_array( $link_schede_luoghi ) && count( $link_schede_luoghi ) > 0 ) {
 										foreach ( $link_schede_luoghi as $idluogo ) {
 											$c ++;
 											$luogo = get_post( $idluogo );
