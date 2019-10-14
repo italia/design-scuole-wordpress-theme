@@ -32,6 +32,16 @@ $link_strutture = dsi_get_meta("link_strutture");
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="title-content">
                             <h1 class="h2"><?php the_title(); ?></h1>
+                            <?php
+                            $anno_scolastico =  dsi_get_meta("anno_scolastico");
+
+                            // recupero l'anno scolastico di riferimento del progetto
+                            if($anno_scolastico){
+                                ?>
+                                <i><?php _e("Anno scolastico", "design_scuola_italia"); ?> <?php echo dsi_convert_anno_scuola($anno_scolastico) ?></i>
+                                <?php
+                            }
+                            ?>
                             <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p>
                             <?php
                             global $badgeclass;
