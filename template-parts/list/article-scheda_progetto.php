@@ -7,6 +7,7 @@ $icon = dsi_get_post_types_icon_class($post->post_type);
 
 
 $excerpt =  dsi_get_meta("descrizione", "", $post->ID);
+$anno_scolastico =  dsi_get_meta("anno_scolastico", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
@@ -25,15 +26,24 @@ $argomenti = dsi_get_argomenti_of_post();
         </div>
 		<div class="card-article-content">
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-			<p><?php echo $excerpt; ?></p>
-            <?php if(count($argomenti)) { ?>
+
+            <?php
+            // recupero l'anno scolastico di riferimento del progetto
+            if($anno_scolastico){
+                ?>
+                <i><small><?php _e("Anno scolastico", "design_scuola_italia"); ?> <?php echo dsi_convert_anno_scuola($anno_scolastico) ?></small></i>
+                <?php
+            }
+            ?>
+            <p><?php echo $excerpt; ?></p>
+            <?php /* if(count($argomenti)) { ?>
 			<div class="badges">
 				<?php foreach ( $argomenti as $item ) { ?>
                     <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
                        class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
 				<?php } ?>
 			</div><!-- /badges -->
-            <?php } ?>
+            <?php } */ ?>
 		</div><!-- /card-avatar-content -->
         </a>
 	</div><!-- /card-body -->
