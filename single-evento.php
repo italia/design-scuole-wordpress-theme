@@ -188,7 +188,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                 <div class="calendar-vertical mb-5">
 									<?php
                                     $date = dsi_get_meta("date");
-
+                                    $old_data = "";
                                     if(is_array($date)){
                                         foreach ($date as $data){
 

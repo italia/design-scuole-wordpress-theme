@@ -141,18 +141,20 @@ get_header();
 										<?php the_content(); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <h4 id="art-par-accedi"><?php _e("Accedi al servizio", "design_scuole_italia"); ?></h4>
-								<?php
-								if(trim($esito) != ""){
-									?>
+                                <?php
+                                if(trim($esito) != ""){
+                                    ?>
                                     <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-											<?php echo wpautop($esito); ?>
+                                            <?php echo wpautop($esito); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
-									<?php
-								}
+                                    <?php
+                                }
+                                ?>
+                                <h4 id="art-par-accedi"><?php _e("Accedi al servizio", "design_scuole_italia"); ?></h4>
+								<?php
 								if(trim($come_si_fa) != ""){
 									?>
                                     <h6><?php _e("Come si fa", "design_scuole_italia"); ?></h6>
