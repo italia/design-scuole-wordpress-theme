@@ -23,29 +23,76 @@ $foto_id = attachment_url_to_postid($foto_url);
 $image = wp_get_attachment_image($foto_id, "item-thumb");
 $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola');
 $ruolo_docente = get_the_author_meta('_dsi_persona_ruolo_docente');
+$ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente');
+
+$tipo_posto = get_the_author_meta('_dsi_persona_tipo_posto');
+$tipo_supplenza = get_the_author_meta('_dsi_persona_tipo_supplenza');
+$incarico_docente = get_the_author_meta('_dsi_persona_incarico_docente');
+$durata_incarico_docente = get_the_author_meta('_dsi_persona_durata_incarico_docente');
+
 $altre_info = get_the_author_meta('_dsi_persona_altre_info');
 $email_pubblico = get_the_author_meta('_dsi_persona_email_pubblico');
 $telefono_pubblico = get_the_author_meta('_dsi_persona_telefono_pubblico');
 
 $str_ruolo = "";
-if($ruolo_scuola == "docente"){
-	$str_ruolo .= "Docente di: ";
-}else if($ruolo_scuola == "amministrativo"){
-	$str_ruolo .= "Personale Tecnico Amministrativo di: ";
+if($ruolo_scuola == "dirigente"){
+    $str_ruolo .= "Dirigente Scolastico ";
+}else if($ruolo_scuola == "docente"){
+	$str_ruolo .= "Docente ";
+
+    if($tipo_posto == "sostegno"){
+        if($tipo_supplenza == "annuale")
+            $str_ruolo .= "annuale di sostegno ";
+        else if($tipo_supplenza == "termine")
+            $str_ruolo .= "<strong>di sostegno</strong> fino a termine ";
+        else
+            $str_ruolo .= "di sostegno ";
+    }
+
+    if($ruolo_docente == "infanzia"){
+        $str_ruolo .= "della <strong>scuola dell'infanzia</strong>";
+    }else if($ruolo_docente == "primaria"){
+        $str_ruolo .= "di <strong>scuola primaria</strong>";
+    }else if($ruolo_docente == "secondaria1"){
+        $str_ruolo .= "di <strong>scuola secondaria I grado</strong>";
+    }else if($ruolo_docente == "secondaria2"){
+        $str_ruolo .= "di <strong>scuola secondaria II grado</strong>";
+    }else if($ruolo_docente == "formazione"){
+        $str_ruolo .= "dei <strong>percorsi di istruzione e formazione professionale</strong>";
+    }
+
+      if($incarico_docente == "determinato"){
+          $str_ruolo .= " con incarico a tempo determinato ";
+
+          if($durata_incarico_docente != ""){
+              $str_ruolo .= " <small>(".$durata_incarico_docente.")</small>";
+          }
+
+      }else if($incarico_docente == "indeterminato"){
+          $str_ruolo .= " con incarico a tempo indeterminato ";
+      }
+
+
+
+
+}else if($ruolo_scuola == "non-docente"){
+
+    if($ruolo_non_docente == "direttore-amministrativo"){
+        $str_ruolo .= "Direttore amministrativo ";
+    }else if($ruolo_non_docente == "tecnico"){
+        $str_ruolo .= "Personale tecnico ";
+    }else if($ruolo_non_docente == "amministrativo"){
+        $str_ruolo .= "Personale amministrativo ";
+    }else if($ruolo_non_docente == "collaboratore"){
+        $str_ruolo .= "Collaboratore scolastico";
+    }else{
+        $str_ruolo .= "Non docente ";
+    }
+
+
 }
 
 
-if($ruolo_docente == "infanzia"){
-	$str_ruolo .= "<strong>Scuola dell'infanzia</strong>";
-}else if($ruolo_docente == "primaria"){
-	$str_ruolo .= "<strong>Scuola Primaria</strong>";
-}else if($ruolo_docente == "secondaria1"){
-	$str_ruolo .= "<strong>Scuola Secondaria I grado</strong>";
-}else if($ruolo_docente == "secondaria2"){
-	$str_ruolo .= "<strong>Scuola Secondaria II grado</strong>";
-}else if($ruolo_docente == "formazione"){
-	$str_ruolo .= "<strong>Percorsi di Istruzione e Formazione Professionale</strong>";
-}
 // recupero le schede didattiche e di progetto e i documenti che hanno questo utente come autore
 
 $args = array(

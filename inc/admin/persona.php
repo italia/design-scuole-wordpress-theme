@@ -154,8 +154,9 @@ function dsi_add_persone_metaboxes() {
 		'type'             => 'select',
 		'show_option_none' => true,
 		'options'          => array(
+			'dirigente' => __( 'Dirigente Scolastico', 'design_scuole_italia' ),
 			'docente' => __( 'Personale Docente', 'design_scuole_italia' ),
-			'amministrativo'   => __( 'Personale Tecnico Amministrativo', 'design_scuole_italia' )
+			'non-docente'   => __( 'Personale non docente', 'design_scuole_italia' )
 		),
 	) );
 
@@ -225,7 +226,7 @@ function dsi_add_persone_metaboxes() {
 
 	$cmb_user->add_field( array(
 		'name'    => __( 'Tipo supplenza', 'design_scuole_italia' ),
-		'desc'    => __( 'Se supplente - Tipologia supplenza. Assume valori: ANNUALE per le supplenze di durata fino al 31/08 e FINO AL TERMINE per le supplenze di durata fino al 30/06', 'design_scuole_italia' ),
+		'desc'    => __( 'Se supplente - Tipologia supplenza. <br>Assume valori: ANNUALE per le supplenze di durata fino al 31/08 e FINO AL TERMINE per le supplenze di durata fino al 30/06', 'design_scuole_italia' ),
 		'id'      => $prefix . 'tipo_supplenza',
 		'type'             => 'select',
 		'show_option_none' => true,
@@ -241,19 +242,20 @@ function dsi_add_persone_metaboxes() {
 
 
 	$cmb_user->add_field( array(
-		'name'    => __( 'Ruolo Tecnico / Amministrativo', 'design_scuole_italia' ),
-		'desc'    => __( 'Seleziona la tipologia di ruolo docente', 'design_scuole_italia' ),
-		'id'      => $prefix . 'ruolo_amministrativo',
+		'name'    => __( 'Tipologia personale non docente', 'design_scuole_italia' ),
+		'desc'    => __( 'Seleziona la tipologia di ruolo', 'design_scuole_italia' ),
+		'id'      => $prefix . 'ruolo_non_docente',
 		'type'             => 'select',
 		'show_option_none' => true,
 		'options'          => array(
+			'direttore-amministrativo' => __( 'Direttore Amministrativo', 'design_scuole_italia' ),
 			'tecnico' => __( 'Personale Tecnico', 'design_scuole_italia' ),
 			'amministrativo' => __( 'Personale Amministrativo', 'design_scuole_italia' ),
-			'collaboratore' => __( 'Collaboratore Scolastico', 'design_scuole_italia' ),
+			'collaboratore' => __( 'Collaboratore', 'design_scuole_italia' ),
 			),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix . 'ruolo_scuola',
-			'data-conditional-value'  => 'amministrativo',
+			'data-conditional-value'  => 'non-docente',
 		),
 	) );
 
@@ -356,4 +358,14 @@ function dsi_get_cmb2_user( $query_args ) {
 
 	return $user_options;
 }
-?>
+
+
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-user-edit.php', 'dsi_utente_admin_script', 11 );
+add_action( 'admin_print_scripts-user-new.php', 'dsi_utente_admin_script', 11 );
+
+function dsi_utente_admin_script() {
+		wp_enqueue_script( 'utente-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/persona.js' );
+}
