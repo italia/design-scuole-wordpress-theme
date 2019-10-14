@@ -190,7 +190,7 @@ function dsi_schede_progetti_filters( $query ) {
             $query->set( 'meta_query', array(
                 array(
                     'key' => '_dsi_scheda_progetto_anno_scolastico',
-                    'value' => date("Y"),
+                    'value' => dsi_get_current_anno_scolastico(),
                     'compare' => '=',
                     'type' => 'numeric'
                 )
