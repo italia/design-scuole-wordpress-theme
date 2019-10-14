@@ -161,6 +161,63 @@ function dsi_eventi_filters( $query ) {
 
 add_action( 'pre_get_posts', 'dsi_eventi_filters' );
 
+
+
+/**
+ * filter for schede progetti
+ *  controllo le query sulòle schede progetto e le modifico per estrarre quelle dell'anno in corso
+ */
+function dsi_schede_progetti_filters( $query ) {
+
+    if ( ! is_admin() && $query->is_main_query() && is_post_type_archive("scheda_progetto") ) {
+        if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
+
+            $query->set( 'meta_query', array(
+                'relation' => 'OR',
+                array(
+                    'key' => '_dsi_scheda_progetto_anno_scolastico',
+                    'compare' => 'NOT EXISTS'
+                ),
+                array(
+                    'key' => '_dsi_scheda_progetto_anno_scolastico',
+                    'value' => dsi_get_current_anno_scolastico(),
+                    'compare' => '!=',
+                    'type' => 'numeric'
+                )
+            ));
+        }else{
+
+            $query->set( 'meta_query', array(
+                array(
+                    'key' => '_dsi_scheda_progetto_anno_scolastico',
+                    'value' => date("Y"),
+                    'compare' => '=',
+                    'type' => 'numeric'
+                )
+            ));
+
+        }
+    }else if(! is_admin() && ! $query->is_main_query()){
+        if ($query->get("post_type") == "evento"){
+            $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
+            $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
+            $query->set( 'meta_query', array(
+                array(
+                    'key' => '_dsi_evento_timestamp_inizio'
+                ),
+                array(
+                    'key' => '_dsi_evento_timestamp_fine',
+                    'value' => time(),
+                    'compare' => '>=',
+                    'type' => 'numeric'
+                )
+            ));
+        }
+    }
+}
+
+add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
+
 /**
  * Personalizzo archive title
  */
