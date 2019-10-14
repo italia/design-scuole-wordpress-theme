@@ -13,7 +13,7 @@ if(!function_exists("dsi_didattica_array")){
             ],
             "Scuola Scuola Secondaria di secondo grado" => [
                 "Liceo" => [
-                    "Liceo Artistico", "Liceo Classico", "Liceo Linguistico", "Liceo Musicale e Coreutico", "Liceo Scientifico opzione Scienze Applicate", "Liceo delle Scienze Umane opzione Economico-Sociale"
+                    "Liceo Artistico", "Liceo Classico", "Liceo Linguistico", "Liceo Musicale e Coreutico", "Liceo Scientifico tradizionale", "Liceo Scientifico opzione Scienze Applicate", "Liceo delle Scienze Umane opzione Economico-Sociale"
                 ],
                 "Istituto Tecnico" => [
                     "Settore Economico" => ["Amministrazione", "Finanza e marketing", "Turismo"],
@@ -45,6 +45,7 @@ if(!function_exists("dsi_didattica_desc_array")){
             "Liceo Classico" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "Liceo Linguistico" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "Liceo Musicale e Coreutico" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Liceo Scientifico tradizionale" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "Liceo Scientifico opzione Scienze Applicate" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "Liceo delle Scienze Umane opzione Economico-Sociale" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
             "Amministrazione" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
