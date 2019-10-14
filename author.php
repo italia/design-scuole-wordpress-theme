@@ -8,12 +8,18 @@
  */
 
 get_header();
-$author_id = get_the_author_meta('ID');
-$bio = get_the_author_meta( 'description' );
+
+
+$authordata = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+
+$author_id = $authordata->ID;
+$bio = get_the_author_meta( 'description');
 $nome = get_the_author_meta('first_name');
 $cognome = get_the_author_meta('last_name');
 
-$foto_id = get_the_author_meta('_dsi_persona_foto_id');
+$foto_url = get_the_author_meta('_dsi_persona_foto');
+
+$foto_id = attachment_url_to_postid($foto_url);
 $image = wp_get_attachment_image($foto_id, "item-thumb");
 $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola');
 $ruolo_docente = get_the_author_meta('_dsi_persona_ruolo_docente');
