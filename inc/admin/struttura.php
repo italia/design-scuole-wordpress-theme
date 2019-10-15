@@ -398,3 +398,17 @@ function dsi_save_struttura($post_id) {
     );
     add_action( 'save_post_struttura', 'dsi_save_struttura' );
 }
+
+
+
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_struttura_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_struttura_admin_script', 11 );
+
+function dsi_struttura_admin_script() {
+    global $post_type;
+    if( 'struttura' == $post_type )
+        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/struttura.js' );
+}

@@ -84,9 +84,11 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
                 $child = get_term_children($term->term_id, $field_type_object->field->args('taxonomy') );
                 if($child){
                     $args['disabled'] = "disabled";
+                }else{
+                    $options .= $real_field_type_object->list_input($args, $i);
+
                 }
 
-                $options .= $real_field_type_object->list_input($args, $i);
                 $children = $this->build_children($real_field_type_object, $term, $saved_terms);
 
                 if (!empty($children)) {
@@ -137,7 +139,7 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
         ));
 
         if (!empty($terms) && is_array($terms)) {
-            $output = '<li style="padding-left: 24px;"><ul>';
+            $output = '<li ><span class="caret">'.$parent_term->name.'</span><ul style="padding-left: 20px; padding-top: 4px;padding-bottom: 4px;" class="nested">';
 
             foreach ($terms as $term) {
                 $args = array(
@@ -155,10 +157,13 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
              //   if(is_wp_error($child)) print_r($child);
                 if($child){
                     $args['disabled'] = "disabled";
+
+                }else{
+                    $output .= $object->list_input($args, $term->term_id);
+
                 }
 
 
-                $output .= $object->list_input($args, $term->term_id);
                 $children = $this->build_children($object, $term, $saved_terms);
 
                 if (!empty($children)) {
