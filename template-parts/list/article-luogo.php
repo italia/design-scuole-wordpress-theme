@@ -11,7 +11,7 @@ $excerpt =  dsi_get_meta("descrizione_breve", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
-$argomenti = dsi_get_argomenti_of_post();
+$argomenti = dsi_get_tipologia_luogo_of_post($post);
 
 
 $posizione_gps = false;
@@ -22,27 +22,22 @@ $posizione_gps = false;
 		$parent        = get_post( $post->post_parent );
 		$posizione_gps = dsi_get_meta( "posizione_gps", "_dsi_luogo_", $post->post_parent );
 	}
-
 ?>
 <article class="card card-bg card-article card-article-<?php echo $class; ?>">
 	<div class="card-body">
 		<div class="card-article-img"  <?php if($image_url && !$posizione_gps) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if($posizione_gps != false){ ?>
-                <a href="<?php the_permalink(); ?>">
+
                     <div class="map-wrapper">
                         <div class="map" id="map_<?php echo $post->ID; ?>"></div>
                     </div>
-                </a>
+
             <?php } ?>
-			<a href="<?php the_permalink(); ?>">
-				<div class="date">
-					<span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
-					<span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?></span>
-					<span class="month"><?php echo date_i18n("M", strtotime($post->post_date)); ?></span>
-				</div>
-			</a>
+
             <?php if(!$image_url){ ?>
-            <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
+            <a href="<?php the_permalink(); ?>">
+                <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
+            </a>
             <?php } ?>
 
         </div>

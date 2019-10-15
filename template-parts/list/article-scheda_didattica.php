@@ -10,25 +10,25 @@ $excerpt =  dsi_get_meta("descrizione", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
-$argomenti = dsi_get_tipologia_struttura_of_post($post);
+$argomenti = dsi_get_percorsi_of_scuola($post);
 
 ?>
+
 <article class="card card-bg card-article card-article-<?php echo $class; ?>">
-    <div class="card-body">
+    <div class="card-body" >
         <a href="<?php the_permalink(); ?>">
             <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
                 <?php if(!$image_url){ ?>
                     <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
                 <?php } ?>
             </div>
-
             <div class="card-article-content">
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p><?php echo $excerpt; ?></p>
                 <?php if(count($argomenti)) { ?>
                     <div class="badges">
                         <?php foreach ( $argomenti as $item ) { ?>
-                            <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
+                            <a href="<?php echo get_term_link($item); ?>?post_type=scheda_didattica" title="<?php _e("Vai al livello", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
                                class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
                         <?php } ?>
                     </div><!-- /badges -->
@@ -36,4 +36,5 @@ $argomenti = dsi_get_tipologia_struttura_of_post($post);
             </div><!-- /card-avatar-content -->
         </a>
     </div><!-- /card-body -->
+
 </article><!-- /card card-bg card-article -->

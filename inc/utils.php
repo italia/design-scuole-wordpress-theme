@@ -135,6 +135,60 @@ if(!function_exists("dsi_get_user_role")) {
 
 
 
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array
+ */
+if(!function_exists("dsi_get_tipologia_struttura_of_post")) {
+    function dsi_get_tipologia_struttura_of_post( $singular = false ) {
+        global $post;
+
+        if ( ! $singular) {
+            $singular = $post;
+        }
+
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'tipologia-struttura' );
+        return $argomenti_terms;
+    }
+}
+
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array
+ */
+if(!function_exists("dsi_get_tipologia_servizio_of_post")) {
+    function dsi_get_tipologia_servizio_of_post( $singular = false ) {
+        global $post;
+
+        if ( ! $singular) {
+            $singular = $post;
+        }
+
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'tipologia-servizio' );
+        return $argomenti_terms;
+    }
+}
+
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array arguomenti
+ */
+if(!function_exists("dsi_get_tipologia_luogo_of_post")) {
+    function dsi_get_tipologia_luogo_of_post( $singular = false ) {
+        global $post;
+
+        if ( ! $singular) {
+            $singular = $post;
+        }
+
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'tipologia-luogo' );
+        return $argomenti_terms;
+    }
+}
+
 /**
  * Wrapper function for agomenti taxonomy list
  * @return array arguomenti
