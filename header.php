@@ -197,7 +197,12 @@ if(is_search() || is_archive())
 							}
 							?>
                         </ul><!-- /nav-list -->
-	                    <?php wp_nav_menu(array("theme_location" => "menu-topright", "depth" => 1,  "menu_class" => "nav-list nav-list-secondary", "container" => "")) ?>
+	                    <?php
+	                    $location = "menu-topright";
+                        if ( has_nav_menu( $location ) ) {
+                            wp_nav_menu(array("theme_location" => $location, "depth" => 1,  "menu_class" => "nav-list nav-list-secondary", "container" => ""));
+                        }
+                        ?>
 
                     </div><!-- /col nav-container -->
                 </div><!-- /row -->

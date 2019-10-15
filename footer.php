@@ -43,7 +43,13 @@
 
     <div class="row variable-gutters mb-3">
         <div class="col-lg-12">
-            <?php wp_nav_menu(array("theme_location" => "menu-footer", "depth" => 1,  "menu_class" => "footer-inline-menu", "container" => "")) ?>
+
+            <?php
+            $location = "menu-footer";
+            if ( has_nav_menu( $location ) ) {
+                wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "footer-inline-menu", "container" => ""));
+            }
+            ?>
     </div>
 
     </div><!-- /container -->
