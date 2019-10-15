@@ -204,7 +204,7 @@ get_header();
                                         <?php
                                         if(is_array($elementi_di_interesse) && $elementi_di_interesse != ""){
                                             ?>
-                                            <h6>Elementi di interesse</h6>
+                                            <h6><?php _e("Elementi di interesse", "design_scuole_italia"); ?></h6>
                                             <div class="card-deck card-deck-spaced mb-4">
                                                 <?php
                                                 foreach ($elementi_di_interesse as $elemento){
@@ -238,12 +238,18 @@ get_header();
 
                                             <?php
                                             foreach ($modalita_accesso as $tacc){
-                                                //	print_r($tacc);
+
                                                 $titolo = "";
+                                                if(isset($tacc["tipologia_accesso"])){
                                                 if($tacc["tipologia_accesso"] == "accessibilita")
                                                     $titolo = "Accessibilità";
                                                 else
                                                     $titolo = ucfirst($tacc["tipologia_accesso"]);
+                                                }else{
+                                                    $tacc["tipologia_accesso"] = "";
+                                                    $titolo = "";
+                                                }
+
                                                 ?>
                                                 <div class="card card-bg card-icon-big rounded mb-4">
                                                     <div class="card-icon-container">
@@ -253,8 +259,8 @@ get_header();
                                                         <h4><?php echo $titolo; ?></h4>
                                                         <div class="row variable-gutters">
                                                             <div class="col-lg-12">
-                                                                <p><strong><?php echo $tacc["titolo_accesso"]; ?></strong></p>
-                                                                <small><?php echo $tacc["Indirizzo_accesso"]; ?></small>
+                                                                <p><strong><?php  if(isset($tacc["titolo_accesso"])) echo $tacc["titolo_accesso"]; ?></strong></p>
+                                                                <small><?php if(isset($tacc["Indirizzo_accesso"]))  echo $tacc["Indirizzo_accesso"]; ?></small>
                                                             </div><!-- /col-lg-12 -->
                                                         </div><!-- /row -->
                                                     </div><!-- /card-content -->

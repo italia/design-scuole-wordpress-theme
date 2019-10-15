@@ -57,7 +57,7 @@ if(isset($struttura->ID)){
                     <?php
                 } else { ?>
                     <a href="<?php echo get_permalink($luogo); ?>"><strong><?php echo $luogo->post_title; ?></strong></a>
-	            <?php } ?>
+                <?php } ?>
 			</div><!-- /card-header -->
 			<div class="card-body p-0">
 				<div class="row variable-gutters">
@@ -141,6 +141,14 @@ if(isset($struttura->ID)){
 										</div>
 									</li>
 								<?php } ?>
+                                <li><div class="location-title">
+                                        <svg class="icon svg-marker-simple" style="width: 14px; height: 14px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
+                                    </div>
+                                    <div class="location-content">
+                                        <p>
+                                            <a href="https://www.google.com/maps/dir/'<?php echo $posizione_gps["lat"]; ?>,<?php echo $posizione_gps["lng"]; ?>'/@<?php echo $posizione_gps["lat"]; ?>,<?php echo $posizione_gps["lng"]; ?>,15z?hl=it" target="_blank"><?php _e("Naviga su Google Map", "design_scuole_italia"); ?></a></p>
+                                    </div>
+                                </li>
 							</ul><!-- /location-list -->
 						</div>
 					</div><!-- /col-lg-8 -->
