@@ -97,8 +97,15 @@ if(!function_exists("dsi_get_user_avatar")){
 		if(!$user && is_user_logged_in()){
 			$user = wp_get_current_user();
 		}
+        $foto_id = null;
+		$foto_url = get_the_author_meta('_dsi_persona_foto', $user->ID);
+		if($foto_url)
+            $foto_id = attachment_url_to_postid($foto_url);
 
-		$avatar = get_avatar_url( $user->ID, array("size" => $size) );
+		if($foto_id)
+            $avatar = wp_get_attachment_image_url($foto_id, "item-thumb");
+		else
+		    $avatar = get_avatar_url( $user->ID, array("size" => $size) );
 
 		$avatar = apply_filters("dsi_avatar_url", $avatar, $user);
 		return $avatar;

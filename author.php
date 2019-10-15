@@ -17,10 +17,11 @@ $bio = get_the_author_meta( 'description');
 $nome = get_the_author_meta('first_name');
 $cognome = get_the_author_meta('last_name');
 
-$foto_url = get_the_author_meta('_dsi_persona_foto');
+//$foto_url = get_the_author_meta('_dsi_persona_foto');
+//$foto_id = attachment_url_to_postid($foto_url);
+//$image = wp_get_attachment_image($foto_id, "item-thumb");
+$image_url = dsi_get_user_avatar($authordata);
 
-$foto_id = attachment_url_to_postid($foto_url);
-$image = wp_get_attachment_image($foto_id, "item-thumb");
 $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola');
 $ruolo_docente = get_the_author_meta('_dsi_persona_ruolo_docente');
 $ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente');
@@ -116,8 +117,6 @@ $args = array(
 	'post_type' => 'documento'
 );
 $documenti = get_posts($args);
-
-
 ?>
 	<main id="main-container" class="main-container petrol">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -126,8 +125,8 @@ $documenti = get_posts($args);
 				<div class="row variable-gutters">
 					<div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
 						<div class="section-thumb thumb-large mx-3">
-                            <?php if($image) {
-                                echo $image;
+                            <?php if($image_url) {
+                                echo "<img src='".$image_url."' />";
                             } ?>
 						</div><!-- /section-thumb -->
 					</div><!-- /col-lg-2 -->
