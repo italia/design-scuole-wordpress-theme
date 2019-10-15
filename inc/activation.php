@@ -338,7 +338,8 @@ function dsi_create_pages_on_theme_activation() {
     foreach ($arrdidadesc as $key => $desc) {
         if($desc != ""){
             $term = get_term_by("name", $key, 'percorsi-di-studio');
-            wp_update_term($term->term_id, 'percorsi-di-studio', array("description" => $desc));
+            if($term)
+                wp_update_term($term->term_id, 'percorsi-di-studio', array("description" => $desc));
         }
     }
 
@@ -435,6 +436,7 @@ function dsi_create_pages_on_theme_activation() {
 	wp_delete_nav_menu($name);
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_scuola = $menu_id;
 
 //	$term = get_term_by("name", "Articoli", "tipologia-articolo");
     $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
@@ -495,6 +497,7 @@ function dsi_create_pages_on_theme_activation() {
 	wp_delete_nav_menu($name);
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_servizi = $menu_id;
 
 
 	$term = get_term_by("name", "Famiglie e Studenti", "tipologia-servizio");
@@ -535,6 +538,7 @@ function dsi_create_pages_on_theme_activation() {
 	wp_delete_nav_menu($name);
 	$menu_id = wp_create_nav_menu($name);
 	$menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_notizie = $menu_id;
 
 	$term = get_term_by("name", "Notizie", "tipologia-articolo");
 	wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -564,7 +568,6 @@ function dsi_create_pages_on_theme_activation() {
 	set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
 	update_option( 'menu_check', true );
 
-
     /**
      * creo il menu Didattica
      */
@@ -573,6 +576,7 @@ function dsi_create_pages_on_theme_activation() {
     wp_delete_nav_menu($name);
     $menu_id = wp_create_nav_menu($name);
     $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_didattica = $menu_id;
 
     $cicli_landing_url = dsi_get_template_page_url("page-templates/cicli-scolastici.php");
     wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -609,6 +613,7 @@ function dsi_create_pages_on_theme_activation() {
     wp_delete_nav_menu($name);
     $menu_id = wp_create_nav_menu($name);
     $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_footer = $menu_id;
 
     $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
 
@@ -641,6 +646,7 @@ function dsi_create_pages_on_theme_activation() {
     wp_delete_nav_menu($name);
     $menu_id = wp_create_nav_menu($name);
     $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_top = $menu_id;
 
 
     wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -653,6 +659,122 @@ function dsi_create_pages_on_theme_activation() {
     $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
     $locations_primary_arr["menu-topright"] = $menu->term_id;
     set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+
+
+    /**
+     * creo il menu Link Esterni
+     */
+    $name = __('Link Esterni', "design_scuole_italia");
+
+    wp_delete_nav_menu($name);
+    $menu_id = wp_create_nav_menu($name);
+    $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+    $menu_link_esterno = $menu_id;
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('MIUR', "design_scuole_italia"),
+        'menu-item-url' =>  "https://www.miur.gov.it/",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Ufficio Scolastico Regionale', "design_scuole_italia"),
+        'menu-item-url' =>  "#",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Ufficio Scolastico Territoriale', "design_scuole_italia"),
+        'menu-item-url' =>  "#",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Scuola in Chiaro', "design_scuole_italia"),
+        'menu-item-url' =>  "https://cercalatuascuola.istruzione.it/cercalatuascuola/",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Iscrizioni On LIne', "design_scuole_italia"),
+        'menu-item-url' =>  "https://www.istruzione.it/iscrizionionline//",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('NOIPA', "design_scuole_italia"),
+        'menu-item-url' =>  "https://noipa.mef.gov.it/web/mypa/scuola",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Invalsi', "design_scuole_italia"),
+        'menu-item-url' =>  "https://www.invalsi.it",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+
+    wp_update_nav_menu_item($menu->term_id, 0, array(
+        'menu-item-title' => __('Comune', "design_scuole_italia"),
+        'menu-item-url' =>  "#",
+        'menu-item-status' => 'publish',
+        'menu-item-type' => 'custom', // optional
+        'menu-item-target' => '_blank',
+    ));
+
+
+    // aggiungo i menu come widget
+    $active_widgets = get_option( 'sidebars_widgets' );
+
+    $active_widgets["footer-1"][0] = 'nav_menu-0' ;
+    $nav_menu[ 0 ] = array (
+        'title'        => 'Link Esterni',
+        'nav_menu'     => $menu_link_esterno,
+    );
+
+    $active_widgets["footer-2"][0] = 'nav_menu-1' ;
+    $nav_menu[ 1 ] = array (
+        'title'        => 'La Scuola',
+        'nav_menu'     => $menu_scuola,
+    );
+
+    $active_widgets["footer-3"][0] = 'nav_menu-2' ;
+    $active_widgets["footer-3"][1] = 'nav_menu-5' ;
+
+    $nav_menu[ 2 ] = array (
+        'title'        => 'I Servizi',
+        'nav_menu'     => $menu_servizi,
+    );
+    $nav_menu[ 5 ] = array (
+        'title'        => 'Didattica',
+        'nav_menu'     => $menu_didattica,
+    );
+
+    $active_widgets["footer-4"][0] = 'nav_menu-4' ;
+    $nav_menu[ 4 ] = array (
+        'title'        => 'Notizie',
+        'nav_menu'     => $menu_notizie,
+    );
+
+
+    update_option( 'widget_nav_menu',  $nav_menu);
+    update_option( 'sidebars_widgets',  $active_widgets);
+
+
 
 
     /**
@@ -669,7 +791,7 @@ function dsi_create_pages_on_theme_activation() {
         }
     }
 
-    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture");
+    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","percorsi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");
     foreach ($custom_tax as $ctax){
         foreach ($caps_terms as $cap){

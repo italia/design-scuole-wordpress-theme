@@ -9,7 +9,6 @@
  * @package Design_Scuole_Italia
  */
 $theme_locations = get_nav_menu_locations();
-
 ?>
 <!doctype html>
 <html lang="it">
