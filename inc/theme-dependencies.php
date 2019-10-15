@@ -132,7 +132,11 @@ function dsi_register_required_plugins() {
             'slug'     => 'contact-form-cfdb7',
             'required' => false,
         ),
-
+         array(
+            'name'     => 'WP QuickLaTeX',
+            'slug'     => 'wp-quicklatex',
+            'required' => false,
+        ),
 
         /*
         array(
