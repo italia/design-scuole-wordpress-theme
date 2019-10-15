@@ -8,48 +8,48 @@
 add_action( 'admin_init', 'dsi_hide_editor' );
 
 function dsi_hide_editor() {
-	global $pagenow;
-	if ( $pagenow == "post.php" ) {
-		// Get the Post ID.
+    global $pagenow;
+    if ( $pagenow == "post.php" ) {
+        // Get the Post ID.
         if(isset($_GET['post']))
-		    $post_id = $_GET['post'];
+            $post_id = $_GET['post'];
         else if(isset($_POST['post_ID']))
             $post_id = $_POST['post_ID'];
 
-		if ( ! isset( $post_id ) ) {
-			return;
-		}
+        if ( ! isset( $post_id ) ) {
+            return;
+        }
 
-		// Get the name of the Page Template file.
-		$template_file = get_post_meta( $post_id, '_wp_page_template', true );
+        // Get the name of the Page Template file.
+        $template_file = get_post_meta( $post_id, '_wp_page_template', true );
 
-		if ( $template_file == 'page-templates/la-scuola.php' ) { // edit the template name
-			remove_post_type_support( 'page', 'editor' );
-		}
+        if ( $template_file == 'page-templates/la-scuola.php' ) { // edit the template name
+            remove_post_type_support( 'page', 'editor' );
+        }
 
-		if ( $template_file == 'page-templates/notizie.php' ) { // edit the template name
-			remove_post_type_support( 'page', 'editor' );
-		}
+        if ( $template_file == 'page-templates/notizie.php' ) { // edit the template name
+            remove_post_type_support( 'page', 'editor' );
+        }
 
-		if ( $template_file == 'page-templates/servizi.php' ) { // edit the template name
-			remove_post_type_support( 'page', 'editor' );
-		}
+        if ( $template_file == 'page-templates/servizi.php' ) { // edit the template name
+            remove_post_type_support( 'page', 'editor' );
+        }
 
-		if ( $template_file == 'page-templates/didattica.php' ) { // edit the template name
-			remove_post_type_support( 'page', 'editor' );
-		}
+        if ( $template_file == 'page-templates/didattica.php' ) { // edit the template name
+            remove_post_type_support( 'page', 'editor' );
+        }
 
         if ( $template_file == 'page-templates/persone.php' ) { // edit the template name
             remove_post_type_support( 'page', 'editor' );
         }
 
         if ( $template_file == 'page-templates/numeri.php' ) { // edit the template name
-          //  remove_post_type_support( 'page', 'editor' );
+            //  remove_post_type_support( 'page', 'editor' );
         }
         if ( $template_file == 'page-templates/storia.php' ) { // edit the template name
             //  remove_post_type_support( 'page', 'editor' );
         }
-	}
+    }
 }
 
 /**
@@ -57,7 +57,7 @@ function dsi_hide_editor() {
  */
 
 function dsi_admin_css_load() {
-	wp_enqueue_style( 'style-admin-css', get_stylesheet_directory_uri() . '/inc/admin-css/style-admin.css' );
+    wp_enqueue_style( 'style-admin-css', get_stylesheet_directory_uri() . '/inc/admin-css/style-admin.css' );
 }
 
 add_action( 'admin_enqueue_scripts', 'dsi_admin_css_load' );
@@ -67,26 +67,26 @@ add_action( 'admin_enqueue_scripts', 'dsi_admin_css_load' );
  * filter for search
  */
 function dsi_search_filters( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && $query->is_search ) {
-		$allowed_types = array( "any", "school", "news", "education", "service" );
-		if ( isset( $_GET["type"] ) && in_array( $_GET["type"], $allowed_types ) ) {
-			$type = $_GET["type"];
-			$post_types = dsi_get_post_types_grouped( $type );
-			$query->set( 'post_type', $post_types );
+    if ( ! is_admin() && $query->is_main_query() && $query->is_search ) {
+        $allowed_types = array( "any", "school", "news", "education", "service" );
+        if ( isset( $_GET["type"] ) && in_array( $_GET["type"], $allowed_types ) ) {
+            $type = $_GET["type"];
+            $post_types = dsi_get_post_types_grouped( $type );
+            $query->set( 'post_type', $post_types );
 
-		}
+        }
 
-		if ( isset( $_GET["post_types"] ) ) {
-			$query->set( 'post_type', $_GET["post_types"] );
+        if ( isset( $_GET["post_types"] ) ) {
+            $query->set( 'post_type', $_GET["post_types"] );
 
-		}
-		if ( isset( $_GET["post_terms"] ) ) {
-			$query->set( 'category__in', $_GET["post_terms"]);
-		}
+        }
+        if ( isset( $_GET["post_terms"] ) ) {
+            $query->set( 'category__in', $_GET["post_terms"]);
+        }
 
-			// associazione tra types e post_type
+        // associazione tra types e post_type
 
-	}
+    }
 }
 
 add_action( 'pre_get_posts', 'dsi_search_filters' );
@@ -98,7 +98,7 @@ add_action( 'pre_get_posts', 'dsi_search_filters' );
  * @return int
  */
 function dsi_excerpt_length( $length ) {
-	return 20;
+    return 20;
 }
 add_filter( 'excerpt_length', 'dsi_excerpt_length', 999 );
 
@@ -230,9 +230,9 @@ add_filter( 'get_the_archive_title', function ($title) {
     } elseif ( is_tax("tipologia-articolo") ) {
 
         $title = single_term_title('', false);
-    /*    if($title == "Articoli"){
-            $title = "Presentazione";
-        }*/
+        /*    if($title == "Articoli"){
+                $title = "Presentazione";
+            }*/
     } elseif ( is_tax("tipologia-documento") ) {
         $title = single_term_title('', false);
     } elseif ( is_tax("percorsi-di-studio") ) {
@@ -329,7 +329,7 @@ function dsi_change_externale_string( $translated, $untranslated, $domain ) {
             case 'Services' :
             case 'Service' :
 
-            $translated = 'Attività';
+                $translated = 'Attività';
                 break;
 
             case 'Workers' :
@@ -389,4 +389,92 @@ function dsi_change_externale_string( $translated, $untranslated, $domain ) {
 
     return $translated;
 
+}
+
+
+
+/**
+ * Admin header customization
+ *
+ */
+function dsi_admin_bar_customize_header() {
+    global $wp_admin_bar;
+
+    if ( current_user_can( 'read' ) ) {
+        $about_url = self_admin_url( 'about.php' );
+    } elseif ( is_multisite() ) {
+        $about_url = get_dashboard_url( get_current_user_id(), 'about.php' );
+    } else {
+        $about_url = false;
+    }
+
+    $wp_admin_bar->add_menu(
+        array(
+            'id'     => 'design-scuole',
+            'title' => '<span class="dsi-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 92 74"><g fill="#06C"><path d="M31.799 71.9V15.7h15.1V72h-15.1zM91.099 28.5h-13.8v23.1c0 2.3.1 3.8.2 4.8.1.9.5 1.7 1.2 2.4s1.8 1 3.3 1l8.6-.2.7 12c-5 1.1-8.9 1.7-11.5 1.7-6.8 0-11.4-1.5-13.8-4.6-2.5-3-3.7-8.6-3.7-16.8V0h15.1v15.6h13.8v12.9zM9.099 32.8c-2.6 0-4.8-.9-6.5-2.7s-2.6-4-2.6-6.6.9-4.8 2.5-6.6c1.7-1.8 3.9-2.6 6.5-2.6s4.8.9 6.5 2.7 2.5 4 2.5 6.7-.8 4.8-2.5 6.6c-1.6 1.6-3.7 2.5-6.4 2.5z"></path></g></svg></span><span class="screen-reader-text">' . __( 'About Design Scuole' ) . '</span>',
+            'href'   => '#'
+        )
+    );
+
+    $wp_admin_bar->add_group(
+        array(
+            'parent' => 'design-scuole',
+            'id'     => 'design-scuole-external',
+            'meta'   => array(
+                'class' => 'ab-sub-secondary',
+            ),
+        )
+    );
+
+    $wp_admin_bar->add_menu(
+        array(
+            'parent' => 'design-scuole-external',
+            'id'     => 'dsi-about-design',
+            'title'  => __( 'About Design Scuole' ),
+            'href'   => 'https://designers.italia.it/progetti/siti-web-scuole/',
+            'meta'  => array( 'target' => '_blank')
+        )
+    );
+
+
+    $wp_admin_bar->add_menu(
+        array(
+            'parent' => 'design-scuole',
+            'id'     => 'dsi-about-wp',
+            'title'  => __( 'About WordPress' ),
+            'href'   => $about_url,
+        )
+    );
+
+
+    $wp_admin_bar->add_menu(
+        array(
+            'parent' => 'design-scuole',
+            'id'     => 'dsi-github',
+            'title'  => __( 'Design su GitHub' ),
+            'href'   => "https://github.com/italia/design-scuole-wordpress-theme",
+            'meta'  => array( 'target' => '_blank')
+        )
+    );
+
+
+
+    $wp_admin_bar->add_menu(
+        array(
+            'id'     => 'design-scuole-conf',
+            'title' => __( '<div class="wp-menu-image dashicons-before dashicons-admin-tools"> Configurazione</div>', "design_scuole_italia" ),
+            'href'   => admin_url("admin.php?page=homepage")
+        )
+    );
+
+
+}
+add_action( 'admin_bar_menu', 'dsi_admin_bar_customize_header', -10 );
+
+add_action( 'wp_before_admin_bar_render', 'dsi_admin_bar_before_customize_header', -10 );
+
+function dsi_admin_bar_before_customize_header(){
+    global $wp_admin_bar;
+
+    $wp_admin_bar->remove_menu("wp-logo");
 }

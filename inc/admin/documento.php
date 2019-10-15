@@ -674,7 +674,7 @@ function dsi_save_documento( $post_id) {
     remove_action( 'save_post_luogo','dsi_save_luogo' );
 
 
-    if($_POST["_dsi_documento_data_scadenza"] == ""){
+    if(isset($_POST["_dsi_documento_data_scadenza"]) && $_POST["_dsi_documento_data_scadenza"] == ""){
         if(dsi_is_albo(get_post($post_id))){
             // controllo se è settato un parametro nelle opzioni
             $giorni_scadenza = dsi_get_option("giorni_scadenza", "setup");

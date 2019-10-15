@@ -13,8 +13,9 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'dsi_options',
 		'tab_group'    => 'dsi_options',
 		'tab_title'    => __('Opzioni di base', "design_scuole_italia"),
+        'capability'    => 'manage_options',
 		'position'        => 1, // Menu position. Only applicable if 'parent_slug' is left empty.
-		'icon_url'        => 'dashicons-admin-multisite', // Menu icon. Only applicable if 'parent_slug' is left empty.
+		'icon_url'        => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 	);
 
 	// 'tab_group' property is supported in > 2.4.0.
@@ -72,6 +73,7 @@ function dsi_register_main_options_metabox() {
         'title'        => esc_html__( 'Home Page', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'homepage',
+        'capability'    => 'manage_options',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
         'tab_title'    => __('Home', "design_scuole_italia"),	);
@@ -173,7 +175,8 @@ function dsi_register_main_options_metabox() {
 		'id'           => 'dsi_options_la_scuola',
 		'title'        => esc_html__( 'La Scuola', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
-		'option_key'   => 'la_scuola',
+        'capability'    => 'manage_options',
+        'option_key'   => 'la_scuola',
 		'tab_title'    => __('Scuola', "design_scuole_italia"),
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
@@ -485,6 +488,7 @@ function dsi_register_main_options_metabox() {
         'title'        => esc_html__( 'Presentazione', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'presentazione',
+        'capability'    => 'manage_options',
         'tab_title'    => __('Presentazione', "design_scuole_italia"),
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
@@ -534,7 +538,8 @@ function dsi_register_main_options_metabox() {
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'servizi',
 		'parent_slug'  => 'dsi_options',
-		'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
+        'tab_group'    => 'dsi_options',
 		'tab_title'    => __('Servizi', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
@@ -587,7 +592,8 @@ function dsi_register_main_options_metabox() {
 		'title'        => esc_html__( 'Le Notizie', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'notizie',
-		'parent_slug'  => 'dsi_options',
+        'capability'    => 'manage_options',
+        'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
 		'tab_title'    => __('Notizie', "design_scuole_italia"),	);
 
@@ -641,7 +647,8 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'didattica',
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-		'tab_title'    => __('Didattica', "design_scuole_italia"),	);
+        'capability'    => 'manage_options',
+        'tab_title'    => __('Didattica', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -701,6 +708,7 @@ function dsi_register_main_options_metabox() {
         'option_key'   => 'persone',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
         'tab_title'    => __('Persone', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
@@ -752,6 +760,7 @@ function dsi_register_main_options_metabox() {
         'option_key'   => 'organizzazione',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
         'tab_title'    => __('Organizzazione', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
@@ -804,6 +813,7 @@ function dsi_register_main_options_metabox() {
         'option_key'   => 'luoghi',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
         'tab_title'    => __('Luoghi', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
@@ -853,12 +863,11 @@ function dsi_register_main_options_metabox() {
 		'title'        => esc_html__( 'Altro', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'setup',
-		'tab_group'    => 'dsi_main_options',
 		'tab_title'    => __('Altro', "design_scuole_italia"),
 		'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-
-	);
+        'capability'    => 'manage_options',
+    );
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {

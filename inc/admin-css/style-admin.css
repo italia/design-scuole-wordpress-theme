@@ -1,3 +1,26 @@
+/**
+* admin bar
+*/
+
+#wpadminbar #wp-admin-bar-design-scuole>.ab-item .dsi-icon:before {
+    content: "\f120";
+    top: 2px;
+}
+
+#wpadminbar .dsi-icon{
+    position: relative;
+    float: left;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    padding: 0px 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: none!important;
+    margin-right: 6px;
+}
+
+/*****************/
+
 .attached-posts-wrap ul{
     height: 10em !important;
 }
