@@ -94,14 +94,20 @@ function dsi_add_scheda_progetto_metaboxes() {
 			),
 		)
 	);
-
+    $cmb_sottotitolo->add_field( array(
+            'name'       => __('In collaborazione con', 'design_scuole_italia' ),
+            'desc' => __( 'eventuale lista di enti pubblici, privati, associazioni, etc' , 'design_scuole_italia' ),
+            'id'             => $prefix . 'collaborazione',
+            'type'    => 'textarea',
+        )
+    );
 
 
 
 
 	$cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_struttura',
-		'title' =>  __( 'Luogo', 'design_scuole_italia' ),
+		'title' =>  __( 'Luogo, Strutture, Documenti, Gallery', 'design_scuole_italia' ),
 		'object_types' => array( 'scheda_progetto' ),
 		'context'      => 'normal',
 		'priority'     => 'high',
@@ -265,6 +271,56 @@ function dsi_add_scheda_progetto_metaboxes() {
     ) );
 
 
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'gallery',
+        'name'       => __( 'Galleria', 'design_scuole_italia' ),
+        'desc'       => __( 'Galleria di immagini  significative relative al progetto, corredate da didascalia', 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        'query_args' => array( 'type' => 'image' ), // Only images attachment
+    ) );
+
+
+
+
+
+    $cmb_risultati = new_cmb2_box( array(
+        'id'           => $prefix . 'box_risultati_struttura',
+        'title' =>  __( 'I Risultati', 'design_scuole_italia' ),
+        'object_types' => array( 'scheda_progetto' ),
+        'context'      => 'normal',
+        'priority'     => 'high',
+    ) );
+
+    $cmb_risultati->add_field( array(
+        'id' => $prefix . 'is_realizzato',
+        'name'        => __( 'Progetto Realizzato', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona se il progetto è concluso, e descrivine i risultati.' , 'design_scuole_italia' ),
+        'type'    => 'radio_inline',
+        'options' => array(
+            'true' => __( 'Si', 'design_scuole_italia' ),
+            'false'   => __( 'No', 'design_scuole_italia' ),
+        ),
+        'default' => 'false',
+    ) );
+
+    $cmb_risultati->add_field( array(
+        'id' => $prefix . 'risultati',
+        'name'        => __( 'Risultati', 'design_scuole_italia' ),
+        'desc' => __( 'Ampio testo descrittivo delle attività svolte nel progetto' , 'design_scuole_italia' ),
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 8, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'is_realizzato',
+            'data-conditional-value' => "true",
+        ),
+    ) );
+
+
     $cmb_side = new_cmb2_box( array(
 		'id'           => $prefix . 'box_side',
 		'title'        => __( 'Data Progetto', 'design_scuole_italia' ),
@@ -327,7 +383,8 @@ function sdi_scheda_progetto_add_content_after_title($post) {
 add_action( 'edit_form_after_title', 'sdi_scheda_progetto_add_content_before_editor', 100 );
 function sdi_scheda_progetto_add_content_before_editor($post) {
 	if($post->post_type == "scheda_progetto")
-		_e('<h1>Risultati</h1><p>Ampio testo descrittivo delle attività svolte nel progetto, può includere una fotogalleria di immagini e/o include a un video di youtube</p>', 'design_scuole_italia' );
+        _e('<h1>Descrizione Estesa e Completa del Progetto</h1>', 'design_scuole_italia' );
+
 }
 
 
