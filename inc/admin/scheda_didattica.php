@@ -85,16 +85,25 @@ function dsi_add_scheda_didattica_metaboxes() {
 		'type' => 'text'
 	) );
 
-	$cmb_sottotitolo->add_field( array(
-		'id' => $prefix . 'livello',
-		'name'        => __( 'Livello', 'design_scuole_italia' ),
-		'desc' => __( 'Indicazione dei cicli scolastici per i quali la scheda è utile: scuola primaria / scuola secondaria di primo grado /  
-scuola secondaria secondo grado / percorsi di istruzione e formazione professionale' , 'design_scuole_italia' ),
-		'type' => 'text'
-	) );
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'livello',
+        'name'        => __( 'Livello', 'design_scuole_italia' ),
+        'desc'        => __( 'Indicazione dei cicli scolastici per i quali la scheda è utile: scuola primaria / scuola secondaria di primo grado /  
+scuola secondaria secondo grado / percorsi di istruzione e formazione professionale', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_multicheck_hierarchy_child',
+        'select_all_button' => false,
+        'taxonomy'       => 'percorsi-di-studio',
+        'remove_default' => 'true',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "scuola",
+              'data-only-parent' => true,
+        ),
+    ) );
 
 
-	$cmb_undercontent = new_cmb2_box( array(
+    $cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_scheda',
 		'title'         => __( 'Dettagli Scheda Didattica', 'design_scuole_italia' ),
 		'object_types' => array( 'scheda_didattica' ),

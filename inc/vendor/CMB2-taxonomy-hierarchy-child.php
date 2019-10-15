@@ -40,7 +40,9 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
             'orderby'       =>  'meta_value',
             'order'       =>  'ASC',
         );
-
+        $only_parent = false;
+        if(isset( $field->args['attributes']['data-only-parent']))
+            $only_parent = $field->args['attributes']['data-only-parent'];
         $post_type = empty($field->args['post_type']) ? null : $field->args['post_type'];
 
         /*if (!empty($post_type)) {
@@ -82,14 +84,19 @@ class Inventor_Field_Types_Taxonomy_Multicheck_Hierarchy_Child
                 }
 
                 $child = get_term_children($term->term_id, $field_type_object->field->args('taxonomy') );
-                if($child){
-                    $args['disabled'] = "disabled";
-                }else{
+                if($only_parent){
                     $options .= $real_field_type_object->list_input($args, $i);
+                }else{
+                    if($child){
+                        $args['disabled'] = "disabled";
+                    }else{
+                        $options .= $real_field_type_object->list_input($args, $i);
+
+                    }
 
                 }
-
-                $children = $this->build_children($real_field_type_object, $term, $saved_terms);
+                if(!$only_parent)
+                    $children = $this->build_children($real_field_type_object, $term, $saved_terms);
 
                 if (!empty($children)) {
                     $options .= $children;

@@ -81,7 +81,7 @@ function dsi_register_struttura_post_type() {
         'show_ui'           => true,
         'show_admin_column' => false,
         'query_var'         => true,
-        'public'         => false,
+        'public'         => true,
         'rewrite'           => array( 'slug' => 'percorsi-di-studio' ),
         'show_in_menu'      => true,
         'capabilities'      => array(
@@ -92,7 +92,7 @@ function dsi_register_struttura_post_type() {
         )
     );
 
-    register_taxonomy( 'percorsi-di-studio', array( 'struttura' ), $args );
+    register_taxonomy( 'percorsi-di-studio', array( 'struttura', "scheda_didattica" ), $args );
 
 
 }
@@ -135,6 +135,7 @@ function dsi_add_struttura_metaboxes() {
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
             'data-conditional-value' => "scuola",
+          //  'data-only-parent' => true,
         ),
     ) );
 

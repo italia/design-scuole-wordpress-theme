@@ -11,7 +11,7 @@ if(!function_exists("dsi_didattica_array")){
             "Scuola Secondaria di primo grado" => [
                 "Standard", "Indirizzo Musicale"
             ],
-            "Scuola Scuola Secondaria di secondo grado" => [
+            "Scuola Secondaria di secondo grado" => [
                 "Liceo" => [
                     "Liceo Artistico", "Liceo Classico", "Liceo Linguistico", "Liceo Musicale e Coreutico", "Liceo Scientifico tradizionale", "Liceo Scientifico opzione Scienze Applicate", "Liceo delle Scienze Umane opzione Economico-Sociale"
                 ],
