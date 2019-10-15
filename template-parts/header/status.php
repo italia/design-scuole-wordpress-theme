@@ -45,4 +45,20 @@ if(is_singular("servizio")){
         </section><!-- /sub-nav -->
         <?php
     }
+}else if(is_singular("scheda_progetto")){
+    $is_realizzato = dsi_get_meta("is_realizzato");
+    if($is_realizzato == "true"){
+        ?>
+        <section class="bg-bluelectric py-2" id="alert">
+            <div class="container">
+                <div class="row variable-gutters">
+                    <div class="col d-flex align-items-center">
+                        <p class="m-0"><strong><a class="list-item scroll-anchor-offset" href="#art-par-risultati"><?php _e("Progetto Realizzato", "design_scuole_italia"); ?></a></strong></p>
+                    </div><!-- /col -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section><!-- /sub-nav -->
+        <?php
+    }
+
 }

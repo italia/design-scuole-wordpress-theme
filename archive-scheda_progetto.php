@@ -77,7 +77,7 @@ get_header();
                         <?php if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){ ?>
                             <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>" ><?php _e("Consulta i progetti dell'anno in corso", "design_scuole_italia"); ?></a></p>
                         <?php }else{ ?>
-                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti archiviati", "design_scuole_italia"); ?></a></p>
+                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti degli scorsi anni", "design_scuole_italia"); ?></a></p>
                         <?php } ?>
                     </div><!-- /col-lg-8 -->
                 </div><!-- /row -->

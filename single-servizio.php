@@ -69,7 +69,7 @@ get_header();
                 </div><!-- /container -->
             </section><!-- /section -->
 
-			<?php get_template_part("template-parts/header/offline"); ?>
+			<?php get_template_part("template-parts/header/status"); ?>
 
             <section class="section bg-white">
                 <div class="container container-border-top">

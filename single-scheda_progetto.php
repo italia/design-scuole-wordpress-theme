@@ -58,6 +58,9 @@ $gallery = dsi_get_meta("gallery");
                 </div><!-- /container -->
             </section><!-- /section -->
 
+            <?php get_template_part("template-parts/header/status"); ?>
+
+
             <section class="section bg-white">
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
@@ -102,8 +105,11 @@ $gallery = dsi_get_meta("gallery");
                             </aside>
 
                         </div>
+
                         <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
+
                             <article class="article-wrapper pt-4 px-3">
+
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <h4 id="art-par-cosa"><?php _e("Presentazione", "design_scuole_italia"); ?></h4>
