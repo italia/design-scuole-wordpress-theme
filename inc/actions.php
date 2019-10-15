@@ -462,7 +462,7 @@ function dsi_admin_bar_customize_header() {
     $wp_admin_bar->add_menu(
         array(
             'id'     => 'design-scuole-conf',
-            'title' => __( '<div class="wp-menu-image dashicons-before dashicons-admin-tools"> Configurazione</div>', "design_scuole_italia" ),
+            'title' => __( '<div class="dashicons-before dashicons-admin-tools" style="float:left; padding-top: 6px; padding-right:4px;"> </div>Configurazione', "design_scuole_italia" ),
             'href'   => admin_url("admin.php?page=homepage")
         )
     );
