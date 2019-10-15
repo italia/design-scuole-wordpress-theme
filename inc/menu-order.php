@@ -27,12 +27,13 @@ function dsi_custom_admin_menu() {
    // rename_admin_menu_section('Media','Photos & Video');    // Rename Media Section to "Photos & Video"
     remove_admin_menu_section("WP<b>Gov</b>.it");
    // remove_admin_menu_item("Articoli", "Tipologia");
-    rename_admin_menu_section("Bacheca", "Bacheca Scuola");
+
+    //rename_admin_menu_section("Bacheca", "Bacheca Scuola");
 
     rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");
     swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
     swap_admin_menu_sections('Media','Circolari');
-    //remove_submenu_page('edit.php?post_type=programma_materia', 'edit-tags.php?taxonomy=classe&amp;post_type=programma_materia');
+    remove_submenu_page('edit.php?post_type=programma_materia', 'edit-tags.php?taxonomy=classe&amp;post_type=programma_materia');
 
 
         $classe = add_menu_page(
@@ -46,7 +47,7 @@ function dsi_custom_admin_menu() {
         );
 
 
-    remove_admin_menu_item("edit.php?post_type=programma_materia",'edit-tags.php?taxonomy=classe&post_type=programma_materia');
+    //remove_admin_menu_item("edit.php?post_type=programma_materia",'edit-tags.php?taxonomy=classe&post_type=programma_materia');
 
 
 }
