@@ -102,7 +102,7 @@ function dsi_register_documento_post_type() {
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
-        'show_admin_column' => true,
+        'show_admin_column' => false,
         'query_var'         => true,
         'rewrite'           => array( 'slug' => 'albo-pretorio' ),
         'capabilities'      => array(
@@ -142,6 +142,7 @@ function dsi_add_documento_metaboxes() {
         'desc' => __( 'Data di scadenza del documento, una volta raggiunta questo sarà automaticamente archiviato come "Scaduto".' , 'design_scuole_italia' ),
         'id'             => $prefix . 'data_scadenza',
         'type'    => 'text_date_timestamp',
+        'date_format' => 'd/m/Y',
     ) );
 
     $cmb_sottotitolo = new_cmb2_box( array(
@@ -650,3 +651,42 @@ function dsi_disable_trash_albo( $new_status, $old_status, $post ) {
 
 }
 add_action( 'transition_post_status', 'dsi_disable_trash_albo', 10, 3 );
+
+
+/**
+ * configuro la scadenza del bando se lasciata vuota
+ * @param $post_id
+ */
+add_action( 'save_post_documento', 'dsi_save_documento' );
+function dsi_save_documento( $post_id) {
+    $post_type = get_post_type($post_id);
+    // If this isn't a 'book' post, don't update it.
+    if ( "documento" != $post_type ) return;
+    //Check it's not an auto save routine
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+        return;
+
+    //Perform permission checks! For example:
+    if ( !current_user_can('edit_post', $post_id) )
+        return;
+
+
+    remove_action( 'save_post_luogo','dsi_save_luogo' );
+
+
+    if($_POST["_dsi_documento_data_scadenza"] == ""){
+        if(dsi_is_albo(get_post($post_id))){
+            // controllo se è settato un parametro nelle opzioni
+            $giorni_scadenza = dsi_get_option("giorni_scadenza", "setup");
+            if($giorni_scadenza){
+                $_POST["_dsi_documento_data_scadenza"] = date("d/m/Y", strtotime("+ ".$giorni_scadenza." DAYS"));
+            }
+        }
+    }
+
+
+    add_action( 'save_post_luogo', 'dsi_save_luogo' );
+}
+
+
+

@@ -903,6 +903,30 @@ function dsi_register_main_options_metabox() {
         'type' => 'textarea',
         'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione: '.wp_login_url(),
     ) );
+
+
+    $setup_options->add_field( array(
+        'id' => $prefix . 'altro_scadenza_albo',
+        'name'        => __( 'Scadenza Albo', 'design_scuole_italia' ),
+        'desc' => __( 'Configura la data di scadenza dei documenti di tipo Albo.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $setup_options->add_field( array(
+        'id' => $prefix . 'giorni_scadenza',
+        'name' => 'Durata in giorni atti Albo ',
+        'desc' => __( '<br>Se ad un documento di tipo albo non viene inserita una data di scadenza, valorizzando questo campo questa sarà impostata automaticamente a X giorni dalla pubblicazione', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 0,
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
+
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 

@@ -647,3 +647,22 @@ function dsi_get_current_anno_scolastico($year = true){
     }
 
 }
+
+
+/**
+ * restituisce intero
+ * @param $value
+ * @param $field_args
+ * @param $field
+ * @return int|string
+ */
+function dsi_sanitize_int( $value, $field_args, $field ) {
+    // Don't keep anything that's not numeric
+    if ( ! is_numeric( $value ) ) {
+        $sanitized_value = '';
+    } else {
+        // Ok, let's clean it up.
+        $sanitized_value = absint( $value );
+    }
+    return $sanitized_value;
+}
