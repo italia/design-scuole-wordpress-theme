@@ -160,9 +160,10 @@ get_header();
                                 ?>
                                 <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
                                 <?php get_template_part("template-parts/luogo/card"); ?>
-                                <h4 id="art-par-desc"><?php _e("Descrizione", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
+                                        <h4 id="art-par-desc"><?php _e("Descrizione", "design_scuole_italia"); ?></h4>
+
                                         <?php the_content(); ?>
 
                                         <?php
