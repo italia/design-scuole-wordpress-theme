@@ -26,7 +26,7 @@
 			                     'luogo'  => 'tipologia-luogo',
 			                     'programma_materia'  => 'materia',
 			                     'struttura'  => 'tipologia-struttura',
-
+                                'scheda_didattica'  => 'percorsi-di-studio',
 		                    ),
 		                    'echo'            => true
 	                    );

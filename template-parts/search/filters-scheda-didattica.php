@@ -1,5 +1,8 @@
 <?php
 $post_type = get_query_var("post_type");
+if(!$post_type)
+    $post_type = "scheda_didattica";
+
 if(isset($_REQUEST["archive"]))
     $archive = $_REQUEST["archive"];
 ?>
