@@ -46,33 +46,41 @@ if($last_notification){
                 <ul>
                     <li class="active">
                         <a href="<?php echo admin_url(); ?>">
-                            <span>Area personale</span>
+                            <span><?php _e("Area personale", "design_scuole_italia"); ?></span>
                             <svg class="svg-home-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-home-solid"></use></svg>
                         </a>
-                    </li><!--
-                    <li class="has-notifications">
-                        <a href="#">
-                            <span>Notifiche</span>
-                            <svg class="svg-bell-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell-solid"></use></svg>
+                    </li>
+                    <?php
+                    if($last_notification) {
+                        ?>
+                        <li class="has-notifications">
+                            <a href="<?php echo $link_notification; ?>">
+                                <span><?php _e("Notifiche", "design_scuole_italia"); ?></span>
+                                <svg class="svg-bell-solid">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell-solid"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <?php
+                    }
+                    ?>
+                    <li>
+                        <a href="<?php echo get_author_posts_url($current_user->ID); ?>">
+                            <span><?php _e("Profilo Pubblico", "design_scuole_italia"); ?></span>
+                            <svg class="svg-user-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-user-solid"></use></svg>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <span>Preferiti</span>
-                            <svg class="svg-bookmark-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bookmark-solid"></use></svg>
-                        </a>
-                    </li>//-->
-                    <li>
                         <a href="<?php echo get_edit_profile_url(); ?>">
-                            <span>Impostazioni profilo</span>
-                            <svg class="svg-user-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-user-solid"></use></svg>
+                            <span><?php _e("Modifica Profilo", "design_scuole_italia"); ?></span>
+                            <svg class="svg-bookmark-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bookmark-solid"></use></svg>
                         </a>
                     </li>
                 </ul>
             </div><!-- /menu-user-list -->
             <div class="menu-user-bottom">
                 <a href="<?php echo wp_logout_url(); ?>">
-                    <span>Esci</span>
+                    <span><?php _e("Esci", "design_scuole_italia"); ?></span>
                     <svg class="svg-exit"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-exit"></use></svg>
                 </a>
             </div><!-- /menu-user-bottom -->
