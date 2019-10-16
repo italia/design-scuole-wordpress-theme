@@ -1,7 +1,8 @@
 <?php
 global $post;
-
-$image_url = get_the_post_thumbnail_url($post, "article-simple-thumb");
+$image_url = false;
+if(has_post_thumbnail($post))
+    $image_url = get_the_post_thumbnail_url($post, "article-simple-thumb");
 $class = dsi_get_post_types_color_class($post->post_type);
 $icon = dsi_get_post_types_icon_class($post->post_type);
 
@@ -22,9 +23,15 @@ $posizione_gps = false;
 		$parent        = get_post( $post->post_parent );
 		$posizione_gps = dsi_get_meta( "posizione_gps", "_dsi_luogo_", $post->post_parent );
 	}
+
+	if($image_url)
+	    $posizione_gps = false;
 ?>
 <article class="card card-bg card-article card-article-<?php echo $class; ?>">
 	<div class="card-body">
+        <?php if(!$posizione_gps){ ?>
+        <a href="<?php the_permalink(); ?>">
+        <?php } ?>
 		<div class="card-article-img"  <?php if($image_url && !$posizione_gps) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if($posizione_gps != false){ ?>
 
@@ -53,6 +60,9 @@ $posizione_gps = false;
 			</div><!-- /badges -->
             <?php } ?>
 		</div><!-- /card-avatar-content -->
+            <?php if(!$posizione_gps){ ?>
+            </a>
+             <?php } ?>
 	</div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
 <?php if($posizione_gps != false){ ?>
