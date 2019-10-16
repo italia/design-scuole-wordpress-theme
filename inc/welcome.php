@@ -38,12 +38,15 @@ function dsi_circolari_dashboard_widget() {
 
     // verifico le circolari associate all'utente
     $lista_circolari = get_user_meta($userID, "_dsi_circolari", true);
+    // salvo in un array alternativo gli id delle circolari, per eliminare dalla coda quelle rimosse
+    $real_circolari = array();
     if(is_array($lista_circolari) && count($lista_circolari) > 0 ) {
 
         echo "<ul>";
         foreach ($lista_circolari  as $idcircolare) {
             $circolare = get_post($idcircolare);
             if($circolare) {
+                $real_circolari[] = $idcircolare;
                 $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
                 $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
                 $feedback_array = dsi_get_circolari_feedback_options();
@@ -54,10 +57,15 @@ function dsi_circolari_dashboard_widget() {
                 echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
                 echo "</li>";
             }else{
-                echo "<li>Circolare con id ".$idcircolare." non più accessibile</li>";
+                echo "<li>La circolare con id ".$idcircolare." è stata eliminata</li>";
             }
         }
         echo "</ul>";
+
+
+        if(count($lista_circolari) != count($real_circolari)){
+            update_user_meta($userID, "_dsi_circolari", $real_circolari, $lista_circolari);
+        }
     }else{
         echo "<p>Nessuna circolare presente</p>";
     }
@@ -72,13 +80,15 @@ function dsi_circolari_signed_dashboard_widget() {
 
     // verifico le circolari associate all'utente
     $lista_circolari = get_user_meta($userID, "_dsi_circolari_signed", true);
+    // salvo in un array alternativo gli id delle circolari, per eliminare dalla coda quelle rimosse
+    $real_circolari = array();
     if(is_array($lista_circolari) && count($lista_circolari) > 0 ) {
 
         echo "<ul>";
         foreach ($lista_circolari as $idcircolare) {
             $circolare = get_post($idcircolare);
             if($circolare) {
-
+                $real_circolari[] = $idcircolare;
                 $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
                 $firma = get_user_meta($userID, "_dsi_signed_" . $idcircolare, true);
 
@@ -89,10 +99,15 @@ function dsi_circolari_signed_dashboard_widget() {
 
                 echo "</li>";
             }else{
-                echo "<li>Circolare con id ".$idcircolare." non più accessibile</li>";
+                echo "<li>La circolare con id ".$idcircolare." è stata eliminata</li>";
             }
         }
         echo "</ul>";
+
+        // aggiorno l'array circolari se è differente da pregresso
+        if(count($lista_circolari) != count($real_circolari)){
+            update_user_meta($userID, "_dsi_circolari_signed", $real_circolari, $lista_circolari);
+        }
     }else{
         echo "<p>Nessuna circolare presente</p>";
     }
