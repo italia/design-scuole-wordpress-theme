@@ -137,6 +137,11 @@ function dsi_register_required_plugins() {
             'slug'     => 'wp-quicklatex',
             'required' => false,
         ),
+         array(
+            'name'     => 'WP Super Cache',
+            'slug'     => 'wp-super-cache',
+            'required' => false,
+        ),
 
         /*
         array(
