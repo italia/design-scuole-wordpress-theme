@@ -53,6 +53,8 @@ function dsi_circolari_dashboard_widget() {
                 echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
                 echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
                 echo "</li>";
+            }else{
+                echo "<li>Circolare con id ".$idcircolare." non più accessibile</li>";
             }
         }
         echo "</ul>";
@@ -86,6 +88,8 @@ function dsi_circolari_signed_dashboard_widget() {
                 echo "Feedback registrato: " . strtoupper(str_replace("_", " ", $firma)) . '<hr>';
 
                 echo "</li>";
+            }else{
+                echo "<li>Circolare con id ".$idcircolare." non più accessibile</li>";
             }
         }
         echo "</ul>";
