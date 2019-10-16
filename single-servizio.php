@@ -29,7 +29,7 @@ get_header();
 			$spid = dsi_get_meta("spid");
 			$canale_fisico = dsi_get_meta("canale_fisico");
 			$canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
-			$sedi = dsi_get_meta("sedi");
+			//$sedi = dsi_get_meta("sedi");
 			$cosa_serve = dsi_get_meta("cosa_serve");
 			$costi_vincoli = dsi_get_meta("costi_vincoli");
 			$fasi_scadenze = dsi_get_meta("fasi_scadenze");
@@ -38,6 +38,8 @@ get_header();
 			$file_documenti = dsi_get_meta("file_documenti");
 			$altre_info = dsi_get_meta("altre_info");
 
+			$struttura_responsabile = dsi_get_meta("struttura_responsabile");
+            $luoghi = dsi_get_meta("luoghi");
 			?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -205,9 +207,9 @@ get_header();
 
 									<?php
 								}
-								if(trim($canale_fisico) != ""){
-									?>
-                                    <h6><?php _e("Sedi in cui richiedere il servizio", "design_scuole_italia"); ?></h6>
+                                if(trim($canale_fisico) != "")  {
+                                ?>
+                                <h6><?php _e("Sedi in cui richiedere il servizio", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <p><?php echo $canale_fisico; ?></p>
@@ -220,38 +222,45 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
+                                if($struttura_responsabile != ""){
+                                    global $struttura;
+                                    $struttura = get_post($struttura_responsabile);
+                                    echo "<h6>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h6>";
+                                    ?>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9">
+                                        <div class="card-deck card-deck-spaced">
+                                    <?php get_template_part("template-parts/struttura/card"); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                            <?php
 
-								// sedi
-								if(is_array($sedi) && count($sedi)>0) {
+                                }
 
-									$c=0;
-									$arrstrutture = array();
-									foreach ($sedi as $sede){
-										$c++;
+                                if(is_array($luoghi) && count($luoghi) > 0){
+                                    global $luogo;
+                                    ?>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-12">
+                                            <h6><?php _e("Luoghi in cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
+                                            <?php
+                                            $c=0;
+                                            foreach ($luoghi as $idluogo){
+                                                $c++;
+                                                $luogo = get_post($idluogo);
+                                                get_template_part( "template-parts/luogo/card" , "nophone");
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <?php
 
-										// recupero i luoghi e le strutture selezionate
-										if(isset($sede["link_schede_luoghi"])){
-											$id_schede_luoghi = $sede["link_schede_luoghi"];
-											$luogo=get_post($id_schede_luoghi);
-                                        }
+                                }
 
-										if(isset($sede["link_schede_struttura_organizzativa"])) {
-											$id_schede_struttura_organizzativa = $sede["link_schede_struttura_organizzativa"];
-											$struttura = get_post( $id_schede_struttura_organizzativa );
-										}
-
-                                        if(isset($struttura)) {
-
-	                                        $arrstrutture[ $struttura->post_title ] = get_permalink( $struttura );
-
-	                                        ?>
-                                            <h6><a href="<?php echo get_permalink($struttura); ?>"><?php echo $struttura->post_title; ?></a></h6>
-	                                        <?php get_template_part( "template-parts/luogo/card" ); ?>
-	                                        <?php
-                                        }
-									}
-								}
-
+                                    // struttura responsabile del servizio
+                            //    struttura_responsabile
+                        //    luoghi
 								if(trim($cosa_serve) != ""){
 									?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>

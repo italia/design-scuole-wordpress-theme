@@ -31,7 +31,7 @@ function dsi_create_pages_on_theme_activation() {
 
 
     // template page per La Home di Sezione Notizie
-    $new_page_title    = __( 'Notizie', 'design_scuole_italia' ); // Page's title
+    $new_page_title    = __( 'Novità', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '';                           // Content goes here
     $new_page_template = 'page-templates/notizie.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
@@ -42,7 +42,7 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'notizie'
+        'post_slug'    => 'novita'
     );
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
@@ -387,6 +387,8 @@ function dsi_create_pages_on_theme_activation() {
 
     wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
     wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
+    wp_insert_term( 'Servizi Didattici', 'tipologia-servizio' );
+
     /*
         $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
         if($del) wp_delete_term($del->term_id, 'tipologia-articolo');
@@ -541,9 +543,9 @@ function dsi_create_pages_on_theme_activation() {
         update_option('menu_check', true);
     }
     /**
-     * creo il menu Notizie
+     * creo il menu Novità
      */
-    $name = __('Notizie', "design_scuole_italia");
+    $name = __('Novità', "design_scuole_italia");
 
     // wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
@@ -809,7 +811,7 @@ function dsi_create_pages_on_theme_activation() {
     $active_widgets["footer-4"][0] = 'nav_menu-4' ;
     $active_widgets["footer-4"][1] = 'nav_menu-6' ;
     $nav_menu[ 4 ] = array (
-        'title'        => 'Notizie',
+        'title'        => 'Novità',
         'nav_menu'     => $menu_notizie,
     );
     $nav_menu[ 6 ] = array (

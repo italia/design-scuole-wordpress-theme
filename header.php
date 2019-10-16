@@ -168,7 +168,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-greendark menu-dropdown-simple-wrapper">
-                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Notizie","design_scuole_italia"); ?>"><?php _e("Notizie","design_scuole_italia"); ?></a>
+                                    <a class="toggle-dropdown toggle-dropdown-simple" href="#" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
 			                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "")) ?>
                                 </li>
 		                        <?php

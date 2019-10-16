@@ -205,6 +205,12 @@ function dsi_add_servizi_metaboxes() {
 		'type' => 'checkbox',
 	) );
 
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_fisico_prenotazione',
+        'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
+        'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
+        'type' => 'text_url'
+    ) );
 
 
 	$cmb_undercontent->add_field( array(
@@ -217,49 +223,22 @@ function dsi_add_servizi_metaboxes() {
 		),
 	) );
 
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'canale_fisico_prenotazione',
-		'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
-		'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
-		'type' => 'text_url'
-	) );
 
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'struttura_responsabile',
+        'name'        => __( 'Struttura responsabile del servizio', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona la struttura responsabile del servizio ' , 'design_scuole_italia' ),
+        'type'    => 'pw_select',
+        'options' => dsi_get_strutture_options(),
+    ) );
 
-	/**  repeater sedi **/
-	$group_field_id = $cmb_undercontent->add_field( array(
-		'id'          => $prefix . 'sedi',
-		'name'        => __('<h1>Sedi</h1>', 'design_scuole_italia' ),
-		'type'        => 'group',
-		'description' => __( 'La sede è una luogo/struttura organizzativa aperte al pubblico. Es. segreteria scolastica - sede principale', 'design_scuole_italia' ),
-		'options'     => array(
-			'group_title'    => __( 'Sede {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
-			'add_button'     => __( 'Aggiungi un\'altra Sede', 'design_scuole_italia' ),
-			'remove_button'  => __( 'Rimuovi la Sede', 'design_scuole_italia' ),
-			'sortable'       => true,
-			// 'closed'      => true, // true to have the groups closed by default
-			 //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-		),
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'id' => 'link_schede_struttura_organizzativa',
-		'name'    => __( 'Seleziona la <a href="edit.php?post_type=struttura">struttura organizzativa</a> che si occupa dell\'erogazione del servizio', 'design_scuole_italia' ),
-		'desc' => __( 'Verrà utilizzata per mostrare i riferimenti di contatto della sede. In caso di servizio erogato da più strutture organizzative, crea una sede per ogni luogo/struttura organizzativa. ' , 'design_scuole_italia' ),
-		'type'    => 'pw_select',
-		'options' => dsi_get_strutture_options(),
-	) );
-
-
-	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'id' => 'link_schede_luoghi',
-		'name'    => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo</a> in cui viene erogato il servizio', 'design_scuole_italia' ),
-		'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
-		'type'    => 'pw_select',
-		'options' => dsi_get_luoghi_options(),
-	) );
-
-	/** fine sedi  */
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'luoghi',
+        'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui vengono erogati i servizi', 'design_scuole_italia' ),
+        'desc' => __( 'In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_luoghi_options(),
+    ) );
 
 
 	$cmb_undercontent->add_field( array(
@@ -384,7 +363,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_ipa = new_cmb2_box( array(
 		'id'           => $prefix . 'box_ipa',
-		'title'        => __( 'Codice dell’Ente Erogatore (ipa) *', 'design_scuole_italia' ),
+		'title'        => __( 'Codice dell’Ente Erogatore (ipa)', 'design_scuole_italia' ),
 		'object_types' => array( 'servizio' ),
 		'context'      => 'side',
 		'priority'     => 'low',

@@ -2,7 +2,7 @@
 $groups = array(
 	"school" => __("Scuola", "design_scuole_italia"),
 	"service" =>  __("Servizi", "design_scuole_italia"),
-	"news" =>  __("Notizie", "design_scuole_italia"),
+	"news" =>  __("Novità", "design_scuole_italia"),
 	"education" =>  __("Didattica", "design_scuole_italia")
 );
 

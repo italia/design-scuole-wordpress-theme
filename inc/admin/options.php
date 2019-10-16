@@ -95,7 +95,7 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',
         'name' => __('Selezione Automatica', 'design_scuole_italia'),
-        'desc' => __('Seleziona per mostrare automaticamente gli articoli in base alla configurazione della Pagina "Notizie"', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare automaticamente gli articoli in base alla configurazione della Pagina "Novità"', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
@@ -589,13 +589,13 @@ function dsi_register_main_options_metabox() {
 
 	$args = array(
 		'id'           => 'dsi_options_notizie',
-		'title'        => esc_html__( 'Le Notizie', 'design_scuole_italia' ),
+		'title'        => esc_html__( 'Le Novità', 'design_scuole_italia' ),
 		'object_types' => array( 'options-page' ),
 		'option_key'   => 'notizie',
         'capability'    => 'manage_options',
         'parent_slug'  => 'dsi_options',
 		'tab_group'    => 'dsi_options',
-		'tab_title'    => __('Notizie', "design_scuole_italia"),	);
+		'tab_title'    => __('Novità', "design_scuole_italia"),	);
 
 	// 'tab_group' property is supported in > 2.4.0.
 	if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -607,8 +607,8 @@ function dsi_register_main_options_metabox() {
     $notizie_landing_url = dsi_get_template_page_url("page-templates/notizie.php");
     $notizie_options->add_field( array(
         'id' => $prefix . 'notizie_istruzioni',
-        'name'        => __( 'Sezione Le Notizie', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$notizie_landing_url.'">la pagina di panoramica delle Notizie</a>.' , 'design_scuole_italia' ),
+        'name'        => __( 'Sezione Le Novità', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$notizie_landing_url.'">la pagina di panoramica delle Novità</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
@@ -624,7 +624,7 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$notizie_options->add_field( array(
-			'name'       => __('Tipologie Notizie', 'design_scuole_italia' ),
+			'name'       => __('Tipologie Articoli', 'design_scuole_italia' ),
 			'desc' => __( 'Articoli aggregati per tipologie (es: articoli, circolari, notizie), . Seleziona le tipologie da mostrare. ', 'design_scuole_italia' ),
 			'id' => $prefix . 'tipologie_notizie',
 			'type'    => 'pw_multiselect',

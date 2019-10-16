@@ -39,7 +39,7 @@
                                     ?>
 									<div class="custom-control custom-checkbox custom-checkbox-greendark">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news">
-										<label class="custom-control-label" for="notizie"><?php _e("Notizie","design_scuole_italia"); ?></label>
+										<label class="custom-control-label" for="notizie"><?php _e("Novità","design_scuole_italia"); ?></label>
 									</div>
 									<?php }
                                     // check if post type is used
