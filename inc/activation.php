@@ -849,4 +849,13 @@ function dsi_create_pages_on_theme_activation() {
 }
 
 
+// creo le opzioni per ginger
 
+$field_export = "{\"ginger_general\":{\"enable_ginger\":\"1\",\"ginger_cache\":\"no\",\"ginger_opt\":\"in\",\"ginger_scroll\":\"1\",\"ginger_click_out\":\"1\",\"ginger_force_reload\":\"0\",\"ginger_keep_banner\":\"0\",\"ginger_cookie_duration\":\"365000\",\"ginger_logged_users\":\"0\",\"pagine_escluse\":[{\"select-input\":\"\"}]},\"ginger_banner\":{\"ginger_banner_type\":\"bar\",\"ginger_banner_position\":\"bottom\",\"ginger_banner_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"ginger_Iframe_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"accept_cookie_button_text\":\"Accetta Cookie\",\"disable_cookie_button_text\":\"Disabilita i Cookie\",\"disable_cookie_button_status\":\"1\",\"theme_ginger\":\"light\",\"background_color\":\"#51758c\",\"text_color\":\"#ffffff\",\"button_color\":\"#ffffff\",\"button_text_color\":\"#444444\",\"link_color\":\"#e5e5e5\",\"ginger_css\":\"\"},\"gingerjscustom\":false,\"ginger_jscustom\":false,\"gingeradsense\":false,\"gingerwpml\":false,\"ginger_wpml_options\":false,\"gingerpolylang\":false,\"ginger_polylang_options\":false,\"gingeranalytics\":false,\"gingeranalytics_option\":false}";
+
+if($newconf = json_decode(stripslashes($field_export), true)) {
+    $newconf = json_decode(json_encode($newconf), true);
+    foreach ($newconf as $key => $val) {
+        update_option($key, $val);
+    }
+}
