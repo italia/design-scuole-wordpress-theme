@@ -82,15 +82,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                     }
                                     ?>
                                 <?php } ?>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <?php
-                                            if (comments_open() || get_comments_number()) :
-                                                comments_template();
-                                            endif;
-                                        ?>
-                                    </div>
-                                </div>
+
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
                                         <?php get_template_part( "template-parts/single/bottom" ); ?>

@@ -102,7 +102,7 @@ if(!function_exists("dsi_get_user_avatar")){
 		if($foto_url)
             $foto_id = attachment_url_to_postid($foto_url);
 
-		if($foto_id)
+        if(isset($foto_id) && $foto_id)
             $avatar = wp_get_attachment_image_url($foto_id, "item-thumb");
 		else
 		    $avatar = get_avatar_url( $user->ID, array("size" => $size) );
@@ -110,6 +110,43 @@ if(!function_exists("dsi_get_user_avatar")){
 		$avatar = apply_filters("dsi_avatar_url", $avatar, $user);
 		return $avatar;
 	}
+}
+
+
+add_filter( 'get_avatar' , 'dsi_custom_avatar' , 1 , 5 );
+
+function dsi_custom_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
+    $user = false;
+
+    if ( is_numeric( $id_or_email ) ) {
+
+        $id = (int) $id_or_email;
+        $user = get_user_by( 'id' , $id );
+
+    } elseif ( is_object( $id_or_email ) ) {
+
+        if ( ! empty( $id_or_email->user_id ) ) {
+            $id = (int) $id_or_email->user_id;
+            $user = get_user_by( 'id' , $id );
+        }
+
+    } else {
+        $user = get_user_by( 'email', $id_or_email );
+    }
+
+    if ( $user && is_object( $user ) ) {
+
+        $foto_url = get_the_author_meta('_dsi_persona_foto', $user->ID);
+        if($foto_url)
+            $foto_id = attachment_url_to_postid($foto_url);
+
+        if(isset($foto_id) && $foto_id) {
+            $avatar = wp_get_attachment_image_url($foto_id, "item-thumb");
+            $avatar = "<img alt='{$alt}' src='{$avatar}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";
+        }
+    }
+
+    return $avatar;
 }
 
 
