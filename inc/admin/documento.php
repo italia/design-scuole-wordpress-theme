@@ -383,7 +383,7 @@ function dsi_add_documento_metaboxes() {
 
     $cmb_aftercontent->add_group_field( $timeline_group_id, array(
         'id' => 'titolo_timeline',
-        'before'        => __( 'Titolo', 'design_scuole_italia' ),
+        'before'        => __( ' Descrizione ', 'design_scuole_italia' ),
         'type' => 'text',
     ) );
 

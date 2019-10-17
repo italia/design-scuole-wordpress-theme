@@ -213,15 +213,39 @@ luogo
 /** documento **/
 
 
-#_dsi_documento_timeline_repeat .inside .cmb-type-text,#_dsi_documento_timeline_repeat .inside .cmb-type-text-date
+#_dsi_documento_timeline_repeat .inside .cmb-type-text-date
 {
-    width:50%;
+    width:20%;
+    float:left;
+    border:0px;
+    text-align: right;
+    padding-right: 10px;
+    margin-left: -10px;
+}
+#_dsi_documento_timeline_repeat .inside .cmb-type-text
+{
+    width:80%;
     float:left;
     border:0px;
 }
 
-
 #_dsi_documento_timeline_repeat .inside .cmb-row {
     padding-bottom:0px !important;
     padding-top:8px !important;
+}
+
+
+.cmb-row .move-up, .cmb-row .move-down{
+    border: solid 1px #0073aa;
+    padding:2px 5px 0px 4px;
+    color: #0073aa;
+}
+
+.cmb-row .cmb-remove-group-row{
+    text-transform:uppercase;
+    background-color:#be4441;
+    font-weight:bold;
+    color:#fff;
+    border:none;
+    padding:2px 12px 2px 12px;
 }
