@@ -370,6 +370,14 @@ function dsi_add_luogo_metaboxes() {
 	) );
 
 
+    $cmb_aftercontent_luoghi->add_field( array(
+        'id'         => $prefix . 'posti_sedere',
+        'name'       => __( 'Posti a sedere ', 'design_scuole_italia' ),
+        'desc'       => __( 'Indicare il numero di posti a sedere se il luogo prevede delle sedute (come ad esempio un auditorium, un aula magna, un teaotro, etc.)', 'design_scuole_italia' ),
+        'type'       => 'text_small'
+    ) );
+
+
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'info',
 		'name'       => __( 'Ulteriori informazioni', 'design_scuole_italia' ),

@@ -438,7 +438,8 @@ new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_struttura_didatti
 // relazione bidirezionale  servizi / luogo
 new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "luoghi", "box_elementi_servizio", "_dsi_luogo_servizi_presenti");
 
-
+// relazione bidirezionale servizio / documento
+new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_schede_documenti", "box_elementi_servizio", "_dsi_documento_servizi_collegati");
 
 
 /**

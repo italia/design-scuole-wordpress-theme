@@ -16,7 +16,7 @@ function dsi_register_documento_post_type() {
     $args   = array(
         'label'         => __( 'Documento', 'design_scuole_italia' ),
         'labels'        => $labels,
-        'supports'      => array( 'title', 'editor' ),
+        'supports'      => array( 'title', 'editor' , 'thumbnail' ),
         'taxonomies'    => array( 'tipologia' ),
         'hierarchical'  => false,
         'public'        => true,
@@ -128,6 +128,38 @@ function dsi_add_documento_metaboxes() {
     $prefix = '_dsi_documento_';
 
 
+
+    $cmb_tipologia = new_cmb2_box( array(
+        'id'           => $prefix . 'box_tipologia',
+        'title'        => __( 'Tipologia', 'design_scuole_italia' ),
+        'object_types' => array( 'documento' ),
+        'context'      => 'side',
+        'priority'     => 'high',
+    ) );
+
+
+    $cmb_tipologia->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'type'             => 'taxonomy_radio_hierarchical',
+        'taxonomy'       => 'tipologia-documento',
+        'show_option_none' => false,
+        'remove_default' => 'true',
+        'default'          => 'documento-generico',
+        'attributes' => array(
+            'required'  => 'required'
+        ),
+    ) );
+
+    $cmb_tipologia->add_field( array(
+        'id' => $prefix . 'identificativo',
+        'name' => __( "Identificativo Documento", 'design_scuole_italia' ),
+        'after' => __( "ad uso interno", 'design_scuole_italia' ),
+        'type'             => 'text_small',
+
+    ) );
+
+
+
     $cmb_side = new_cmb2_box( array(
         'id'           => $prefix . 'box_side',
         'title'        => __( 'Scadenza', 'design_scuole_italia' ),
@@ -161,20 +193,6 @@ function dsi_add_documento_metaboxes() {
         'type'       => 'textarea',
         'attributes' => array(
             'maxlength' => '160',
-            'required'  => 'required'
-        ),
-    ) );
-
-    $cmb_sottotitolo->add_field( array(
-        'id' => $prefix . 'tipologia',
-        'name'        => __( 'Tipologia documento', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona se è un Documento generico, Albo pretorio o altro.' , 'design_scuole_italia' ),
-        'type'             => 'taxonomy_radio_inline',
-        'taxonomy'       => 'tipologia-documento',
-        'show_option_none' => false,
-        'remove_default' => 'true',
-        'default'          => 'documento-generico',
-        'attributes' => array(
             'required'  => 'required'
         ),
     ) );
@@ -278,7 +296,7 @@ function dsi_add_documento_metaboxes() {
 
     $cmb_aftercontent->add_field( array(
             'name'       => __('Autore/i ', 'design_scuole_italia' ),
-            'desc' => __( 'Eventuale Lista autori che hanno pubblicato il documento. Es link alla scheda del Dirigente scolastico. Inseriscile <a href="edit-tags.php?taxonomy=persona">cliccando qui</a> ' , 'design_scuole_italia' ),
+            'desc' => __( 'Eventuale Lista autori che hanno pubblicato il documento. Es link alla scheda del Dirigente scolastico. Inseriscile <a href="users.php">da qui</a> ' , 'design_scuole_italia' ),
             'id'             => $prefix . 'autori',
             'type'    => 'pw_multiselect',
             'options' => dsi_get_user_options(),
@@ -317,13 +335,15 @@ function dsi_add_documento_metaboxes() {
     ) );
 
 
+// todo servizi con correlazione bidirezionale
 
 
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'servizi_collegati',
         'name'        => __( 'Servizi collegati', 'design_scuole_italia' ),
-        'desc' => __( 'Breve descrizione del servizio collegato al documento. Es.  Per partecipare al bando vai alla scheda di presentazione delle modalità di partecipazione ai bandi comunali.' , 'design_scuole_italia' ),
-        'type' => 'textarea'
+        'desc' => __( 'Servizi collegati al documento' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_servizi_options(),
     ) );
 
     $cmb_aftercontent->add_field( array(
@@ -339,7 +359,7 @@ function dsi_add_documento_metaboxes() {
     $timeline_group_id = $cmb_aftercontent->add_field( array(
         'id'           => $prefix . 'timeline',
         'type'        => 'group',
-        'name'        => 'Fasi',
+        'name'        => '<h1>Fasi</h1>',
         'desc' => __( 'Suddividere i contenuti del documento in fasi e relative date. Es data di apertura della partecipazione a un bando, data di scadenza della possibilità di partecipare al bando' , 'design_scuole_italia' ),
         'repeatable'  => true,
         'options'     => array(
@@ -353,7 +373,7 @@ function dsi_add_documento_metaboxes() {
 
     $cmb_aftercontent->add_group_field( $timeline_group_id, array(
         'id' => 'data_timeline',
-        'name'        => __( 'Data', 'design_scuole_italia' ),
+        'before'        => __( 'Data ', 'design_scuole_italia' ),
         'type' => 'text_date',
         'date_format' => 'd-m-Y',
         'data-datepicker' => json_encode( array(
@@ -363,7 +383,7 @@ function dsi_add_documento_metaboxes() {
 
     $cmb_aftercontent->add_group_field( $timeline_group_id, array(
         'id' => 'titolo_timeline',
-        'name'        => __( 'Titolo', 'design_scuole_italia' ),
+        'before'        => __( 'Titolo', 'design_scuole_italia' ),
         'type' => 'text',
     ) );
 
@@ -372,8 +392,8 @@ function dsi_add_documento_metaboxes() {
 
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'ufficio',
-        'name'    => __( 'Ufficio responsabile del documento', 'design_scuole_italia' ),
-        'desc' => __( 'Link alla scheda dell\'ufficio responsabile del documento. Se non la trovi inseriscila <a href="post-new.php?post_type=struttura">cliccando qui</a> ' , 'design_scuole_italia' ),
+        'name'    => __( 'Strutture organizzative responsabili del documento', 'design_scuole_italia' ),
+        'desc' => __( 'Link alla struttura organizzativa responsabile del documento. Se non la trovi inseriscila <a href="post-new.php?post_type=struttura">cliccando qui</a> ' , 'design_scuole_italia' ),
         'type'    => 'custom_attached_posts',
         'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
         'options' => array(
@@ -690,3 +710,4 @@ function dsi_save_documento( $post_id) {
 
 
 
+new dsi_bidirectional_cmb2("_dsi_documento_", "documento", "servizi_collegati", "box_elementi_dati", "_dsi_servizio_link_schede_documenti");

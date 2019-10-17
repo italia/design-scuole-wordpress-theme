@@ -24,6 +24,7 @@ get_header();
         $descrizione_breve = dsi_get_meta("descrizione_breve");
         $anno_costruzione = dsi_get_meta("anno_costruzione");
         $numero_piani = dsi_get_meta("numero_piani");
+        $posti_sedere = dsi_get_meta("posti_sedere");
         $gallery = dsi_get_meta("gallery");
         $video = dsi_get_meta("video");
         $link_strutture = dsi_get_meta("link_strutture");
@@ -128,7 +129,7 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if((trim($anno_costruzione) != "") || (trim($numero_piani) != "")){ ?>
+                                        <?php if((trim($anno_costruzione) != "") || (trim($numero_piani) != "")|| (trim($posti_sedere) != "")){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-dettagli" title="Vai al paragrafo <?php _e("Dettagli edificio", "design_scuole_italia"); ?>"><?php _e("Dettagli edificio", "design_scuole_italia"); ?></a>
                                             </li>
@@ -371,7 +372,7 @@ get_header();
                                 }
 
                                 ?>
-                                <?php if((trim($anno_costruzione) != "") || (trim($numero_piani) != "")){ ?>
+                                <?php if((trim($anno_costruzione) != "") || (trim($numero_piani) != "") || (trim($posti_sedere) != "") ){ ?>
                                     <h4 id="art-par-dettagli"><?php _e("Dettagli edificio", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
@@ -390,6 +391,10 @@ get_header();
                                                     <?php if($numero_piani){ ?>
                                                         <h4><?php _e("Numero di piani", "design_scuole_italia"); ?></h4>
                                                         <p><?php echo $numero_piani; ?></p>
+                                                    <?php } ?>
+                                                    <?php if($posti_sedere){ ?>
+                                                        <h4><?php _e("Posti a sedere", "design_scuole_italia"); ?></h4>
+                                                        <p><?php echo $posti_sedere; ?></p>
                                                     <?php } ?>
                                                 </div>
                                             </div><!-- /big-data-rounded-icon -->

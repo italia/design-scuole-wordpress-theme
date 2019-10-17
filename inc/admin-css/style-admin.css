@@ -209,3 +209,19 @@ luogo
     width:50% !important;
     float:left;
 }
+
+/** documento **/
+
+
+#_dsi_documento_timeline_repeat .inside .cmb-type-text,#_dsi_documento_timeline_repeat .inside .cmb-type-text-date
+{
+    width:50%;
+    float:left;
+    border:0px;
+}
+
+
+#_dsi_documento_timeline_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
