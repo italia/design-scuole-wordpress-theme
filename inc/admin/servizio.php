@@ -437,3 +437,18 @@ new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_struttura_didatti
 
 // relazione bidirezionale  servizi / luogo
 new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "luoghi", "box_elementi_servizio", "_dsi_luogo_servizi_presenti");
+
+
+
+
+/**
+ * aggiungo js per condizionale parent
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_servizio_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_servizio_admin_script', 11 );
+
+function dsi_servizio_admin_script() {
+    global $post_type;
+    if( 'servizio' == $post_type )
+        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/servizio.js' );
+}
