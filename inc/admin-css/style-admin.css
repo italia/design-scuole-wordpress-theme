@@ -155,3 +155,57 @@
 .cmb-type-taxonomy-multicheck-hierarchy-child .active {
     display: block;
 }
+/**
+luogo
+ */
+
+#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-text,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-textarea-small,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-select{
+    width:33%;
+    float:left;
+    border:0px;
+}
+
+#_dsi_luogo_modalita_accesso_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-text,#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-textarea-small{
+    width:50%;
+    float:left;
+    border:0px;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+
+.cmb-repeatable-group .cmb2-metabox-description{
+    font-weight:normal;
+    font-size:14px;
+    padding-bottom: 0px;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .cmb2-metabox-description,
+#_dsi_luogo_modalita_accesso_repeat .cmb2-metabox-description {
+    padding-bottom:0px !important;
+    margin-bottom:0px !important;
+}
+
+
+.cmb2-id--dsi-luogo-gestito-da{
+    border-bottom: 0px !important;
+
+}
+
+ .cmb2-id--dsi-luogo-gestito-da {
+    padding-bottom:0px !important;
+}
+
+
+.cmb2-id--dsi-luogo-gestito-da-nome, .cmb2-id--dsi-luogo-gestito-da-link{
+    width:50% !important;
+    float:left;
+}

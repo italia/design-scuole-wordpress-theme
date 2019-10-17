@@ -85,7 +85,7 @@ function dsi_get_luoghi_options( $parent = false, $addnone=false) {
 
 	$options = array();
 	if($addnone)
-		$options[0]=__("No","design_scuole_italia");
+		$options[0]=__("Nessun luogo","design_scuole_italia");
 	if ( $luoghi ) {
 		foreach ( $luoghi as $luogo ) {
 			$options[ $luogo->ID ] = $luogo->post_title;
@@ -125,6 +125,25 @@ function dsi_get_strutture_scuole_options( ) {
 }
 
 
+/**
+ * @return array
+ */
+function dsi_get_servizi_options( ) {
+
+    $programs = get_posts("post_type=servizio&posts_per_page=-1&orderby=title&order=ASC");
+
+    $options = array();
+    if ( $programs ) {
+        foreach ( $programs as $program ) {
+            $options[ $program->ID ] = $program->post_title;
+        }
+    }
+    return $options;
+}
+
+/**
+ * @return array
+ */
 function dsi_get_servizi_didattici_options( ) {
 
     $programs = get_posts("post_type=servizio&tipologia-servizio=servizi-didattici&posts_per_page=-1&orderby=title&order=ASC");
@@ -135,7 +154,6 @@ function dsi_get_servizi_didattici_options( ) {
             $options[ $program->ID ] = $program->post_title;
         }
     }
-
     return $options;
 }
 

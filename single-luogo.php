@@ -30,7 +30,10 @@ get_header();
         $orario_pubblico = dsi_get_meta("orario_pubblico");
         $altre_info = dsi_get_meta("info");
         $servizi_presenti = dsi_get_meta("servizi_presenti");
+        $servizi_altro = dsi_get_meta("servizi_altro");
+
         $modalita_accesso = dsi_get_meta("modalita_accesso");
+        $gestito_da  = dsi_get_meta("gestito_da");
         $gestito_da_nome  = dsi_get_meta("gestito_da_nome");
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
 
@@ -93,18 +96,19 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-video" title="Vai al paragrafo <?php _e("Video", "design_scuole_italia"); ?>"><?php _e("Video", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-dove" title="Vai al paragrafo <?php _e("Dove si trova", "design_scuole_italia"); ?>"><?php _e("Dove si trova", "design_scuole_italia"); ?></a>
-                                        </li>
+
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-desc" title="Vai al paragrafo <?php _e("Descrizione", "design_scuole_italia"); ?>"><?php _e("Descrizione", "design_scuole_italia"); ?></a>
+                                        </li>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-dove" title="Vai al paragrafo <?php _e("Dove si trova", "design_scuole_italia"); ?>"><?php _e("Dove si trova", "design_scuole_italia"); ?></a>
                                         </li>
                                         <?php /* if($modalita_accesso){ ?>
 										<li>
 											<a class="list-item scroll-anchor-offset" href="#art-par-accesso" title="Vai al paragrafo <?php _e("Modalità di accesso", "design_scuole_italia"); ?>"><?php _e("Modalità di accesso", "design_scuole_italia"); ?></a>
 										</li>
 										<?php }  */ ?>
-                                        <?php if($servizi_presenti){ ?>
+                                        <?php if($servizi_presenti || $servizi_altro){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi presenti nel luogo", "design_scuole_italia"); ?>"><?php _e("Servizi presenti nel luogo", "design_scuole_italia"); ?></a>
                                             </li>
@@ -158,8 +162,7 @@ get_header();
                                     <?php
                                 }
                                 ?>
-                                <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
-                                <?php get_template_part("template-parts/luogo/card"); ?>
+
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <h4 id="art-par-desc"><?php _e("Descrizione", "design_scuole_italia"); ?></h4>
@@ -241,10 +244,10 @@ get_header();
 
                                                 $titolo = "";
                                                 if(isset($tacc["tipologia_accesso"])){
-                                                if($tacc["tipologia_accesso"] == "accessibilita")
-                                                    $titolo = "Accessibilità";
-                                                else
-                                                    $titolo = ucfirst($tacc["tipologia_accesso"]);
+                                                    if($tacc["tipologia_accesso"] == "accessibilita")
+                                                        $titolo = "Accessibilità";
+                                                    else
+                                                        $titolo = ucfirst($tacc["tipologia_accesso"]);
                                                 }else{
                                                     $tacc["tipologia_accesso"] = "";
                                                     $titolo = "";
@@ -273,18 +276,38 @@ get_header();
                                     </div><!-- /row -->
                                 <?php } ?>
 
-                                <?php if($servizi_presenti){ ?>
+                                <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
+                                <?php
+                                global $lg;
+                                $lg=12;
+                                get_template_part("template-parts/luogo/card"); ?>
+
+                                <?php if($servizi_presenti || $servizi_altro){ ?>
                                     <h4 id="art-par-servizi" class="mb-4"><?php _e("Servizi presenti", "design_scuole_italia"); ?></h4>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php foreach ($servizi_presenti as $idservizio){
-                                                    $servizio = get_post($idservizio);
-                                                    get_template_part("template-parts/servizio/card");
-                                                } ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
+                                    <?php if($servizi_presenti){ ?>
+                                        <div class="row variable-gutters">
+                                            <div class="col-lg-12">
+                                                <div class="card-deck card-deck-spaced">
+                                                    <?php foreach ($servizi_presenti as $idservizio){
+                                                        $servizio = get_post($idservizio);
+                                                        get_template_part("template-parts/servizio/card");
+                                                    } ?>
+                                                </div><!-- /card-deck card-deck-spaced -->
+                                            </div><!-- /col-lg-12 -->
+                                        </div><!-- /row -->
+                                    <?php  }
+                                    if($servizi_altro){
+                                        ?>
+                                        <div class="row variable-gutters">
+                                            <div class="col-lg-12">
+                                                <?php echo wpautop($servizi_altro); ?>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                    }
+                                    ?>
+
                                 <?php } ?>
 
                                 <?php if($link_strutture){ ?>
@@ -303,18 +326,36 @@ get_header();
                                         </div><!-- /col-lg-12 -->
                                     </div><!-- /row -->
                                 <?php } ?>
-                                <?php if($gestito_da_nome != ""){ ?>
+                                <?php if($gestito_da_nome != "" || (is_array($gestito_da) && count($gestito_da)> 0)){ ?>
                                     <h4 id="art-par-gestione"><?php _e("Gestito da", "design_scuole_italia"); ?></h4>
-                                    <div class="row variable-gutters mb-3">
-                                        <div class="col-lg-9">
-                                            <p class="mb-3"><?php echo $gestito_da_nome; ?></p>
-                                            <?php if($gestito_da_link != ""){ ?>
-                                                <div class="btn-wrapper mb-5">
-                                                    <a class="btn btn-redbrown" href="<?php echo $gestito_da_link; ?>"><?php _e("Vai alla pagina del gestore", "design_scuole_italia"); ?></a>
-                                                </div>
-                                            <?php } ?>
-                                        </div><!-- /col-lg-9 -->
-                                    </div><!-- /row -->
+                                    <?php if(is_array($gestito_da) && count($gestito_da)> 0){ ?>
+                                        <div class="row variable-gutters">
+                                            <div class="col-lg-12">
+                                                <div class="card-deck card-deck-spaced">
+                                                    <?php
+                                                    foreach ( $gestito_da as $id_struttura ) {
+                                                        $struttura = get_post($id_struttura);
+                                                        get_template_part("template-parts/struttura/card");
+                                                    }
+                                                    ?>
+                                                </div><!-- /card-deck card-deck-spaced -->
+                                            </div><!-- /col-lg-12 -->
+                                        </div><!-- /row -->
+                                    <?php } ?>
+
+                                    <?php if($gestito_da_nome != "") { ?>
+                                        <div class="row variable-gutters mb-3">
+                                            <div class="col-lg-9">
+                                                <p class="mb-3"><?php echo $gestito_da_nome; ?></p>
+                                                <?php if($gestito_da_link != ""){ ?>
+                                                    <div class="btn-wrapper mb-5">
+                                                        <a class="btn btn-redbrown" href="<?php echo $gestito_da_link; ?>"><?php _e("Vai alla pagina del gestore", "design_scuole_italia"); ?></a>
+                                                    </div>
+                                                <?php } ?>
+                                            </div><!-- /col-lg-9 -->
+                                        </div><!-- /row -->
+                                    <?php } ?>
+
                                 <?php } ?>
                                 <?php
 
@@ -377,7 +418,8 @@ get_header();
                     </div><!-- /container -->
                 </section><!-- /section -->
             <?php } ?>
-            <?php  	endwhile; // End of the loop. ?>
+            <?php
+            endwhile; // End of the loop. ?>
 
 
             <?php

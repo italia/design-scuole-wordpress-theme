@@ -1,6 +1,15 @@
 <?php
-global $luogo, $struttura, $c;
+global $luogo, $struttura, $c, $lg;
 
+if(!$lg) $lg = 9;
+
+if($lg == 9){
+    $col1=5;
+    $col2=7;
+}else{
+    $col1=6;
+    $col2=6;
+}
 
 // controllo se è un parent, in caso recupero i dati del genitore
 if($luogo->post_parent == 0){
@@ -45,7 +54,7 @@ if(isset($struttura->ID)){
 ?>
 
 <div class="row variable-gutters">
-	<div class="col-lg-9">
+	<div class="col-lg-<?php echo $lg; ?>">
 		<div class="card card-bg rounded mb-5">
 			<div class="card-header">
                 <?php if(is_singular("luogo") && ($luogo->post_parent == 0)){ ?>
@@ -61,12 +70,12 @@ if(isset($struttura->ID)){
 			</div><!-- /card-header -->
 			<div class="card-body p-0">
 				<div class="row variable-gutters">
-					<div class="col-lg-5 pr-0 pt-0 p-b0">
+					<div class="col-lg-<?php echo $col1; ?> pr-0 pt-0 p-b0">
 						<div class="map-wrapper">
 							<div class="map" id="map_<?php echo $c; ?>"></div>
 						</div>
 					</div><!-- /col-lg-4 -->
-					<div class="col-lg-7">
+					<div class="col-lg-<?php echo $col2; ?>">
 						<div class="py-4">
 							<ul class="location-list mt-2">
 								<?php if(isset($indirizzo) && $indirizzo != ""){ ?>

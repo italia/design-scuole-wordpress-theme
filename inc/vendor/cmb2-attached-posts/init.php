@@ -179,7 +179,7 @@ class WDS_CMB2_Attached_Posts_Field {
 
 		// Open our attached posts list
 		echo '<div class="attached-wrap column-wrap">';
-		echo '<h4 class="attached-posts-section">' . sprintf( __( '%s Correlati', 'cmb' ), $post_type_labels ) . '</h4>';
+		echo '<h4 class="attached-posts-section">' . sprintf( __( '%s selezionati/e', 'cmb' ), $post_type_labels ) . '</h4>';
 
 		if ( $filter_boxes ) {
 			printf( $filter_boxes, 'attached-search' );
