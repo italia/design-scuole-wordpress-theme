@@ -678,6 +678,19 @@ function dsi_is_scuola($post){
 }
 
 /**
+ * controllo se una struttura è una scuola
+ * @param $post
+ * @return bool
+ */
+function dsi_is_servizio_didattico($post){
+
+    if(has_term("servizi-didattici", "tipologia-servizio", $post))
+        return true;
+
+    return false;
+}
+
+/**
  * ritorna l'anno scolastico corrente
  * @param bool $year
  * @return false|int|string

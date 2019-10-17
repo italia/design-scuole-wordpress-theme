@@ -549,3 +549,6 @@ function dsi_save_luogo( $post_id) {
 
 // relazione bidirezionale struttura / luoghi
 new dsi_bidirectional_cmb2("_dsi_luogo_", "luogo", "link_strutture", "box_elementi_dati", "_dsi_struttura_sedi");
+
+// relazione bidirezionale servizi / luoghi
+new dsi_bidirectional_cmb2("_dsi_luogo_", "luogo", "servizi_presenti", "box_elementi_dati", "_dsi_servizio_luoghi");

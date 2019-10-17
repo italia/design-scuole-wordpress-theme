@@ -2,7 +2,8 @@
 global $struttura;
 
 $tipologie = wp_get_object_terms( $struttura->ID, 'tipologia-struttura' );
-if($tipologie){
+$tipologia = "";
+if(is_array($tipologie) && count($tipologie) > 0){
 	$tipologia = $tipologie[0]->slug;
 }
 ?>

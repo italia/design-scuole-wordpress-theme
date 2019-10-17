@@ -92,7 +92,7 @@ function dsi_register_struttura_post_type() {
         )
     );
 
-    register_taxonomy( 'percorsi-di-studio', array( 'struttura', "scheda_didattica" ), $args );
+    register_taxonomy( 'percorsi-di-studio', array( 'struttura', "scheda_didattica", "servizio" ), $args );
 
 
 }
@@ -139,6 +139,17 @@ function dsi_add_struttura_metaboxes() {
         ),
     ) );
 
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'link_servizi_didattici',
+        'name'    => __( 'Servizi didattici ', 'design_scuole_italia' ),
+        'desc' => __( 'Se la struttura descritta è una scuola o un istituto link ai servizi didattici presenti nella scuola Infanzia / Primaria / secondaria primo grado / secondaria di secondo grado ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_servizi_didattici_options(),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "scuola",
+        ),
+    ) );
 
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
@@ -154,7 +165,7 @@ function dsi_add_struttura_metaboxes() {
     $cmb_sottotitolo->add_field( array(
         'id'         => $prefix . 'childof',
         'name'       => __( 'La struttura dipende da un\'altra  struttura. ', 'design_scuole_italia' ),
-        'desc'       => __( 'Ad esempio se è una scuola figlia di un istituto, seleziona l\'istituto di cui fa parte', 'design_scuole_italia' ),
+        'desc'       => __( 'Ad esempio se è una scuola di un istituto, seleziona l\'istituto di cui fa parte', 'design_scuole_italia' ),
         'type'       => 'select',
         'show_option_none' => true,
         'options' => dsi_get_strutture_options(),
@@ -202,7 +213,7 @@ function dsi_add_struttura_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_servizi',
-		'name'    => __( 'Servizi ', 'design_scuole_italia' ),
+		'name'    => __( 'Servizi di cui la struttura è responsabile ', 'design_scuole_italia' ),
 		'before' => __( '<p>Link alle schede servizio gestite dalla struttura. Es. se la segreteria è responsabile del servizio di delega, ci sarà un link alla scheda "Delega per ingressi e uscite anticipati". Se la dirigenza è responsabile del servizio "Alternanza scuola lavoro" ci sarà un link alla relativa scheda </p>' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
 		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -212,6 +223,16 @@ function dsi_add_struttura_metaboxes() {
 			'query_args'      => array(
 				'posts_per_page' => -1,
 				'post_type'      => 'servizio',
+                /*
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'tipologia-servizio',
+                        'field'    => 'slug',
+                        'terms'    => 'servizi-didattici',
+                        'operator' => "NOT IN"
+                    ),
+                ),
+                */
 			), // override the get_posts args
 		),
 	) );
@@ -285,7 +306,7 @@ function dsi_add_struttura_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix .'sedi',
-		'name'    => __( 'Luoghi', 'design_scuole_italia' ),
+		'name'    => __( 'Sedi', 'design_scuole_italia' ),
 		'desc' => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
 		'type'    => 'custom_attached_posts',
 		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -299,27 +320,35 @@ function dsi_add_struttura_metaboxes() {
 		),
 	) );
 
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix .'luoghi',
+        'name'    => __( 'Luoghi presenti nella struttura', 'design_scuole_italia' ),
+        'desc' => __( 'Inserire tutti i <a href="edit.php?post_type=luogo">luoghi</a> presenti nella struttura. ' , 'design_scuole_italia' ),
+        'type'    => 'custom_attached_posts',
+        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+        'options' => array(
+            'show_thumbnails' => true, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array(
+                'posts_per_page' => -1,
+                'post_type'      => 'luogo',
+            ), // override the get_posts args
+        ),
+    ) );
+
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'telefono',
-		'name'       => __( 'Riferimento telefonico', 'design_scuole_italia' ),
-		'desc'       => __( 'Telefono del luogo. ', 'design_scuole_italia' ),
+		'name'       => __( 'Recapito telefonico struttura', 'design_scuole_italia' ),
+		'desc'       => __( 'Numero di telefono della struttura, se risulta diverso dal numero di telefono della sede. ', 'design_scuole_italia' ),
 		'type'       => 'text',
 	) );
 
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'mail',
-		'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
-		'desc'       => __( 'Indirizzo di posta elettronica della struttura. ', 'design_scuole_italia' ),
-		'type'       => 'text_email',
-	) );
-
-
-	$cmb_undercontent->add_field( array(
-		'id'         => $prefix . 'pec',
-		'name'       => __( 'Pec', 'design_scuole_italia' ),
-		'desc'       => __( 'Indirizzo di Posta Elettronica Certificata. ', 'design_scuole_italia' ),
+		'name'       => __( 'Email della struttura', 'design_scuole_italia' ),
+		'desc'       => __( 'Email della struttura se risulta diversa dalla email della sede. ', 'design_scuole_italia' ),
 		'type'       => 'text_email',
 	) );
 
@@ -365,7 +394,15 @@ new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_progetti
 
 // relazione bidirezionale struttura / luoghi
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "sedi", "box_elementi_struttura", "_dsi_luogo_link_strutture");
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "luoghi", "box_elementi_struttura", "_dsi_luogo_link_strutture");
 
+// relazione bidirezionale struttura / servizi
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_servizi", "box_elementi_struttura", "_dsi_servizio_struttura_responsabile");
+
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_servizi_didattici", "box_sottotitolo", "_dsi_servizio_link_struttura_didattica");
+
+
+// todo: aggiungere relazione bidirezionale con i servizi
 
 /**
  * salvo il parent cmb2

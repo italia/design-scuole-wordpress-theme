@@ -125,6 +125,21 @@ function dsi_get_strutture_scuole_options( ) {
 }
 
 
+function dsi_get_servizi_didattici_options( ) {
+
+    $programs = get_posts("post_type=servizio&tipologia-servizio=servizi-didattici&posts_per_page=-1&orderby=title&order=ASC");
+
+    $options = array();
+    if ( $programs ) {
+        foreach ( $programs as $program ) {
+            $options[ $program->ID ] = $program->post_title;
+        }
+    }
+
+    return $options;
+}
+
+
 function dsi_get_tipologie_strutture_options( ) {
 
     $classi = get_terms( array(
@@ -339,7 +354,8 @@ class dsi_bidirectional_cmb2 {
 			return;
 		}
 		// getting old values
-		$old_values = $field->args['old_values'];
+        if(isset($field->args['old_values']))
+    		$old_values = $field->args['old_values'];
 		// getting current post id
 		$object_id = $field->object_id;
 		// getting meta key

@@ -8,7 +8,6 @@
  */
 
 get_header();
-
 ?>
 
 
@@ -20,7 +19,11 @@ get_header();
 			the_post();
 
 			// get all post meta cmb2
-			$esito = dsi_get_meta("esito");
+            $percorsi = dsi_get_percorsi_of_scuola($post);
+           // print_r($percorsi);
+            $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
+            $sottotitolo = dsi_get_meta("sottotitolo");
+            $esito = dsi_get_meta("esito");
 			$descrizione = dsi_get_meta("descrizione");
 			$come_si_fa = dsi_get_meta("come_si_fa");
 			$procedura_esito = dsi_get_meta("procedura_esito");
@@ -55,8 +58,20 @@ get_header();
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                             <div class="section-title">
+                                <?php if(dsi_is_servizio_didattico($post) && is_array($percorsi)){
+                                    echo "<small class=\"h6 text-purplelight\">";
+                                    $c=0;
+                                    foreach ($percorsi as $percorso){
+
+                                        if($c) echo ", ";
+                                        echo strtoupper($percorso->name);
+                                        $c++;
+                                    }
+                                    echo "</small>";
+                                }  ?>
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
-                                <p><?php echo dsi_get_meta("sottotitolo"); ?></p>
+                                <?php if($sottotitolo != "") echo "<p>".$sottotitolo."</p>"; ?>
+
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
 
@@ -222,10 +237,27 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
-                                if($struttura_responsabile != ""){
+
+                                if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
-                                    $struttura = get_post($struttura_responsabile);
+                                    $struttura = get_post($struttura_responsabile[0]);
                                     echo "<h6>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h6>";
+                                    ?>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php get_template_part("template-parts/struttura/card"); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+
+                                }
+
+                                if(dsi_is_servizio_didattico($post) && is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
+                                    global $struttura;
+                                    $struttura = get_post($link_struttura_didattica[0]);
+                                    echo "<h6>".__("Struttura didattica del servizio", "design_scuole_italia")."</h6>";
                                     ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
@@ -243,7 +275,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi in cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
+                                            <h6><?php _e("Luoghi intu cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){
@@ -255,7 +287,6 @@ get_header();
                                         </div>
                                     </div>
                                     <?php
-
                                 }
 
                                     // struttura responsabile del servizio

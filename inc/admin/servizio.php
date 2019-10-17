@@ -126,6 +126,42 @@ function dsi_add_servizi_metaboxes() {
 		'type' => 'text',
 	) );
 
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'name'        => __( 'Tipologia servizio', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_radio_inline',
+        'taxonomy'       => 'tipologia-servizio',
+        'remove_default' => 'true'
+    ) );
+
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'percorsi',
+        'name'        => __( 'Percorsi di studio del servizio didattico', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_multicheck_hierarchy_child',
+        'select_all_button' => false,
+        'taxonomy'       => 'percorsi-di-studio',
+        'remove_default' => 'true',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+            //  'data-only-parent' => true,
+        ),
+    ) );
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'link_struttura_didattica',
+        'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_strutture_scuole_options(),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+        ),
+    ) );
+
+
+
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
 		'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
@@ -228,7 +264,7 @@ function dsi_add_servizi_metaboxes() {
         'id' => $prefix . 'struttura_responsabile',
         'name'        => __( 'Struttura responsabile del servizio', 'design_scuole_italia' ),
         'desc' => __( 'Seleziona la struttura responsabile del servizio ' , 'design_scuole_italia' ),
-        'type'    => 'pw_select',
+        'type'    => 'pw_multiselect',
         'options' => dsi_get_strutture_options(),
     ) );
 
@@ -356,11 +392,6 @@ function dsi_add_servizi_metaboxes() {
 		),
 	) );
 
-
-
-
-
-
 	$cmb_ipa = new_cmb2_box( array(
 		'id'           => $prefix . 'box_ipa',
 		'title'        => __( 'Codice dell’Ente Erogatore (ipa)', 'design_scuole_italia' ),
@@ -372,11 +403,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_ipa->add_field( array(
 		'id' => $prefix . 'ipa',
 		'desc' => __( 'Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo sul Servizio.', 'design_scuole_italia' ),
-		'type' => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-
+		'type' => 'text'
 	) );
 
 
@@ -402,3 +429,11 @@ function sdi_servizio_add_content_before_editor($post) {
 		_e('<h1>Descrizione Estesa e Completa del Servizio</h1>', 'design_scuole_italia' );
 }
 
+
+// relazione bidirezionale struttura / servizi
+new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "struttura_responsabile", "box_elementi_servizio", "_dsi_struttura_link_schede_servizi");
+
+new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_struttura_didattica", "box_sottotitolo", "_dsi_struttura_link_servizi_didattici");
+
+// relazione bidirezionale  servizi / luogo
+new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "luoghi", "box_elementi_servizio", "_dsi_luogo_servizi_presenti");
