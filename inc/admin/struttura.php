@@ -308,33 +308,17 @@ function dsi_add_struttura_metaboxes() {
 		'id' => $prefix .'sedi',
 		'name'    => __( 'Sedi', 'design_scuole_italia' ),
 		'desc' => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => true, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => -1,
-				'post_type'      => 'luogo',
-			), // override the get_posts args
-		),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_luoghi_options(),
 	) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix .'luoghi',
         'name'    => __( 'Luoghi presenti nella struttura', 'design_scuole_italia' ),
         'desc' => __( 'Inserire tutti i <a href="edit.php?post_type=luogo">luoghi</a> presenti nella struttura. ' , 'design_scuole_italia' ),
-        'type'    => 'custom_attached_posts',
-        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-        'options' => array(
-            'show_thumbnails' => true, // Show thumbnails on the left
-            'filter_boxes'    => true, // Show a text box for filtering the results
-            'query_args'      => array(
-                'posts_per_page' => -1,
-                'post_type'      => 'luogo',
-            ), // override the get_posts args
-        ),
-    ) );
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_luoghi_options(),
+        ) );
 
 
 	$cmb_undercontent->add_field( array(

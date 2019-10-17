@@ -292,7 +292,7 @@ get_header();
                                                         $c++;
                                                         $luogo = get_post($idluogo);
                                                         ?>
-                                                        <div class="col-lg-6 mb-4">
+                                                        <div class="col-lg-6 mb-1">
                                                             <?php
                                                             get_template_part( "template-parts/luogo/card", "ico");
                                                             ?>
