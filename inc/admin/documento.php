@@ -170,7 +170,7 @@ function dsi_add_documento_metaboxes() {
 
 
     $cmb_side->add_field( array(
-        'name'       => __('Data Scadenza', 'design_scuole_italia' ),
+//        'name'       => __('Data Scadenza', 'design_scuole_italia' ),
         'desc' => __( 'Data di scadenza del documento, una volta raggiunta questo sarà automaticamente archiviato come "Scaduto".' , 'design_scuole_italia' ),
         'id'             => $prefix . 'data_scadenza',
         'type'    => 'text_date_timestamp',
