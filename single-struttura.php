@@ -285,20 +285,22 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <h6><?php _e("Luoghi presenti nella struttura", "design_scuole_italia"); ?></h4>
-                                            <?php
-                                            $c=0;
-                                            foreach ($luoghi as $idluogo){
-                                                $c++;
-                                                $luogo = get_post($idluogo);
-                                                ?>
-                                                <div class="col-lg-4 mb-4">
+                                                <div class="card-deck card-deck-spaced">
                                                     <?php
-                                                    get_template_part( "template-parts/luogo/card", "ico");
+                                                    $c=0;
+                                                    foreach ($luoghi as $idluogo){
+                                                        $c++;
+                                                        $luogo = get_post($idluogo);
+                                                        ?>
+                                                        <div class="col-lg-4 mb-4">
+                                                            <?php
+                                                            get_template_part( "template-parts/luogo/card", "ico");
+                                                            ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                     ?>
                                                 </div>
-                                                <?php
-                                            }
-                                            ?>
                                         </div>
                                     </div>
                                 <?php } ?>
