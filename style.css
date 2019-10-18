@@ -213,3 +213,16 @@ table td ul{
 .label-didattica{
     margin-top: -30px;
 }
+
+/***/
+
+@media (max-width: 991.98px){
+    .responsive-tabs-aside {
+        border-bottom: 1px solid #0a00cb !important;
+    }
+    .r-tabs .r-tabs-accordion-title {
+        border-top: 1px solid #0a00cb !important;
+
+    }
+}
+
