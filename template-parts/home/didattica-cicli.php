@@ -34,6 +34,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 ?>
                             </ul>
                             <?php
+                            $c=0;
                             foreach ($scuole_didattica as $idstruttura) {
                                 $scuola = get_post($idstruttura);
 
@@ -92,5 +93,6 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
             </div><!-- /row -->
         </div><!-- /container -->
     </section><!-- /section -->
+
     <?php
 }

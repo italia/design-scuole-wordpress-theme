@@ -3986,3 +3986,9 @@ $(document).ready(function() {
   });
 });
 /* End User Logged Sticky */
+
+
+/** custom **/
+$(document).ready(function() {
+$('.responsive-tabs').responsiveTabs('activate', 0);
+});
