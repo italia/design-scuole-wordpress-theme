@@ -34,10 +34,13 @@ function dsi_custom_admin_menu() {
 
     rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");
     swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
-    swap_admin_menu_sections('Media','Circolari');
-    remove_submenu_page('edit.php?post_type=programma_materia', 'edit-tags.php?taxonomy=classe&amp;post_type=programma_materia');
+    swap_admin_menu_sections('Media','Documenti');
 
 
+
+// todo: programma materia
+/*
+ * remove_submenu_page('edit.php?post_type=programma_materia', 'edit-tags.php?taxonomy=classe&amp;post_type=programma_materia');
         $classe = add_menu_page(
             'Classi',
             'Classi',
@@ -47,10 +50,7 @@ function dsi_custom_admin_menu() {
             'dashicons-format-quote',
             8
         );
-
-
-    //remove_admin_menu_item("edit.php?post_type=programma_materia",'edit-tags.php?taxonomy=classe&post_type=programma_materia');
-
+*/
 
 }
 
