@@ -24,7 +24,7 @@
 			                     'documento'  => 'tipologia-documento',
 			                     'post'  =>     'tipologia-articolo',
 			                     'luogo'  => 'tipologia-luogo',
-			                     'programma_materia'  => 'materia',
+			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',
                                 'scheda_didattica'  => 'percorsi-di-studio',
 		                    ),

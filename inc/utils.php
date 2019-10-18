@@ -62,10 +62,10 @@ if(!function_exists("dsi_get_meta")){
 		}else if (is_singular("post")  || (isset($post_type) && $post_type == "post")) {
 			$prefix = '_dsi_articolo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("programma_materia")  || (isset($post_type) && $post_type == "programma_materia")) {
+		}/*else if (is_singular("programma_materia")  || (isset($post_type) && $post_type == "programma_materia")) { // todo: programma materia
 			$prefix = '_dsi_materia_';
 			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("scheda_progetto")  || (isset($post_type) && $post_type == "scheda_progetto")) {
+		}*/else if (is_singular("scheda_progetto")  || (isset($post_type) && $post_type == "scheda_progetto")) {
 			$prefix = '_dsi_scheda_progetto_';
 			return get_post_meta( $post_id, $prefix . $key, true );
 		}else if (is_singular("scheda_didattica")  || (isset($post_type) && $post_type == "scheda_didattica")) {
@@ -447,11 +447,11 @@ function dsi_get_post_types_grouped($type = "", $category = false){
 	else if($type === "news")
 		$post_types = array("evento", "post", "circolare");
 	else if($type === "education")
-		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
+		$post_types = array("scheda_didattica", "scheda_progetto"); // todo: programma materia 		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
 		$post_types = array("servizio");
 	else
-		$post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
 	// rimuovo post types che non hanno la categoria
 	if($category){
@@ -474,7 +474,7 @@ function dsi_get_post_types_grouped($type = "", $category = false){
  */
 function dsi_get_post_types_group($post_type){
 	$group = "news";
-	if(in_array($post_type, array("documento", "luogo", "programma_materia", "struttura", "page")))
+	if(in_array($post_type, array("documento", "luogo", "struttura", "page"))) // todo: programma materia if(in_array($post_type, array("documento", "luogo", "programma_materia", "struttura", "page")))
 		$group = "school";
 	else if(in_array($post_type, array("programma", "scheda_didattica", "scheda_progetto")))
 		$group = "education";

@@ -11,6 +11,7 @@ $post = $progetto;
              foreach ( $argomenti as $item ) { ?>
                 <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" class="badge badge-sm badge-pill badge-outline-bluelectric"><?php echo $item->name; ?></a>
             <?php } ?>
+            <?php /* // todo: programma materia
             <div class="d-flex align-items-center">
                 <?php
                 $classi = dsi_get_meta("classi", "_dsi_scheda_progetto_", $post->ID);
@@ -28,6 +29,7 @@ $post = $progetto;
                 ?>
 
             </div>
+ */ ?>
         </div>
         <div class="card-body">
             <a href="<?php echo get_permalink($progetto); ?>">

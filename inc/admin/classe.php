@@ -1,6 +1,7 @@
 <?php
 
-add_action( 'init', 'dsi_register_classe_tax', 0 );
+// todo: programma materia
+//add_action( 'init', 'dsi_register_classe_tax', 0 );
 function dsi_register_classe_tax() {
 
 	$labels = array(
@@ -195,10 +196,10 @@ function dsi_register_classe_metabox() {
 
 
 }
-add_action( 'cmb2_admin_init', 'dsi_register_classe_metabox' );
+//add_action( 'cmb2_admin_init', 'dsi_register_classe_metabox' );
 
-add_action( 'admin_print_scripts-edit-tags.php', 'dsi_classe_admin_script', 11 );
-add_action( 'admin_print_scripts-term.php', 'dsi_classe_admin_script', 11 );
+//add_action( 'admin_print_scripts-edit-tags.php', 'dsi_classe_admin_script', 11 );
+//add_action( 'admin_print_scripts-term.php', 'dsi_classe_admin_script', 11 );
 
 
 function dsi_classe_admin_script() {

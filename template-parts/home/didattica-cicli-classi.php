@@ -1,4 +1,5 @@
 <?php
+// todo: programma materia
 global $classe;
 // recupero le scuole selezionate
 $scuole_didattica = dsi_get_option("scuole_didattica", "didattica");
@@ -53,7 +54,35 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                     <?php echo wpautop($percorso->description); ?>
                                                     <?php
                                                     // recupero le classi create associate a questa scuola / percorso
+                                                    $args = array(
+                                                        'hide_empty' => false, // also retrieve terms which are not used yet
+                                                        'meta_query' => array(
+                                                            array(
+                                                                'key'       => '_dsi_classe_anno_scolastico',
+                                                                'value'     => dsi_get_current_anno_scolastico(),
+                                                            ),
+                                                            array(
+                                                                'key'       => '_dsi_classe_struttura_organizzativa',
+                                                                'value'     => $idstruttura,
+                                                            ),
+                                                            array(
+                                                                'key'       => '_dsi_classe_percorso_studi',
+                                                                'value'     => $percorso->term_id,
+                                                            )
+                                                        ),
+                                                        'taxonomy'  => 'classe',
+                                                    );
+                                                    $classi = get_terms( $args );
 
+                                                    if(is_array($classi) && count($classi) > 0){
+
+                                                        echo '<h5>Le classi:</h5><div class="card-deck card-deck-spaced mb-4">';
+                                                        foreach ($classi as $classe){
+
+                                                            get_template_part("template-parts/classe/card");
+                                                        }
+                                                        echo "</div>";
+                                                    }
                                                     ?>
                                                 </div><!-- /accordion-large-content -->
 

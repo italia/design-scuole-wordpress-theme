@@ -186,7 +186,8 @@ $gallery = dsi_get_meta("gallery");
                                     </div>
                                     <?php
                                 }
-
+/*
+// todo: programma materia
                                 $classi = dsi_get_meta("classi");
                                 if(is_array($classi) && count($classi)>0) {
                                     ?>
@@ -205,6 +206,7 @@ $gallery = dsi_get_meta("gallery");
                                         </div>
                                     </div>
                                 <?php }
+  */
                                 $collaborazione = dsi_get_meta("collaborazione");
                                 if(trim($collaborazione) != "") {
                                     ?>

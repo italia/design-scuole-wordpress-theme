@@ -1,7 +1,9 @@
 <?php
 
 
-add_action( 'parent_file', 'dsi_menu_highlight' );
+
+// todo: programma materia
+//add_action( 'parent_file', 'dsi_menu_highlight' );
 
 
 /**

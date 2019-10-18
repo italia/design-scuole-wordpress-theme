@@ -11,6 +11,9 @@
             </div><!-- /col-lg-4 -->
             <div class="col-lg-8">
                 <div class="row variable-gutters pt-5">
+                    <?php
+                    // todo: programma materia
+                    /*
                     <div class="col-lg-4">
                         <div class="card card-bg card-icon-main rounded mb-3">
                             <a href="<?php echo get_post_type_archive_link("programma_materia"); ?>">
@@ -23,7 +26,8 @@
                             </a>
                         </div><!-- /card card-bg card-icon-main rounded -->
                     </div><!-- /col-lg-4 -->
-                    <div class="col-lg-4">
+ */ ?>
+                    <div class="col-lg-6">
                         <div class="card card-bg card-icon-main rounded mb-3">
                             <a href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>">
                                 <div class="card-body">
@@ -35,7 +39,7 @@
                             </a>
                         </div><!-- /card card-bg card-icon-main rounded -->
                     </div><!-- /col-lg-4 -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card card-bg card-icon-main rounded mb-3">
                             <a href="<?php echo get_post_type_archive_link("scheda_didattica"); ?>">
                                 <div class="card-body">

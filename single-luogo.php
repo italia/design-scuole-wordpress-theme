@@ -226,20 +226,15 @@ get_header();
                                             <?php
                                         }
                                         ?>
-
-
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-
-
-
 
 
                                 <?php if($modalita_accesso){ ?>
                                     <h6><?php _e("Modalità di accesso", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters mb-5">
-                                        <div class="col-lg-9">
-
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
                                             <?php
                                             foreach ($modalita_accesso as $tacc){
 
@@ -253,7 +248,6 @@ get_header();
                                                     $tacc["tipologia_accesso"] = "";
                                                     $titolo = "";
                                                 }
-
                                                 ?>
                                                 <div class="card card-bg card-icon-big rounded mb-4">
                                                     <div class="card-icon-container">
@@ -269,10 +263,10 @@ get_header();
                                                         </div><!-- /row -->
                                                     </div><!-- /card-content -->
                                                 </div><!-- /card card-bg card-icon-main rounded -->
-
                                                 <?php
                                             }
                                             ?>
+                                            </div>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                 <?php } ?>
@@ -304,11 +298,7 @@ get_header();
                                                 <?php echo wpautop($servizi_altro); ?>
                                             </div>
                                         </div>
-
-                                        <?php
-                                    }
-                                    ?>
-
+                                        <?php } ?>
                                 <?php } ?>
 
                                 <?php if($link_strutture){ ?>
@@ -425,7 +415,6 @@ get_header();
             <?php } ?>
             <?php
             endwhile; // End of the loop. ?>
-
 
             <?php
             global $related_type;

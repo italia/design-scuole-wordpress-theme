@@ -82,7 +82,9 @@ function dsi_add_scheda_progetto_metaboxes() {
             'type'    => 'textarea',
         )
     );
-
+/*
+ *
+ * // todo: programma materia
 	$cmb_sottotitolo->add_field( array(
 			'name'       => __('Classi collegate ', 'design_scuole_italia' ),
 			'desc' => __( 'lista dei link alle sezioni che hanno partecipato' , 'design_scuole_italia' ),
@@ -94,6 +96,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 			),
 		)
 	);
+*/
     $cmb_sottotitolo->add_field( array(
             'name'       => __('In collaborazione con', 'design_scuole_italia' ),
             'desc' => __( 'eventuale lista di enti pubblici, privati, associazioni, etc' , 'design_scuole_italia' ),

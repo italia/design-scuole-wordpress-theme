@@ -20,8 +20,7 @@ get_header();
         foreach ($strutture_organizzazione as $id_tipologia_struttura) {
 
             $tipologia_struttura = get_term_by("id", $id_tipologia_struttura, "tipologia-struttura");
-            if (!is_wp_error($tipologia_struttura)) {
-
+            if (!is_wp_error($tipologia_struttura) && $tipologia_struttura) {
 
                 $haschild = false;
                 $strutture = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");

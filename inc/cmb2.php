@@ -47,21 +47,21 @@ function dsi_get_roles_options() {
 
 function dsi_get_gruppi_options( $query_args = false) {
 
-    $classi = get_terms( array(
+    $gruppi = get_terms( array(
         'taxonomy' => 'gruppo-utente',
         'hide_empty' => false,
     ));
 
     $options = array();
-    if ( $classi ) {
-        foreach ( $classi as $classe ) {
-            $options[ $classe->term_id ] = $classe->name;
+    if ( $gruppi ) {
+        foreach ( $gruppi as $gruppo ) {
+            $options[ $gruppo->term_id ] = $gruppo->name;
         }
     }
 
     return $options;
 }
-
+/* // todo: programma materia
 function dsi_get_program_options( $query_args = false) {
 
 	$programs = get_posts("post_type=programma_materia&posts_per_page=-1&orderby=title&order=ASC");
@@ -74,7 +74,7 @@ function dsi_get_program_options( $query_args = false) {
 	}
 
 	return $options;
-}
+}*/
 
 
 function dsi_get_luoghi_options( $parent = false, $addnone=false) {
@@ -160,15 +160,15 @@ function dsi_get_servizi_didattici_options( ) {
 
 function dsi_get_tipologie_strutture_options( ) {
 
-    $classi = get_terms( array(
+    $tipologie = get_terms( array(
         'taxonomy' => 'tipologia-struttura',
         'hide_empty' => false,
     ));
 
     $options = array();
-    if ( $classi ) {
-        foreach ( $classi as $classe ) {
-            $options[ $classe->term_id ] = $classe->name;
+    if ( $tipologie ) {
+        foreach ( $tipologie as $tipologia ) {
+            $options[ $tipologia->term_id ] = $tipologia->name;
         }
     }
 
@@ -179,15 +179,15 @@ function dsi_get_tipologie_strutture_options( ) {
 
 function dsi_get_tipologie_luoghi_options( ) {
 
-    $classi = get_terms( array(
+    $tipologie = get_terms( array(
         'taxonomy' => 'tipologia-luogo',
         'hide_empty' => false,
     ));
 
     $options = array();
-    if ( $classi ) {
-        foreach ( $classi as $classe ) {
-            $options[ $classe->term_id ] = $classe->name;
+    if ( $tipologie ) {
+        foreach ( $tipologie as $tipologia ) {
+            $options[ $tipologia->term_id ] = $tipologia->name;
         }
     }
 
@@ -222,7 +222,9 @@ function dsi_get_strutture_percorsi_scuole_options( ) {
 
 
 
+/*
 
+ // todo: programma materia
 function dsi_get_classe_options( $query_args = false) {
 
 	$classi = get_terms( array(
@@ -239,19 +241,19 @@ function dsi_get_classe_options( $query_args = false) {
 
 	return $options;
 }
-
+*/
 function dsi_get_tipologie_amministrazione_trasparente( $query_args = false) {
 
-    $classi = get_terms( array(
+    $tipologie = get_terms( array(
         'taxonomy' => 'amministrazione-trasparente',
         'hide_empty' => false,
     ));
 
     $options = array();
-    if ( $classi ) {
-        foreach ( $classi as $classe ) {
-            if($classe->parent != 0)
-                $options[ $classe->term_id ] = $classe->name;
+    if ( $tipologie ) {
+        foreach ( $tipologie as $tipologia ) {
+            if($tipologia->parent != 0)
+                $options[ $tipologia->term_id ] = $tipologia->name;
         }
     }
     sort($options);

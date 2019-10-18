@@ -70,7 +70,9 @@ function dsi_create_argomento_taxonomy() {
 	register_taxonomy_for_object_type( 'category', 'luogo' );
 	register_taxonomy_for_object_type( 'category', 'struttura' );
 	register_taxonomy_for_object_type( 'category', 'evento' );
-	register_taxonomy_for_object_type( 'category', 'programma_materia' );
+    // todo: programma materia
+	//	register_taxonomy_for_object_type( 'category', 'programma_materia' );
+
     register_taxonomy_for_object_type( 'category', 'circolare' );
     register_taxonomy_for_object_type( 'category', 'scheda_progetto' );
     register_taxonomy_for_object_type( 'category', 'scheda_didattica' );
@@ -100,7 +102,7 @@ function dsi_query_post_type($query) {
 					'luogo',
 					'struttura',
 					'evento',
-					'programma_materia',
+					// 'programma_materia', // todo: programma materia
 					'nav_menu_item'
 				);
 			} // don't forget nav_menu_item to allow menus to work!

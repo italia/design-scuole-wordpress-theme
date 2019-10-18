@@ -2,7 +2,9 @@
 /**
  * Definisce post type e tassonomie relative ad una materia
  */
-add_action( 'init', 'dsi_register_materia_post_type', 0 );
+
+// todo: programma materia
+//add_action( 'init', 'dsi_register_materia_post_type', 0 );
 function dsi_register_materia_post_type() {
 
 	/** materia **/
@@ -67,7 +69,8 @@ function dsi_register_materia_post_type() {
 /**
  * Crea i metabox del post type scheda
  */
-add_action( 'cmb2_init', 'dsi_add_materia_metaboxes' );
+// todo: programma materia
+//add_action( 'cmb2_init', 'dsi_add_materia_metaboxes' );
 function dsi_add_materia_metaboxes() {
 
 	$prefix = '_dsi_materia_';
@@ -263,7 +266,8 @@ function dsi_add_materia_metaboxes() {
 /**
  * Aggiungo label sotto il titolo
  */
-add_action( 'edit_form_after_title', 'sdi_materia_add_content_after_title' );
+// todo: programma materia
+// add_action( 'edit_form_after_title', 'sdi_materia_add_content_after_title' );
 function sdi_materia_add_content_after_title($post) {
 	if($post->post_type == "programma_materia")
 		_e('<span><i>il <b>Titolo</b> è il <b>Nome del Programma della Materia</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
@@ -273,14 +277,16 @@ function sdi_materia_add_content_after_title($post) {
 /**
  * Aggiungo testo prima del content
  */
-add_action( 'edit_form_after_title', 'sdi_materia_add_content_before_editor', 100 );
+// todo: programma materia
+// add_action( 'edit_form_after_title', 'sdi_materia_add_content_before_editor', 100 );
 function sdi_materia_add_content_before_editor($post) {
 	if($post->post_type == "programma_materia")
 		_e('<h1>Descrizione Estesa e Completa della materia</h1>', 'design_scuole_italia' );
 }
 
 /** cambio la label autore e sposto in colonna destra in alto */
-add_action('add_meta_boxes', 'sdi_materia_change_author_metabox');
+// todo: programma materia
+//add_action('add_meta_boxes', 'sdi_materia_change_author_metabox');
 function sdi_materia_change_author_metabox() {
 	global $wp_meta_boxes;
 	if(isset($wp_meta_boxes['programma_materia'])){
