@@ -182,6 +182,64 @@ function dsi_add_servizi_metaboxes() {
 		'context'      => 'normal',
 		'priority'     => 'high',
 	) );
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'calendario_classi_descrizione',
+        'name'        => __( 'Il calendario delle classi', 'design_scuole_italia' ),
+        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+        ),
+    ) );
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'calendario_classi_file',
+        'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
+            'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
+        ),
+        'attributes'    => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+        ),
+    ) );
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'libri_testo_descrizione',
+        'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
+        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+        ),
+    ) );
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'libri_testo_file',
+        'name' => __( 'File pdf dei libri di testo' , 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => __('Aggiungi un nuovo file', 'design_scuole_italia' ), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove Image"
+            'remove_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove"
+        ),
+        'attributes'    => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "servizi-didattici",
+        ),
+    ) );
+
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'esito',
 		'name'        => __( 'A cosa serve *', 'design_scuole_italia' ),
@@ -204,7 +262,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'procedura_esito',
-		'name'        => __( 'Procedure collegate*', 'design_scuole_italia' ),
+		'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),
 		'desc' => __( 'Questo campo indica eventuali procedure collegate al servizio. Ad es., se il servizio è l\'iscrizione al servizio mensa, si spiega che ogni 3 mesi si dovrà procedere al pagamento dei pasti utilizzando il servizio on line oppure attraverso il bollettino postale.' , 'design_scuole_italia' ),
 		'type' => 'textarea'
 	) );
@@ -251,12 +309,10 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_fisico',
-		'name'        => __( 'Sedi in cui richiedere il servizio *', 'design_scuole_italia' ),
+		'name'        => __( 'Sedi in cui richiedere il servizio ', 'design_scuole_italia' ),
 		'desc' => __( 'Breve testo che identifica la sede o le sedi dell\'ufficio / struttura organizzativa responsabile in cui è possibile attivare il servizio e spiega se serve prendere appuntamento. Esempi: Il servizio può essere richiesto nelle sedi della segreteria scolastica presentandosi negli orari di apertura. Non è necessario prendere appuntamento / Utilizza il servizio di prenotazione appuntamento / contatta la sede per richiedere un appuntamento.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+
 	) );
 
 
@@ -332,7 +388,7 @@ function dsi_add_servizi_metaboxes() {
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Fase *', 'design_scuole_italia' ),
+		'name'       => __('Fase', 'design_scuole_italia' ),
 		'desc'       => __('Esempio: "Iscrizione alla gita" oppure "Pagamento della gita"', 'design_scuole_italia' ),
 		'id'         => 'desc_fase',
 		'type'       => 'textarea',

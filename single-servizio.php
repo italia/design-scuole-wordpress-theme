@@ -43,7 +43,13 @@ get_header();
 
 			$struttura_responsabile = dsi_get_meta("struttura_responsabile");
             $luoghi = dsi_get_meta("luoghi");
-			?>
+
+            $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
+            $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+            $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
+            $libri_testo_file = dsi_get_meta("libri_testo_file");
+
+            ?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
                     <div class="row variable-gutters">
@@ -107,6 +113,18 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Accedi al servizio", "design_scuole_italia"); ?>"><?php _e("Accedi al servizio", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php if(dsi_is_servizio_didattico($post) && ($calendario_classi_file || $calendario_classi_descrizione)){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-calendario" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Calendario delle classi", "design_scuole_italia"); ?>"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></a>
+                                            </li>
+
+                                        <?php } ?>
+                                        <?php if(dsi_is_servizio_didattico($post) && ($libri_testo_file || $libri_testo_descrizione)){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-libri" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Libri di testo", "design_scuole_italia"); ?>"><?php _e("Libri di testo", "design_scuole_italia"); ?></a>
+                                            </li>
+
+                                        <?php } ?>
 										<?php if(is_array($cosa_serve) && count($cosa_serve) > 0) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-cosa-serve" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cosa serve", "design_scuole_italia"); ?>"><?php _e("Cosa serve", "design_scuole_italia"); ?></a>
@@ -306,6 +324,46 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
+								?>
+            <?php if(dsi_is_servizio_didattico($post) && ($calendario_classi_file || $calendario_classi_descrizione)){ ?>
+                <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4>
+                <div class="row variable-gutters">
+                    <div class="col-lg-9">
+                        <?php echo wpautop($calendario_classi_descrizione); ?>
+                        <div class="card-deck card-deck-spaced">
+                            <?php global $idfile, $nomefile;
+                            if (is_array($calendario_classi_file) && count($calendario_classi_file) > 0) {
+
+                                foreach ($calendario_classi_file as $idfile => $nomefile) {
+                                    get_template_part("template-parts/documento/file");
+                                }
+                            }
+                            ?>
+                        </div><!-- /card-deck card-deck-spaced -->
+                    </div><!-- /col-lg-9 -->
+                </div><!-- /row -->
+            <?php } ?>
+
+            <?php if(dsi_is_servizio_didattico($post) && ($libri_testo_file || $libri_testo_descrizione)){ ?>
+                <h4 id="art-par-libri"  class="mt-4"><?php _e("Libri di testo", "design_scuole_italia"); ?></h4>
+                <div class="row variable-gutters">
+                    <div class="col-lg-9">
+                        <?php echo wpautop($libri_testo_descrizione); ?>
+                        <div class="card-deck card-deck-spaced">
+                            <?php global $idfile, $nomefile;
+                            if (is_array($libri_testo_file) && count($libri_testo_file) > 0) {
+
+                                foreach ($libri_testo_file as $idfile => $nomefile) {
+                                    get_template_part("template-parts/documento/file");
+                                }
+                            }
+                            ?>
+                        </div><!-- /card-deck card-deck-spaced -->
+                    </div><!-- /col-lg-9 -->
+                </div><!-- /row -->
+            <?php } ?>
+
+            <?php
 								if(trim($costi_vincoli) != ""){
 									?>
                                     <h4 id="art-par-costi-vincoli"><?php _e("Costi e vincoli", "design_scuole_italia"); ?></h4>
