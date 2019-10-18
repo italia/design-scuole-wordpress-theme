@@ -185,6 +185,10 @@ $documenti = get_posts($args);
                                 </div><!-- /row -->
 	                        <?php } ?>
                             <h4 id="art-par-didattica" class="mb-4"><?php _e("Didattica", "design_scuole_italia"); ?></h4>
+                            <?php
+                            // todo: programma materia
+                            /*
+                            ?>
 							<h6><?php _e("Materie", "design_scuole_italia"); ?></h6>
 							<div class="row variable-gutters">
 								<div class="col-lg-9">
@@ -203,6 +207,7 @@ $documenti = get_posts($args);
 								</div><!-- /col-lg-9 -->
 							</div><!-- /row -->
                             <?php
+                            */
                             if(count($schede_didattiche) > 0){
                             ?>
 							<h6><?php _e("Schede didattiche", "design_scuole_italia"); ?></h6>

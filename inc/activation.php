@@ -229,6 +229,8 @@ function dsi_create_pages_on_theme_activation() {
     /**
      * popolamento delle materie
      */
+    // todo: programma materia
+    /*
     $materie = array(
         "Matematica",
         "Storia",
@@ -265,7 +267,7 @@ function dsi_create_pages_on_theme_activation() {
     foreach ( $materie as $materia ) {
         wp_insert_term( $materia, 'materia' );
     }
-
+*/
 
 
 
@@ -841,16 +843,18 @@ function dsi_create_pages_on_theme_activation() {
      */
 
     $admins = get_role( 'administrator' );
-
-    $custom_types = array("eventi", "documenti", "luoghi", "programmi", "schede_didattica", "schede_progetto", "strutture", "servizi");
+// todo: programma materia
+//    $custom_types = array("eventi", "documenti", "luoghi", "programmi", "schede_didattica", "schede_progetto", "strutture", "servizi");
+    $custom_types = array("eventi", "documenti", "luoghi", "schede_didattica", "schede_progetto", "strutture", "servizi");
     $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
     foreach ($custom_types as $custom_type){
         foreach ($caps as $cap){
             $admins->add_cap( $cap.$custom_type);
         }
     }
-
-    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","percorsi-di-studio");
+// todo: programma materia
+//    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","percorsi-di-studio");
+    $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","percorsi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");
     foreach ($custom_tax as $ctax){
         foreach ($caps_terms as $cap){

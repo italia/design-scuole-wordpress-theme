@@ -271,6 +271,8 @@ if(!function_exists("dsi_get_percorsi_of_scuola")) {
  * Wrapper function for agomenti taxonomy list
  * @return array arguomenti
  */
+// todo: programma materia
+/*
 if(!function_exists("dsi_get_materie_of_post")) {
 	function dsi_get_materie_of_post( $singular = false ) {
 		global $post;
@@ -282,7 +284,7 @@ if(!function_exists("dsi_get_materie_of_post")) {
 		$argomenti_terms = wp_get_object_terms( $singular->ID, 'materia' );
 		return $argomenti_terms;
 	}
-}
+}*/
 
 
 /**
