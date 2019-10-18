@@ -61,7 +61,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                         <div class="accordion-large-content accordion-content">
 
                                                             <?php echo wpautop($descrizione); ?>
-                                                            <p><a href="<?php echo get_permalink($servizio); ?>"  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
+                                                            <p><a href="<?php echo get_permalink($servizio); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
                                                         </div><!-- /accordion-large-content -->
 
                                                         <?php
@@ -76,7 +76,9 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         }
                                         ?>
 
-                                        <a class="btn btn-redbrown mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
+                                        <div class="text-center text-sm-left">
+                                            <a class="btn btn-redbrown mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
+                                        </div>
 
                                     </div>
                                 </div>
