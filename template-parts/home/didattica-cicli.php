@@ -12,10 +12,12 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
                             <h3><?php _e("La didattica", "design_scuole_italia"); ?></h3>
-                            <h4 class="text-white"><?php _e("Cicli scolastici e percorsi di studio e formazione che trovi nell'istituto.", "design_scuole_italia"); ?></h4>
+                            <h4 class="text-white label-didattica"><?php _e("I servizi didattici offerti dalle scuole", "design_scuole_italia"); ?></h4>
                         </div><!-- /title-large -->
                         <div class="title-small">
-                            <h5>L'Istituto</h5>
+                            <h5><?php _e("L'Istituto", "design_scuiole_italia"); ?></h5>
+                            <p><?php _e("A.S.", "design_scuiole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
+
                         </div><!-- /title-section -->
                         <div class="tabs-img">
                             <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png" title="<?php _e("La didattica", "design_scuole_italia"); ?>" alt="<?php _e("La didattica", "design_scuole_italia"); ?>">
@@ -44,20 +46,28 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         $percorsi = wp_get_object_terms($idstruttura, "percorsi-di-studio");
                                         if(is_array($percorsi) && count($percorsi)>0){
                                             foreach ($percorsi as $percorso){
-                                                ?>
-                                                <hr/>
-                                                <div class="accordion-large-title accordion-header">
-                                                    <h3><?php echo $percorso->name; ?></h3>
-                                                </div><!-- /accordion-large-title -->
-                                                <div class="accordion-large-content accordion-content">
-                                                    <?php echo wpautop($percorso->description); ?>
-                                                    <?php
-                                                    // recupero le classi create associate a questa scuola / percorso
 
-                                                    ?>
-                                                </div><!-- /accordion-large-content -->
+                                                // per ogni percorso controllo che esista un servizio didattico con quel percorso di questa scuola
+                                                $servizi_didattici = get_posts("post_type=servizio&tipologia-servizio=servizi-didattici&percorsi-di-studio=".$percorso->slug."&posts_per_page=-1&orderby=title&order=ASC");
+                                                if($servizi_didattici){
+                                                    foreach ($servizi_didattici as $servizio){
+                                                        $descrizione = dsi_get_meta("descrizione", "", $servizio->ID);
+                                                        $sottotitolo = dsi_get_meta("sottotitolo", "", $servizio->ID);
+                                                        ?>
+                                                        <hr/>
+                                                        <div class="accordion-large-title accordion-header">
+                                                            <h3><?php echo $servizio->post_title; ?></h3>
+                                                            <p><small><?php echo $sottotitolo; ?></small></p>
+                                                        </div><!-- /accordion-large-title -->
+                                                        <div class="accordion-large-content accordion-content">
+                                                            <?php echo wpautop($descrizione); ?>
+                                                            <p><a href=""  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Vai alla scheda didattica", "design_scuole_italia"); ?></a> </p>
+                                                        </div><!-- /accordion-large-content -->
 
-                                                <?php
+                                                        <?php
+
+                                                    }
+                                                }
                                             }
                                         }else{
                                             echo '<div ><h5 class="text-white">';
@@ -66,7 +76,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         }
                                         ?>
 
-                                        <a class="btn btn-redbrown mt-4" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della Scuola", "design_scuole_italia"); ?></a>
+                                        <a class="btn btn-redbrown mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della Scuola", "design_scuole_italia"); ?></a>
 
                                     </div>
                                 </div>
