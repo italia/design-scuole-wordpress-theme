@@ -62,7 +62,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                             <p><small><?php echo $sottotitolo; ?></small></p>
 
                                                             <?php echo wpautop($descrizione); ?>
-                                                            <p><a href=""  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Vai alla scheda didattica", "design_scuole_italia"); ?></a> </p>
+                                                            <p><a href="<?php echo get_permalink($servizio); ?>"  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Vai alla scheda didattica", "design_scuole_italia"); ?></a> </p>
                                                         </div><!-- /accordion-large-content -->
 
                                                         <?php
