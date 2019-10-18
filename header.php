@@ -31,7 +31,7 @@ $theme_locations = get_nav_menu_locations();
         <p class="h1">
             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
             <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-            <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
+            <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
         </p>
     </div><!-- /logo-header -->
     <div class="nav-list-mobile dl-menuwrapper">
@@ -72,7 +72,7 @@ if(is_search() || is_archive())
                         <h1>
                             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                             <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                            <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                            <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
                         </h1>
                     </div><!-- /logo-header -->
                     <div class="sticky-main-nav">
