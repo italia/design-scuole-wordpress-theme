@@ -12,11 +12,11 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
                             <h3><?php _e("La didattica", "design_scuole_italia"); ?></h3>
-                            <h4 class="text-white label-didattica"><?php _e("I servizi didattici offerti dalle scuole", "design_scuole_italia"); ?></h4>
+                            <h4 class="text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></h4>
                         </div><!-- /title-large -->
                         <div class="title-small">
                             <h5><?php _e("L'Istituto", "design_scuiole_italia"); ?></h5>
-                            <p><?php _e("A.S.", "design_scuiole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
+                            <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
 
                         </div><!-- /title-section -->
                         <div class="tabs-img">
@@ -59,10 +59,9 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                             <h3><?php echo $servizio->post_title; ?></h3>
                                                         </div><!-- /accordion-large-title -->
                                                         <div class="accordion-large-content accordion-content">
-                                                            <p><small><?php echo $sottotitolo; ?></small></p>
 
                                                             <?php echo wpautop($descrizione); ?>
-                                                            <p><a href="<?php echo get_permalink($servizio); ?>"  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Vai alla scheda didattica", "design_scuole_italia"); ?></a> </p>
+                                                            <p><a href="<?php echo get_permalink($servizio); ?>"  class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
                                                         </div><!-- /accordion-large-content -->
 
                                                         <?php
@@ -77,7 +76,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         }
                                         ?>
 
-                                        <a class="btn btn-redbrown mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della Scuola", "design_scuole_italia"); ?></a>
+                                        <a class="btn btn-redbrown mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
 
                                     </div>
                                 </div>

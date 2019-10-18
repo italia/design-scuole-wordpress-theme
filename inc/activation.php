@@ -201,7 +201,7 @@ function dsi_create_pages_on_theme_activation() {
 
 
     // template page per pagina dei cicli scolastici
-    $new_page_title    = __( 'I cicli scolastici e le classi', 'design_scuole_italia' ); // Page's title
+    $new_page_title    = __( 'Offerta formativa', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '';                           // Content goes here
     $new_page_template = 'page-templates/cicli-scolastici.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
@@ -212,7 +212,7 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'cicli-scolastici'
+        'post_slug'    => 'offerta-formativa'
     );
 
     // If the page doesn't already exist, create it
@@ -614,7 +614,7 @@ function dsi_create_pages_on_theme_activation() {
 
         $cicli_landing_url = dsi_get_template_page_url("page-templates/cicli-scolastici.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('I cicli scolastici e le classi', "design_scuole_italia"),
+            'menu-item-title' => __('Offerta formativa', "design_scuole_italia"),
             'menu-item-url' => $cicli_landing_url,
             'menu-item-status' => 'publish',
             'menu-item-type' => 'custom', // optional
