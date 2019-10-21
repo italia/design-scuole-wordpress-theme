@@ -177,6 +177,7 @@ get_header();
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php
+                               // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
                                     <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
@@ -310,6 +311,7 @@ get_header();
                                     // struttura responsabile del servizio
                             //    struttura_responsabile
                         //    luoghi
+                                $cosa_serve="";
 								if(trim($cosa_serve) != ""){
 									?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>

@@ -95,7 +95,7 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',
         'name' => __('Selezione Automatica', 'design_scuole_italia'),
-        'desc' => __('Seleziona per mostrare automaticamente gli articoli in base alla configurazione della Pagina "Novità"', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente gli articoli in home page. Le colonne mostreranno l\'ultimo articolo delle tipologie selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
@@ -124,6 +124,24 @@ function dsi_register_main_options_metabox() {
             ),
         )
     );
+
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_show_events',
+        'name' => __('Mostra gli eventi in Home', 'design_scuole_italia'),
+        'desc' => __('Abilita gli eventi in Home e decidi come mostrarli', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'false',
+        'options' => array(
+            'false' => __('No', 'design_scuole_italia'),
+            'true_event' => __('Si, mostra il prossimo evento', 'design_scuole_italia'),
+            'true_calendar' => __('Si, mostra il calendario', 'design_scuole_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+
+    ));
 
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_2',

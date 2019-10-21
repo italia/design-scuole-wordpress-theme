@@ -242,22 +242,17 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'esito',
-		'name'        => __( 'A cosa serve *', 'design_scuole_italia' ),
+		'name'        => __( 'A cosa serve', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
+
 	) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'come_si_fa',
-		'name'        => __( 'Come si fa *', 'design_scuole_italia' ),
+		'name'        => __( 'Come si fa ', 'design_scuole_italia' ),
 		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
 	) );
 
 	$cmb_undercontent->add_field( array(

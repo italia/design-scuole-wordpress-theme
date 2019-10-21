@@ -505,6 +505,7 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_inizio',
 		'name' => 'Data / Ora Inizio Evento',
 		'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
@@ -515,6 +516,7 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_fine',
 		'name' => 'Data / Ora Fine Evento',
 		'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),

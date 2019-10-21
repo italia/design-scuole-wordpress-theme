@@ -110,7 +110,26 @@ add_filter( 'excerpt_length', 'dsi_excerpt_length', 999 );
 function dsi_eventi_filters( $query ) {
 
     if ( ! is_admin() && $query->is_main_query() && is_post_type_archive("evento") ) {
-        if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
+        if(isset($_GET["date"]) && ($_GET["date"] != "")){
+            $date = strtotime($_GET["date"]);
+            $date_begin = strtotime($_GET["date"] ." 00:00:01");
+            $date_end = strtotime($_GET["date"] ." 23:59:59");
+            $query->set( 'meta_query', array(
+                array(
+                    'key' => '_dsi_evento_timestamp_inizio',
+                    'value' => $date_end,
+                    'compare' => '<',
+                    'type' => 'numeric'
+                ),
+                array(
+                    'key' => '_dsi_evento_timestamp_fine',
+                    'value' => $date_begin,
+                    'compare' => '>',
+                    'type' => 'numeric'
+                )
+            ));
+
+        }else if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
             $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
             $query->set( 'meta_query', array(
@@ -141,7 +160,9 @@ function dsi_eventi_filters( $query ) {
 
         }
     }else if(! is_admin() && ! $query->is_main_query()){
+
         if ($query->get("post_type") == "evento"){
+
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
             $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
             $query->set( 'meta_query', array(
@@ -245,7 +266,15 @@ add_filter( 'get_the_archive_title', function ($title) {
         $title = __("I luoghi della scuola", "design_scuole_italia");
     } elseif ( is_post_type_archive("struttura") ) {
         $title = __("Organizzazione", "design_scuole_italia");
-    } elseif ( is_post_type_archive() ) {
+    } elseif ( is_post_type_archive("evento") ) {
+        $title = __("Eventi", "design_scuole_italia");
+        if(isset($_GET["date"]) && $_GET["date"] != ""){
+            $title .= " del ".$_GET["date"];
+        }
+        if(isset($_GET["archive"]) && $_GET["archive"] == "true"){
+            $title .= " archiviati  ";
+        }
+            } elseif ( is_post_type_archive() ) {
         $title = post_type_archive_title('', false);
     }
 
@@ -298,7 +327,7 @@ function dsi_bandi_shortcode($atts) {
 /** add responsive class to table **/
 
 function dsi_bootstrap_responsive_table( $content ) {
-    $content = str_replace( ['<table>', '</table>'], ['<div class="table-responsive"><table class="table  table-striped table-bordered table-hover">', '</table></div>'], $content );
+    $content = str_replace( ['<table', '</table>'], ['<div class="table-responsive"><table class="table  table-striped table-bordered table-hover" ', '</table></div>'], $content );
 
     return $content;
 }

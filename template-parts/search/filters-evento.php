@@ -2,8 +2,17 @@
 
 ?>
 <aside class="aside-list sticky-sidebar search-results-filters">
+    <?php
+    if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
+
+    }else{
+        get_template_part("template-parts/evento/full_calendar");
+    }
+
+
+    ?>
 	<form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
-			<h3 class="h6 text-uppercase"><strong><?php _e("Tipologia", "design_scuole_italia"); ?></strong></h3>
+			<h3 class="h6 text-uppercase mt-5"><strong><?php _e("Tipologia", "design_scuole_italia"); ?></strong></h3>
 			<ul>
 				<?php
 				$terms = get_terms( array(
