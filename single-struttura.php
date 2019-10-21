@@ -81,6 +81,11 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Cosa fa", "design_scuole_italia"); ?>"><?php _e("Cosa fa", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php if((dsi_is_scuola($post) && $link_servizi_didattici) || $link_schede_servizi){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
                                         <?php if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
@@ -124,7 +129,15 @@ get_header();
 
 
 
-                                <?php if(dsi_is_scuola($post) && $link_servizi_didattici){ ?>
+                                <?php
+                                if((dsi_is_scuola($post) && $link_servizi_didattici) || $link_schede_servizi){
+                                    ?>
+                                    <h4 id="art-par-servizi"><?php _e("Servizi", "design_scuole_italia"); ?></h4>
+
+                                    <?php
+                                }
+
+                                if(dsi_is_scuola($post) && $link_servizi_didattici){ ?>
                                     <h6><?php _e("Servizi Didattici", "design_scuole_italia"); ?></h6>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
