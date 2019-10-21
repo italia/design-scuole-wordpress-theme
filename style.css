@@ -226,3 +226,10 @@ table td ul{
     }
 }
 
+
+/** cal **/
+.home .mini-clndr{
+    padding: 10px 0px 0px 0px;
+    border: none;
+}
+
