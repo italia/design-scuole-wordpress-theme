@@ -232,14 +232,17 @@ function dsi_add_eventi_metaboxes() {
 
     $cmb_undercontent->add_group_field( $group_field_id,  array(
         'id'      => 'data',
-        'name'    => __( 'Data / orario ', 'design_scuole_italia' ),
+        'after'    => __( '<br>Data / orario ', 'design_scuole_italia' ),
         'type' => 'text_datetime_timestamp',
     ) );
 
     $cmb_undercontent->add_group_field( $group_field_id,  array(
         'id'      => 'descrizione',
-        'name'    => __( 'Descrizione', 'design_scuole_italia' ),
-        'type'             => 'textarea',
+        'desc'    => __( 'Descrizione', 'design_scuole_italia' ),
+        'type'             => 'textarea_small',
+        'attributes'  => array(
+            'rows'        => 3,
+        ),
 
     ) );
 
@@ -503,7 +506,7 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_side->add_field( array(
 		'id'         => $prefix . 'timestamp_inizio',
-		'name' => 'Data / Ora Inizio Evento',
+		'before' => 'Data / Ora Inizio Evento<br>',
 		'type' => 'text_datetime_timestamp',
         'date_format' => 'd-m-Y',
 		'attributes' => array(
@@ -514,7 +517,7 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_side->add_field( array(
 		'id'         => $prefix . 'timestamp_fine',
-		'name' => 'Data / Ora Fine Evento',
+		'before' => 'Data / Ora Fine Evento<br>',
 		'type' => 'text_datetime_timestamp',
         'date_format' => 'd-m-Y',
 		'attributes' => array(

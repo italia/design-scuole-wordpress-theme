@@ -124,6 +124,10 @@
     display:none !important;
 }
 
+.cmb2-id--dsi-struttura-percorsi .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label{
+    color:#D1344C;
+}
+
 
 
 
@@ -265,4 +269,61 @@ luogo
 .cmb2-id--dsi-servizio-stato{
     padding:0px !important;
     border: 0px !important;
+}
+
+/** evento **/
+
+
+#_dsi_evento_date_repeat .inside .cmb-type-textarea, #_dsi_evento_date_repeat .inside .cmb-type-textarea-small
+{
+    width:80%;
+    float:left;
+    border:0px;
+    text-align: left;
+
+}
+
+#_dsi_evento_date_repeat .inside .cmb-type-textarea-small textarea{
+    width:100%;
+}
+
+#_dsi_evento_date_repeat .inside .cmb-type-text-datetime-timestamp
+{
+    width:20%;
+    float:left;
+    border:0px;
+    text-align: right;
+    padding-right: 10px;
+    margin-left: -10px;
+}
+#_dsi_evento_date_repeat .inside .cmb-type-textarea-small .cmb2-metabox-description{
+
+    padding:0px;
+}
+
+#_dsi_evento_date_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+#_dsi_evento_timestamp_inizio_date, #_dsi_evento_timestamp_inizio_time{
+
+    width:40% !important;
+    float:left !important;
+    margin:0px !important;
+    margin-left:10px !important;
+    margin-top:10px !important;
+}
+
+#_dsi_evento_timestamp_fine_date, #_dsi_evento_timestamp_fine_time{
+
+    width:40% !important;
+    float:left !important;
+    margin:0px !important;
+    margin-left:10px !important;
+    margin-top:10px !important;
+}
+
+#_dsi_evento_box_side .cmb-type-text-datetime-timestamp{
+    padding:10px 0px 10px 0px!important;
 }
