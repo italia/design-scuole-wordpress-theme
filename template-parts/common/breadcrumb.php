@@ -27,7 +27,9 @@
 			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',
                                 'scheda_didattica'  => 'percorsi-di-studio',
-		                    ),
+                                'incarico'  => 'tipo_incarico',
+
+                            ),
 		                    'echo'            => true
 	                    );
 	                    breadcrumb_trail($args);

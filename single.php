@@ -34,14 +34,18 @@ get_header();
                     <div class="col-md-<?php echo $colsize; ?> article-title-author-container">
                         <div class="title-content">
                             <h1><?php the_title(); ?></h1>
-                            <p class="mb-0"><?php the_excerpt(); ?></p>
                         </div><!-- /title-content -->
                         <div class="card card-avatar card-comments">
                             <div class="card-body p-0">
                                 <?php get_template_part("template-parts/autore/card"); ?>
-                                <div class="comments ml-auto">
-                                    <p><?php echo $post->comment_count; ?></p>
-                                </div><!-- /comments -->
+                                <?php if ( comments_open() || get_comments_number() ){
+                                    ?>
+                                    <div class="comments ml-auto">
+                                        <p><?php echo $post->comment_count; ?></p>
+                                    </div><!-- /comments -->
+                                    <?php
+                                } ?>
+
                             </div><!-- /card-body -->
                         </div><!-- /card card-avatar -->
                     </div><!-- /col-md-6 -->
