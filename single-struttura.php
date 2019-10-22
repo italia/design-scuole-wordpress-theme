@@ -38,6 +38,18 @@ get_header();
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
 //			$pec = dsi_get_meta("pec");
+
+        $children = false;
+    if($post->post_parent == 0) {
+        // controllo se il luogo ha child
+        $args = array(
+            'post_parent' => $post->ID,
+            'post_type' => 'struttura',
+            'numberposts' => -1,
+            'post_status' => 'publish'
+        );
+        $children = get_children($args);
+    }
             ?>
 
             <section class="section bg-white article-title">
@@ -86,11 +98,11 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php /* if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != ""){  */ ?>
+                                        <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
                                             </li>
-                                        <?php /*}*/ ?>
+                                        <?php } ?>
                                         <?php if(is_array($sedi) && count($sedi)>0) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-sede" title="Vai al paragrafo <?php _e("Sedi", "design_scuole_italia"); ?>"><?php _e("Sedi", "design_scuole_italia"); ?></a>
@@ -177,7 +189,7 @@ get_header();
                                         ?>
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
-                                <?php /* if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec){ */ ?>
+                                <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                     <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
                                     <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
                                         <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
@@ -205,13 +217,14 @@ get_header();
                                     global $struttura;
                                     if($post->post_parent == 0){
                                         // controllo se il luogo ha child
+                                        /*
                                         $args = array(
                                             'post_parent' => $post->ID,
                                             'post_type'   => 'struttura',
                                             'numberposts' => -1,
                                             'post_status' => 'publish'
                                         );
-                                        $children = get_children( $args );
+                                        $children = get_children( $args );*/
                                         if(is_array($children) && count($children)>0){
 
                                             echo "<h6>".__("Strutture dipendenti", "design_scuole_italia")."</h6>";
@@ -274,7 +287,7 @@ get_header();
 
                                     <?php }
                                     ?>
-                                <?php /*}*/ ?>
+                                <?php }  ?>
                                 <?php if(is_array($sedi) && count($sedi)>0) {
                                     ?>
                                     <div class="row variable-gutters">
