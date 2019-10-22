@@ -54,7 +54,11 @@ get_header();
                                         $fount_posts = $query->found_posts;
                                         $atcounter = $atcounter + $fount_posts;
 
-                                        $atreturn .= '<li>';
+                                        if ( !$fount_posts) {
+                                            $opty = 'style="opacity: 0.7;"';
+                                        } else { $opty = ''; }
+                                        $atreturn .= '<li '.$opty.'>';
+                                       // $atreturn .= '<li>';
                                         $atreturn .= '<a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $value . '">' . $value . '</a>';
                                         $atreturn .= '</li>';
                                     }
@@ -65,7 +69,9 @@ get_header();
 
                                     $sez_l = strtolower(preg_replace('/[^a-zA-Z]+/', '', $inner[0]));
                                     echo '<h3>';
-                                    echo '<a id="'.$sez_l.'" href="#'.$sez_l.'">'.$inner[0].'</a></h3>';
+                                    echo '<div class="at-number">'.$atcounter.'</div>';
+
+                                    echo '<span id="'.$sez_l.'" href="#'.$sez_l.'">'.$inner[0].'</span></h3>';
                                     echo $atreturn;
 
                                     echo '</div>';

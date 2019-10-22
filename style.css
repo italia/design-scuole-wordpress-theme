@@ -189,9 +189,21 @@ table td ul{
     text-decoration:none !important;
 }
 .ammtrasm-tableclass h3 a { text-decoration:none; cursor: default; }
-.ammtrasm-tableclass h3 {  border: 1px solid #eee; padding: 8px 10px; background: #FBFBFB; }
+.ammtrasm-tableclass h3 {  border: 1px solid #eee; padding: 8px 10px; background: #FBFBFB;     color: #51748c;
+}
 .ammtrasm-tableclass ul li a { text-decoration: none; }
 
+.at-number { float: right;
+    border-radius: 10px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    font-size: 0.5em;
+    color: #51748c;
+    margin-top: 8px;
+}
 
 /** table bandi **/
 .table{
