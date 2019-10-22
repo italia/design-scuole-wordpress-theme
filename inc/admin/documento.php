@@ -716,7 +716,7 @@ new dsi_bidirectional_cmb2("_dsi_documento_", "documento", "servizi_collegati", 
 
 function dsi_annulla_doc(){
     global $wpdb;
-    if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'dsi_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
+    if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'dsi_annulla_doc' == $_REQUEST['action'] ) ) ) {
         wp_die('Non è stato trovato il documento da annullare!');
     }
 
@@ -750,13 +750,13 @@ function dsi_annulla_doc(){
 add_action( 'admin_action_dsi_annulla_doc', 'dsi_annulla_doc' );
 
 /*
- * Add the duplicate link to action list for post_row_actions
+ * Add the  link to annulla action list for post_row_actions
  */
 function dsi_annulla_doc_link( $actions, $post ) {
     if(dsi_is_albo($post)){
         unset($actions['trash']);
         if($post->post_status != "annullato"){
-            $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=dsi_annulla_doc&post=' . $post->ID, basename(__FILE__), 'annulla_nonce' ) . '" title="Annulla" rel="permalink">Annulla</a>';
+            $actions['annulla'] = '<a style=\'color: #ca334a;\' href="' . wp_nonce_url('admin.php?action=dsi_annulla_doc&post=' . $post->ID, basename(__FILE__), 'annulla_nonce' ) . '" title="Annulla" rel="permalink">Annulla</a>';
         }
     }
     return $actions;
