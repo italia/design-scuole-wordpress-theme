@@ -93,7 +93,7 @@ get_header();
                                         <?php } ?>
                                         <?php if(is_array($sedi) && count($sedi)>0) { ?>
                                             <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-sede" title="Vai al paragrafo <?php _e("Sede", "design_scuole_italia"); ?>"><?php _e("Sede", "design_scuole_italia"); ?></a>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-sede" title="Vai al paragrafo <?php _e("Sedi", "design_scuole_italia"); ?>"><?php _e("Sedi", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                         <?php if($altre_info != ""){ ?>
@@ -279,7 +279,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h4 id="art-par-sede" class="mt-4"><?php _e("Sede", "design_scuole_italia"); ?></h4>
+                                            <h4 id="art-par-sede" class="mt-4"><?php _e("Sedi", "design_scuole_italia"); ?></h4>
                                             <?php
                                             $c=0;
                                             foreach ($sedi as $idluogo){
