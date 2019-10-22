@@ -569,13 +569,13 @@ function dsi_append_documenti_post_status_list(){
            });
  ';
 
-    if(dsi_is_albo($post)){
-        if(($post->post_status == "publish") || ($post->post_status == "annullato") || ($post->post_status == "scaduto")){
-            echo "$('input[name=_dsi_documento_tipologia]:radio:not(:checked)').attr('disabled', true);";
-            echo "$('#delete-action').hide();";
+        if(dsi_is_albo($post)){
+            if(($post->post_status == "publish") || ($post->post_status == "annullato") || ($post->post_status == "scaduto")){
+                echo "$('input[name=_dsi_documento_tipologia]:radio:not(:checked)').attr('disabled', true);";
+                echo "$('#delete-action').hide();";
 
+            }
         }
-    }
 
         echo '
       });
@@ -711,3 +711,107 @@ function dsi_save_documento( $post_id) {
 
 
 new dsi_bidirectional_cmb2("_dsi_documento_", "documento", "servizi_collegati", "box_elementi_dati", "_dsi_servizio_link_schede_documenti");
+
+
+
+function dsi_annulla_doc(){
+    global $wpdb;
+    if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'dsi_duplicate_post_as_draft' == $_REQUEST['action'] ) ) ) {
+        wp_die('Non è stato trovato il documento da annullare!');
+    }
+
+    /*
+     * Nonce verification
+     */
+    if ( !isset( $_GET['annulla_nonce'] ) || !wp_verify_nonce( $_GET['annulla_nonce'], basename( __FILE__ ) ) )
+        return;
+
+    /*
+     * get the original post id
+     */
+    $post_id = (isset($_GET['post']) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
+    $post = get_post( $post_id );
+    if (isset( $post ) && $post != null) {
+
+        if(dsi_is_albo($post)){
+            $arg = array( 'ID' => $post->ID, 'post_status' => "annullato" );
+            wp_update_post($arg);
+
+        }
+        /*
+         * finally, redirect to the edit post screen for the new draft
+         */
+        wp_redirect( admin_url( 'edit.php?post_type=documento' ) );
+        exit;
+    } else {
+        wp_die('Annullamento fallito: ' . $post_id);
+    }
+}
+add_action( 'admin_action_dsi_annulla_doc', 'dsi_annulla_doc' );
+
+/*
+ * Add the duplicate link to action list for post_row_actions
+ */
+function dsi_annulla_doc_link( $actions, $post ) {
+    if(dsi_is_albo($post)){
+        unset($actions['trash']);
+        if($post->post_status != "annullato"){
+            $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=dsi_annulla_doc&post=' . $post->ID, basename(__FILE__), 'annulla_nonce' ) . '" title="Annulla" rel="permalink">Annulla</a>';
+        }
+    }
+    return $actions;
+}
+
+add_filter( 'post_row_actions', 'dsi_annulla_doc_link', 10, 2 );
+
+
+
+
+/** aggiungo al titolo gli status custom */
+
+function dsi_documento_replace_title_column($columns) {
+
+    $new = array();
+
+    foreach($columns as $key => $title) {
+        if ($key=='title')
+            $new['new-title'] = "Titolo"; // Our New column Name
+        $new[$key] = $title;
+    }
+
+    unset($new['title']);
+    return $new;
+}
+
+// Replace the title with your custom title
+function dsi_documento_add_title_status($column_name, $post_ID) {
+    if ($column_name == 'new-title') {
+        $cont = get_the_title();
+        $status = get_post_status();
+        echo "<strong>";
+        ?>
+        <a class="row-title" href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/post.php?post=<?php echo $post_ID; ?>&action=edit"><?php echo strip_tags($cont); ?></a>
+        <?php
+        if($status == "annullato")
+            echo " - <span class=\"post-state\" style='color: #ca334a;'>Annullato</span>";
+        else if($status == "draft")
+            echo " - <span class=\"post-state\">Bozza</span>";
+        else if($status == "scaduto")
+            echo " - <span class=\"post-state\">Scaduto</span>";
+        echo "</strong>";
+    }
+}
+
+add_filter('manage_documento_posts_columns', 'dsi_documento_replace_title_column');
+add_action('manage_documento_posts_custom_column', 'dsi_documento_add_title_status', 10, 2);
+
+
+add_filter( 'manage_edit-documento_sortable_columns', 'dsi_sortable_documento_column' );
+function dsi_sortable_documento_column( $columns ) {
+    $columns['new-title'] = 'title';
+
+    //To make a column 'un-sortable' remove it from the array
+    //unset($columns['date']);
+
+    return $columns;
+}
