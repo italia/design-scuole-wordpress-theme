@@ -414,6 +414,8 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Documento Programmatico', 'tipologia-documento' );
     wp_insert_term( 'Documento Didattico', 'tipologia-documento' );
     wp_insert_term( 'Modulistica', 'tipologia-documento' );
+    wp_insert_term( 'Albo online', 'tipologia-documento' );
+
 
     wp_insert_term( 'Bandi e gare', 'albo-pretorio' );
     wp_insert_term( 'Contratti - Personale ATA', 'albo-pretorio' );
@@ -663,9 +665,9 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-type' => 'custom', // optional
         ));
 
-        $term = get_term_by("name", "Albo Pretorio", "tipologia-documento");
+        $term = get_term_by("name", "Albo online", "tipologia-documento");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Albo Pretorio', "design_scuole_italia"),
+            'menu-item-title' => __('Albo online', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-type' => 'taxonomy',
             'menu-item-object' => 'tipologia-documento',

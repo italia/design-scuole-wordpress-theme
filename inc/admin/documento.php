@@ -87,15 +87,15 @@ function dsi_register_documento_post_type() {
     register_taxonomy( 'amministrazione-trasparente', array( 'documento' ), $args );
 
     $labels = array(
-        'name'              => _x( 'Albo Pretorio', 'taxonomy general name', 'design_scuole_italia' ),
-        'singular_name'     => _x( 'Albo Pretorio', 'taxonomy singular name', 'design_scuole_italia' ),
+        'name'              => _x( 'Albo on line', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Albo on line', 'taxonomy singular name', 'design_scuole_italia' ),
         'search_items'      => __( 'Cerca ', 'design_scuole_italia' ),
         'all_items'         => __( 'Tutte', 'design_scuole_italia' ),
         'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
         'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
         'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
         'new_item_name'     => __( 'Nuova', 'design_scuole_italia' ),
-        'menu_name'         => __( 'Albo Pretorio', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Albo on line', 'design_scuole_italia' ),
     );
 
     $args = array(
@@ -204,7 +204,7 @@ function dsi_add_documento_metaboxes() {
         'default' => dsi_get_numerazione_albo(),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "albo-pretorio",
+            'data-conditional-value' => "albo-online",
             'readonly' => 'readonly',
         ),
     ));
@@ -212,7 +212,7 @@ function dsi_add_documento_metaboxes() {
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'albo-pretorio',
         'name'        => __( 'Categoria Albo', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona se è un Documento generico, Albo pretorio o altro.' , 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona se è un Documento generico, Albo pretorio online o altro.' , 'design_scuole_italia' ),
         'type'             => 'taxonomy_select',
         'taxonomy'       => 'albo-pretorio',
         'show_option_none' => true,
@@ -220,7 +220,7 @@ function dsi_add_documento_metaboxes() {
         'default'          => '',
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "albo-pretorio",
+            'data-conditional-value' => "albo-online",
         ),
     ) );
 
@@ -233,7 +233,7 @@ function dsi_add_documento_metaboxes() {
         'attributes' => array(
             'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "albo-pretorio",
+            'data-conditional-value' => "albo-online",
         ),
     ) );
 
@@ -604,7 +604,7 @@ function dsi_get_numerazione_albo(){
             array(
                 'taxonomy' => 'tipologia-documento',
                 'field' => 'slug',
-                'terms' => "albo-pretorio", // Where term_id of Term 1 is "1".
+                'terms' => "albo-online", // Where term_id of Term 1 is "1".
                 'include_children' => false
             )
         )

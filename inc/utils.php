@@ -647,7 +647,7 @@ function dsi_is_circolare($post){
  */
 function dsi_is_albo($post){
 
-    if(has_term("albo-pretorio", "tipologia-documento", $post))
+    if(has_term("albo-online", "tipologia-documento", $post))
         return true;
 
     return false;
