@@ -149,14 +149,15 @@ function dsi_add_persone_metaboxes() {
 
 	$cmb_user->add_field( array(
 		'name'    => __( 'Ruolo nell\'organizzazione *', 'design_scuole_italia' ),
-		'desc'    => __( 'Personale Docente / Personale Tecnico Amministrativo', 'design_scuole_italia' ),
+		'desc'    => __( 'Dirigente / Personale docente / Personale non docente', 'design_scuole_italia' ),
 		'id'      => $prefix . 'ruolo_scuola',
 		'type'             => 'select',
-		'show_option_none' => true,
+		'show_option_none' => false,
 		'options'          => array(
+            'none' => __( 'Nessuno', 'design_scuole_italia' ),
 			'dirigente' => __( 'Dirigente Scolastico', 'design_scuole_italia' ),
 			'docente' => __( 'Personale Docente', 'design_scuole_italia' ),
-			'non-docente'   => __( 'Personale non docente', 'design_scuole_italia' )
+			'personaleata'   => __( 'Personale non docente', 'design_scuole_italia' )
 		),
 	) );
 
@@ -251,11 +252,11 @@ function dsi_add_persone_metaboxes() {
 			'direttore-amministrativo' => __( 'Direttore Amministrativo', 'design_scuole_italia' ),
 			'tecnico' => __( 'Personale Tecnico', 'design_scuole_italia' ),
 			'amministrativo' => __( 'Personale Amministrativo', 'design_scuole_italia' ),
-			'collaboratore' => __( 'Collaboratore', 'design_scuole_italia' ),
+			'collaboratore' => __( 'Collaboratore Scolastico', 'design_scuole_italia' ),
 			),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix . 'ruolo_scuola',
-			'data-conditional-value'  => 'non-docente',
+            'data-conditional-value'  => wp_json_encode(array('personaleata'))
 		),
 	) );
 
@@ -273,6 +274,10 @@ function dsi_add_persone_metaboxes() {
 				'post_type'      => 'struttura',
 			), // override the get_posts args
 		),
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix . 'ruolo_scuola',
+            'data-conditional-value'  => wp_json_encode(array('docente','personaleata'))
+        ),
 	) );
 
 	$cmb_user->add_field( array(
@@ -280,6 +285,10 @@ function dsi_add_persone_metaboxes() {
 		'desc'    => __( 'Definisci qui altre funzioni strumentali attribuite ', 'design_scuole_italia' ),
 		'id'      => $prefix . 'altri_ruoli',
 		'type'    => 'textarea',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix . 'ruolo_scuola',
+            'data-conditional-value'  => wp_json_encode(array('docente','personaleata'))
+        ),
 	) );
 
 

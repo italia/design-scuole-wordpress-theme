@@ -76,7 +76,7 @@ if($ruolo_scuola == "dirigente"){
 
 
 
-}else if($ruolo_scuola == "non-docente"){
+}else if($ruolo_scuola == "personaleata"){
 
     if($ruolo_non_docente == "direttore-amministrativo"){
         $str_ruolo .= "Direttore amministrativo ";
