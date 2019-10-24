@@ -83,7 +83,7 @@ global $luogo;
         ?>
 
         <?php if($c) { ?>
-            <section class="section section-map">
+            <section class="section section-map-full">
                 <div class="container d-flex justify-content-between align-items-center py-3">
                     <div class="map-wrapper">
                         <div class="map" id="map_all"></div>

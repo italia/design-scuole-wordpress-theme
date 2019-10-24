@@ -245,3 +245,28 @@ table td ul{
     border: none;
 }
 
+
+/*** map ull ***/
+.section.section-map-full {
+    position: relative;
+    z-index: 0;
+    height: 600px;
+    display: flex;
+    align-items: center; }
+
+.section.section-map-full .map-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0; }
+
+@media (max-width: 991.98px) {
+
+    .section.section-map-full {
+        height: 240px;
+
+
+    }
+}
