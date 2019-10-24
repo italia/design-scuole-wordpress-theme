@@ -411,6 +411,10 @@ function dsi_add_eventi_metaboxes() {
 			'name'       => __('Contatto: persona ', 'design_scuole_italia' ),
 			'desc' => __( 'Nome e cognome delle persone da contattare per informazioni sull\'Evento', 'design_scuole_italia' ),
 			'type'    => 'text',
+            'attributes'    => array(
+                'data-conditional-id'     => $prefix.'organizzato_da_scuola',
+                'data-conditional-value'  => "no",
+            ),
 		)
 	);
 

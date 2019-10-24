@@ -281,36 +281,41 @@ $file_documenti = dsi_get_meta("file_documenti");
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->
 									<?php
-								}
+								}else{
 								?>
-                                <?php if((dsi_get_meta("website") != "") || (dsi_get_meta("contatto_telefono") != "") || (dsi_get_meta("contatto_email") != "") || (dsi_get_meta("patrocinato") != "") || (dsi_get_meta("sponsor") != "") ) { ?>
-                                    <div class="in-evidence mb-5 py-4 pl-2 pr-2">
-                                        <ul class="mb-0">
-                                            <?php if (dsi_get_meta("website") != "") { ?>
-                                                <li><strong
-                                                        class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
-                                                <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
-                                                </li><?php } ?>
-                                            <?php if (dsi_get_meta("contatto_telefono") != "") { ?>
-                                                <li><strong
-                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
-                                                </li><?php } ?>
-                                            <?php if (dsi_get_meta("contatto_email") != "") { ?>
-                                                <li><strong
-                                                        class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
-                                                <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a>
-                                                </li><?php } ?>
-                                            <?php if (dsi_get_meta("patrocinato") != "") { ?>
-                                                <li><strong
-                                                        class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?>
-                                                </li><?php } ?>
-                                            <?php if (dsi_get_meta("sponsor") != "") { ?>
-                                                <li><strong
-                                                        class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?>
-                                                </li><?php } ?>
-                                        </ul>
-                                    </div>
-                                    <?php
+                                <?php if((dsi_get_meta("website") != "") || (dsi_get_meta("contatto_telefono") != "") || (dsi_get_meta("contatto_persona") != "") || (dsi_get_meta("contatto_email") != "") || (dsi_get_meta("patrocinato") != "") || (dsi_get_meta("sponsor") != "") ) { ?>
+                                        <div class="in-evidence mb-5 py-4 pl-2 pr-2">
+                                            <ul class="mb-0">
+                                                <?php if (dsi_get_meta("website") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
+                                                    <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
+                                                    </li><?php } ?>
+                                                <?php if (dsi_get_meta("contatto_persona") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Referente:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_persona"); ?>
+                                                    </li><?php } ?>
+                                                <?php if (dsi_get_meta("contatto_telefono") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
+                                                    </li><?php } ?>
+                                                <?php if (dsi_get_meta("contatto_email") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
+                                                    <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a>
+                                                    </li><?php } ?>
+                                                <?php if (dsi_get_meta("patrocinato") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?>
+                                                    </li><?php } ?>
+                                                <?php if (dsi_get_meta("sponsor") != "") { ?>
+                                                    <li><strong
+                                                            class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?>
+                                                    </li><?php } ?>
+                                            </ul>
+                                        </div>
+                                        <?php
+                                    }
                                 }
  ?>
 								<?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
