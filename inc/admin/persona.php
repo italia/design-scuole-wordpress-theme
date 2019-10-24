@@ -234,6 +234,7 @@ function dsi_add_persone_metaboxes() {
 		'options'          => array(
 			'annuale' => __( 'Annuale', 'design_scuole_italia' ),
 			'termine' => __( 'Fino al termine', 'design_scuole_italia' ),
+            'data' => __( 'Fino a data specifica (da indicare)', 'design_scuole_italia' ),
 		),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix . 'tipo_posto',
@@ -241,6 +242,18 @@ function dsi_add_persone_metaboxes() {
 		),
 	) );
 
+
+    $cmb_user->add_field( array(
+        'name'    => __( 'Durata supplenza', 'design_scuole_italia' ),
+        'id'      => $prefix . 'durata_supplenza',
+        'desc'    => __( 'Sata scadenza incarico', 'design_scuole_italia' ),
+        'type' => 'text_date',
+        'date_format' => 'd-m-Y',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix . 'tipo_supplenza',
+            'data-conditional-value'  => 'data',
+        ),
+    ) );
 
 	$cmb_user->add_field( array(
 		'name'    => __( 'Tipologia personale non docente', 'design_scuole_italia' ),

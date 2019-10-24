@@ -28,6 +28,8 @@ $ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente');
 
 $tipo_posto = get_the_author_meta('_dsi_persona_tipo_posto');
 $tipo_supplenza = get_the_author_meta('_dsi_persona_tipo_supplenza');
+$durata_supplenza = get_the_author_meta('_dsi_persona_durata_supplenza');
+
 $incarico_docente = get_the_author_meta('_dsi_persona_incarico_docente');
 $durata_incarico_docente = get_the_author_meta('_dsi_persona_durata_incarico_docente');
 
@@ -46,6 +48,12 @@ if($ruolo_scuola == "dirigente"){
             $str_ruolo .= "annuale di sostegno ";
         else if($tipo_supplenza == "termine")
             $str_ruolo .= "<strong>di sostegno</strong> fino a termine ";
+        else if($tipo_supplenza == "data"){
+            $str_ruolo .= "<strong>di sostegno</strong> " ;
+            if($durata_supplenza != "")
+                $str_ruolo .= "fino al  ".$durata_supplenza." ";
+
+        }
         else
             $str_ruolo .= "di sostegno ";
     }
@@ -66,7 +74,7 @@ if($ruolo_scuola == "dirigente"){
           $str_ruolo .= " con incarico a tempo determinato ";
 
           if($durata_incarico_docente != ""){
-              $str_ruolo .= " <small>(".$durata_incarico_docente.")</small>";
+              $str_ruolo .= " <small>(termine incarico: ".$durata_incarico_docente.")</small>";
           }
 
       }else if($incarico_docente == "indeterminato"){
