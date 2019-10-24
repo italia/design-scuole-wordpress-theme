@@ -201,6 +201,8 @@ add_action( 'widgets_init', 'dsi_widgets_init' );
  */
 function dsi_scripts() {
 
+    //wp_deregister_script('jquery');
+
 	wp_enqueue_style( 'dsi-wp-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'dsi-font', get_template_directory_uri() . '/assets/css/fonts.css');
 	wp_enqueue_style( 'dsi-boostrap-italia', get_template_directory_uri() . '/assets/css/bootstrap-italia.css');
@@ -213,7 +215,7 @@ function dsi_scripts() {
 
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, true);
-	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post", "circolare")) || is_archive() || is_search())
+	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post", "circolare")) || is_archive() || is_search() || is_post_type_archive("luogo"))
 		wp_enqueue_script( 'dsi-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, false);
 /*
 	if(is_singular()){
@@ -224,7 +226,7 @@ function dsi_scripts() {
 
 	wp_enqueue_script( 'dsi-scuole-js', get_template_directory_uri() . '/assets/js/scuole.js', array(), false, true);
 
-	if(is_singular(array("evento","scheda_progetto")) || is_home() || is_archive()){
+	if(is_singular(array("evento","scheda_progetto")) || is_home() || is_archive() ){
 		wp_enqueue_script( 'clndr-json2', get_template_directory_uri() . '/assets/components/clndr/json2.js', array(), false, false);
 		wp_enqueue_script( 'clndr-moment', get_template_directory_uri() . '/assets/components/clndr/moment-2.8.3.js', array(), false, false);
 		wp_enqueue_script( 'clndr-underscore', get_template_directory_uri() . '/assets/components/clndr/underscore.js', array(), false, false);

@@ -47,11 +47,11 @@ get_header();
                     <div class="col-lg-7 offset-lg-1 pt84">
                         <?php if ( have_posts() ) : ?>
                             <?php
+
                             /* Start the Loop */
                             while ( have_posts() ) :
                                 the_post();
                                 get_template_part( 'template-parts/list/article', get_post_type() );
-
                             endwhile;
                             ?>
                             <nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
@@ -68,7 +68,7 @@ get_header();
                 </div><!-- /row -->
             </div><!-- /container -->
         </section>
-    </main>
 
+    </main>
 <?php
 get_footer();

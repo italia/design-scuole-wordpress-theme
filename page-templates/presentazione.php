@@ -33,7 +33,8 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                             if(is_array($presentazione)){
                                 foreach ($presentazione as $idpost){
                                     $post = get_post($idpost);
-                                    get_template_part( 'template-parts/list/article', $post->post_type );
+                                    if($post)
+                                        get_template_part( 'template-parts/list/article', $post->post_type );
                                 }
                             }
                            ?>
