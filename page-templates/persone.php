@@ -14,7 +14,7 @@ get_header();
         <?php
         while ( have_posts() ) :
             the_post();
-			get_template_part("template-parts/home/hero", "persone");
+			get_template_part("template-parts/hero/persone");
 
 			// recupero la lista delle strutture
             $i=0;

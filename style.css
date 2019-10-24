@@ -250,7 +250,7 @@ table td ul{
 .section.section-map-full {
     position: relative;
     z-index: 0;
-    height: 600px;
+    height: 500px;
     display: flex;
     align-items: center; }
 
@@ -269,4 +269,14 @@ table td ul{
 
 
     }
+}
+
+/** hero **/
+.people-red-forms, .people-red-forms svg {
+    height: 100% !important;
+
+}
+
+.section.bg-bluelectricgradient h1, .section.bg-bluelectricgradient .h1, .section.bg-bluelectricgradient h2, .section.bg-bluelectricgradient .h2, .section.bg-bluelectricgradient h3, .section.bg-bluelectricgradient .h3, .section.bg-bluelectricgradient p{
+    color:#fff;
 }

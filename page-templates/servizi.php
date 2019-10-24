@@ -15,7 +15,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part("template-parts/home/hero", "servizi");
+			get_template_part("template-parts/hero/servizi");
 
 			$tipologie_servizi = dsi_get_option("tipologie_servizi", "servizi");
 			$ct=0;

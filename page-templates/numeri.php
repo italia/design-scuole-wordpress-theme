@@ -13,7 +13,7 @@ get_header();
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <?php
         while ( have_posts() ) :
-            get_template_part("template-parts/home/hero", "page");
+            get_template_part("template-parts/hero/page");
 
             the_post();
             get_template_part("template-parts/home/i-numeri");

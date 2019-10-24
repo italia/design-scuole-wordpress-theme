@@ -21,7 +21,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         the_post();
         ?>
 
-            <?php get_template_part("template-parts/home/hero", "page"); ?>
+            <?php get_template_part("template-parts/hero/page"); ?>
         <section class="section bg-gray-light">
             <div class="container">
                 <div class="row variable-gutters sticky-sidebar-container">

@@ -15,7 +15,7 @@ get_header();
         while ( have_posts() ) :
             the_post();
 
-           // get_template_part("template-parts/home/hero", "didattica");
+            // get_template_part("template-parts/hero/didattica");
 
       //      get_template_part("template-parts/home/didattica", "orari");
             get_template_part("template-parts/home/didattica", "cicli");

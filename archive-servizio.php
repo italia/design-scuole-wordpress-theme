@@ -12,23 +12,7 @@ get_header();
 	<main id="main-container" class="main-container purplelight">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-		<section class="section bg-white py-2 py-lg-3 py-xl-5">
-			<div class="container">
-				<div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
-						<div class="section-title">
-							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
-							<?php the_archive_description("<p>","</p>"); ?>
-						</div><!-- /title-section -->
-					</div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
-
-					<div class="col-lg-3 col-md-4 offset-lg-1">
-						<?php get_template_part("template-parts/single/actions"); ?>
-					</div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section><!-- /section -->
-
+        <?php get_template_part("template-parts/hero/servizi", "archive"); ?>
 
 
 		<section class="section bg-white border-top border-bottom d-block d-lg-none">

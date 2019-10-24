@@ -15,7 +15,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part("template-parts/home/hero", "notizie");
+			get_template_part("template-parts/hero/notizie");
 
             get_template_part("template-parts/home/notizie", "circolari");
 

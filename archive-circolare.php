@@ -9,18 +9,13 @@
 
 $class = "petrol";
 
-if(is_post_type_archive("scheda_didattica")){
-    $class = "bluelectric";
-} else if(is_post_type_archive("scheda_progetto")){
-    $class = "bluelectric";
-}
 get_header();
 ?>
 
     <main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/didattica", "archive"); ?>
+        <?php get_template_part("template-parts/hero/notizie", "archive"); ?>
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
             <div class="container d-flex justify-content-between align-items-center py-3">
@@ -56,12 +51,6 @@ get_header();
 
 						endif;
 						?>
-
-                        <?php if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){ ?>
-                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>" ><?php _e("Consulta i progetti dell'anno in corso", "design_scuole_italia"); ?></a></p>
-                        <?php }else{ ?>
-                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti degli scorsi anni", "design_scuole_italia"); ?></a></p>
-                        <?php } ?>
                     </div><!-- /col-lg-8 -->
                 </div><!-- /row -->
             </div><!-- /container -->

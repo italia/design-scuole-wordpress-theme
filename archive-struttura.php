@@ -12,7 +12,7 @@ get_header();
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <?php
-        get_template_part("template-parts/home/hero", "strutture");
+        get_template_part("template-parts/hero/strutture");
 
         // recupero la lista delle strutture
         $i=0;
