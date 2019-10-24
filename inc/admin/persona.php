@@ -66,7 +66,7 @@ function dsi_remove_user_profile_fields_with_css() {
 		//'first-name',
 		//'last-name',
 		//'nickname',
-		'display-name',
+		//'display-name',
 		//'email',
 		//'description',
 		//'pass1',
