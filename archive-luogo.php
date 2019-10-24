@@ -52,7 +52,7 @@ global $luogo;
                                                 foreach ($luoghi as $luogo) {
 
                                                     $posizione_gps = dsi_get_meta("posizione_gps", "", $luogo->ID);
-                                                    if($posizione_gps){
+                                                    if($posizione_gps && $posizione_gps["lat"] && $posizione_gps["lng"] ){
                                                         $indirizzo = dsi_get_meta("indirizzo", "", $luogo->ID);
                                                         $arr_luoghi[$c]["post_title"] = $luogo->post_title;
                                                         $arr_luoghi[$c]["permalink"] = get_permalink($luogo);
