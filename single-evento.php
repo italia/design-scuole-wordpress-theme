@@ -273,10 +273,13 @@ $file_documenti = dsi_get_meta("file_documenti");
 										global $icon_color, $second_icon_color;
 										$icon_color        = "greendark";
 										$second_icon_color = "#c8edc3";
-										if($link_struttura) {
-												$struttura = get_post( $link_struttura );
+										if(is_array($link_struttura)) {
+										    foreach ($link_struttura as $id_struttura){
+                                                $struttura = get_post( $id_struttura );
 
-												get_template_part( "template-parts/struttura/card" );
+                                                get_template_part( "template-parts/struttura/card" );
+                                            }
+
 										}
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->

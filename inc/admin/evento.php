@@ -397,7 +397,7 @@ function dsi_add_eventi_metaboxes() {
 		'id' => $prefix . 'link_struttura_organizzativa',
 		'name'    => __( 'Organizzato da *', 'design_scuole_italia' ),
 		'description' => __( 'Se è organizzato dalla scuola, card della struttura organizzativa responsabile (es. Segreteria , oppure Presidenza) ' , 'design_scuole_italia' ),
-		'type'    => 'pw_select',
+		'type'    => 'pw_multiselect',
 		'options' => dsi_get_strutture_options(),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix.'organizzato_da_scuola',
