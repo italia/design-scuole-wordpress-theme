@@ -226,7 +226,8 @@ function dsi_add_eventi_metaboxes() {
             'sortable'       => true,
             'closed'      => false, // true to have the groups closed by default
             //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-        )
+        ),
+
     ) );
 
 
@@ -516,6 +517,10 @@ function dsi_add_eventi_metaboxes() {
 		'attributes' => array(
 			'required' => 'required'
 		),
+        'column' => array(
+            'position' => 2,
+            'name'     => 'Inizio Evento',
+        ),
 	) );
 
 
