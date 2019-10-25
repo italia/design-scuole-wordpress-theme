@@ -5,22 +5,9 @@ jQuery( document ).ready(function() {
         jQuery(".cmb2-id--dsi-persona-durata-incarico-docente").hide();
         jQuery(".cmb2-id--dsi-persona-tipo-supplenza").hide();
         jQuery(".cmb2-id--dsi-persona-durata-supplenza").hide();
+        jQuery(".cmb2-id--dsi-persona-tipo-posto").hide();
 
     }else{
-        if(jQuery("#_dsi_persona_tipo_posto option:selected").val() != "sostegno"){
-            jQuery(".cmb2-id--dsi-persona-tipo-supplenza").hide();
-
-        }else{
-            jQuery(".cmb2-id--dsi-persona-tipo-supplenza").show();
-        }
-
-
-        if(jQuery("#_dsi_persona_tipo_supplenza option:selected").val() != "data"){
-            jQuery(".cmb2-id--dsi-persona-durata-supplenza").hide();
-
-        }else{
-            jQuery(".cmb2-id--dsi-persona-durata-supplenza").show();
-        }
     }
 
 
@@ -31,25 +18,14 @@ jQuery( document ).ready(function() {
                 jQuery(".cmb2-id--dsi-persona-incarico-docente").show();
                 jQuery(".cmb2-id--dsi-persona-durata-incarico-docente").show();
                 jQuery(".cmb2-id--dsi-persona-tipo-supplenza").show();
-
-                if(jQuery("#_dsi_persona_tipo_posto option:selected").val() == "sostegno"){
-                    jQuery(".cmb2-id--dsi-persona-tipo-supplenza").show();
-                }else{
-                    jQuery(".cmb2-id--dsi-persona-tipo-supplenza").hide();
-                }
-
-                if(jQuery("#_dsi_persona_tipo_supplenza option:selected").val() == "data"){
-                    jQuery(".cmb2-id--dsi-persona-durata-supplenza").show();
-                }else{
-                    jQuery(".cmb2-id--dsi-persona-durata-supplenza").hide();
-                }
+                jQuery(".cmb2-id--dsi-persona-tipo-posto").show();
 
             }else{
                 jQuery(".cmb2-id--dsi-persona-incarico-docente").hide();
                 jQuery(".cmb2-id--dsi-persona-durata-incarico-docente").hide();
                 jQuery(".cmb2-id--dsi-persona-tipo-supplenza").hide();
                 jQuery(".cmb2-id--dsi-persona-durata-supplenza").hide();
-
+                jQuery(".cmb2-id--dsi-persona-tipo-posto").hide();
             }
 
 

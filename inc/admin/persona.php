@@ -219,13 +219,13 @@ function dsi_add_persone_metaboxes() {
 			'sostegno' => __( 'Sostegno', 'design_scuole_italia' ),
 		),
 		'attributes'    => array(
-			'data-conditional-id'     => $prefix . 'ruolo_scuola',
-			'data-conditional-value'  => 'docente',
+            'data-conditional-id'     => $prefix . 'incarico_docente',
+            'data-conditional-value'  => 'determinato',
 		),
 	) );
 
 
-
+/*
 	$cmb_user->add_field( array(
 		'name'    => __( 'Tipo supplenza', 'design_scuole_italia' ),
 		'desc'    => __( 'Se supplente - Tipologia supplenza. <br>Assume valori: ANNUALE per le supplenze di durata fino al 31/08 e FINO AL TERMINE per le supplenze di durata fino al 30/06', 'design_scuole_italia' ),
@@ -255,7 +255,7 @@ function dsi_add_persone_metaboxes() {
             'data-conditional-value'  => 'data',
         ),
     ) );
-
+*/
 	$cmb_user->add_field( array(
 		'name'    => __( 'Tipologia personale non docente', 'design_scuole_italia' ),
 		'desc'    => __( 'Seleziona la tipologia di ruolo', 'design_scuole_italia' ),
