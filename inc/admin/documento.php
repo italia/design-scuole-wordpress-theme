@@ -129,6 +129,25 @@ function dsi_add_documento_metaboxes() {
 
 
 
+
+    $cmb_annullato = new_cmb2_box( array(
+        'id'           => $prefix . 'box_annullato',
+        'title'        => __( 'Atto Albo Annullato', 'design_scuole_italia' ),
+        'object_types' => array( 'documento' ),
+        'context'      => 'after_title',
+        'priority'     => 'high',
+    ) );
+
+
+    $cmb_annullato->add_field( array(
+        'name'    => __( 'Atto annullato', 'design_scuole_italia' ),
+        'desc'    => __( 'Descrivi il motivo dell\'annullamento', 'design_scuole_italia' ),
+        'after'    => __( '<br><input type="submit" name="Salva" value="Salva" class="button-secondary ">', 'design_scuole_italia' ),
+        'id' => $prefix . 'motivo_annullamento',
+        'type'             => 'textarea',
+    ) );
+
+
     $cmb_tipologia = new_cmb2_box( array(
         'id'           => $prefix . 'box_tipologia',
         'title'        => __( 'Tipologia', 'design_scuole_italia' ),
@@ -522,6 +541,8 @@ function dsi_display_custom_post_status_option(){
 
 
 add_action('admin_footer-post.php', 'dsi_append_documenti_post_status_list');
+add_action('admin_footer-post-new.php', 'dsi_append_documenti_post_status_list');
+
 function dsi_append_documenti_post_status_list(){
     global $post;
     $complete_s = '';
@@ -545,7 +566,11 @@ function dsi_append_documenti_post_status_list(){
            $("select#post_status").append("<option value=\"annullato\" '.$complete_a.'>Annullato</option>");
            $(".misc-pub-section label").append("'.$label_a.'");
            ';
-        if($post->post_status == "scaduto"){
+
+
+
+
+            if($post->post_status == "scaduto"){
             echo '
                  $("span#post-status-display").html("Scaduto");
                 $("input#save-post").val("Aggiorna");
@@ -555,6 +580,7 @@ function dsi_append_documenti_post_status_list(){
             echo '
                  $("span#post-status-display").html("Annullato");
                 $("input#save-post").val("Aggiorna");
+                
             ';
         }
 
@@ -581,6 +607,36 @@ function dsi_append_documenti_post_status_list(){
       });
       </script>
       ';
+        ?>
+        <style type="text/css">
+            #_dsi_documento_box_annullato{
+                display: none;
+            }
+        </style>
+        <?php
+
+        if(dsi_is_albo($post)){
+            if($post->post_status == "annullato"){
+                ?>
+                <style type="text/css">
+                    #cmb2-metabox-_dsi_documento_box_sottotitolo, #wp-content-editor-container , #_dsi_documento_box_elementi_dati, #titlediv, #_dsi_documento_box_tipologia, #_dsi_documento_box_side, #postimagediv{
+                        pointer-events: none !important;
+                    }
+
+                    #submitdiv, #tagsdiv-category{
+                        display:none;
+                    }
+
+                    #_dsi_documento_box_annullato{
+                        display: block;
+                    }
+                </style>
+                <?php
+            }else{
+
+
+            }
+        }
     }
 }
 
@@ -757,6 +813,12 @@ function dsi_annulla_doc_link( $actions, $post ) {
         unset($actions['trash']);
         if($post->post_status != "annullato"){
             $actions['annulla'] = '<a style=\'color: #ca334a;\' href="' . wp_nonce_url('admin.php?action=dsi_annulla_doc&post=' . $post->ID, basename(__FILE__), 'annulla_nonce' ) . '" title="Annulla" rel="permalink">Annulla</a>';
+        }else{
+            echo '<script>
+            document.getElementById("cb-select-'.$post->ID.'").disabled = true;
+            </script>';
+//            unset($actions['edit']);
+            unset($actions['inline hide-if-no-js']);
         }
     }
     return $actions;

@@ -327,3 +327,12 @@ luogo
 #_dsi_evento_box_side .cmb-type-text-datetime-timestamp{
     padding:10px 0px 10px 0px!important;
 }
+
+/** doc **/
+#_dsi_documento_box_annullato{
+    background-color:#d1344d;
+}
+
+#_dsi_documento_box_annullato .cmb-th,#_dsi_documento_box_annullato .cmb2-metabox-description, #_dsi_documento_box_annullato h2{
+    color:#fff;
+}
