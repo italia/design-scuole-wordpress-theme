@@ -21,7 +21,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         if($tipologia_notizia) {
 
             $lg = 4;
-            if(count($tipologie_notizie) == 1)
+            if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                 $lg = 8;
             ?>
             <div class="col-lg-<?php echo $lg; ?>">
@@ -32,7 +32,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 <?php
                 // se è selezionata solo una tipologia, pesco 2 elementi
                 $ppp=1;
-                if(count($tipologie_notizie) == 1){
+                if((count($tipologie_notizie) == 1) && ($home_show_events == "false")){
                     $ppp=2;
                     echo '<div class="row variable-gutters">';
                 }
@@ -49,14 +49,15 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 );
                 $posts = get_posts($args);
                 foreach ($posts as $post) {
-                    if(count($tipologie_notizie) == 1)
+                    if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                         echo '<div class="col-lg-6 mb-2">';
                     get_template_part("template-parts/single/card", "vertical-thumb");
-                    if(count($tipologie_notizie) == 1)
-                        echo '</div>';
+
+                    if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
+                         echo '</div>';
                 }
 
-                if(count($tipologie_notizie) == 1)
+                if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                     echo '</div>';
                 ?>
                 <div class="py-4">
