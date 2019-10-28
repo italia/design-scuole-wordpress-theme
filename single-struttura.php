@@ -298,7 +298,7 @@ get_header();
                                             foreach ($sedi as $idluogo){
                                                 $c++;
                                                 $luogo = get_post($idluogo);
-                                                get_template_part( "template-parts/luogo/card");
+                                                get_template_part( "template-parts/luogo/card", "nophone");
 
                                             }
                                             ?>
