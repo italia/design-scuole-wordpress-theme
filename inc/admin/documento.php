@@ -301,15 +301,6 @@ function dsi_add_documento_metaboxes() {
 
 
 
-    $cmb_aftercontent->add_field( array(
-        'id'         => $prefix . 'gallery',
-        'name'       => __( 'Galleria', 'design_scuole_italia' ),
-        'desc'       => __( 'Galleria di immagini  significative relative a un documento, corredate da didascalia', 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        'query_args' => array( 'type' => 'image' ), // Only images attachment
-    ) );
-
 
 
 
@@ -351,6 +342,17 @@ function dsi_add_documento_metaboxes() {
             'remove_image_text' => __('Rimuovi allegato', 'design_scuole_italia' ), // default: "Remove Image"
             'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
         ),
+    ) );
+
+
+
+    $cmb_aftercontent->add_field( array(
+        'id'         => $prefix . 'gallery',
+        'name'       => __( 'Galleria', 'design_scuole_italia' ),
+        'desc'       => __( 'Galleria di immagini  significative relative a un documento, corredate da didascalia', 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        'query_args' => array( 'type' => 'image' ), // Only images attachment
     ) );
 
 
