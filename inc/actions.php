@@ -243,7 +243,7 @@ add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
  * Personalizzo archive title
  */
 add_filter( 'get_the_archive_title', function ($title) {
-
+global $wp_query;
     if ( is_category() ) {
         $title = __("Argomento", "design_scuole_italia").": ".single_cat_title( '', false );
     } elseif ( is_tag() ) {
@@ -257,9 +257,11 @@ add_filter( 'get_the_archive_title', function ($title) {
     } elseif ( is_tax("tipologia-documento") ) {
         $title = single_term_title('', false);
     } elseif ( is_tax("percorsi-di-studio") ) {
-      //  $title = post_type_archive_title('', false)." ";
+        //  $title = post_type_archive_title('', false)." ";
         //$title .= single_term_title('', false);
         $title = single_term_title('', false);
+    } elseif ( $wp_query->is_tax("tipologia-servizio", "servizi-didattici") ) {
+        $title = __("Percorsi di studio", "design_scuole_italia");
     } elseif ( is_post_type_archive("servizio") ) {
         $title = __("Tutti i servizi", "design_scuole_italia");
     }  elseif ( is_tax("tipologia-servizio") ) {
