@@ -389,8 +389,10 @@ get_header();
 													?>
                                                     <div class="calendar-date">
                                                         <div class="calendar-date-day">
+
                                                             <p><?php echo $arrdata[0]; ?></p>
-                                                            <small><?php echo $monthName; ?></small>
+                                                            <small><b><?php echo $monthName; ?></b></small>
+                                                            <small class="mt-2"><?php echo $arrdata[2]; ?></small>
                                                         </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
