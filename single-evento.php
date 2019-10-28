@@ -196,9 +196,11 @@ $file_documenti = dsi_get_meta("file_documenti");
                                     <div class="calendar-date">
                                         <div class="calendar-date-day">
                                             <?php if($old_data != date_i18n("dMY", $data["data"])){ ?>
+                                                <small><?php echo date_i18n( "Y",  $data["data"]  ); ?></small>
                                                 <p><?php  echo date_i18n("d", $data["data"]); ?></p>
-                                                <small><?php  echo date_i18n("M", $data["data"]); ?></small>
-                                                <?php } ?>
+                                                <small><b><?php  echo date_i18n("M", $data["data"]); ?></b></small>
+
+                                            <?php } ?>
                                         </div><!-- /calendar-date-day -->
                                         <div class="calendar-date-description rounded">
                                             <div class="calendar-date-description-content">
@@ -220,8 +222,10 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         for ($i = $begin; $i <= $end; $i->modify('+1 day')) { ?>
                                             <div class="calendar-date">
                                                 <div class="calendar-date-day">
+                                                    <small><?php echo date_i18n("Y", $i->getTimestamp()); ?></small>
                                                     <p><?php echo date_i18n("d", $i->getTimestamp()); ?></p>
-                                                    <small><?php echo date_i18n("M", $i->getTimestamp()); ?></small>
+                                                    <small><b><?php echo date_i18n("M", $i->getTimestamp()); ?></b></small>
+
                                                 </div><!-- /calendar-date-day -->
                                                 <div class="calendar-date-description rounded">
                                                     <div class="calendar-date-description-content">
@@ -259,7 +263,6 @@ $file_documenti = dsi_get_meta("file_documenti");
 									}
 								}
 								?>
-
 
                                 <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
 								<?php

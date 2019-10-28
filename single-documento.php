@@ -224,8 +224,9 @@ get_header();
                                                     ?>
                                                     <div class="calendar-date">
                                                         <div class="calendar-date-day">
+                                                            <small><?php echo date_i18n( "Y", strtotime( $item["data_timeline"] ) ); ?></small>
                                                             <p><?php echo date_i18n( "d", strtotime( $item["data_timeline"] ) ); ?></p>
-                                                            <small><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></small>
+                                                            <small><b><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></b></small>
                                                         </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
