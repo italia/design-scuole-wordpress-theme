@@ -1,6 +1,7 @@
 <?php
 global $post;
 
+
 $image_url = get_the_post_thumbnail_url($post, "article-simple-thumb");
 $class = dsi_get_post_types_color_class($post->post_type);
 $icon = dsi_get_post_types_icon_class($post->post_type);

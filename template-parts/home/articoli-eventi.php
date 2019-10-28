@@ -4,9 +4,9 @@ $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
 
 $ct=0;
-$column = 2;
+$column = 1;
 if($home_show_events == "false")
-    $column = 3;
+    $column = 2;
 if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     ?>
     <section class="section bg-white py-2 py-lg-3 py-xl-5">
@@ -99,7 +99,28 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 }
 ?>
 
-    </div><!-- /row -->
+        <div class="col-lg-4">
+
+            <div class="title-section pb-4">
+                <h3 class="h2"><?php _e("Circolari", "design_scuole_italia"); ?></h3>
+            </div><!-- /title-section -->
+            <?php
+            $args = array('post_type' => 'circolare',
+                'posts_per_page' => 1
+            );
+            $posts = get_posts($args);
+            foreach ($posts as $post) {
+                get_template_part("template-parts/single/card", "circolare");
+            }
+            ?>
+
+            <div class="py-4">
+                <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>
+            </div>
+
+        </div>
+
+        </div><!-- /row -->
     </div><!-- /container -->
     </section><!-- /section --><?php
 
