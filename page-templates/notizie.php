@@ -30,7 +30,7 @@ get_header();
 			}
 
             get_template_part("template-parts/home/notizie", "circolari");
-
+            $ct++;
             get_template_part("template-parts/home/eventi");
 
 
