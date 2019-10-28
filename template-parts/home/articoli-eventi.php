@@ -19,14 +19,26 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
         if($tipologia_notizia) {
+
+            $lg = 4;
+            if(count($tipologie_notizie) == 1)
+                $lg = 8;
             ?>
-            <div class="col-lg-4">
+            <div class="col-lg-<?php echo $lg; ?>">
                 <div class="title-section pb-4">
                     <h3 class="h2"><?php echo $tipologia_notizia->name; ?></h3>
                 </div><!-- /title-section -->
+
                 <?php
+                // se è selezionata solo una tipologia, pesco 2 elementi
+                $ppp=1;
+                if(count($tipologie_notizie) == 1){
+                    $ppp=2;
+                    echo '<div class="row variable-gutters">';
+                }
+
                 $args = array('post_type' => 'post',
-                    'posts_per_page' => 1,
+                    'posts_per_page' => $ppp,
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'tipologia-articolo',
@@ -37,11 +49,18 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 );
                 $posts = get_posts($args);
                 foreach ($posts as $post) {
+                    if(count($tipologie_notizie) == 1)
+                        echo '<div class="col-lg-6 mb-2">';
                     get_template_part("template-parts/single/card", "vertical-thumb");
+                    if(count($tipologie_notizie) == 1)
+                        echo '</div>';
                 }
+
+                if(count($tipologie_notizie) == 1)
+                    echo '</div>';
                 ?>
                 <div class="py-4">
-                    <a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong>Leggi tutte</strong></a>
+                    <a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
                 </div>
             </div><!-- /col-lg-4 -->
             <?php
