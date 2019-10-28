@@ -98,7 +98,7 @@ add_action( 'pre_get_posts', 'dsi_search_filters' );
  * @return int
  */
 function dsi_excerpt_length( $length ) {
-    return 40;
+    return 36;
 }
 add_filter( 'excerpt_length', 'dsi_excerpt_length', 999 );
 

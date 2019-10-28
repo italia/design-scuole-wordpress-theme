@@ -13,6 +13,7 @@ if(!$excerpt)
 $argomenti = dsi_get_argomenti_of_post();
 
 ?>
+
 <article class="card card-bg card-article card-article-<?php echo $class; ?>">
     <div class="card-body">
         <a href="<?php the_permalink(); ?>">
