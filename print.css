@@ -1,3 +1,11 @@
-.nav-container, .menu-open, .menu-search, .footer-wrapper, .aside-list, .aside-main, .label-filter, .svg-search, .header-search, .toggle-actions , #art-par-correlati, #comments, .comments, .mini-clndr {
+.nav-container, .menu-open, .menu-search,
+.footer-wrapper, .aside-list, .aside-main,
+.label-filter, .svg-search, .header-search,
+.toggle-actions , #art-par-correlati, #comments,
+.comments, .mini-clndr, .modal, .modal-backdrop, .title-img {
     display:none !important;
+}
+
+.article-title{
+    height:180px !important;
 }
