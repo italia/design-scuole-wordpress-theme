@@ -52,7 +52,12 @@
             ?>
     </div>
 
-    </div><!-- /container -->
+    </div><!-- /row -->
+
+        <?php
+        get_template_part("template-parts/common/copy");
+        ?>
+
 </footer>
 </div><!-- /push_container -->
 
