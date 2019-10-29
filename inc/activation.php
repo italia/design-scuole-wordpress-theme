@@ -595,6 +595,16 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-type' => 'post_type_archive'
         ));
 
+        $term = get_term_by("name", "Albo online", "tipologia-documento");
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Albo online', "design_scuole_italia"),
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'taxonomy',
+            'menu-item-object' => 'tipologia-documento',
+            'menu-item-object-id' => $term->term_id,
+        ));
+
+
         $locations_primary_arr = get_theme_mod('nav_menu_locations');
         $locations_primary_arr["menu-notizie"] = $menu->term_id;
         set_theme_mod('nav_menu_locations', $locations_primary_arr);

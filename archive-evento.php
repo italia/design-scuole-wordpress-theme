@@ -31,14 +31,10 @@ get_header();
 						<?php get_template_part("template-parts/search/filters", "evento"); ?>
 					</div>
 					<div class="col-lg-7 offset-lg-1 pt84">
-						<?php if ( have_posts() ) : ?>
+						<?php if ( count($posts) ) : ?>
 							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
-
-							endwhile;
+                                foreach ($posts as $post)
+                                    get_template_part( 'template-parts/list/article', get_post_type() );
 							?>
 							<nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
 								<?php echo dsi_bootstrap_pagination(); ?>
