@@ -4563,6 +4563,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .text-underline {
   text-decoration: underline !important; }
 
+.icon-bluelectric {
+  fill: #0D00FF !important; }
+
 .badge {
   border: 1px solid transparent;
   font-weight: 600; }
@@ -5787,6 +5790,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
         background-color: #f7d2d8; }
       .bluelectric .card.card-bg.card-bg-simple:before {
         background-color: #0D00FF; }
+    .card.card-bg.bg-bluedark {
+      background-color: #27415b;
+      color: #ffffff; }
+      .card.card-bg.bg-bluedark h1, .card.card-bg.bg-bluedark .h1, .card.card-bg.bg-bluedark h2, .card.card-bg.bg-bluedark .h2, .card.card-bg.bg-bluedark h3, .card.card-bg.bg-bluedark .h3 {
+        color: #ffffff; }
+      .card.card-bg.bg-bluedark a {
+        color: #ffffff; }
   .card.card-no-shadow {
     box-shadow: none; }
   .card.card-icon .icon {
@@ -5957,6 +5967,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     .bg-blue-dark .card h3, .bg-blue-dark .card .h3 {
       color: #ffffff; }
     .bg-blue-dark .card .card-body p {
+      color: #ffffff; }
+  .bg-bluedark .card {
+    background-color: #27415b;
+    color: #ffffff; }
+    .bg-bluedark .card h1, .bg-bluedark .card .h1, .bg-bluedark .card h2, .bg-bluedark .card .h2, .bg-bluedark .card h3, .bg-bluedark .card .h3 {
+      color: #ffffff; }
+    .bg-bluedark .card a {
       color: #ffffff; }
   .card.card-serif h3, .card.card-serif .h3 {
     font-family: Lora, Georgia, serif;
@@ -6303,6 +6320,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     margin: 0 0 0 0; }
   .card-thumb-rounded.card-bg {
     background: #f5f5f5; }
+  .card-thumb-rounded.bg-bluedark {
+    background-color: #27415b;
+    color: #ffffff; }
+    .card-thumb-rounded.bg-bluedark h1, .card-thumb-rounded.bg-bluedark .h1, .card-thumb-rounded.bg-bluedark h2, .card-thumb-rounded.bg-bluedark .h2, .card-thumb-rounded.bg-bluedark h3, .card-thumb-rounded.bg-bluedark .h3 {
+      color: #ffffff; }
+    .card-thumb-rounded.bg-bluedark a {
+      color: #ffffff; }
+    .card-thumb-rounded.bg-bluedark p {
+      color: #ffffff;
+      opacity: 0.7; }
 
 .card-deck.card-deck-spaced {
   margin-right: 0px;
@@ -6587,6 +6614,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .btn-primary {
   box-shadow: none; }
 
+.btn-outline-white:hover {
+  background-color: #ffffff;
+  color: #000000; }
+.bg-bluedark .btn-outline-white:hover {
+  color: #30465c !important; }
+
 .pagination li.page-item a.page-link {
   padding-left: 8px;
   padding-right: 8px;
@@ -6790,6 +6823,8 @@ body.push-body.push-body-toright #main-header:after, body.push-body.push-body-to
       fill: #0E8A5F; }
     .bluelectric .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-prev svg, .bluelectric .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-next svg {
       fill: #0D00FF; }
+    .section-bluedark .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-prev svg, .section-bluedark .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-next svg {
+      fill: #ffffff; }
 .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-prev {
   left: -67px; }
   .owl-carousel.carousel-theme.carousel-large .owl-nav .owl-prev svg {
@@ -8834,6 +8869,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
     width: 22px;
     height: 22px;
     display: block; }
+  .section-hours-top.section-hours-top-no-icon:before {
+    background-image: none;
+    content: none;
+    position: relative;
+    z-index: 0;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    display: none; }
   @media (max-width: 1199.98px) {
     .section-hours-top {
       margin: 0 0 0 97px; } }
@@ -8897,6 +8942,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .bg-bluelectricdark {
   background-color: #0b00d9; }
+
+.section-bluedark {
+  background-color: #17324d;
+  color: #ffffff; }
+  .section-bluedark h1, .section-bluedark .h1, .section-bluedark h2, .section-bluedark .h2, .section-bluedark h3, .section-bluedark .h3 {
+    color: #ffffff; }
+
+.bg-bluedark {
+  background-color: #30465c;
+  color: #ffffff; }
+  .bg-bluedark h1, .bg-bluedark .h1, .bg-bluedark h2, .bg-bluedark .h2, .bg-bluedark h3, .bg-bluedark .h3 {
+    color: #ffffff; }
 
 .top-move-back {
   position: relative;

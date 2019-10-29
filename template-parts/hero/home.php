@@ -2,6 +2,8 @@
 global $post;
 
 $img_identita = dsi_get_option("immagine", "la_scuola");
+$id_scuola_principale = dsi_get_option("scuola_principale", "homepage");
+
 $colid=6;
 $showimage = true;
 if($img_identita == ""){
@@ -33,6 +35,10 @@ if($img_identita == ""){
                 <div class="hero-title">
                     <h4 class="text-white font-weight-normal"><?php echo dsi_get_option("tipologia_scuola"); ?> </h4>
                     <h1><span class="d-line d-xl-block"><?php echo dsi_get_option("nome_scuola"); ?></span> <?php echo dsi_get_option("luogo_scuola"); ?></h1>
+                    <?php if($id_scuola_principale){ ?>
+                        <a class="btn btn-sm btn-outline-white mt-4" href="<?php echo get_permalink($id_scuola_principale); ?>"><?php _e("Vai alla scuola", "design_scuole_italia"); ?></a>
+                    <?php } ?>
+
                 </div><!-- /hero-title -->
             </div><!-- /col-md-6 -->
         </div><!-- /row -->

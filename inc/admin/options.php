@@ -85,6 +85,24 @@ function dsi_register_main_options_metabox() {
 
     $home_options = new_cmb2_box( $args );
 
+
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_0',
+        'name'        => __( 'La Scuola', 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $home_options->add_field(  array(
+        'id' => $prefix.'scuola_principale',
+        'name'    => __( 'Seleziona la scuola da linkare in home page', 'design_scuole_italia' ),
+        'desc' => __( 'NB: La scuola è una <a href="edit.php?post_type=struttura">Struttura organizzativa</a> di tipologia "Scuola. Se non esiste creala prima <a href="edit.php?post_type=struttura">qui</a>"' , 'design_scuole_italia' ),
+        'type'    => 'pw_select',
+        'options' => dsi_get_strutture_scuole_options(),
+    ) );
+
+
+
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_1',
         'name'        => __( 'Sezione Notizie', 'design_scuole_italia' ),
