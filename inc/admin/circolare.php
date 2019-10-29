@@ -29,7 +29,37 @@ function dsi_register_circolare_post_type()
     );
     register_post_type('circolare', $args);
 
-    register_taxonomy_for_object_type( 'category', 'circolare' );
+
+    $labels = array(
+        'name'              => _x( 'Tipologia Circolare', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Tipologia Circolare', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+        'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+        'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+        'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+        'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+        'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'tipologia-circolare' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_circolare',
+            'edit_terms'    => 'edit_tipologia_circolare',
+            'delete_terms'  => 'delete_tipologia_circolare',
+            'assign_terms'  => 'assign_tipologia_circolare'
+        )
+    );
+
+    register_taxonomy( 'tipologia-circolare', array( 'circolare' ), $args );
+
+  //  register_taxonomy_for_object_type( 'category', 'circolare' );
 
 }
 
@@ -47,6 +77,19 @@ function dsi_add_circolare_metaboxes() {
         'context'      => 'after_title',
         'priority'     => 'high',
     ) );
+
+    $cmb_abstrat->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'name'        => __( 'Tipologia circolare *', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_radio_inline',
+        'taxonomy'       => 'tipologia-circolare',
+        'show_option_none' => false,
+        'remove_default' => 'true',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
+    ) );
+
 
     $cmb_abstrat->add_field( array(
         'id' => $prefix . 'descrizione',

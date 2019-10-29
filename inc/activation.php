@@ -433,6 +433,8 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Regolamenti', 'albo-pretorio' );
     wp_insert_term( 'Sicurezza', 'albo-pretorio' );
 
+    wp_insert_term( 'Circolari per docenti e personale ATA', 'tipologia-circolare' );
+    wp_insert_term( 'Circolari per alunni e famiglie', 'tipologia-circolare' );
 
     /**
      * creo il menu Scuola
