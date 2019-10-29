@@ -389,7 +389,7 @@ function dsi_create_pages_on_theme_activation() {
 
     wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
     wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
-    wp_insert_term( 'Servizi Didattici', 'tipologia-servizio' );
+    wp_insert_term( 'Percorsi di studio', 'tipologia-servizio' );
 
     /*
         $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
@@ -538,7 +538,7 @@ function dsi_create_pages_on_theme_activation() {
         ));
 
 
-        $term = get_term_by("name", "Servizi Didattici", "tipologia-servizio");
+        $term = get_term_by("name", "Percorsi di studio", "tipologia-servizio");
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Percorsi di studio', "design_scuole_italia"),
             'menu-item-status' => 'publish',

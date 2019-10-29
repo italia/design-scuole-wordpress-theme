@@ -141,8 +141,8 @@ function dsi_add_struttura_metaboxes() {
 
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'link_servizi_didattici',
-        'name'    => __( 'Servizi didattici ', 'design_scuole_italia' ),
-        'desc' => __( 'Se la struttura descritta è una scuola o un istituto link ai servizi didattici presenti nella scuola Infanzia / Primaria / secondaria primo grado / secondaria di secondo grado ' , 'design_scuole_italia' ),
+        'name'    => __( 'Percorsi di studio ', 'design_scuole_italia' ),
+        'desc' => __( 'Se la struttura descritta è una scuola o un istituto link ai percorsi di studio presenti nella scuola Infanzia / Primaria / secondaria primo grado / secondaria di secondo grado ' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_servizi_didattici_options(),
         'attributes' => array(

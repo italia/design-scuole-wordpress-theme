@@ -260,8 +260,6 @@ global $wp_query;
         //  $title = post_type_archive_title('', false)." ";
         //$title .= single_term_title('', false);
         $title = single_term_title('', false);
-    } elseif ( $wp_query->is_tax("tipologia-servizio", "servizi-didattici") ) {
-        $title = __("Percorsi di studio", "design_scuole_italia");
     } elseif ( is_post_type_archive("servizio") ) {
         $title = __("Tutti i servizi", "design_scuole_italia");
     }  elseif ( is_tax("tipologia-servizio") ) {

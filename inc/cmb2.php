@@ -146,7 +146,7 @@ function dsi_get_servizi_options( ) {
  */
 function dsi_get_servizi_didattici_options( ) {
 
-    $programs = get_posts("post_type=servizio&tipologia-servizio=servizi-didattici&posts_per_page=-1&orderby=title&order=ASC");
+    $programs = get_posts("post_type=servizio&tipologia-servizio=percorsi-di-studio&posts_per_page=-1&orderby=title&order=ASC");
 
     $options = array();
     if ( $programs ) {
