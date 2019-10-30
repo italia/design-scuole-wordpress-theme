@@ -144,7 +144,7 @@ function dsi_add_servizi_metaboxes() {
         'remove_default' => 'true',
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
             //  'data-only-parent' => true,
         ),
     ) );
