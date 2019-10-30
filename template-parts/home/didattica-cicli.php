@@ -49,7 +49,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                             foreach ($percorsi as $percorso){
 
                                                 // per ogni percorso controllo che esista un servizio didattico con quel percorso di questa scuola
-                                                $servizi_didattici = get_posts("post_type=servizio&tipologia-servizio=servizi-didattici&percorsi-di-studio=".$percorso->slug."&posts_per_page=-1&orderby=title&order=ASC");
+                                                $servizi_didattici = get_posts("post_type=servizio&tipologia-servizio=percorsi-di-studio&percorsi-di-studio=".$percorso->slug."&posts_per_page=-1&orderby=title&order=ASC");
                                                 if($servizi_didattici){
                                                     foreach ($servizi_didattici as $servizio){
                                                         $descrizione = dsi_get_meta("descrizione", "", $servizio->ID);
