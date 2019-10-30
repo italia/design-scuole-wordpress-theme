@@ -157,7 +157,7 @@ function dsi_add_servizi_metaboxes() {
         'options' => dsi_get_strutture_scuole_options(),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
         ),
     ) );
 
@@ -192,7 +192,7 @@ function dsi_add_servizi_metaboxes() {
         'type' => 'textarea',
         'attributes'    => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
         ),
     ) );
     $cmb_undercontent->add_field( array(
@@ -209,7 +209,7 @@ function dsi_add_servizi_metaboxes() {
         ),
         'attributes'    => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
         ),
     ) );
 
@@ -220,7 +220,7 @@ function dsi_add_servizi_metaboxes() {
         'type' => 'textarea',
         'attributes'    => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
         ),
     ) );
     $cmb_undercontent->add_field( array(
@@ -237,7 +237,7 @@ function dsi_add_servizi_metaboxes() {
         ),
         'attributes'    => array(
             'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "servizi-didattici",
+            'data-conditional-value' => "percorsi-di-studio",
         ),
     ) );
 

@@ -686,7 +686,7 @@ function dsi_is_scuola($post){
  */
 function dsi_is_servizio_didattico($post){
 
-    if(has_term("servizi-didattici", "tipologia-servizio", $post))
+    if(has_term("percorsi-di-studio", "tipologia-servizio", $post))
         return true;
 
     return false;
