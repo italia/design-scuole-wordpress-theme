@@ -294,7 +294,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi intu cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
+                                            <h6><?php _e("Luoghi in cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){

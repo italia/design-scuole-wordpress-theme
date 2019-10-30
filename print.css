@@ -2,10 +2,11 @@
 .footer-wrapper, .aside-list, .aside-main,
 .label-filter, .svg-search, .header-search,
 .toggle-actions , #art-par-correlati, #comments,
-.comments, .mini-clndr, .modal, .modal-backdrop, .title-img {
+.comments, .mini-clndr, .modal, .modal-backdrop,
+.badges-wrapper, .title-img , .card-avatar{
     display:none !important;
 }
 
 .article-title{
-    height:180px !important;
+    height:100px !important;
 }
