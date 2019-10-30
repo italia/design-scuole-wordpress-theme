@@ -93,7 +93,7 @@ get_header();
                                         <?php if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizio"
-                                                   title="Vai al paragrafo <?php _e( "Accedi al servizio", "design_scuole_italia" ); ?>"><?php _e( "Accedi al servizio", "design_scuole_italia" ); ?></a>
+                                                   title="Vai al paragrafo <?php _e( "Servizi collegati", "design_scuole_italia" ); ?>"><?php _e( "Servizi collegati", "design_scuole_italia" ); ?></a>
                                             </li>
                                         <?php }
                                         if ( is_array( $timeline ) && count( $timeline ) > 0 ) { ?>
@@ -200,7 +200,7 @@ get_header();
                                     }
                                 }
                                         if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
-                                    <h4 id="art-par-servizio"><?php _e( "Accedi al servizio", "design_scuole_italia" ); ?></h4>
+                                    <h4 id="art-par-servizio"><?php _e( "Servizi collegati", "design_scuole_italia" ); ?></h4>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
