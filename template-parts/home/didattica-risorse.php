@@ -45,7 +45,7 @@
                                 <div class="card-body">
                                     <svg class="icon icon-bluelectric svg-timetable"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-timetable"></use></svg>
                                     <div class="card-icon-content">
-                                        <p><strong><?php _e("Schede Didattiche", "design_scuole_italia"); ?></strong></p>
+                                        <p><strong><?php _e("Schede didattiche", "design_scuole_italia"); ?></strong></p>
                                     </div><!-- /card-icon-content -->
                                 </div><!-- /card-body -->
                             </a>

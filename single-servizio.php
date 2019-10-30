@@ -22,7 +22,7 @@ get_header();
             $percorsi = dsi_get_percorsi_of_scuola($post);
            // print_r($percorsi);
             $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
-            $sottotitolo = dsi_get_meta("sottotitolo");
+            //$sottotitolo = dsi_get_meta("sottotitolo");
             $esito = dsi_get_meta("esito");
 			$descrizione = dsi_get_meta("descrizione");
 			$come_si_fa = dsi_get_meta("come_si_fa");
@@ -76,7 +76,8 @@ get_header();
                                     echo "</small>";
                                 }  ?>
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
-                                <?php if($sottotitolo != "") echo "<p>".$sottotitolo."</p>"; ?>
+
+                                <?php echo wpautop($descrizione); ?>
 
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
@@ -163,17 +164,12 @@ get_header();
                         </div>
                         <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <div class="article-description">
-											<?php echo wpautop($descrizione); ?>
-                                        </div><!-- /article-description -->
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
                                 <h4 id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-										<?php the_content(); ?>
+                                        <div class="article-description">
+                                        <?php the_content(); ?>
+                                        </div>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php

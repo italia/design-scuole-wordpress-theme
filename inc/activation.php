@@ -387,8 +387,8 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Laboratorio', 'tipologia-luogo' );
     wp_insert_term( 'Giardino', 'tipologia-luogo' );
 
-    wp_insert_term( 'Famiglie e Studenti', 'tipologia-servizio' );
-    wp_insert_term( 'Personale Scolastico', 'tipologia-servizio' );
+    wp_insert_term( 'Famiglie e studenti', 'tipologia-servizio' );
+    wp_insert_term( 'Personale scolastico', 'tipologia-servizio' );
     wp_insert_term( 'Percorsi di studio', 'tipologia-servizio' );
 
     /*

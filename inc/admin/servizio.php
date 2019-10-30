@@ -119,13 +119,14 @@ function dsi_add_servizi_metaboxes() {
 		'priority'     => 'high',
 	) );
 
+	/*
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'sottotitolo',
 		'name'        => __( 'Sottotitolo', 'design_scuole_italia' ),
 		'desc' => __( 'Indica un sottotitolo che può avere il Servizio, oppure un nome che identifica informalmente il Servizio.' , 'design_scuole_italia' ),
 		'type' => 'text',
 	) );
-
+*/
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => __( 'Tipologia servizio', 'design_scuole_italia' ),
