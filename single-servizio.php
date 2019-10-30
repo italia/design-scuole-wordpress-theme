@@ -197,7 +197,7 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
-								/*
+
 								if(trim($procedura_esito) != ""){
 									?>
                                     <h6><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h6>
@@ -207,7 +207,7 @@ get_header();
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
 									<?php
-								}*/
+								}
 								if(trim($canale_digitale) != ""){
 									?>
                                     <h4><?php _e("Servizio online", "design_scuole_italia"); ?></h4>
