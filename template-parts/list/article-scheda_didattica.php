@@ -10,7 +10,7 @@ $excerpt =  dsi_get_meta("descrizione", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
-$argomenti = dsi_get_percorsi_of_scuola($post);
+// $argomenti = dsi_get_percorsi_of_scuola($post);
 
 ?>
 
@@ -25,14 +25,14 @@ $argomenti = dsi_get_percorsi_of_scuola($post);
             <div class="card-article-content">
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p><?php echo $excerpt; ?></p>
-                <?php if(count($argomenti)) { ?>
+                <?php /* if(count($argomenti)) { ?>
                     <div class="badges">
                         <?php foreach ( $argomenti as $item ) { ?>
                             <a href="<?php echo get_term_link($item); ?>?post_type=scheda_didattica" title="<?php _e("Vai al livello", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
                                class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
                         <?php } ?>
                     </div><!-- /badges -->
-                <?php } ?>
+                <?php } */ ?>
             </div><!-- /card-avatar-content -->
         </a>
     </div><!-- /card-body -->

@@ -18,9 +18,9 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             <h5><?php
                                 // se sono più strutture è un istituto, altrimenti una scuola
                                 if(count($scuole_didattica) == 1)
-                                    _e("La scuola", "design_scuiole_italia");
+                                    _e("La scuola", "design_scuole_italia");
                                 else
-                                    _e("L'Istituto", "design_scuiole_italia"); ?></h5>
+                                    _e("L'Istituto", "design_scuole_italia"); ?></h5>
                             <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
 
                         </div><!-- /title-section -->

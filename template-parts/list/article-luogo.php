@@ -12,7 +12,7 @@ $excerpt =  dsi_get_meta("descrizione_breve", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
-$argomenti = dsi_get_tipologia_luogo_of_post($post);
+// $argomenti = dsi_get_tipologia_luogo_of_post($post);
 
 
 $posizione_gps = false;
@@ -51,14 +51,14 @@ $posizione_gps = false;
 		<div class="card-article-content">
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 			<p><?php echo $excerpt; ?></p>
-            <?php if(count($argomenti)) { ?>
+            <?php /* if(count($argomenti)) { ?>
 			<div class="badges">
 				<?php foreach ( $argomenti as $item ) { ?>
                     <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
                        class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
 				<?php } ?>
 			</div><!-- /badges -->
-            <?php } ?>
+            <?php } */ ?>
 		</div><!-- /card-avatar-content -->
             <?php if(!$posizione_gps){ ?>
             </a>
