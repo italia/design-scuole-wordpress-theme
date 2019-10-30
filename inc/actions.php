@@ -114,7 +114,6 @@ function dsi_eventi_filters( $query ) {
             $date = strtotime($_GET["date"]);
             $date_begin = strtotime($_GET["date"] ." 00:00:01");
             $date_end = strtotime($_GET["date"] ." 23:59:59");
-            echo $date_begin."_--".$date_end;
             $query->set( 'meta_query', array(
                 array(
                     'key' => '_dsi_evento_timestamp_inizio',
