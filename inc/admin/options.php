@@ -891,6 +891,72 @@ function dsi_register_main_options_metabox() {
 
 
     // pagina opzioni
+    /**
+     * Registers main options page menu item and form.
+     */
+    $args = array(
+        'id'           => 'dsi_login_menu',
+        'title'        => esc_html__( 'Login', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'login',
+        'tab_title'    => __('Servizi esterni', "design_scuole_italia"),
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
+    );
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $login_options = new_cmb2_box( $args );
+
+    $login_options->add_field( array(
+        'id' => $prefix . 'login_istruzioni',
+        'name'        => __( 'Servizi esterni: informazioni di login', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione dei link di login ai servizi esterni, da mostrare nella maschera di login .' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $login_options->add_field( array(
+        'id' => $prefix . 'login_messaggio',
+        'name' => 'Testo da mostrare nell\'area di login',
+        'type' => 'textarea',
+        'default' => 'Da qui puoi accedere ai diversi servizi della scuola che richiedono una autenticazione personale.',
+    ) );
+
+
+    $timeline_group_id = $login_options->add_field( array(
+        'id'           => $prefix . 'link_esterni',
+        'type'        => 'group',
+        'name'        => 'Link servizi esterni',
+        'desc' => __( 'Definisci tutti i servizi esterni che vuoi mostrare agli utenti in fase di login.' , 'design_scuole_italia' ),
+        'repeatable'  => true,
+        'options'     => array(
+            'group_title'   => __( 'Link {#}', 'design_scuole_italia' ),
+            'add_button'    => __( 'Aggiungi un elemento', 'design_scuole_italia' ),
+            'remove_button' => __( 'Rimuovi l\'elemento ', 'design_scuole_italia' ),
+            'sortable'      => true,  // Allow changing the order of repeated groups.
+        ),
+    ) );
+
+
+    $login_options->add_group_field( $timeline_group_id, array(
+        'id' => $prefix . 'nome_link',
+        'name'        => __( 'Nome Servizio', 'design_scuole_italia' ),
+        'type' => 'text',
+    ) );
+
+
+    $login_options->add_group_field( $timeline_group_id, array(
+        'id' => $prefix . 'url_link',
+        'name'        => __( 'Link Servizio', 'design_scuole_italia' ),
+        'type' => 'text_url',
+    ) );
+
+
+    // pagina opzioni
 	/**
 	 * Registers main options page menu item and form.
 	 */
