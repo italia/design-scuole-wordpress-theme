@@ -425,7 +425,7 @@ function dsi_add_servizi_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
         'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
-        'desc'       => __( 'Indirizzo di posta elettronica del luogo. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Indirizzo di posta elettronica del servizio. ', 'design_scuole_italia' ),
         'type'       => 'text_email',
         /*'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
@@ -437,7 +437,7 @@ function dsi_add_servizi_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
         'name'       => __( 'Riferimento telefonico ', 'design_scuole_italia' ),
-        'desc'       => __( 'Telefono del luogo. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Telefono del servizio. ', 'design_scuole_italia' ),
         'type'       => 'text',
         /*
         'attributes' => array(
