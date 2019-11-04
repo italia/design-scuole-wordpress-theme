@@ -228,7 +228,7 @@ get_header();
                                 }
                                 if(trim($canale_digitale) != ""){
                                     ?>
-                                    <h4><?php _e("Servizio online", "design_scuole_italia"); ?></h4>
+                                    <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($canale_digitale); ?>
