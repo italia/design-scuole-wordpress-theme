@@ -305,7 +305,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_fisico',
-		'name'        => __( 'Sedi in cui richiedere il servizio ', 'design_scuole_italia' ),
+		'name'        => __( 'Sedi ', 'design_scuole_italia' ),
 		'desc' => __( 'Breve testo che identifica la sede o le sedi dell\'ufficio / struttura organizzativa responsabile in cui è possibile attivare il servizio e spiega se serve prendere appuntamento. Esempi: Il servizio può essere richiesto nelle sedi della segreteria scolastica presentandosi negli orari di apertura. Non è necessario prendere appuntamento / Utilizza il servizio di prenotazione appuntamento / contatta la sede per richiedere un appuntamento.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 
