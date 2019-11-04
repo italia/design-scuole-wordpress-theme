@@ -11,6 +11,7 @@ if(substr($nomefile, -4) == "docx")
 if(substr($nomefile, -3) == "xml")
 	$icon = "svg-xml-document";
 
+$ext = substr($nomefile, -4);
 
 $attach = get_post($idfile);
 $filetocheck = get_attached_file($idfile);
@@ -19,7 +20,8 @@ $filesize = filesize($filetocheck);
 $type = mime_content_type($filetocheck);
 $ptitle = $attach->post_title;
 if(trim($ptitle) == ""){
-    $ptitle = basename($filetocheck);
+    $ptitle = basename($filetocheck, $ext);
+
 }
 ?>
 	<div class="card card-bg card-icon rounded">
