@@ -49,6 +49,8 @@ get_header();
             $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
             $libri_testo_file = dsi_get_meta("libri_testo_file");
 
+            $servizi_correlati = dsi_get_meta("servizi_correlati");
+
             ?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -284,6 +286,21 @@ get_header();
                                             <?php
 
                                 }
+                                ?>
+            <?php if($servizi_correlati){ ?>
+                <h6><?php _e("Servizi correlati", "design_scuole_italia"); ?></h6>
+                <div class="row variable-gutters">
+                    <div class="col-lg-12">
+                        <div class="card-deck card-deck-spaced">
+                            <?php foreach ($servizi_correlati as $idservizio){
+                                $servizio = get_post($idservizio);
+                                get_template_part("template-parts/servizio/card");
+                            } ?>
+                        </div><!-- /card-deck card-deck-spaced -->
+                    </div><!-- /col-lg-12 -->
+                </div><!-- /row -->
+            <?php  }
+
 
                                 if(is_array($luoghi) && count($luoghi) > 0){
                                     global $luogo;

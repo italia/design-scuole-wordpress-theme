@@ -320,6 +320,15 @@ function dsi_add_servizi_metaboxes() {
         'options' => dsi_get_strutture_options(),
     ) );
 
+
+
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'servizi_correlati',
+        'name'       => __( 'Servizi correlati', 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_servizi_options(),
+    ) );
+
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'luoghi',
         'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui vengono erogati i servizi', 'design_scuole_italia' ),
