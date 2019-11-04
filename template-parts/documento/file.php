@@ -19,7 +19,7 @@ $filesize = filesize($filetocheck);
 $type = mime_content_type($filetocheck);
 $ptitle = $attach->post_title;
 if($ptitle == ""){
-    $ptitle = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $ptitle);
+    $ptitle = mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filetocheck);
 // Remove any runs of periods (thanks falstro!)
     $ptitle = mb_ereg_replace("([\.]{2,})", '', $ptitle);
 
