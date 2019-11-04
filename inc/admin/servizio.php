@@ -187,7 +187,7 @@ function dsi_add_servizi_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'calendario_classi_descrizione',
-        'name'        => __( 'Il calendario delle classi', 'design_scuole_italia' ),
+        'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
         'type' => 'textarea',
         'attributes'    => array(

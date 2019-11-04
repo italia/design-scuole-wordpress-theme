@@ -119,7 +119,7 @@ get_header();
                                         </li>
                                         <?php if(dsi_is_servizio_didattico($post) && ($calendario_classi_file || $calendario_classi_descrizione)){ ?>
                                             <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-calendario" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Calendario delle classi", "design_scuole_italia"); ?>"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></a>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-calendario" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Orario delle classi", "design_scuole_italia"); ?>"><?php _e("Orario delle classi", "design_scuole_italia"); ?></a>
                                             </li>
 
                                         <?php } ?>
@@ -337,7 +337,7 @@ get_header();
                                 }
                                 ?>
                                 <?php if(dsi_is_servizio_didattico($post) && ($calendario_classi_file || $calendario_classi_descrizione)){ ?>
-                                    <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4>
+                                    <h4 id="art-par-calendario" class="mt-4"><?php _e("Orario delle classi", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($calendario_classi_descrizione); ?>
