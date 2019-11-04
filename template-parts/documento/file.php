@@ -20,8 +20,8 @@ $filesize = filesize($filetocheck);
 $type = mime_content_type($filetocheck);
 $ptitle = $attach->post_title;
 if(trim($ptitle) == ""){
-    $ptitle = basename($filetocheck, $ext);
-
+    $ptitle = str_replace("-", " ", basename($filetocheck, $ext));
+    $ptitle = str_replace("_", " ", $ptitle);
 }
 ?>
 	<div class="card card-bg card-icon rounded">
