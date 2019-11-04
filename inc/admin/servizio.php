@@ -421,7 +421,34 @@ function dsi_add_servizi_metaboxes() {
 
 	) );
 
-	$cmb_undercontent->add_field( array(
+
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'mail',
+        'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
+        'desc'       => __( 'Indirizzo di posta elettronica del luogo. ', 'design_scuole_italia' ),
+        'type'       => 'text_email',
+        /*'attributes' => array(
+            'data-conditional-id'    => $prefix . 'childof',
+            'data-conditional-value' => '0',
+        ),*/
+    ) );
+
+
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'telefono',
+        'name'       => __( 'Riferimento telefonico ', 'design_scuole_italia' ),
+        'desc'       => __( 'Telefono del luogo. ', 'design_scuole_italia' ),
+        'type'       => 'text',
+        /*
+        'attributes' => array(
+            'data-conditional-id'    => $prefix . 'childof',
+            'data-conditional-value' => '0',
+        ),
+        */
+    ) );
+
+
+    $cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_documenti',
 		'name'    => __( 'Documenti', 'design_scuole_italia' ),
 		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per attivare il servizio: moduli da compilare, riferimenti di legge e altre informazioni. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),

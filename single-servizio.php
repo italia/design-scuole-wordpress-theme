@@ -50,7 +50,8 @@ get_header();
             $libri_testo_file = dsi_get_meta("libri_testo_file");
 
             $servizi_correlati = dsi_get_meta("servizi_correlati");
-
+            $mail = dsi_get_meta("mail");
+            $telefono = dsi_get_meta("telefono");
             ?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -153,6 +154,16 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                             </li>
 										<?php } ?>
+                                        <?php
+            if($telefono || $mail){
+                ?>
+                <li>
+                    <a class="list-item scroll-anchor-offset" href="#art-par-contatti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Contatti", "design_scuole_italia"); ?>"><?php _e("Contatti", "design_scuole_italia"); ?></a>
+                </li>
+
+                <?php
+            }
+                                        ?>
 										<?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
@@ -445,6 +456,21 @@ get_header();
 									<?php
 								}
 
+            if($telefono || $mail){
+                ?>
+                <div class="row variable-gutters mb-4" >
+                    <div class="col-lg-9">
+                        <h6 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h6>
+                        <div class="card card-bg bg-color rounded">
+                            <div class="card-body pb-1">
+                                <ul>
+                                    <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
+                                    <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+                                </ul>
+                            </div></div>
+                    </div></div>
+
+            <?php }
 
 								if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
 									?>
@@ -475,7 +501,6 @@ get_header();
                                     </div><!-- /row -->
 									<?php
 								}
-
 
 								if(isset($arrstrutture) && is_array($arrstrutture) && count($arrstrutture) > 0){
 									?>
