@@ -245,7 +245,12 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'esito',
 		'name'        => __( 'A cosa serve', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa"' , 'design_scuole_italia' ),
-		'type' => 'textarea',
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
 
 	) );
 
@@ -253,8 +258,21 @@ function dsi_add_servizi_metaboxes() {
 		'id' => $prefix . 'come_si_fa',
 		'name'        => __( 'Come si fa ', 'design_scuole_italia' ),
 		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto"' , 'design_scuole_italia' ),
-		'type' => 'textarea',
+        'type' => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
 	) );
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_fisico_prenotazione',
+        'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
+        'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
+        'type' => 'text_url'
+    ) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'procedura_esito',
@@ -295,12 +313,6 @@ function dsi_add_servizi_metaboxes() {
 		'type' => 'checkbox',
 	) );
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'canale_fisico_prenotazione',
-        'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
-        'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
-        'type' => 'text_url'
-    ) );
 
 
 	$cmb_undercontent->add_field( array(

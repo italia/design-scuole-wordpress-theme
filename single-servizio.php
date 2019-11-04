@@ -206,6 +206,11 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($come_si_fa); ?>
+                                            <?php if(trim($canale_fisico_prenotazione) != ""){  ?>
+                                                <div class="btn-wrapper mb-5">
+                                                    <a class="btn btn-purplelight" href="<?php echo $canale_fisico_prenotazione; ?>"><?php _e("Prenota", "design_scuole_italia"); ?></a>
+                                                </div>
+                                            <?php } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
@@ -256,11 +261,6 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <p><?php echo $canale_fisico; ?></p>
-                                            <?php if(trim($canale_fisico_prenotazione) != ""){  ?>
-                                                <div class="btn-wrapper mb-5">
-                                                    <a class="btn btn-purplelight" href="<?php echo $canale_fisico_prenotazione; ?>"><?php _e("Prenota", "design_scuole_italia"); ?></a>
-                                                </div>
-                                            <?php } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
