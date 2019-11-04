@@ -445,7 +445,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters mb-4" >
                                         <div class="col-lg-9">
-                                            <h6 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h6>
+                                            <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
                                             <div class="card card-bg bg-color rounded">
                                                 <div class="card-body pb-1">
                                                     <ul>
