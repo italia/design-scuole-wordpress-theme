@@ -725,3 +725,37 @@ function dsi_sanitize_int( $value, $field_args, $field ) {
     }
     return $sanitized_value;
 }
+
+
+if(!function_exists("dsi_pluralize_string")) {
+    function dsi_pluralize_string($string){
+    switch ($string){
+        case "Biblioteca":
+            $string = "Biblioteche";
+            break;
+
+        case "Palestra":
+            $string = "Palestre";
+            break;
+
+        case "Edificio scolastico":
+            $string = "Edifici scolastici";
+            break;
+
+        case "Teatro":
+            $string = "Teatri";
+            break;
+
+        case "Laboratorio":
+            $string = "Laboratori";
+            break;
+
+        case "Giardino":
+            $string = "Giardini";
+            break;
+
+    }
+
+        return $string;
+    }
+}

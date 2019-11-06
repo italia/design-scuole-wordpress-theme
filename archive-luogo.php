@@ -37,15 +37,18 @@ global $luogo;
                         <div class="container">
                             <?php
                             if (is_array($luoghi) && count($luoghi) > 0) {
-                                ?>
+                            ?>
 
-                                <div class="row variable-gutters mt-4">
-                                    <div class="col-lg-3  mb-4">
-                                        <h4 class="text-lg-right mb-3">
-                                            <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php echo $tipologia_luogo->name; ?></a>
-                                        </h4>
-                                    </div><!-- /col-lg-3 -->
-                                    <div class="col-lg-9">
+                            <div class="row variable-gutters mt-4">
+                                <div class="col-lg-10 offset-lg-1 mb-4">
+                                    <h4 class="text-left mb-3">
+                                        <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php  if (count($luoghi) > 1) echo dsi_pluralize_string($tipologia_luogo->name); else echo $tipologia_luogo->name; ?></a>
+                                    </h4>
+                                </div><!-- /col-lg-3 -->
+                                <?php
+
+                                    ?>
+                                    <div class="col-lg-10 offset-lg-1">
                                         <div class="row variable-gutters">
                                             <?php foreach ($luoghi as $luogo) { ?>
                                                 <div class="col-lg-4 mb-4">
