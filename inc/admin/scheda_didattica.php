@@ -25,6 +25,7 @@ function dsi_register_scheda_didattica_post_type() {
 		'menu_icon'     => 'dashicons-media-interactive',
 		'has_archive'   => true,
         'capability_type' => array('scheda_didattica', 'schede_didattica'),
+        'rewrite' => array('slug' => 'scheda-didattica','with_front' => false),
         'map_meta_cap'    => true,
 	);
 	register_post_type( 'scheda_didattica', $args );
@@ -93,7 +94,7 @@ function dsi_add_scheda_didattica_metaboxes() {
 scuola secondaria secondo grado / percorsi di istruzione e formazione professionale', 'design_scuole_italia' ),
         'type'             => 'taxonomy_multicheck_hierarchy_child',
         'select_all_button' => false,
-        'taxonomy'       => 'percorsi-di-studio',
+        'taxonomy'       => 'indirizzi-di-studio',
         'remove_default' => 'true',
         'attributes' => array(
             'data-conditional-id' => $prefix . 'tipologia',

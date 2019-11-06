@@ -17,7 +17,7 @@ get_header();
 
         <?php while ( have_posts() ) :  the_post();
 
-            $percorsi = dsi_get_percorsi_of_scuola($post);
+            $indirizzi = dsi_get_indirizzi_of_scuola($post);
             $link_servizi_didattici = dsi_get_meta("link_servizi_didattici");
 
             $image_url = get_the_post_thumbnail_url($post, "item-gallery");
@@ -58,13 +58,13 @@ get_header();
                     <div class="row variable-gutters">
                         <div class="col-md-6 d-flex align-items-center">
                             <div class="title-content">
-                                <?php if(dsi_is_scuola($post) && is_array($percorsi)){
+                                <?php if(dsi_is_scuola($post) && is_array($indirizzi)){
                                     echo "<small class=\"h6 text-redbrown\">";
                                     $c=0;
-                                    foreach ($percorsi as $percorso){
+                                    foreach ($indirizzi as $indirizzo){
 
                                         if($c) echo ", ";
-                                        echo strtoupper($percorso->name);
+                                        echo strtoupper($indirizzo->name);
                                         $c++;
                                     }
                                     echo "</small>";
@@ -191,26 +191,6 @@ get_header();
                                 <?php } ?>
                                 <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                     <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
-                                    <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
-                                        <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
-                                        <div class="card-deck card-deck-spaced mb-2">
-                                            <?php
-                                            foreach ($responsabile as $idutente) {
-                                                $autore = get_user_by("ID", $idutente);
-                                                ?>
-                                                <div class="card card-bg card-avatar rounded">
-                                                    <a href="<?php echo get_author_posts_url($idutente); ?>">
-                                                        <div class="card-body">
-                                                            <?php get_template_part("template-parts/autore/card"); ?>
-                                                        </div>
-                                                    </a>
-                                                </div><!-- /card card-bg card-avatar rounded -->
-                                                <?php
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck -->
-                                    <?php } ?>
-
 
                                     <?php
                                     // se è un parent
@@ -244,6 +224,29 @@ get_header();
                                         echo "</div>";
                                     }
                                     ?>
+
+                                    <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
+                                        <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
+                                        <div class="card-deck card-deck-spaced mb-2">
+                                            <?php
+                                            foreach ($responsabile as $idutente) {
+                                                $autore = get_user_by("ID", $idutente);
+                                                ?>
+                                                <div class="card card-bg card-avatar rounded">
+                                                    <a href="<?php echo get_author_posts_url($idutente); ?>">
+                                                        <div class="card-body">
+                                                            <?php get_template_part("template-parts/autore/card"); ?>
+                                                        </div>
+                                                    </a>
+                                                </div><!-- /card card-bg card-avatar rounded -->
+                                                <?php
+                                            }
+                                            ?>
+                                        </div><!-- /card-deck -->
+                                    <?php } ?>
+
+
+
 
                                     <?php if(is_array($persone) && count($persone)>0){ ?>
                                         <h6><?php _e("Persone", "design_scuole_italia"); ?></h6>

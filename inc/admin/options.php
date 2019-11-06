@@ -14,7 +14,7 @@ function dsi_register_main_options_metabox() {
 		'tab_group'    => 'dsi_options',
 		'tab_title'    => __('Opzioni di base', "design_scuole_italia"),
         'capability'    => 'manage_options',
-		'position'        => 1, // Menu position. Only applicable if 'parent_slug' is left empty.
+		'position'        => 2, // Menu position. Only applicable if 'parent_slug' is left empty.
 		'icon_url'        => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 	);
 

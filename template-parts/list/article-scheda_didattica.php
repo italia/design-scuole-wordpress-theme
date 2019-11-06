@@ -10,7 +10,7 @@ $excerpt =  dsi_get_meta("descrizione", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
 
-// $argomenti = dsi_get_percorsi_of_scuola($post);
+// $argomenti = dsi_get_indirizzi_of_scuola($post);
 
 ?>
 

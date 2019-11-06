@@ -26,6 +26,7 @@ function dsi_register_materia_post_type() {
 		'menu_icon'     => 'dashicons-translation',
 		'has_archive'   => true,
         'capability_type' => array('programma', 'programmi'),
+        'rewrite' => array('slug' => 'programma-materia','with_front' => false),
         'map_meta_cap'    => true,
 	);
 	register_post_type( 'programma_materia', $args );

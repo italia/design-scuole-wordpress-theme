@@ -22,7 +22,6 @@ function dsi_menu_highlight( $parent_file ) {
     return $parent_file;
 }
 
-
 add_action('admin_menu','dsi_custom_admin_menu');
 function dsi_custom_admin_menu() {
    // swap_admin_menu_sections('Pagine','Articoli');              // Swap location of Posts Section with Pages Section
@@ -35,6 +34,7 @@ function dsi_custom_admin_menu() {
     rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");
     swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
     swap_admin_menu_sections('Media','Documenti');
+    swap_admin_menu_sections('Strutture','Articoli');
 
 
 

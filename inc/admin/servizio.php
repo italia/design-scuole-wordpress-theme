@@ -3,7 +3,7 @@
 /**
  * Definisce post type e tassonomie relative ai servizi
  */
-add_action( 'init', 'dsi_register_servizio_post_type', 0 );
+add_action( 'init', 'dsi_register_servizio_post_type', -10 );
 function dsi_register_servizio_post_type() {
 
 	/** servizio **/
@@ -26,7 +26,7 @@ function dsi_register_servizio_post_type() {
 //		'taxonomies'            => array( 'tipologia' ),
 		'hierarchical'          => false,
 		'public'                => true,
-		'menu_position'         => 5,
+		'menu_position'         => 2,
 		'menu_icon'             => 'dashicons-id-alt',
 		'has_archive'           => true,
         'capability_type' => array('servizio', 'servizi'),
@@ -136,33 +136,6 @@ function dsi_add_servizi_metaboxes() {
     ) );
 
 
-    $cmb_sottotitolo->add_field( array(
-        'id' => $prefix . 'percorsi',
-        'name'        => __( 'Percorsi di studio del servizio didattico', 'design_scuole_italia' ),
-        'type'             => 'taxonomy_multicheck_hierarchy_child',
-        'select_all_button' => false,
-        'taxonomy'       => 'percorsi-di-studio',
-        'remove_default' => 'true',
-        'attributes' => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-            //  'data-only-parent' => true,
-        ),
-    ) );
-
-    $cmb_sottotitolo->add_field( array(
-        'id' => $prefix . 'link_struttura_didattica',
-        'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona la struttura (scuola o istituto) che eroga il servizio didattico' , 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dsi_get_strutture_scuole_options(),
-        'attributes' => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-        ),
-    ) );
-
-
 
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
@@ -185,62 +158,6 @@ function dsi_add_servizi_metaboxes() {
 		'priority'     => 'high',
 	) );
 
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_descrizione',
-        'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
-        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-        'attributes'    => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-        ),
-    ) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_file',
-        'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
-        ),
-        'attributes'    => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-        ),
-    ) );
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'libri_testo_descrizione',
-        'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
-        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-        'attributes'    => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-        ),
-    ) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'libri_testo_file',
-        'name' => __( 'File pdf dei libri di testo' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo file', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove"
-        ),
-        'attributes'    => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "percorsi-di-studio",
-        ),
-    ) );
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'esito',
@@ -270,7 +187,7 @@ function dsi_add_servizi_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'canale_fisico_prenotazione',
-        'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
+        'name'        => __( 'Link prenotazione', 'design_scuole_italia' ),
         'desc' => __( 'es: se il servizio è prenotabile, link al servizio di prenotazione ' , 'design_scuole_italia' ),
         'type' => 'text_url'
     ) );
@@ -314,15 +231,6 @@ function dsi_add_servizi_metaboxes() {
 		'type' => 'checkbox',
 	) );
 
-
-
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'canale_fisico',
-		'name'        => __( 'Sedi ', 'design_scuole_italia' ),
-		'desc' => __( 'Breve testo che identifica la sede o le sedi dell\'ufficio / struttura organizzativa responsabile in cui è possibile attivare il servizio e spiega se serve prendere appuntamento. Esempi: Il servizio può essere richiesto nelle sedi della segreteria scolastica presentandosi negli orari di apertura. Non è necessario prendere appuntamento / Utilizza il servizio di prenotazione appuntamento / contatta la sede per richiedere un appuntamento.' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-
-	) );
 
 
     $cmb_undercontent->add_field( array(
@@ -533,8 +441,6 @@ function sdi_servizio_add_content_before_editor($post) {
 
 // relazione bidirezionale struttura / servizi
 new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "struttura_responsabile", "box_elementi_servizio", "_dsi_struttura_link_schede_servizi");
-
-new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_struttura_didattica", "box_sottotitolo", "_dsi_struttura_link_servizi_didattici");
 
 // relazione bidirezionale  servizi / luogo
 new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "luoghi", "box_elementi_servizio", "_dsi_luogo_servizi_presenti");

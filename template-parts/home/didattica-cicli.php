@@ -48,33 +48,26 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                     <div class="accordion-large accordion-wrapper">
 
                                         <?php
-                                        // recupero i percorsi di studi
-                                        $percorsi = wp_get_object_terms($idstruttura, "percorsi-di-studio");
-                                        if(is_array($percorsi) && count($percorsi)>0){
-                                            foreach ($percorsi as $percorso){
+                                        // recupero i percorsi di studio
+                                        $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
+                                        if($percorsi_di_studio){
+                                            foreach ($percorsi_di_studio as $idpercorso){
+                                                $percorso = get_post($idpercorso);
+                                                $descrizione = dsi_get_meta("descrizione", "", $percorso->ID);
+                                                $sottotitolo = dsi_get_meta("sottotitolo", "", $percorso->ID);
+                                                ?>
+                                                <hr/>
+                                                <div class="accordion-large-title accordion-header">
+                                                    <h3><?php echo $percorso->post_title; ?></h3>
+                                                </div><!-- /accordion-large-title -->
+                                                <div class="accordion-large-content accordion-content">
+                                                    <?php echo wpautop($descrizione); ?>
+                                                    <p><a href="<?php echo get_permalink($percorso); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
+                                                </div><!-- /accordion-large-content -->
 
-                                                // per ogni percorso controllo che esista un servizio didattico con quel percorso di questa scuola
-                                                $servizi_didattici = get_posts("post_type=servizio&tipologia-servizio=percorsi-di-studio&percorsi-di-studio=".$percorso->slug."&posts_per_page=-1&orderby=title&order=ASC");
-                                                if($servizi_didattici){
-                                                    foreach ($servizi_didattici as $servizio){
-                                                        $descrizione = dsi_get_meta("descrizione", "", $servizio->ID);
-                                                        $sottotitolo = dsi_get_meta("sottotitolo", "", $servizio->ID);
-                                                        ?>
-                                                        <hr/>
-                                                        <div class="accordion-large-title accordion-header">
-                                                            <h3><?php echo $servizio->post_title; ?></h3>
-                                                        </div><!-- /accordion-large-title -->
-                                                        <div class="accordion-large-content accordion-content">
-
-                                                            <?php echo wpautop($descrizione); ?>
-                                                            <p><a href="<?php echo get_permalink($servizio); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
-                                                        </div><!-- /accordion-large-content -->
-
-                                                        <?php
-
-                                                    }
-                                                }
+                                                <?php
                                             }
+
                                         }else{
                                             echo '<div ><h5 class="text-white">';
                                             _e("Nessun percorso di studi associato a questa scuola.", "design_scuole_italia");

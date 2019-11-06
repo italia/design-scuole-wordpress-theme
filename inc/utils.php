@@ -44,10 +44,13 @@ if(!function_exists("dsi_get_meta")){
 		if($prefix != "")
 			return get_post_meta( $post_id, $prefix.$key, true );
 
-		if(is_singular("servizio") || (isset($post_type) && $post_type == "servizio")){
-			$prefix = '_dsi_servizio_';
-			return get_post_meta( $post_id, $prefix.$key, true );
-		}else if (is_singular("luogo")  || (isset($post_type) && $post_type == "luogo")) {
+        if(is_singular("servizio") || (isset($post_type) && $post_type == "servizio")){
+            $prefix = '_dsi_servizio_';
+            return get_post_meta( $post_id, $prefix.$key, true );
+        }else if(is_singular("percorso_di_studio") || (isset($post_type) && $post_type == "percorso_di_studio")){
+            $prefix = '_dsi_percorso_di_studio_';
+            return get_post_meta( $post_id, $prefix.$key, true );
+        }else if (is_singular("luogo")  || (isset($post_type) && $post_type == "luogo")) {
 			$prefix = '_dsi_luogo_';
 			return get_post_meta( $post_id, $prefix . $key, true );
 		}else if (is_singular("struttura")  || (isset($post_type) && $post_type == "struttura")) {
@@ -251,17 +254,17 @@ if(!function_exists("dsi_get_argomenti_of_post")) {
 }
 
 /**
- * recupero i percorsi di studio della scuola
+ * recupero gli indirizzi di studio della scuola
  */
-if(!function_exists("dsi_get_percorsi_of_scuola")) {
-    function dsi_get_percorsi_of_scuola( $singular = false ) {
+if(!function_exists("dsi_get_indirizzi_of_scuola")) {
+    function dsi_get_indirizzi_of_scuola( $singular = false ) {
         global $post;
 
         if ( ! $singular) {
             $singular = $post;
         }
 
-        $argomenti_terms = wp_get_object_terms( $singular->ID, 'percorsi-di-studio' );
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'indirizzi-di-studio' );
         return $argomenti_terms;
     }
 }
@@ -451,7 +454,7 @@ function dsi_get_post_types_grouped($type = "", $category = false){
 	else if($type === "education")
 		$post_types = array("scheda_didattica", "scheda_progetto"); // todo: programma materia 		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
-		$post_types = array("servizio");
+		$post_types = array("servizio", "percorso_di_studio");
 	else
 		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
@@ -679,18 +682,6 @@ function dsi_is_scuola($post){
     return false;
 }
 
-/**
- * controllo se una struttura è una scuola
- * @param $post
- * @return bool
- */
-function dsi_is_servizio_didattico($post){
-
-    if(has_term("percorsi-di-studio", "tipologia-servizio", $post))
-        return true;
-
-    return false;
-}
 
 /**
  * ritorna l'anno scolastico corrente

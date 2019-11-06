@@ -146,7 +146,7 @@ function dsi_get_servizi_options( ) {
  */
 function dsi_get_servizi_didattici_options( ) {
 
-    $programs = get_posts("post_type=servizio&tipologia-servizio=percorsi-di-studio&posts_per_page=-1&orderby=title&order=ASC");
+    $programs = get_posts("post_type=percorso_di_studio&posts_per_page=-1&orderby=title&order=ASC");
 
     $options = array();
     if ( $programs ) {
@@ -216,20 +216,20 @@ function dsi_get_tipologie_documenti_options( ) {
 
 function dsi_get_strutture_percorsi_scuole_options( ) {
 
-    $programs = get_posts("post_type=struttura&tipologia-struttura=scuola&posts_per_page=-1&orderby=title&order=ASC");
+    $strutture = get_posts("post_type=struttura&tipologia-struttura=scuola&posts_per_page=-1&orderby=title&order=ASC");
 
     $options = array();
-    if ( $programs ) {
-        foreach ( $programs as $program ) {
+    if ( $strutture ) {
+        foreach ( $strutture as $struttura ) {
             // per ogni scuola seleziono i percorsi abilitati
-               $percorsi = dsi_get_meta("percorsi", "", $program->ID);
+               $indirizzi = dsi_get_meta("indirizzi", "", $struttura->ID);
         //    print_r($percorsi);
-               if(is_array($percorsi) && count($percorsi) > 0){
-                   foreach ($percorsi as $percorso){
+               if(is_array($indirizzi) && count($indirizzi) > 0){
+                   foreach ($indirizzi as $indirizzo){
 
-                       $term_percorso = get_term_by("slug", $percorso, "percorsi-di-studio");
-                       if($term_percorso)
-                           $options[ $term_percorso->term_id ] = $term_percorso->name;
+                       $term_indirizzo = get_term_by("slug", $indirizzo, "indirizzi-di-studio");
+                       if($term_indirizzo)
+                           $options[ $term_indirizzo->term_id ] = $term_indirizzo->name;
                    }
 
                }

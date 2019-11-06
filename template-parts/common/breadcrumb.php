@@ -21,12 +21,13 @@
                             ),
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
+                                'percorso_di_studio'  => 'indirizzi-di-studio',
 			                     'documento'  => 'tipologia-documento',
 			                     'post'  =>     'tipologia-articolo',
 			                     'luogo'  => 'tipologia-luogo',
 			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',
-                                'scheda_didattica'  => 'percorsi-di-studio',
+                                'scheda_didattica'  => 'indirizzi-di-studio',
                                 'incarico'  => 'tipo_incarico',
 
                             ),

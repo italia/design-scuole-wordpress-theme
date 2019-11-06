@@ -257,7 +257,7 @@ global $wp_query;
             }*/
     } elseif ( is_tax("tipologia-documento") ) {
         $title = single_term_title('', false);
-    } elseif ( is_tax("percorsi-di-studio") ) {
+    } elseif ( is_tax("indirizzi-di-studio") ) {
         //  $title = post_type_archive_title('', false)." ";
         //$title .= single_term_title('', false);
         $title = single_term_title('', false);

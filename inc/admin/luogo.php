@@ -2,7 +2,7 @@
 /**
  * Definisce post type e tassonomie relative al luogo
  */
-add_action( 'init', 'dsi_register_luogo_post_type', 0 );
+add_action( 'init', 'dsi_register_luogo_post_type', -10 );
 function dsi_register_luogo_post_type() {
 
 	/** luogo **/
@@ -20,7 +20,7 @@ function dsi_register_luogo_post_type() {
 		'supports'      => array( 'title', 'editor', 'thumbnail' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 5,
+		'menu_position' => 2,
 		'menu_icon'     => 'dashicons-pressthis',
 		'has_archive'   => true,
         'capability_type' => array('luogo', 'luoghi'),

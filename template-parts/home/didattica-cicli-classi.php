@@ -42,16 +42,16 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                                         <?php
                                         // recupero i percorsi di studi
-                                        $percorsi = wp_get_object_terms($idstruttura, "percorsi-di-studio");
-                                        if(is_array($percorsi) && count($percorsi)>0){
-                                            foreach ($percorsi as $percorso){
+                                        $indirizzi = wp_get_object_terms($idstruttura, "indirizzi-di-studio");
+                                        if(is_array($indirizzi) && count($indirizzi)>0){
+                                            foreach ($indirizzi as $indirizzo){
                                                 ?>
                                                 <hr/>
                                                 <div class="accordion-large-title accordion-header">
-                                                    <h3><?php echo $percorso->name; ?></h3>
+                                                    <h3><?php echo $indirizzo->name; ?></h3>
                                                 </div><!-- /accordion-large-title -->
                                                 <div class="accordion-large-content accordion-content">
-                                                    <?php echo wpautop($percorso->description); ?>
+                                                    <?php echo wpautop($indirizzo->description); ?>
                                                     <?php
                                                     // recupero le classi create associate a questa scuola / percorso
                                                     $args = array(
@@ -67,7 +67,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                             ),
                                                             array(
                                                                 'key'       => '_dsi_classe_percorso_studi',
-                                                                'value'     => $percorso->term_id,
+                                                                'value'     => $indirizzo->term_id,
                                                             )
                                                         ),
                                                         'taxonomy'  => 'classe',
