@@ -30,7 +30,7 @@ if($c) { ?>
 
         <?php foreach ($arr_luoghi as $marker){ ?>
 
-        var marker = L.marker([<?php echo $marker["gps"]["lat"]; ?>, <?php echo $marker["gps"]["lng"]; ?>, { title: '<?php echo $marker["post_title"]; ?>'}]).addTo(mymap);
+        var marker = L.marker([<?php echo $marker["gps"]["lat"]; ?>, <?php echo $marker["gps"]["lng"]; ?>, { title: '<?php echo addslashes($marker["post_title"]); ?>'}]).addTo(mymap);
         marker.bindPopup('<b><a href="<?php echo $marker["permalink"] ?>"><?php echo addslashes($marker["post_title"]); ?></a></b><br><?php echo addslashes($marker["indirizzo"]); ?>');
 
         <?php } ?>
