@@ -6,7 +6,7 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post, $luogo, $servizio, $struttura;
+global $post, $documento, $servizio, $struttura;
 
 $luogo = $post;
 get_header();

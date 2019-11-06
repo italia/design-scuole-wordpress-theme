@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying search results pages
+ * The template for displaying archive
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
@@ -8,52 +8,69 @@
  */
 
 get_header();
+global $documento;
 ?>
-	<main id="main-container" class="main-container redbrown">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <main id="main-container" class="main-container redbrown">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/documenti", "archive"); ?>
+        <?php get_template_part("template-parts/hero/documenti"); ?>
+
+        <?php
+        // recupero la lista delle tipologie
+        $i=0;
+        $strutture_documenti = dsi_get_option("strutture_documenti", "documenti");
+        if($strutture_documenti) {
+            foreach ($strutture_documenti as $id_tipologia_documento) {
+
+                $tipologia_documento = get_term_by("id", $id_tipologia_documento, "tipologia-documento");
+                if (!is_wp_error($tipologia_documento)) {
 
 
-		<section class="section bg-white border-top border-bottom d-block d-lg-none">
-			<div class="container d-flex justify-content-between align-items-center py-3">
-				<h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
-				<a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#">
-					<svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
-				</a>
-			</div>
-		</section>
-		<section class="section bg-gray-light">
-			<div class="container">
-				<div class="row variable-gutters sticky-sidebar-container">
-					<div class="col-lg-3 bg-white bg-white-left">
-						<?php get_template_part("template-parts/search/filters", "documento"); ?>
-					</div>
-					<div class="col-lg-7 offset-lg-1 pt84">
-						<?php if ( have_posts() ) : ?>
-							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
+                    $documenti = get_posts("post_type=documento&tipologia-documento=" . $tipologia_documento->slug . "&posts_per_page=6");
+                    if (is_array($documenti) && count($documenti) > 0) {
+                        $i++;
+                        $classcolor = "bg-white";
+                        if ($i % 2)
+                            $classcolor = "bg-gray-light";
 
-							endwhile;
-							?>
-							<nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
-								<?php echo dsi_bootstrap_pagination(); ?>
-							</nav>
-						<?php
-						else :
+                        ?>
+                        <section class="section <?php echo $classcolor; ?> py-4">
+                            <div class="container">
+                                <?php
+                                if (is_array($documenti) && count($documenti) > 0) {
+                                    ?>
 
-							get_template_part( 'template-parts/content', 'none' );
+                                    <div class="row variable-gutters mt-4">
+                                        <div class="col-lg-10 offset-lg-1 mb-4">
+                                            <h4 class="text-left mb-3">
+                                                <a href="<?php echo get_term_link($tipologia_documento); ?>"><?php if (count($documenti) > 1) echo dsi_pluralize_string($tipologia_documento->name); else echo $tipologia_documento->name; ?></a>
+                                            </h4>
+                                        </div><!-- /col-lg-3 -->
+                                        <?php
 
-						endif;
-						?>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section>
-	</main>
+                                        ?>
+                                        <div class="col-lg-10 offset-lg-1">
+                                            <div class="row variable-gutters">
+                                                <?php foreach ($documenti as $documento) { ?>
+                                                    <div class="col-lg-4 mb-4">
+                                                        <?php get_template_part("template-parts/documento/card", "ico"); ?>
+                                                    </div><!-- /col-lg-4 -->
+                                                <?php } ?>
+                                            </div><!-- /row -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                ?>
+                            </div><!-- /container -->
+                        </section><!-- /section -->
+                        <?php
+                    }
+                }
+            }
+        }
+        ?>
 
+    </main>
 <?php
 get_footer();

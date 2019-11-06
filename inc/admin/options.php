@@ -862,7 +862,7 @@ function dsi_register_main_options_metabox() {
 
     $luoghi_options->add_field( array(
         'id' => $prefix . 'luoghi_istruzioni',
-        'name'        => __( 'Sezione Organizzazione', 'design_scuole_italia' ),
+        'name'        => __( 'Sezione Luoghi', 'design_scuole_italia' ),
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("luogo").'">la pagina dei luoghi scolastici</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
@@ -889,6 +889,57 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+
+    /**
+     * Documenti
+     */
+
+    $args = array(
+        'id'           => 'dsi_options_documenti',
+        'title'        => esc_html__( 'Documenti', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'documenti',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'capability'    => 'manage_options',
+        'tab_title'    => __('Documenti', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $luoghi_options = new_cmb2_box( $args );
+
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'documenti_istruzioni',
+        'name'        => __( 'Sezione Documenti', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("documento").'">la pagina dei documenti scolastici</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'testo_sezione_documenti',
+        'name'        => __( 'Descrizione Sezione Documenti', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Questi i documenti della scuola"' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'attributes'    => array(
+            'maxlength'  => '140'
+        ),
+    ) );
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'strutture_documenti',
+        'name'        => __( 'Seleziona e ordina le tipologie di documenti  da mostrare', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona le tipologie di documenti che vuoi mostrare. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_tipologie_documenti_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina le tipologie di documenti da mostrare nella pagina Documenti', 'design_scuole_italia' ),
+        ),
+    ) );
 
     // pagina opzioni
     /**
