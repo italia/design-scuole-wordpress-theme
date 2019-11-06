@@ -45,7 +45,7 @@ global $luogo;
                                             <h4 class="text-left mb-3">
                                                 <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php if (count($luoghi) > 1) echo dsi_pluralize_string($tipologia_luogo->name); else echo $tipologia_luogo->name; ?></a>
                                             </h4>
-                                        </div><!-- /col-lg-3 -->
+                                        </div><!-- /col-lg-10 -->
 
                                         <div class="col-lg-10 offset-lg-1">
                                             <div class="row variable-gutters">

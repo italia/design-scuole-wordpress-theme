@@ -754,6 +754,80 @@ if(!function_exists("dsi_pluralize_string")) {
             $string = "Giardini";
             break;
 
+        case "Dirigenza Scolastica":
+            $string = "";
+            break;
+
+        case "Segreteria":
+            $string = "Segreterie";
+            break;
+
+        case "Scuola":
+            $string = "Scuole";
+            break;
+
+        case "Commissione":
+            $string = "Commissioni";
+            break;
+
+        case "Organo Collegiale":
+            $string = "Organi Collegiali";
+            break;
+
+        case "Associazione scolastica":
+            $string = "Associazioni scolastiche";
+            break;
+
+        case "Mensa":
+            $string = "Mense";
+            break;
+
+        case "Documento Generico":
+            $string = "Documenti Generici";
+            break;
+
+        case "Bandi e Gare":
+            $string = "Bandi e Gare";
+            break;
+
+        case "Contratto":
+            $string = "Contratti";
+            break;
+
+        case "Delibera":
+            $string = "Delibere";
+            break;
+
+
+        case "Verbale":
+            $string = "Verbali";
+            break;
+
+
+        case "Regolamento":
+            $string = "Regolamenti";
+            break;
+
+        case "Documento Programmatico":
+            $string = "Documenti Programmatici";
+            break;
+
+        case "Documento Didattico":
+            $string = "Documenti Didattici";
+            break;
+
+        case "Modulistica":
+            $string = "Modulistica";
+            break;
+
+        case "Albo online":
+            $string = "Albo online";
+            break;
+
+        case "":
+            $string = "";
+            break;
+
     }
 
         return $string;

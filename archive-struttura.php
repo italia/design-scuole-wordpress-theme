@@ -40,7 +40,7 @@ get_header();
                         <div class="container">
                             <?php if($haschild){ // adotto la struttura a 2 colonne ?>
                                 <div class="title-section text-center mb-5">
-                                    <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
+                                    <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
                                     </h3>
                                 </div><!-- /title-large -->
                                 <?php foreach ($strutture_parent as $struttura) { ?>
@@ -55,7 +55,7 @@ get_header();
                                                 $strutture_child = get_posts("post_type=struttura&tipologia-struttura=" . $tipologia_struttura->slug . "&post_parent=" . $struttura->ID . "&posts_per_page=-1&orderby=title&order=ASC");
                                                 foreach ($strutture_child as $struttura) {
                                                     ?>
-                                                    <div class="col-lg-6 mb-4">
+                                                    <div class="col-lg-6 lg-6 mb-4">
                                                         <?php get_template_part("template-parts/struttura/card"); ?>
                                                     </div><!-- /col-lg-4 -->
                                                     <?php
@@ -70,18 +70,23 @@ get_header();
                                 if (is_array($strutture) && count($strutture) > 0) {
                                     ?>
 
+                                    <div class="title-section text-center mb-5">
+                                        <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
+                                        </h3>
+                                    </div><!-- /title-large -->
+
                                     <div class="row variable-gutters mt-4">
-                                        <div class="col-lg-4  mb-4">
-                                            <h4 class="text-lg-right mb-3">
-                                            <a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php echo $tipologia_struttura->name; ?></a>
-                                            </h4>
-                                        </div><!-- /col-lg-3 -->
-                                        <div class="col-lg-8">
+
+                                        <div class="col-lg-12">
                                             <div class="row variable-gutters">
                                                 <?php
                                                 foreach ($strutture as $struttura) {
+                                                    $offset="";
+                                                    if(count($strutture) == 1)
+                                                        $offset = "offset-lg-4";
+
                                                     ?>
-                                                    <div class="col-lg-6 mb-4">
+                                                    <div class="col-lg-4  <?php echo $offset; ?> mb-4">
                                                         <?php get_template_part("template-parts/struttura/card"); ?>
                                                     </div><!-- /col-lg-4 -->
                                                     <?php
