@@ -153,6 +153,7 @@ function dsi_add_servizi_metaboxes() {
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'link_struttura_didattica',
         'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona la struttura (scuola o istituto) che eroga il servizio didattico' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dsi_get_strutture_scuole_options(),
         'attributes' => array(
@@ -270,7 +271,7 @@ function dsi_add_servizi_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'canale_fisico_prenotazione',
         'name'        => __( 'Prenotazione', 'design_scuole_italia' ),
-        'desc' => __( 'Se è possibile prenotare un appuntamento, link al servizio di prenotazione appuntamenti ' , 'design_scuole_italia' ),
+        'desc' => __( 'es: se il servizio è prenotabile, link al servizio di prenotazione ' , 'design_scuole_italia' ),
         'type' => 'text_url'
     ) );
 
@@ -516,7 +517,7 @@ function dsi_add_servizi_metaboxes() {
 add_action( 'edit_form_after_title', 'sdi_servizio_add_content_after_title' );
 function sdi_servizio_add_content_after_title($post) {
 if($post->post_type == "servizio")
-	_e('<span><i>il <b>Titolo</b> è il <b>Nome del Servizio</b>. Il nome del Servizio deve essere facilmente comprensibile dai cittadini. Il Servizio di raccolta differenziata si chiamerà "Raccolta differenziata". Il Servizio di iscrizione all\'asilo nido si chiamerà "Iscrizione asilo nido". Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+	_e('<span><i>il <b>Titolo</b> è il <b>Nome del Servizio</b>. Il nome del Servizio deve essere facilmente comprensibile dai cittadini. Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 

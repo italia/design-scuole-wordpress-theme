@@ -266,7 +266,7 @@ get_header();
                                     <?php
                                 }
 
-
+/*
                                 if(dsi_is_servizio_didattico($post) && is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
                                     global $struttura;
                                     $struttura = get_post($link_struttura_didattica[0]);
@@ -281,7 +281,7 @@ get_header();
                                     </div>
                                     <?php
 
-                                }
+                                }*/
                                 ?>
                                 <?php if($servizi_correlati){ ?>
                                     <h6><?php _e("Servizi correlati", "design_scuole_italia"); ?></h6>
