@@ -2274,8 +2274,8 @@ function accordion() {
 	$('.accordion-content').toggleClass('accordion-closed');
 
 	// Open the first content section when the page loads.
-	$('.accordion-header').first().toggleClass('accordion-active accordion-inactive');
-	$('.accordion-content').first().toggleClass('accordion-open accordion-closed').slideDown();
+	//$('.accordion-header').first().toggleClass('accordion-active accordion-inactive');
+	//$('.accordion-content').first().toggleClass('accordion-open accordion-closed').slideDown();
 
 	// The Accordion Effect
 	$('.accordion-header').click(function () {
