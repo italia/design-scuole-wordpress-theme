@@ -13,7 +13,7 @@ if(!$excerpt)
 // $argomenti = dsi_get_tipologia_servizio_of_post($post);
 
 ?>
-<article class="card card-bg card-article card-article-<?php echo $class; ?>">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
     <div class="card-body">
         <a href="<?php the_permalink(); ?>">
             <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>

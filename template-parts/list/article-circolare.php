@@ -15,9 +15,8 @@ $numerazione_circolare =  dsi_get_meta("numerazione_circolare", "", $post->ID);
 
 
 ?>
-    <article class="card card-bg card-article card-article-<?php echo $class; ?>">
+    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
         <div class="card-body">
-            <a href="<?php the_permalink(); ?>">
                 <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
 
                     <div class="date">
@@ -44,6 +43,6 @@ $numerazione_circolare =  dsi_get_meta("numerazione_circolare", "", $post->ID);
                         </div><!-- /badges -->
                     <?php } */ ?>
                 </div><!-- /card-avatar-content -->
-            </a>
+
         </div><!-- /card-body -->
     </article><!-- /card card-bg card-article -->

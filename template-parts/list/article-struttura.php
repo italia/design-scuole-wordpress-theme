@@ -13,15 +13,13 @@ if(!$excerpt)
 // $argomenti = dsi_get_tipologia_struttura_of_post($post);
 
 ?>
-<article class="card card-bg card-article card-article-<?php echo $class; ?>">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
     <div class="card-body">
-        <a href="<?php the_permalink(); ?>">
             <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
                 <?php if(!$image_url){ ?>
                     <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
                 <?php } ?>
             </div>
-
             <div class="card-article-content">
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p><?php echo $excerpt; ?></p>
@@ -34,6 +32,5 @@ if(!$excerpt)
                     </div><!-- /badges -->
                 <?php } */ ?>
             </div><!-- /card-avatar-content -->
-        </a>
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->

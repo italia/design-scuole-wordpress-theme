@@ -27,26 +27,20 @@ $posizione_gps = false;
 	if($image_url)
 	    $posizione_gps = false;
 ?>
-<article class="card card-bg card-article card-article-<?php echo $class; ?>">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
 	<div class="card-body">
-        <?php if(!$posizione_gps){ ?>
-        <a href="<?php the_permalink(); ?>">
-        <?php } ?>
 		<div class="card-article-img"  <?php if($image_url && !$posizione_gps) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if($posizione_gps != false){ ?>
 
                     <div class="map-wrapper">
                         <div class="map" id="map_<?php echo $post->ID; ?>"></div>
                     </div>
-
             <?php } ?>
-
             <?php if(!$image_url){ ?>
             <a href="<?php the_permalink(); ?>">
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             </a>
             <?php } ?>
-
         </div>
 		<div class="card-article-content">
 			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
@@ -60,9 +54,6 @@ $posizione_gps = false;
 			</div><!-- /badges -->
             <?php } */ ?>
 		</div><!-- /card-avatar-content -->
-            <?php if(!$posizione_gps){ ?>
-            </a>
-             <?php } ?>
 	</div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
 <?php if($posizione_gps != false){ ?>

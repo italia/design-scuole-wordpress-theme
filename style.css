@@ -297,3 +297,14 @@ table td ul{
     border-bottom: solid 1px #ddd;
     padding-top:10px;
 }
+
+/** list card **/
+.cursorhand{
+    cursor:pointer;
+}
+
+.card .card-article-img:hover {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.7;
+}
