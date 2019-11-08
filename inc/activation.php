@@ -223,7 +223,8 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'offerta-formativa'
+        'post_slug'    => 'offerta-formativa',
+        'post_parent'  => $didattica_page_id
     );
 
     // If the page doesn't already exist, create it
