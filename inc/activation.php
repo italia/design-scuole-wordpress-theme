@@ -24,9 +24,12 @@ function dsi_create_pages_on_theme_activation() {
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
         $new_page_id = wp_insert_post( $new_page );
+        $scuola_page_id = $new_page_id;
         if ( ! empty( $new_page_template ) ) {
             update_post_meta( $new_page_id, '_wp_page_template', $new_page_template );
         }
+    }else{
+        $scuola_page_id = $page_check->ID;
     }
 
 
@@ -91,9 +94,13 @@ function dsi_create_pages_on_theme_activation() {
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
         $new_page_id = wp_insert_post( $new_page );
+        $didattica_page_id = $new_page_id;
+
         if ( ! empty( $new_page_template ) ) {
             update_post_meta( $new_page_id, '_wp_page_template', $new_page_template );
         }
+    }else{
+        $didattica_page_id = $page_check->ID;
     }
 
 
@@ -109,7 +116,9 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'persone'
+        'post_slug'    => 'persone',
+        'post_parent'  => $scuola_page_id
+
     );
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
@@ -132,7 +141,8 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'numeri-scuola'
+        'post_slug'    => 'numeri-scuola',
+        'post_parent'  => $scuola_page_id
     );
     // If the page doesn't already exist, create it
     if ( ! isset( $page_check->ID ) ) {
@@ -184,7 +194,8 @@ function dsi_create_pages_on_theme_activation() {
         'post_content' => $new_page_content,
         'post_status'  => 'publish',
         'post_author'  => 1,
-        'post_slug'    => 'presentazione'
+        'post_slug'    => 'presentazione',
+        'post_parent'  => $scuola_page_id
     );
 
     // If the page doesn't already exist, create it
@@ -536,8 +547,6 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-object' => 'tipologia-servizio',
             'menu-item-object-id' => $term->term_id,
         ));
-
-
 
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Percorsi di studio', "design_scuole_italia"),

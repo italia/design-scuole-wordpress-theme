@@ -51,7 +51,7 @@ function dsi_register_percorso_di_studio_post_type() {
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
-        'show_admin_column' => false,
+        'show_admin_column' => true,
         'query_var'         => true,
         'public'         => true,
         'rewrite'           => array( 'slug' => 'indirizzi-di-studio' ),
