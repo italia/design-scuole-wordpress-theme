@@ -280,3 +280,20 @@ table td ul{
 .section.bg-bluelectricgradient h1, .section.bg-bluelectricgradient .h1, .section.bg-bluelectricgradient h2, .section.bg-bluelectricgradient .h2, .section.bg-bluelectricgradient h3, .section.bg-bluelectricgradient .h3, .section.bg-bluelectricgradient p{
     color:#fff;
 }
+/*  link generico post */
+.single .article-wrapper .col-lg-9 p a{
+    color: #0D00FF;
+}
+
+
+.single-servizio .article-wrapper .col-lg-9 p a, .single-percorso_di_studio .article-wrapper .col-lg-9 p a{
+    color: #B21DD0;
+}
+
+/** footer **/
+.footer-text {
+    font-size:14px;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    padding-top:10px;
+}

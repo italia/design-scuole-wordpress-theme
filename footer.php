@@ -14,7 +14,7 @@
         <div class="row variable-gutters mb-5">
             <div class="col">
                 <div class="logo-footer">
-	                <?php get_template_part("template-parts/common/logo"); ?>
+                    <?php get_template_part("template-parts/common/logo"); ?>
 
                     <p class="h1">
                         <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
@@ -26,14 +26,14 @@
         </div><!-- /row -->
         <div class="row variable-gutters mb-3">
             <div class="col-lg-3">
-	            <?php dynamic_sidebar( 'footer-1' ); ?>
+                <?php dynamic_sidebar( 'footer-1' ); ?>
             </div><!-- /col-lg-3 -->
             <div class="col-lg-3">
-	            <?php dynamic_sidebar( 'footer-2' ); ?>
+                <?php dynamic_sidebar( 'footer-2' ); ?>
             </div><!-- /col-lg-3 -->
 
             <div class="col-lg-3">
-	            <?php dynamic_sidebar( 'footer-3' ); ?>
+                <?php dynamic_sidebar( 'footer-3' ); ?>
             </div><!-- /col-lg-3 -->
 
             <div class="col-lg-3">
@@ -41,20 +41,28 @@
             </div><!-- /col-lg-3 -->
         </div><!-- /row -->
 
-    <div class="row variable-gutters mb-3">
-        <div class="col-lg-12">
+        <div class="row variable-gutters mb-3">
+            <div class="col-lg-12">
+                <?php
+                $location = "menu-footer";
+                if ( has_nav_menu( $location ) ) {
+                    wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "footer-inline-menu", "container" => ""));
+                }
+                ?>
+            </div>
 
-            <?php
-            $location = "menu-footer";
-            if ( has_nav_menu( $location ) ) {
-                wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "footer-inline-menu", "container" => ""));
-            }
-            ?>
-    </div>
-
-    </div><!-- /row -->
-
+        </div><!-- /row -->
         <?php
+        $footer_text = dsi_get_option("footer_text", "setup");
+        if(isset($footer_text) && trim($footer_text) != "") {
+            ?>
+            <div class="row variable-gutters mb-3">
+                <div class="col-lg-12 text-left text-md-center footer-text">
+                    <?php echo wpautop($footer_text); ?>
+                </div>
+            </div>
+            <?php
+        }
         get_template_part("template-parts/common/copy");
         ?>
 

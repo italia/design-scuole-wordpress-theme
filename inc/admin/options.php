@@ -1030,6 +1030,21 @@ function dsi_register_main_options_metabox() {
 	$setup_options = new_cmb2_box( $args );
 
     $setup_options->add_field( array(
+        'id' => $prefix . 'footer_options',
+        'name'        => __( 'Footer', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del testo da inserire nel footer delle scuole.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $setup_options->add_field( array(
+        'id' => $prefix . 'footer_text',
+        'name' => 'Testo Footer',
+        'desc' => __( 'Inserisci nel footer l\'indirizzo, il codice meccanografico, il codice IPA, il codice Fiscale e il CUF ', 'design_scuole_italia' ),
+        'type' => 'textarea'
+    ) );
+
+
+    $setup_options->add_field( array(
         'id' => $prefix . 'altro_istruzioni',
         'name'        => __( 'Altre Informazioni', 'design_scuole_italia' ),
         'desc' => __( 'Area di configurazione delle opzioni generali del tema.' , 'design_scuole_italia' ),
