@@ -33,7 +33,8 @@ get_header();
             $canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
             //$sedi = dsi_get_meta("sedi");
             $cosa_serve = dsi_get_meta("cosa_serve");
-            $costi_vincoli = dsi_get_meta("costi_vincoli");
+            $cosa_serve_list = dsi_get_meta("cosa_serve_list");
+
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             $casi_particolari = dsi_get_meta("casi_particolari");
             $link_schede_documenti = dsi_get_meta("link_schede_documenti");
@@ -101,14 +102,9 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede al servizio", "design_scuole_italia"); ?>"><?php _e("Come si accede al servizio", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <?php if($cosa_serve) { ?>
+                                        <?php if(($cosa_serve) || (is_array($cosa_serve_list))) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-cosa-serve" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cosa serve", "design_scuole_italia"); ?>"><?php _e("Cosa serve", "design_scuole_italia"); ?></a>
-                                            </li>
-                                        <?php } ?>
-                                        <?php  if(trim($costi_vincoli) != ""){ ?>
-                                            <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-costi-vincoli" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Costi e vincoli", "design_scuole_italia"); ?>"><?php _e("Costi e vincoli", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                         <?php if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) { ?>
@@ -267,16 +263,30 @@ get_header();
                                 //    struttura_responsabile
                                 //    luoghi
 //                                $cosa_serve="";
-                                if(trim($cosa_serve) != ""){
-                                    ?>
-                                    <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
+                                // todo: desrittorx\e più item
+                                        if(($cosa_serve) || (is_array($cosa_serve_list))) {
+                               ?>
+                               <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
+
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="card card-bg bg-color rounded mb-3">
-                                                <div class="card-body">
-                                                    <?php echo $cosa_serve; ?>
+                                            <?php echo wpautop($cosa_serve);
+                                            if(is_array($cosa_serve_list)) {
+                                                ?>
+                                                <div class="card card-bg bg-color rounded mb-3">
+                                                    <div class="card-body pb-0">
+                                                        <ul>
+                                                        <?php
+                                                        foreach ($cosa_serve_list as $cosa_serve_item){
+                                                            echo "<li>".$cosa_serve_item."</li>";
+                                                        }
+                                                        ?>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <?php
+                                            }
+                                                ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
@@ -284,14 +294,7 @@ get_header();
                                 ?>
 
                                 <?php
-                                if(trim($costi_vincoli) != ""){
-                                    ?>
-                                    <h4 id="art-par-costi-vincoli"><?php _e("Costi e vincoli", "design_scuole_italia"); ?></h4>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-9"><?php echo wpautop($costi_vincoli); ?></div><!-- /col-lg-9 -->
-                                    </div><!-- /row -->
-                                    <?php
-                                }
+
                                 // print_r($fasi_scadenze);
                                 if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
                                     ?>

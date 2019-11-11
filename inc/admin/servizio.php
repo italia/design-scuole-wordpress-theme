@@ -261,10 +261,8 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'cosa_serve',
-		'name'        => __( 'Cosa Serve *', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link
-
-', 'design_scuole_italia' ),
+		'name'        => __( 'Cosa Serve (testo introduttivo) * ', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link', 'design_scuole_italia' ),
 		'type'    => 'wysiwyg',
 		'attributes'    => array(
 			'required'    => 'required'
@@ -277,19 +275,17 @@ function dsi_add_servizi_metaboxes() {
 
 	) );
 
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'costi_vincoli',
-		'name'        => __( 'Costi e/o vincoli', 'design_scuole_italia' ),
-		'desc' => __( 'Condizioni e termini economici per compleare la procedura di richiesta del Servizio. Specificare anche eventuali vincoli. Ad es. il rinnovo della carta d\'identità ha un costo di euro x. Non è possibile rinnovare la carta identità x mesi prima della scadenza' , 'design_scuole_italia' ),
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'media_buttons' => false, // show insert/upload button(s)
-			'textarea_rows' => 4, // rows="..."
-			'teeny' => true, // output the minimal editor config used in Press This
-		),
-	) );
 
-	/**  repeater fasi_scadenze **/
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'cosa_serve_list',
+        'name'        => __( 'Cosa Serve (lista)', 'design_scuole_italia' ),
+        'desc' => __( 'la lista di cosa serve' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'repeatable'  => true
+    ) );
+
+
+    /**  repeater fasi_scadenze **/
 	$group_field_id = $cmb_undercontent->add_field( array(
 		'id'          => $prefix . 'fasi_scadenze',
 		'name'        => __('<h1>Fasi e Scadenze</h1>', 'design_scuole_italia' ),
