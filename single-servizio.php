@@ -101,7 +101,7 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede al servizio", "design_scuole_italia"); ?>"><?php _e("Come si accede al servizio", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <?php if(is_array($cosa_serve) && count($cosa_serve) > 0) { ?>
+                                        <?php if($cosa_serve) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-cosa-serve" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cosa serve", "design_scuole_italia"); ?>"><?php _e("Cosa serve", "design_scuole_italia"); ?></a>
                                             </li>
@@ -266,7 +266,7 @@ get_header();
                                 // struttura responsabile del servizio
                                 //    struttura_responsabile
                                 //    luoghi
-                                $cosa_serve="";
+//                                $cosa_serve="";
                                 if(trim($cosa_serve) != ""){
                                     ?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
