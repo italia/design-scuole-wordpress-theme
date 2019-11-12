@@ -4,6 +4,7 @@
  * Action to add page templates used by theme
  */
 add_action( 'after_switch_theme', 'dsi_create_pages_on_theme_activation' );
+add_action('wpmu_new_blog', 'dsi_create_pages_on_theme_activation', 10, 2);
 
 function dsi_create_pages_on_theme_activation() {
 
