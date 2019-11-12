@@ -270,11 +270,11 @@ get_header();
                                 // struttura responsabile del servizio
                                 //    struttura_responsabile
                                 //    luoghi
-//                                $cosa_serve="";
+                                //                                $cosa_serve="";
                                 // todo: desrittorx\e più item
-                                        if(($cosa_serve) || (is_array($cosa_serve_list))) {
-                               ?>
-                               <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
+                                if(($cosa_serve) || (is_array($cosa_serve_list))) {
+                                    ?>
+                                    <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
 
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
@@ -284,17 +284,17 @@ get_header();
                                                 <div class="card card-bg bg-color rounded mb-3">
                                                     <div class="card-body pb-0">
                                                         <ul>
-                                                        <?php
-                                                        foreach ($cosa_serve_list as $cosa_serve_item){
-                                                            echo "<li>".$cosa_serve_item."</li>";
-                                                        }
-                                                        ?>
+                                                            <?php
+                                                            foreach ($cosa_serve_list as $cosa_serve_item){
+                                                                echo "<li>".$cosa_serve_item."</li>";
+                                                            }
+                                                            ?>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <?php
                                             }
-                                                ?>
+                                            ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
@@ -379,13 +379,20 @@ get_header();
 
                                 if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
-                                    $struttura = get_post($struttura_responsabile[0]);
+                                    //$struttura = get_post($struttura_responsabile[0]);
                                     echo "<h6>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h6>";
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="card-deck card-deck-spaced">
-                                                <?php get_template_part("template-parts/struttura/card"); ?>
+                                                <?php
+                                                foreach ($struttura_responsabile as $idstruttura) {
+                                                    $struttura = get_post($idstruttura);
+                                                    ?>
+                                                    <?php get_template_part("template-parts/struttura/card"); ?>
+                                                    <?php
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

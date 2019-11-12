@@ -267,13 +267,19 @@ get_header();
 
                                 if(is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
                                     global $struttura;
-                                    $struttura = get_post($link_struttura_didattica[0]);
                                     echo "<h6>".__("Struttura responsabile del percorso di studio", "design_scuole_italia")."</h6>";
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="card-deck card-deck-spaced">
-                                                <?php get_template_part("template-parts/struttura/card"); ?>
+                                                <?php
+                                                foreach ($struttura_responsabile as $idstruttura) {
+                                                    $struttura = get_post($idstruttura);
+                                                    ?>
+                                                    <?php get_template_part("template-parts/struttura/card"); ?>
+                                                    <?php
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
