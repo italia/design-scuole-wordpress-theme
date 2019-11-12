@@ -261,6 +261,27 @@ function dsi_add_percorso_di_studio_metaboxes() {
 
     ) );
 
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_digitale_label',
+        'name'        => __( 'Azione', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona l\'azione prevista nel link che segue.' , 'design_scuole_italia' ),
+        'type' => 'select',
+        'options' => array(
+            "Attiva" => "Attiva",
+            "Prenota" => "Prenota",
+            "Procedi" => "Procedi",
+            "Visualizza" => "Visualizza"
+        )
+    ) );
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_digitale_link',
+        'name'        => __( 'Link', 'design_scuole_italia' ),
+        'desc' => __( 'Link per avviare la procedura online.' , 'design_scuole_italia' ),
+        'type' => 'text_url'
+    ) );
+
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'autenticazione',
         'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
@@ -300,10 +321,8 @@ function dsi_add_percorso_di_studio_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'cosa_serve',
-        'name'        => __( 'Cosa Serve *', 'design_scuole_italia' ),
-        'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link
-
-', 'design_scuole_italia' ),
+        'name'        => __( 'Cosa Serve (testo introduttivo) * ', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link', 'design_scuole_italia' ),
         'type'    => 'wysiwyg',
         'attributes'    => array(
             'required'    => 'required'
@@ -316,6 +335,14 @@ function dsi_add_percorso_di_studio_metaboxes() {
 
     ) );
 
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'cosa_serve_list',
+        'name'        => __( 'Cosa Serve (lista)', 'design_scuole_italia' ),
+        'desc' => __( 'la lista di cosa serve' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+        'repeatable'  => true
+    ) );
 
     /**  repeater fasi_scadenze **/
     $group_field_id = $cmb_undercontent->add_field( array(

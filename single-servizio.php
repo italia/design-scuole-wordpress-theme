@@ -27,6 +27,9 @@ get_header();
             $come_si_fa = dsi_get_meta("come_si_fa");
             $procedura_esito = dsi_get_meta("procedura_esito");
             $canale_digitale = dsi_get_meta("canale_digitale");
+            $canale_digitale_label = dsi_get_meta("canale_digitale_label");
+            $canale_digitale_link = dsi_get_meta("canale_digitale_link");
+
             $autenticazione = dsi_get_meta("autenticazione");
             $spid = dsi_get_meta("spid");
             //$canale_fisico = dsi_get_meta("canale_fisico");
@@ -193,12 +196,17 @@ get_header();
                                     </div><!-- /row -->
                                     <?php
                                 }
-                                if(trim($canale_digitale) != ""){
+                                if((trim($canale_digitale) != "") || (trim($canale_digitale_link) != "")) {
                                     ?>
                                     <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($canale_digitale); ?>
+                                            <?php if(trim($canale_digitale_link) != ""){  ?>
+                                                <div class="btn-wrapper mb-5">
+                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>"><?php echo $canale_digitale_label; ?></a>
+                                                </div>
+                                            <?php } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php

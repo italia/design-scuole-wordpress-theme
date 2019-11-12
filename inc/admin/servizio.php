@@ -213,6 +213,26 @@ function dsi_add_servizi_metaboxes() {
 	) );
 
 	$cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_digitale_label',
+        'name'        => __( 'Azione', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona l\'azione prevista nel link che segue.' , 'design_scuole_italia' ),
+        'type' => 'select',
+        'options' => array(
+            "Attiva" => "Attiva",
+            "Prenota" => "Prenota",
+            "Procedi" => "Procedi",
+            "Visualizza" => "Visualizza"
+        )
+    ) );
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'canale_digitale_link',
+        'name'        => __( 'Link', 'design_scuole_italia' ),
+        'desc' => __( 'Link per avviare la procedura online.' , 'design_scuole_italia' ),
+        'type' => 'text_url'
+    ) );
+
+	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'autenticazione',
 		'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
 		'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie. Ad es. "Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L\'iscrizione è possibile anche attraverso spid."' , 'design_scuole_italia' ),

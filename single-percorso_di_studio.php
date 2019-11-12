@@ -29,6 +29,9 @@ get_header();
             $come_si_fa = dsi_get_meta("come_si_fa");
             $procedura_esito = dsi_get_meta("procedura_esito");
             $canale_digitale = dsi_get_meta("canale_digitale");
+            $canale_digitale_label = dsi_get_meta("canale_digitale_label");
+            $canale_digitale_link = dsi_get_meta("canale_digitale_link");
+
             $autenticazione = dsi_get_meta("autenticazione");
             $spid = dsi_get_meta("spid");
             //$canale_fisico = dsi_get_meta("canale_fisico");
@@ -36,6 +39,8 @@ get_header();
 
             //$sedi = dsi_get_meta("sedi");
             $cosa_serve = dsi_get_meta("cosa_serve");
+            $cosa_serve_list = dsi_get_meta("cosa_serve_list");
+
             $costi_vincoli = dsi_get_meta("costi_vincoli");
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             $casi_particolari = dsi_get_meta("casi_particolari");
@@ -132,7 +137,7 @@ get_header();
                                             </li>
 
                                         <?php } ?>
-                                        <?php if(is_array($cosa_serve) && count($cosa_serve) > 0) { ?>
+                                        <?php if(($cosa_serve) || (is_array($cosa_serve_list))) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-cosa-serve" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cosa serve", "design_scuole_italia"); ?>"><?php _e("Cosa serve", "design_scuole_italia"); ?></a>
                                             </li>
@@ -224,12 +229,17 @@ get_header();
                                     </div><!-- /row -->
                                     <?php
                                 }
-                                if(trim($canale_digitale) != ""){
+                                if((trim($canale_digitale) != "") || (trim($canale_digitale_link) != "")) {
                                     ?>
                                     <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($canale_digitale); ?>
+                                            <?php if(trim($canale_digitale_link) != ""){  ?>
+                                                <div class="btn-wrapper mb-5">
+                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>"><?php echo $canale_digitale_label; ?></a>
+                                                </div>
+                                            <?php } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
