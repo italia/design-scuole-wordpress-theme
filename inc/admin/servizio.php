@@ -218,12 +218,13 @@ function dsi_add_servizi_metaboxes() {
         'desc' => __( 'Seleziona l\'azione prevista nel link che segue.' , 'design_scuole_italia' ),
         'type' => 'select',
         'options' => array(
-            "Attiva" => "Attiva",
-            "Accedi" => "Accedi",
+            "Vai al sito" => "Vai al sito",
+            "Compila" => "Compila",
+            "Scarica" => "Scarica",
             "Registrati" => "Registrati",
             "Prenota" => "Prenota",
-            "Procedi" => "Procedi",
-            "Visualizza" => "Visualizza"
+            "Iscriviti" => "Iscriviti",
+            "Accedi" => "Accedi"
         )
     ) );
 
