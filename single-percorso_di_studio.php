@@ -35,7 +35,7 @@ get_header();
             $autenticazione = dsi_get_meta("autenticazione");
             $spid = dsi_get_meta("spid");
             //$canale_fisico = dsi_get_meta("canale_fisico");
-            $canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
+           // $canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
 
             //$sedi = dsi_get_meta("sedi");
             $cosa_serve = dsi_get_meta("cosa_serve");
@@ -209,11 +209,11 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($come_si_fa); ?>
-                                            <?php if(trim($canale_fisico_prenotazione) != ""){  ?>
+                                            <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
                                                     <a class="btn btn-purplelight" href="<?php echo $canale_fisico_prenotazione; ?>"><?php _e("Prenota", "design_scuole_italia"); ?></a>
                                                 </div>
-                                            <?php } ?>
+                                            <?php } */ ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php

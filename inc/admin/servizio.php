@@ -184,14 +184,14 @@ function dsi_add_servizi_metaboxes() {
 		),
 	) );
 
-
+/*
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'canale_fisico_prenotazione',
         'name'        => __( 'Link prenotazione', 'design_scuole_italia' ),
         'desc' => __( 'es: se il servizio è prenotabile, link al servizio di prenotazione ' , 'design_scuole_italia' ),
         'type' => 'text_url'
     ) );
-
+*/
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'procedura_esito',
 		'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),

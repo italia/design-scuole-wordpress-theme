@@ -232,7 +232,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
         ),
     ) );
 
-
+/*
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'canale_fisico_prenotazione',
@@ -240,7 +240,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
         'desc' => __( 'es: se il percorso di studi è prenotabile, link al servizio di prenotazione ' , 'design_scuole_italia' ),
         'type' => 'text_url'
     ) );
-
+*/
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'procedura_esito',
         'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),
