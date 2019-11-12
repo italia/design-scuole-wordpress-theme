@@ -219,6 +219,8 @@ function dsi_add_servizi_metaboxes() {
         'type' => 'select',
         'options' => array(
             "Attiva" => "Attiva",
+            "Accedi" => "Accedi",
+            "Registrati" => "Registrati",
             "Prenota" => "Prenota",
             "Procedi" => "Procedi",
             "Visualizza" => "Visualizza"
