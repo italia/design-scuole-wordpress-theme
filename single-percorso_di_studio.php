@@ -123,7 +123,7 @@ get_header();
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
                                         </li>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede al percorso di studio", "design_scuole_italia"); ?>"><?php _e("Come si accede al percorso di studio", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede", "design_scuole_italia"); ?>"><?php _e("Come si accede", "design_scuole_italia"); ?></a>
                                         </li>
                                         <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
                                             <li>
@@ -202,7 +202,7 @@ get_header();
                                     <?php
                                 }
                                 ?>
-                                <h4 id="art-par-accedi"><?php _e("Come si accede al percorso di studio", "design_scuole_italia"); ?></h4>
+                                <h4 id="art-par-accedi"><?php _e("Come si accede", "design_scuole_italia"); ?></h4>
                                 <?php
                                 if(trim($come_si_fa) != ""){
                                     ?>
