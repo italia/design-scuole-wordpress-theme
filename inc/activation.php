@@ -933,3 +933,8 @@ if($newconf = json_decode(stripslashes($field_export), true)) {
         update_option($key, $val);
     }
 }
+
+
+// opzioni per avcp
+update_option('avcp_denominazione_ente', "denominazione_ente");
+update_option('avcp_codicefiscale_ente', "codicefiscale_ente");

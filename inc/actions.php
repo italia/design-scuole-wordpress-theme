@@ -520,3 +520,26 @@ function dsi_admin_bar_before_customize_header(){
 
     $wp_admin_bar->remove_menu("wp-logo");
 }
+
+// rimuovo customizer
+add_action( 'admin_menu', function () {
+    global $submenu;
+    if ( isset( $submenu[ 'themes.php' ] ) ) {
+        foreach ( $submenu[ 'themes.php' ] as $index => $menu_item ) {
+            foreach ($menu_item as $value) {
+                if (strpos($value,'customize') !== false) {
+                    unset( $submenu[ 'themes.php' ][ $index ] );
+                }
+            }
+        }
+    }
+});
+
+add_action( 'wp_before_admin_bar_render', 'dsi_before_admin_bar_render' );
+
+function dsi_before_admin_bar_render()
+{
+    global $wp_admin_bar;
+
+    $wp_admin_bar->remove_menu('customize');
+}
