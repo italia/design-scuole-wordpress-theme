@@ -31,7 +31,7 @@
                             <div class="col-lg-4 offset-lg-2 access-mobile-bg">
                                 <div class="access-login">
                                     <h3><?php _e("Personale scolastico", "design_scuole_italia"); ?></h3>
-                                    <p class="text-large"><?php _e("Entra con le tue credenziali", "design_scuole_italia"); ?></p>
+                                    <p class="text-large"><?php _e("Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.", "design_scuole_italia"); ?></p>
                                     <div class="access-login-form">
                                         <div class="form-group">
                                             <label>Email address</label>
