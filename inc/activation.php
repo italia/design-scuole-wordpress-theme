@@ -211,6 +211,32 @@ function dsi_create_pages_on_theme_activation() {
     }
 
 
+    // template page per La Storia
+    $new_page_title    = __( 'La Storia', 'design_scuole_italia' ); // Page's title
+    $new_page_content  = 'La nostra storia';                           // Content goes here
+    $new_page_template = 'page-templates/storia.php';       // The template to use for the page
+    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+        'post_type'    => 'page',
+        'post_title'   => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status'  => 'publish',
+        'post_author'  => 1,
+        'post_slug'    => 'presentazione',
+        'post_parent'  => $scuola_page_id
+    );
+
+    // If the page doesn't already exist, create it
+    if ( ! isset( $page_check->ID ) ) {
+        $presentazione_page_id = wp_insert_post( $new_page );
+        if ( ! empty( $new_page_template ) ) {
+            update_post_meta( $presentazione_page_id, '_wp_page_template', $new_page_template );
+        }
+    }else{
+        $presentazione_page_id = $page_check->ID;
+        update_post_meta( $presentazione_page_id, '_wp_page_template', $new_page_template );
+    }
 
     // template page per pagina dei cicli scolastici
     $new_page_title    = __( 'Offerta formativa', 'design_scuole_italia' ); // Page's title
@@ -511,6 +537,16 @@ function dsi_create_pages_on_theme_activation() {
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('I numeri della scuola', "design_scuole_italia"),
             'menu-item-object-id' => $numeri_id,
+            'menu-item-object' => 'page',
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'post_type',
+        ));
+
+
+        $storia_id = dsi_get_template_page_id("page-templates/storia.php");
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('La storia', "design_scuole_italia"),
+            'menu-item-object-id' => $storia_id,
             'menu-item-object' => 'page',
             'menu-item-status' => 'publish',
             'menu-item-type' => 'post_type',
@@ -867,7 +903,6 @@ function dsi_create_pages_on_theme_activation() {
      */
 
     $admins = get_role( 'administrator' );
-// todo: programma materia
 //    $custom_types = array("eventi", "documenti", "luoghi", "programmi", "schede_didattica", "schede_progetto", "strutture", "servizi");
     $custom_types = array("eventi", "documenti", "luoghi", "schede_didattica", "schede_progetto", "strutture", "servizi", "percorsi_di_studio", "circolari");
     $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
@@ -876,7 +911,6 @@ function dsi_create_pages_on_theme_activation() {
             $admins->add_cap( $cap.$custom_type);
         }
     }
-// todo: programma materia
 //    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","indirizzi-di-studio");
     $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","tipologia_circolare","indirizzi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");

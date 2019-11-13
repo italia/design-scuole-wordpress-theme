@@ -31,6 +31,7 @@ function dsi_register_evento_post_type() {
 		'has_archive'           => true,
         'capability_type' => array('evento', 'eventi'),
         'map_meta_cap'    => true,
+        'description'    => __( "Il calendario scolastico", 'design_scuole_italia' ),
 
     );
 	register_post_type( 'evento', $args );
