@@ -114,10 +114,7 @@ get_header();
                                                    title="Vai al paragrafo <?php _e( "Ulteriori informazioni", "design_scuole_italia" ); ?>"><?php _e( "Ulteriori informazioni", "design_scuole_italia" ); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
-                                               title="Vai al paragrafo <?php _e( "Contenuti correlati", "design_scuole_italia" ); ?>"><?php _e( "Contenuti correlati", "design_scuole_italia" ); ?></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </aside>

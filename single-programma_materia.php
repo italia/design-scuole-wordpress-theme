@@ -89,9 +89,7 @@ $altre_info = dsi_get_meta("note");
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-correlati" title="Vai al paragrafo <?php _e("Contenuti correlati", "design_scuole_italia"); ?>"><?php _e("Contenuti correlati", "design_scuole_italia"); ?></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </aside>

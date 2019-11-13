@@ -97,9 +97,7 @@ $gallery = dsi_get_meta("gallery");
                                             <?php
                                         }
                                         ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-correlati" title="Vai al paragrafo <?php _e("Contenuti correlati", "design_scuole_italia"); ?>">Contenuti correlati<?php _e("", "design_scuole_italia"); ?></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </aside>

@@ -85,7 +85,7 @@ function dsi_register_main_options_metabox() {
 
     $home_options = new_cmb2_box( $args );
 
-
+/*
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_0',
         'name'        => __( 'La Scuola', 'design_scuole_italia' ),
@@ -100,7 +100,7 @@ function dsi_register_main_options_metabox() {
         'type'    => 'pw_select',
         'options' => dsi_get_strutture_scuole_options(),
     ) );
-
+*/
 
 
     $home_options->add_field( array(

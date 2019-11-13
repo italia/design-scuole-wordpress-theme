@@ -263,7 +263,9 @@ global $wp_query;
         $title = single_term_title('', false);
     } elseif ( is_post_type_archive("servizio") ) {
         $title = __("Tutti i servizi", "design_scuole_italia");
-    }  elseif ( is_tax("tipologia-servizio") ) {
+    } elseif ( is_post_type_archive("evento") ) {
+        $title = __("Calendario", "design_scuole_italia");
+    } elseif ( is_tax("tipologia-servizio") ) {
         // $title = __("Servizi per ", "design_scuole_italia").": ".single_term_title('', false);
         $title = single_term_title('', false);
     }elseif ( is_tax("tipologia-circolare") ) {

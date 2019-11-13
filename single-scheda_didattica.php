@@ -99,9 +99,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Risorse", "design_scuole_italia"); ?>"><?php _e("Risorse", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-correlati" title="Vai al paragrafo <?php _e("Contenuti correlati", "design_scuole_italia"); ?>"><?php _e("Contenuti correlati", "design_scuole_italia"); ?></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </aside>

@@ -3,8 +3,8 @@
 /**
  * Action to add page templates used by theme
  */
+
 add_action( 'after_switch_theme', 'dsi_create_pages_on_theme_activation' );
-add_action('wpmu_new_blog', 'dsi_create_pages_on_theme_activation', 10, 2);
 
 function dsi_create_pages_on_theme_activation() {
 
@@ -796,15 +796,7 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-target' => '_blank',
         ));
 
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('NOIPA', "design_scuole_italia"),
-            'menu-item-url' => "https://noipa.mef.gov.it/web/mypa/scuola",
-            'menu-item-status' => 'publish',
-            'menu-item-type' => 'custom', // optional
-            'menu-item-target' => '_blank',
-        ));
-
-        wp_update_nav_menu_item($menu->term_id, 0, array(
+       wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Invalsi', "design_scuole_italia"),
             'menu-item-url' => "https://www.invalsi.it",
             'menu-item-status' => 'publish',
@@ -885,7 +877,7 @@ function dsi_create_pages_on_theme_activation() {
     }
 // todo: programma materia
 //    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","indirizzi-di-studio");
-    $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","indirizzi-di-studio");
+    $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","tipologia_circolare","indirizzi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");
     foreach ($custom_tax as $ctax){
         foreach ($caps_terms as $cap){
