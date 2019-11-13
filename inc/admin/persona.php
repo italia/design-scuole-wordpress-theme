@@ -125,8 +125,8 @@ function dsi_add_persone_metaboxes() {
 		'object_types'     => array( 'user' ),
 		// Tells CMB2 to use user_meta vs post_meta
 		'show_names'       => true,
-		//'new_user_section' => 'add-new-user',
-        'new_user_section' => 'add-existing-user',
+		'new_user_section' => 'add-new-user',
+        //'new_user_section' => 'add-existing-user',
         // where form will show on new user page. 'add-existing-user' is only other valid option.
 		'priority'     => 'hight',
 	) );
