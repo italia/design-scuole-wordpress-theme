@@ -131,7 +131,7 @@ function dsi_create_pages_on_theme_activation() {
 
 
     // template page per I Numeri
-    $new_page_title    = __( 'i numeri della Scuola', 'design_scuole_italia' ); // Page's title
+    $new_page_title    = __( 'I numeri della Scuola', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '';                           // Content goes here
     $new_page_template = 'page-templates/numeri.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
@@ -466,7 +466,8 @@ function dsi_create_pages_on_theme_activation() {
 
 //        $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
         $presentazione_id = dsi_get_template_page_id("page-templates/presentazione.php");
-
+//echo "---".$presentazione_id;
+//exit();
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Presentazione', "design_scuole_italia"),
             'menu-item-object-id' => $presentazione_id,

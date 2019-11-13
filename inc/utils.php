@@ -560,7 +560,8 @@ function dsi_count_grouped_posts($post_types){
 function dsi_get_template_page_url($TEMPLATE_NAME){
 	$pages = get_pages(array(
 		'meta_key' => '_wp_page_template',
-		'meta_value' => $TEMPLATE_NAME
+		'meta_value' => $TEMPLATE_NAME,
+        'hierarchical' => 0
 	));
 
     if($pages){
@@ -582,7 +583,8 @@ function dsi_get_template_page_id($TEMPLATE_NAME){
     $url = null;
     $pages = get_pages(array(
         'meta_key' => '_wp_page_template',
-        'meta_value' => $TEMPLATE_NAME
+        'meta_value' => $TEMPLATE_NAME,
+        'hierarchical' => 0
     ));
     if($pages){
         foreach ($pages as $page){
