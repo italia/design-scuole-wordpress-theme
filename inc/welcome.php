@@ -15,6 +15,12 @@ function dsi_welcome_panel(){
     <?php
 }
 
+function dsi_welcome_init() {
+    global $wpdb;
+    $wpdb->update($wpdb->usermeta,array('meta_value'=>1),array('meta_key'=>'show_welcome_panel'));
+}
+
+add_action('after_switch_theme','dsi_welcome_init');
 
 
 /**
