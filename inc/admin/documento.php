@@ -751,7 +751,7 @@ function dsi_save_documento( $post_id) {
 
     remove_action( 'save_post_luogo','dsi_save_luogo' );
 
-
+/** gestisco la scadenza del documento */
     if(isset($_POST["_dsi_documento_data_scadenza"]) && $_POST["_dsi_documento_data_scadenza"] == ""){
         if(dsi_is_albo(get_post($post_id))){
             // controllo se è settato un parametro nelle opzioni
@@ -760,6 +760,16 @@ function dsi_save_documento( $post_id) {
                 $_POST["_dsi_documento_data_scadenza"] = date("d/m/Y", strtotime("+ ".$giorni_scadenza." DAYS"));
             }
         }
+    }
+
+    if(!isset($_POST["_dsi_documento_is_amministrazione_trasparente"]) || $_POST["_dsi_documento_is_amministrazione_trasparente"] == "false"){
+
+        unset($_POST["_dsi_documento_amministrazione_trasparente"]);
+        $amm = wp_get_object_terms($post_id, 'amministrazione-trasparente');
+
+
+        foreach($amm as $amt)
+            wp_remove_object_terms( $post_id, $amt->name, 'amministrazione-trasparente' );
     }
 
 
