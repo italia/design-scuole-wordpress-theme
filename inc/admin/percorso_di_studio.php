@@ -32,6 +32,8 @@ function dsi_register_percorso_di_studio_post_type() {
         'capability_type' => array('percorso_di_studio', 'percorsi_di_studio'),
         'rewrite' => array('slug' => 'percorso-di-studio','with_front' => false),
         'map_meta_cap'    => true,
+        'description'    => __( "I percorsi di studio che è possibile frequentare nella scuola.", 'design_scuole_italia' ),
+
     );
     register_post_type( 'percorso_di_studio', $args );
 

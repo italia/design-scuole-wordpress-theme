@@ -27,6 +27,7 @@ function dsi_register_scheda_progetto_post_type() {
         'capability_type' => array('scheda_progetto', 'schede_progetto'),
         'rewrite' => array('slug' => 'scheda-progetto','with_front' => false),
         'map_meta_cap'    => true,
+        'description'    => __( "I progetti creati dai docenti della scuola e a disposizione di tutti.", 'design_scuole_italia' ),
 	);
 	register_post_type( 'scheda_progetto', $args );
 

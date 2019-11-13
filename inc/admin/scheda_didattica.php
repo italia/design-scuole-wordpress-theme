@@ -27,6 +27,7 @@ function dsi_register_scheda_didattica_post_type() {
         'capability_type' => array('scheda_didattica', 'schede_didattica'),
         'rewrite' => array('slug' => 'scheda-didattica','with_front' => false),
         'map_meta_cap'    => true,
+        'description'    => __( "Approfondimenti tematici, guide e esercizi creati dai docenti della scuola e a disposizione di tutti.", 'design_scuole_italia' ),
 	);
 	register_post_type( 'scheda_didattica', $args );
 
