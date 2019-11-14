@@ -169,47 +169,6 @@ function dsi_add_percorso_di_studio_metaboxes() {
 
 
     $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_descrizione',
-        'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
-        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-
-    ) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_file',
-        'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
-        ),
-    ) );
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'libri_testo_descrizione',
-        'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
-        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-    ) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'libri_testo_file',
-        'name' => __( 'File pdf dei libri di testo' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo file', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove"
-        ),
-    ) );
-
-    $cmb_undercontent->add_field( array(
         'id' => $prefix . 'esito',
         'name'        => __( 'A cosa serve', 'design_scuole_italia' ),
         'desc' => __( 'Indicare uno o più output prodotti. Ad es.: " Questo percorso di studio ti permette di accedere a..."' , 'design_scuole_italia' ),
@@ -221,6 +180,8 @@ function dsi_add_percorso_di_studio_metaboxes() {
         ),
 
     ) );
+
+
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'come_si_fa',
@@ -323,6 +284,66 @@ function dsi_add_percorso_di_studio_metaboxes() {
         'options' => dsi_get_luoghi_options(),
     ) );
 
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'programma',
+        'name'        => __( 'Programma di studio ', 'design_scuole_italia' ),
+        'desc' => __( 'es: "Descrivi il programma di studio, anche in formato tabellare.', 'design_scuole_italia' ),
+        'type'    => 'wysiwyg',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
+
+    ) );
+
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'calendario_classi_descrizione',
+        'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
+        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+
+    ) );
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'calendario_classi_file',
+        'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
+            'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
+        ),
+    ) );
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'libri_testo_descrizione',
+        'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
+        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+        'type' => 'textarea',
+    ) );
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'libri_testo_file',
+        'name' => __( 'File pdf dei libri di testo' , 'design_scuole_italia' ),
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => __('Aggiungi un nuovo file', 'design_scuole_italia' ), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove Image"
+            'remove_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove"
+        ),
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'cosa_serve',

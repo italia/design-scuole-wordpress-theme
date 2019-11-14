@@ -25,6 +25,7 @@ get_header();
             $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
 
             $esito = dsi_get_meta("esito");
+            $programma = dsi_get_meta("programma");
             $descrizione = dsi_get_meta("descrizione");
             $come_si_fa = dsi_get_meta("come_si_fa");
             $procedura_esito = dsi_get_meta("procedura_esito");
@@ -125,6 +126,11 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede", "design_scuole_italia"); ?>"><?php _e("Come si accede", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php if($programma){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-programma" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Programma di studio", "design_scuole_italia"); ?>"><?php _e("Programma di studio", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
                                         <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-calendario" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Orario delle classi", "design_scuole_italia"); ?>"><?php _e("Orario delle classi", "design_scuole_italia"); ?></a>
@@ -273,7 +279,7 @@ get_header();
                                         <div class="col-lg-9">
                                             <div class="card-deck card-deck-spaced">
                                                 <?php
-                                                foreach ($struttura_responsabile as $idstruttura) {
+                                                foreach ($link_struttura_didattica as $idstruttura) {
                                                     $struttura = get_post($idstruttura);
                                                     ?>
                                                     <?php get_template_part("template-parts/struttura/card"); ?>
@@ -340,6 +346,16 @@ get_header();
                                     <?php
                                 }
                                 ?>
+
+                                <?php if($programma){ ?>
+                                    <h4 id="art-par-programma" class="mt-4"><?php _e("Programma di studio", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <?php echo wpautop($programma); ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                <?php } ?>
+
                                 <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
                                     <h4 id="art-par-calendario" class="mt-4"><?php _e("Orario delle classi", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
