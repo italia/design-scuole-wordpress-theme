@@ -717,7 +717,7 @@ function dsi_check_documenti_daily() {
 
 function dsi_disable_trash_albo( $new_status, $old_status, $post ) {
     if($post->post_type == "documento"){
-        if ($new_status == 'trash' ) {
+        if (($new_status == 'trash')  && (!is_super_admin())) {
             // se è un documento albo lo trasformo in "annullato"
             if(dsi_is_albo($post)){
                 $arg = array( 'ID' => $post->ID, 'post_status' => "annullato" );
