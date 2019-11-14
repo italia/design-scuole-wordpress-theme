@@ -24,7 +24,7 @@ if($c) { ?>
     </section>
     <script>
         var mymap = L.map('map_all', {
-            zoomControl: false,
+            zoomControl: true,
             scrollWheelZoom: false
         }).setView([<?php echo $arr_luoghi[0]["gps"]["lat"]; ?>, <?php echo $arr_luoghi[0]["gps"]["lng"]; ?>], 13);
 
