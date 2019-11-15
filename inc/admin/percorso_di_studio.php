@@ -237,7 +237,8 @@ function dsi_add_percorso_di_studio_metaboxes() {
             "Registrati" => "Registrati",
             "Prenota" => "Prenota",
             "Iscriviti" => "Iscriviti",
-            "Accedi" => "Accedi"
+            "Accedi" => "Accedi",
+            "Visualizza" => "Visualizza"
         )
     ) );
 

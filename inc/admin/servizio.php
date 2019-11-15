@@ -225,7 +225,8 @@ function dsi_add_servizi_metaboxes() {
             "Registrati" => "Registrati",
             "Prenota" => "Prenota",
             "Iscriviti" => "Iscriviti",
-            "Accedi" => "Accedi"
+            "Accedi" => "Accedi",
+            "Visualizza" => "Visualizza"
         )
     ) );
 
