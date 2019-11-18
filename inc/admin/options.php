@@ -366,7 +366,7 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-
+/*
 	$main_options->add_field( array(
 		'name'        => __( 'Commissioni', 'design_scuole_italia' ),
 		'desc' => __('Commissioni e Gruppi di Lavoro', 'design_scuole_italia' ),
@@ -390,8 +390,7 @@ function dsi_register_main_options_metabox() {
 			), // override the get_posts args
 		),
 	) );
-
-
+*/
 	$main_options->add_field( array(
 		'name'        => __( 'I Luoghi', 'design_scuole_italia' ),
 		'desc' => __('Immagini dei luoghi della Scuola', 'design_scuole_italia' ),
