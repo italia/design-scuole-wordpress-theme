@@ -410,12 +410,15 @@ function dsi_create_pages_on_theme_activation() {
     * popolo le tipologie di struttura
      *
      */
-    wp_insert_term( 'Dirigenza Scolastica', 'tipologia-struttura' );
-    wp_insert_term( 'Segreteria', 'tipologia-struttura' );
-    wp_insert_term( 'Scuola', 'tipologia-struttura' );
-    wp_insert_term( 'Commissione', 'tipologia-struttura' );
-    wp_insert_term( 'Organo Collegiale', 'tipologia-struttura' );
     wp_insert_term( 'Associazione scolastica', 'tipologia-struttura' );
+    wp_insert_term( 'Commissione', 'tipologia-struttura' );
+    wp_insert_term( 'Dipartimento', 'tipologia-struttura' );
+    wp_insert_term( 'Dirigenza Scolastica', 'tipologia-struttura' );
+    wp_insert_term( 'Istituto', 'tipologia-struttura' );
+    wp_insert_term( 'Organo Collegiale', 'tipologia-struttura' );
+    wp_insert_term( 'Organo Consiliare', 'tipologia-struttura' );
+    wp_insert_term( 'Scuola', 'tipologia-struttura' );
+    wp_insert_term( 'Segreteria', 'tipologia-struttura' );
 
     wp_insert_term( 'Palestra', 'tipologia-luogo' );
     wp_insert_term( 'Mensa', 'tipologia-luogo' );
