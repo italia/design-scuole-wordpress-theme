@@ -71,7 +71,7 @@ get_header();
                                     echo '<h3>';
                                     echo '<div class="at-number">'.$atcounter.'</div>';
 
-                                    echo '<span id="'.$sez_l.'" href="#'.$sez_l.'">'.$inner[0].'</span></h3>';
+                                    echo '<span id="'.$sez_l.'" href="#'.$sez_l.'"><a href="'.get_term_link(get_term_by('name', $inner[0], 'amministrazione-trasparente'), 'amministrazione-trasparente').'">'.$inner[0].'</a></span></h3>';
                                     echo $atreturn;
 
                                     echo '</div>';
