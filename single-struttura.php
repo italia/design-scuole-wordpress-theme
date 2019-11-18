@@ -32,7 +32,7 @@ get_header();
 
 
             $sedi = dsi_get_meta("sedi");
-            $luoghi = dsi_get_meta("luoghi");
+           // $luoghi = dsi_get_meta("luoghi");
 
             $altre_info = dsi_get_meta("altre_info");
             $telefono = dsi_get_meta("telefono");
@@ -309,7 +309,7 @@ get_header();
                                     </div>
                                 <?php } ?>
 
-                                <?php if(is_array($luoghi) && count($luoghi)>0) {
+                                <?php /*if(is_array($luoghi) && count($luoghi)>0) {
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
@@ -332,7 +332,7 @@ get_header();
                                                 </div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php } */ ?>
                                 <?php if($altre_info != ""){ ?>
                                     <h4 id="art-par-info" class="mb-4 mt-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">

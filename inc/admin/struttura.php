@@ -282,6 +282,7 @@ function dsi_add_struttura_metaboxes() {
         'options' =>  dsi_get_luoghi_options(),
     ) );
 
+    /*
     $cmb_undercontent->add_field( array(
         'id' => $prefix .'luoghi',
         'name'    => __( 'Luoghi presenti nella struttura', 'design_scuole_italia' ),
@@ -289,7 +290,7 @@ function dsi_add_struttura_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_luoghi_options(),
     ) );
-
+*/
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
