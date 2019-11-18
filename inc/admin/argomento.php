@@ -42,7 +42,7 @@ function dsi_create_argomento_taxonomy() {
         'category',
         'post',
         array(
-            'hierarchical'          => false,
+            'hierarchical'          => true,
             'query_var'             => 'category_name',
             'labels'                    => $labels,
             'rewrite'                   => $rewrite,
