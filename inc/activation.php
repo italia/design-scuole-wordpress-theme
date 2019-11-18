@@ -7,6 +7,10 @@
 add_action( 'after_switch_theme', 'dsi_create_pages_on_theme_activation' );
 
 function dsi_create_pages_on_theme_activation() {
+// verifico se è una prima installazione
+    $dsi_has_installed = get_option("dsi_has_installed");
+
+
 
     // template page per la scuola
     $new_page_title    = __( 'La Scuola', 'design_scuole_italia' ); // Page's title
@@ -933,21 +937,44 @@ function dsi_create_pages_on_theme_activation() {
         }
     }
 
-}
 
 
-// creo le opzioni per ginger
 
-$field_export = "{\"ginger_general\":{\"enable_ginger\":\"1\",\"ginger_cache\":\"no\",\"ginger_opt\":\"in\",\"ginger_scroll\":\"1\",\"ginger_click_out\":\"1\",\"ginger_force_reload\":\"0\",\"ginger_keep_banner\":\"0\",\"ginger_cookie_duration\":\"365000\",\"ginger_logged_users\":\"0\",\"pagine_escluse\":[{\"select-input\":\"\"}]},\"ginger_banner\":{\"ginger_banner_type\":\"bar\",\"ginger_banner_position\":\"bottom\",\"ginger_banner_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"ginger_Iframe_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"accept_cookie_button_text\":\"Accetta Cookie\",\"disable_cookie_button_text\":\"Disabilita i Cookie\",\"disable_cookie_button_status\":\"1\",\"theme_ginger\":\"light\",\"background_color\":\"#51758c\",\"text_color\":\"#ffffff\",\"button_color\":\"#ffffff\",\"button_text_color\":\"#444444\",\"link_color\":\"#e5e5e5\",\"ginger_css\":\"\"},\"gingerjscustom\":false,\"ginger_jscustom\":false,\"gingeradsense\":false,\"gingerwpml\":false,\"ginger_wpml_options\":false,\"gingerpolylang\":false,\"ginger_polylang_options\":false,\"gingeranalytics\":false,\"gingeranalytics_option\":false}";
+    // controllo se è una prima installazione
+    if(!$dsi_has_installed){
 
-if($newconf = json_decode(stripslashes($field_export), true)) {
-    $newconf = json_decode(json_encode($newconf), true);
-    foreach ($newconf as $key => $val) {
-        update_option($key, $val);
+        // creo le opzioni per ginger
+        $field_export = "{\"ginger_general\":{\"enable_ginger\":\"1\",\"ginger_cache\":\"no\",\"ginger_opt\":\"in\",\"ginger_scroll\":\"1\",\"ginger_click_out\":\"1\",\"ginger_force_reload\":\"0\",\"ginger_keep_banner\":\"0\",\"ginger_cookie_duration\":\"365000\",\"ginger_logged_users\":\"0\",\"pagine_escluse\":[{\"select-input\":\"\"}]},\"ginger_banner\":{\"ginger_banner_type\":\"bar\",\"ginger_banner_position\":\"bottom\",\"ginger_banner_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"ginger_Iframe_text\":\"I cookie ci aiutano a migliorare il sito. Utilizzando il sito, accetti un utilizzo dei cookie da parte nostra.\",\"accept_cookie_button_text\":\"Accetta Cookie\",\"disable_cookie_button_text\":\"Disabilita i Cookie\",\"disable_cookie_button_status\":\"1\",\"theme_ginger\":\"light\",\"background_color\":\"#51758c\",\"text_color\":\"#ffffff\",\"button_color\":\"#ffffff\",\"button_text_color\":\"#444444\",\"link_color\":\"#e5e5e5\",\"ginger_css\":\"\"},\"gingerjscustom\":false,\"ginger_jscustom\":false,\"gingeradsense\":false,\"gingerwpml\":false,\"ginger_wpml_options\":false,\"gingerpolylang\":false,\"ginger_polylang_options\":false,\"gingeranalytics\":false,\"gingeranalytics_option\":false}";
+        if($newconf = json_decode(stripslashes($field_export), true)) {
+            $newconf = json_decode(json_encode($newconf), true);
+            foreach ($newconf as $key => $val) {
+                update_option($key, $val);
+            }
+        }
+
+        // opzioni per avcp
+        update_option('avcp_denominazione_ente', "denominazione_ente");
+        update_option('avcp_codicefiscale_ente', "codicefiscale_ente");
+
     }
+
+    update_option("dsi_has_installed", true);
 }
 
 
-// opzioni per avcp
-update_option('avcp_denominazione_ente', "denominazione_ente");
-update_option('avcp_codicefiscale_ente', "codicefiscale_ente");
+function dsi_add_update_theme_page() {
+    add_theme_page( 'Ricarica i dati', 'Ricarica i dati', 'edit_theme_options', 'reload-data-theme-options', 'dsi_reload_theme_option_page' );
+}
+add_action( 'admin_menu', 'dsi_add_update_theme_page' );
+
+function dsi_reload_theme_option_page() {
+    if(isset($_GET["action"]) && $_GET["action"] == "reload"){
+        dsi_create_pages_on_theme_activation();
+    }
+
+    echo "<div class='wrap'>";
+    echo '<h1>Ricarica i dati di attivazione del tema</h1>';
+
+    echo '<a href="themes.php?page=reload-data-theme-options&action=reload" class="button button-primary">Ricarica i dati di attivazione (menu, tipologie, etc)</a>';
+    echo "</div>";
+}
