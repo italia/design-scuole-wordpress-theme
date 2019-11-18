@@ -414,10 +414,20 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Commissione', 'tipologia-struttura' );
     wp_insert_term( 'Dipartimento', 'tipologia-struttura' );
     wp_insert_term( 'Dirigenza Scolastica', 'tipologia-struttura' );
-    wp_insert_term( 'Istituto', 'tipologia-struttura' );
+   // wp_insert_term( 'Istituto', 'tipologia-struttura' );
+    $istituto = get_term_by("name", "Istituto", 'tipologia-struttura');
+    if($istituto)
+        wp_delete_term($istituto->term_id, "tipologia-struttura");
+
     wp_insert_term( 'Organo Collegiale', 'tipologia-struttura' );
     wp_insert_term( 'Organo Consiliare', 'tipologia-struttura' );
-    wp_insert_term( 'Scuola', 'tipologia-struttura' );
+
+    $term_scuola = term_exists( 'Scuola', 'tipologia-struttura' );
+    if ( $term_scuola !== 0 && $term_scuola !== null ) {
+        wp_update_term($term_scuola["term_id"], "tipologia-struttura", array("name" => "Scuola / Istituto"));
+    }else{
+        wp_insert_term( 'Scuola / Istituto', 'tipologia-struttura', array("slug" => "scuola"));
+    }
     wp_insert_term( 'Segreteria', 'tipologia-struttura' );
 
     wp_insert_term( 'Palestra', 'tipologia-luogo' );

@@ -98,8 +98,6 @@ scuola secondaria secondo grado / percorsi di istruzione e formazione profession
         'taxonomy'       => 'indirizzi-di-studio',
         'remove_default' => 'true',
         'attributes' => array(
-            'data-conditional-id' => $prefix . 'tipologia',
-            'data-conditional-value' => "scuola",
               'data-only-parent' => true,
         ),
     ) );
