@@ -40,7 +40,7 @@ $post_type = get_query_var("post_type");
                         $collapsed = false;
                     }
                     $atreturn_body .= ' onChange="this.form.submit()">';
-                    $atreturn_body .= ' <label class="custom-control-label" for="check-'.$term->slug.'">'.$term->name.'</label>';
+                    $atreturn_body .= ' <label class="custom-control-label" for="check-'.$term->slug.'"><a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '">'.$term->name.'</a></label>';
                     $atreturn_body .= '</div>';
 
                     $atreturn_body .= '</li>';
