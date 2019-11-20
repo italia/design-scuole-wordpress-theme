@@ -887,8 +887,8 @@ function dsi_create_pages_on_theme_activation() {
         'title'        => 'Link Esterni',
         'nav_menu'     => $menu_link_esterno,
     );
-    unset($nav_menu[ 1 ]);
-    unset($nav_menu[ 2 ]);
+    unset( $active_widgets["footer-1"][1]);
+    unset( $active_widgets["footer-1"][2]);
 
     $active_widgets["footer-2"][0] = 'nav_menu-1' ;
     $nav_menu[ 1 ] = array (
