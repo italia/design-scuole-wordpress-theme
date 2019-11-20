@@ -437,14 +437,20 @@ function dsi_create_pages_on_theme_activation() {
     }
     wp_insert_term( 'Segreteria', 'tipologia-struttura' );
 
-    wp_insert_term( 'Palestra', 'tipologia-luogo' );
-    wp_insert_term( 'Mensa', 'tipologia-luogo' );
-    wp_insert_term( 'Edificio scolastico', 'tipologia-luogo' );
-    wp_insert_term( 'Biblioteca', 'tipologia-luogo' );
     wp_insert_term( 'Auditorium', 'tipologia-luogo' );
-    wp_insert_term( 'Teatro', 'tipologia-luogo' );
+    wp_insert_term( 'Aula Magna', 'tipologia-luogo' );
+    wp_insert_term( 'Biblioteca', 'tipologia-luogo' );
+    wp_insert_term( 'Edificio scolastico', 'tipologia-luogo' );
     wp_insert_term( 'Laboratorio', 'tipologia-luogo' );
-    wp_insert_term( 'Giardino', 'tipologia-luogo' );
+    wp_insert_term( 'Mensa', 'tipologia-luogo' );
+    wp_insert_term( 'Palestra', 'tipologia-luogo' );
+//    wp_insert_term( 'Giardino', 'tipologia-luogo' );
+    $giardino = get_term_by("name", "Giardino", 'tipologia-luogo');
+    if($giardino)
+        wp_delete_term($giardino->term_id, "tipologia-luogo");
+
+    wp_insert_term( "Spazio all'aperto", 'tipologia-luogo' );
+    wp_insert_term( 'Teatro', 'tipologia-luogo' );
 
     wp_insert_term( 'Famiglie e studenti', 'tipologia-servizio' );
     wp_insert_term( 'Personale scolastico', 'tipologia-servizio' );
