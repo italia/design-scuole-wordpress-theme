@@ -225,7 +225,7 @@ function dsi_add_struttura_metaboxes() {
 
 
     $cmb_undercontent->add_field( array(
-            'name'       => __('Responsabile ', 'design_scuole_italia' ),
+            'name'       => __('Persone responsabili ', 'design_scuole_italia' ),
             'desc' => __( 'Link alla scheda responsabile della struttura. ', 'design_scuole_italia' ),
             'id' => $prefix . 'responsabile',
             'type'    => 'pw_multiselect',
