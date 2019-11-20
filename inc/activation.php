@@ -424,7 +424,10 @@ function dsi_create_pages_on_theme_activation() {
         wp_delete_term($istituto->term_id, "tipologia-struttura");
 
     wp_insert_term( 'Organo Collegiale', 'tipologia-struttura' );
-    wp_insert_term( 'Organo Consiliare', 'tipologia-struttura' );
+//    wp_insert_term( 'Organo Consiliare', 'tipologia-struttura' );
+    $organoconsiliare = get_term_by("name", "Organo Consiliare", 'tipologia-struttura');
+    if($organoconsiliare)
+        wp_delete_term($organoconsiliare->term_id, "tipologia-struttura");
 
     $term_scuola = term_exists( 'Scuola', 'tipologia-struttura' );
     if ( $term_scuola !== 0 && $term_scuola !== null ) {
