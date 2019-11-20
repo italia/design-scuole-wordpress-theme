@@ -184,6 +184,26 @@ $gallery = dsi_get_meta("gallery");
                                     </div>
                                     <?php
                                 }
+                                    $partecipanti_utenti = dsi_get_meta("partecipanti_utenti");
+
+                                    if(is_array($partecipanti_utenti) && count($partecipanti_utenti)>0){ ?>
+                                <div class="card-deck card-deck-spaced mb-2">
+                                    <?php
+                                    foreach ($partecipanti_utenti as $idutente) {
+                                        $autore = get_user_by("ID", $idutente);
+                                        ?>
+                                        <div class="card card-bg card-avatar rounded">
+                                            <a href="<?php echo get_author_posts_url($idutente); ?>">
+                                                <div class="card-body">
+                                                    <?php get_template_part("template-parts/autore/card"); ?>
+                                                </div>
+                                            </a>
+                                        </div><!-- /card card-bg card-avatar rounded -->
+                                        <?php
+                                    }
+                                    ?>
+                                </div><!-- /card-deck -->
+                                <?php }
 /*
 // todo: programma materia
                                 $classi = dsi_get_meta("classi");

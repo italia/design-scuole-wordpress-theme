@@ -84,6 +84,18 @@ function dsi_add_scheda_progetto_metaboxes() {
             'type'    => 'textarea',
         )
     );
+
+
+    $cmb_sottotitolo->add_field( array(
+            'name'       => __('Persone coinvolte', 'design_scuole_italia' ),
+            'desc' => __( 'Schede del personale scolastico coinvolto a vario titolo nel progetto' , 'design_scuole_italia' ),
+            'id'             => $prefix . 'partecipanti_utenti',
+            'type'    => 'pw_multiselect',
+            'options' => dsi_get_user_options(),
+            'attributes' => array(
+                'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+            ),        )
+    );
 /*
  *
  * // todo: programma materia
