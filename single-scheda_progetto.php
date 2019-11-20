@@ -15,7 +15,7 @@ $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_strutture = dsi_get_meta("link_strutture");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
-$file_documenti = dsi_get_meta("file_documenti");
+//$file_documenti = dsi_get_meta("file_documenti");
 $is_realizzato = dsi_get_meta("is_realizzato");
 $risultati = dsi_get_meta("risultati");
 $gallery = dsi_get_meta("gallery");
@@ -84,7 +84,7 @@ $gallery = dsi_get_meta("gallery");
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-risultati" title="Vai al paragrafo <?php _e("Risultati", "design_scuole_italia"); ?>"><?php _e("Risultati", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+                                        <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
                                             </li>
@@ -225,7 +225,7 @@ $gallery = dsi_get_meta("gallery");
                                         </div>
                                     </div>
                                 <?php }  ?>
-                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ ?>
                                     <h4  id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
@@ -239,13 +239,14 @@ $gallery = dsi_get_meta("gallery");
                                                     }
                                                 }
 
+                                                /*
                                                 global $idfile, $nomefile;
                                                 if(is_array($file_documenti) && count($file_documenti)>0) {
 
                                                     foreach ( $file_documenti as $idfile => $nomefile ) {
                                                         get_template_part( "template-parts/documento/file" );
                                                     }
-                                                }
+                                                }*/
 
                                                 ?>
                                             </div><!-- /card-deck card-deck-spaced -->

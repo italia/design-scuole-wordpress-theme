@@ -246,7 +246,7 @@ function dsi_add_scheda_progetto_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'link_schede_documenti',
         'name'    => __( 'Documenti', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per descrivere il progetto. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per descrivere il progetto. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito). ' , 'design_scuole_italia' ),
         'type'    => 'custom_attached_posts',
         'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
         'options' => array(
@@ -260,6 +260,7 @@ function dsi_add_scheda_progetto_metaboxes() {
     ) );
 
 
+    /*
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'file_documenti',
         'name'    => __( 'Carica documenti', 'design_scuole_italia' ),
@@ -274,7 +275,7 @@ function dsi_add_scheda_progetto_metaboxes() {
             'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
         ),
     ) );
-
+*/
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'gallery',
