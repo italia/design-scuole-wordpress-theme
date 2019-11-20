@@ -194,6 +194,7 @@ function dsi_add_circolare_metaboxes() {
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
+    /*
     $cmb_undercontent->add_field( array(
             'id' => $prefix . 'persone',
             'name'       => __('Persone ', 'design_scuole_italia' ),
@@ -221,7 +222,7 @@ function dsi_add_circolare_metaboxes() {
             ), // override the get_posts args
         ),
     ) );
-
+*/
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'link_schede_documenti',

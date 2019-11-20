@@ -10,8 +10,8 @@ global $post, $autore, $luogo, $c, $badgeclass;
 get_header();
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
-$luoghi = dsi_get_meta("luoghi");
-$persone = dsi_get_meta("persone");
+//$luoghi = dsi_get_meta("luoghi");
+//$persone = dsi_get_meta("persone");
 $numerazione_circolare = dsi_get_meta("numerazione_circolare");
 
 
@@ -69,7 +69,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                 ?>
                                 <?php
                                 get_template_part( "template-parts/single/feedback-circolare");
-
+/*
                                 if(is_array($luoghi) && count($luoghi)>0){
                                     ?>
                                     <h4 class="mb-4"><?php _e("Luoghi", "design_scuole_italia"); ?></h4>
@@ -81,7 +81,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                         get_template_part( "template-parts/luogo/card" , "large");
                                     }
                                     ?>
-                                <?php } ?>
+                                <?php } */ ?>
 
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
@@ -96,6 +96,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                             $badgeclass = "badge-outline-greendark";
                             get_template_part("template-parts/common/badges-argomenti"); ?>
                             <?php
+                            /*
                             if(is_array($persone) && count($persone)>0){
                                 ?>
                                 <div class="cards-aside mt-4">
@@ -115,7 +116,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                     }
                                     ?>
                                 </div><!-- /cards-avatar -->
-                            <?php } ?>
+                            <?php } */ ?>
                         </div><!-- /col-lg-3 -->
                     </div><!-- /row -->
 
