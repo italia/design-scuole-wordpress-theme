@@ -26,7 +26,7 @@ get_header();
             $link_schede_servizi = dsi_get_meta("link_schede_servizi");
             $link_schede_progetti = dsi_get_meta("link_schede_progetti");
 
-            $responsabile = dsi_get_meta("responsabile");
+            $responsabile = dsi_get_meta("responsabile")?dsi_get_meta("responsabile"):"";
             $persone = dsi_get_meta("persone");
             $altri_componenti = dsi_get_meta("altri_componenti");
 
@@ -98,7 +98,7 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
+                                        <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail  || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
                                             </li>
@@ -189,7 +189,7 @@ get_header();
                                         ?>
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
-                                <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || $pec || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
+                                <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                     <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
 
                                     <?php
@@ -295,7 +295,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h4 id="art-par-sede" class="mt-4"><?php _e("Sedi", "design_scuole_italia"); ?></h4>
+                                            <h4 id="art-par-sede" class="mt-4"><?php (count($sedi)==1)?_e("Sede", "design_scuole_italia"):_e("Sedi", "design_scuole_italia"); ?></h4>
                                             <?php
                                             $c=0;
                                             foreach ($sedi as $idluogo){
