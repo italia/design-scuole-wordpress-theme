@@ -366,7 +366,7 @@ function dsi_add_documento_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_servizi_options(),
     ) );
-
+/*
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'link_servizi_collegati',
         'name'        => __( 'Canale digitale servizio collegato', 'design_scuole_italia' ),
@@ -374,7 +374,7 @@ function dsi_add_documento_metaboxes() {
         'type' => 'text_url'
 
     ) );
-
+*/
 
 
     $timeline_group_id = $cmb_aftercontent->add_field( array(

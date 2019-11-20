@@ -19,7 +19,7 @@ get_header();
             $file_documenti         = dsi_get_meta( "file_documenti" );
             $licenza                = dsi_get_meta( "licenza" );
             $servizi_collegati      = dsi_get_meta( "servizi_collegati" );
-            $link_servizi_collegati = dsi_get_meta( "link_servizi_collegati" );
+           // $link_servizi_collegati = dsi_get_meta( "link_servizi_collegati" );
             $timeline               = dsi_get_meta( "timeline" );
             $ufficio                = dsi_get_meta( "ufficio" );
             $numerazione_albo       = dsi_get_meta( "numerazione_albo" );
