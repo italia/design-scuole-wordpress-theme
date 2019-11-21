@@ -28,6 +28,7 @@
 			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',
                                 'scheda_didattica'  => 'indirizzi-di-studio',
+                                'scheda_progetto'  => 'tipologia-progetto',
                                 'incarico'  => 'tipo_incarico',
 
                             ),

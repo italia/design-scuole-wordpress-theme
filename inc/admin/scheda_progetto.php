@@ -31,6 +31,36 @@ function dsi_register_scheda_progetto_post_type() {
 	);
 	register_post_type( 'scheda_progetto', $args );
 
+    /** tipologia progetto **/
+
+    $labels = array(
+        'name'              => _x( 'Tipologia Progetto', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Tipologia Progetto', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca Tipologia', 'design_scuole_italia' ),
+        'all_items'         => __( 'Tutte le tipologie', 'design_scuole_italia' ),
+        'edit_item'         => __( 'Modifica la Tipologia', 'design_scuole_italia' ),
+        'update_item'       => __( 'Aggiorna la Tipologia', 'design_scuole_italia' ),
+        'add_new_item'      => __( 'Aggiungi una Tipologia', 'design_scuole_italia' ),
+        'new_item_name'     => __( 'Nuova Tipologia', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Tipologia', 'design_scuole_italia' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'tipologia-progetto' ),
+        'capabilities'      => array(
+            'manage_terms'  => 'manage_tipologia_progetti',
+            'edit_terms'    => 'edit_tipologia_progetti',
+            'delete_terms'  => 'delete_tipologia_progetti',
+            'assign_terms'  => 'assign_tipologia_progetti'
+        )
+    );
+
+    register_taxonomy( 'tipologia-progetto', array( 'scheda_progetto' ), $args );
 }
 
 
@@ -50,7 +80,17 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'priority'     => 'high',
 	) );
 
-	$cmb_sottotitolo->add_field( array(
+
+    $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'name'        => __( 'Tipologia progetto', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_radio_inline',
+        'taxonomy'       => 'tipologia-progetto',
+        'remove_default' => 'true'
+    ) );
+
+
+    $cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
 		'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
 		'desc' => __( 'Breve descrizione del contenuti della scheda (max 160 caratteri) Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
@@ -85,7 +125,7 @@ function dsi_add_scheda_progetto_metaboxes() {
         )
     );
 
-
+// todo: relazione persone con schede
     $cmb_sottotitolo->add_field( array(
             'name'       => __('Persone coinvolte', 'design_scuole_italia' ),
             'desc' => __( 'Schede del personale scolastico coinvolto a vario titolo nel progetto' , 'design_scuole_italia' ),

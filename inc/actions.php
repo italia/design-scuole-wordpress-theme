@@ -274,7 +274,9 @@ global $wp_query;
     }elseif ( is_tax("tipologia-luogo") ) {
         // $title = __("Servizi per ", "design_scuole_italia").": ".single_term_title('', false);
         $title = single_term_title('', false);
-    } elseif ( is_post_type_archive("luogo") ) {
+    } elseif ( is_tax("tipologia-progetto") ) {
+        $title = single_term_title('', false);
+    }elseif ( is_post_type_archive("luogo") ) {
         $title = __("I luoghi della scuola", "design_scuole_italia");
     } elseif ( is_post_type_archive("struttura") ) {
         $title = __("Organizzazione", "design_scuole_italia");
@@ -290,6 +292,7 @@ global $wp_query;
         $title = post_type_archive_title('', false);
     }
 
+    $title = dsi_pluralize_string($title);
     return $title;
 
 });

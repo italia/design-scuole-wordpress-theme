@@ -452,6 +452,16 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( "Spazio all'aperto", 'tipologia-luogo' );
     wp_insert_term( 'Teatro', 'tipologia-luogo' );
 
+
+
+    wp_insert_term( 'Progetto di integrazione', 'tipologia-progetto' );
+    wp_insert_term( 'Progetto di orientamento', 'tipologia-progetto' );
+    wp_insert_term( 'Progetto territorio e ambiente', 'tipologia-progetto' );
+    wp_insert_term( 'Progetto area umanistica', 'tipologia-progetto' );
+    wp_insert_term( 'Progetto area scientifica', 'tipologia-progetto' );
+
+
+
     wp_insert_term( 'Famiglie e studenti', 'tipologia-servizio' );
     wp_insert_term( 'Personale scolastico', 'tipologia-servizio' );
    // wp_insert_term( 'Percorsi di studio', 'tipologia-servizio' );
@@ -940,7 +950,7 @@ function dsi_create_pages_on_theme_activation() {
         }
     }
 //    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","indirizzi-di-studio");
-    $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","tipologia_circolare","indirizzi-di-studio");
+    $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi", "tipologia_progetti","tipologia_strutture","tipologia_circolare","indirizzi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");
     foreach ($custom_tax as $ctax){
         foreach ($caps_terms as $cap){

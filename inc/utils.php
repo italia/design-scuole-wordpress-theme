@@ -842,6 +842,26 @@ if(!function_exists("dsi_pluralize_string")) {
             $string = "Albo online";
             break;
 
+        case "Progetto area scientifica":
+            $string = "Progetti area scientifica";
+            break;
+
+        case "Progetto area umanistica":
+            $string = "Progetti area umanistica";
+            break;
+
+        case "Progetto di integrazione":
+            $string = "Progetti di integrazione";
+            break;
+
+        case "Progetto di orientamento":
+            $string = "Progetti di orientamento";
+            break;
+
+        case "Progetto territorio e ambiente":
+            $string = "Progetti territorio e ambiente";
+            break;
+
         case "":
             $string = "";
             break;

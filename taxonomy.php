@@ -16,5 +16,7 @@ else if($obj->taxonomy == "tipologia-circolare")
 //	get_template_part("archive-programma_materia");
 else if($obj->taxonomy == "tipologia-luogo")
 	get_template_part("archive-luogo");
+else if($obj->taxonomy == "tipologia-progetto")
+    get_template_part("archive-scheda_progetto");
 else
 	get_template_part("archive");
