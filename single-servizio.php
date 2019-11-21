@@ -324,7 +324,11 @@ get_header();
                                                         </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
-                                                                <?php echo wpautop($fase["desc_fase"]); ?>
+                                                                <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
+                                                                    <h5 class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h5>
+                                                                    <?php
+                                                                }
+                                                                echo wpautop($fase["desc_fase"]); ?>
                                                             </div><!-- /calendar-date-description-content -->
                                                         </div><!-- /calendar-date-description -->
                                                     </div><!-- /calendar-date -->

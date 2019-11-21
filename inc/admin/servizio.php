@@ -326,17 +326,22 @@ function dsi_add_servizi_metaboxes() {
 		),
 	) );
 
+    $cmb_undercontent->add_group_field( $group_field_id, array(
+        'name'       => __('Titolo', 'design_scuole_italia' ),
+        'desc'       => __('Esempio: "Iscrizione alla gita" oppure "Pagamento della gita"', 'design_scuole_italia' ),
+        'id'         => 'titolo_fase',
+        'type'       => 'text',
+    ) );
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Data fase', 'design_scuole_italia' ),
-		'desc'       => __('Data fase', 'design_scuole_italia' ),
+		'name'       => __('Data', 'design_scuole_italia' ),
+		'desc'       => __('Data della fase', 'design_scuole_italia' ),
 		'id'         => 'data_fase',
 		'type'       => 'text_date',
 		'date_format' => 'd-m-Y'
 	) );
 
 	$cmb_undercontent->add_group_field( $group_field_id, array(
-		'name'       => __('Fase', 'design_scuole_italia' ),
-		'desc'       => __('Esempio: "Iscrizione alla gita" oppure "Pagamento della gita"', 'design_scuole_italia' ),
+		'name'       => __('Descrizione', 'design_scuole_italia' ),
 		'id'         => 'desc_fase',
 		'type'       => 'textarea',
 	) );
