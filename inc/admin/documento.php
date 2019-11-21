@@ -277,7 +277,7 @@ function dsi_add_documento_metaboxes() {
             'desc' => __('Collega alla sezione di Amministrazione Trasparente. ', 'design_scuole_italia'),
             'id' => $prefix . 'amministrazione_trasparente',
             'taxonomy'       => 'amministrazione-trasparente', //Enter Taxonomy Slug
-            'type'           => 'taxonomy_select',
+            'type'           => 'taxonomy_select_hierarchical',
             'remove_default' => 'true', // Removes the default metabox provided by WP core.
             // Optionally override the args sent to the WordPress get_terms function.
             'query_args' => array(
