@@ -66,7 +66,7 @@ function dsi_register_percorso_di_studio_post_type() {
         )
     );
 
-    register_taxonomy( 'indirizzi-di-studio', array( "scheda_didattica", "percorso_di_studio" ), $args );
+    register_taxonomy( 'indirizzi-di-studio', array( "struttura", "scheda_didattica", "percorso_di_studio" ), $args );
 
 
 }

@@ -713,13 +713,47 @@ function dsi_register_main_options_metabox() {
     ) );
 */
 
+
+    $didattica_options->add_field(  array(
+        'id' => $prefix.'visualizzazione_didattica',
+        'name'    => __( 'Seleziona il tipo di visualizzazione da mostrare nella didattica', 'design_scuole_italia' ),
+        'desc' => __( 'Scegli se mostrare a sinistra le scuole e a destra i percorsi di studio, oppure se mostrare a sinistra gli indirizzi di studio e a destra le scuole che ne fanno parte' , 'design_scuole_italia' ),
+        'type'    => 'radio_inline',
+        'options' => array(
+            'scuole' => __( 'Scuole / Percorsi', 'design_scuole_italia' ),
+            'indirizzi'   => __( 'Indirizzi / Scuole', 'design_scuole_italia' ),
+        ),
+    ) );
+
     $didattica_options->add_field(  array(
         'id' => $prefix.'scuole_didattica',
         'name'    => __( 'Seleziona e ordina le scuole che vuoi mostrare nella sezione didattica', 'design_scuole_italia' ),
-        'desc' => __( 'NB: La scuola è una <a href="edit.php?post_type=struttura">Struttura organizzativa</a> di tipologia "Scuola. Se non esiste creala prima <a href="edit.php?post_type=struttura">qui</a>"' , 'design_scuole_italia' ),
+        'desc' => __( 'NB: La scuola è una Struttura organizzativa di tipologia "Scuola. Se non esiste creala prima <a href="edit.php?post_type=struttura">qui</a>"' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dsi_get_strutture_scuole_options(),
+        'attributes' => array(
+           'data-conditional-id'    => $prefix . 'visualizzazione_didattica',
+           'data-conditional-value' => 'scuole',
+       ),
     ) );
+
+
+    $didattica_options->add_field(  array(
+        'id' => $prefix.'indirizzi_didattica',
+        'name'    => __( 'Seleziona gli indirizzi di studio da mostrare nella sezione didattica', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_multicheck_hierarchy_child',
+        'select_all_button' => false,
+        'taxonomy'       => 'indirizzi-di-studio',
+        'remove_default' => 'true',
+        'attributes' => array(
+            'data-only-parent' => true,
+            'data-conditional-id'    => $prefix . 'visualizzazione_didattica',
+            'data-conditional-value' => 'indirizzi',
+        ),
+    ) );
+
+
+
 /*
     $didattica_options->add_field( array(
         'id' => $prefix . 'testo_sezione_progetti',

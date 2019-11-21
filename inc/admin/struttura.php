@@ -94,7 +94,7 @@ function dsi_add_struttura_metaboxes() {
         'taxonomy'       => 'tipologia-struttura',
         'remove_default' => 'true'
     ) );
-    /*
+
         $cmb_sottotitolo->add_field( array(
             'id' => $prefix . 'indirizzi',
             'name'        => __( 'Indirizzi di studio della Scuola', 'design_scuole_italia' ),
@@ -105,10 +105,10 @@ function dsi_add_struttura_metaboxes() {
             'attributes' => array(
                 'data-conditional-id' => $prefix . 'tipologia',
                 'data-conditional-value' => "scuola",
-              //  'data-only-parent' => true,
+                'data-only-parent' => true,
             ),
         ) );
-    */
+
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'link_servizi_didattici',
         'name'    => __( 'Percorsi di studio erogati dalla scuola ', 'design_scuole_italia' ),
