@@ -116,15 +116,22 @@ $gallery = dsi_get_meta("gallery");
                                         <?php
                                         if(trim(get_the_content()) != "") {
                                             ?>
+                                            <div class="col-lg-12 px-0 wysiwig-text">
                                             <h6><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h6>
                                             <?php the_content(); ?>
+                                            </div>
                                             <?php
                                         }
                                         ?>
                                         <h6><?php _e("Obiettivi", "design_scuole_italia"); ?></h6>
+
+                                        <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php
                                         $obiettivi = dsi_get_meta("obiettivi");
                                         echo wpautop($obiettivi);
+                                        ?>
+                                        </div>
+                                        <?php
                                         if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
                                         ?>
                                     </div><!-- /col-lg-9 -->
@@ -175,7 +182,7 @@ $gallery = dsi_get_meta("gallery");
                                 if(trim($partecipanti)){
                                     ?>
                                     <h6><?php _e( "Partecipanti", "design_scuole_italia" ); ?></h6>
-                                    <div class="row variable-gutters">
+                                    <div class="row variable-gutters wysiwig-text">
                                         <div class="col-lg-12">
                                             <?php
                                             echo wpautop($partecipanti);
@@ -230,7 +237,7 @@ $gallery = dsi_get_meta("gallery");
                                     ?>
                                     <h6><?php _e( "In collaborazione con", "design_scuole_italia" ); ?></h6>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12 wysiwig-text">
                                             <?php echo wpautop($collaborazione); ?>
                                         </div>
                                     </div>
@@ -239,7 +246,7 @@ $gallery = dsi_get_meta("gallery");
                                 ?>
                                 <?php if($is_realizzato == "true"){ ?>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <h4 id="art-par-risultati"><?php _e("Risultati", "design_scuole_italia"); ?></h4>
                                             <?php echo wpautop($risultati); ?>
                                         </div>

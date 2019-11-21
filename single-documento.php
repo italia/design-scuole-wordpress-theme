@@ -125,7 +125,7 @@ get_header();
                                 <h4 id="art-par-descrizione"><?php _e( "Descrizione", "design_scuole_italia" ); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="article-description-nomove">
+                                        <div class="article-description-nomove wysiwig-text">
                                             <?php the_content(); ?>
                                         </div><!-- /article-description -->
                                     </div><!-- /col-lg-9 -->

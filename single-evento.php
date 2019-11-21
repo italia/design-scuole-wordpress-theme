@@ -108,7 +108,9 @@ $file_documenti = dsi_get_meta("file_documenti");
                         <div class="main-content col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
                                 <h4 id="art-par-cosa"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
-								<?php the_content(); ?>
+                                <div class="col-lg-12 px-0 wysiwig-text">
+                                <?php the_content(); ?>
+                                </div>
 								<?php
 								global $gallery;
 								$gallery = dsi_get_meta("gallery");

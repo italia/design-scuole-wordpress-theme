@@ -128,12 +128,15 @@ $file_documenti = dsi_get_meta("file_documenti");
                                 }
                                 ?>
                                 <h4 id="art-par-contenuti"><?php _e("L'argomento", "design_scuole_italia"); ?></h4>
+                                <div class="col-lg-12 px-0 wysiwig-text">
                                 <?php the_content(); ?>
+                                </div>
 
                                 <?php
                                 $descrizione_attivita = dsi_get_meta("descrizione_attivita");
                                 ?>
                                 <h4><?php _e("Attività", "design_scuole_italia"); ?></h4>
+                                <div class="col-lg-12 px-0 wysiwig-text">
                                 <?php
                                 echo wpautop($descrizione_attivita);
 
@@ -149,6 +152,9 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         <?php
                                     }
                                 }
+                                ?>
+                                </div>
+                                <?php
 
                                 $verifica = dsi_get_meta("fasi_verifica");
                                 if(is_array($verifica) && count($verifica) > 0) {
@@ -159,7 +165,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                     <?php
                                     foreach ($verifica as $step) {
                                         ?>
-                                        <div class="text-border-left">
+                                        <div class="text-border-left wysiwig-text">
                                             <p><?php echo wpautop($step); ?></p>
                                         </div><!-- /text-border-left -->
                                         <?php

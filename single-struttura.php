@@ -133,12 +133,10 @@ get_header();
                                 </div><!-- /row -->
                                 <h4 id="art-par-cosa"><?php _e("Cosa fa", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9 wysiwig-text">
                                         <?php the_content(); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-
-
 
 
                                 <?php
@@ -336,7 +334,7 @@ get_header();
                                 <?php if($altre_info != ""){ ?>
                                     <h4 id="art-par-info" class="mb-4 mt-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->

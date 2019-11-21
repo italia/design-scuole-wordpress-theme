@@ -151,7 +151,7 @@ get_header();
                                 <h4 id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="article-description">
+                                        <div class="article-description wysiwig-text">
                                             <?php the_content(); ?>
                                         </div>
                                     </div><!-- /col-lg-9 -->
@@ -162,7 +162,7 @@ get_header();
                                     ?>
                                     <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
@@ -174,7 +174,7 @@ get_header();
                                 if(trim($come_si_fa) != ""){
                                     ?>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($come_si_fa); ?>
                                             <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
@@ -190,7 +190,7 @@ get_header();
                                     ?>
                                     <h6><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($procedura_esito); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
@@ -200,7 +200,7 @@ get_header();
                                     ?>
                                     <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($canale_digitale); ?>
                                             <?php if(trim($canale_digitale_link) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
@@ -215,7 +215,7 @@ get_header();
                                     ?>
                                     <h6><?php _e("Autenticazione", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($autenticazione); ?>
                                         </div><!-- /col-lg-9 -->
                                         <?php  if($spid){ ?>
@@ -267,19 +267,17 @@ get_header();
                                     <?php
                                 }
 
-                                // struttura responsabile del servizio
-                                //    struttura_responsabile
-                                //    luoghi
-                                //                                $cosa_serve="";
-                                // todo: desrittorx\e più item
+
                                 if(($cosa_serve) || (is_array($cosa_serve_list))) {
                                     ?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
 
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <?php echo wpautop($cosa_serve);
-                                            if(is_array($cosa_serve_list)) {
+                                            <div class="col-lg-12  px-0 wysiwig-text">
+                                            <?php echo wpautop($cosa_serve); ?>
+                                            </div>
+                                            <?php if(is_array($cosa_serve_list)) {
                                                 ?>
                                                 <div class="card card-bg bg-color rounded mb-3">
                                                     <div class="card-body pb-0">

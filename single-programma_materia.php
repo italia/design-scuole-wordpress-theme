@@ -108,11 +108,12 @@ $altre_info = dsi_get_meta("note");
                                     </div>
 								<?php } ?>
                                 <h6><?php _e("Obiettivi", "design_scuole_italia"); ?></h6>
-								<?php
+                                <div class="col-lg-12 px-0 wysiwig-text">
+                                <?php
 								$obiettivi = dsi_get_meta("obiettivi");
 								echo wpautop($obiettivi);
 								?>
-
+                                </div>
                                 <h6><?php _e("Attività", "design_scuole_italia"); ?></h6>
 
 								<?php
@@ -173,7 +174,9 @@ $altre_info = dsi_get_meta("note");
                                 if(trim($altre_info) != ""){
                                 ?>
                                 <h4 id="art-par-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
-	                            <?php echo wpautop($altre_info); ?>
+                                <div class="col-lg-12 px-0 wysiwig-text">
+                                <?php echo wpautop($altre_info); ?>
+                                </div>
                                 <?php } ?>
 								<?php get_template_part("template-parts/single/bottom"); ?>
                             </article>

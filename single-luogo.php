@@ -167,8 +167,9 @@ get_header();
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <h4 id="art-par-desc"><?php _e("Descrizione", "design_scuole_italia"); ?></h4>
-
+                                        <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php the_content(); ?>
+                                        </div>
 
                                         <?php
                                         // se è un parent
@@ -294,7 +295,7 @@ get_header();
                                     if($servizi_altro){
                                         ?>
                                         <div class="row variable-gutters">
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12 wysiwig-text">
                                                 <?php echo wpautop($servizi_altro); ?>
                                             </div>
                                         </div>
@@ -354,7 +355,7 @@ get_header();
                                     ?>
                                     <h4 id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->

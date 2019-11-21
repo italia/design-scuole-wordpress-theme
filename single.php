@@ -62,10 +62,12 @@ get_header();
                         <div class="main-content col-lg-9 col-md-8">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
-                                    <div class="col-lg-8">
-                                        <?php
+                                    <div class="col-lg-8 ">
+                                        <div class="col-lg-12 px-0 wysiwig-text">
+                                       <?php
                                         the_content();
                                         ?>
+                                        </div>
 
                                         <?php
                                         //the_post_navigation();

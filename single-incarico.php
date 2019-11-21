@@ -36,7 +36,7 @@ get_header();
 
 
                         <div class="row variable-gutters">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 wysiwig-text">
                                 <?php
                                 the_content();
                                 ?>

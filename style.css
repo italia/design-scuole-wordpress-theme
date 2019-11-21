@@ -426,3 +426,27 @@ table td ul{
     color: inherit;
     opacity: 0.7;
 }
+/** link sezioni content **/
+
+.purplelight .wysiwig-text a{
+    color: #B21DD0;
+}
+
+.bluelectric .wysiwig-text a{
+    color: #0D00FF;
+}
+
+.redbrown .wysiwig-text a{
+    color: #D1344C;
+}
+.greendark .wysiwig-text a{
+    color: #0E8A5F;
+}
+.grey .wysiwig-text a{
+    color: #455b71;
+}
+
+
+.article-wrapper .wysiwig-text p {
+    margin: 0 0 20px 0 !important;
+}

@@ -31,7 +31,7 @@ $persone = dsi_get_meta("persone");
                         <div class="main-content col-lg-9 col-md-8 order-lg-1">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-8 wysiwig-text">
                                         <?php
                                         the_content();
                                         ?>
