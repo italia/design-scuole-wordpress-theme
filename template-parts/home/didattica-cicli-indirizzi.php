@@ -66,51 +66,53 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                 // recupero le strutture
                                 $strutture = get_posts($args);
                                 if($strutture) {
-                                    foreach ($strutture as $struttura)
+                                    foreach ($strutture as $struttura) {
                                         //  $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
                                         //  if($percorsi_di_studio){
                                         //      foreach ($percorsi_di_studio as $idpercorso){
 //                                                $percorso = get_post($idpercorso);
                                         $descrizione = dsi_get_meta("descrizione", "", $struttura->ID);
-                                    $sottotitolo = dsi_get_meta("sottotitolo", "", $struttura->ID);
-                                    ?>
-                                    <hr/>
-                                    <div class="accordion-large-title accordion-header">
-                                        <h3><?php echo $struttura->post_title; ?></h3>
-                                    </div><!-- /accordion-large-title -->
-                                    <div class="accordion-large-content accordion-content">
-                                        <?php echo wpautop($descrizione); ?>
-                                        <div class="row variable-gutters">
-                                        <?php
-                                        // controllo se la struttura ha dei percorsi di studio, in caso linko quelli:
-                                        $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
-                                        if ($percorsi_di_studio) {
-                                            echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
-                                            foreach ($percorsi_di_studio as $idpercorso) {
+                                        $sottotitolo = dsi_get_meta("sottotitolo", "", $struttura->ID);
+                                        ?>
+                                        <hr/>
+                                        <div class="accordion-large-title accordion-header">
+                                            <h3><?php echo $struttura->post_title; ?></h3>
+                                        </div><!-- /accordion-large-title -->
+                                        <div class="accordion-large-content accordion-content">
+                                            <?php echo wpautop($descrizione); ?>
+                                            <div class="row variable-gutters">
+                                                <?php
+                                                // controllo se la struttura ha dei percorsi di studio, in caso linko quelli:
+                                                $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
+                                                if ($percorsi_di_studio) {
+                                                    echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
+                                                    foreach ($percorsi_di_studio as $idpercorso) {
+                                                        ?>
+                                                        <div class="col-lg-4  d-flex ">
+                                                            <a href="<?php echo get_permalink($idpercorso); ?>"
+                                                               class="btn btn-redbrown"
+                                                               style="text-decoration:none;"><?php echo get_the_title($idpercorso); ?></a>
+                                                        </div>
+
+                                                        <?php
+                                                    }
+                                                } // else {
                                                 ?>
-                                                <div class="col-lg-4  d-flex ">
-                                                <a href="<?php echo get_permalink($idpercorso); ?>"
-                                                      class="btn btn-redbrown"
-                                                      style="text-decoration:none;"><?php echo get_the_title($idpercorso); ?></a>
+                                                <div class="col-lg-12 d-flex mt-2">
+
+                                                    <a href="<?php echo get_permalink($struttura); ?>"
+                                                       class="btn btn-bluelectric col-6"
+                                                       style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                                 </div>
 
                                                 <?php
-                                            }
-                                        } // else {
-                                            ?><div class="col-lg-12 d-flex mt-2">
+                                                // }
+                                                ?>
+                                            </div>
+                                        </div><!-- /accordion-large-content -->
 
-                                          <a href="<?php echo get_permalink($struttura); ?>"
-                                                  class="btn btn-bluelectric col-6"
-                                                  style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
-                                        </div>
-
-                                            <?php
-                                       // }
-                                        ?>
-                                        </div>
-                                    </div><!-- /accordion-large-content -->
-
-                                    <?php
+                                        <?php
+                                    }
                                 } else{
                                     echo '<div ><h5 class="text-white">';
                                     _e("Nessun istituto associato a questa indirizzo di studi.", "design_scuole_italia");
