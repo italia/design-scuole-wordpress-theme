@@ -9,11 +9,6 @@ else if($obj->taxonomy == "tipologia-servizio")
 	get_template_part("archive-servizio");
 else if($obj->taxonomy == "tipologia-circolare")
     get_template_part("archive-circolare");
-/*else if($obj->taxonomy == "tipologia-struttura")
-	get_template_part("archive-struttura");*/
-// todo: programma materia
-//else if($obj->taxonomy == "materia")
-//	get_template_part("archive-programma_materia");
 else if($obj->taxonomy == "tipologia-luogo")
 	get_template_part("archive-luogo");
 else if($obj->taxonomy == "tipologia-progetto")

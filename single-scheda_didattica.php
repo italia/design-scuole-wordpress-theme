@@ -39,13 +39,13 @@ $file_documenti = dsi_get_meta("file_documenti");
                             <div class="section-title">
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
                                 <h4 class="text-bluelectric mb-3"><?php
-                                    $indirizzi = dsi_get_indirizzi_of_scuola($post);
-                                    if(is_array($indirizzi) && count($indirizzi) > 0){
+                                    $percorsi = dsi_get_percorsi_of_scuola($post);
+                                    if(is_array($percorsi) && count($percorsi) > 0){
                                         $c=0;
-                                        foreach ($indirizzi as $indirizzo){
+                                        foreach ($percorsi as $percorso){
                                             if($c)
                                                 echo ", ";
-                                            echo $indirizzo->name;
+                                            echo $percorso->name;
                                             $c++;
                                         }
                                     }

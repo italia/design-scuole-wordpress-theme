@@ -95,7 +95,7 @@ function dsi_add_scheda_didattica_metaboxes() {
 scuola secondaria secondo grado / percorsi di istruzione e formazione professionale', 'design_scuole_italia' ),
         'type'             => 'taxonomy_multicheck_hierarchy_child',
         'select_all_button' => false,
-        'taxonomy'       => 'indirizzi-di-studio',
+        'taxonomy'       => 'percorsi-di-studio',
         'remove_default' => 'true',
         'attributes' => array(
               'data-only-parent' => true,

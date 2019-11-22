@@ -19,7 +19,7 @@ get_header();
             the_post();
 
             // get all post meta cmb2
-            $indirizzi = dsi_get_indirizzi_of_scuola($post);
+         //   $percorsi = dsi_get_percorsi_of_scuola($post);
             // print_r($percorsi);
             //$sottotitolo = dsi_get_meta("sottotitolo");
             $esito = dsi_get_meta("esito");

@@ -19,97 +19,100 @@ get_header();
 			// recupero la lista delle strutture
             $i=0;
             $strutture_persone = dsi_get_option("strutture_persone", "persone");
-            foreach ($strutture_persone as $idstruttura){
-                $i++;
-                $struttura = get_post($idstruttura);
+            if($strutture_persone) {
+                foreach ($strutture_persone as $idstruttura) {
+                    $i++;
+                    $struttura = get_post($idstruttura);
 
-                $classcolor = "bg-white";
-                if($i%2)
-                    $classcolor = "bg-gray-light";
+                    $classcolor = "bg-white";
+                    if ($i % 2)
+                        $classcolor = "bg-gray-light";
 
-                $responsabile = dsi_get_meta("responsabile", "_dsi_struttura_", $struttura->ID);
-                $persone = dsi_get_meta("persone", "_dsi_struttura_", $struttura->ID);
-                $altri_componenti = dsi_get_meta("altri_componenti", "_dsi_struttura_", $struttura->ID);
+                    $responsabile = dsi_get_meta("responsabile", "_dsi_struttura_", $struttura->ID);
+                    $persone = dsi_get_meta("persone", "_dsi_struttura_", $struttura->ID);
+                    $altri_componenti = dsi_get_meta("altri_componenti", "_dsi_struttura_", $struttura->ID);
 
-                ?>
-                <section class="section <?php echo $classcolor; ?> py-5">
-                    <div class="container">
-                        <div class="title-section text-center mb-5">
-                            <h3 class="h4"><a href="<?php echo get_permalink($struttura); ?>"><?php echo $struttura->post_title; ?></a></h3>
-                        </div><!-- /title-large -->
-                <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
-                        <div class="row variable-gutters mb-4">
-                            <div class="col-lg-3">
-                                <h4 class="text-lg-right mb-3"><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
-                            </div><!-- /col-lg-3 -->
-                            <div class="col-lg-9">
-                                <div class="row variable-gutters">
-                                    <?php
-                                    foreach ($responsabile as $idutente) {
-                                        $autore = get_user_by("ID", $idutente);
-                                        ?>
-                                    <div class="col-lg-4">
-                                        <div class="card card-bg bg-color bg-dark card-avatar rounded mb-3">
-                                            <div class="card-body">
-                                               <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
-                                            </div><!-- /card-body -->
-                                        </div><!-- /card card-bg card-avatar rounded -->
-                                    </div><!-- /col-lg-4 -->
-                                        <?php
-                                    }
-                                    ?>
-                                </div><!-- /row -->
-                            </div><!-- /col-lg-9 -->
-                        </div><!-- /row -->
-                    <?php } ?>
-
-                        <?php if(is_array($persone) && count($persone)>0){ ?>
-                            <div class="row variable-gutters mb-4">
-                                <div class="col-lg-3">
-                                    <h4 class="text-lg-right mb-3"><?php _e("Persone", "design_scuole_italia"); ?></h4>
-                                </div><!-- /col-lg-3 -->
-                                <div class="col-lg-9">
-                                    <div class="row variable-gutters">
-                                        <?php
-                                        foreach ($persone as $idutente) {
-                                            $autore = get_user_by("ID", $idutente);
-                                            ?>
-                                            <div class="col-lg-4">
-                                                <div class="card card-bg bg-white card-avatar rounded mb-3">
-                                                    <div class="card-body">
-                                                        <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
-                                                    </div><!-- /card-body -->
-                                                </div><!-- /card card-bg card-avatar rounded -->
-                                            </div><!-- /col-lg-4 -->
+                    ?>
+                    <section class="section <?php echo $classcolor; ?> py-5">
+                        <div class="container">
+                            <div class="title-section text-center mb-5">
+                                <h3 class="h4"><a
+                                            href="<?php echo get_permalink($struttura); ?>"><?php echo $struttura->post_title; ?></a>
+                                </h3>
+                            </div><!-- /title-large -->
+                            <?php if (is_array($responsabile) && count($responsabile) > 0) { ?>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-3">
+                                        <h4 class="text-lg-right mb-3"><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
+                                    </div><!-- /col-lg-3 -->
+                                    <div class="col-lg-9">
+                                        <div class="row variable-gutters">
                                             <?php
-                                        }
-                                        ?>
-                                    </div><!-- /row -->
-                                </div><!-- /col-lg-9 -->
-                            </div><!-- /row -->
-                        <?php } ?>
-
-                        <?php if($altri_componenti != ""){ ?>
-                        <div class="row variable-gutters mb-4">
-                            <div class="col-lg-3">
-                                <h4 class="text-lg-right mb-3"><?php _e("Componenti esterni", "design_scuole_italia"); ?></h4>
-                            </div><!-- /col-lg-3 -->
-                            <div class="col-lg-9">
-                                <div class="row variable-gutters">
-                                    <h5  class="text-lg-right mb-3 pt-1 pl-4">
-                                    <?php echo $altri_componenti; ?>
-                                    </h5>
+                                            foreach ($responsabile as $idutente) {
+                                                $autore = get_user_by("ID", $idutente);
+                                                ?>
+                                                <div class="col-lg-4">
+                                                    <div class="card card-bg bg-color bg-dark card-avatar rounded mb-3">
+                                                        <div class="card-body">
+                                                            <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                                        </div><!-- /card-body -->
+                                                    </div><!-- /card card-bg card-avatar rounded -->
+                                                </div><!-- /col-lg-4 -->
+                                                <?php
+                                            }
+                                            ?>
+                                        </div><!-- /row -->
+                                    </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                            </div><!-- /col-lg-9 -->
-                        </div><!-- /row -->
-                        <?php } ?>
+                            <?php } ?>
 
-                    </div><!-- /container -->
-                </section><!-- /section -->
-                <?php
+                            <?php if (is_array($persone) && count($persone) > 0) { ?>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-3">
+                                        <h4 class="text-lg-right mb-3"><?php _e("Persone", "design_scuole_italia"); ?></h4>
+                                    </div><!-- /col-lg-3 -->
+                                    <div class="col-lg-9">
+                                        <div class="row variable-gutters">
+                                            <?php
+                                            foreach ($persone as $idutente) {
+                                                $autore = get_user_by("ID", $idutente);
+                                                ?>
+                                                <div class="col-lg-4">
+                                                    <div class="card card-bg bg-white card-avatar rounded mb-3">
+                                                        <div class="card-body">
+                                                            <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                                        </div><!-- /card-body -->
+                                                    </div><!-- /card card-bg card-avatar rounded -->
+                                                </div><!-- /col-lg-4 -->
+                                                <?php
+                                            }
+                                            ?>
+                                        </div><!-- /row -->
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } ?>
 
+                            <?php if ($altri_componenti != "") { ?>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-3">
+                                        <h4 class="text-lg-right mb-3"><?php _e("Componenti esterni", "design_scuole_italia"); ?></h4>
+                                    </div><!-- /col-lg-3 -->
+                                    <div class="col-lg-9">
+                                        <div class="row variable-gutters">
+                                            <h5 class="text-lg-right mb-3 pt-1 pl-4">
+                                                <?php echo $altri_componenti; ?>
+                                            </h5>
+                                        </div><!-- /row -->
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } ?>
+
+                        </div><!-- /container -->
+                    </section><!-- /section -->
+                    <?php
+
+                }
             }
-
 
         endwhile; // End of the loop.
         ?>

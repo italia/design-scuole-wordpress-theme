@@ -17,7 +17,7 @@ get_header();
 
         <?php while ( have_posts() ) :  the_post();
 
-            $indirizzi = dsi_get_indirizzi_of_scuola($post);
+            $percorsi = dsi_get_percorsi_of_scuola($post);
             $link_servizi_didattici = dsi_get_meta("link_servizi_didattici");
 
             $image_url = get_the_post_thumbnail_url($post, "item-gallery");
@@ -58,13 +58,13 @@ get_header();
                     <div class="row variable-gutters">
                         <div class="col-md-6 d-flex align-items-center">
                             <div class="title-content">
-                                <?php if(dsi_is_scuola($post) && is_array($indirizzi)){
+                                <?php if(dsi_is_scuola($post) && is_array($percorsi)){
                                     echo "<small class=\"h6 text-redbrown\">";
                                     $c=0;
-                                    foreach ($indirizzi as $indirizzo){
+                                    foreach ($percorsi as $percorso){
 
                                         if($c) echo ", ";
-                                        echo strtoupper($indirizzo->name);
+                                        echo strtoupper($percorso->name);
                                         $c++;
                                     }
                                     echo "</small>";
@@ -148,7 +148,7 @@ get_header();
                                 }
 
                                 if(dsi_is_scuola($post) && $link_servizi_didattici){ ?>
-                                    <h6><?php _e("Percorsi di studio", "design_scuole_italia"); ?></h6>
+                                    <h6><?php _e("Indirizzo di studio", "design_scuole_italia"); ?></h6>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_servizi_didattici as $idservizio){

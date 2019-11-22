@@ -556,7 +556,7 @@ function dsi_register_main_options_metabox() {
                 'filter_boxes'    => true, // Show a text box for filtering the results
                 'query_args'      => array(
                     'posts_per_page' => -1,
-                    'post_type'      => array('post', 'page', 'evento', 'documento', 'struttura', 'servizio','percorso_di_studio'),
+                    'post_type'      => array('post', 'page', 'evento', 'documento', 'struttura', 'servizio','indirizzo'),
                 ), // override the get_posts args
             )
         )
@@ -717,7 +717,7 @@ function dsi_register_main_options_metabox() {
     $didattica_options->add_field(  array(
         'id' => $prefix.'visualizzazione_didattica',
         'name'    => __( 'Seleziona il tipo di visualizzazione da mostrare nella didattica', 'design_scuole_italia' ),
-        'desc' => __( 'Scegli se mostrare a sinistra le scuole e a destra i percorsi di studio, oppure se mostrare a sinistra gli indirizzi di studio e a destra le scuole che ne fanno parte' , 'design_scuole_italia' ),
+        'desc' => __( 'Scegli se mostrare a sinistra le scuole e a destra gli indirizzi di studio, oppure se mostrare a sinistra gli indirizzi di studio e a destra le scuole che ne fanno parte' , 'design_scuole_italia' ),
         'type'    => 'radio_inline',
         'options' => array(
             'scuole' => __( 'Scuole / Percorsi', 'design_scuole_italia' ),
@@ -743,7 +743,7 @@ function dsi_register_main_options_metabox() {
         'name'    => __( 'Seleziona gli indirizzi di studio da mostrare nella sezione didattica', 'design_scuole_italia' ),
         'type'             => 'taxonomy_multicheck_hierarchy_child',
         'select_all_button' => false,
-        'taxonomy'       => 'indirizzi-di-studio',
+        'taxonomy'       => 'percorsi-di-studio',
         'remove_default' => 'true',
         'attributes' => array(
             'data-only-parent' => true,

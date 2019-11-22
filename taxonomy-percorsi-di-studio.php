@@ -16,28 +16,10 @@ if(is_post_type_archive("scheda_didattica")){
 }
 get_header();
 ?>
+        <main id="main-container" class="main-container <?php echo $class; ?>>">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-    <main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
-
-        <section class="section bg-white py-2 py-lg-3 py-xl-5">
-            <div class="container">
-                <div class="row variable-gutters">
-                    <div class="col-lg-5 col-md-8 offset-lg-3">
-                        <div class="section-title">
-							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
-							<?php the_archive_description("<p>","</p>"); ?>
-                        </div><!-- /title-section -->
-                    </div><!-- /col-lg-5 col-md-8 offset-lg-2 -->
-
-                    <div class="col-lg-3 col-md-4 offset-lg-1">
-						<?php get_template_part("template-parts/single/actions"); ?>
-                    </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
-                </div><!-- /row -->
-            </div><!-- /container -->
-        </section><!-- /section -->
-
-
+        <?php get_template_part("template-parts/hero/servizi", "archive"); ?>
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
             <div class="container d-flex justify-content-between align-items-center py-3">
@@ -51,28 +33,28 @@ get_header();
             <div class="container">
                 <div class="row variable-gutters sticky-sidebar-container">
                     <div class="col-lg-3 bg-white bg-white-left">
-						<?php get_template_part("template-parts/search/filters", "scheda-didattica"); ?>
+                        <?php get_template_part("template-parts/search/filters", "indirizzi"); ?>
                     </div>
                     <div class="col-lg-7 offset-lg-1 pt84">
-						<?php if ( have_posts() ) : ?>
-							<?php
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
+                        <?php if ( have_posts() ) : ?>
+                            <?php
+                            /* Start the Loop */
+                            while ( have_posts() ) :
+                                the_post();
+                                get_template_part( 'template-parts/list/article', get_post_type() );
 
-							endwhile;
-							?>
+                            endwhile;
+                            ?>
                             <nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
-								<?php echo dsi_bootstrap_pagination(); ?>
+                                <?php echo dsi_bootstrap_pagination(); ?>
                             </nav>
-						<?php
-						else :
+                        <?php
+                        else :
 
-							get_template_part( 'template-parts/content', 'none' );
+                            get_template_part( 'template-parts/content', 'none' );
 
-						endif;
-						?>
+                        endif;
+                        ?>
                     </div><!-- /col-lg-8 -->
                 </div><!-- /row -->
             </div><!-- /container -->

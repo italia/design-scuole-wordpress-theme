@@ -3,24 +3,24 @@
 /**
  * Definisce post type e tassonomie relative ai percorsi di studio
  */
-add_action( 'init', 'dsi_register_percorso_di_studio_post_type', -10 );
-function dsi_register_percorso_di_studio_post_type() {
+add_action( 'init', 'dsi_register_indirizzo_post_type', -10 );
+function dsi_register_indirizzo_post_type() {
 
-    /** percorso_di_studio **/
+    /** indirizzo **/
     $labels = array(
-        'name'                  => _x( 'Percorsi di Studio', 'Post Type General Name', 'design_scuole_italia' ),
-        'singular_name'         => _x( 'Percorso di Studio', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'add_new'               => _x( 'Aggiungi un percorso', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'add_new_item'               => _x( 'Aggiungi un percorso', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'featured_image' => __( 'Logo Identificativo del percorso', 'design_scuole_italia' ),
-        'edit_item'      => _x( 'Modifica il percorso', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'view_item'      => _x( 'Visualizza il percorso', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'name'                  => _x( 'Indirizzo di Studio', 'Post Type General Name', 'design_scuole_italia' ),
+        'singular_name'         => _x( 'Indirizzo di Studio', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'add_new'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'add_new_item'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'featured_image' => __( 'Logo Identificativo dell\'indirizzo', 'design_scuole_italia' ),
+        'edit_item'      => _x( 'Modifica l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'view_item'      => _x( 'Visualizza l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
         'set_featured_image' => __( 'Seleziona Logo' ),
         'remove_featured_image' => __( 'Rimuovi Logo' , 'design_scuole_italia' ),
         'use_featured_image' => __( 'Usa come Logo' , 'design_scuole_italia' ),
     );
     $args = array(
-        'label'                 => __( 'Percorso di studio', 'design_scuole_italia' ),
+        'label'                 => __( 'Indirizzo di studio', 'design_scuole_italia' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'thumbnail' ),
 //		'taxonomies'            => array( 'tipologia' ),
@@ -29,24 +29,24 @@ function dsi_register_percorso_di_studio_post_type() {
         'menu_position'         => 2,
         'menu_icon'             => 'dashicons-awards',
         'has_archive'           => true,
-        'capability_type' => array('percorso_di_studio', 'percorsi_di_studio'),
-        'rewrite' => array('slug' => 'percorso-di-studio','with_front' => false),
+        'capability_type' => array('indirizzo_di_studio', 'indirizzi_di_studio'),
+        'rewrite' => array('slug' => 'indirizzo-di-studio','with_front' => false),
         'map_meta_cap'    => true,
-        'description'    => __( "I percorsi di studio che è possibile frequentare nella scuola.", 'design_scuole_italia' ),
+        'description'    => __( "L'indirizzo di studio che è possibile frequentare nella scuola.", 'design_scuole_italia' ),
 
     );
-    register_post_type( 'percorso_di_studio', $args );
+    register_post_type( 'indirizzo', $args );
 
     $labels = array(
-        'name'              => _x( 'Indirizzi di studio e formazione', 'taxonomy general name', 'design_scuole_italia' ),
-        'singular_name'     => _x( 'Indirizzi di studio', 'taxonomy singular name', 'design_scuole_italia' ),
-        'search_items'      => __( 'Cerca Indirizzo', 'design_scuole_italia' ),
+        'name'              => _x( 'Percorsi di studio e formazione', 'taxonomy general name', 'design_scuole_italia' ),
+        'singular_name'     => _x( 'Percorsi di studio', 'taxonomy singular name', 'design_scuole_italia' ),
+        'search_items'      => __( 'Cerca Percorso', 'design_scuole_italia' ),
         'all_items'         => __( 'Tutti', 'design_scuole_italia' ),
         'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
         'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
         'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
         'new_item_name'     => __( 'Nuovo Indirizzo', 'design_scuole_italia' ),
-        'menu_name'         => __( 'Indirizzo di Studio', 'design_scuole_italia' ),
+        'menu_name'         => __( 'Percorsi di Studio', 'design_scuole_italia' ),
     );
 
     $args = array(
@@ -56,7 +56,7 @@ function dsi_register_percorso_di_studio_post_type() {
         'show_admin_column' => true,
         'query_var'         => true,
         'public'         => true,
-        'rewrite'           => array( 'slug' => 'indirizzi-di-studio' ),
+        'rewrite'           => array( 'slug' => 'percorsi-di-studio' ),
         'show_in_menu'      => true,
         'capabilities'      => array(
             'manage_terms'  => 'manage_tipologia_strutture',
@@ -66,7 +66,7 @@ function dsi_register_percorso_di_studio_post_type() {
         )
     );
 
-    register_taxonomy( 'indirizzi-di-studio', array( "struttura", "scheda_didattica", "percorso_di_studio" ), $args );
+    register_taxonomy( 'percorsi-di-studio', array( "struttura", "scheda_didattica", "indirizzo" ), $args );
 
 
 }
@@ -75,10 +75,10 @@ function dsi_register_percorso_di_studio_post_type() {
 /**
  * Crea i metabox del post type percorso
  */
-add_action( 'cmb2_init', 'dsi_add_percorso_di_studio_metaboxes' );
-function dsi_add_percorso_di_studio_metaboxes() {
+add_action( 'cmb2_init', 'dsi_add_indirizzo_metaboxes' );
+function dsi_add_indirizzo_metaboxes() {
 
-    $prefix = '_dsi_percorso_di_studio_';
+    $prefix = '_dsi_indirizzo_';
 
     /**
      * Stato del servizio
@@ -86,7 +86,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
     $cmb_stato = new_cmb2_box( array(
         'id'           => $prefix . 'box_stato',
         'title'        => __( 'Stato del servizio', 'design_scuole_italia' ),
-        'object_types' => array( 'percorso_di_studio' ),
+        'object_types' => array( 'indirizzo' ),
         'context'      => 'side',
         'priority'     => 'core',
     ) );
@@ -119,7 +119,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
     $cmb_sottotitolo = new_cmb2_box( array(
         'id'           => $prefix . 'box_sottotitolo',
 //		'title'        => __( 'Sottotitolo', 'design_scuole_italia' ),
-        'object_types' => array( 'percorso_di_studio' ),
+        'object_types' => array( 'indirizzo' ),
         'context'      => 'after_title',
         'priority'     => 'high',
     ) );
@@ -130,7 +130,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
         'name'        => __( 'Indirizzi di studio del percorso', 'design_scuole_italia' ),
         'type'             => 'taxonomy_multicheck_hierarchy_child',
         'select_all_button' => false,
-        'taxonomy'       => 'indirizzi-di-studio',
+        'taxonomy'       => 'percorsi-di-studio',
         'remove_default' => 'true',
 
     ) );
@@ -160,9 +160,9 @@ function dsi_add_percorso_di_studio_metaboxes() {
 
 
     $cmb_undercontent = new_cmb2_box( array(
-        'id'           => $prefix . 'box_elementi_percorso_di_studio',
+        'id'           => $prefix . 'box_elementi_indirizzo',
         'title'         => __( 'Dettagli Servizio', 'design_scuole_italia' ),
-        'object_types' => array( 'percorso_di_studio' ),
+        'object_types' => array( 'indirizzo' ),
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
@@ -486,7 +486,7 @@ function dsi_add_percorso_di_studio_metaboxes() {
     $cmb_ipa = new_cmb2_box( array(
         'id'           => $prefix . 'box_ipa',
         'title'        => __( 'Codice dell’Ente Erogatore (ipa)', 'design_scuole_italia' ),
-        'object_types' => array( 'percorso_di_studio' ),
+        'object_types' => array( 'indirizzo' ),
         'context'      => 'side',
         'priority'     => 'low',
     ) );
@@ -504,36 +504,36 @@ function dsi_add_percorso_di_studio_metaboxes() {
 /**
  * Aggiungo label sotto il titolo
  */
-add_action( 'edit_form_after_title', 'sdi_percorso_di_studio_add_content_after_title' );
-function sdi_percorso_di_studio_add_content_after_title($post) {
-    if($post->post_type == "percorso_di_studio")
-        _e('<span><i>il <b>Titolo</b> è il <b>Nome del Percorso di sdutio</b> Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+add_action( 'edit_form_after_title', 'sdi_indirizzo_add_content_after_title' );
+function sdi_indirizzo_add_content_after_title($post) {
+    if($post->post_type == "indirizzo")
+        _e('<span><i>il <b>Titolo</b> è il <b>Nome dell\'indirizzo di studio</b> Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 
 /**
  * Aggiungo testo prima del content
  */
-add_action( 'edit_form_after_title', 'sdi_percorso_di_studio_add_content_before_editor', 100 );
-function sdi_percorso_di_studio_add_content_before_editor($post) {
-    if($post->post_type == "percorso_di_studio")
-        _e('<h1>Descrizione Estesa e Completa del percorso di studio</h1>', 'design_scuole_italia' );
+add_action( 'edit_form_after_title', 'sdi_indirizzo_add_content_before_editor', 100 );
+function sdi_indirizzo_add_content_before_editor($post) {
+    if($post->post_type == "indirizzo")
+        _e('<h1>Descrizione Estesa e Completa dell\'indirizzo di studio</h1>', 'design_scuole_italia' );
 }
 
 
-// relazione bidirezionale struttura / percorso
+// relazione bidirezionale struttura / indirizzo
 
-new dsi_bidirectional_cmb2("_dsi_percorso_di_studio_", "percorso_di_studio", "link_struttura_didattica", "box_sottotitolo", "_dsi_struttura_link_servizi_didattici");
+new dsi_bidirectional_cmb2("_dsi_indirizzo_", "indirizzo", "link_struttura_didattica", "box_sottotitolo", "_dsi_struttura_link_servizi_didattici");
 
 
 /**
  * aggiungo js per condizionale parent
  */
-add_action( 'admin_print_scripts-post-new.php', 'dsi_percorso_di_studio_admin_script', 11 );
-add_action( 'admin_print_scripts-post.php', 'dsi_percorso_di_studio_admin_script', 11 );
+add_action( 'admin_print_scripts-post-new.php', 'dsi_indirizzo_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'dsi_indirizzo_admin_script', 11 );
 
-function dsi_percorso_di_studio_admin_script() {
+function dsi_indirizzo_admin_script() {
     global $post_type;
-    if( 'percorso_di_studio' == $post_type )
-        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/percorso_di_studio.js' );
+    if( 'indirizzo' == $post_type )
+        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/indirizzo.js' );
 }

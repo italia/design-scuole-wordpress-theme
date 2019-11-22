@@ -49,28 +49,33 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                                         <?php
                                         // recupero i percorsi di studio
-                                        $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
-                                        if($percorsi_di_studio){
-                                            foreach ($percorsi_di_studio as $idpercorso){
-                                                $percorso = get_post($idpercorso);
-                                                $descrizione = dsi_get_meta("descrizione", "", $percorso->ID);
-                                                $sottotitolo = dsi_get_meta("sottotitolo", "", $percorso->ID);
-                                                ?>
-                                                <hr/>
-                                                <div class="accordion-large-title accordion-header">
-                                                    <h3><?php echo $percorso->post_title; ?></h3>
-                                                </div><!-- /accordion-large-title -->
-                                                <div class="accordion-large-content accordion-content">
-                                                    <?php echo wpautop($descrizione); ?>
-                                                    <p><a href="<?php echo get_permalink($percorso); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a> </p>
-                                                </div><!-- /accordion-large-content -->
+                                        $indirizzi = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
+                                        if($indirizzi){
+                                            foreach ($indirizzi as $idindirizzo){
+                                                $indirizzo = get_post($idindirizzo);
+                                                if($indirizzo) {
+                                                    $descrizione = dsi_get_meta("descrizione", "", $indirizzo->ID);
+                                                    $sottotitolo = dsi_get_meta("sottotitolo", "", $indirizzo->ID);
+                                                    ?>
+                                                    <hr/>
+                                                    <div class="accordion-large-title accordion-header">
+                                                        <h3><?php echo $indirizzo->post_title; ?></h3>
+                                                    </div><!-- /accordion-large-title -->
+                                                    <div class="accordion-large-content accordion-content">
+                                                        <?php echo wpautop($descrizione); ?>
+                                                        <p><a href="<?php echo get_permalink($indirizzo); ?>"
+                                                              class="btn btn-bluelectric"
+                                                              style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
+                                                        </p>
+                                                    </div><!-- /accordion-large-content -->
 
-                                                <?php
+                                                    <?php
+                                                }
                                             }
 
                                         }else{
                                             echo '<div ><h5 class="text-white">';
-                                            _e("Nessun percorso di studi associato a questa scuola.", "design_scuole_italia");
+                                            _e("Nessun indirizzo di studi associato a questa scuola.", "design_scuole_italia");
                                             echo '</h5></div>';
                                         }
                                         ?>

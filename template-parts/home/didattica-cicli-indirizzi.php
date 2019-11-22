@@ -27,7 +27,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         <ul>
                             <?php
                             foreach ($indirizzi_didattica as $slugindirizzo){
-                                $indirizzo = get_term_by("slug", $slugindirizzo,"indirizzi-di-studio");
+                                $indirizzo = get_term_by("slug", $slugindirizzo,"percorsi-di-studio");
                                 if($indirizzo) {
                                     ?>
                                     <li>
@@ -41,7 +41,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         <?php
                         $c=0;
                         foreach ($indirizzi_didattica as $slugindirizzo) {
-                        $indirizzo = get_term_by("slug", $slugindirizzo,"indirizzi-di-studio");
+                        $indirizzo = get_term_by("slug", $slugindirizzo,"percorsi-di-studio");
 
                         // cerco tutte le strutture associate a questo indirizzo o ai figli
                         $args = array(
@@ -49,7 +49,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                             "post_per_page" => -1,
                             'tax_query' => array(
                                 array(
-                                    'taxonomy' => 'indirizzi-di-studio',
+                                    'taxonomy' => 'percorsi-di-studio',
                                     'field' => 'slug',
                                     'terms' => $slugindirizzo
                                 )
@@ -83,15 +83,15 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                             <div class="row variable-gutters">
                                                 <?php
                                                 // controllo se la struttura ha dei percorsi di studio, in caso linko quelli:
-                                                $percorsi_di_studio = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
-                                                if ($percorsi_di_studio) {
+                                                $indirizzi = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
+                                                if ($indirizzi) {
                                                     //echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
-                                                    foreach ($percorsi_di_studio as $idpercorso) {
+                                                    foreach ($indirizzi as $idindirizzo) {
                                                         ?>
                                                         <div class="col-lg-6  d-flex ">
-                                                            <a href="<?php echo get_permalink($idpercorso); ?>"
+                                                            <a href="<?php echo get_permalink($idindirizzo); ?>"
                                                                class="btn btn-redbrown"
-                                                               style="text-decoration:none;"><?php echo get_the_title($idpercorso); ?></a>
+                                                               style="text-decoration:none;"><?php echo get_the_title($idindirizzo); ?></a>
                                                         </div>
 
                                                         <?php

@@ -97,10 +97,10 @@ function dsi_add_struttura_metaboxes() {
 
         $cmb_sottotitolo->add_field( array(
             'id' => $prefix . 'indirizzi',
-            'name'        => __( 'Indirizzi di studio della Scuola', 'design_scuole_italia' ),
+            'name'        => __( 'Percorsi di studio della Scuola', 'design_scuole_italia' ),
             'type'             => 'taxonomy_multicheck_hierarchy_child',
             'select_all_button' => false,
-            'taxonomy'       => 'indirizzi-di-studio',
+            'taxonomy'       => 'percorsi-di-studio',
             'remove_default' => 'true',
             'attributes' => array(
                 'data-conditional-id' => $prefix . 'tipologia',
@@ -111,7 +111,7 @@ function dsi_add_struttura_metaboxes() {
 
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'link_servizi_didattici',
-        'name'    => __( 'Percorsi di studio erogati dalla scuola ', 'design_scuole_italia' ),
+        'name'    => __( 'Indirizzi di studio erogati dalla scuola ', 'design_scuole_italia' ),
         'desc' => __( 'Se la struttura descritta è una scuola o un istituto link ai percorsi di studio presenti nella scuola Infanzia / Primaria / secondaria primo grado / secondaria di secondo grado ' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_servizi_didattici_options(),
@@ -355,7 +355,7 @@ new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "luoghi", "box_elemen
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_servizi", "box_elementi_struttura", "_dsi_servizio_struttura_responsabile");
 
 // relazione bidirezionale struttura / percorso
-new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_servizi_didattici", "box_sottotitolo", "_dsi_percorso_di_studio_link_struttura_didattica");
+new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_servizi_didattici", "box_sottotitolo", "_dsi_indirizzo_link_struttura_didattica");
 
 
 /**

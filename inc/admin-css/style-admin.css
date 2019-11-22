@@ -124,7 +124,7 @@
     display:none !important;
 }
 
-.cmb2-id--dsi-struttura-indirizzi .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label, .cmb2-id--dsi-struttura-link-indirizzi-di-studio .cmb-th label{
+.cmb2-id--dsi-struttura-indirizzi .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label, .cmb2-id--dsi-struttura-link-percorsi-di-studio .cmb-th label{
     color:#D1344C;
 }
 
@@ -261,7 +261,7 @@ luogo
     padding: 2px 0px 0px 0px !important;
 }
 
-.cmb2-id--dsi-servizio-indirizzi .cmb-th label, .cmb2-id--dsi-servizio-link-struttura-didattica .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-descrizione .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-file .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-descrizione .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-file .cmb-th label{
+.cmb2-id--dsi-servizio-percorsi .cmb-th label, .cmb2-id--dsi-servizio-link-struttura-didattica .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-descrizione .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-file .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-descrizione .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-file .cmb-th label{
     color:#D1344C;
 }
 
@@ -272,7 +272,7 @@ luogo
 }
 
 
-.cmb2-id--dsi-servizio-canale-digitale-link, .cmb2-id--dsi-servizio-canale-digitale-label, .cmb2-id--dsi-percorso-di-studio-canale-digitale-link, .cmb2-id--dsi-percorso-di-studio-canale-digitale-label{
+.cmb2-id--dsi-servizio-canale-digitale-link, .cmb2-id--dsi-servizio-canale-digitale-label, .cmb2-id--dsi-indirizzo-canale-digitale-link, .cmb2-id--dsi-indirizzo-canale-digitale-label{
     width:48%;
     float:left;
     height:80px

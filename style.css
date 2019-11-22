@@ -390,7 +390,7 @@ table td ul{
 }
 
 /** hero **/
-.people-red-forms, .people-red-forms svg {
+.people-red-forms, .people-red-forms svg, .purple-oval-forms, .purple-oval-forms svg  {
     height: 100% !important;
 
 }
@@ -404,7 +404,7 @@ table td ul{
 }
 
 
-.single-servizio .article-wrapper .col-lg-9 p a, .single-percorso_di_studio .article-wrapper .col-lg-9 p a{
+.single-servizio .article-wrapper .col-lg-9 p a, .single-indirizzo .article-wrapper .col-lg-9 p a{
     color: #B21DD0;
 }
 
@@ -449,4 +449,10 @@ table td ul{
 
 .article-wrapper .wysiwig-text p {
     margin: 0 0 20px 0 !important;
+}
+
+@media (max-width: 767.98px){
+    .hero-title {
+        padding: 0px 0 0px 0 !important;
+    }
 }

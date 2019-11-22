@@ -345,7 +345,7 @@ class Breadcrumb_Trail {
                 if(is_post_type_archive(array("luogo", "documento","struttura")))
                     $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
 
-                else if(is_post_type_archive(array("percorso_di_studio")))
+                else if(is_post_type_archive(array("indirizzo")))
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
 
                 else if(is_post_type_archive(array("circolare", "evento")))

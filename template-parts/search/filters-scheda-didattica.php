@@ -21,7 +21,7 @@ if(isset($_REQUEST["archive"]))
         <ul>
 			<?php
 			$terms = get_terms( array(
-				'taxonomy' => 'indirizzi-di-studio',
+				'taxonomy' => 'percorsi-di-studio',
 				'hide_empty' => true,
                 'parent' => 0,
 			) );
@@ -29,7 +29,7 @@ if(isset($_REQUEST["archive"]))
 				?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
-                        <input type="radio" class="custom-control-input" name="indirizzi-di-studio" value="<?php echo $term->slug; ?>" id="check-<?php echo $term->slug; ?>" <?php if($term->slug == get_query_var("indirizzi-di-studio")) echo " checked "; ?> onChange="this.form.submit()">
+                        <input type="radio" class="custom-control-input" name="percorsi-di-studio" value="<?php echo $term->slug; ?>" id="check-<?php echo $term->slug; ?>" <?php if($term->slug == get_query_var("percorsi-di-studio")) echo " checked "; ?> onChange="this.form.submit()">
                         <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
                     </div>
                 </li>

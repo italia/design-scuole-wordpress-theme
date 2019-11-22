@@ -73,7 +73,7 @@ function dsi_register_classe_metabox() {
         'name'    => __( 'Settore, Indirizzo o Percorso specifico', 'design_scuole_italia' ),
         'desc' => __( 'NB: Puoi selezionare i percorsi di studio che hai associato alle Strutture di tipo scuola' , 'design_scuole_italia' ),
         'type'    => 'pw_select',
-        'options' => dsi_get_strutture_percorsi_scuole_options(),
+        'options' => dsi_get_strutture_indirizzo_scuole_options(),
     ) );
 
 

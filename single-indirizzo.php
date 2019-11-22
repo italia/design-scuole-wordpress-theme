@@ -18,7 +18,7 @@ get_header();
             the_post();
 
             // get all post meta cmb2
-            $indirizzi = dsi_get_indirizzi_of_scuola($post);
+            $percorsi = dsi_get_percorsi_of_scuola($post);
             // print_r($percorsi);
             //$sottotitolo = dsi_get_meta("sottotitolo");
 
@@ -76,13 +76,13 @@ get_header();
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                             <div class="section-title">
-                                <?php if(is_array($indirizzi)){
+                                <?php if(is_array($percorsi)){
                                     echo "<small class=\"h6 text-purplelight\">";
                                     $c=0;
-                                    foreach ($indirizzi as $indirizzo){
+                                    foreach ($percorsi as $percorso){
 
                                         if($c) echo ", ";
-                                        echo strtoupper($indirizzo->name);
+                                        echo strtoupper($percorso->name);
                                         $c++;
                                     }
                                     echo "</small>";
@@ -273,7 +273,7 @@ get_header();
 
                                 if(is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
                                     global $struttura;
-                                    echo "<h6>".__("Struttura responsabile del percorso di studio", "design_scuole_italia")."</h6>";
+                                    echo "<h6>".__("Struttura responsabile dell'indirizzo di studio", "design_scuole_italia")."</h6>";
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
@@ -313,7 +313,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi in cui viene erogato il percorso di studio", "design_scuole_italia"); ?></h6>
+                                            <h6><?php _e("Luoghi in cui viene erogato l\'indirizzo di studio", "design_scuole_italia"); ?></h6>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){
