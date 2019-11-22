@@ -204,7 +204,7 @@ $file_documenti = dsi_get_meta("file_documenti");
                                         </div><!-- /calendar-date-day -->
                                         <div class="calendar-date-description rounded">
                                             <div class="calendar-date-description-content">
-                                                <p><?php  echo date_i18n("H:i", $data["data"]); ?> - <?php echo $data["descrizione"]; ?></p>
+                                                <p><?php  echo date_i18n("H:i", $data["data"]); ?><?php if(isset($data["descrizione"])) echo " - ". $data["descrizione"]; ?></p>
                                             </div><!-- /calendar-date-description-content -->
                                         </div><!-- /calendar-date-description -->
                                     </div><!-- /calendar-date -->
