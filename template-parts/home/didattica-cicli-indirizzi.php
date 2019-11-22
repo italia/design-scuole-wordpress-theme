@@ -53,7 +53,9 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                     'field' => 'slug',
                                     'terms' => $slugindirizzo
                                 )
-                            )
+                            ),
+                            'orderby' => "title",
+                            'order' => "ASC"
                         );
 
 
