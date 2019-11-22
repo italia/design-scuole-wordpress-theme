@@ -318,6 +318,36 @@ function dsi_create_pages_on_theme_activation() {
     * popolo i percorsi di studio
      *
      */
+
+
+    // converto gli indirizzi di studio in percorsi
+
+    global $wpdb;
+    $args = array(
+        'taxonomy'               => 'indirizzi-di-studio',
+        'orderby'                => 'name',
+        'order'                  => 'ASC',
+        'hide_empty'             => false,
+    );
+    $the_query = new WP_Term_Query($args);
+    foreach($the_query->get_terms() as $term){
+        if(term_exists($term->slug, "percorsi-di-studio")){
+            $remove = $wpdb->delete(
+                $wpdb->prefix . 'term_taxonomy',  array( 'term_id' => $term->term_id )
+            );
+        }else{
+            $update = $wpdb->update(
+                $wpdb->prefix . 'term_taxonomy',
+                [ 'taxonomy' => "percorsi-di-studio" ],
+                [ 'term_taxonomy_id' => $term->term_id ],
+                [ '%s' ],
+                [ '%d' ]
+            );
+
+        }
+    }
+
+
     $arrdida = dsi_didattica_array();
 
 
@@ -991,32 +1021,6 @@ function dsi_create_pages_on_theme_activation() {
         wp_update_post( $update );
     }
 
-    // converto gli indirizzi di studio in percorsi
-
-    global $wpdb;
-    $args = array(
-        'taxonomy'               => 'indirizzi-di-studio',
-        'orderby'                => 'name',
-        'order'                  => 'ASC',
-        'hide_empty'             => false,
-    );
-    $the_query = new WP_Term_Query($args);
-    foreach($the_query->get_terms() as $term){
-        if(term_exists($term->slug, "percorsi-di-studio")){
-            $remove = $wpdb->delete(
-                $wpdb->prefix . 'term_taxonomy',  array( 'term_id' => $term->term_id )
-            );
-        }else{
-            $update = $wpdb->update(
-                $wpdb->prefix . 'term_taxonomy',
-                [ 'taxonomy' => "percorsi-di-studio" ],
-                [ 'term_taxonomy_id' => $term->term_id ],
-                [ '%s' ],
-                [ '%d' ]
-            );
-
-        }
-    }
 
     global $wp_rewrite;
     $wp_rewrite->flush_rules();
