@@ -547,7 +547,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('La Scuola', "design_scuole_italia");
 
-    // wp_delete_nav_menu($name);
+     wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_scuola = $menu_object->term_id;
@@ -629,7 +629,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Servizi', "design_scuole_italia");
 
-    // wp_delete_nav_menu($name);
+     wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_servizi = $menu_object->term_id;
@@ -683,7 +683,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Novità', "design_scuole_italia");
 
-    // wp_delete_nav_menu($name);
+     wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_notizie = $menu_object->term_id;
@@ -736,7 +736,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Didattica', "design_scuole_italia");
 
-    // wp_delete_nav_menu($name);
+     wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_didattica = $menu_object->term_id;
@@ -1021,9 +1021,6 @@ function dsi_create_pages_on_theme_activation() {
         global $wp_rewrite;
         $wp_rewrite->flush_rules();
     }
-
-
-
 
     update_option("dsi_has_installed", true);
 }
