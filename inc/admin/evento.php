@@ -236,6 +236,7 @@ function dsi_add_eventi_metaboxes() {
         'id'      => 'data',
         'after'    => __( '<br>Data / orario ', 'design_scuole_italia' ),
         'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
     ) );
 
     $cmb_undercontent->add_group_field( $group_field_id,  array(
