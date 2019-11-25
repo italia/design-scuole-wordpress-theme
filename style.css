@@ -432,6 +432,10 @@ table td ul{
     color: #B21DD0;
 }
 
+.purplelight .wysiwig-text .btn {
+    color: #ffffff;
+}
+
 .bluelectric .wysiwig-text a{
     color: #0D00FF;
 }

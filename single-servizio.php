@@ -45,6 +45,8 @@ get_header();
             $altre_info = dsi_get_meta("altre_info");
 
             $struttura_responsabile = dsi_get_meta("struttura_responsabile");
+            $scuola_responsabile = dsi_get_meta("scuola_responsabile");
+
             $luoghi = dsi_get_meta("luoghi");
 
 
@@ -65,6 +67,13 @@ get_header();
                             </div><!-- /section-thumb -->
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
+                            <?php
+                                if($scuola_responsabile) {
+                                    ?>
+                                    <small class="h6 text-purplelight text-uppercase"><?php echo get_the_title($scuola_responsabile); ?></small>
+                                    <?php
+                                }
+                                    ?>
                             <div class="section-title">
                                 <h2 class="mb-3"><?php the_title(); ?></h2>
 
@@ -272,7 +281,7 @@ get_header();
                                     ?>
                                     <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
 
-                                    <div class="row variable-gutters">
+                                    <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
                                             <div class="col-lg-12  px-0 wysiwig-text">
                                             <?php echo wpautop($cosa_serve); ?>

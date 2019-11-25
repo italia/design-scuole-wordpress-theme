@@ -267,6 +267,15 @@ function dsi_add_servizi_metaboxes() {
     ) );
 
 
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'scuola_responsabile',
+        'name'        => __( 'Scuola a cui il servizio appartiene', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona la scuola a cui il servizio appartiene ' , 'design_scuole_italia' ),
+        'type'    => 'pw_select',
+        'options' => dsi_get_strutture_scuole_options(),
+    ) );
+
+
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'servizi_correlati',
