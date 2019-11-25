@@ -3,12 +3,13 @@
 ?>
 <aside class="aside-list sticky-sidebar search-results-filters">
     <form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
-        <h3 class="h6 text-uppercase"><strong><?php _e("Indirizzi", "design_scuole_italia"); ?></strong></h3>
+        <h3 class="h6 text-uppercase"><strong><?php _e("Percorsi di studio", "design_scuole_italia"); ?></strong></h3>
         <ul>
             <?php
             $terms = get_terms( array(
                 'taxonomy' => 'percorsi-di-studio',
                 'hide_empty' => true,
+                'parent' => 0
             ) );
             foreach ( $terms as $term ) {
                 ?>
