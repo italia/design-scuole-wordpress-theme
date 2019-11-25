@@ -483,7 +483,7 @@ function dsi_get_post_types_group($post_type){
 		$group = "school";
 	else if(in_array($post_type, array("programma", "scheda_didattica", "scheda_progetto")))
 		$group = "education";
-	else if(in_array($post_type, array("servizio")))
+	else if(in_array($post_type, array("servizio", "indirizzo")))
 		$group = "service";
 
 
