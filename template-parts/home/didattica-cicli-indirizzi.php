@@ -46,7 +46,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         // cerco tutte le strutture associate a questo indirizzo o ai figli
                         $args = array(
                             "post_type" => "struttura",
-                            "post_per_page" => -1,
+                            "posts_per_page" => -1,
                             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'percorsi-di-studio',
