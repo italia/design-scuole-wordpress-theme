@@ -74,6 +74,12 @@ require get_template_directory() . '/inc/welcome.php';
 require get_template_directory() . '/inc/menu-order.php';
 
 
+/**
+ * Admin menu
+ */
+require get_template_directory() . '/inc/import.php';
+
+
 if ( ! function_exists( 'dsi_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
