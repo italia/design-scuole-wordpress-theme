@@ -318,9 +318,20 @@ function dsi_add_luogo_metaboxes() {
         'options' => dsi_get_strutture_options(),
     ) );
 
+    $cmb_aftercontent_luoghi->add_field( array(
+        'id' => $prefix . 'gestito_da_persone',
+        'name'    => __( 'Persone che gestiscono il luogo', 'design_scuole_italia' ),
+        'desc' => __( 'Inserire la/le persona/e che gestiscono il luogo, associando al luogo le sue schede persona precedentemente create' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_user_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
+        ),
+    ) );
 
 
-	$cmb_aftercontent_luoghi->add_field( array(
+
+    $cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'gestito_da_nome',
 		'title'       => __( 'Nome gestore', 'design_scuole_italia' ),
         'before'       => __( 'Se il gestore del luogo non è una struttura della scuola, inserisci il nome e il link del gestore<br>', 'design_scuole_italia' ),
@@ -393,7 +404,7 @@ function dsi_add_luogo_metaboxes() {
 	/**** dati strutturali non visibili sul f/e ****/
 	$cmb_dati_luoghi = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_struttura',
-		'title'        => __( 'Dati Strutturali', 'design_scuole_italia' ),
+		'title'        => __( 'Dati Strutturali (a scopo amministratico, non sono visualizzati sul frontend)', 'design_scuole_italia' ),
 		'object_types' => array( 'luogo' ),
 		'context'      => 'normal',
 		'priority'     => 'high',

@@ -6,7 +6,7 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post, $documento, $servizio, $struttura;
+global $post, $documento, $servizio,  $autore, $struttura;
 
 $luogo = $post;
 get_header();
@@ -37,6 +37,7 @@ get_header();
         $gestito_da  = dsi_get_meta("gestito_da");
         $gestito_da_nome  = dsi_get_meta("gestito_da_nome");
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
+        $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
         if($post->post_parent == 0){
             $indirizzo = dsi_get_meta("indirizzo");
@@ -111,7 +112,7 @@ get_header();
 										<?php }  */ ?>
                                         <?php if($servizi_presenti || $servizi_altro){ ?>
                                             <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi presenti nel luogo", "design_scuole_italia"); ?>"><?php _e("Servizi presenti nel luogo", "design_scuole_italia"); ?></a>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi presenti", "design_scuole_italia"); ?>"><?php _e("Servizi presenti", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                         <?php if($link_strutture){ ?>
@@ -119,7 +120,7 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-strutture" title="Vai al paragrafo <?php _e("Il luogo è sede di", "design_scuole_italia"); ?>"><?php _e("Il luogo è sede di", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if($gestito_da_nome != ""){ ?>
+                                        <?php if($gestito_da_nome != "" || (is_array($gestito_da) && count($gestito_da)> 0) || (is_array($gestito_da_persone) && count($gestito_da_persone) > 0)){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-gestione" title="Vai al paragrafo <?php _e("Gestito da", "design_scuole_italia"); ?>"><?php _e("Gestito da", "design_scuole_italia"); ?></a>
                                             </li>
@@ -318,9 +319,11 @@ get_header();
                                         </div><!-- /col-lg-12 -->
                                     </div><!-- /row -->
                                 <?php } ?>
-                                <?php if($gestito_da_nome != "" || (is_array($gestito_da) && count($gestito_da)> 0)){ ?>
+                                <?php if($gestito_da_nome != "" || (is_array($gestito_da) && count($gestito_da)> 0) || (is_array($gestito_da_persone) && count($gestito_da_persone) > 0)){ ?>
                                     <h4 id="art-par-gestione"><?php _e("Gestito da", "design_scuole_italia"); ?></h4>
                                     <?php if(is_array($gestito_da) && count($gestito_da)> 0){ ?>
+                                        <h6><?php _e("Strutture che gestiscono il luogo", "design_scuole_italia"); ?></h6>
+
                                         <div class="row variable-gutters">
                                             <div class="col-lg-12">
                                                 <div class="card-deck card-deck-spaced">
@@ -335,6 +338,26 @@ get_header();
                                         </div><!-- /row -->
                                     <?php } ?>
 
+                                    <?php if(is_array($gestito_da_persone) && count($gestito_da_persone)>0){ ?>
+                                        <h6><?php _e("Persone che gestiscono il luogo", "design_scuole_italia"); ?></h6>
+                                        <div class="card-deck card-deck-spaced mb-2">
+                                            <?php
+                                            foreach ($gestito_da_persone as $idutente) {
+                                                $autore = get_user_by("ID", $idutente);
+                                                ?>
+                                                <div class="card card-bg card-avatar rounded">
+                                                    <a href="<?php echo get_author_posts_url($idutente); ?>">
+                                                        <div class="card-body">
+                                                            <?php get_template_part("template-parts/autore/card"); ?>
+                                                        </div>
+                                                    </a>
+                                                </div><!-- /card card-bg card-avatar rounded -->
+                                                <?php
+                                            }
+                                            ?>
+                                        </div><!-- /card-deck -->
+                                    <?php } ?>
+
                                     <?php if($gestito_da_nome != "") { ?>
                                         <div class="row variable-gutters mb-3">
                                             <div class="col-lg-9">
@@ -347,6 +370,8 @@ get_header();
                                             </div><!-- /col-lg-9 -->
                                         </div><!-- /row -->
                                     <?php } ?>
+
+
 
                                 <?php } ?>
                                 <?php
