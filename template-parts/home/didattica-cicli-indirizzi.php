@@ -90,7 +90,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                                     //echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
                                                     foreach ($indirizzi as $idindirizzo) {
                                                         ?>
-                                                        <div class="col-lg-6  d-flex ">
+                                                        <div class="col-lg-6  d-flex mb-2 ">
                                                             <a href="<?php echo get_permalink($idindirizzo); ?>"
                                                                class="btn btn-redbrown"
                                                                style="text-decoration:none;"><?php echo get_the_title($idindirizzo); ?></a>
