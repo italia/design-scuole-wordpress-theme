@@ -348,7 +348,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'cosa_serve',
-        'name'        => __( 'Cosa Serve (testo introduttivo) * ', 'design_scuole_italia' ),
+        'name'        => __( 'Cosa Serve (testo introduttivo) ', 'design_scuole_italia' ),
         'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link', 'design_scuole_italia' ),
         'type'    => 'wysiwyg',
         'attributes'    => array(
