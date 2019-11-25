@@ -42,9 +42,9 @@ if(isset($_GET["post_terms"]))
 	            $name = get_post_type_object( $type )->labels->name;
                 ?>
                 <li>
-                    <div class="custom-control custom-checkbox custom-checkbox-outline">
+                    <div class="form-check my-0">
                         <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
-                        <label class="custom-control-label" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
+                        <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                     </div>
                 </li>
 

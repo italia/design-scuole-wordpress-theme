@@ -32,7 +32,7 @@ $post_type = get_query_var("post_type");
                     $atreturn_body .= '<li>';
                     $term = get_term_by('name', $value, 'amministrazione-trasparente');
 //            $atreturn .= '<a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $value . '">' . $value . '</a>';
-                    $atreturn_body .= '<div class="custom-control custom-checkbox custom-checkbox-outline">';
+                    $atreturn_body .= '<div class="form-check my-0">';
                     $atreturn_body .= '<input type="radio" class="custom-control-input" name="amministrazione-trasparente" value="';
                     $atreturn_body .= $term->slug.'" id="check-'.$term->slug.'"';
                     if($term->slug == get_query_var("amministrazione-trasparente")){
@@ -40,7 +40,7 @@ $post_type = get_query_var("post_type");
                         $collapsed = false;
                     }
                     $atreturn_body .= ' onChange="this.form.submit()">';
-                    $atreturn_body .= ' <label class="custom-control-label" for="check-'.$term->slug.'"><a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '">'.$term->name.'</a></label>';
+                    $atreturn_body .= ' <label class="mb-0" for="check-'.$term->slug.'"><a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '">'.$term->name.'</a></label>';
                     $atreturn_body .= '</div>';
 
                     $atreturn_body .= '</li>';

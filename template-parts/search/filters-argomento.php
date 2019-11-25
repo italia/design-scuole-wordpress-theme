@@ -22,9 +22,9 @@ if(isset($_REQUEST["archive"]))
 			foreach ( $terms as $term ) {
 				?>
                 <li>
-                    <div class="custom-control custom-checkbox custom-checkbox-outline">
+                    <div class="form-check my-0">
                         <input type="radio" class="custom-control-input" name="cat" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if($term->term_id == get_query_var("cat")) echo " checked "; ?> onChange="this.form.submit()">
-                        <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+                        <label class="mb-0" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
                     </div>
                 </li>
 
