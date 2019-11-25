@@ -232,52 +232,54 @@ get_header();
                                 </div><!-- /row -->
 
 
-                                <?php if($modalita_accesso){ ?>
-                                    <h6><?php _e("Modalità di accesso", "design_scuole_italia"); ?></h6>
-                                    <div class="row variable-gutters mb-5">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            foreach ($modalita_accesso as $tacc){
 
-                                                $titolo = "";
-                                                if(isset($tacc["tipologia_accesso"])){
-                                                    if($tacc["tipologia_accesso"] == "accessibilita")
-                                                        $titolo = "Accessibilità";
-                                                    else
-                                                        $titolo = ucfirst($tacc["tipologia_accesso"]);
-                                                }else{
-                                                    $tacc["tipologia_accesso"] = "";
-                                                    $titolo = "";
-                                                }
-                                                ?>
-                                                <div class="card card-bg card-icon-big rounded mb-4">
-                                                    <div class="card-icon-container">
-                                                        <?php get_template_part("template-parts/svg/icona",$tacc["tipologia_accesso"]); ?>
-                                                    </div><!-- /card-icon-container -->
-                                                    <div class="card-content">
-                                                        <h4><?php echo $titolo; ?></h4>
-                                                        <div class="row variable-gutters">
-                                                            <div class="col-lg-12">
-                                                                <p><strong><?php  if(isset($tacc["titolo_accesso"])) echo $tacc["titolo_accesso"]; ?></strong></p>
-                                                                <small><?php if(isset($tacc["Indirizzo_accesso"]))  echo $tacc["Indirizzo_accesso"]; ?></small>
-                                                            </div><!-- /col-lg-12 -->
-                                                        </div><!-- /row -->
-                                                    </div><!-- /card-content -->
-                                                </div><!-- /card card-bg card-icon-main rounded -->
-                                                <?php
-                                            }
-                                            ?>
-                                            </div>
-                                        </div><!-- /col-lg-9 -->
-                                    </div><!-- /row -->
-                                <?php } ?>
 
                                 <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
                                 <?php
                                 global $lg;
                                 $lg=12;
                                 get_template_part("template-parts/luogo/card"); ?>
+
+                                <?php if($modalita_accesso){ ?>
+                                    <h6><?php _e("Modalità di accesso", "design_scuole_italia"); ?></h6>
+                                    <div class="row variable-gutters mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php
+                                                foreach ($modalita_accesso as $tacc){
+
+                                                    $titolo = "";
+                                                    if(isset($tacc["tipologia_accesso"])){
+                                                        if($tacc["tipologia_accesso"] == "accessibilita")
+                                                            $titolo = "Accessibilità";
+                                                        else
+                                                            $titolo = ucfirst($tacc["tipologia_accesso"]);
+                                                    }else{
+                                                        $tacc["tipologia_accesso"] = "";
+                                                        $titolo = "";
+                                                    }
+                                                    ?>
+                                                    <div class="card card-bg card-icon-big rounded mb-4">
+                                                        <div class="card-icon-container">
+                                                            <?php get_template_part("template-parts/svg/icona",$tacc["tipologia_accesso"]); ?>
+                                                        </div><!-- /card-icon-container -->
+                                                        <div class="card-content">
+                                                            <h4><?php echo $titolo; ?></h4>
+                                                            <div class="row variable-gutters">
+                                                                <div class="col-lg-12">
+                                                                    <p><strong><?php  if(isset($tacc["titolo_accesso"])) echo $tacc["titolo_accesso"]; ?></strong></p>
+                                                                    <small><?php if(isset($tacc["Indirizzo_accesso"]))  echo $tacc["Indirizzo_accesso"]; ?></small>
+                                                                </div><!-- /col-lg-12 -->
+                                                            </div><!-- /row -->
+                                                        </div><!-- /card-content -->
+                                                    </div><!-- /card card-bg card-icon-main rounded -->
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                <?php } ?>
 
                                 <?php if($servizi_presenti || $servizi_altro){ ?>
                                     <h4 id="art-par-servizi" class="mb-4"><?php _e("Servizi presenti", "design_scuole_italia"); ?></h4>
