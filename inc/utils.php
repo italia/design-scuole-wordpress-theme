@@ -862,6 +862,11 @@ if(!function_exists("dsi_pluralize_string")) {
             $string = "Progetti territorio e ambiente";
             break;
 
+
+        case "Indirizzo di Studio":
+            $string = "Indirizzi di studio";
+            break;
+
         case "":
             $string = "";
             break;

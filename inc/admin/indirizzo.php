@@ -32,7 +32,7 @@ function dsi_register_indirizzo_post_type() {
         'capability_type' => array('indirizzo_di_studio', 'indirizzi_di_studio'),
         'rewrite' => array('slug' => 'indirizzo-di-studio','with_front' => false),
         'map_meta_cap'    => true,
-        'description'    => __( "L'indirizzo di studio che è possibile frequentare nella scuola.", 'design_scuole_italia' ),
+        'description'    => __( "Gli indirizzi di studio che è possibile frequentare nella scuola", 'design_scuole_italia' ),
 
     );
     register_post_type( 'indirizzo', $args );
