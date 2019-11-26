@@ -287,6 +287,7 @@ $documenti = get_posts($args);
 								</div><!-- /col-lg-12 -->
 							</div><!-- /row -->
                             <?php } ?>
+
                             <?php if(($telefono_pubblico != "") || ($email_pubblico != "")){ ?>
 							<h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
 							<div class="row variable-gutters">

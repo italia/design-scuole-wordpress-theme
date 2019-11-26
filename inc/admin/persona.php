@@ -158,8 +158,10 @@ function dsi_add_persone_metaboxes() {
             'none' => __( 'Nessuno', 'design_scuole_italia' ),
 			'dirigente' => __( 'Dirigente Scolastico', 'design_scuole_italia' ),
 			'docente' => __( 'Personale Docente', 'design_scuole_italia' ),
-			'personaleata'   => __( 'Personale non docente', 'design_scuole_italia' )
-		),
+			'personaleata'   => __( 'Personale non docente', 'design_scuole_italia' ),
+            'altro'   => __( 'Altro', 'design_scuole_italia' )
+
+        ),
 	) );
 
 	$cmb_user->add_field( array(
