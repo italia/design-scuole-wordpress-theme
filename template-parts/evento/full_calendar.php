@@ -32,6 +32,17 @@
 		<?php
         $args = array('post_type' => 'evento',
             'posts_per_page' => -1,
+            'meta_key' => '_dsi_evento_timestamp_inizio',
+            'orderby' => 'meta_value',
+            'order'     => 'DESC',
+            'meta_query' => array(
+                array(
+                    'key' => '_dsi_evento_timestamp_inizio',
+                    'value' => time(),
+                    'compare' => '>',
+                    'type' => 'numeric'
+                )
+            )
         );
         $posts = get_posts($args);
         foreach ($posts as $post) {
