@@ -118,13 +118,13 @@ function dsi_eventi_filters( $query ) {
                 array(
                     'key' => '_dsi_evento_timestamp_inizio',
                     'value' => $date_end,
-                    'compare' => '<',
+                    'compare' => '<=',
                     'type' => 'numeric'
                 ),
                 array(
                     'key' => '_dsi_evento_timestamp_fine',
                     'value' => $date_begin,
-                    'compare' => '>',
+                    'compare' => '>=',
                     'type' => 'numeric'
                 )
             ));
