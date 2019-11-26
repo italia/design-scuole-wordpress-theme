@@ -112,7 +112,7 @@ function dsi_eventi_filters( $query ) {
     if ( ! is_admin() && $query->is_main_query() && is_post_type_archive("evento") ) {
         if(isset($_GET["date"]) && ($_GET["date"] != "")){
             $date = strtotime($_GET["date"]);
-            $date_begin = strtotime($_GET["date"] ." 00:00:01");
+            $date_begin = strtotime($_GET["date"] ." 00:00:00");
             $date_end = strtotime($_GET["date"] ." 23:59:59");
             $query->set( 'meta_query', array(
                 array(
