@@ -13,7 +13,7 @@ $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
-
+$date = dsi_get_meta("date");
 ?>
     <main id="main-container" class="main-container greendark">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -84,10 +84,14 @@ $file_documenti = dsi_get_meta("file_documenti");
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-luogo" title="Vai al paragrafo <?php _e("Luogo", "design_scuole_italia"); ?>"><?php _e("Luogo", "design_scuole_italia"); ?></a>
                                             </li>
-										<?php } ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-date" title="Vai al paragrafo <?php _e("Date e Orari", "design_scuole_italia"); ?>"><?php _e("Date e Orari", "design_scuole_italia"); ?></a>
-                                        </li>
+										<?php }
+										if($date) {
+                                            ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-date"
+                                                   title="Vai al paragrafo <?php _e("Date e Orari", "design_scuole_italia"); ?>"><?php _e("Date e Orari", "design_scuole_italia"); ?></a>
+                                            </li>
+                                            <?php } ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-costi" title="Vai al paragrafo <?php _e("Costi", "design_scuole_italia"); ?>"><?php _e("Costi", "design_scuole_italia"); ?></a>
                                         </li>
@@ -183,80 +187,49 @@ $file_documenti = dsi_get_meta("file_documenti");
                                     }
                                 }
 								?>
-
-                                <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
-                                <div class="calendar-vertical mb-5">
-									<?php
-                                    $date = dsi_get_meta("date");
-                                    $old_data = "";
-                                    if(is_array($date)){
-                                        foreach ($date as $data){
-
+                                <?php
+                                if($date) {
                                     ?>
-                                    <div class="calendar-date">
-                                        <div class="calendar-date-day">
-                                            <?php if($old_data != date_i18n("dMY", $data["data"])){ ?>
-                                                <small><?php echo date_i18n( "Y",  $data["data"]  ); ?></small>
-                                                <p><?php  echo date_i18n("d", $data["data"]); ?></p>
-                                                <small><b><?php  echo date_i18n("M", $data["data"]); ?></b></small>
+                                    <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
+                                    <div class="calendar-vertical mb-5">
+                                        <?php
 
-                                            <?php } ?>
-                                        </div><!-- /calendar-date-day -->
-                                        <div class="calendar-date-description rounded">
-                                            <div class="calendar-date-description-content">
-                                                <p><?php  echo date_i18n("H:i", $data["data"]); ?><?php if(isset($data["descrizione"])) echo " - ". $data["descrizione"]; ?></p>
-                                            </div><!-- /calendar-date-description-content -->
-                                        </div><!-- /calendar-date-description -->
-                                    </div><!-- /calendar-date -->
-                                    <?php
-                                            $old_data = date_i18n("dMY", $data["data"]);
+                                        $old_data = "";
+                                        foreach ($date as $data) {
 
-                                        }
-                                    }else {
-
-                                        $timestamp_inizio = dsi_get_meta("timestamp_inizio");
-                                        $timestamp_fine = dsi_get_meta("timestamp_fine");
-                                        $ora_inizio = date_i18n("H:i", $timestamp_inizio);
-                                        $ora_fine = date_i18n("H:i", $timestamp_fine);
-                                        /*
-                                        $begin = new DateTime(date_i18n("c", $timestamp_inizio));
-                                        $end = new DateTime(date_i18n("c", $timestamp_fine));
-
-                                        for ($i = $begin; $i <= $end; $i->modify('+1 day')) { ?>
+                                            ?>
                                             <div class="calendar-date">
                                                 <div class="calendar-date-day">
-                                                    <small><?php echo date_i18n("Y", $i->getTimestamp()); ?></small>
-                                                    <p><?php echo date_i18n("d", $i->getTimestamp()); ?></p>
-                                                    <small><b><?php echo date_i18n("M", $i->getTimestamp()); ?></b></small>
+                                                    <?php if ($old_data != date_i18n("dMY", $data["data"])) { ?>
+                                                        <small><?php echo date_i18n("Y", $data["data"]); ?></small>
+                                                        <p><?php echo date_i18n("d", $data["data"]); ?></p>
+                                                        <small><b><?php echo date_i18n("M", $data["data"]); ?></b></small>
 
+                                                    <?php } ?>
                                                 </div><!-- /calendar-date-day -->
                                                 <div class="calendar-date-description rounded">
                                                     <div class="calendar-date-description-content">
-                                                        <p><?php echo $ora_inizio; ?><?php if ($ora_fine != $ora_inizio) echo " - " . $ora_fine; ?></p>
+                                                        <p><?php echo date_i18n("H:i", $data["data"]); ?><?php if (isset($data["descrizione"])) echo " - " . $data["descrizione"]; ?></p>
                                                     </div><!-- /calendar-date-description-content -->
                                                 </div><!-- /calendar-date-description -->
                                             </div><!-- /calendar-date -->
-                                        <?php }*/
-                                    ?>
-                                    <div class="calendar-date">
-                                        <div class="calendar-date-day">
-                                            <small><?php echo date_i18n("Y", $timestamp_inizio); ?></small>
-                                            <p><?php echo date_i18n("d", $timestamp_inizio); ?></p>
-                                            <small><b><?php echo date_i18n("M", $timestamp_inizio); ?></b></small>
+                                            <?php
+                                            $old_data = date_i18n("dMY", $data["data"]);
 
-                                        </div><!-- /calendar-date-day -->
-                                        <div class="calendar-date-description rounded">
-                                            <div class="calendar-date-description-content">
-                                                <p><?php echo $ora_inizio; ?><?php if ($ora_fine != $ora_inizio) echo " - " . $ora_fine; ?></p>
-                                            </div><!-- /calendar-date-description-content -->
-                                        </div><!-- /calendar-date-description -->
-                                    </div><!-- /calendar-date -->
+                                        }
+                                        /* else {
 
+                                            $timestamp_inizio = dsi_get_meta("timestamp_inizio");
+                                            $timestamp_fine = dsi_get_meta("timestamp_fine");
+                                            $ora_inizio = date_i18n("H:i", $timestamp_inizio);
+                                            $ora_fine = date_i18n("H:i", $timestamp_fine);
+
+                                        ?>
                                         <div class="calendar-date">
                                             <div class="calendar-date-day">
-                                                <small><?php echo date_i18n("Y", $timestamp_fine); ?></small>
-                                                <p><?php echo date_i18n("d", $timestamp_fine); ?></p>
-                                                <small><b><?php echo date_i18n("M", $timestamp_fine); ?></b></small>
+                                                <small><?php echo date_i18n("Y", $timestamp_inizio); ?></small>
+                                                <p><?php echo date_i18n("d", $timestamp_inizio); ?></p>
+                                                <small><b><?php echo date_i18n("M", $timestamp_inizio); ?></b></small>
 
                                             </div><!-- /calendar-date-day -->
                                             <div class="calendar-date-description rounded">
@@ -265,12 +238,26 @@ $file_documenti = dsi_get_meta("file_documenti");
                                                 </div><!-- /calendar-date-description-content -->
                                             </div><!-- /calendar-date-description -->
                                         </div><!-- /calendar-date -->
+
+                                            <div class="calendar-date">
+                                                <div class="calendar-date-day">
+                                                    <small><?php echo date_i18n("Y", $timestamp_fine); ?></small>
+                                                    <p><?php echo date_i18n("d", $timestamp_fine); ?></p>
+                                                    <small><b><?php echo date_i18n("M", $timestamp_fine); ?></b></small>
+
+                                                </div><!-- /calendar-date-day -->
+                                                <div class="calendar-date-description rounded">
+                                                    <div class="calendar-date-description-content">
+                                                        <p><?php echo $ora_inizio; ?><?php if ($ora_fine != $ora_inizio) echo " - " . $ora_fine; ?></p>
+                                                    </div><!-- /calendar-date-description-content -->
+                                                </div><!-- /calendar-date-description -->
+                                            </div><!-- /calendar-date -->
+                                        <?php
+                                        } */ ?>
+
+                                    </div><!-- /calendar-vertical -->
                                     <?php
-                                    } ?>
-
-                                </div><!-- /calendar-vertical -->
-								<?php
-
+                                }
 								?>
                                 <h4 id="art-par-costi"><?php _e("Costi", "design_scuole_italia"); ?></h4>
 								<?php

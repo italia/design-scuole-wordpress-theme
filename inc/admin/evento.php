@@ -513,9 +513,9 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_side->add_field( array(
 		'id'         => $prefix . 'timestamp_inizio',
-		'before' => 'Data / Ora Inizio Evento<br>',
-		'type' => 'text_datetime_timestamp',
-        'date_format' => 'd-m-Y',
+		'before' => 'Data Inizio Evento<br>',
+		'type' => 'text_date_timestamp',
+        'date_format' => 'd M Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
@@ -528,9 +528,9 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_side->add_field( array(
 		'id'         => $prefix . 'timestamp_fine',
-		'before' => 'Data / Ora Fine Evento<br>',
-		'type' => 'text_datetime_timestamp',
-        'date_format' => 'd-m-Y',
+		'before' => 'Data Fine Evento<br>',
+		'type' => 'text_date_timestamp',
+        'date_format' => 'd M Y',
 		'attributes' => array(
 			'required' => 'required'
 		),

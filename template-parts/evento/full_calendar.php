@@ -38,11 +38,12 @@
 
         $timestamp_inizio = dsi_get_meta("timestamp_inizio", "", $post->ID);
         $timestamp_fine= dsi_get_meta("timestamp_fine", "", $post->ID);
+
         $begin = new DateTime(date_i18n("c",$timestamp_inizio));
         $end = new DateTime(date_i18n("c",$timestamp_fine));
 
         for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
-        {date: '<?php echo date_i18n("Y-m-d", $i->getTimestamp());  ?>',},
+        {date: '<?php echo date("Y-m-d", $i->getTimestamp() + 10000);  ?>'},
         <?php }
         }
         ?>
@@ -53,7 +54,7 @@
         daysOfTheWeek: ['LU', 'MA', 'ME', 'GI', 'VE', 'SA', 'DO'],
         events: events,
         template: jQuery('#calendar-template').html(),
-        startWithMonth: "<?php echo date_i18n( "Y-m-d", $timestamp_inizio );  ?>"
+        startWithMonth: "<?php echo date( "Y-m-d", $timestamp_inizio);  ?>"
     });
 
 </script>

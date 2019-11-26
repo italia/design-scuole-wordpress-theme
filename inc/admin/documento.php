@@ -496,7 +496,7 @@ function sdi_documento_add_content_before_editor($post) {
 // Register Custom Post Status
 function dsi_register_custom_post_status(){
     register_post_status( 'scaduto', array(
-        'label'                     => _x( 'Scaduto', 'post' ),
+        'label'                     => _x( 'Scaduto', 'design_scuole_italia' ),
         'public'                    => true,
         'exclude_from_search'       => false,
         'show_in_admin_all_list'    => true,
@@ -504,7 +504,7 @@ function dsi_register_custom_post_status(){
         'label_count'               => _n_noop( 'Scaduto <span class="count">(%s)</span>', 'Scaduti <span class="count">(%s)</span>' ),
     ) );
     register_post_status( 'annullato', array(
-        'label'                     => _x( 'Annullato', 'post' ),
+        'label'                     => _x( 'Annullato', 'design_scuole_italia' ),
         'public'                    => true,
         'exclude_from_search'       => false,
         'show_in_admin_all_list'    => true,

@@ -33,7 +33,7 @@ global $post;
     	?>
     var events = [
 		<?php for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
-        { date: '<?php echo date_i18n( "Y-m-d", $i->getTimestamp() );  ?>'},
+        { date: '<?php echo date( "Y-m-d", $i->getTimestamp() + 10000);  ?>'},
 	    <?php } ?>
     ];
     <?php } ?>
@@ -42,7 +42,7 @@ global $post;
         daysOfTheWeek: ['LU', 'MA', 'ME', 'GI', 'VE', 'SA', 'DO'],
         events: events,
         template: jQuery('#calendar-template').html(),
-        startWithMonth: "<?php echo date_i18n( "Y-m-d", $timestamp_inizio );  ?>"
+        startWithMonth: "<?php echo date( "Y-m-d", $timestamp_inizio );  ?>"
     });
 
 </script>

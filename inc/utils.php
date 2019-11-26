@@ -340,40 +340,43 @@ function dsi_get_date_evento($post){
 	$timestamp_inizio = dsi_get_meta("timestamp_inizio", $prefix, $post->ID);
 	$timestamp_fine= dsi_get_meta("timestamp_fine", $prefix, $post->ID);
 	if($timestamp_inizio >= $timestamp_fine){
-		$ret .=  date_i18n("j M Y", $timestamp_inizio);
-		$ret .= __(" alle ", "design_scuole_italia");
-		$ret .=  date_i18n("H:i", $timestamp_inizio);
+		$ret .=  date_i18n("j F Y", $timestamp_inizio);
+		//$ret .= __(" alle ", "design_scuole_italia");
+		//$ret .=  date_i18n("H:i", $timestamp_inizio);
 		return $ret;
 	}
 
-	$data_inizio = date_i18n("j M Y", $timestamp_inizio);
-	$data_fine = date_i18n("j M Y", $timestamp_fine);
+	$data_inizio = date_i18n("j F Y", $timestamp_inizio);
+	$data_fine = date_i18n("j F Y", $timestamp_fine);
 	$ora_inizio = date_i18n("H:i", $timestamp_inizio);
 	$ora_fine = date_i18n("H:i", $timestamp_fine);
 	if($data_inizio == $data_fine){
 		$ret .= __("Il ", "design_scuole_italia");
 		$ret .= $data_inizio;
+		/*
 		if($post->post_type == "evento"){
 			$ret .= __(" dalle ", "design_scuole_italia");
 			$ret .= $ora_inizio;
 			$ret .= __(" alle ", "design_scuole_italia");
 			$ret .= $ora_fine;
 
-		}
+		}*/
 
 	}else{
 		$ret .= __("dal ", "design_scuole_italia");
 		$ret .= $data_inizio;
+		/*
 		if($post->post_type == "evento") {
 			$ret .= __( " alle ", "design_scuole_italia" );
 			$ret .= $ora_inizio;
-		}
+		}*/
 		$ret .= __(" al ", "design_scuole_italia");
 		$ret .= $data_fine;
+		/*
 		if($post->post_type == "evento") {
 			$ret .= __( " alle ", "design_scuole_italia" );
 			$ret .= $ora_fine;
-		}
+		}*/
 	}
 
 	return $ret;
