@@ -28,7 +28,7 @@ if($last_notification){
         <div class="avatar-wrapper">
             <img src="<?php echo dsi_get_user_avatar($current_user); ?>">
         </div><!-- /avatar-wrapper -->
-        <p><strong><?php echo $current_user->display_name; ?></strong></p>
+        <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
     </a>
     <div class="dropdown-menu dropdown-content menu-user menu-user-blue">
         <div class="menu-user-wrapper">
@@ -37,7 +37,7 @@ if($last_notification){
                     <img src="<?php echo dsi_get_user_avatar($current_user); ?>">
                 </div><!-- /avatar-wrapper -->
                 <div class="user-details-content">
-                    <p><strong><?php echo $current_user->display_name; ?></strong></p>
+                    <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
                     <p><?php echo dsi_get_user_role($current_user); ?></p>
                     <a class="btn btn-action btn-xs" href="<?php echo admin_url(); ?>">Crea e gestisci</a>
                 </div>

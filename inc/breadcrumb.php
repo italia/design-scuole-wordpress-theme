@@ -736,10 +736,10 @@ class Breadcrumb_Trail {
 
 		// Add the author's display name to the trail end.
 		if ( is_paged() )
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $user_id ) ), get_the_author_meta( 'display_name', $user_id ) );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $user_id ) ), dsi_get_display_name( $user_id ) );
 
 		elseif ( true === $this->args['show_title'] )
-			$this->items[] = get_the_author_meta( 'display_name', $user_id );
+			$this->items[] = dsi_get_display_name( $user_id );
 	}
 
 	/**
@@ -1241,7 +1241,7 @@ class Breadcrumb_Trail {
 
 				// If using the %author% tag, add a link to the post author archive.
 				elseif ( '%author%' == $tag )
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $post->post_author ) ), get_the_author_meta( 'display_name', $post->post_author ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_author_posts_url( $post->post_author ) ), dsi_get_display_name( $post->post_author ) );
 
 				// If using the %category% tag, add a link to the first category archive to match permalinks.
 				elseif ( taxonomy_exists( trim( $tag, '%' ) ) ) {

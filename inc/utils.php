@@ -876,3 +876,19 @@ if(!function_exists("dsi_pluralize_string")) {
         return $string;
     }
 }
+
+/**
+ * funzione per la gestione del nome autore
+ */
+
+function dsi_get_display_name($user_id){
+
+    $display = get_the_author_meta('display_name', $user_id);
+    $nome = get_the_author_meta('first_name', $user_id);
+    $cognome = get_the_author_meta('last_name', $user_id);
+    if(($nome != "") && ($cognome != ""))
+        return $nome." ".$cognome;
+    else
+        return $display;
+
+}

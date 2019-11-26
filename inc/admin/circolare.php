@@ -399,7 +399,8 @@ function dsi_circolari_meta_box($post)
                 $response = get_user_meta($user->ID, "_dsi_signed_".$post->ID, true);
 
                 echo "<li>";
-                echo $user->display_name;
+                echo dsi_get_display_name($sign);
+                // echo $user->display_name;
                 if($response){
                     echo " - ".strtoupper(str_replace("_", " ", $response));
                 }

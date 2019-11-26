@@ -45,8 +45,7 @@ if(isset($struttura->ID)){
 	$persone = "";
 	if(is_array($arr_persone)){
 		foreach ($arr_persone as $id_persona){
-			$utente = get_user_by("id", $id_persona);
-			$persone .= $utente->display_name." ";
+			$persone .= dsi_get_display_name( $id_persona)." ";
 		}
     }
 

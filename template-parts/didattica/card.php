@@ -35,7 +35,7 @@ if(!$image_url)
             ?>
         </ul>
         <div class="card-author">
-            <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo $autore->display_name; ?></a></p>
+            <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
         </div><!-- /card-author -->
     </div><!-- /card-body -->
 </div><!-- /card -->
