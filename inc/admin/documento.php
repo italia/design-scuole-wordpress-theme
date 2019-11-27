@@ -115,7 +115,7 @@ function dsi_register_documento_post_type() {
 
     register_taxonomy( 'albo-pretorio', array( 'documento' ), $args );
 
-    register_taxonomy_for_object_type( 'category', 'documento' );
+    register_taxonomy_for_object_type( 'post_tag', 'documento' );
 
 }
 
@@ -625,7 +625,7 @@ function dsi_append_documenti_post_status_list(){
                         pointer-events: none !important;
                     }
 
-                    #submitdiv, #tagsdiv-category{
+                    #submitdiv, #tagsdiv-category, #tagsdiv-post_tag{{
                         display:none;
                     }
 

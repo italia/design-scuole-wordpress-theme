@@ -18,7 +18,7 @@ function dsi_register_scheda_progetto_post_type() {
 		'label'         => __( 'Scheda Progetto', 'design_scuole_italia' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title', 'editor', 'author', 'thumbnail'),
-		'taxonomies'    => array( 'category' ),
+		'taxonomies'    => array( 'post_tag' ),
 		'hierarchical'  => false,
 		'public'        => true,
 		'menu_position' => 5,

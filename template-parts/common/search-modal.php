@@ -79,16 +79,17 @@
 									<h4><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h4>
 									<div class="badges">
                                         <?php
-                                        $categories = get_categories(array(
+
+                                        $argomenti = get_tags(array(
 	                                        'orderby' => 'count',
 	                                        'order'   => 'ASC',
 	                                        'hide_empty'   => 1,
 	                                        'parent'  => 0,
 	                                        'number' => 20
                                         ));
-                                        foreach ($categories as $category){
-                                            $catlink = get_category_link($category);  ?>
-                                            <a href="<?php echo $catlink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $category->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $category->name; ?></a>
+                                        foreach ($argomenti as $argomento){
+                                            $taglink = get_tag_link($argomento);  ?>
+                                            <a href="<?php echo $taglink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
                                        <?php } ?>
                                     </div><!-- /badges -->
 								</div><!-- /badges-wrapper -->

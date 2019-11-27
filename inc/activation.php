@@ -1008,6 +1008,7 @@ function dsi_create_pages_on_theme_activation() {
         update_option('avcp_denominazione_ente', "denominazione_ente");
         update_option('avcp_codicefiscale_ente', "codicefiscale_ente");
 
+
         // converto i percorsi di studio in indirizzi
         $q = 'numberposts=-1&post_status=any&post_type=percorso_di_studio';
         $items = get_posts($q);
@@ -1017,10 +1018,10 @@ function dsi_create_pages_on_theme_activation() {
             wp_update_post( $update );
         }
 
-
-        global $wp_rewrite;
-        $wp_rewrite->flush_rules();
     }
+    update_option('tag_base', "/argomento");
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
 
     update_option("dsi_has_installed", true);
 }

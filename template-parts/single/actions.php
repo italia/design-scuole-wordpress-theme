@@ -4,9 +4,9 @@ $parts = parse_url( home_url() );
 $current_uri = "{$parts['scheme']}://{$parts['host']}" . add_query_arg( NULL, NULL );
 if(is_singular()){
     $current_title = get_the_title();
-}else if ( is_category() ) {
+}else if ( is_tag() ) {
     $current_title = __("Argomento", "design_scuole_italia").": ".single_cat_title( '', false );
-} elseif ( is_tag() ) {
+} elseif ( is_category() ) {
     $current_title = single_tag_title( '', false );
 } elseif ( is_tax("tipologia-articolo") ) {
     $current_title = single_term_title('', false);

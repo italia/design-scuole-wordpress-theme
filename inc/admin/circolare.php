@@ -18,7 +18,7 @@ function dsi_register_circolare_post_type()
         'label' => __('Circolare', 'design_scuole_italia'),
         'labels' => $labels,
         'supports' => array('title', 'editor'),
-        'taxonomies' => array('category'),
+        'taxonomies' => array('post_tag'),
         'hierarchical' => false,
         'public' => true,
         'menu_position' => 4,

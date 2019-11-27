@@ -81,7 +81,7 @@ function dsi_search_filters( $query ) {
 
         }
         if ( isset( $_GET["post_terms"] ) ) {
-            $query->set( 'category__in', $_GET["post_terms"]);
+            $query->set( 'tag__in', $_GET["post_terms"]);
         }
 
         // associazione tra types e post_type
@@ -235,7 +235,7 @@ add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
  */
 add_filter( 'get_the_archive_title', function ($title) {
 global $wp_query;
-    if ( is_category() ) {
+    if ( is_tag() ) {
         $title = __("Argomento", "design_scuole_italia").": ".single_cat_title( '', false );
     } elseif ( is_tag() ) {
         $title = single_tag_title( '', false );

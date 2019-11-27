@@ -248,7 +248,7 @@ if(!function_exists("dsi_get_argomenti_of_post")) {
 			$singular = $post;
 		}
 
-		$argomenti_terms = wp_get_object_terms( $singular->ID, 'category' );
+		$argomenti_terms = wp_get_object_terms( $singular->ID, 'post_tag' );
 		return $argomenti_terms;
 	}
 }
@@ -447,7 +447,7 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
  *
  * @return array
  */
-function dsi_get_post_types_grouped($type = "", $category = false){
+function dsi_get_post_types_grouped($type = "", $tag = false){
 	if($type == "")
 		$type = "any";
 	if($type === "school")
@@ -462,7 +462,7 @@ function dsi_get_post_types_grouped($type = "", $category = false){
 		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "indirizzo", "struttura", "page"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
 	// rimuovo post types che non hanno la categoria
-	if($category){
+	if($tag){
 		if (($key = array_search("page", $post_types)) !== false) {
 			unset($post_types[$key]);
 		}

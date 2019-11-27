@@ -16,7 +16,7 @@ if(isset($_REQUEST["archive"]))
         <ul>
 			<?php
 			$terms = get_terms( array(
-				'taxonomy' => 'category',
+				'taxonomy' => 'post_tag',
 				'hide_empty' => true,
 			) );
 			foreach ( $terms as $term ) {

@@ -18,7 +18,7 @@ if(count($argomenti)) {
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array(
 				array(
-					'taxonomy' => 'category',
+					'taxonomy' => 'post_tag',
 					'field'    => 'term_id',
 					'terms'    => $arr_ids,
 				)
@@ -33,7 +33,7 @@ if(count($argomenti)) {
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array(
 				array(
-					'taxonomy' => 'category',
+					'taxonomy' => 'post_tag',
 					'field'    => 'term_id',
 					'terms'    => $arr_ids,
 				)
@@ -48,7 +48,7 @@ if(count($argomenti)) {
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array(
 				array(
-					'taxonomy' => 'category',
+					'taxonomy' => 'post_tag',
 					'field'    => 'term_id',
 					'terms'    => $arr_ids,
 				)
