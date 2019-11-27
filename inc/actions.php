@@ -192,6 +192,12 @@ add_action( 'pre_get_posts', 'dsi_eventi_filters' );
 function dsi_schede_progetti_filters( $query ) {
 
     if ( ! is_admin() && $query->is_main_query() && is_post_type_archive("scheda_progetto") ) {
+
+        $query->set("meta_key", "_dsi_scheda_progetto_is_realizzato");
+        $query->set("orderby", "_dsi_scheda_progetto_is_realizzato");
+        $query->set("order", "desc");
+
+
         if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
 
             $query->set( 'meta_query', array(
