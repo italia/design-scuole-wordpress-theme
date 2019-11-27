@@ -372,8 +372,22 @@ $date = dsi_get_meta("date");
                         </div><!-- /col-lg-6 -->
                         <div class="col-lg-3 aside-border-left px-0">
                             <div class="aside-sticky">
-								<?php get_template_part("template-parts/evento/calendar"); ?>
-                            </div>
+                                <div class="d-flex justify-content-end pb-4">
+                                    <?php
+                                    $timestamp_inizio = dsi_get_meta("timestamp_inizio");
+                                    $timestamp_fine= dsi_get_meta("timestamp_fine");
+                                    $data_inizio = date_i18n("Ymd", $timestamp_inizio);
+                                    $data_fine = date_i18n("Ymd", $timestamp_fine);
+                                    ?>
+                                    <div class="actions-wrapper actions-main">
+                                        <p><a class="text-underline text-greendark" target="_blank" href="https://calendar.google.com/calendar/r/eventedit?text=<?php echo urlencode(get_the_title()); ?>&dates=<?php echo $data_inizio; ?>/<?php echo $data_fine; ?>&details=<?php echo urlencode(dsi_get_meta("descrizione")); ?>:+<?php echo urlencode(get_permalink()); ?>&location=<?php echo urlencode(dsi_get_option("luogo_scuola")); ?>"> + aggiungi a Google Calendar</a></p>
+                                    </div>
+                                </div>
+
+                                <?php get_template_part("template-parts/evento/calendar"); ?>
+                                <div class="d-flex justify-content-end pb-4">
+                                    <?php get_template_part("template-parts/single/actions"); ?>
+                                </div>
                         </div><!-- /col-lg-3 -->
                     </div><!-- /row -->
                 </div><!-- /container -->

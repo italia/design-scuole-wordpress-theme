@@ -46,6 +46,4 @@ global $post;
     });
 
 </script>
-<div class="d-flex justify-content-end pb-4">
-	<?php get_template_part("template-parts/single/actions"); ?>
-</div>
+
