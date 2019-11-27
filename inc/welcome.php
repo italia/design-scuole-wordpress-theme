@@ -1,4 +1,10 @@
 <?php
+/**
+ * parser readme.md
+ */
+
+require get_template_directory() . '/inc/vendor/parsedown.php';
+
 
 /**
  * Welcome page
@@ -166,3 +172,37 @@ function dsi_screen_layout_dashboard() {
 }
 
 add_filter('get_user_option_screen_layout_dashboard', 'dsi_screen_layout_dashboard');
+
+
+add_action ('admin_menu', function () {
+    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'install_plugins', 'manuale-scuole', 'dsi_readme_render_page', '');
+});
+
+function dsi_readme_render_page(){
+echo '<div class="wrap ">';
+
+    $response = wp_remote_get( 'https://raw.githubusercontent.com/italia/design-scuole-wordpress-theme/master/README.md' );
+
+    if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+
+        $body    = $response['body']; // use the content
+        $Parsedown = new Parsedown();
+        echo $Parsedown->text($body);
+
+    }
+
+echo "</div>";
+}
+
+add_action('admin_bar_menu', 'dsi_add_toolbar_manual', 100);
+function dsi_add_toolbar_manual($admin_bar)
+{
+    $admin_bar->add_menu(array(
+        'id' => 'manuale',
+        'title' => 'Manuale',
+        'href' => admin_url("tools.php?page=manuale-scuole"),
+        'meta' => array(
+            'title' => __('Manuale'),
+        ),
+    ));
+}

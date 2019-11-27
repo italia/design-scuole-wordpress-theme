@@ -75,9 +75,11 @@ require get_template_directory() . '/inc/menu-order.php';
 
 
 /**
- * Admin menu
+ * Import
  */
 require get_template_directory() . '/inc/import.php';
+
+
 
 
 if ( ! function_exists( 'dsi_setup' ) ) :
