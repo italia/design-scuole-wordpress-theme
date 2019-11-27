@@ -16,13 +16,9 @@
 								<div class="form-group search-form">
 									<svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use></svg>
 									<label><?php _e("Cerca","design_scuole_italia"); ?></label>
-									<input type="text" name="s" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+									<input type="text" name="s" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
 								</div>
 								<div class="cat-filters">
-									<div class="custom-control custom-checkbox custom-checkbox-primary">
-										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any" >
-										<label class="custom-control-label" for="tutto"><?php _e("Tutto","design_scuole_italia"); ?></label>
-									</div>
                                     <?php
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("school");
@@ -30,7 +26,7 @@
 	                                    ?>
                                         <div class="custom-control custom-checkbox custom-checkbox-redbrown">
                                             <input type="submit" class="custom-control-input <?php if ( isset( $_GET["type"] ) && $_GET["type"] == "school" ) { echo "checked"; } ?>" id="scuola" name="type" value="school">
-                                            <label class="custom-control-label" for="scuola"><?php _e( "Scuola", "design_scuole_italia" ); ?></label>
+                                            <label class="custom-control-label" for="scuola"><?php _e( "Cerca nella sezione <strong class='text-uppercase text-small-bold'>scuola</strong>", "design_scuole_italia" ); ?></label>
                                         </div>
 	                                    <?php }
                                     // check if post type is used
@@ -39,7 +35,7 @@
                                     ?>
 									<div class="custom-control custom-checkbox custom-checkbox-greendark">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news">
-										<label class="custom-control-label" for="notizie"><?php _e("Novità","design_scuole_italia"); ?></label>
+										<label class="custom-control-label" for="notizie"><?php _e("Cerca tra le <strong class='text-uppercase text-small-bold'>novità</strong>","design_scuole_italia"); ?></label>
 									</div>
 									<?php }
                                     // check if post type is used
@@ -48,7 +44,7 @@
                                     ?>
 									<div class="custom-control custom-checkbox custom-checkbox-purplelight">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "service") echo "checked"; ?>" id="servizi" name="type" value="service">
-										<label class="custom-control-label" for="servizi"><?php _e("Servizi","design_scuole_italia"); ?></label>
+										<label class="custom-control-label" for="servizi"><?php _e("Cerca nei <strong class='text-uppercase text-small-bold'>servizi</strong>","design_scuole_italia"); ?></label>
 									</div>
 									<?php }
                                     // check if post type is used
@@ -57,7 +53,7 @@
                                     ?>
 									<div class="custom-control custom-checkbox custom-checkbox-bluelectric">
 										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "education") echo "checked"; ?>" id="didattica" name="type" value="education">
-										<label class="custom-control-label" for="didattica"><?php _e("Didattica","design_scuole_italia"); ?></label>
+										<label class="custom-control-label" for="didattica"><?php _e("Cerca nella <strong class='text-uppercase text-small-bold'>didattica</strong>","design_scuole_italia"); ?></label>
 									</div>
 									<?php }
                                     // check if post type is used
@@ -70,19 +66,23 @@
 										<label class="custom-control-label" for="la-mia-classe"><?php _e("La mia classe","design_scuole_italia"); ?></label>
 									</div>
 									<?php } */ ?>
+                                    <div class="custom-control custom-checkbox custom-checkbox-primary">
+                                        <input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any" >
+                                        <label class="custom-control-label" for="tutto"><?php _e("Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>","design_scuole_italia"); ?></label>
+                                    </div>
 								</div>
 							</div>
 						</div>
 						<div class="row variable-gutters">
 							<div class="col-lg-12">
 								<div class="badges-wrapper">
-									<h4><?php _e("Argomenti","design_scuole_italia"); ?></h4>
+									<h4><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h4>
 									<div class="badges">
                                         <?php
                                         $categories = get_categories(array(
 	                                        'orderby' => 'count',
 	                                        'order'   => 'ASC',
-	                                        'hide_empty'   => 0,
+	                                        'hide_empty'   => 1,
 	                                        'parent'  => 0,
 	                                        'number' => 20
                                         ));
