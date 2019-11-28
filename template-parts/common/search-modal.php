@@ -83,7 +83,7 @@
                                         $argomenti = get_terms(array(
                                             'taxonomy' => 'post_tag',
 	                                        'orderby' => 'count',
-	                                        'order'   => 'ASC',
+	                                        'order'   => 'DESC',
 	                                        'hide_empty'   => 1,
 	                                        'number' => "20"
                                         ));

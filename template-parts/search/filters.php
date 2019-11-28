@@ -63,6 +63,7 @@ if(isset($_GET["post_terms"]))
 	            'taxonomy' => 'post_tag',
 	            'hide_empty' => true,
 	            'orderby'    => 'count',
+                'order'   => 'DESC',
                 'number' => 20,
             ) );
             foreach ($terms as $term){
