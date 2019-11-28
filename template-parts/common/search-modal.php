@@ -80,12 +80,12 @@
 									<div class="badges">
                                         <?php
 
-                                        $argomenti = get_tags(array(
+                                        $argomenti = get_terms(array(
+                                            'taxonomy' => 'post_tag',
 	                                        'orderby' => 'count',
 	                                        'order'   => 'ASC',
 	                                        'hide_empty'   => 1,
-	                                        'parent'  => 0,
-	                                        'number' => 20
+	                                        'number' => "20"
                                         ));
                                         foreach ($argomenti as $argomento){
                                             $taglink = get_tag_link($argomento);  ?>
