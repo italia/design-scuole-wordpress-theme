@@ -1019,10 +1019,10 @@ function dsi_create_pages_on_theme_activation() {
         }
 
     }
-    update_option('tag_base', "/argomento");
-    global $wp_rewrite;
-    $wp_rewrite->flush_rules();
 
+    global $wp_rewrite;
+    $wp_rewrite->set_tag_base("/argomento" );
+    $wp_rewrite->flush_rules(true);
     update_option("dsi_has_installed", true);
 }
 
