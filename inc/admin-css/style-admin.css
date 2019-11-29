@@ -124,7 +124,7 @@
     display:none !important;
 }
 
-.cmb2-id--dsi-struttura-indirizzi .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label, .cmb2-id--dsi-struttura-link-percorsi-di-studio .cmb-th label{
+.cmb2-id--dsi-struttura-indirizzi .cmb-th label,.cmb2-id--dsi-struttura-codice-meccanografico .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label, .cmb2-id--dsi-struttura-link-percorsi-di-studio .cmb-th label{
     color:#D1344C;
 }
 

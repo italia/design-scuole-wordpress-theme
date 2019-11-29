@@ -47,7 +47,12 @@ get_header();
 
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-4  mb-4">
-                                            <?php get_template_part("template-parts/struttura/card", "dark"); ?>
+                                            <?php
+                                            if(dsi_is_scuola($struttura))
+                                                get_template_part("template-parts/struttura/card", "dark-codice");
+                                            else
+                                                get_template_part("template-parts/struttura/card", "dark");
+                                                ?>
                                         </div><!-- /col-lg-3 -->
                                         <div class="col-lg-8">
                                             <div class="row variable-gutters">
@@ -56,7 +61,12 @@ get_header();
                                                 foreach ($strutture_child as $struttura) {
                                                     ?>
                                                     <div class="col-lg-6 lg-6 mb-4">
-                                                        <?php get_template_part("template-parts/struttura/card"); ?>
+                                                        <?php
+                                                        if(dsi_is_scuola($struttura))
+                                                            get_template_part("template-parts/struttura/card", "codice");
+                                                        else
+                                                            get_template_part("template-parts/struttura/card");
+                                                        ?>
                                                     </div><!-- /col-lg-4 -->
                                                     <?php
                                                 }

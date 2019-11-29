@@ -122,6 +122,18 @@ function dsi_add_struttura_metaboxes() {
     ) );
 
     $cmb_sottotitolo->add_field( array(
+        'id' => $prefix . 'codice_meccanografico',
+        'name'    => __( 'Codice meccanografico ', 'design_scuole_italia' ),
+        'desc' => __( 'Codice meccanografico dalla scuola' , 'design_scuole_italia' ),
+        'type'    => 'text',
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'tipologia',
+            'data-conditional-value' => "scuola",
+        ),
+    ) );
+
+
+    $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'descrizione',
         'name'        => __( 'Descrizione Breve', 'design_scuole_italia' ),
         'desc' => __( 'Indicare una sintetica descrizione della struttura (max 160 caratteri) ' , 'design_scuole_italia' ),
