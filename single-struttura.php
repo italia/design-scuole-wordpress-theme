@@ -165,7 +165,12 @@ get_header();
                                 }
 
                                 if(dsi_is_scuola($post) && $link_servizi_didattici){ ?>
-                                    <h6><?php _e("Indirizzo di studio", "design_scuole_italia"); ?></h6>
+                                    <h6><?php
+                                        if(is_array($link_servizi_didattici) && count($link_servizi_didattici) > 1)
+                                            _e("Indirizzi di studio", "design_scuole_italia");
+                                        else
+                                            _e("Indirizzo di studio", "design_scuole_italia");
+                                        ?></h6>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_servizi_didattici as $idservizio){
