@@ -200,6 +200,40 @@ Per scaricare il progetto esegui i seguenti comandi
 + git submodule update
 
 
+## Licenze software dei componenti di terze parti
+
+### Componenti distribuiti con i template
+Di seguito elencati i componenti distribuiti con il tema Wordpress
+
+- [CMB2](https://github.com/CMB2/CMB2) © Justin Sternberg, licenza GNU GPL v3.0
+- [CMB2-conditional-logic](https://github.com/awran5/CMB2-conditional-logic/) © Ahmed Khalil, licenza GNU GPL v2.0
+- [CMB2-field-Leaflet-Geocoder](https://github.com/villeristi/CMB2-field-Leaflet-Geocoder) © Ville Ristimäki, licenza MIT
+- [cmb-field-select2](https://github.com/mustardBees/cmb-field-select2) © Phil Wylie, licenza GNU GPL v3.0
+- [cmb2-attached-posts](https://github.com/CMB2/cmb2-attached-posts) © Justin Sternberg, licenza GNU GPL v3.0
+- [TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) © Gary Jones, licenza GNU GPL v2.0
+- [Parsedown](ttp://parsedown.org) © Aidan Woods, licenza MIT
+
+
+Di seguito elencati i componenti distribuiti (derivati dal template html utilizzato per realizzare il tema: https://github.com/italia/design-scuole-pagine-statiche), che hanno una propria licenza diversa da CC0.
+
+- [jQuery](https://jquery.com/) © jQuery Foundation, licenza MIT
+- [Popper.js](https://popper.js.org/) © Federico Zivolo and contributors, licenza MIT
+- [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) © Team per la Trasformazione Digitale, licenza BSD
+- [Bootstrap 4](https://getbootstrap.com/) © Twitter, Inc., licenza MIT
+- [Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) © SnapAppointments, LLC, licenza MIT
+- [Owl Carousel 2](https://owlcarousel2.github.io/OwlCarousel2/) © Owl (David Deutsch), licenza MIT
+- [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/) © George McGinley Smith, licenza BSD
+- [CLNDR](https://kylestetz.github.io/CLNDR/) © Kyle Stetz, licenza MIT
+- [FitVids](http://fitvidsjs.com/) © Dave Rupert, licenza MIT
+- [Hamburgers](https://jonsuh.com/hamburgers/) © Jonathan Suh, licenza MIT
+- [Match Height](https://brm.io/jquery-match-height/) © Liam Brummitt, licenza MIT
+- [ScrollTo](https://github.com/flesler/jquery.scrollTo) © Ariel Flesler, licenza MIT
+- [Leaflet](https://leafletjs.com/) © Vladimir Agafonkin, licenza BSD
+- [Perfect Scrollbar](https://github.com/mdbootstrap/perfect-scrollbar/) © Hyunje Jun, licenza MIT
+- [Responsive Tabs](http://jellekralt.github.io/Responsive-Tabs/) © Jelle Kralt, licenza MIT
+- [Sticky Kit](https://leafo.net/sticky-kit/) © Leafo, licenza MIT
+- [svgxuse](https://icomoon.io/svgxuse-demo/) © Icomoon, licenza MIT
+
 
 ## Segnalazione bug e richieste di aiuto
 Vuoi segnalare un bug o fare una richiesta?
