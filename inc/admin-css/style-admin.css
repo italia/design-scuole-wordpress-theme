@@ -21,6 +21,33 @@
 
 /*****************/
 
+
+.manuale ul{
+    list-style-type: circle;
+    margin-left:20px;
+
+}
+
+.manuale li{
+    padding:0px;
+}
+.manuale h2,.manuale h3, .manuale h4, .manuale h5 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.manuale p{
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.manuale .notice, .manuale .updated{
+    display:none;
+}
+
+
+/******************/
+
 .attached-posts-wrap ul{
     height: 10em !important;
 }

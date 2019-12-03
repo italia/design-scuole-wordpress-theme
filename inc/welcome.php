@@ -175,13 +175,13 @@ add_filter('get_user_option_screen_layout_dashboard', 'dsi_screen_layout_dashboa
 
 
 add_action ('admin_menu', function () {
-    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'install_plugins', 'manuale-scuole', 'dsi_readme_render_page', '');
+    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'install_plugins', 'manuale-scuole', 'dsi_readme_render_manual', '');
 });
 
-function dsi_readme_render_page(){
-echo '<div class="wrap ">';
+function dsi_readme_render_manual(){
+echo '<div class="wrap manuale">';
 
-    $response = wp_remote_get( 'https://raw.githubusercontent.com/italia/design-scuole-wordpress-theme/master/README.md' );
+    $response = wp_remote_get( 'https://raw.githubusercontent.com/italia/design-scuole-wordpress-theme/master/README.md?test=1' );
 
     if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
