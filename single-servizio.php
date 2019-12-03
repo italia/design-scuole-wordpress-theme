@@ -225,7 +225,7 @@ get_header();
                                     <h6><?php _e("Autenticazione", "design_scuole_italia"); ?></h6>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
-                                            <?php echo wpautop($autenticazione); ?>
+                                            <?php echo apply_filters("the_content", $autenticazione); ?>
                                         </div><!-- /col-lg-9 -->
                                         <?php  if($spid){ ?>
                                             <div class="col-lg-3">
