@@ -163,20 +163,43 @@ if(!function_exists("dsi_get_user_role")) {
 	function dsi_get_user_role( $user = false ) {
 		global $wp_roles;
 
+
 		if ( ! $user && is_user_logged_in() ) {
 			$user = wp_get_current_user();
 		}
 
-		$roles = array();
-		if ( ! empty( $user->roles ) && is_array( $user->roles ) ) {
-			foreach ( $user->roles as $role ) {
-				$roles[] .= translate_user_role( $role);
-			}
-		}
-		$role = implode( ', ', $roles );
-		$role = apply_filters( "dsi_user_role", $role, $user );
+        $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola', $user->ID);
+        $tipo_posto = get_the_author_meta('_dsi_persona_tipo_posto', $user->ID);
+        $ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente', $user->ID);
 
-		return $role;
+        $str_ruolo = "";
+        if($ruolo_scuola == "dirigente"){
+            $str_ruolo .= "Dirigente Scolastico ";
+        }else if($ruolo_scuola == "docente"){
+            $str_ruolo .= "Docente ";
+
+            if($tipo_posto == "sostegno"){
+                $str_ruolo .= "di sostegno ";
+            }
+
+        }else if($ruolo_scuola == "personaleata"){
+
+            if($ruolo_non_docente == "direttore-amministrativo"){
+                $str_ruolo .= "Direttore amministrativo ";
+            }else if($ruolo_non_docente == "tecnico"){
+                $str_ruolo .= "Personale tecnico ";
+            }else if($ruolo_non_docente == "amministrativo"){
+                $str_ruolo .= "Personale amministrativo ";
+            }else if($ruolo_non_docente == "collaboratore"){
+                $str_ruolo .= "Collaboratore scolastico";
+            }else{
+                $str_ruolo .= "Non docente ";
+            }
+
+
+        }
+
+        return $str_ruolo;
 	}
 }
 
