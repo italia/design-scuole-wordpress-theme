@@ -284,7 +284,7 @@ get_header();
                                     <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
                                             <div class="col-lg-12  px-0 wysiwig-text">
-                                            <?php echo wpautop($cosa_serve); ?>
+                                            <?php echo apply_filters("the_content", $cosa_serve); ?>
                                             </div>
                                             <?php if(is_array($cosa_serve_list)) {
                                                 ?>
