@@ -175,7 +175,7 @@ add_filter('get_user_option_screen_layout_dashboard', 'dsi_screen_layout_dashboa
 
 
 add_action ('admin_menu', function () {
-    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'install_plugins', 'manuale-scuole', 'dsi_readme_render_manual', '');
+    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'read', 'manuale-scuole', 'dsi_readme_render_manual', '');
 });
 
 function dsi_readme_render_manual(){
