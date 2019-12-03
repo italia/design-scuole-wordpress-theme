@@ -25,6 +25,8 @@ https://liceodalpiaz.la-scuola.it/
 
 https://comprensivobosisio.la-scuola.it/
 
+https://icfeltre.la-scuola.it/
+
 Il consiglio è quello di cominciare a creare i diversi contenuti in questo ordine:
 - luoghi
 - strutture
