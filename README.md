@@ -228,7 +228,7 @@ Di seguito elencati i componenti distribuiti con il tema Wordpress
 - [cmb-field-select2](https://github.com/mustardBees/cmb-field-select2) © Phil Wylie, licenza GNU GPL v3.0
 - [cmb2-attached-posts](https://github.com/CMB2/cmb2-attached-posts) © Justin Sternberg, licenza GNU GPL v3.0
 - [TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) © Gary Jones, licenza GNU GPL v2.0
-- [Parsedown](ttp://parsedown.org) © Aidan Woods, licenza MIT
+- [Parsedown](http://parsedown.org) © Aidan Woods, licenza MIT
 
 
 Di seguito elencati i componenti distribuiti (derivati dal template html utilizzato per realizzare il tema: https://github.com/italia/design-scuole-pagine-statiche), che hanno una propria licenza diversa da CC0.
