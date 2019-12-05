@@ -4,6 +4,21 @@
 
 
 **Design Scuole Italia** è un tema di WordPress utilizzabile per i siti internet delle **Scuole Italiane**.
+
+
+## Indice
+
+- [Cos'è](#cosè)
+- [Cosa fa](#cosa-fa)
+- [Da dove iniziare](#da-dove-iniziare)
+- [Approfondimenti](#approfondimenti)
+- [Personalizzazioni](#personalizzazione)
+- [Ti serve aiuto?](#ti-serve-aiuto)
+- [Come installare Design Scuole Italia](#come-installare-design-scuole-italia)
+- [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
+- [Segnalazione bug e richieste di aiuto](#segnalazione-bug-e-richieste-di-aiuto)
+- [Come contribuire](#come-contribuire)
+
 #### Cos'è
 
 E' basato sul modello di siti per le scuole italiane, creato nell’ambito del progetto **Designers Italia di Presidenza del Consiglio**, in accordo con il **MIUR**. Nel rispetto dell’autonomia scolastica e con l’obiettivo di creare un prodotto in grado di rispondere ai principali bisogni di tutte le scuole, lo abbiamo progettato dopo aver condotto decine di workshop e migliaia di interviste con insegnanti, personale tecnico amministrativo, genitori e studenti.
@@ -192,7 +207,7 @@ Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://itali
 
 ---
 
-## Come utlizzare Design Scuole Italia
+## Come installare Design Scuole Italia
 
 Per scaricare il progetto esegui i seguenti comandi
 
