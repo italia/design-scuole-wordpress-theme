@@ -37,11 +37,7 @@ Il tema comporrà le diverse pagine sulla base dei contenuti inseriti. In questo
 
 Il primo consiglio è iniziare guardando altre scuole che hanno fatto questo lavoro prima di te. Troverai ispirazione su come scrivere i contenuti necessari per la tua scuola:
 
-https://liceodalpiaz.la-scuola.it/
-
-https://comprensivobosisio.la-scuola.it/
-
-https://icfeltre.la-scuola.it/
+https://italia.github.io/design-scuole-wordpress-theme-demo/
 
 Il consiglio è quello di cominciare a creare i diversi contenuti in questo ordine:
 - luoghi
