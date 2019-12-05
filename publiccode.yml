@@ -10,19 +10,20 @@ description:
     documentation: >-
       https://github.com/italia/design-scuole-wordpress-theme/blob/master/README.md
     features:
-      - popolamento automatico dell'architettura del sito
-      - gestione delle circolari con notifica e feedback utente
-      - 'gestione delle strutture organizzative '
-      - gestione di schede progetto e schede didattiche
-      - gestione dei luoghi della scuola
-      - gestione degli eventi e del calendario scolastico
-      - gestione di articoli e news
-      - gestione degli indirizzi di studio
+      - Popolamento automatico dell'architettura del sito
+      - Gestione delle circolari con notifica e feedback utente
+      - Gestione delle strutture organizzative
+      - Gestione di schede progetto e schede didattiche
+      - Gestione dei luoghi della scuola
+      - Gestione degli eventi e del calendario scolastico
+      - Gestione di articoli e news
+      - Gestione degli indirizzi di studio
     genericName: Tema Wordpress
     localisedName: design_scuole_italia
     longDescription: >
       E' basato sul modello di siti per le scuole italiane, creato nell’ambito
-      del progetto **Designers Italia di Presidenza del Consiglio**, in accordo
+      del progetto **Designers Italia del Team per la Trasformazione Digitale
+      in seno alla  Presidenza del Consiglio dei Ministri**, in accordo
       con il **MIUR**. Nel rispetto dell’autonomia scolastica e con l’obiettivo
       di creare un prodotto in grado di rispondere ai principali bisogni di
       tutte le scuole, lo abbiamo progettato dopo aver condotto decine di
@@ -41,8 +42,7 @@ description:
       - >-
         https://raw.githubusercontent.com/italia/design-scuole-wordpress-theme/master/screenshot.png
     shortDescription: >-
-      Design Scuole Italia è un tema di WordPress utilizzabile per i siti
-      internet delle Scuole Italiane.
+        Design Scuole Italia è un tema WordPress per i siti delle Scuole Italiane. 
 developmentStatus: stable
 intendedAudience:
   countries:
@@ -50,12 +50,14 @@ intendedAudience:
   scope:
     - education
 it:
+  countryExtensionVersion: '0.2'
+  riuso:
+    codiceIPA: istsc_blps020006
   conforme:
     gdpr: false
     lineeGuidaDesign: true
     misureMinimeSicurezza: false
     modelloInteroperabilita: false
-  countryExtensionVersion: '0.2'
   piattaforme:
     anpr: false
     cie: false
