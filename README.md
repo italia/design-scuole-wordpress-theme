@@ -17,7 +17,7 @@
 - [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
 - [I diversi content type](#i-diversi-content-type)
 - [Personalizzazione](#personalizzazione)
-- [F.A.Q.](#f.a.q.)
+- [FAQ](#faq)
 - [Ti serve aiuto?](#ti-serve-aiuto)
 - [Come installare Design Scuole Italia](#come-installare-design-scuole-italia)
 - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
@@ -50,6 +50,7 @@ L’idea generale è che una scuola possa risparmiare tempo nel progettazione e 
 Il primo consiglio che diamo, è quello di iniziare guardando altre scuole che hanno fatto questo lavoro prima di te. Troverai ispirazione su come scrivere i contenuti necessari per la tua scuola:
 
 [Il Liceo “Dal Piaz” di Feltre](https://liceodalpiaz.la-scuola.it/)
+
 [L’Istituto Comprensivo Bosisio Parini di Lecco](https://comprensivobosisio.la-scuola.it/)
 
 
@@ -124,44 +125,55 @@ Nella maggior parte dei casi questa correlazione è bidirezionale e automatica (
 #### I diversi *content type*
 
 *I luoghi*
+
 Nella scheda luoghi è possibile descrivere tutti gli ambienti presenti nell’istituto: edifici scolastici, laboratori, palestre, biblioteche. I campi presenti nella parte di redazione del testo guidano nella compilazione. È possibile indicare la posizione sulla mappa dei luoghi che si vanno a descrivere. Questo permetterà di avere una mappa dei luoghi della scuola.
 I luoghi possono essere messi in relazione tra loro, come per esempio un laboratorio presente all’interno di un edificio scolastico.
 
 *Le strutture*
+
 La struttura organizzativa è uno degli elementi essenziali nella presentazione dell’istituto. In caso di istituti comprensivi è necessario creare in primo luogo la struttura “Genitore” di tipo “Scuola” (l’istituto stesso) e solo in un secondo momento le strutture “figlie” (i singoli plessi). Nella scheda della singola struttura va indicato il luogo o i luoghi in cui la struttura ha sede. Oltre ai plessi sono strutture organizzative anche le commissioni, gli uffici di segreteria, i dipartimenti, gli organi collegiali, etc..
 
 *I servizi*
+
 Quello dei servizi è un aspetto di novità presente nella struttura del tema, utili a raccontare e organizzare i servizi offerti dalla scuola (iscrizione alle scuole, registro elettronico, etc). Questi sono organizzati e presentati in base alla loro tipologia. 
 Anche qualora il servizio sia erogato da una piattaforma esterna, è utile creare una scheda che racconti il servizio e indichi i punti e le modalità di accesso.
 
 *Le persone*
+
 Un altro aspetto importante è quello delle persone. 
 In questo tema le persone corrispondono agli utenti Wordpress. Questo permetterà loro di essere menzionate sul sito, di avere una scheda di dettaglio,  di poter gestire individualmente le informazioni di descrizione e di contatto, e di accedere per la gestione delle notifiche e delle firme delle circolari.
 
 Consigliamo di mappare e creare il prima possibile le utenze delle persone, così da poterle subito correlare con i contenuti inseriti. È necessario farlo anche se queste non avranno un ruolo attivo sul sito, creando le utenze senza inviare loro la mail con le credenziali di accesso (possono essere inviate eventualmente in seguito) . In questo modo tutto il personale scolastico avrà la possibilità di produrre contenuti (quando necessario), ricevere notifiche personalizzate relative alla circolari oltre ad altre funzionalità.
 
 *I percorsi e gli indirizzi di studio*
+
 La sezione dei percorsi di studio è dedicata a illustrare l’offerta formativa dell’istituto, differenziato per ogni ordine di scuola o tipologia di indirizzo.
 
 *I documenti*
+
 La sezione dei documenti è quella dedicata a raccogliere i documenti, tipicamente dei file PDF: PTOF, POF, RAV, PAI…..
 In questa sezione vanno caricati anche i documenti che hanno come destinazione l’albo online o la sezione di amministrazione trasparente. I documenti in albo hanno una numerazione progressiva non modificabile e una volta pubblicati possono solo essere annullati. I documenti sono poi richiamabili nei diversi content type del sito, quando necessario. E’ sempre consigliabile creare schede documenti piuttosto che caricare i file direttamente dentro i content type, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca
 
 *I progetti*
+
 Il *content type* “progetto” serve a raccontare i risultati di un'attività svolta insieme agli studenti all'interno della scuola o nell'ambito di una uscita didattica, nell'ambito della didattica tradizionale o di attività ad essa complementari.
 
 *Le schede didattiche*
+
 Le schede didattiche permettono di descrivere un approfondimento tematico a cura di uno o più insegnanti. La scheda è rivolta agli studenti. Nel content type “scheda didattica” è inoltre possibile definire il collegamento delle schede didattiche con i luoghi, le strutture e i documenti della scuola
 
 *Le notizie*
+
 Le notizie sono rappresentate dal *content type* “articolo”, nativo di Wordpress. Queste sono organizzate per tipologia (news e articoli sono le 2 tipologie create all’attivazione del tema), e sono utili a organizzare le notizie nella pagina di presentazione generale, o per filtrare le notizie per tipologia nelle pagine di archivio. 
 
 La tipologia news è pensata per raccontare le notizie della scuola, mentre la sezione articoli è pensata per una gestione di articoli generici, stile blog.
 
 *Eventi e calendario eventi*
+
 Il content type “evento” serve a raccontare eventi che hanno una data di inizio e fine, e che  possono essere quindi rappresentati in un calendario scolastico (es: la chiusura delle attività nel periodo natalizio)
 
 *Le circolari*
+
 Il flusso di vita tipico di una circolare all’interno di un istituto è solitamente il seguente:
 a. L'insegnante riempie una scheda circolare
 b. Invio la scheda alla segreteria
@@ -201,17 +213,21 @@ Su Slack di Developers Italia (una piattaforma del Dipartimento di trasformazion
 
 [Vai al canale Slack](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
-#### F.A.Q.
+#### FAQ
 *Chi gestisce il sito?*
+
 Le modalità con cui gestisci abitualmente il tuo sito non cambieranno (di solito le scuole hanno un fornitore per hosting e manutenzione). La gestione dei siti scolastici è di responsabilità delle scuole.
 
 *Perché esiste un tema pronto solo per Wordpress?*
+
 Wordpress è il CMS più usato nelle scuole, non abbiamo risorse per creare tutte le tipologie di CMS ma abbiamo creato un kit (kit template e architettura informativa) per chi lo voglia fare. [Qui](https://github.com/italia/design-scuole-pagine-statiche/) trovi il kit.
 
 *Non ho wordpress cosa devo fare?*
+
 In futuro ci saranno sicuramente fornitori e/o scuole e/o associazioni che svilupperanno soluzioni Drupal e per altri CMS basati sul kit per le scuole. Puoi aspettare, oppure, se vuoi adottare subito il kit e il nuovo sito, devi passare a Wordpress.
 
 *Inserire i contenuti sembra più complesso che in passato, è così?*
+
 Prima di tutto: cambiare metodo di lavoro richiede sempre uno sforzo aggiuntivo :) 
 Detto ciò, rispetto alla media dei siti scolastici abbiamo osservato che:
 - si fa prima a classificare e organizzare i contenuti (“configurare il tema”). E’ già tutto pronto nella nuova logica “chiavi in mano”;
@@ -221,9 +237,11 @@ Detto ciò, rispetto alla media dei siti scolastici abbiamo osservato che:
 E’ solo un esempio ma...se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
 
 *Posso fare dei cambiamenti al sito?*
+
 Wordpress è un ambiente pensato per consentire di modificare con semplicità ogni aspetto del sito. 
 
 *Consigliate di fare cambiamenti al sito?*
+
 Il sito copre tutte le esigenze di base emerse da centinaia di interviste fatte con personale scolastico e famiglie. Ciò non toglie che un sito possa essere usato per fare una infinità di cose attualmente non previste (ad esempio, creare un’area condivisa di materiali didattici). Queste novità possono essere utili anche ad altre scuole, per questo è bene non solo realizzarle ma anche condividerle con realtà come la comunità Porte Aperte sul Web che può supportarvi e aiutare a mettere a fattore comune le diverse innovazioni.
 
 Sconsigliamo fortemente di apportare modifiche per introdurre “modi diversi di fare le cose”, modificare la classificazione delle informazioni o la struttura di navigazione. Modifiche di questo tipo portano al proliferare di soluzioni diverse e ridurranno la possibilità della vostra scuola di beneficiare di evoluzioni future del prodotto (problematiche di aggiornamento del tema, ecc. ecc.). In questi casi è invece più utile segnalare a realtà come Porte Aperte sul Web idee e piccoli miglioramenti in modo che loro possano valutarli e poi metterli a disposizioni di tutti.
