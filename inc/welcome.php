@@ -175,7 +175,7 @@ add_filter('get_user_option_screen_layout_dashboard', 'dsi_screen_layout_dashboa
 
 
 add_action ('admin_menu', function () {
-    add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'read', 'manuale-scuole', 'dsi_readme_render_manual', '');
+  //  add_management_page('Manuale Tema Scuole', 'Manuale Tema Scuole', 'read', 'manuale-scuole', 'dsi_readme_render_manual', '');
 });
 
 function dsi_readme_render_manual(){
@@ -200,9 +200,10 @@ function dsi_add_toolbar_manual($admin_bar)
     $admin_bar->add_menu(array(
         'id' => 'manuale',
         'title' => 'Manuale',
-        'href' => admin_url("tools.php?page=manuale-scuole"),
+        'href' => 'https://docs.google.com/document/d/1naD7nk9R62tb2OyE25ofPpqUZolfbPjwtF_AwceSnQg/edit#heading=h.cavkdt8hpm8v',
         'meta' => array(
             'title' => __('Manuale'),
+            'target' => '_blank'
         ),
     ));
 }
