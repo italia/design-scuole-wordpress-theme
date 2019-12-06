@@ -71,7 +71,6 @@ Una volta iniziato il lavoro sui primi cinque punti elencati sopra, ci si può s
 - notizie
 - eventi 
 - circolari 
-- eventi
 - documenti
 - progetti scolastici
 - schede didattiche. 
