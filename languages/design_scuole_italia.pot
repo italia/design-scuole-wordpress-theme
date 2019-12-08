@@ -8,140 +8,146 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator:\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2019-12-08 19:30+0100\n"
+"Last-Translator:albano battistella\n"
+"Language-Team: Italian <albano_battistella@hotmail.com>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Oops! Questa pagina non può essere trovata"
 
 #: 404.php:21
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the "
 "links below or a search?"
 msgstr ""
+Sembra che non sia stato trovato nulla in questa posizione. Forse prova uno dei "
+"link sotto o una ricerca?"
 
 #: 404.php:30
 msgid "Most Used Categories"
-msgstr ""
+msgstr "Categorie Più Utilizzate"
 
 #: 404.php:47
 #. translators: %1$s: smiley
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "Prova a guardare negli archivi mensili. %1$s"
 
 #: comments.php:34
 #. translators: 1: title.
 msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr ""
+msgstr "un pensiero su &ldquo;%1$s&rdquo; "
 
 #: comments.php:67
 msgid "Comments are closed."
-msgstr ""
+msgstr "I commenti sono chiusi"
 
 #: footer.php:18
 msgid "https://wordpress.org/"
-msgstr ""
+msgstr "https://wordpress.org/"
 
 #: footer.php:20
 #. translators: %s: CMS name, i.e. WordPress.
 msgid "Proudly powered by %s"
-msgstr ""
+msgstr "Orgogliosamente motorizzato da %s"
 
 #: footer.php:25
 #. translators: 1: Theme name, 2: Theme author.
 msgid "Theme: %1$s by %2$s."
-msgstr ""
+msgstr "Tema: %1$s di %2$s."
 
 #: functions.php:47
 msgid "Primary"
-msgstr ""
+msgstr "Principale"
 
 #: functions.php:105
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra Laterale"
 
 #: functions.php:107
 msgid "Add widgets here."
-msgstr ""
+msgstr "Aggiungi widget qui."
 
 #: header.php:24
 msgid "Skip to content"
-msgstr ""
+msgstr "Salta al contenuto"
 
 #: header.php:45
 msgid "Primary Menu"
-msgstr ""
+msgstr "Menu Principale"
 
 #: inc/template-tags.php:52
 #. translators: used between list items, there is a space after the comma
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: inc/template-tags.php:55
 #. translators: 1: list of categories.
 msgid "Posted in %1$s"
-msgstr ""
+msgstr "Posted in %1$s"
 
 #: inc/template-tags.php:62
 #. translators: 1: list of tags.
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "Taggato %1$s"
 
 #: inc/template-tags.php:72
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
+msgstr "Lascia un commento <span class =\"screen-reader-text \"> su%s</span>"
 
 #: inc/template-tags.php:89 template-parts/content-page.php:35
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
+msgstr "Modifica <span class=\"screen-reader-text\">%s</span>"
 
 #: search.php:21
 #. translators: %s: search query.
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Cerca Risultati per: %s"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "Non è stato trovato nulla"
 
 #: template-parts/content-none.php:25
 #. translators: 1: link to WP admin new post page.
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
+msgstr "Pronto a pubblicare il tuo primo post? <a href=\"%1$s\">Get started here</a>."
 
 #: template-parts/content-none.php:38
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Siamo spiacenti, ma nulla corrisponde ai tuoi termini di ricerca. Riprova con alcune"
+"differenti parole chiave".
 
 #: template-parts/content-none.php:44
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Sembra che non riusciamo a trovare quello che stai cercando. Forse"
+"la ricerca può aiutare."
 
 #: template-parts/content-page.php:22 template-parts/content.php:45
 msgid "Pages:"
-msgstr ""
+msgstr "Pagine"
 
 #: template-parts/content.php:34
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
+msgstr "Continua a leggere<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #. Theme Name of the plugin/theme
 msgid "_s"
-msgstr ""
+msgstr "_s"
 
 #. Theme URI of the plugin/theme
 msgid "https://underscores.me/"
-msgstr ""
+msgstr "https://underscores.me/"
 
 #. Description of the plugin/theme
 msgid ""
@@ -150,37 +156,41 @@ msgid ""
 "Theme</em>. Instead try turning me into the next, most awesome, WordPress "
 "theme out there. That's what I'm here for."
 msgstr ""
+"Ciao. Sono un tema di partenza chiamato <code> _s </code>, o <em> caratteri di sottolineatura </em>, se"
+"ti piace. Sono un tema pensato per l'hacking, quindi non usarmi come <em> Tema"
+"Principale </em>. Prova invece a trasformarmi nel prossimo, fantastico, WordPress"
+"tema là fuori. Ecco per cosa sono qui."
 
 #. Author of the plugin/theme
 msgid "Automattic"
-msgstr ""
+msgstr "Automattic"
 
 #. Author URI of the plugin/theme
 msgid "https://automattic.com/"
-msgstr ""
+msgstr "https://automattic.com/"
 
 #: comments.php:40
 #. translators: 1: comment count number, 2: title.
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s pensato su &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s pensati su &ldquo;%2$s&rdquo;"
 
 #: inc/template-tags.php:29
 #. translators: %s: post date.
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr ""
+msgstr "Pubblicato il %s"
 
 #: inc/template-tags.php:35
 #. translators: %s: post author.
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "di %s"
 
 #: inc/template-tags.php:59
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "
-msgstr ""
+msgstr ","
