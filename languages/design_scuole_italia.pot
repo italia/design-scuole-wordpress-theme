@@ -1,10 +1,11 @@
-# Copyright (C) 2017 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
+# Copyright (C) 2019 Marco Buttarini
+# This file is distributed under the AGPL 3.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2016-12-23 16:00+0100\n"
+"Project-Id-Version: Design Scuole Italia 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/design-scuole-wordpress-theme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,184 +14,4648 @@ msgstr ""
 "Language-Team: Italian <albano_battistella@hotmail.com>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: 404.php:17
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Oops! Questa pagina non può essere trovata"
+#. Description of the theme
+msgid "Design Scuole Italia è il tema di WordPress per i siti delle Scuole Italiane. Rispetta le linee guida di design dell’Agenzia per l’Italia digitale rilasciare dal Team per la Trasformazione Digitale. Utilizza Bootstrap Italia."
+msgstr ""
+
+#. Author of the theme
+msgid "Marco Buttarini"
+msgstr ""
 
 #: 404.php:21
-msgid ""
-"It looks like nothing was found at this location. Maybe try one of the "
-"links below or a search?"
+msgid "404"
 msgstr ""
-Sembra che non sia stato trovato nulla in questa posizione. Forse prova uno dei "
-"link sotto o una ricerca?"
 
-#: 404.php:30
-msgid "Most Used Categories"
-msgstr "Categorie Più Utilizzate"
+#: 404.php:22
+msgid "Pagina non trovata"
+msgstr ""
 
-#: 404.php:47
-#. translators: %1$s: smiley
-msgid "Try looking in the monthly archives. %1$s"
-msgstr "Prova a guardare negli archivi mensili. %1$s"
+#: 404.php:23
+msgid "Oops! La pagina che cerchi non è stata trovata, <a href=\"javascript:history.back();\" title=\"Torna alla pagina precedente\">torna indietro</a> o utilizza il menu per continuare la navigazione."
+msgstr ""
 
-#: comments.php:34
+#: archive-circolare.php:22
+#: archive-evento.php:21
+#: archive-indirizzo.php:30
+#: archive-programma_materia.php:36
+#: archive-scheda_didattica.php:27
+#: archive-scheda_progetto.php:27
+#: archive-servizio.php:20
+#: archive.php:44
+#: taxonomy-amministrazione-trasparente.php:32
+#: taxonomy-percorsi-di-studio.php:26
+#: taxonomy-tipologia-articolo.php:27
+#: taxonomy-tipologia-documento.php:19
+#: taxonomy-tipologia-luogo.php:19
+#: taxonomy-tipologia-progetto.php:19
+#: taxonomy-tipologia-struttura.php:19
+#: taxonomy-tipo_incarico.php:44
+msgid "Filtri"
+msgstr ""
+
+#: archive-evento.php:57
+msgid "Consulta gli eventi futuri"
+msgstr ""
+
+#: archive-evento.php:61
+msgid "Consulta l'archivio"
+msgstr ""
+
+#: archive-scheda_progetto.php:61
+msgid "Consulta i progetti dell'anno in corso"
+msgstr ""
+
+#: archive-scheda_progetto.php:63
+msgid "Consulta i progetti degli scorsi anni"
+msgstr ""
+
+#: author.php:160
+msgid "Dettagli della persona"
+msgstr ""
+
+#: author.php:168
+#: author.php:197
+msgid "Biografia"
+msgstr ""
+
+#. Template Name of the theme
+#: author.php:173
+#: author.php:207
+#: header.php:193
+#: inc/activation.php:86
+#: inc/activation.php:737
+#: inc/admin/options.php:686
+#: inc/breadcrumb.php:355
+#: template-parts/home/didattica-risorse.php:6
+#: template-parts/search/filters-category.php:6
+#: template-parts/search/filters-tag.php:6
+#: template-parts/search/filters.php:6
+msgid "Didattica"
+msgstr ""
+
+#: author.php:180
+#: author.php:316
+#: inc/admin/documento.php:431
+#: inc/admin/indirizzo.php:416
+#: inc/admin/luogo.php:394
+#: inc/admin/persona.php:350
+#: inc/admin/servizio.php:369
+#: inc/admin/struttura.php:326
+#: single-documento.php:114
+#: single-documento.php:265
+#: single-evento.php:103
+#: single-evento.php:347
+#: single-indirizzo.php:164
+#: single-indirizzo.php:451
+#: single-luogo.php:130
+#: single-luogo.php:383
+#: single-programma_materia.php:176
+#: single-servizio.php:134
+#: single-servizio.php:366
+#: single-struttura.php:130
+#: single-struttura.php:357
+msgid "Ulteriori informazioni"
+msgstr ""
+
+#: author.php:186
+#: author.php:327
+#: single-documento.php:108
+#: single-documento.php:242
+#: single-evento.php:99
+#: single-evento.php:287
+#: single-indirizzo.php:171
+#: single-indirizzo.php:464
+#: single-servizio.php:141
+#: single-servizio.php:379
+#: single-struttura.php:301
+msgid "Contatti"
+msgstr ""
+
+#: author.php:233
+#: template-parts/home/didattica-risorse.php:48
+#: template-parts/home/didattica-schede.php:9
+msgid "Schede didattiche"
+msgstr ""
+
+#: author.php:260
+#: inc/admin/programma_materia.php:241
+#: single-programma_materia.php:163
+#: single-struttura.php:202
+#: template-parts/home/didattica-risorse.php:36
+msgid "Progetti"
+msgstr ""
+
+#: author.php:287
+#: inc/admin/articolo.php:100
+#: inc/admin/circolare.php:229
+#: inc/admin/evento.php:474
+#: inc/admin/indirizzo.php:456
+#: inc/admin/options.php:932
+#: inc/admin/options.php:938
+#: inc/admin/scheda_progetto.php:285
+#: inc/admin/servizio.php:409
+#: single-circolare.php:42
+#: single-evento.php:348
+#: single-indirizzo.php:179
+#: single-indirizzo.php:479
+#: single-post.php:41
+#: single-scheda_progetto.php:89
+#: single-scheda_progetto.php:256
+#: single-servizio.php:149
+#: single-servizio.php:416
+#: template-parts/single/related.php:151
+msgid "Documenti"
+msgstr ""
+
+#: author.php:331
+#: single-indirizzo.php:468
+#: single-servizio.php:383
+#: single-struttura.php:305
+#: template-parts/home/commissioni.php:80
+#: template-parts/luogo/card.php:135
+msgid "Telefono"
+msgstr ""
+
+#: author.php:332
+#: single-indirizzo.php:469
+#: single-servizio.php:384
+#: single-struttura.php:306
+#: template-parts/home/commissioni.php:81
+#: template-parts/luogo/card.php:113
+msgid "Email"
+msgstr ""
+
+#: author.php:358
+msgid "Articoli pubblicati da "
+msgstr ""
+
+#: author.php:372
+#: template-parts/common/badges-argomenti-notitle.php:12
+#: template-parts/common/badges-argomenti.php:12
+#: template-parts/common/search-modal.php:92
+#: template-parts/didattica/card.php:22
+#: template-parts/header/menu-article.php:34
+#: template-parts/progetto/card-bluelight.php:12
+#: template-parts/single/related.php:82
+msgid "Vai all'argomento"
+msgstr ""
+
 #. translators: 1: title.
-msgid "One thought on &ldquo;%1$s&rdquo;"
-msgstr "un pensiero su &ldquo;%1$s&rdquo; "
-
-#: comments.php:67
-msgid "Comments are closed."
-msgstr "I commenti sono chiusi"
-
-#: footer.php:18
-msgid "https://wordpress.org/"
-msgstr "https://wordpress.org/"
-
-#: footer.php:20
-#. translators: %s: CMS name, i.e. WordPress.
-msgid "Proudly powered by %s"
-msgstr "Orgogliosamente motorizzato da %s"
-
-#: footer.php:25
-#. translators: 1: Theme name, 2: Theme author.
-msgid "Theme: %1$s by %2$s."
-msgstr "Tema: %1$s di %2$s."
-
-#: functions.php:47
-msgid "Primary"
-msgstr "Principale"
-
-#: functions.php:105
-msgid "Sidebar"
-msgstr "Barra Laterale"
-
-#: functions.php:107
-msgid "Add widgets here."
-msgstr "Aggiungi widget qui."
-
-#: header.php:24
-msgid "Skip to content"
-msgstr "Salta al contenuto"
-
-#: header.php:45
-msgid "Primary Menu"
-msgstr "Menu Principale"
-
-#: inc/template-tags.php:52
-#. translators: used between list items, there is a space after the comma
-msgid ", "
-msgstr ","
-
-#: inc/template-tags.php:55
-#. translators: 1: list of categories.
-msgid "Posted in %1$s"
-msgstr "Posted in %1$s"
-
-#: inc/template-tags.php:62
-#. translators: 1: list of tags.
-msgid "Tagged %1$s"
-msgstr "Taggato %1$s"
-
-#: inc/template-tags.php:72
-#. translators: %s: post title
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr "Lascia un commento <span class =\"screen-reader-text \"> su%s</span>"
-
-#: inc/template-tags.php:89 template-parts/content-page.php:35
-#. translators: %s: Name of current post. Only visible to screen readers
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr "Modifica <span class=\"screen-reader-text\">%s</span>"
-
-#: search.php:21
-#. translators: %s: search query.
-msgid "Search Results for: %s"
-msgstr "Cerca Risultati per: %s"
-
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr "Non è stato trovato nulla"
-
-#: template-parts/content-none.php:25
-#. translators: 1: link to WP admin new post page.
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Pronto a pubblicare il tuo primo post? <a href=\"%1$s\">Get started here</a>."
-
-#: template-parts/content-none.php:38
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+#: comments.php:35
+msgid "Un commento a &ldquo;%1$s&rdquo;"
 msgstr ""
-"Siamo spiacenti, ma nulla corrisponde ai tuoi termini di ricerca. Riprova con alcune"
-"differenti parole chiave".
 
-#: template-parts/content-none.php:44
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Sembra che non riusciamo a trovare quello che stai cercando. Forse"
-"la ricerca può aiutare."
-
-#: template-parts/content-page.php:22 template-parts/content.php:45
-msgid "Pages:"
-msgstr "Pagine"
-
-#: template-parts/content.php:34
-#. translators: %s: Name of current post. Only visible to screen readers
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "Continua a leggere<span class=\"screen-reader-text\"> \"%s\"</span>"
-
-#. Theme Name of the plugin/theme
-msgid "_s"
-msgstr "_s"
-
-#. Theme URI of the plugin/theme
-msgid "https://underscores.me/"
-msgstr "https://underscores.me/"
-
-#. Description of the plugin/theme
-msgid ""
-"Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if "
-"you like. I'm a theme meant for hacking so don't use me as a <em>Parent "
-"Theme</em>. Instead try turning me into the next, most awesome, WordPress "
-"theme out there. That's what I'm here for."
-msgstr ""
-"Ciao. Sono un tema di partenza chiamato <code> _s </code>, o <em> caratteri di sottolineatura </em>, se"
-"ti piace. Sono un tema pensato per l'hacking, quindi non usarmi come <em> Tema"
-"Principale </em>. Prova invece a trasformarmi nel prossimo, fantastico, WordPress"
-"tema là fuori. Ecco per cosa sono qui."
-
-#. Author of the plugin/theme
-msgid "Automattic"
-msgstr "Automattic"
-
-#. Author URI of the plugin/theme
-msgid "https://automattic.com/"
-msgstr "https://automattic.com/"
-
-#: comments.php:40
 #. translators: 1: comment count number, 2: title.
+#: comments.php:41
 msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s pensato su &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s pensati su &ldquo;%2$s&rdquo;"
+msgid "%1$s commenti a &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s commenti a &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
 
-#: inc/template-tags.php:29
-#. translators: %s: post date.
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr "Pubblicato il %s"
+#: comments.php:66
+msgid "I commenti sono chiusi."
+msgstr ""
 
-#: inc/template-tags.php:35
-#. translators: %s: post author.
-msgctxt "post author"
-msgid "by %s"
-msgstr "di %s"
+#: functions.php:125
+msgid "Sottovoci del menu principale, voce \"Scuola\""
+msgstr ""
 
-#: inc/template-tags.php:59
-#. translators: used between list items, there is a space after the comma
-msgctxt "list item separator"
-msgid ", "
-msgstr ","
+#: functions.php:126
+msgid "Sottovoci del menu principale, voce \"Servizi\""
+msgstr ""
+
+#: functions.php:127
+msgid "Sottovoci del menu principale, voce \"Novità\""
+msgstr ""
+
+#: functions.php:128
+msgid "Sottovoci del menu principale, voce \"Didattica\""
+msgstr ""
+
+#: functions.php:130
+msgid "Menu secondario (in alto a destra)"
+msgstr ""
+
+#: functions.php:131
+msgid "Menu a piè di pagina"
+msgstr ""
+
+#: functions.php:169
+msgid "Footer - colonna 1"
+msgstr ""
+
+#: functions.php:171
+msgid "Prima colonna a più di pagina."
+msgstr ""
+
+#: functions.php:178
+msgid "Footer - colonna 2"
+msgstr ""
+
+#: functions.php:180
+msgid "Seconda colonna a più di pagina."
+msgstr ""
+
+#: functions.php:187
+msgid "Footer - colonna 3"
+msgstr ""
+
+#: functions.php:189
+msgid "Terza colonna a più di pagina."
+msgstr ""
+
+#: functions.php:196
+msgid "Footer - colonna 4"
+msgstr ""
+
+#: functions.php:198
+msgid "Quarta colonna a più di pagina."
+msgstr ""
+
+#: header.php:22
+msgid "È necessario aggiornare il browser"
+msgstr ""
+
+#: header.php:85
+#: inc/admin/persona.php:16
+#: template-parts/common/search-modal.php:11
+#: template-parts/common/search-modal.php:18
+msgid "Cerca"
+msgstr ""
+
+#: header.php:120
+#: header.php:142
+#: header.php:165
+#: header.php:187
+msgid "Panoramica"
+msgstr ""
+
+#: header.php:126
+#: inc/admin/options.php:216
+#: template-parts/search/filters-category.php:3
+#: template-parts/search/filters-tag.php:3
+#: template-parts/search/filters.php:3
+msgid "Scuola"
+msgstr ""
+
+#. Template Name of the theme
+#: header.php:148
+#: inc/activation.php:64
+#: inc/activation.php:630
+#: inc/admin/options.php:578
+#: inc/breadcrumb.php:349
+#: inc/breadcrumb.php:358
+#: single-struttura.php:115
+#: single-struttura.php:162
+#: template-parts/hero/servizi.php:30
+#: template-parts/search/filters-category.php:4
+#: template-parts/search/filters-tag.php:4
+#: template-parts/search/filters.php:4
+#: template-parts/single/related.php:100
+msgid "Servizi"
+msgstr ""
+
+#: header.php:171
+#: inc/activation.php:42
+#: inc/activation.php:684
+#: inc/admin/options.php:633
+#: inc/breadcrumb.php:352
+#: inc/breadcrumb.php:366
+#: template-parts/search/filters-category.php:5
+#: template-parts/search/filters-tag.php:5
+#: template-parts/search/filters.php:5
+msgid "Novità"
+msgstr ""
+
+#: inc/actions.php:239
+#: inc/admin/argomento.php:25
+#: template-parts/single/actions.php:8
+msgid "Argomento"
+msgstr ""
+
+#: inc/actions.php:255
+#: inc/activation.php:670
+msgid "Tutti i servizi"
+msgstr ""
+
+#: inc/actions.php:257
+msgid "Calendario"
+msgstr ""
+
+#: inc/actions.php:270
+#: inc/activation.php:573
+#: template-parts/home/gallery-luoghi.php:11
+msgid "I luoghi della scuola"
+msgstr ""
+
+#: inc/actions.php:272
+#: inc/activation.php:586
+#: inc/admin/options.php:827
+#: inc/admin/options.php:833
+#: template-parts/hero/strutture.php:13
+msgid "Organizzazione"
+msgstr ""
+
+#: inc/actions.php:274
+#: template-parts/home/articoli-eventi.php:77
+#: template-parts/home/eventi.php:13
+msgid "Eventi"
+msgstr ""
+
+#: inc/actions.php:535
+msgid "<div class=\"dashicons-before dashicons-admin-tools\" style=\"float:left; padding-top: 6px; padding-right:4px;\"> </div>Configurazione"
+msgstr ""
+
+#: inc/activation.php:16
+#: inc/activation.php:548
+#: inc/admin/options.php:212
+#: inc/breadcrumb.php:346
+msgid "La Scuola"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/activation.php:113
+#: inc/admin/options.php:781
+#: page-templates/persone.php:72
+#: single-post.php:109
+#: single-struttura.php:272
+#: template-parts/home/commissioni.php:58
+msgid "Persone"
+msgstr ""
+
+#: inc/activation.php:138
+#: inc/admin/options.php:461
+msgid "I numeri della Scuola"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/activation.php:163
+#: inc/activation.php:795
+#: inc/admin/documento.php:69
+msgid "Amministrazione Trasparente"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/activation.php:191
+#: inc/activation.php:565
+#: inc/admin/options.php:523
+#: inc/admin/options.php:527
+#: single-scheda_progetto.php:78
+#: single-scheda_progetto.php:113
+msgid "Presentazione"
+msgstr ""
+
+#. Template Name of the theme
+#: inc/activation.php:219
+#: inc/admin/options.php:285
+#: inc/admin/options.php:295
+msgid "La Storia"
+msgstr ""
+
+#: inc/activation.php:246
+#: inc/activation.php:752
+msgid "Offerta formativa"
+msgstr ""
+
+#: inc/activation.php:580
+#: inc/admin/options.php:427
+msgid "Le carte della scuola"
+msgstr ""
+
+#: inc/activation.php:595
+msgid "Le persone"
+msgstr ""
+
+#: inc/activation.php:605
+msgid "I numeri della scuola"
+msgstr ""
+
+#: inc/activation.php:615
+msgid "La storia"
+msgstr ""
+
+#: inc/activation.php:645
+msgid "Servizi per il personale scolastico"
+msgstr ""
+
+#: inc/activation.php:655
+msgid "Servizi per famiglie e studenti"
+msgstr ""
+
+#: inc/activation.php:663
+#: single-struttura.php:170
+#: template-parts/home/indirizzi.php:13
+msgid "Indirizzi di studio"
+msgstr ""
+
+#: inc/activation.php:698
+msgid "Le notizie"
+msgstr ""
+
+#: inc/activation.php:706
+msgid "Le circolari"
+msgstr ""
+
+#: inc/activation.php:713
+msgid "Calendario eventi"
+msgstr ""
+
+#: inc/activation.php:721
+#: inc/activation.php:803
+msgid "Albo online"
+msgstr ""
+
+#: inc/activation.php:759
+msgid "Le schede didattiche"
+msgstr ""
+
+#: inc/activation.php:766
+msgid "I progetti delle classi"
+msgstr ""
+
+#: inc/activation.php:780
+#: inc/admin/options.php:1067
+msgid "Footer"
+msgstr ""
+
+#: inc/activation.php:811
+msgid "Privacy Policy"
+msgstr ""
+
+#: inc/activation.php:825
+msgid "Top"
+msgstr ""
+
+#: inc/activation.php:851
+msgid "Link Esterni"
+msgstr ""
+
+#: inc/activation.php:864
+msgid "MIUR"
+msgstr ""
+
+#: inc/activation.php:872
+msgid "Ufficio Scolastico Regionale"
+msgstr ""
+
+#: inc/activation.php:880
+msgid "Ufficio Scolastico Territoriale"
+msgstr ""
+
+#: inc/activation.php:888
+msgid "Scuola in Chiaro"
+msgstr ""
+
+#: inc/activation.php:896
+msgid "Iscrizioni On LIne"
+msgstr ""
+
+#: inc/activation.php:904
+msgid "Invalsi"
+msgstr ""
+
+#: inc/activation.php:913
+msgid "Comune"
+msgstr ""
+
+#: inc/admin/argomento.php:17
+msgctxt "taxonomy general name"
+msgid "Argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:18
+msgctxt "taxonomy singular name"
+msgid "Argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:19
+msgid "Cerca argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:20
+msgid "Tutti gli argomenti"
+msgstr ""
+
+#: inc/admin/argomento.php:21
+msgid "Modifica argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:22
+msgid "Aggiorna argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:23
+msgid "Aggiungi un argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:24
+msgid "Nuovo argomento"
+msgstr ""
+
+#: inc/admin/argomento.php:26
+msgid "Separata gli argomenti con la virgola"
+msgstr ""
+
+#: inc/admin/argomento.php:27
+msgid "Aggiungi o rimuovi argomenti"
+msgstr ""
+
+#: inc/admin/argomento.php:28
+msgid "Scegli tra gli argomenti più usati"
+msgstr ""
+
+#: inc/admin/articolo.php:6
+msgctxt "taxonomy general name"
+msgid "Tipologia Articolo "
+msgstr ""
+
+#: inc/admin/articolo.php:7
+msgctxt "taxonomy singular name"
+msgid "Tipologia Articolo"
+msgstr ""
+
+#: inc/admin/articolo.php:8
+#: inc/admin/circolare.php:36
+#: inc/admin/documento.php:34
+#: inc/admin/evento.php:42
+#: inc/admin/luogo.php:36
+#: inc/admin/scheda_progetto.php:39
+#: inc/admin/servizio.php:41
+#: inc/admin/struttura.php:40
+msgid "Cerca Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:9
+#: inc/admin/circolare.php:37
+#: inc/admin/documento.php:35
+#: inc/admin/evento.php:43
+#: inc/admin/luogo.php:37
+#: inc/admin/scheda_progetto.php:40
+#: inc/admin/servizio.php:42
+#: inc/admin/struttura.php:41
+msgid "Tutte le tipologie"
+msgstr ""
+
+#: inc/admin/articolo.php:10
+#: inc/admin/circolare.php:38
+#: inc/admin/documento.php:36
+#: inc/admin/evento.php:44
+#: inc/admin/luogo.php:38
+#: inc/admin/scheda_progetto.php:41
+#: inc/admin/servizio.php:43
+#: inc/admin/struttura.php:42
+msgid "Modifica la Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:11
+#: inc/admin/circolare.php:39
+#: inc/admin/documento.php:37
+#: inc/admin/evento.php:45
+#: inc/admin/luogo.php:39
+#: inc/admin/scheda_progetto.php:42
+#: inc/admin/servizio.php:44
+#: inc/admin/struttura.php:43
+msgid "Aggiorna la Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:12
+#: inc/admin/circolare.php:40
+#: inc/admin/documento.php:38
+#: inc/admin/evento.php:46
+#: inc/admin/luogo.php:40
+#: inc/admin/scheda_progetto.php:43
+#: inc/admin/servizio.php:45
+#: inc/admin/struttura.php:44
+msgid "Aggiungi una Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:13
+#: inc/admin/circolare.php:41
+#: inc/admin/documento.php:39
+#: inc/admin/evento.php:47
+#: inc/admin/luogo.php:41
+#: inc/admin/scheda_progetto.php:44
+#: inc/admin/servizio.php:46
+#: inc/admin/struttura.php:45
+msgid "Nuova Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:14
+#: inc/admin/circolare.php:42
+#: inc/admin/documento.php:40
+#: inc/admin/documento.php:153
+#: inc/admin/evento.php:48
+#: inc/admin/luogo.php:42
+#: inc/admin/scheda_progetto.php:45
+#: inc/admin/servizio.php:47
+#: inc/admin/struttura.php:46
+#: template-parts/search/filters-articolo.php:6
+#: template-parts/search/filters-circolare.php:6
+#: template-parts/search/filters-documento.php:6
+#: template-parts/search/filters-evento.php:15
+#: template-parts/search/filters-luogo.php:6
+#: template-parts/search/filters-scheda_progetto.php:6
+#: template-parts/search/filters-servizio.php:6
+#: template-parts/search/filters-struttura.php:6
+#: template-parts/search/filters-tipo_incarico.php:6
+msgid "Tipologia"
+msgstr ""
+
+#: inc/admin/articolo.php:54
+#: inc/admin/circolare.php:96
+msgid "Abstract"
+msgstr ""
+
+#: inc/admin/articolo.php:55
+#: inc/admin/circolare.php:97
+msgid "Indicare un sintetico abstract (max 160 caratteri)"
+msgstr ""
+
+#: inc/admin/articolo.php:64
+msgid "Dettagli Articolo"
+msgstr ""
+
+#: inc/admin/articolo.php:71
+#: inc/admin/struttura.php:254
+#: inc/admin/struttura.php:267
+msgid "Persone "
+msgstr ""
+
+#: inc/admin/articolo.php:72
+msgid "Link a schede persone dell'amminsitrazione citate"
+msgstr ""
+
+#: inc/admin/articolo.php:76
+#: inc/admin/documento.php:253
+#: inc/admin/documento.php:314
+#: inc/admin/evento.php:318
+#: inc/admin/luogo.php:328
+#: inc/admin/scheda_progetto.php:136
+#: inc/admin/struttura.php:246
+#: inc/admin/struttura.php:260
+#: inc/admin/struttura.php:273
+msgid "Seleziona uno o più persone / utenti"
+msgstr ""
+
+#: inc/admin/articolo.php:83
+#: inc/admin/evento.php:117
+#: inc/admin/luogo.php:18
+#: inc/admin/scheda_progetto.php:191
+#: single-evento.php:85
+#: single-evento.php:174
+#: single-scheda_progetto.php:141
+msgid "Luogo"
+msgstr ""
+
+#: inc/admin/articolo.php:84
+msgid "Link a schede luoghi del sito citati  "
+msgstr ""
+
+#: inc/admin/articolo.php:101
+#: inc/admin/circolare.php:230
+msgid "Inserisci qui tutti i documenti che ritieni rilevanti. Se devi caricare il documento <a href=\"post-new.php?post_type=documento\">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. "
+msgstr ""
+
+#: inc/admin/articolo.php:117
+#: inc/admin/circolare.php:246
+#: inc/admin/evento.php:490
+#: inc/admin/indirizzo.php:473
+#: inc/admin/programma_materia.php:224
+#: inc/admin/scheda_didattica.php:164
+#: inc/admin/servizio.php:426
+msgid "Carica documenti"
+msgstr ""
+
+#: inc/admin/articolo.php:118
+#: inc/admin/circolare.php:247
+msgid "Se l'allegato non è descritto da una scheda documento, link all'allegato. "
+msgstr ""
+
+#: inc/admin/articolo.php:124
+#: inc/admin/circolare.php:253
+#: inc/admin/evento.php:497
+#: inc/admin/indirizzo.php:480
+#: inc/admin/programma_materia.php:231
+#: inc/admin/scheda_didattica.php:171
+#: inc/admin/servizio.php:433
+msgid "Aggiungi un nuovo Documento"
+msgstr ""
+
+#: inc/admin/articolo.php:125
+#: inc/admin/circolare.php:254
+#: inc/admin/evento.php:498
+#: inc/admin/indirizzo.php:481
+#: inc/admin/programma_materia.php:232
+#: inc/admin/scheda_didattica.php:172
+#: inc/admin/servizio.php:434
+msgid "Rimuovi Documento"
+msgstr ""
+
+#: inc/admin/articolo.php:126
+#: inc/admin/circolare.php:255
+#: inc/admin/classe.php:115
+#: inc/admin/classe.php:161
+#: inc/admin/documento.php:343
+#: inc/admin/evento.php:226
+#: inc/admin/evento.php:349
+#: inc/admin/evento.php:499
+#: inc/admin/indirizzo.php:482
+#: inc/admin/luogo.php:221
+#: inc/admin/luogo.php:255
+#: inc/admin/programma_materia.php:138
+#: inc/admin/programma_materia.php:233
+#: inc/admin/scheda_didattica.php:173
+#: inc/admin/servizio.php:435
+msgid "Rimuovi"
+msgstr ""
+
+#: inc/admin/circolare.php:11
+msgctxt "Post Type General Name"
+msgid "Circolari"
+msgstr ""
+
+#: inc/admin/circolare.php:12
+msgctxt "Post Type Singular Name"
+msgid "Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:13
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi una Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:14
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi una nuona Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:15
+msgctxt "Post Type Singular Name"
+msgid "Modifica la Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:18
+msgid "Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:34
+msgctxt "taxonomy general name"
+msgid "Tipologia Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:35
+msgctxt "taxonomy singular name"
+msgid "Tipologia Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:83
+msgid "Tipologia circolare *"
+msgstr ""
+
+#: inc/admin/circolare.php:115
+msgid "Numerazione Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:121
+msgid "Visibilità della Circolare sul sito"
+msgstr ""
+
+#: inc/admin/circolare.php:122
+msgid "Seleziona se il documento è pubblico o visibile solo agli utenti registrati indicati di seguito"
+msgstr ""
+
+#: inc/admin/circolare.php:126
+msgid "Pubblica"
+msgstr ""
+
+#: inc/admin/circolare.php:127
+msgid "Personale Scolastico (utenti registrati)"
+msgstr ""
+
+#: inc/admin/circolare.php:133
+msgid "Notifiche agli utenti"
+msgstr ""
+
+#: inc/admin/circolare.php:134
+msgid "Le circolari inviano notifiche al destinatario, e rendono visibile la circolare sulla sua bacheca utente.<br> NB: Le notifiche vengono inviate <b>al primo salvataggio dell'articolo in stato \"pubblicato\"<b>. <b>Da quel momento in poi cambiamenti nei campi che seguono non genereranno notifiche agli utenti</b>."
+msgstr ""
+
+#: inc/admin/circolare.php:141
+msgid "Richiedi un Feedback agli utenti:"
+msgstr ""
+
+#: inc/admin/circolare.php:142
+msgid " Se la circolare è di tipologia \"assemblea sindacale\" l'azione richiesta è \"Sì/NO. Se la circolare è di tipologia \"sciopero\" l'azione richiesta è \"Adesione sì/no/presa visione\"."
+msgstr ""
+
+#: inc/admin/circolare.php:150
+msgid "Destinatari della Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:154
+msgid "Tutta la Scuola"
+msgstr ""
+
+#: inc/admin/circolare.php:155
+msgid "Seleziona in base al ruolo"
+msgstr ""
+
+#: inc/admin/circolare.php:156
+msgid "Seleziona in base al gruppo"
+msgstr ""
+
+#: inc/admin/circolare.php:162
+msgid "Seleziona i ruoli "
+msgstr ""
+
+#: inc/admin/circolare.php:167
+msgid "Ruoli"
+msgstr ""
+
+#: inc/admin/circolare.php:175
+msgid "Seleziona i gruppi "
+msgstr ""
+
+#: inc/admin/circolare.php:180
+#: inc/admin/persona.php:22
+msgid "Gruppi"
+msgstr ""
+
+#: inc/admin/circolare.php:192
+msgid "Dettagli Circolare"
+msgstr ""
+
+#: inc/admin/circolare.php:446
+msgid "<h1>Testo della Circolare</h1>"
+msgstr ""
+
+#: inc/admin/classe.php:8
+msgctxt "taxonomy general name"
+msgid "Classi"
+msgstr ""
+
+#: inc/admin/classe.php:9
+msgctxt "taxonomy singular name"
+msgid "Classe"
+msgstr ""
+
+#: inc/admin/classe.php:10
+msgid "Cerca Classe"
+msgstr ""
+
+#: inc/admin/classe.php:11
+msgid "Tutte le classi"
+msgstr ""
+
+#: inc/admin/classe.php:12
+msgid "Modifica la Classe"
+msgstr ""
+
+#: inc/admin/classe.php:13
+msgid "Aggiorna la Classe"
+msgstr ""
+
+#: inc/admin/classe.php:14
+msgid "Aggiungi una Classe"
+msgstr ""
+
+#: inc/admin/classe.php:15
+msgid "Nuova Classe"
+msgstr ""
+
+#: inc/admin/classe.php:16
+#: inc/admin/classe.php:45
+msgid "Classe"
+msgstr ""
+
+#: inc/admin/classe.php:56
+msgid "Anno scolastico"
+msgstr ""
+
+#: inc/admin/classe.php:65
+msgid "Seleziona la Scuola  di cui fa parte la classe"
+msgstr ""
+
+#: inc/admin/classe.php:66
+msgid "NB: La scuola è una <a href=\"edit.php?post_type=struttura\">Struttura organizzativa</a> di tipologia \"Scuola. Se non esiste creala prima <a href=\"edit.php?post_type=struttura\">qui</a>\""
+msgstr ""
+
+#: inc/admin/classe.php:73
+msgid "Settore, Indirizzo o Percorso specifico"
+msgstr ""
+
+#: inc/admin/classe.php:74
+msgid "NB: Puoi selezionare i percorsi di studio che hai associato alle Strutture di tipo scuola"
+msgstr ""
+
+#: inc/admin/classe.php:84
+msgid "<br>Calendario delle Lezioni"
+msgstr ""
+
+#: inc/admin/classe.php:90
+msgid "Mostra il Calendario"
+msgstr ""
+
+#: inc/admin/classe.php:94
+#: inc/admin/documento.php:269
+#: inc/admin/evento.php:108
+#: inc/admin/evento.php:390
+#: inc/admin/options.php:121
+#: inc/admin/options.php:153
+#: inc/admin/options.php:180
+#: inc/admin/scheda_progetto.php:180
+#: inc/admin/scheda_progetto.php:345
+msgid "No"
+msgstr ""
+
+#: inc/admin/classe.php:95
+#: inc/admin/documento.php:268
+#: inc/admin/evento.php:107
+#: inc/admin/evento.php:389
+#: inc/admin/options.php:120
+#: inc/admin/options.php:179
+#: inc/admin/scheda_progetto.php:179
+#: inc/admin/scheda_progetto.php:344
+msgid "Si"
+msgstr ""
+
+#: inc/admin/classe.php:108
+msgid "Inserisci gli orari del "
+msgstr ""
+
+#: inc/admin/classe.php:112
+msgid "Lezione {#}"
+msgstr ""
+
+#: inc/admin/classe.php:114
+msgid "Aggiungi una lezione"
+msgstr ""
+
+#: inc/admin/classe.php:127
+msgid "Ora inizio"
+msgstr ""
+
+#: inc/admin/classe.php:132
+msgid "Ora fine"
+msgstr ""
+
+#: inc/admin/classe.php:139
+#: template-parts/common/badges-materie.php:9
+#: template-parts/search/filters-materia.php:6
+msgid "Materia"
+msgstr ""
+
+#: inc/admin/classe.php:155
+msgid "<h1>Libri</h1>"
+msgstr ""
+
+#: inc/admin/classe.php:157
+msgid "Lista libri obbligatori"
+msgstr ""
+
+#: inc/admin/classe.php:159
+msgid "Libro {#}"
+msgstr ""
+
+#: inc/admin/classe.php:160
+msgid "Aggiungi un libro"
+msgstr ""
+
+#: inc/admin/classe.php:170
+msgid "Titolo del Libro"
+msgstr ""
+
+#: inc/admin/classe.php:177
+msgid "Autore del libro"
+msgstr ""
+
+#: inc/admin/classe.php:184
+msgid "Editore del libro"
+msgstr ""
+
+#: inc/admin/classe.php:191
+msgid "Codice ISBN"
+msgstr ""
+
+#: inc/admin/documento.php:10
+msgctxt "Post Type General Name"
+msgid "Documenti"
+msgstr ""
+
+#: inc/admin/documento.php:11
+msgctxt "Post Type Singular Name"
+msgid "Documento"
+msgstr ""
+
+#: inc/admin/documento.php:12
+#: inc/admin/documento.php:13
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Documento"
+msgstr ""
+
+#: inc/admin/documento.php:14
+msgctxt "Post Type Singular Name"
+msgid "Modifica il Documento"
+msgstr ""
+
+#: inc/admin/documento.php:17
+msgid "Documento"
+msgstr ""
+
+#: inc/admin/documento.php:32
+msgctxt "taxonomy general name"
+msgid "Tipologia Documento"
+msgstr ""
+
+#: inc/admin/documento.php:33
+msgctxt "taxonomy singular name"
+msgid "Tipologia Documento"
+msgstr ""
+
+#: inc/admin/documento.php:61
+msgctxt "taxonomy general name"
+msgid "Amministrazione Trasparente"
+msgstr ""
+
+#: inc/admin/documento.php:62
+msgctxt "taxonomy singular name"
+msgid "Amministrazione Trasparente"
+msgstr ""
+
+#: inc/admin/documento.php:63
+#: inc/admin/documento.php:92
+msgid "Cerca "
+msgstr ""
+
+#: inc/admin/documento.php:64
+#: inc/admin/documento.php:93
+msgid "Tutte"
+msgstr ""
+
+#: inc/admin/documento.php:65
+#: inc/admin/documento.php:94
+#: inc/admin/indirizzo.php:45
+msgid "Modifica"
+msgstr ""
+
+#: inc/admin/documento.php:66
+#: inc/admin/documento.php:95
+#: inc/admin/indirizzo.php:46
+msgid "Aggiorna"
+msgstr ""
+
+#: inc/admin/documento.php:67
+#: inc/admin/documento.php:96
+#: inc/admin/indirizzo.php:47
+#: inc/admin/luogo.php:220
+#: inc/admin/luogo.php:254
+msgid "Aggiungi"
+msgstr ""
+
+#: inc/admin/documento.php:68
+#: inc/admin/documento.php:97
+msgid "Nuova"
+msgstr ""
+
+#: inc/admin/documento.php:90
+msgctxt "taxonomy general name"
+msgid "Albo on line"
+msgstr ""
+
+#: inc/admin/documento.php:91
+msgctxt "taxonomy singular name"
+msgid "Albo on line"
+msgstr ""
+
+#: inc/admin/documento.php:98
+msgid "Albo on line"
+msgstr ""
+
+#: inc/admin/documento.php:135
+msgid "Atto Albo Annullato"
+msgstr ""
+
+#: inc/admin/documento.php:143
+msgid "Atto annullato"
+msgstr ""
+
+#: inc/admin/documento.php:144
+msgid "Descrivi il motivo dell'annullamento"
+msgstr ""
+
+#: inc/admin/documento.php:145
+msgid "<br><input type=\"submit\" name=\"Salva\" value=\"Salva\" class=\"button-secondary \">"
+msgstr ""
+
+#: inc/admin/documento.php:174
+msgid "Identificativo Documento"
+msgstr ""
+
+#: inc/admin/documento.php:175
+msgid "ad uso interno"
+msgstr ""
+
+#: inc/admin/documento.php:184
+msgid "Scadenza"
+msgstr ""
+
+#: inc/admin/documento.php:193
+msgid "Data di scadenza del documento, una volta raggiunta questo sarà automaticamente archiviato come \"Scaduto\"."
+msgstr ""
+
+#: inc/admin/documento.php:210
+#: inc/admin/evento.php:93
+#: inc/admin/indirizzo.php:151
+#: inc/admin/programma_materia.php:89
+#: inc/admin/scheda_didattica.php:56
+#: inc/admin/scheda_progetto.php:95
+#: inc/admin/servizio.php:143
+msgid "Descrizione *"
+msgstr ""
+
+#: inc/admin/documento.php:211
+msgid "Indicare una sintetica descrizione del Documento. Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/documento.php:221
+msgid "Numerazione Progressiva Annuale"
+msgstr ""
+
+#: inc/admin/documento.php:233
+msgid "Categoria Albo"
+msgstr ""
+
+#: inc/admin/documento.php:234
+msgid "Seleziona se è un Documento generico, Albo pretorio online o altro."
+msgstr ""
+
+#: inc/admin/documento.php:247
+msgid "Responsabile Albo"
+msgstr ""
+
+#: inc/admin/documento.php:248
+msgid "Uno o più utenti responsabili del procedimento.  Es link alla scheda del Dirigente scolastico. Inseriscile <a href=\"edit-tags.php?taxonomy=persona\">cliccando qui</a> "
+msgstr ""
+
+#: inc/admin/documento.php:263
+msgid "Amministrazione Trasparente *"
+msgstr ""
+
+#: inc/admin/documento.php:264
+msgid "Seleziona se il documento fa parte di Amministrazione Trasparente"
+msgstr ""
+
+#: inc/admin/documento.php:276
+msgid "Tipologia di Amministrazione Trasparente "
+msgstr ""
+
+#: inc/admin/documento.php:277
+msgid "Collega alla sezione di Amministrazione Trasparente. "
+msgstr ""
+
+#: inc/admin/documento.php:296
+#: inc/admin/luogo.php:117
+msgid "Dati Pubblici"
+msgstr ""
+
+#: inc/admin/documento.php:308
+msgid "Autore/i "
+msgstr ""
+
+#: inc/admin/documento.php:309
+msgid "Eventuale Lista autori che hanno pubblicato il documento. Es link alla scheda del Dirigente scolastico. Inseriscile <a href=\"users.php\">da qui</a> "
+msgstr ""
+
+#: inc/admin/documento.php:334
+msgid "Carica file"
+msgstr ""
+
+#: inc/admin/documento.php:335
+msgid "Lista di documenti allegati"
+msgstr ""
+
+#: inc/admin/documento.php:341
+msgid "Aggiungi un nuovo allegato"
+msgstr ""
+
+#: inc/admin/documento.php:342
+msgid "Rimuovi allegato"
+msgstr ""
+
+#: inc/admin/documento.php:351
+#: inc/admin/evento.php:270
+#: inc/admin/luogo.php:352
+#: inc/admin/scheda_progetto.php:319
+#: single-luogo.php:140
+msgid "Galleria"
+msgstr ""
+
+#: inc/admin/documento.php:352
+msgid "Galleria di immagini  significative relative a un documento, corredate da didascalia"
+msgstr ""
+
+#: inc/admin/documento.php:364
+#: single-documento.php:96
+#: single-documento.php:200
+msgid "Servizi collegati"
+msgstr ""
+
+#: inc/admin/documento.php:365
+msgid "Servizi collegati al documento"
+msgstr ""
+
+#: inc/admin/documento.php:384
+msgid "Suddividere i contenuti del documento in fasi e relative date. Es data di apertura della partecipazione a un bando, data di scadenza della possibilità di partecipare al bando"
+msgstr ""
+
+#: inc/admin/documento.php:387
+#: inc/admin/evento.php:224
+#: inc/admin/indirizzo.php:381
+#: inc/admin/options.php:308
+#: inc/admin/servizio.php:329
+msgid "Fase {#}"
+msgstr ""
+
+#: inc/admin/documento.php:388
+#: inc/admin/options.php:309
+#: inc/admin/options.php:1022
+msgid "Aggiungi un elemento"
+msgstr ""
+
+#: inc/admin/documento.php:389
+#: inc/admin/options.php:310
+#: inc/admin/options.php:1023
+msgid "Rimuovi l'elemento "
+msgstr ""
+
+#: inc/admin/documento.php:397
+msgid "Data "
+msgstr ""
+
+#: inc/admin/documento.php:407
+msgid " Descrizione "
+msgstr ""
+
+#: inc/admin/documento.php:416
+msgid "Strutture organizzative responsabili del documento"
+msgstr ""
+
+#: inc/admin/documento.php:417
+msgid "Link alla struttura organizzativa responsabile del documento. Se non la trovi inseriscila <a href=\"post-new.php?post_type=struttura\">cliccando qui</a> "
+msgstr ""
+
+#: inc/admin/documento.php:432
+#: inc/admin/persona.php:351
+msgid "Ulteriori informazioni relative alla persona"
+msgstr ""
+
+#: inc/admin/documento.php:443
+#: single-documento.php:284
+msgid "Riferimenti normativi"
+msgstr ""
+
+#: inc/admin/documento.php:444
+msgid "Lista di link con riferimenti normativi utili per il documento\""
+msgstr ""
+
+#: inc/admin/documento.php:456
+msgid "Protocollo"
+msgstr ""
+
+#: inc/admin/documento.php:462
+msgid "Data protocollo"
+msgstr ""
+
+#: inc/admin/documento.php:480
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b></span><br><br>"
+msgstr ""
+
+#: inc/admin/documento.php:490
+msgid "<h1>Descrizione Estesa del Documento</h1>"
+msgstr ""
+
+#: inc/admin/evento.php:11
+msgctxt "Post Type General Name"
+msgid "Eventi"
+msgstr ""
+
+#: inc/admin/evento.php:12
+msgctxt "Post Type Singular Name"
+msgid "Evento"
+msgstr ""
+
+#: inc/admin/evento.php:13
+#: inc/admin/evento.php:14
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Evento"
+msgstr ""
+
+#: inc/admin/evento.php:15
+msgid "Logo Identificativo del Evento"
+msgstr ""
+
+#: inc/admin/evento.php:16
+msgctxt "Post Type Singular Name"
+msgid "Modifica il Evento"
+msgstr ""
+
+#: inc/admin/evento.php:17
+msgctxt "Post Type Singular Name"
+msgid "Visualizza il Evento"
+msgstr ""
+
+#: inc/admin/evento.php:19
+msgid "Rimuovi Immagine Evento"
+msgstr ""
+
+#: inc/admin/evento.php:20
+msgid "Usa come Immagine Evento"
+msgstr ""
+
+#: inc/admin/evento.php:23
+msgid "Evento"
+msgstr ""
+
+#: inc/admin/evento.php:34
+msgid "Il calendario scolastico"
+msgstr ""
+
+#: inc/admin/evento.php:40
+msgctxt "taxonomy general name"
+msgid "Tipologia Evento"
+msgstr ""
+
+#: inc/admin/evento.php:41
+msgctxt "taxonomy singular name"
+msgid "Tipologia Evento"
+msgstr ""
+
+#: inc/admin/evento.php:94
+msgid "Indicare una sintetica descrizione del Evento. Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/evento.php:104
+msgid "Seleziona un luogo se questo è un <a href=\"edit.php?post_type=luogo\">Luogo della Scuola</a>"
+msgstr ""
+
+#: inc/admin/evento.php:118
+msgid "Selezione il <a href=\"edit.php?post_type=luogo\">luogo della Scuola</a> in cui viene organizzato l'evento. "
+msgstr ""
+
+#: inc/admin/evento.php:138
+msgid "Nome del luogo "
+msgstr ""
+
+#: inc/admin/evento.php:139
+#: inc/admin/scheda_progetto.php:205
+msgid "Inserisci il nome del luogo (lascia vuoto hai selezionato un Luogo della Scuola )"
+msgstr ""
+
+#: inc/admin/evento.php:150
+msgid "Indirizzo Completo "
+msgstr ""
+
+#: inc/admin/evento.php:151
+#: inc/admin/scheda_progetto.php:218
+msgid "Indirizzo completo del luogo: Via, civico, cap, città e Provincia (es: Via Vaglia, 6, 00139 - Roma RM) (lascia vuoto hai selezionato un Luogo della Scuola )"
+msgstr ""
+
+#: inc/admin/evento.php:162
+#: inc/admin/scheda_progetto.php:229
+msgid "Posizione GPS "
+msgstr ""
+
+#: inc/admin/evento.php:163
+#: inc/admin/scheda_progetto.php:230
+msgid "Georeferenziazione del luogo e link a posizione in mappa.  (lascia vuoto hai selezionato un Luogo della Scuola )"
+msgstr ""
+
+#: inc/admin/evento.php:168
+#: inc/admin/scheda_progetto.php:235
+msgid "Digita l'indirizzo del Luogo"
+msgstr ""
+
+#: inc/admin/evento.php:169
+#: inc/admin/luogo.php:156
+#: inc/admin/scheda_progetto.php:236
+msgid "Indirizzo non trovato"
+msgstr ""
+
+#: inc/admin/evento.php:186
+#: inc/admin/scheda_progetto.php:252
+msgid "Quartiere "
+msgstr ""
+
+#: inc/admin/evento.php:187
+#: inc/admin/scheda_progetto.php:253
+msgid "Se il territorio è mappato in quartieri, riportare il Quartiere dove si svolge l'evento (lascia vuoto hai selezionato un Luogo della Scuola )"
+msgstr ""
+
+#: inc/admin/evento.php:198
+msgid "Circoscrizione"
+msgstr ""
+
+#: inc/admin/evento.php:199
+#: inc/admin/scheda_progetto.php:265
+msgid "Se il territorio è mappato in circoscrizioni, riportare la Circoscrizione dove si svolge l'evento (lascia vuoto hai selezionato un Luogo della Scuola )"
+msgstr ""
+
+#: inc/admin/evento.php:211
+msgid "Dettagli Evento"
+msgstr ""
+
+#: inc/admin/evento.php:220
+msgid "<h1>Date</h1>"
+msgstr ""
+
+#: inc/admin/evento.php:222
+msgid "Se l'evento si svolge in più giorni o fasi indica qui di seguito i diversi appuntamenti. Es: inizo attività, pausa pranzo, seconda sessione, etc"
+msgstr ""
+
+#: inc/admin/evento.php:225
+msgid "Aggiungi una data evento"
+msgstr ""
+
+#: inc/admin/evento.php:237
+msgid "<br>Data / orario "
+msgstr ""
+
+#: inc/admin/evento.php:244
+#: inc/admin/luogo.php:238
+#: inc/admin/options.php:296
+#: inc/admin/options.php:333
+#: inc/admin/options.php:347
+#: inc/admin/options.php:404
+#: inc/admin/options.php:436
+#: inc/admin/options.php:469
+#: inc/admin/servizio.php:353
+#: single-documento.php:87
+#: single-documento.php:125
+#: single-luogo.php:103
+#: single-luogo.php:170
+msgid "Descrizione"
+msgstr ""
+
+#: inc/admin/evento.php:254
+msgid "Per approfondire"
+msgstr ""
+
+#: inc/admin/evento.php:255
+msgid "Link alla circolare o alla notizia"
+msgstr ""
+
+#: inc/admin/evento.php:271
+#: inc/admin/luogo.php:353
+msgid "Galleria di immagini"
+msgstr ""
+
+#: inc/admin/evento.php:279
+#: inc/admin/luogo.php:361
+#: inc/admin/programma_materia.php:110
+#: single-luogo.php:98
+#: single-luogo.php:158
+msgid "Video"
+msgstr ""
+
+#: inc/admin/evento.php:280
+#: inc/admin/luogo.php:362
+#: inc/admin/programma_materia.php:111
+msgid "Inserisci la url di un servizio di streaming video (es: youtube, vimeo) - Qui la lista: <a href=\"https://codex.wordpress.org/Embeds\">https://codex.wordpress.org/Embeds</a>"
+msgstr ""
+
+#: inc/admin/evento.php:288
+msgid "Destinatari evento *"
+msgstr ""
+
+#: inc/admin/evento.php:289
+msgid "Comunità scolastica (rivolta a tutti) / solo personale scolastico (rivolta al personale della scuola)"
+msgstr ""
+
+#: inc/admin/evento.php:293
+msgid "Comunità scolastica"
+msgstr ""
+
+#: inc/admin/evento.php:294
+msgid "Personale Scolastico"
+msgstr ""
+
+#: inc/admin/evento.php:303
+msgid "Descrizione dei destinatari *"
+msgstr ""
+
+#: inc/admin/evento.php:304
+msgid "Descrizione testuale dei principali interlocutori dell'Evento. Questo elenco compare nel frontend.."
+msgstr ""
+
+#: inc/admin/evento.php:313
+msgid "Persone dell'amministrazione "
+msgstr ""
+
+#: inc/admin/evento.php:314
+msgid "Link a schede del personale scolastico che parteciperanno all'evento e che si vogliono mettere in risalto, per esempio un dirigente scolastico o un prof. che hanno promosso l'evento "
+msgstr ""
+
+#: inc/admin/evento.php:327
+msgid "Tipo evento *"
+msgstr ""
+
+#: inc/admin/evento.php:328
+msgid "Gratuito/ a pagamento"
+msgstr ""
+
+#: inc/admin/evento.php:332
+msgid "Gratuito"
+msgstr ""
+
+#: inc/admin/evento.php:333
+msgid "A Pagamento"
+msgstr ""
+
+#: inc/admin/evento.php:343
+msgid "<h1>Prezzo</h1>"
+msgstr ""
+
+#: inc/admin/evento.php:345
+msgid "Biglietto intero - prezzo - testo che spiega le condizioni / Biglietto ridotto - prezzo - testo che spiega le condizioni / Biglietto gratuito - gratis - testo che spiega le condizioni"
+msgstr ""
+
+#: inc/admin/evento.php:347
+msgid "Prezzo {#}"
+msgstr ""
+
+#: inc/admin/evento.php:348
+msgid "Aggiungi una fascia di prezzo"
+msgstr ""
+
+#: inc/admin/evento.php:363
+msgid "Nome della tipologia di biglietto (Intero, Ridotto)"
+msgstr ""
+
+#: inc/admin/evento.php:369
+msgid "Prezzo"
+msgstr ""
+
+#: inc/admin/evento.php:375
+msgid "Descrizione della tipologia di biglietto "
+msgstr ""
+
+#: inc/admin/evento.php:385
+msgid "Organizzato dalla scuola"
+msgstr ""
+
+#: inc/admin/evento.php:400
+msgid "Organizzato da *"
+msgstr ""
+
+#: inc/admin/evento.php:401
+msgid "Se è organizzato dalla scuola, card della struttura organizzativa responsabile (es. Segreteria , oppure Presidenza) "
+msgstr ""
+
+#: inc/admin/evento.php:414
+msgid "Contatto: persona "
+msgstr ""
+
+#: inc/admin/evento.php:415
+msgid "Nome e cognome delle persone da contattare per informazioni sull'Evento"
+msgstr ""
+
+#: inc/admin/evento.php:427
+msgid "Contatto: telefono "
+msgstr ""
+
+#: inc/admin/evento.php:428
+msgid "Se non è un evento della scuola, inserire Numero di telefono per avere informazioni sull'Evento"
+msgstr ""
+
+#: inc/admin/evento.php:438
+msgid "Contatto: email "
+msgstr ""
+
+#: inc/admin/evento.php:439
+msgid "se non è un evento della scuola, Indirizzo email per avere informazioni sull'Evento"
+msgstr ""
+
+#: inc/admin/evento.php:451
+msgid "Sito web "
+msgstr ""
+
+#: inc/admin/evento.php:452
+msgid "Inserire il sito web dedicato all'evento o della società che organizza l'evento"
+msgstr ""
+
+#: inc/admin/evento.php:459
+msgid "Patrocinato da "
+msgstr ""
+
+#: inc/admin/evento.php:460
+msgid "Soggetto che patrocinia l'evento"
+msgstr ""
+
+#: inc/admin/evento.php:466
+msgid "Sponsor"
+msgstr ""
+
+#: inc/admin/evento.php:467
+msgid "Sponsor dell'evento"
+msgstr ""
+
+#: inc/admin/evento.php:475
+msgid "Inserisci qui tutti i documenti che ritieni rilevanti per l'evento. Se devi caricare il documento <a href=\"post-new.php?post_type=documento\">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. "
+msgstr ""
+
+#: inc/admin/evento.php:491
+#: inc/admin/indirizzo.php:474
+#: inc/admin/servizio.php:427
+msgid "Se l'allegato non è descritto da una scheda documento, link all'allegato (es. link a una locandina). "
+msgstr ""
+
+#: inc/admin/evento.php:507
+msgid "Data inizio e fine evento *"
+msgstr ""
+
+#: inc/admin/evento.php:548
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome del Evento</b></span><br><br>"
+msgstr ""
+
+#: inc/admin/evento.php:558
+msgid "<h1>Descrizione Estesa dell'evento</h1>"
+msgstr ""
+
+#: inc/admin/indirizzo.php:11
+msgctxt "Post Type General Name"
+msgid "Indirizzo di Studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:12
+msgctxt "Post Type Singular Name"
+msgid "Indirizzo di Studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:13
+#: inc/admin/indirizzo.php:14
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un indirizzo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:15
+msgid "Logo Identificativo dell'indirizzo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:16
+msgctxt "Post Type Singular Name"
+msgid "Modifica l'indirizzo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:17
+msgctxt "Post Type Singular Name"
+msgid "Visualizza l'indirizzo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:19
+#: inc/admin/servizio.php:19
+msgid "Rimuovi Logo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:20
+#: inc/admin/servizio.php:20
+msgid "Usa come Logo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:23
+#: single-struttura.php:172
+msgid "Indirizzo di studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:35
+msgid "Gli indirizzi di studio che è possibile frequentare nella scuola"
+msgstr ""
+
+#: inc/admin/indirizzo.php:41
+msgctxt "taxonomy general name"
+msgid "Percorsi di studio e formazione"
+msgstr ""
+
+#: inc/admin/indirizzo.php:42
+msgctxt "taxonomy singular name"
+msgid "Percorsi di studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:43
+msgid "Cerca Percorso"
+msgstr ""
+
+#: inc/admin/indirizzo.php:44
+msgid "Tutti"
+msgstr ""
+
+#: inc/admin/indirizzo.php:48
+msgid "Nuovo Indirizzo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:49
+msgid "Percorsi di Studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:88
+msgid "Stato del servizio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:96
+msgid "Lo stato del servizio indica l'effettiva fruibilità del percorso di studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:100
+#: inc/admin/servizio.php:96
+msgid "Attivo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:101
+#: inc/admin/servizio.php:97
+msgid "Disattivo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:109
+#: inc/admin/servizio.php:105
+msgid "Motivo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:110
+msgid "Descrizione testuale del motivo per cui  non è attivo. Es. Servizio momentaneamente disattivato perché....Servizio attivo dal..."
+msgstr ""
+
+#: inc/admin/indirizzo.php:130
+msgid "Indirizzi di studio del percorso"
+msgstr ""
+
+#: inc/admin/indirizzo.php:140
+msgid "Struttura didattica "
+msgstr ""
+
+#: inc/admin/indirizzo.php:141
+msgid "Seleziona la struttura (scuola o istituto) che eroga il percorso di studio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:152
+msgid "Indicare una sintetica descrizione del percorso di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/indirizzo.php:164
+#: inc/admin/servizio.php:156
+msgid "Dettagli Servizio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:173
+#: inc/admin/servizio.php:165
+#: single-indirizzo.php:202
+#: single-servizio.php:172
+msgid "A cosa serve"
+msgstr ""
+
+#: inc/admin/indirizzo.php:174
+msgid "Indicare uno o più output prodotti. Ad es.: \" Questo percorso di studio ti permette di accedere a...\""
+msgstr ""
+
+#: inc/admin/indirizzo.php:188
+#: inc/admin/servizio.php:178
+msgid "Come si fa "
+msgstr ""
+
+#: inc/admin/indirizzo.php:189
+msgid "Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del percorso. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:209
+#: inc/admin/servizio.php:198
+msgid "Procedure collegate"
+msgstr ""
+
+#: inc/admin/indirizzo.php:210
+msgid "Questo campo indica eventuali procedure collegate al servizio."
+msgstr ""
+
+#: inc/admin/indirizzo.php:216
+#: inc/admin/servizio.php:205
+msgid "Servizi on line"
+msgstr ""
+
+#: inc/admin/indirizzo.php:217
+msgid "Link per avviare la procedura di attivazione del servizio. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:230
+#: inc/admin/servizio.php:218
+msgid "Azione"
+msgstr ""
+
+#: inc/admin/indirizzo.php:231
+#: inc/admin/servizio.php:219
+msgid "Seleziona l'azione prevista nel link che segue."
+msgstr ""
+
+#: inc/admin/indirizzo.php:247
+#: inc/admin/servizio.php:235
+msgid "Link"
+msgstr ""
+
+#: inc/admin/indirizzo.php:248
+#: inc/admin/servizio.php:236
+msgid "Link per avviare la procedura online."
+msgstr ""
+
+#: inc/admin/indirizzo.php:254
+#: inc/admin/servizio.php:242
+#: single-indirizzo.php:255
+#: single-servizio.php:225
+msgid "Autenticazione"
+msgstr ""
+
+#: inc/admin/indirizzo.php:255
+#: inc/admin/servizio.php:243
+msgid "Indicare, se previste, le modalità di autenticazione necessarie. Ad es. \"Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L'iscrizione è possibile anche attraverso spid.\""
+msgstr ""
+
+#: inc/admin/indirizzo.php:266
+#: inc/admin/servizio.php:254
+msgid "SPID"
+msgstr ""
+
+#: inc/admin/indirizzo.php:267
+#: inc/admin/servizio.php:255
+msgid "Selezionare se è previsto SPID tra le modalità di autenticazione necessarie per accedere al Servizio."
+msgstr ""
+
+#: inc/admin/indirizzo.php:275
+#: inc/admin/servizio.php:282
+#: single-indirizzo.php:297
+#: single-servizio.php:246
+msgid "Servizi correlati"
+msgstr ""
+
+#: inc/admin/indirizzo.php:282
+#: inc/admin/servizio.php:289
+msgid "Selezione i <a href=\"edit.php?post_type=luogo\">luoghi</a> in cui vengono erogati i servizi"
+msgstr ""
+
+#: inc/admin/indirizzo.php:283
+msgid "In caso di percorso di studio sia erogato in più luoghi, crea una sede per ogni luogo. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:292
+msgid "Programma di studio "
+msgstr ""
+
+#: inc/admin/indirizzo.php:293
+msgid "es: \"Descrivi il programma di studio, anche in formato tabellare."
+msgstr ""
+
+#: inc/admin/indirizzo.php:310
+msgid "L'orario delle classi"
+msgstr ""
+
+#: inc/admin/indirizzo.php:311
+#: inc/admin/indirizzo.php:332
+msgid "Testo introduttivo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:317
+msgid "File pdf del calendario"
+msgstr ""
+
+#: inc/admin/indirizzo.php:323
+msgid "Aggiungi un nuovo calendario"
+msgstr ""
+
+#: inc/admin/indirizzo.php:324
+#: inc/admin/indirizzo.php:325
+msgid "Rimuovi calendario"
+msgstr ""
+
+#: inc/admin/indirizzo.php:331
+#: single-indirizzo.php:142
+#: single-indirizzo.php:381
+msgid "Libri di testo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:337
+msgid "File pdf dei libri di testo"
+msgstr ""
+
+#: inc/admin/indirizzo.php:343
+msgid "Aggiungi un nuovo file"
+msgstr ""
+
+#: inc/admin/indirizzo.php:344
+#: inc/admin/indirizzo.php:345
+msgid "Rimuovi file"
+msgstr ""
+
+#: inc/admin/indirizzo.php:351
+msgid "Cosa Serve (testo introduttivo) "
+msgstr ""
+
+#: inc/admin/indirizzo.php:352
+#: inc/admin/servizio.php:299
+msgid "es: \"Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]\" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link"
+msgstr ""
+
+#: inc/admin/indirizzo.php:368
+#: inc/admin/servizio.php:315
+msgid "Cosa Serve (lista)"
+msgstr ""
+
+#: inc/admin/indirizzo.php:369
+#: inc/admin/servizio.php:316
+msgid "la lista di cosa serve"
+msgstr ""
+
+#: inc/admin/indirizzo.php:377
+#: inc/admin/servizio.php:325
+msgid "<h1>Fasi e Scadenze</h1>"
+msgstr ""
+
+#: inc/admin/indirizzo.php:379
+#: inc/admin/servizio.php:327
+msgid "Prevedere una data di scadenza del Servizio (ad es. \"iscrizione asilo nido entro...\"). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi \" - data)"
+msgstr ""
+
+#: inc/admin/indirizzo.php:382
+#: inc/admin/servizio.php:330
+msgid "Aggiungi una fase"
+msgstr ""
+
+#: inc/admin/indirizzo.php:383
+#: inc/admin/servizio.php:331
+msgid "Rimuovi la fase"
+msgstr ""
+
+#: inc/admin/indirizzo.php:391
+#: inc/admin/indirizzo.php:392
+msgid "Data fase"
+msgstr ""
+
+#: inc/admin/indirizzo.php:399
+msgid "Fase"
+msgstr ""
+
+#: inc/admin/indirizzo.php:400
+#: inc/admin/servizio.php:340
+msgid "Esempio: \"Iscrizione alla gita\" oppure \"Pagamento della gita\""
+msgstr ""
+
+#: inc/admin/indirizzo.php:408
+#: inc/admin/servizio.php:361
+#: single-indirizzo.php:159
+#: single-indirizzo.php:438
+#: single-servizio.php:129
+#: single-servizio.php:353
+msgid "Casi particolari"
+msgstr ""
+
+#: inc/admin/indirizzo.php:409
+#: inc/admin/servizio.php:362
+msgid "Inserire come testo libero, eventuali casi particolari riferiti all'ottenimento del Servizio in questione. Es. Le persone con disabilità (legge 104) possono contattare direttamente l'ufficio e concordare una procedura di rinnovo a domicilio"
+msgstr ""
+
+#: inc/admin/indirizzo.php:417
+#: inc/admin/luogo.php:395
+#: inc/admin/servizio.php:370
+#: inc/admin/struttura.php:327
+msgid "Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi"
+msgstr ""
+
+#: inc/admin/indirizzo.php:430
+#: inc/admin/luogo.php:181
+#: inc/admin/servizio.php:383
+msgid "Riferimento mail"
+msgstr ""
+
+#: inc/admin/indirizzo.php:431
+#: inc/admin/servizio.php:384
+msgid "Indirizzo di posta elettronica del servizio. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:442
+#: inc/admin/luogo.php:193
+#: inc/admin/servizio.php:395
+msgid "Riferimento telefonico "
+msgstr ""
+
+#: inc/admin/indirizzo.php:443
+#: inc/admin/servizio.php:396
+msgid "Telefono del servizio. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:457
+#: inc/admin/servizio.php:410
+msgid "Inserisci qui tutti i documenti che ritieni utili per attivare il servizio: moduli da compilare, riferimenti di legge e altre informazioni. Se devi caricare il documento <a href=\"post-new.php?post_type=documento\">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. "
+msgstr ""
+
+#: inc/admin/indirizzo.php:488
+#: inc/admin/servizio.php:441
+msgid "Codice dell’Ente Erogatore (ipa)"
+msgstr ""
+
+#: inc/admin/indirizzo.php:496
+#: inc/admin/servizio.php:449
+msgid "Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo sul Servizio."
+msgstr ""
+
+#: inc/admin/indirizzo.php:510
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome dell'indirizzo di studio</b> Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/indirizzo.php:520
+msgid "<h1>Descrizione Estesa e Completa dell'indirizzo di studio</h1>"
+msgstr ""
+
+#: inc/admin/luogo.php:10
+msgctxt "Post Type General Name"
+msgid "Luoghi"
+msgstr ""
+
+#: inc/admin/luogo.php:11
+msgctxt "Post Type Singular Name"
+msgid "Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:12
+#: inc/admin/luogo.php:13
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:14
+msgctxt "Post Type Singular Name"
+msgid "Modifica il Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:15
+msgctxt "Post Type Singular Name"
+msgid "Visualizza il Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:34
+msgctxt "taxonomy general name"
+msgid "Tipologia Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:35
+msgctxt "taxonomy singular name"
+msgid "Tipologia Luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:70
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome del Luogo</b>.</i></span> in cui si svolge l'attività scolastica. I luoghi possono essere sede di strutture e canali fisici di erogazione di un servizio<br><br>"
+msgstr ""
+
+#: inc/admin/luogo.php:97
+msgid "Tipologia luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:105
+msgid "Descrizione breve *"
+msgstr ""
+
+#: inc/admin/luogo.php:106
+msgid "Sintetica descrizione del luogo (inferiore 160 caratteri)"
+msgstr ""
+
+#: inc/admin/luogo.php:129
+msgid "Il luogo è parte di "
+msgstr ""
+
+#: inc/admin/luogo.php:130
+msgid "Con questo campo è possibile stabilire una relazione tra il luogo che si sta creando e il luogo che lo contiene. Ad esempio: il luogo palestra è contenuto nel luogo edificio scolastico."
+msgstr ""
+
+#: inc/admin/luogo.php:138
+msgid "Indirizzo  "
+msgstr ""
+
+#: inc/admin/luogo.php:139
+msgid "Indirizzo del luogo."
+msgstr ""
+
+#: inc/admin/luogo.php:150
+msgid "Posizione GPS  "
+msgstr ""
+
+#: inc/admin/luogo.php:151
+msgid "Georeferenziazione del luogo e link a posizione in mappa.  ."
+msgstr ""
+
+#: inc/admin/luogo.php:155
+msgid "Digita l'indirizzo della Sede"
+msgstr ""
+
+#: inc/admin/luogo.php:168
+msgid "CAP "
+msgstr ""
+
+#: inc/admin/luogo.php:169
+msgid "Codice di avviamento postale del luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:182
+msgid "Indirizzo di posta elettronica del luogo. "
+msgstr ""
+
+#: inc/admin/luogo.php:194
+msgid "Telefono del luogo. "
+msgstr ""
+
+#: inc/admin/luogo.php:207
+msgid "Orario per il pubblico "
+msgstr ""
+
+#: inc/admin/luogo.php:215
+msgid "<h1>Elementi di interesse</h1>"
+msgstr ""
+
+#: inc/admin/luogo.php:217
+msgid "Inserisci se ci elementi di interesse di questo luogo. <b>NB: se il luogo ha dei luoghi \"figli\" all'interno non inserirli qui, verranno recuperati e mostrati automaticamente.</b>"
+msgstr ""
+
+#: inc/admin/luogo.php:219
+msgid "Elemento {#}"
+msgstr ""
+
+#: inc/admin/luogo.php:231
+#: inc/admin/options.php:328
+#: inc/admin/servizio.php:339
+msgid "Titolo"
+msgstr ""
+
+#: inc/admin/luogo.php:249
+msgid "<h1>Modalità di accesso</h1>"
+msgstr ""
+
+#: inc/admin/luogo.php:251
+msgid "parcheggi / ingressi / accessibilità Informazioni relative  all'accesso al luogo come la presenza di parcheggi,  la presenza di uno solo o di più ingressi, la presenza di strutture e servizi per garantire l'accesso ai disabili, ecc."
+msgstr ""
+
+#: inc/admin/luogo.php:253
+msgid "Modalità di accesso n. {#}"
+msgstr ""
+
+#: inc/admin/luogo.php:265
+msgid "Selezione la tipologia di accesso"
+msgstr ""
+
+#: inc/admin/luogo.php:269
+msgid "Ingresso"
+msgstr ""
+
+#: inc/admin/luogo.php:270
+msgid "Accessibilità"
+msgstr ""
+
+#: inc/admin/luogo.php:271
+msgid "Parcheggio"
+msgstr ""
+
+#: inc/admin/luogo.php:277
+msgid "Titolo. Es: Ingresso principale, Parcheggio Privato, etc"
+msgstr ""
+
+#: inc/admin/luogo.php:284
+msgid "Indirizzo"
+msgstr ""
+
+#: inc/admin/luogo.php:293
+msgid "Servizi presenti nel luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:300
+msgid "Descrizione altri servizi presenti nel luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:301
+msgid "Se sono presenti servizi di carattere privato per i quali non hai creato una scheda servizi, descrivili qui."
+msgstr ""
+
+#: inc/admin/luogo.php:307
+msgid "Il luogo è sede di:"
+msgstr ""
+
+#: inc/admin/luogo.php:308
+#: inc/admin/luogo.php:316
+msgid "Link alle strutture (segreteria, scuola, dirigenza) presenti nel luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:315
+#: single-luogo.php:125
+#: single-luogo.php:325
+msgid "Gestito da"
+msgstr ""
+
+#: inc/admin/luogo.php:323
+#: single-luogo.php:344
+msgid "Persone che gestiscono il luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:324
+msgid "Inserire la/le persona/e che gestiscono il luogo, associando al luogo le sue schede persona precedentemente create"
+msgstr ""
+
+#: inc/admin/luogo.php:336
+msgid "Nome gestore"
+msgstr ""
+
+#: inc/admin/luogo.php:337
+msgid "Se il gestore del luogo non è una struttura della scuola, inserisci il nome e il link del gestore<br>"
+msgstr ""
+
+#: inc/admin/luogo.php:338
+msgid "Nome della struttura che gestisce il luogo"
+msgstr ""
+
+#: inc/admin/luogo.php:344
+msgid "Link gestore<br>"
+msgstr ""
+
+#: inc/admin/luogo.php:345
+msgid "Link al sito web se è una struttura privata"
+msgstr ""
+
+#: inc/admin/luogo.php:371
+msgid "Anno di Costruzione "
+msgstr ""
+
+#: inc/admin/luogo.php:372
+msgid "Anno in cui e' stato costruito l'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:378
+msgid "Numero di Piani "
+msgstr ""
+
+#: inc/admin/luogo.php:379
+msgid "Numero di piani in cui e' articolato l'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:386
+msgid "Posti a sedere "
+msgstr ""
+
+#: inc/admin/luogo.php:387
+msgid "Indicare il numero di posti a sedere se il luogo prevede delle sedute (come ad esempio un auditorium, un aula magna, un teaotro, etc.)"
+msgstr ""
+
+#: inc/admin/luogo.php:407
+msgid "Dati Strutturali (a scopo amministratico, non sono visualizzati sul frontend)"
+msgstr ""
+
+#: inc/admin/luogo.php:415
+msgid "Codice edificio "
+msgstr ""
+
+#: inc/admin/luogo.php:416
+msgid "Codice dell'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:422
+msgid "Codice Comune"
+msgstr ""
+
+#: inc/admin/luogo.php:423
+msgid "Codice catastale del Comune dell'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:429
+msgid "Descrizione codice comune"
+msgstr ""
+
+#: inc/admin/luogo.php:430
+msgid "Descrizione codice catastale del Comune dell'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:435
+msgid "Uso Scolastico"
+msgstr ""
+
+#: inc/admin/luogo.php:436
+msgid "Indica se l'edificio e' stato costruito appositamente per uso scolastico "
+msgstr ""
+
+#: inc/admin/luogo.php:440
+#: inc/admin/luogo.php:452
+msgid "SI"
+msgstr ""
+
+#: inc/admin/luogo.php:441
+#: inc/admin/luogo.php:453
+msgid "NO"
+msgstr ""
+
+#: inc/admin/luogo.php:447
+msgid "Altri Usi"
+msgstr ""
+
+#: inc/admin/luogo.php:448
+msgid "Indica se l'edificio e' stato costruito per altri usi e poi adattato permanentemente per uso scolastico "
+msgstr ""
+
+#: inc/admin/luogo.php:461
+msgid "Fascia Età Costruzione"
+msgstr ""
+
+#: inc/admin/luogo.php:462
+msgid "Fascia di eta' di costruzione dell'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:470
+msgid "Anno Adattamento "
+msgstr ""
+
+#: inc/admin/luogo.php:471
+msgid "Anno in cui e' stato adattato l'edificio per uso scolastico"
+msgstr ""
+
+#: inc/admin/luogo.php:477
+msgid "Sperficie Area Totale "
+msgstr ""
+
+#: inc/admin/luogo.php:478
+msgid "Superificie totale dell'area in mq"
+msgstr ""
+
+#: inc/admin/luogo.php:484
+msgid "Sperficie Area Libera "
+msgstr ""
+
+#: inc/admin/luogo.php:485
+msgid "Superificie libera dell'area in mq"
+msgstr ""
+
+#: inc/admin/luogo.php:492
+msgid "Volume "
+msgstr ""
+
+#: inc/admin/luogo.php:493
+msgid "Volume lordo dell'edificio"
+msgstr ""
+
+#: inc/admin/luogo.php:506
+msgid "<h1>Descrizione del luogo</h1>"
+msgstr ""
+
+#: inc/admin/options.php:11
+msgid "Configurazione"
+msgstr ""
+
+#: inc/admin/options.php:15
+msgid "Opzioni di base"
+msgstr ""
+
+#: inc/admin/options.php:30
+msgid "Configurazione Scuola"
+msgstr ""
+
+#: inc/admin/options.php:31
+msgid "Area di configurazione delle informazioni di base"
+msgstr ""
+
+#: inc/admin/options.php:38
+msgid "Tipologia *"
+msgstr ""
+
+#: inc/admin/options.php:39
+msgid "La Tipologia della scuola. Es: \"Liceo Scientifico Statale\""
+msgstr ""
+
+#: inc/admin/options.php:48
+msgid "Nome Scuola *"
+msgstr ""
+
+#: inc/admin/options.php:49
+msgid "Il Nome della Scuola"
+msgstr ""
+
+#: inc/admin/options.php:58
+msgid "Città *"
+msgstr ""
+
+#: inc/admin/options.php:59
+msgid "La città dove risiede la Scuola"
+msgstr ""
+
+#: inc/admin/options.php:73
+msgid "Home Page"
+msgstr ""
+
+#: inc/admin/options.php:79
+msgid "Home"
+msgstr ""
+
+#: inc/admin/options.php:108
+msgid "Sezione Notizie"
+msgstr ""
+
+#: inc/admin/options.php:109
+msgid "Gestione Notizie / Articoli / Eventi mostrati in home page"
+msgstr ""
+
+#: inc/admin/options.php:115
+#: inc/admin/options.php:174
+msgid "Selezione Automatica"
+msgstr ""
+
+#: inc/admin/options.php:116
+msgid "Seleziona <b>Si</b> per mostrare automaticamente gli articoli in home page. Le colonne mostreranno l'ultimo articolo delle tipologie selezionate nella <a href=\"admin.php?page=notizie\">configurazione della Pagina \"Novità\"</a>,"
+msgstr ""
+
+#: inc/admin/options.php:126
+#: inc/admin/options.php:186
+#: inc/admin/options.php:549
+msgid "Selezione articoli "
+msgstr ""
+
+#: inc/admin/options.php:127
+#: inc/admin/options.php:187
+msgid "Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell'impaginazione.  "
+msgstr ""
+
+#: inc/admin/options.php:148
+msgid "Mostra gli eventi in Home"
+msgstr ""
+
+#: inc/admin/options.php:149
+msgid "Abilita gli eventi in Home e decidi come mostrarli"
+msgstr ""
+
+#: inc/admin/options.php:154
+msgid "Si, mostra il prossimo evento"
+msgstr ""
+
+#: inc/admin/options.php:155
+msgid "Si, mostra il calendario"
+msgstr ""
+
+#: inc/admin/options.php:166
+msgid "Sezione Servizi"
+msgstr ""
+
+#: inc/admin/options.php:167
+msgid "Gestione sezione Servizi mostrati in home page"
+msgstr ""
+
+#: inc/admin/options.php:175
+msgid "Seleziona per mostrare automaticamente i servizi (mostra gli ultimi)"
+msgstr ""
+
+#: inc/admin/options.php:240
+msgid "Sezione La Scuola"
+msgstr ""
+
+#: inc/admin/options.php:241
+#: inc/admin/options.php:592
+#: inc/admin/options.php:646
+#: inc/admin/options.php:699
+#: inc/admin/options.php:794
+#: inc/admin/options.php:846
+#: inc/admin/options.php:899
+#: inc/admin/options.php:951
+msgid "Inserisci qui le informazioni utili a popolare <a href=\""
+msgstr ""
+
+#: inc/admin/options.php:248
+msgid "Immagine"
+msgstr ""
+
+#: inc/admin/options.php:249
+msgid "Immagine di presentazione della scuola"
+msgstr ""
+
+#: inc/admin/options.php:273
+msgid "Citazione"
+msgstr ""
+
+#: inc/admin/options.php:274
+msgid "Breve (compresa tra 70 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell'istituto . Es. \"Da sempre un punto di riferimento per la formazione degli studenti a Roma\" Es. \"La scuola è una comunità: costruiamo insieme il futuro\". Link alla pagina di presentazione della missione della scuola"
+msgstr ""
+
+#: inc/admin/options.php:286
+msgid "Timeline della Scuola"
+msgstr ""
+
+#: inc/admin/options.php:297
+msgid "Descrizione introduttiva della timeline"
+msgstr ""
+
+#: inc/admin/options.php:305
+msgid "Ogni fase è costruita attraverso data, titolo (max 60 caratteri) e descrizione breve (max 140 caratteri). NB: Se è un istituto comprende le tappe delle scuole che ne fanno parte"
+msgstr ""
+
+#: inc/admin/options.php:318
+#: inc/admin/servizio.php:345
+#: single-scheda_progetto.php:114
+msgid "Data"
+msgstr ""
+
+#: inc/admin/options.php:338
+#: inc/admin/options.php:346
+#: inc/admin/options.php:355
+msgid "Le Strutture"
+msgstr ""
+
+#: inc/admin/options.php:339
+msgid "Organizzazione scolastica"
+msgstr ""
+
+#: inc/admin/options.php:348
+msgid "Es: Una scuola è fatta di persone. Ecco come siamo organizzati e come possiamo entrare in contatto"
+msgstr ""
+
+#: inc/admin/options.php:356
+msgid "Seleziona qui le principali strutture organizzative (es: La Dirigenza, La segreteria, etc)  <a href=\"post-new.php?post_type=struttura\">Qui puoi creare una struttura.</a> "
+msgstr ""
+
+#: inc/admin/options.php:395
+#: inc/admin/options.php:403
+msgid "I Luoghi"
+msgstr ""
+
+#: inc/admin/options.php:396
+msgid "Immagini dei luoghi della Scuola"
+msgstr ""
+
+#: inc/admin/options.php:405
+msgid "Es: Testo descrittivo dei luoghi della scuola"
+msgstr ""
+
+#: inc/admin/options.php:412
+#: single-luogo.php:432
+msgid "Gallery"
+msgstr ""
+
+#: inc/admin/options.php:428
+msgid "Utilizza le carte per presentare il Piano triennale dell'offerta formativa (PTOF), il Piano di inclusione e il Regolamento di Istituto o altri documenti."
+msgstr ""
+
+#: inc/admin/options.php:435
+#: inc/admin/options.php:445
+msgid "Le Carte"
+msgstr ""
+
+#: inc/admin/options.php:437
+msgid "E' l'accesso a tutti i documenti della scuola. Es: La scuola raccontata attraverso i documenti più importanti, come il piano triennale dell'offerta formativa"
+msgstr ""
+
+#: inc/admin/options.php:446
+msgid "Inserisci qui tutti i documenti che ritieni utili per presentare la scuola.  <a href=\"post-new.php?post_type=documento\">Qui puoi creare un documento.</a> "
+msgstr ""
+
+#: inc/admin/options.php:462
+msgid "Inserisci il numero di studenti e classi della Scuola"
+msgstr ""
+
+#: inc/admin/options.php:470
+msgid "Breve descrizione (140 caratteri) *"
+msgstr ""
+
+#: inc/admin/options.php:480
+msgid "Studenti *"
+msgstr ""
+
+#: inc/admin/options.php:481
+msgid "Numero di studenti iscritti a scuola"
+msgstr ""
+
+#: inc/admin/options.php:494
+msgid "Classi *"
+msgstr ""
+
+#: inc/admin/options.php:495
+msgid "Numero di classi della scuola"
+msgstr ""
+
+#: inc/admin/options.php:508
+msgid "Per approfondire *"
+msgstr ""
+
+#: inc/admin/options.php:509
+msgid "Link alla scheda della scuola all'interno di \"scuola in chiaro\""
+msgstr ""
+
+#: inc/admin/options.php:543
+msgid "Presenta la Scuola"
+msgstr ""
+
+#: inc/admin/options.php:544
+msgid "Seleziona i contenuti che meglio rappresentano l'Istituto scolastico</a>. Saranno mostrati nella  <a href=\""
+msgstr ""
+
+#: inc/admin/options.php:550
+msgid "Seleziona gli articoli da mostrare nella pagina di Presentazione della Scuola.  "
+msgstr ""
+
+#: inc/admin/options.php:572
+msgid "I Servizi"
+msgstr ""
+
+#: inc/admin/options.php:591
+msgid "Sezione I Servizi"
+msgstr ""
+
+#: inc/admin/options.php:599
+#: inc/admin/options.php:653
+msgid "Descrizione Sezione"
+msgstr ""
+
+#: inc/admin/options.php:600
+msgid "es: \"I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti\""
+msgstr ""
+
+#: inc/admin/options.php:609
+msgid "Tipologie Servizi"
+msgstr ""
+
+#: inc/admin/options.php:610
+msgid "Servizi aggregati per tipologie. Seleziona le tipologie da mostrare. "
+msgstr ""
+
+#: inc/admin/options.php:615
+msgid "Seleziona e ordina le tipologie di servizi da mostrare nella HomePage di sezione"
+msgstr ""
+
+#: inc/admin/options.php:627
+msgid "Le Novità"
+msgstr ""
+
+#: inc/admin/options.php:645
+msgid "Sezione Le Novità"
+msgstr ""
+
+#: inc/admin/options.php:654
+msgid "es: \"Le notizie del liceo scientifico Enriques dedicate a tutti i genitori, studenti, personale ATA e docenti\""
+msgstr ""
+
+#: inc/admin/options.php:662
+msgid "Tipologie Articoli"
+msgstr ""
+
+#: inc/admin/options.php:663
+msgid "Articoli aggregati per tipologie (es: articoli, circolari, notizie), . Seleziona le tipologie da mostrare. "
+msgstr ""
+
+#: inc/admin/options.php:668
+msgid "Seleziona e ordina le tipologie di articoli da mostrare nella HomePage di sezione"
+msgstr ""
+
+#: inc/admin/options.php:680
+msgid "La Didattica"
+msgstr ""
+
+#: inc/admin/options.php:698
+msgid "Sezione Didattica"
+msgstr ""
+
+#: inc/admin/options.php:719
+msgid "Seleziona il tipo di visualizzazione da mostrare nella didattica"
+msgstr ""
+
+#: inc/admin/options.php:720
+msgid "Scegli se mostrare a sinistra le scuole e a destra gli indirizzi di studio, oppure se mostrare a sinistra gli indirizzi di studio e a destra le scuole che ne fanno parte"
+msgstr ""
+
+#: inc/admin/options.php:723
+msgid "Scuole / Percorsi"
+msgstr ""
+
+#: inc/admin/options.php:724
+msgid "Indirizzi / Scuole"
+msgstr ""
+
+#: inc/admin/options.php:730
+msgid "Seleziona e ordina le scuole che vuoi mostrare nella sezione didattica"
+msgstr ""
+
+#: inc/admin/options.php:731
+msgid "NB: La scuola è una Struttura organizzativa di tipologia \"Scuola. Se non esiste creala prima <a href=\"edit.php?post_type=struttura\">qui</a>\""
+msgstr ""
+
+#: inc/admin/options.php:743
+msgid "Seleziona gli indirizzi di studio da mostrare nella sezione didattica"
+msgstr ""
+
+#: inc/admin/options.php:775
+msgid "Le Persone"
+msgstr ""
+
+#: inc/admin/options.php:793
+msgid "Sezione Persone"
+msgstr ""
+
+#: inc/admin/options.php:801
+msgid "Descrizione Sezione Persone"
+msgstr ""
+
+#: inc/admin/options.php:802
+msgid "es: \"Le persone del liceo scientifico xxx, insegnanti, personale ATA e docenti"
+msgstr ""
+
+#: inc/admin/options.php:811
+msgid "Seleziona e ordina le strutture organizzative a cui fanno capo le persone"
+msgstr ""
+
+#: inc/admin/options.php:812
+msgid "Seleziona le strutture organizzative di cui vuoi mostrare le persone. <a href=\""
+msgstr ""
+
+#: inc/admin/options.php:816
+msgid "Seleziona e ordina le strutture di cui mostrare le persone"
+msgstr ""
+
+#: inc/admin/options.php:845
+msgid "Sezione Organizzazione"
+msgstr ""
+
+#: inc/admin/options.php:853
+msgid "Descrizione Sezione Organizzazione"
+msgstr ""
+
+#: inc/admin/options.php:854
+msgid "es: \"Questa la nostra organizzazione scolastica\""
+msgstr ""
+
+#: inc/admin/options.php:863
+msgid "Seleziona e ordina le tipologie di strutture organizzative da mostrare"
+msgstr ""
+
+#: inc/admin/options.php:864
+msgid "Seleziona le tipologie di strutture organizzative di cui vuoi mostrare. "
+msgstr ""
+
+#: inc/admin/options.php:868
+msgid "Seleziona e ordina le tipologie di strutture da mostrare nella pagina Organizzazione"
+msgstr ""
+
+#: inc/admin/options.php:880
+#: inc/admin/options.php:886
+#: single-post.php:73
+msgid "Luoghi"
+msgstr ""
+
+#: inc/admin/options.php:898
+msgid "Sezione Luoghi"
+msgstr ""
+
+#: inc/admin/options.php:906
+msgid "Descrizione Sezione Luoghi"
+msgstr ""
+
+#: inc/admin/options.php:907
+msgid "es: \"Questi i luoghi della scuola\""
+msgstr ""
+
+#: inc/admin/options.php:916
+msgid "Seleziona e ordina le tipologie di luoghi  da mostrare"
+msgstr ""
+
+#: inc/admin/options.php:917
+msgid "Seleziona le tipologie di luoghi che vuoi mostrare. "
+msgstr ""
+
+#: inc/admin/options.php:921
+msgid "Seleziona e ordina le tipologie di luoghi da mostrare nella pagina Luoghi"
+msgstr ""
+
+#: inc/admin/options.php:950
+msgid "Sezione Documenti"
+msgstr ""
+
+#: inc/admin/options.php:958
+msgid "Descrizione Sezione Documenti"
+msgstr ""
+
+#: inc/admin/options.php:959
+msgid "es: \"Questi i documenti della scuola\""
+msgstr ""
+
+#: inc/admin/options.php:968
+msgid "Seleziona e ordina le tipologie di documenti  da mostrare"
+msgstr ""
+
+#: inc/admin/options.php:969
+msgid "Seleziona le tipologie di documenti che vuoi mostrare. "
+msgstr ""
+
+#: inc/admin/options.php:973
+msgid "Seleziona e ordina le tipologie di documenti da mostrare nella pagina Documenti"
+msgstr ""
+
+#: inc/admin/options.php:983
+msgid "Login"
+msgstr ""
+
+#: inc/admin/options.php:986
+msgid "Servizi esterni"
+msgstr ""
+
+#: inc/admin/options.php:1001
+msgid "Servizi esterni: informazioni di login"
+msgstr ""
+
+#: inc/admin/options.php:1002
+msgid "Area di configurazione dei link di login ai servizi esterni, da mostrare nella maschera di login ."
+msgstr ""
+
+#: inc/admin/options.php:1018
+msgid "Definisci tutti i servizi esterni che vuoi mostrare agli utenti in fase di login."
+msgstr ""
+
+#: inc/admin/options.php:1021
+msgid "Link {#}"
+msgstr ""
+
+#: inc/admin/options.php:1031
+msgid "Nome Servizio"
+msgstr ""
+
+#: inc/admin/options.php:1038
+msgid "Link Servizio"
+msgstr ""
+
+#: inc/admin/options.php:1049
+#: inc/admin/options.php:1052
+#: inc/admin/persona.php:162
+msgid "Altro"
+msgstr ""
+
+#: inc/admin/options.php:1068
+msgid "Area di configurazione del testo da inserire nel footer delle scuole."
+msgstr ""
+
+#: inc/admin/options.php:1075
+msgid "Inserisci nel footer l'indirizzo, il codice meccanografico, il codice IPA, il codice Fiscale e il CUF "
+msgstr ""
+
+#: inc/admin/options.php:1082
+msgid "Altre Informazioni"
+msgstr ""
+
+#: inc/admin/options.php:1083
+msgid "Area di configurazione delle opzioni generali del tema."
+msgstr ""
+
+#: inc/admin/options.php:1090
+msgid "Inserisci l'access token mapbox per l'erogazione delle mappe. Puoi crearlo <a target=\"_blank\" href=\"https://www.mapbox.com/studio/account/tokens/\">da qui</a>"
+msgstr ""
+
+#: inc/admin/options.php:1097
+msgid "Configurazione email Circolari"
+msgstr ""
+
+#: inc/admin/options.php:1098
+msgid "Area di configurazione della mail inviata in caso di assegnazione di una circolare."
+msgstr ""
+
+#: inc/admin/options.php:1120
+msgid "Scadenza Albo"
+msgstr ""
+
+#: inc/admin/options.php:1121
+msgid "Configura la data di scadenza dei documenti di tipo Albo."
+msgstr ""
+
+#: inc/admin/options.php:1128
+msgid "<br>Se ad un documento di tipo albo non viene inserita una data di scadenza, valorizzando questo campo questa sarà impostata automaticamente a X giorni dalla pubblicazione"
+msgstr ""
+
+#: inc/admin/persona.php:14
+msgctxt "taxonomy general name"
+msgid "Gruppo Utente"
+msgstr ""
+
+#: inc/admin/persona.php:15
+msgctxt "taxonomy singular name"
+msgid "Gruppo Utente"
+msgstr ""
+
+#: inc/admin/persona.php:17
+msgid "Tutti i gruppi"
+msgstr ""
+
+#: inc/admin/persona.php:18
+msgid "Modifica il gruppo"
+msgstr ""
+
+#: inc/admin/persona.php:19
+msgid "Aggiorna il gruppo"
+msgstr ""
+
+#: inc/admin/persona.php:20
+msgid "Aggiungi una gruppo"
+msgstr ""
+
+#: inc/admin/persona.php:21
+msgid "Nuovo gruppo"
+msgstr ""
+
+#: inc/admin/persona.php:123
+msgid "Persona"
+msgstr ""
+
+#: inc/admin/persona.php:135
+msgid "La Persona"
+msgstr ""
+
+#: inc/admin/persona.php:136
+msgid "Attributi che estendono le caratteristiche dell'utente"
+msgstr ""
+
+#: inc/admin/persona.php:143
+msgid "Foto della Persona"
+msgstr ""
+
+#: inc/admin/persona.php:144
+msgid "Inserire una fotografia che ritrae il soggetto descritto nella scheda"
+msgstr ""
+
+#: inc/admin/persona.php:152
+msgid "Ruolo nell'organizzazione *"
+msgstr ""
+
+#: inc/admin/persona.php:153
+msgid "Dirigente / Personale docente / Personale non docente"
+msgstr ""
+
+#: inc/admin/persona.php:158
+msgid "Nessuno"
+msgstr ""
+
+#: inc/admin/persona.php:159
+msgid "Dirigente Scolastico"
+msgstr ""
+
+#: inc/admin/persona.php:160
+msgid "Personale Docente"
+msgstr ""
+
+#: inc/admin/persona.php:161
+msgid "Personale non docente"
+msgstr ""
+
+#: inc/admin/persona.php:168
+msgid "Ruolo Docente"
+msgstr ""
+
+#: inc/admin/persona.php:169
+msgid "Seleziona la tipologia di ruolo docente"
+msgstr ""
+
+#: inc/admin/persona.php:174
+msgid "Scuola Infanzia"
+msgstr ""
+
+#: inc/admin/persona.php:175
+msgid "Scuola Primaria"
+msgstr ""
+
+#: inc/admin/persona.php:176
+msgid "Scuola Secondaria I grado"
+msgstr ""
+
+#: inc/admin/persona.php:177
+msgid "Scuola Secondaria II grado"
+msgstr ""
+
+#: inc/admin/persona.php:178
+msgid "Percorsi di Istruzione e Formazione Professionale"
+msgstr ""
+
+#: inc/admin/persona.php:186
+msgid "Incarico"
+msgstr ""
+
+#: inc/admin/persona.php:187
+msgid "Se docente: con incarico a tempo determinato/indeterminato"
+msgstr ""
+
+#: inc/admin/persona.php:192
+msgid "Incarico a Tempo Determinato"
+msgstr ""
+
+#: inc/admin/persona.php:193
+msgid "Incarico a Tempo Indeterminato"
+msgstr ""
+
+#: inc/admin/persona.php:202
+msgid "Durata Incarico"
+msgstr ""
+
+#: inc/admin/persona.php:204
+msgid "Se docente a tempo determinato, prevedere data scadenza incarico"
+msgstr ""
+
+#: inc/admin/persona.php:214
+msgid "Tipo posto"
+msgstr ""
+
+#: inc/admin/persona.php:215
+msgid "Nomale / Sostegno"
+msgstr ""
+
+#: inc/admin/persona.php:220
+msgid "Normale"
+msgstr ""
+
+#: inc/admin/persona.php:221
+msgid "Sostegno"
+msgstr ""
+
+#: inc/admin/persona.php:262
+msgid "Tipologia personale non docente"
+msgstr ""
+
+#: inc/admin/persona.php:263
+msgid "Seleziona la tipologia di ruolo"
+msgstr ""
+
+#: inc/admin/persona.php:268
+msgid "Direttore Amministrativo"
+msgstr ""
+
+#: inc/admin/persona.php:269
+msgid "Personale Tecnico"
+msgstr ""
+
+#: inc/admin/persona.php:270
+msgid "Personale Amministrativo"
+msgstr ""
+
+#: inc/admin/persona.php:271
+msgid "Collaboratore Scolastico"
+msgstr ""
+
+#: inc/admin/persona.php:281
+msgid "Altri ruoli - strutture organizzative "
+msgstr ""
+
+#: inc/admin/persona.php:282
+msgid "Altre strutture organizzative di cui fa parte (Es consiglio di istituto). Seleziona una struttura organizzativa. Se non la trovi inseriscila <a href=\"post-new.php?post_type=struttura\">cliccando qui</a> "
+msgstr ""
+
+#: inc/admin/persona.php:300
+msgid "Altri ruoli - funzioni strumentali "
+msgstr ""
+
+#: inc/admin/persona.php:301
+msgid "Definisci qui altre funzioni strumentali attribuite "
+msgstr ""
+
+#: inc/admin/persona.php:312
+msgid "Genere *"
+msgstr ""
+
+#: inc/admin/persona.php:316
+msgid "M"
+msgstr ""
+
+#: inc/admin/persona.php:317
+msgid "F"
+msgstr ""
+
+#: inc/admin/persona.php:325
+msgid "Data di nascita"
+msgstr ""
+
+#: inc/admin/persona.php:338
+msgid "Numero di telefono pubblico "
+msgstr ""
+
+#: inc/admin/persona.php:344
+msgid "Indirizzo email pubblico "
+msgstr ""
+
+#: inc/admin/programma_materia.php:12
+msgctxt "Post Type General Name"
+msgid "Programmi"
+msgstr ""
+
+#: inc/admin/programma_materia.php:13
+msgctxt "Post Type Singular Name"
+msgid "Programma di una Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:14
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Programma"
+msgstr ""
+
+#: inc/admin/programma_materia.php:15
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Programma di una Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:16
+msgctxt "Post Type Singular Name"
+msgid "Modifica il Programma"
+msgstr ""
+
+#: inc/admin/programma_materia.php:19
+msgid "Programma di una Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:36
+msgctxt "taxonomy general name"
+msgid "Materie"
+msgstr ""
+
+#: inc/admin/programma_materia.php:37
+msgctxt "taxonomy singular name"
+msgid "Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:38
+msgid "Cerca Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:39
+msgid "Tutte le materie"
+msgstr ""
+
+#: inc/admin/programma_materia.php:40
+msgid "Modifica la Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:41
+msgid "Aggiorna la Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:42
+msgid "Aggiungi una Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:43
+msgid "Nuova Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:44
+msgid "Materie"
+msgstr ""
+
+#: inc/admin/programma_materia.php:90
+msgid "Breve descrizione del programma (max 160 caratteri) Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/programma_materia.php:102
+msgid "Dettagli Materia"
+msgstr ""
+
+#: inc/admin/programma_materia.php:118
+#: single-programma_materia.php:110
+#: single-scheda_didattica.php:94
+#: single-scheda_progetto.php:126
+msgid "Obiettivi"
+msgstr ""
+
+#: inc/admin/programma_materia.php:119
+msgid "Obiettivi del programma"
+msgstr ""
+
+#: inc/admin/programma_materia.php:132
+msgid "<h1>Attività</h1>"
+msgstr ""
+
+#: inc/admin/programma_materia.php:134
+msgid "Lista delle attività"
+msgstr ""
+
+#: inc/admin/programma_materia.php:136
+msgid "Attività {#}"
+msgstr ""
+
+#: inc/admin/programma_materia.php:137
+msgid "Aggiungi una attività"
+msgstr ""
+
+#: inc/admin/programma_materia.php:147
+msgid "Titolo della attività"
+msgstr ""
+
+#: inc/admin/programma_materia.php:154
+msgid "Testo descrittivo della attività"
+msgstr ""
+
+#: inc/admin/programma_materia.php:207
+#: inc/admin/scheda_didattica.php:147
+msgid "Materiali didattici"
+msgstr ""
+
+#: inc/admin/programma_materia.php:208
+#: inc/admin/scheda_didattica.php:148
+msgid "Inserisci qui tutti i documenti creati come Materiale Didattico. Se devi caricare il documento <a href=\"post-new.php?post_type=documento\">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. "
+msgstr ""
+
+#: inc/admin/programma_materia.php:225
+#: inc/admin/scheda_didattica.php:165
+msgid "Se il Materiale Didattico non è descritto da una scheda documento, link al materiale didattivo. "
+msgstr ""
+
+#: inc/admin/programma_materia.php:242
+msgid "Link ad eventuali \"progetti\" associati al programma"
+msgstr ""
+
+#: inc/admin/programma_materia.php:258
+msgid "Note"
+msgstr ""
+
+#: inc/admin/programma_materia.php:259
+msgid "Note sul programma"
+msgstr ""
+
+#: inc/admin/programma_materia.php:274
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome del Programma della Materia</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/programma_materia.php:285
+msgid "<h1>Descrizione Estesa e Completa della materia</h1>"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:10
+msgctxt "Post Type General Name"
+msgid "Schede Didattiche"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:11
+msgctxt "Post Type Singular Name"
+msgid "Scheda Didattica"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:12
+#: inc/admin/scheda_progetto.php:12
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi una Scheda"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:13
+#: inc/admin/scheda_progetto.php:13
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi una nuova Scheda"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:14
+#: inc/admin/scheda_progetto.php:14
+msgctxt "Post Type Singular Name"
+msgid "Modifica la Scheda"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:15
+#: inc/admin/scheda_progetto.php:15
+msgid "Immagine di riferimento della scheda"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:18
+msgid "Scheda Didattica"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:30
+msgid "Approfondimenti tematici, guide e esercizi creati dai docenti della scuola e a disposizione di tutti."
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:57
+#: inc/admin/scheda_progetto.php:96
+msgid "Breve descrizione del contenuti della scheda (max 160 caratteri) Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:68
+#: inc/admin/scheda_progetto.php:106
+msgid "Obiettivi *"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:69
+#: inc/admin/scheda_progetto.php:107
+msgid "Obiettivi del progetto"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:85
+#: inc/admin/scheda_didattica.php:86
+#: single-scheda_didattica.php:119
+msgid "Tempo di apprendimento"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:93
+msgid "Livello"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:94
+msgid ""
+"Indicazione dei cicli scolastici per i quali la scheda è utile: scuola primaria / scuola secondaria di primo grado /  \n"
+"scuola secondaria secondo grado / percorsi di istruzione e formazione professionale"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:108
+msgid "Dettagli Scheda Didattica"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:116
+msgid "Descrizione dell'attività"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:117
+msgid ""
+"Descrizione dell'attività. Es. \"Dopo aver letto la scheda, rispondi alle domande di verifica\" oppure, \"Di seguito trovi i passi da seguire per seminare una pianta in primavera\"\n"
+""
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:123
+msgid "Fasi attività"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:124
+msgid "lista di task da svolgere"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:135
+#: single-scheda_didattica.php:163
+msgid "Verifica apprendimento"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:136
+msgid "lista  di domande o di fasi di un compito da svolgere"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:187
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome della Scheda</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/scheda_didattica.php:197
+msgid "<h1>L'argomento della scheda</h1>"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:10
+msgctxt "Post Type General Name"
+msgid "Schede Progetti"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:11
+msgctxt "Post Type Singular Name"
+msgid "Scheda Progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:18
+msgid "Scheda Progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:30
+msgid "I progetti creati dai docenti della scuola e a disposizione di tutti."
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:37
+msgctxt "taxonomy general name"
+msgid "Tipologia Progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:38
+msgctxt "taxonomy singular name"
+msgid "Tipologia Progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:86
+msgid "Tipologia progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:121
+#: single-scheda_progetto.php:184
+msgid "Partecipanti"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:122
+msgid "descrizione dei partecipanti al progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:130
+msgid "Persone coinvolte"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:131
+msgid "Schede del personale scolastico coinvolto a vario titolo nel progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:155
+#: single-scheda_progetto.php:238
+msgid "In collaborazione con"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:156
+msgid "eventuale lista di enti pubblici, privati, associazioni, etc"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:167
+msgid "Luogo, Strutture, Documenti, Gallery"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:176
+msgid "Seleziona se il progetto viene svolto in un <a href=\"edit.php?post_type=luogo\">Luogo della Scuola</a>"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:192
+msgid "Selezione il <a href=\"edit.php?post_type=luogo\">luogo </a> in cui si è tenuto il progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:196
+msgid "Seleziona il luogo in cui si è tenuto il progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:204
+msgid "Nome del luogo"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:217
+msgid "Indirizzo Completo"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:264
+msgid "Circoscrizione "
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:276
+msgid "Strutture"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:277
+msgid "<p>Relazione con le strutture che erogano il progetto. </p>"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:286
+msgid "Inserisci qui tutti i documenti che ritieni utili per descrivere il progetto. Se devi caricare il documento <a href=\"post-new.php?post_type=documento\">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito). "
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:320
+msgid "Galleria di immagini  significative relative al progetto, corredate da didascalia"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:332
+msgid "I Risultati"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:340
+#: template-parts/header/status.php:63
+msgid "Progetto Realizzato"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:341
+msgid "Seleziona se il progetto è concluso, e descrivine i risultati."
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:352
+#: single-scheda_progetto.php:84
+#: single-scheda_progetto.php:250
+msgid "Risultati"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:353
+msgid "Ampio testo descrittivo delle attività svolte nel progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:369
+msgid "Data Progetto"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:401
+msgid "Anno scolastico di riferimento"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:419
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome della Progetto</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/scheda_progetto.php:429
+msgid "<h1>Descrizione Estesa e Completa del Progetto</h1>"
+msgstr ""
+
+#: inc/admin/servizio.php:11
+msgctxt "Post Type General Name"
+msgid "Servizi"
+msgstr ""
+
+#: inc/admin/servizio.php:12
+msgctxt "Post Type Singular Name"
+msgid "Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:13
+#: inc/admin/servizio.php:14
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi un Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:15
+msgid "Logo Identificativo del Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:16
+msgctxt "Post Type Singular Name"
+msgid "Modifica il Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:17
+msgctxt "Post Type Singular Name"
+msgid "Visualizza il Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:23
+msgid "Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:34
+msgid "I servizi che la scuola mette a disposizione di tutti."
+msgstr ""
+
+#: inc/admin/servizio.php:39
+msgctxt "taxonomy general name"
+msgid "Tipologia Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:40
+msgctxt "taxonomy singular name"
+msgid "Tipologia Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:84
+msgid "Stato del Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:92
+msgid "Lo stato del servizio indica l'effettiva fruibilità del Servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:106
+msgid "Descrizione testuale del motivo per cui un servizio non è attivo. Es. Servizio momentaneamente disattivato perché....Servizio attivo dal..."
+msgstr ""
+
+#: inc/admin/servizio.php:133
+msgid "Tipologia servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:144
+msgid "Indicare una sintetica descrizione del Servizio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi."
+msgstr ""
+
+#: inc/admin/servizio.php:166
+msgid "Indicare uno o più output prodotti dal servizio. Ad es.: \" Questo servizio ti permette l'iscrizione al servizio mensa\""
+msgstr ""
+
+#: inc/admin/servizio.php:179
+msgid "Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. \"per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto\""
+msgstr ""
+
+#: inc/admin/servizio.php:199
+msgid "Questo campo indica eventuali procedure collegate al servizio. Ad es., se il servizio è l'iscrizione al servizio mensa, si spiega che ogni 3 mesi si dovrà procedere al pagamento dei pasti utilizzando il servizio on line oppure attraverso il bollettino postale."
+msgstr ""
+
+#: inc/admin/servizio.php:206
+msgid "Link per avviare la procedura di attivazione del servizio. Questo campo mette in relazione \"Servizio\" con il suo canale digitale di attivazione. Es. \"Per richiedere il servizio mensa utilizza la procedura on line prevista nel sito del Comune X (link)\""
+msgstr ""
+
+#: inc/admin/servizio.php:263
+#: single-servizio.php:394
+msgid "Struttura responsabile del servizio"
+msgstr ""
+
+#: inc/admin/servizio.php:264
+msgid "Seleziona la struttura responsabile del servizio "
+msgstr ""
+
+#: inc/admin/servizio.php:272
+msgid "Scuola a cui il servizio appartiene"
+msgstr ""
+
+#: inc/admin/servizio.php:273
+msgid "Seleziona la scuola a cui il servizio appartiene "
+msgstr ""
+
+#: inc/admin/servizio.php:290
+msgid "In caso di servizio erogato in più luoghi, crea una sede per ogni luogo. "
+msgstr ""
+
+#: inc/admin/servizio.php:298
+msgid "Cosa Serve (testo introduttivo) * "
+msgstr ""
+
+#: inc/admin/servizio.php:346
+msgid "Data della fase"
+msgstr ""
+
+#: inc/admin/servizio.php:463
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome del Servizio</b>. Il nome del Servizio deve essere facilmente comprensibile dai cittadini. Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/servizio.php:473
+msgid "<h1>Descrizione Estesa e Completa del Servizio</h1>"
+msgstr ""
+
+#: inc/admin/struttura.php:10
+msgctxt "Post Type General Name"
+msgid "Strutture"
+msgstr ""
+
+#: inc/admin/struttura.php:11
+msgctxt "Post Type Singular Name"
+msgid "Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:12
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi Struttura Organizzativa"
+msgstr ""
+
+#: inc/admin/struttura.php:13
+msgctxt "Post Type Singular Name"
+msgid "Aggiungi la Struttura Organizzativa"
+msgstr ""
+
+#: inc/admin/struttura.php:14
+msgctxt "Post Type Singular Name"
+msgid "Modifica la Struttura Organizzativa"
+msgstr ""
+
+#: inc/admin/struttura.php:15
+msgctxt "Post Type Singular Name"
+msgid "Visualizza la Struttura Organizzativa"
+msgstr ""
+
+#: inc/admin/struttura.php:16
+msgid "Immagine principale della Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:18
+msgid "Rimuovi Immagine"
+msgstr ""
+
+#: inc/admin/struttura.php:19
+msgid "Usa come Immagine della Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:23
+msgid "Struttura Organizzativa"
+msgstr ""
+
+#: inc/admin/struttura.php:38
+msgctxt "taxonomy general name"
+msgid "Tipologia Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:39
+msgctxt "taxonomy singular name"
+msgid "Tipologia Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:92
+msgid "Tipologia struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:100
+msgid "Percorsi di studio della Scuola"
+msgstr ""
+
+#: inc/admin/struttura.php:114
+msgid "Indirizzi di studio erogati dalla scuola "
+msgstr ""
+
+#: inc/admin/struttura.php:115
+msgid "Se la struttura descritta è una scuola o un istituto link ai percorsi di studio presenti nella scuola Infanzia / Primaria / secondaria primo grado / secondaria di secondo grado "
+msgstr ""
+
+#: inc/admin/struttura.php:126
+msgid "Codice meccanografico "
+msgstr ""
+
+#: inc/admin/struttura.php:127
+msgid "Codice meccanografico dalla scuola"
+msgstr ""
+
+#: inc/admin/struttura.php:138
+msgid "Descrizione Breve"
+msgstr ""
+
+#: inc/admin/struttura.php:139
+msgid "Indicare una sintetica descrizione della struttura (max 160 caratteri) "
+msgstr ""
+
+#: inc/admin/struttura.php:149
+msgid "La struttura dipende da un'altra  struttura. "
+msgstr ""
+
+#: inc/admin/struttura.php:150
+msgid "Ad esempio se è una scuola di un istituto, seleziona l'istituto di cui fa parte"
+msgstr ""
+
+#: inc/admin/struttura.php:159
+msgid "Dettagli Struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:198
+msgid "Servizi di cui la struttura è responsabile "
+msgstr ""
+
+#: inc/admin/struttura.php:199
+msgid "<p>Link alle schede servizio gestite dalla struttura. Es. se la segreteria è responsabile del servizio di delega, ci sarà un link alla scheda \"Delega per ingressi e uscite anticipati\". Se la dirigenza è responsabile del servizio \"Alternanza scuola lavoro\" ci sarà un link alla relativa scheda </p>"
+msgstr ""
+
+#: inc/admin/struttura.php:224
+msgid "Progetti "
+msgstr ""
+
+#: inc/admin/struttura.php:225
+msgid "<p>Link alle schede progetti gestite dalla struttura. </p>"
+msgstr ""
+
+#: inc/admin/struttura.php:240
+msgid "Persone responsabili "
+msgstr ""
+
+#: inc/admin/struttura.php:241
+msgid "Link alla scheda responsabile della struttura. "
+msgstr ""
+
+#: inc/admin/struttura.php:255
+#: inc/admin/struttura.php:268
+msgid "Eventuale lista delle persone che lavorano nella struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:279
+msgid "Altri Componenti "
+msgstr ""
+
+#: inc/admin/struttura.php:280
+msgid "Persone che non fanno parte del personale scolastico, separate da virgola"
+msgstr ""
+
+#: inc/admin/struttura.php:291
+#: single-struttura.php:125
+#: single-struttura.php:318
+msgid "Sedi"
+msgstr ""
+
+#: inc/admin/struttura.php:292
+msgid "Selezione i <a href=\"edit.php?post_type=luogo\">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. "
+msgstr ""
+
+#: inc/admin/struttura.php:309
+msgid "Recapito telefonico struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:310
+msgid "Numero di telefono della struttura, se risulta diverso dal numero di telefono della sede. "
+msgstr ""
+
+#: inc/admin/struttura.php:317
+msgid "Email della struttura"
+msgstr ""
+
+#: inc/admin/struttura.php:318
+msgid "Email della struttura se risulta diversa dalla email della sede. "
+msgstr ""
+
+#: inc/admin/struttura.php:346
+msgid "<span><i>il <b>Titolo</b> è il <b>Nome della struttura organizzativa</b>. es: Presidenza / Segreteria / Scuola del nome istituto</i></span><br><br>"
+msgstr ""
+
+#: inc/admin/struttura.php:356
+msgid "<h1>Cosa fa </h1> Elenco/descrizione dei compiti assegnati alla struttura"
+msgstr ""
+
+#: inc/breadcrumb.php:359
+msgid "Tutti i Servizi"
+msgstr ""
+
+#: inc/cmb2.php:88
+msgid "Nessun luogo"
+msgstr ""
+
+#: inc/utils.php:377
+msgid "Il "
+msgstr ""
+
+#: inc/utils.php:389
+msgid "dal "
+msgstr ""
+
+#: inc/utils.php:396
+msgid " al "
+msgstr ""
+
+#: inc/utils.php:631
+msgid "Nessun Feedback "
+msgstr ""
+
+#: inc/utils.php:632
+msgid "Presa Visione"
+msgstr ""
+
+#: inc/utils.php:633
+msgid "Si / No"
+msgstr ""
+
+#: inc/utils.php:634
+msgid "Si / No / Presa Visione"
+msgstr ""
+
+#: inc/welcome.php:19
+msgid "Design Scuole Italia: il tema di Developers Italia per le Scuole Italiane"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Cicli Scolastici"
+msgstr ""
+
+#. Template Name of the theme
+msgid "la Scuola"
+msgstr ""
+
+#. Template Name of the theme
+#: template-parts/single/related.php:125
+msgid "Notizie"
+msgstr ""
+
+#. Template Name of the theme
+msgid "I Numeri"
+msgstr ""
+
+#: page-templates/persone.php:46
+#: single-scheda_progetto.php:163
+#: single-struttura.php:249
+#: template-parts/home/commissioni.php:39
+msgid "Responsabile"
+msgstr ""
+
+#: page-templates/persone.php:98
+msgid "Componenti esterni"
+msgstr ""
+
+#: search.php:22
+msgid "Risultati della ricerca per:"
+msgstr ""
+
+#: search.php:35
+msgid "su <span>tutto il sito</span>"
+msgstr ""
+
+#: search.php:37
+msgid "nel <span>materiale relativo alla scuola</span>"
+msgstr ""
+
+#: search.php:39
+msgid "in <span>notizie ed eventi</span>"
+msgstr ""
+
+#: search.php:41
+msgid "nei <span>servizi</span>"
+msgstr ""
+
+#: search.php:43
+msgid "nella <span>didattica</span>"
+msgstr ""
+
+#: search.php:45
+msgid "nelle <span>materiale relativo alle classi</span>"
+msgstr ""
+
+#: search.php:48
+msgid "in base ai filtri selezionati"
+msgstr ""
+
+#: single-documento.php:76
+#: single-indirizzo.php:117
+#: single-servizio.php:105
+msgid "Indice della pagina"
+msgstr ""
+
+#: single-documento.php:91
+#: single-documento.php:168
+msgid "Il Documento"
+msgstr ""
+
+#: single-documento.php:102
+#: single-documento.php:215
+#: single-indirizzo.php:154
+#: single-indirizzo.php:405
+#: single-servizio.php:124
+#: single-servizio.php:316
+msgid "Tempi e scadenze"
+msgstr ""
+
+#: single-documento.php:144
+msgid "Autori"
+msgstr ""
+
+#: single-documento.php:170
+msgid "Allegati"
+msgstr ""
+
+#: single-documento.php:176
+msgid "Allegati non disponibili - Albo Annullato"
+msgstr ""
+
+#: single-documento.php:243
+msgid "Ufficio responsabile del documento"
+msgstr ""
+
+#: single-documento.php:272
+msgid "Protocollo: "
+msgstr ""
+
+#: single-documento.php:276
+msgid " del  "
+msgstr ""
+
+#: single-evento.php:74
+msgid "Indice dell'evento"
+msgstr ""
+
+#: single-evento.php:81
+#: single-evento.php:114
+#: single-indirizzo.php:124
+#: single-indirizzo.php:190
+#: single-servizio.php:112
+#: single-servizio.php:160
+msgid "Cos'è"
+msgstr ""
+
+#: single-evento.php:92
+#: single-evento.php:193
+msgid "Date e Orari"
+msgstr ""
+
+#: single-evento.php:96
+#: single-evento.php:262
+msgid "Costi"
+msgstr ""
+
+#: single-evento.php:139
+msgid "Destinatari"
+msgstr ""
+
+#: single-evento.php:150
+msgid "Parteciperanno"
+msgstr ""
+
+#: single-evento.php:293
+msgid "Organizzato da"
+msgstr ""
+
+#: single-evento.php:317
+msgid "Sito web:"
+msgstr ""
+
+#: single-evento.php:322
+msgid "Referente:"
+msgstr ""
+
+#: single-evento.php:326
+msgid "Telefono:"
+msgstr ""
+
+#: single-evento.php:330
+msgid "Email:"
+msgstr ""
+
+#: single-evento.php:335
+msgid "Patrocinato da:"
+msgstr ""
+
+#: single-evento.php:339
+msgid "Sponsor:"
+msgstr ""
+
+#: single-indirizzo.php:124
+#: single-indirizzo.php:127
+#: single-indirizzo.php:131
+#: single-indirizzo.php:136
+#: single-indirizzo.php:142
+#: single-indirizzo.php:148
+#: single-indirizzo.php:154
+#: single-indirizzo.php:159
+#: single-indirizzo.php:164
+#: single-indirizzo.php:171
+#: single-indirizzo.php:179
+#: single-luogo.php:130
+#: single-scheda_progetto.php:89
+#: single-scheda_progetto.php:95
+#: single-servizio.php:112
+#: single-servizio.php:115
+#: single-servizio.php:119
+#: single-servizio.php:124
+#: single-servizio.php:129
+#: single-servizio.php:134
+#: single-servizio.php:141
+#: single-servizio.php:149
+msgid "Vai al paragrafo"
+msgstr ""
+
+#: single-indirizzo.php:127
+#: single-indirizzo.php:211
+msgid "Come si accede"
+msgstr ""
+
+#: single-indirizzo.php:131
+#: single-indirizzo.php:351
+msgid "Programma di studio"
+msgstr ""
+
+#: single-indirizzo.php:136
+#: single-indirizzo.php:360
+msgid "Orario delle classi"
+msgstr ""
+
+#: single-indirizzo.php:148
+#: single-indirizzo.php:336
+#: single-servizio.php:119
+#: single-servizio.php:282
+msgid "Cosa serve"
+msgstr ""
+
+#: single-indirizzo.php:230
+#: single-servizio.php:200
+msgid "Procedure collegate all'esito"
+msgstr ""
+
+#: single-indirizzo.php:240
+#: single-servizio.php:210
+msgid "Servizio online"
+msgstr ""
+
+#: single-indirizzo.php:264
+#: single-servizio.php:234
+msgid "Non hai SPID?"
+msgstr ""
+
+#: single-indirizzo.php:276
+msgid "Struttura responsabile dell'indirizzo di studio"
+msgstr ""
+
+#: single-indirizzo.php:316
+msgid "Luoghi in cui viene erogato l\\'indirizzo di studio"
+msgstr ""
+
+#: single-indirizzo.php:509
+#: single-servizio.php:446
+#: template-parts/home/didattica-cicli-indirizzi.php:107
+#: template-parts/home/didattica-cicli.php:68
+msgid "Per saperne di più"
+msgstr ""
+
+#: single-luogo.php:90
+msgid "Dettagli del luogo"
+msgstr ""
+
+#: single-luogo.php:106
+#: single-luogo.php:237
+msgid "Dove si trova"
+msgstr ""
+
+#: single-luogo.php:115
+#: single-luogo.php:285
+msgid "Servizi presenti"
+msgstr ""
+
+#: single-luogo.php:120
+#: single-luogo.php:309
+msgid "Il luogo è sede di"
+msgstr ""
+
+#: single-luogo.php:135
+#: single-luogo.php:394
+msgid "Dettagli edificio"
+msgstr ""
+
+#: single-luogo.php:188
+msgid "Ospita"
+msgstr ""
+
+#: single-luogo.php:213
+msgid "Elementi di interesse"
+msgstr ""
+
+#: single-luogo.php:244
+msgid "Modalità di accesso"
+msgstr ""
+
+#: single-luogo.php:327
+msgid "Strutture che gestiscono il luogo"
+msgstr ""
+
+#: single-luogo.php:369
+msgid "Vai alla pagina del gestore"
+msgstr ""
+
+#: single-luogo.php:406
+msgid "Anno di costruzione"
+msgstr ""
+
+#: single-luogo.php:410
+msgid "Numero di piani"
+msgstr ""
+
+#: single-luogo.php:414
+msgid "Posti a sedere"
+msgstr ""
+
+#: single-programma_materia.php:46
+#: single-scheda_didattica.php:58
+msgid "Insegnante"
+msgstr ""
+
+#: single-programma_materia.php:75
+msgid "Indice del Programma"
+msgstr ""
+
+#: single-programma_materia.php:82
+#: single-programma_materia.php:100
+msgid "La Materia"
+msgstr ""
+
+#: single-programma_materia.php:85
+#: single-programma_materia.php:136
+msgid "I Contenuti"
+msgstr ""
+
+#: single-programma_materia.php:89
+msgid "Ulteriori Informazioni"
+msgstr ""
+
+#: single-programma_materia.php:117
+#: single-scheda_didattica.php:138
+msgid "Attività"
+msgstr ""
+
+#: single-programma_materia.php:139
+#: single-scheda_didattica.php:100
+#: single-scheda_didattica.php:175
+msgid "Risorse"
+msgstr ""
+
+#: single-scheda_didattica.php:87
+msgid "Indice Scheda Didattica"
+msgstr ""
+
+#: single-scheda_didattica.php:97
+msgid "Il Contenuto"
+msgstr ""
+
+#: single-scheda_didattica.php:110
+msgid "Obiettivo"
+msgstr ""
+
+#: single-scheda_didattica.php:122
+msgid "Apprendimento in: "
+msgstr ""
+
+#: single-scheda_didattica.php:130
+msgid "L'argomento"
+msgstr ""
+
+#: single-scheda_progetto.php:71
+msgid "Indice del progetto"
+msgstr ""
+
+#: single-scheda_progetto.php:95
+#: single-scheda_progetto.php:286
+msgid "Galleria Immagini"
+msgstr ""
+
+#: single-scheda_progetto.php:120
+msgid "Descrizione del progetto"
+msgstr ""
+
+#: single-servizio.php:115
+#: single-servizio.php:181
+msgid "Come si accede al servizio"
+msgstr ""
+
+#: single-servizio.php:265
+msgid "Luoghi in cui viene erogato il servizio"
+msgstr ""
+
+#: single-struttura.php:104
+msgid "Dettagli"
+msgstr ""
+
+#: single-struttura.php:111
+#: single-struttura.php:151
+msgid "Cosa fa"
+msgstr ""
+
+#: single-struttura.php:120
+#: single-struttura.php:213
+msgid "Organizzazione e contatti"
+msgstr ""
+
+#: single-struttura.php:186
+msgid "Servizi di cui la struttura è responsabile"
+msgstr ""
+
+#: single-struttura.php:230
+msgid "Strutture dipendenti"
+msgstr ""
+
+#: single-struttura.php:240
+msgid "Dipende da"
+msgstr ""
+
+#: single-struttura.php:292
+msgid "Altri componenti"
+msgstr ""
+
+#: single-struttura.php:318
+msgid "Sede"
+msgstr ""
+
+#: template-parts/common/access-modal.php:10
+msgid "Accedi ai servizi"
+msgstr ""
+
+#: template-parts/common/access-modal.php:33
+msgid "Personale scolastico"
+msgstr ""
+
+#: template-parts/common/access-modal.php:34
+msgid "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità."
+msgstr ""
+
+#: template-parts/common/access-modal.php:59
+msgid "Accedi"
+msgstr ""
+
+#: template-parts/common/badges-argomenti.php:9
+#: template-parts/search/filters-argomento.php:15
+msgid "Argomenti"
+msgstr ""
+
+#: template-parts/common/badges-classi.php:9
+msgid "Classi"
+msgstr ""
+
+#: template-parts/common/breadcrumb.php:20
+msgid "Risultati Ricerca: %s"
+msgstr ""
+
+#: template-parts/common/search-modal.php:19
+msgid "Cerca informazioni, servizi, notizie o documenti"
+msgstr ""
+
+#: template-parts/common/search-modal.php:29
+msgid "Cerca nella sezione <strong class='text-uppercase text-small-bold'>scuola</strong>"
+msgstr ""
+
+#: template-parts/common/search-modal.php:38
+msgid "Cerca tra le <strong class='text-uppercase text-small-bold'>novità</strong>"
+msgstr ""
+
+#: template-parts/common/search-modal.php:47
+msgid "Cerca nei <strong class='text-uppercase text-small-bold'>servizi</strong>"
+msgstr ""
+
+#: template-parts/common/search-modal.php:56
+msgid "Cerca nella <strong class='text-uppercase text-small-bold'>didattica</strong>"
+msgstr ""
+
+#: template-parts/common/search-modal.php:71
+msgid "Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>"
+msgstr ""
+
+#: template-parts/common/search-modal.php:79
+msgid "Potrebbero interessarti"
+msgstr ""
+
+#: template-parts/common/skiplink.php:3
+msgid "Vai ai contenuti"
+msgstr ""
+
+#: template-parts/common/skiplink.php:4
+msgid "Vai al menu di navigazione"
+msgstr ""
+
+#: template-parts/common/skiplink.php:5
+msgid "Vai al footer"
+msgstr ""
+
+#: template-parts/content-none.php:1
+msgid "Nessun risultato"
+msgstr ""
+
+#: template-parts/header/header-logged.php:49
+msgid "Area personale"
+msgstr ""
+
+#: template-parts/header/header-logged.php:58
+msgid "Notifiche"
+msgstr ""
+
+#: template-parts/header/header-logged.php:69
+msgid "Profilo Pubblico"
+msgstr ""
+
+#: template-parts/header/header-logged.php:75
+msgid "Modifica Profilo"
+msgstr ""
+
+#: template-parts/header/header-logged.php:83
+msgid "Esci"
+msgstr ""
+
+#: template-parts/header/status.php:31
+msgid "Documento Annullato"
+msgstr ""
+
+#: template-parts/header/status.php:48
+msgid "Documento Scaduto"
+msgstr ""
+
+#: template-parts/hero/documenti.php:13
+msgid "Le carte della Scuola"
+msgstr ""
+
+#: template-parts/hero/home.php:41
+msgid "Vai alla scuola"
+msgstr ""
+
+#: template-parts/hero/luoghi.php:13
+msgid "I luoghi della Scuola"
+msgstr ""
+
+#: template-parts/home/articoli-eventi.php:64
+#: template-parts/home/articoli-eventi.php:96
+#: template-parts/home/eventi.php:29
+#: template-parts/home/indirizzi.php:29
+#: template-parts/home/servizi-tipologie.php:36
+msgid "Vedi tutti"
+msgstr ""
+
+#: template-parts/home/articoli-eventi.php:106
+#: template-parts/home/notizie-circolari.php:13
+msgid "Circolari"
+msgstr ""
+
+#: template-parts/home/articoli-eventi.php:119
+msgid "Vedi tutte"
+msgstr ""
+
+#: template-parts/home/articoli-manuali.php:13
+msgid "In Evidenza"
+msgstr ""
+
+#: template-parts/home/articoli-manuali.php:41
+#: template-parts/home/list-servizi.php:42
+msgid "Scopri di più"
+msgstr ""
+
+#: template-parts/home/commissioni.php:17
+msgid "Commissioni e gruppi di lavoro"
+msgstr ""
+
+#: template-parts/home/commissioni.php:78
+msgid "Per informazioni"
+msgstr ""
+
+#: template-parts/home/commissioni.php:82
+#: template-parts/luogo/card.php:123
+msgid "PEC"
+msgstr ""
+
+#: template-parts/home/commissioni.php:86
+msgid "Vai alla scheda"
+msgstr ""
+
+#: template-parts/home/commissioni.php:103
+#: template-parts/home/strutture.php:56
+msgid "Tutta l’organizzazione"
+msgstr ""
+
+#: template-parts/home/didattica-cicli-classi.php:15
+#: template-parts/home/didattica-cicli-classi.php:22
+#: template-parts/home/didattica-cicli-indirizzi.php:15
+#: template-parts/home/didattica-cicli-indirizzi.php:24
+#: template-parts/home/didattica-cicli.php:14
+#: template-parts/home/didattica-cicli.php:28
+msgid "La didattica"
+msgstr ""
+
+#: template-parts/home/didattica-cicli-classi.php:16
+msgid "Cicli scolastici e percorsi di studio e formazione che trovi nell'istituto."
+msgstr ""
+
+#: template-parts/home/didattica-cicli-classi.php:93
+msgid "Nessun percorso di studi associato a questa scuola."
+msgstr ""
+
+#: template-parts/home/didattica-cicli-classi.php:98
+msgid "Vai alla presentazione della Scuola"
+msgstr ""
+
+#: template-parts/home/didattica-cicli-indirizzi.php:16
+#: template-parts/home/didattica-cicli.php:15
+msgid "la nostra offerta formativa"
+msgstr ""
+
+#: template-parts/home/didattica-cicli-indirizzi.php:19
+#: template-parts/home/didattica-cicli.php:23
+msgid "L'Istituto"
+msgstr ""
+
+#: template-parts/home/didattica-cicli-indirizzi.php:20
+#: template-parts/home/didattica-cicli.php:24
+msgid "A.S."
+msgstr ""
+
+#: template-parts/home/didattica-cicli-indirizzi.php:120
+msgid "Nessun istituto associato a questa indirizzo di studi."
+msgstr ""
+
+#: template-parts/home/didattica-cicli.php:21
+msgid "La scuola"
+msgstr ""
+
+#: template-parts/home/didattica-cicli.php:78
+msgid "Nessun indirizzo di studi associato a questa scuola."
+msgstr ""
+
+#: template-parts/home/didattica-cicli.php:84
+msgid "Vai alla presentazione della scuola"
+msgstr ""
+
+#: template-parts/home/didattica-progetti.php:12
+msgid "I Progetti"
+msgstr ""
+
+#: template-parts/home/didattica-progetti.php:13
+msgid "Scopri i progetti dell'Istituto"
+msgstr ""
+
+#: template-parts/home/didattica-progetti.php:15
+#: template-parts/home/le-carte.php:35
+msgid "Scopri"
+msgstr ""
+
+#: template-parts/home/didattica-progetti.php:38
+msgid "Vedi tutti i progetti"
+msgstr ""
+
+#: template-parts/home/didattica-risorse.php:7
+msgid "Esplora le risorse didattiche dell'Istituto"
+msgstr ""
+
+#: template-parts/home/didattica-risorse.php:9
+msgid "Vai alla didattica"
+msgstr ""
+
+#: template-parts/home/didattica-schede.php:29
+msgid "Vedi tutte le schede didattiche"
+msgstr ""
+
+#: template-parts/home/gallery-luoghi.php:23
+msgid "Vedi tutti i luoghi"
+msgstr ""
+
+#: template-parts/home/i-numeri.php:14
+msgid "La scuola in numeri"
+msgstr ""
+
+#: template-parts/home/i-numeri.php:25
+msgid "Numero alunni"
+msgstr ""
+
+#: template-parts/home/i-numeri.php:34
+msgid "Numero classi"
+msgstr ""
+
+#: template-parts/home/i-numeri.php:42
+msgid "Media alunni / classe"
+msgstr ""
+
+#: template-parts/home/i-numeri.php:53
+msgid "Vedi tutto su scuole in chiaro"
+msgstr ""
+
+#: template-parts/home/le-carte.php:11
+msgid "Le carte dalla scuola"
+msgstr ""
+
+#: template-parts/home/le-carte.php:51
+msgid "Tutti i documenti"
+msgstr ""
+
+#: template-parts/home/timeline.php:12
+msgid "La Storia della scuola"
+msgstr ""
+
+#: template-parts/list/article-circolare.php:34
+#: template-parts/single/card-circolare.php:9
+#: template-parts/single/header-circolare.php:25
+msgid "circ. n."
+msgstr ""
+
+#: template-parts/list/article-documento.php:38
+msgid "Annullato"
+msgstr ""
+
+#: template-parts/list/article-documento.php:41
+msgid "Scaduto"
+msgstr ""
+
+#: template-parts/luogo/card-nophone.php:69
+#: template-parts/luogo/card.php:83
+msgid "indirizzo"
+msgstr ""
+
+#: template-parts/luogo/card-nophone.php:79
+#: template-parts/luogo/card.php:93
+msgid "CAP"
+msgstr ""
+
+#: template-parts/luogo/card-nophone.php:89
+#: template-parts/luogo/card.php:103
+msgid "Orari"
+msgstr ""
+
+#: template-parts/luogo/card-nophone.php:131
+#: template-parts/luogo/card.php:145
+msgid "Rif."
+msgstr ""
+
+#: template-parts/luogo/card.php:157
+msgid "Naviga su Google Map"
+msgstr ""
+
+#: template-parts/search/filters-indirizzi.php:5
+msgid "Percorsi di studio"
+msgstr ""
+
+#: template-parts/search/filters-scheda-didattica.php:20
+msgid "Livelli"
+msgstr ""
+
+#: template-parts/single/actions.php:14
+msgid "Servizi per "
+msgstr ""
+
+#: template-parts/single/actions.php:24
+msgid "Stampa / Condividi"
+msgstr ""
+
+#: template-parts/single/actions.php:41
+msgid "Stampa il contenuto"
+msgstr ""
+
+#: template-parts/single/actions.php:43
+msgid "Stampa"
+msgstr ""
+
+#: template-parts/single/actions.php:55
+msgid "Invia il contenuto"
+msgstr ""
+
+#: template-parts/single/actions.php:57
+msgid "Invia"
+msgstr ""
+
+#: template-parts/single/actions.php:61
+#: template-parts/single/actions.php:63
+msgid "Condividi"
+msgstr ""
+
+#: template-parts/single/actions.php:68
+#: template-parts/single/actions.php:74
+#: template-parts/single/actions.php:80
+msgid "Condividi su"
+msgstr ""
+
+#: template-parts/single/bottom.php:5
+msgid "Pubblicato"
+msgstr ""
+
+#: template-parts/single/bottom.php:8
+msgid "Revisione"
+msgstr ""
+
+#: template-parts/single/bottom.php:16
+msgid "Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia."
+msgstr ""
+
+#: template-parts/single/more-posts.php:40
+msgid "Circolari, notizie, eventi correlati"
+msgstr ""
+
+#: template-parts/single/more-programma_materia.php:40
+msgid "Gli altri programmi della Classe"
+msgstr ""
+
+#: template-parts/single/more-scheda_didattica.php:40
+msgid "Schede didattiche correlate"
+msgstr ""
+
+#: template-parts/single/more-scheda_progetto.php:39
+msgid "Schede progetto correlate"
+msgstr ""
+
+#: template-parts/single/related.php:73
+msgid "Altri contenuti che potrebbero interessarti"
+msgstr ""
+
+#: template-parts/single/related.php:76
+msgid "Contenuti filtrati per:"
+msgstr ""
