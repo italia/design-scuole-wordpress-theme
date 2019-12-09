@@ -15,6 +15,8 @@ $link_schede_luoghi = dsi_get_meta("link_schede_luoghi");
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_strutture = dsi_get_meta("link_strutture");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
+$link_schede_servizi = dsi_get_meta("link_schede_servizi");
+
 //$file_documenti = dsi_get_meta("file_documenti");
 $is_realizzato = dsi_get_meta("is_realizzato");
 $risultati = dsi_get_meta("risultati");
@@ -176,6 +178,8 @@ $gallery = dsi_get_meta("gallery");
                                     <?php
                                 }
                                 ?>
+
+
                                 <?php
                                 global $classe;
                                 $partecipanti = dsi_get_meta("partecipanti");
@@ -281,6 +285,20 @@ $gallery = dsi_get_meta("gallery");
                                     </div><!-- /row -->
                                     <?php
                                 }
+                                ?>
+                                <?php if($link_schede_servizi){ ?>
+                                    <h6><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h6>
+                                    <div class="card-deck card-deck-spaced mb-4">
+                                        <?php
+                                        foreach ($link_schede_servizi as $idservizio){
+                                            $servizio = get_post($idservizio);
+                                            get_template_part("template-parts/servizio/card");
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                <?php } ?>
+
+                                <?php
 
                                 if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
                                     <h4  id="art-par-gallery"><?php _e("Galleria Immagini", "design_scuole_italia"); ?></h4>

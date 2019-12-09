@@ -48,6 +48,7 @@ get_header();
             $scuola_responsabile = dsi_get_meta("scuola_responsabile");
 
             $luoghi = dsi_get_meta("luoghi");
+            $link_schede_progetti = dsi_get_meta("link_schede_progetti");
 
 
             $servizi_correlati = dsi_get_meta("servizi_correlati");
@@ -348,6 +349,7 @@ get_header();
                                     <?php
                                 }
 
+
                                 if(trim($casi_particolari) != ""){
                                     ?>
                                     <h4 id="art-par-casi-particolari"><?php _e("Casi particolari", "design_scuole_italia"); ?></h4>
@@ -410,6 +412,22 @@ get_header();
                                     <?php
 
                                 }
+                                ?>
+
+                                <?php if($link_schede_progetti){ ?>
+                                    <h6><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h6>
+                                    <div class="card-deck card-deck-spaced mb-4">
+                                        <?php
+                                        foreach ($link_schede_progetti as $idprogetto){
+                                            $progetto = get_post($idprogetto);
+                                            get_template_part("template-parts/progetto/card");
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                <?php } ?>
+
+                                <?php
+
 
                                 if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
                                     ?>

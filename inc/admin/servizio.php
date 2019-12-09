@@ -405,6 +405,23 @@ function dsi_add_servizi_metaboxes() {
 
 
     $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'link_schede_progetti',
+        'name'    => __( 'Progetti ', 'design_scuole_italia' ),
+        'before' => __( '<p>Link alle schede progetti gestite dalla struttura. </p>' , 'design_scuole_italia' ),
+        'type'    => 'custom_attached_posts',
+        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+        'options' => array(
+            'show_thumbnails' => false, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array(
+                'posts_per_page' => -1,
+                'post_type'      => 'scheda_progetto',
+            ), // override the get_posts args
+        ),
+    ) );
+
+
+    $cmb_undercontent->add_field( array(
 		'id' => $prefix . 'link_schede_documenti',
 		'name'    => __( 'Documenti', 'design_scuole_italia' ),
 		'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per attivare il servizio: moduli da compilare, riferimenti di legge e altre informazioni. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
@@ -482,6 +499,9 @@ new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "luoghi", "box_elementi
 
 // relazione bidirezionale servizio / documento
 new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_schede_documenti", "box_elementi_servizio", "_dsi_documento_servizi_collegati");
+
+// relazione bidirezionale progetti / servizi
+new dsi_bidirectional_cmb2("_dsi_servizio_", "servizio", "link_schede_progetti", "box_elementi_servizio", "_dsi_scheda_progetto_link_schede_servizi");
 
 
 /**

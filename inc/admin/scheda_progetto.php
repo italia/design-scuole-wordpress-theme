@@ -280,6 +280,24 @@ function dsi_add_scheda_progetto_metaboxes() {
 	) );
 
 
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'link_schede_servizi',
+        'name'    => __( 'Servizi', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui i servizi associati al progetto' , 'design_scuole_italia' ),
+        'type'    => 'custom_attached_posts',
+        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+        'options' => array(
+            'show_thumbnails' => false, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array(
+                'posts_per_page' => 10,
+                'post_type'      => 'servizio',
+            ), // override the get_posts args
+        ),
+    ) );
+
+
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'link_schede_documenti',
         'name'    => __( 'Documenti', 'design_scuole_italia' ),
@@ -433,6 +451,7 @@ function sdi_scheda_progetto_add_content_before_editor($post) {
 
 new dsi_bidirectional_cmb2("_dsi_scheda_progetto_", "scheda_progetto", "link_strutture", "box_elementi_struttura", "_dsi_struttura_link_schede_progetti");
 
+new dsi_bidirectional_cmb2("_dsi_scheda_progetto_", "scheda_progetto", "link_schede_servizi", "box_elementi_struttura", "_dsi_servizio_link_schede_progetti");
 
 
 /**
