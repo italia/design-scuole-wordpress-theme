@@ -26,31 +26,50 @@
                             </a>
                         </div><!-- /card card-bg card-icon-main rounded -->
                     </div><!-- /col-lg-4 -->
- */ ?>
-                    <div class="col-lg-6">
-                        <div class="card card-bg card-icon-main rounded mb-3">
-                            <a href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>">
-                                <div class="card-body">
-                                    <svg class="icon icon-bluelectric svg-books"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-books"></use></svg>
-                                    <div class="card-icon-content">
-                                        <p><strong><?php _e("Progetti", "design_scuole_italia"); ?></strong></p>
-                                    </div><!-- /card-icon-content -->
-                                </div><!-- /card-body -->
-                            </a>
-                        </div><!-- /card card-bg card-icon-main rounded -->
-                    </div><!-- /col-lg-4 -->
-                    <div class="col-lg-6">
-                        <div class="card card-bg card-icon-main rounded mb-3">
-                            <a href="<?php echo get_post_type_archive_link("scheda_didattica"); ?>">
-                                <div class="card-body">
-                                    <svg class="icon icon-bluelectric svg-timetable"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-timetable"></use></svg>
-                                    <div class="card-icon-content">
-                                        <p><strong><?php _e("Schede didattiche", "design_scuole_italia"); ?></strong></p>
-                                    </div><!-- /card-icon-content -->
-                                </div><!-- /card-body -->
-                            </a>
-                        </div><!-- /card card-bg card-icon-main rounded -->
-                    </div><!-- /col-lg-4 -->
+ */
+
+                    $args = array('post_type' => 'scheda_progetto', 'posts_per_page' => 1);
+                    $progetti = get_posts($args);
+                    if(count($progetti)) {
+                        ?>
+                        <div class="col-lg-6">
+                            <div class="card card-bg card-icon-main rounded mb-3">
+                                <a href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>">
+                                    <div class="card-body">
+                                        <svg class="icon icon-bluelectric svg-books">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-books"></use>
+                                        </svg>
+                                        <div class="card-icon-content">
+                                            <p><strong><?php _e("Progetti", "design_scuole_italia"); ?></strong></p>
+                                        </div><!-- /card-icon-content -->
+                                    </div><!-- /card-body -->
+                                </a>
+                            </div><!-- /card card-bg card-icon-main rounded -->
+                        </div><!-- /col-lg-4 -->
+                        <?php
+                    }
+
+                    $args = array('post_type' => 'scheda_didattica', 'posts_per_page' => 1);
+                    $scheda_didattica = get_posts($args);
+                    if(count($scheda_didattica)) {
+                        ?>
+                        <div class="col-lg-6">
+                            <div class="card card-bg card-icon-main rounded mb-3">
+                                <a href="<?php echo get_post_type_archive_link("scheda_didattica"); ?>">
+                                    <div class="card-body">
+                                        <svg class="icon icon-bluelectric svg-timetable">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-timetable"></use>
+                                        </svg>
+                                        <div class="card-icon-content">
+                                            <p><strong><?php _e("Schede didattiche", "design_scuole_italia"); ?></strong></p>
+                                        </div><!-- /card-icon-content -->
+                                    </div><!-- /card-body -->
+                                </a>
+                            </div><!-- /card card-bg card-icon-main rounded -->
+                        </div><!-- /col-lg-4 -->
+                        <?php
+                    }
+                    ?>
                 </div><!-- /row -->
             </div><!-- /col-lg-8 -->
         </div><!-- /row -->
