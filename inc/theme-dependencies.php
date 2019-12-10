@@ -107,9 +107,11 @@ function dsi_register_required_plugins() {
             'slug'     => 'amministrazione-aperta',
             'required' => false,
         ),
+        // form del plugin avcp per fix multisite
         array(
-            'name'     => 'ANAC XML Bandi di Gara',
-            'slug'     => 'avcp',
+            'name'   => 'ANAC XML Bandi di Gara',
+            'slug'   => 'avcp',
+            'source' => 'https://github.com/webgrafia/avcp/archive/master.zip',
             'required' => false,
         ),
         array(
