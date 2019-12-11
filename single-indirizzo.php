@@ -313,7 +313,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi in cui viene erogato l\'indirizzo di studio", "design_scuole_italia"); ?></h6>
+                                            <h6><?php _e("Luoghi in cui viene erogato l'indirizzo di studio", "design_scuole_italia"); ?></h6>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){

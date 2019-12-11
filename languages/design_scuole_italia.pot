@@ -4089,7 +4089,7 @@ msgid "Struttura responsabile dell'indirizzo di studio"
 msgstr ""
 
 #: single-indirizzo.php:316
-msgid "Luoghi in cui viene erogato l\\'indirizzo di studio"
+msgid "Luoghi in cui viene erogato l'indirizzo di studio"
 msgstr ""
 
 #: single-indirizzo.php:509
