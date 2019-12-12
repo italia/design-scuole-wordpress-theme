@@ -9,7 +9,10 @@
             $terms = get_terms( array(
                 'taxonomy' => 'percorsi-di-studio',
                 'hide_empty' => true,
-                'parent' => 0
+                'parent' => 0,
+                'meta_key' =>  'dsi_order',
+                'orderby'       =>  'meta_value',
+                'order'       =>  'ASC',
             ) );
             foreach ( $terms as $term ) {
                 ?>
