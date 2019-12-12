@@ -102,6 +102,10 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-desc" title="Vai al paragrafo <?php _e("Descrizione", "design_scuole_italia"); ?>"><?php _e("Descrizione", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php
+                                        // do action per innestare elementi tramite plugin / child theme
+                                        do_action("dsi_luogo_menu_after_description");
+                                        ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-dove" title="Vai al paragrafo <?php _e("Dove si trova", "design_scuole_italia"); ?>"><?php _e("Dove si trova", "design_scuole_italia"); ?></a>
                                         </li>
@@ -206,6 +210,10 @@ get_header();
                                                 echo "</div>";
                                             }
                                         }
+                                        ?>
+                                        <?php
+                                        // do action per innestare elementi tramite plugin / child theme
+                                        do_action("dsi_luogo_content_after_description");
                                         ?>
                                         <?php
                                         if(is_array($elementi_di_interesse) && $elementi_di_interesse != ""){
