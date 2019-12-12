@@ -110,6 +110,10 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Cosa fa", "design_scuole_italia"); ?>"><?php _e("Cosa fa", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php
+                                        // do action per innestare elementi tramite plugin / child theme
+                                        do_action("dsi_struttura_menu_after_description");
+                                        ?>
                                         <?php if((dsi_is_scuola($post) && $link_servizi_didattici) || $link_schede_servizi){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizi" title="Vai al paragrafo <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
@@ -154,7 +158,10 @@ get_header();
                                         <?php the_content(); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-
+                                <?php
+                                // do action per innestare elementi tramite plugin / child theme
+                                do_action("dsi_struttura_content_after_description");
+                                ?>
 
                                 <?php
                                 if((dsi_is_scuola($post) && $link_servizi_didattici) || $link_schede_servizi){

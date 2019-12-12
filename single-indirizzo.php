@@ -123,6 +123,10 @@ get_header();
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
                                         </li>
+                                        <?php
+                                        // do action per innestare elementi tramite plugin / child theme
+                                        do_action("dsi_indirizzo_menu_after_description");
+                                        ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede", "design_scuole_italia"); ?>"><?php _e("Come si accede", "design_scuole_italia"); ?></a>
                                         </li>
@@ -195,6 +199,11 @@ get_header();
                                         </div>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
+
+                                <?php
+                                // do action per innestare elementi tramite plugin / child theme
+                                do_action("dsi_indirizzo_content_after_description");
+                                ?>
                                 <?php
                                 // $esito = "";
                                 if(trim($esito) != ""){
