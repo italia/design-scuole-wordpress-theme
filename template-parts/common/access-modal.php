@@ -35,7 +35,7 @@
                                     <div class="access-login-form">
                                         <div class="form-group">
                                             <label>Email address</label>
-                                            <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="La tua email">
+                                            <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="Nome utente o indirizzo email">
                                         </div>
                                         <div class="form-group mb-3">
                                             <label>Password</label>
