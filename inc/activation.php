@@ -490,6 +490,7 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Progetto territorio e ambiente', 'tipologia-progetto' );
     wp_insert_term( 'Progetto area umanistica', 'tipologia-progetto' );
     wp_insert_term( 'Progetto area scientifica', 'tipologia-progetto' );
+    wp_insert_term( 'Altro', 'tipologia-progetto' );
 
 
 

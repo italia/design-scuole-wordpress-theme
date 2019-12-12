@@ -83,10 +83,14 @@ function dsi_add_scheda_progetto_metaboxes() {
 
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'tipologia',
-        'name'        => __( 'Tipologia progetto', 'design_scuole_italia' ),
+        'name'        => __( 'Tipologia progetto *', 'design_scuole_italia' ),
         'type'             => 'taxonomy_radio_inline',
         'taxonomy'       => 'tipologia-progetto',
-        'remove_default' => 'true'
+        'remove_default' => 'true',
+        'show_option_none' => false,
+        'attributes' => array(
+            'required' => 'required'
+        ),
     ) );
 
 
