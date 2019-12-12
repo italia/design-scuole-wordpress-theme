@@ -17,7 +17,12 @@ $attach = get_post($idfile);
 $filetocheck = get_attached_file($idfile);
 
 $filesize = filesize($filetocheck);
-$type = mime_content_type($filetocheck);
+$fulltype = mime_content_type($filetocheck);
+$arrtype = explode("/", $fulltype);
+$type = "file";
+if(is_array($arrtype))
+    $type = $arrtype[count($arrtype)-1];
+
 $ptitle = $attach->post_title;
 if(trim($ptitle) == ""){
     $ptitle = str_replace("-", " ", basename($filetocheck, $ext));
