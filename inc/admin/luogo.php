@@ -147,7 +147,7 @@ function dsi_add_luogo_metaboxes() {
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'posizione_gps',
-		'name'       => __( 'Posizione GPS  ', 'design_scuole_italia' ),
+		'name'       => __( 'Posizione GPS <br><small>NB: clicca sulla lente di ingandimento e cerca l\'indirizzo, anche se lo hai già inserito nel campo precedente.<br>Questo permetterà una corretta georeferenziazione del luogo</small>', 'design_scuole_italia' ),
 		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  .', 'design_scuole_italia' ),
 		'type'       => 'leaflet_map',
 		'attributes' => array(
@@ -404,7 +404,7 @@ function dsi_add_luogo_metaboxes() {
 	/**** dati strutturali non visibili sul f/e ****/
 	$cmb_dati_luoghi = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_struttura',
-		'title'        => __( 'Dati Strutturali (a scopo amministratico, non sono visualizzati sul frontend)', 'design_scuole_italia' ),
+		'title'        => __( 'Dati Strutturali (a scopo amministrativo, non sono visualizzati sul frontend)', 'design_scuole_italia' ),
 		'object_types' => array( 'luogo' ),
 		'context'      => 'normal',
 		'priority'     => 'high',
@@ -453,16 +453,6 @@ function dsi_add_luogo_metaboxes() {
 			"false" => __( 'NO', 'design_scuole_italia' ),
 		),
 	) );
-
-
-
-	$cmb_dati_luoghi->add_field( array(
-		'id'         => $prefix . 'eta_costruzione',
-		'name'       => __( 'Fascia Età Costruzione', 'design_scuole_italia' ),
-		'desc'       => __( 'Fascia di eta\' di costruzione dell\'edificio', 'design_scuole_italia' ),
-		'type'       => 'text_medium'
-	) );
-
 
 
 	$cmb_dati_luoghi->add_field( array(

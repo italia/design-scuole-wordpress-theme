@@ -159,7 +159,7 @@ function dsi_add_eventi_metaboxes() {
 
 	$cmb_sottotitolo->add_field( array(
 		'id'         => $prefix . 'posizione_gps_luogo_custom',
-		'name'       => __( 'Posizione GPS ', 'design_scuole_italia' ),
+        'name'       => __( 'Posizione GPS <br><small>NB: clicca sulla lente di ingandimento e cerca l\'indirizzo, anche se lo hai già inserito nel campo precedente.<br>Questo permetterà una corretta georeferenziazione del luogo</small>', 'design_scuole_italia' ),
 		'desc'       => __( 'Georeferenziazione del luogo e link a posizione in mappa.  (lascia vuoto hai selezionato un Luogo della Scuola )', 'design_scuole_italia' ),
 		'type'       => 'leaflet_map',
 		'attributes' => array(
