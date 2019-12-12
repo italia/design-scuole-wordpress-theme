@@ -95,7 +95,7 @@ function dsi_register_required_plugins() {
 		array(
 			'name'     => 'Disable Gutenberg',
 			'slug'     => 'disable-gutenberg',
-			'required' => true,
+			'required' => false,
 		),
         array(
             'name'     => 'Members',
