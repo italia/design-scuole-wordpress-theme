@@ -307,7 +307,7 @@ function dsi_add_struttura_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
         'name'       => __( 'Recapito telefonico struttura', 'design_scuole_italia' ),
-        'desc'       => __( 'Numero di telefono della struttura, se risulta diverso dal numero di telefono della sede. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Numero di telefono della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text',
     ) );
 
@@ -315,7 +315,7 @@ function dsi_add_struttura_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
         'name'       => __( 'Email della struttura', 'design_scuole_italia' ),
-        'desc'       => __( 'Email della struttura se risulta diversa dalla email della sede. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Email della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text_email',
     ) );
 
