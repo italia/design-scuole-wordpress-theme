@@ -81,13 +81,11 @@ function dsi_add_circolare_metaboxes() {
     $cmb_abstrat->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => __( 'Tipologia circolare *', 'design_scuole_italia' ),
-        'type'             => 'taxonomy_radio_inline',
+        'type'             => 'taxonomy_multicheck_inline',
         'taxonomy'       => 'tipologia-circolare',
-        'show_option_none' => false,
+        'select_all_button' => false,
         'remove_default' => 'true',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
+
     ) );
 
 
@@ -444,4 +442,18 @@ add_action( 'edit_form_after_title', 'sdi_circolare_add_content_before_editor', 
 function sdi_circolare_add_content_before_editor($post) {
     if($post->post_type == "circolare")
         _e('<h1>Testo della Circolare</h1>', 'design_scuole_italia' );
+}
+
+
+
+/**
+ * aggiungo js
+ */
+add_action( 'admin_print_scripts-post-new.php', 'dsi_circolare_admin_script', 9 );
+add_action( 'admin_print_scripts-post.php', 'dsi_circolare_admin_script', 9 );
+
+function dsi_circolare_admin_script() {
+    global $post_type;
+    if( 'circolare' == $post_type )
+        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/circolare.js' );
 }
