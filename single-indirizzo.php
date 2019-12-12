@@ -351,7 +351,7 @@ get_header();
                                     <h4 id="art-par-programma" class="mt-4"><?php _e("Programma di studio", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
-                                            <?php echo wpautop($programma); ?>
+                                            <?php echo apply_filters("the_content",$programma); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                 <?php } ?>
