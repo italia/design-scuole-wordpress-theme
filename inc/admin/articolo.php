@@ -50,6 +50,20 @@ function dsi_add_articolo_metaboxes() {
     ) );
 
     $cmb_abstrat->add_field( array(
+        'id' => $prefix . 'tipologia',
+        'name'        => __( 'Tipologia articolo *', 'design_scuole_italia' ),
+        'type'             => 'taxonomy_radio_inline',
+        'show_option_none' => false,
+        'taxonomy'       => 'tipologia-articolo',
+        'remove_default' => 'true',
+        'default' => "notizie",
+        'attributes' => array(
+            'required' => 'required'
+        ),
+    ) );
+
+
+    $cmb_abstrat->add_field( array(
         'id' => $prefix . 'descrizione',
         'name'        => __( 'Abstract', 'design_scuole_italia' ),
         'desc' => __( 'Indicare un sintetico abstract (max 160 caratteri)' , 'design_scuole_italia' ),
