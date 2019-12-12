@@ -34,7 +34,7 @@ if(trim($ptitle) == ""){
 			<svg class="icon <?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
 			<div class="card-icon-content">
 				<p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"><?php echo $ptitle; ?></a></strong></p>
-				<small><?php echo $type; ?> <?php echo intval($filesize/1024); ?> kb</small>
+				<small><?php echo $type; ?> - <?php echo intval($filesize/1024); ?> kb</small>
 			</div><!-- /card-icon-content -->
 		</div><!-- /card-body -->
 	</div><!-- /card card-bg card-icon rounded -->
