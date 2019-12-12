@@ -119,11 +119,13 @@ function dsi_register_required_plugins() {
             'slug'     => 'anac-xml-viewer',
             'required' => false,
         ),
+        /*
         array(
             'name'     => 'Easy Appointments',
             'slug'     => 'easy-appointments',
             'required' => false,
         ),
+        */
         array(
             'name'     => 'Contact Form 7',
             'slug'     => 'contact-form-7',
