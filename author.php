@@ -113,7 +113,6 @@ $args = array(
 );
 $schede_didattiche = get_posts($args);
 
-
 $args = array(
     'author' =>  $author_id,
     'posts_per_page' => -1,
@@ -127,6 +126,14 @@ $args = array(
     'post_type' => 'documento'
 );
 $documenti = get_posts($args);
+
+$args = array(
+    'author' =>  $author_id,
+    'posts_per_page' => 6,
+    'post_type' => array('post'),
+);
+$posts = get_posts($args);
+
 ?>
     <main id="main-container" class="main-container petrol">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -175,12 +182,17 @@ $documenti = get_posts($args);
                                     <?php } ?>
                                     <?php if(count($schede_progetto) > 0)  { ?>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Progetti", "design_scuole_italia"); ?>"><?php _e("Progetti", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-progetti" title="Vai al paragrafo <?php _e("Progetti", "design_scuole_italia"); ?>"><?php _e("Progetti", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
                                     <?php if(count($documenti) > 0)  { ?>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(count($posts) > 0)  { ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-articoli" title="Vai al paragrafo <?php _e("Articoli", "design_scuole_italia"); ?>"><?php _e("Articoli", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
 
@@ -325,13 +337,6 @@ $documenti = get_posts($args);
         </section>
         <?php
         // controllo se esistono post e eventi pubblicati dall'autore
-
-        $args = array(
-            'author' =>  $author_id,
-            'posts_per_page' => 6,
-            'post_type' => array('post'),
-        );
-        $posts = get_posts($args);
         if(count($posts)) {
             ?>
             <section class="section bg-gray-gradient py-5">
@@ -339,7 +344,7 @@ $documenti = get_posts($args);
 
                     <div class="row variable-gutters">
                         <div class="col-lg-12">
-                            <h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e( "Articoli pubblicati da ", "design_scuole_italia" ); ?><?php echo dsi_get_display_name($author_id); ?></h3>
+                            <h3 class="mb-5 text-center semi-bold text-gray-primary" id="art-par-articoli"><?php _e( "Articoli pubblicati da ", "design_scuole_italia" ); ?><?php echo dsi_get_display_name($author_id); ?></h3>
                             <div class="owl-carousel carousel-theme carousel-large">
                                 <?php
                                 foreach ( $posts as $post ) {
