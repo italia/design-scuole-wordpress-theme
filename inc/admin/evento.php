@@ -515,9 +515,10 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_inizio',
 		'before' => 'Data Inizio Evento<br>',
 		'type' => 'text_date_timestamp',
-        'date_format' => 'd M Y',
+        'date_format' => 'd-m-Y',
 		'attributes' => array(
-			'required' => 'required'
+			'required' => 'required',
+            'autocomplete' => 'off'
 		),
         'column' => array(
             'position' => 2,
@@ -530,9 +531,10 @@ function dsi_add_eventi_metaboxes() {
 		'id'         => $prefix . 'timestamp_fine',
 		'before' => 'Data Fine Evento<br>',
 		'type' => 'text_date_timestamp',
-        'date_format' => 'd M Y',
+        'date_format' => 'd-m-Y',
 		'attributes' => array(
-			'required' => 'required'
+			'required' => 'required',
+            'autocomplete' => 'off'
 		),
 	) );
 

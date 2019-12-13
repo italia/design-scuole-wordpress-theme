@@ -44,11 +44,11 @@
                 )
             )
         );
-        $posts = get_posts($args);
-        foreach ($posts as $post) {
+        $eposts = get_posts($args);
+        foreach ($eposts as $epost) {
 
-        $timestamp_inizio = dsi_get_meta("timestamp_inizio", "", $post->ID);
-        $timestamp_fine= dsi_get_meta("timestamp_fine", "", $post->ID);
+        $timestamp_inizio = dsi_get_meta("timestamp_inizio", "", $epost->ID);
+        $timestamp_fine= dsi_get_meta("timestamp_fine", "", $epost->ID);
 
         $begin = new DateTime(date_i18n("c",$timestamp_inizio));
         $end = new DateTime(date_i18n("c",$timestamp_fine));

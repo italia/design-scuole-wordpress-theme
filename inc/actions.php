@@ -111,9 +111,17 @@ function dsi_eventi_filters( $query ) {
 
     if ( ! is_admin() && $query->is_main_query() && is_post_type_archive("evento") ) {
         if(isset($_GET["date"]) && ($_GET["date"] != "")){
-            $date = strtotime($_GET["date"]);
-            $date_begin = strtotime($_GET["date"] ." 00:00:00");
-            $date_end = strtotime($_GET["date"] ." 23:59:59");
+
+            $arrdate = explode("-", $_GET["date"]);
+
+            if(count($arrdate) != 3) return;
+
+            $newdate = $arrdate[1]."/".$arrdate[0]."/".$arrdate[2];
+
+            $date = strtotime($newdate);
+
+            $date_begin = strtotime($newdate ." 00:00:00" );
+            $date_end = strtotime($newdate ." 23:59:59");
             $query->set( 'meta_query', array(
                 array(
                     'key' => '_dsi_evento_timestamp_inizio',
