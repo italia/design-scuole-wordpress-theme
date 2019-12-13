@@ -39,7 +39,7 @@ $home_servizi_manuali = dsi_get_option("home_servizi_manuali", "homepage");
     if($landing_url) {
         ?>
         <div class="pb-5 text-center">
-            <a class="text-underline" href="<?php echo $landing_url; ?>"><strong><?php _e("Scopri di più", "design_scuole_italia"); ?></strong></a>
+            <a class="btn btn-outline-purplelight" href="<?php echo $landing_url; ?>"><strong><?php _e("Scopri di più", "design_scuole_italia"); ?></strong></a>
         </div>
         <?php
     }
