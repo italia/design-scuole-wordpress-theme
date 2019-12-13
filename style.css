@@ -460,3 +460,10 @@ table td ul{
         padding: 0px 0 0px 0 !important;
     }
 }
+
+
+
+.breadcrumb li{
+    white-space: nowrap;
+
+}
