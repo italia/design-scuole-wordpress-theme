@@ -42,7 +42,7 @@ $str_ruolo = "";
 if($ruolo_scuola == "dirigente"){
     $str_ruolo .= "Dirigente Scolastico ";
 }else if($ruolo_scuola == "docente"){
-	$str_ruolo .= "Docente ";
+    $str_ruolo .= "Docente ";
 
     if($tipo_posto == "sostegno"){
         /*
@@ -57,7 +57,7 @@ if($ruolo_scuola == "dirigente"){
 
         }
         else*/
-            $str_ruolo .= "di sostegno ";
+        $str_ruolo .= "di sostegno ";
     }
 
     if($ruolo_docente == "infanzia"){
@@ -72,16 +72,16 @@ if($ruolo_scuola == "dirigente"){
         $str_ruolo .= "dei <strong>percorsi di istruzione e formazione professionale</strong>";
     }
 
-      if($incarico_docente == "determinato"){
-          $str_ruolo .= " con incarico a tempo determinato ";
+    if($incarico_docente == "determinato"){
+        $str_ruolo .= " con incarico a tempo determinato ";
 
-          if($durata_incarico_docente != ""){
-              $str_ruolo .= " <small>(termine incarico: ".$durata_incarico_docente.")</small>";
-          }
+        if($durata_incarico_docente != ""){
+            $str_ruolo .= " <small>(termine incarico: ".$durata_incarico_docente.")</small>";
+        }
 
-      }else if($incarico_docente == "indeterminato"){
-          $str_ruolo .= " con incarico a tempo indeterminato ";
-      }
+    }else if($incarico_docente == "indeterminato"){
+        $str_ruolo .= " con incarico a tempo indeterminato ";
+    }
 
 
 
@@ -107,92 +107,104 @@ if($ruolo_scuola == "dirigente"){
 // recupero le schede didattiche e di progetto e i documenti che hanno questo utente come autore
 
 $args = array(
-	'author' =>  $author_id,
-	'posts_per_page' => -1,
+    'author' =>  $author_id,
+    'posts_per_page' => -1,
     'post_type' => 'scheda_didattica'
 );
 $schede_didattiche = get_posts($args);
 
 
 $args = array(
-	'author' =>  $author_id,
-	'posts_per_page' => -1,
-	'post_type' => 'scheda_progetto'
+    'author' =>  $author_id,
+    'posts_per_page' => -1,
+    'post_type' => 'scheda_progetto'
 );
 $schede_progetto = get_posts($args);
 
 $args = array(
-	'author' =>  $author_id,
-	'posts_per_page' => -1,
-	'post_type' => 'documento'
+    'author' =>  $author_id,
+    'posts_per_page' => -1,
+    'post_type' => 'documento'
 );
 $documenti = get_posts($args);
 ?>
-	<main id="main-container" class="main-container petrol">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
-		<section class="section bg-petrol py-3 py-lg-3 py-xl-5">
-			<div class="container">
-				<div class="row variable-gutters">
-					<div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
-						<div class="section-thumb thumb-large mx-3">
+    <main id="main-container" class="main-container petrol">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+        <section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+            <div class="container">
+                <div class="row variable-gutters">
+                    <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
+                        <div class="section-thumb thumb-large mx-3">
                             <?php if($image_url) {
                                 echo "<img src='".$image_url."' />";
                             } ?>
-						</div><!-- /section-thumb -->
-					</div><!-- /col-lg-2 -->
-					<div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
-						<div class="section-title">
-							<h2 class="mb-3"><?php echo dsi_get_display_name($author_id); ?></h2>
-							<p><?php echo $str_ruolo; ?></p>
-						</div><!-- /title-section -->
-					</div><!-- /col-lg-5 col-md-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section><!-- /section -->
+                        </div><!-- /section-thumb -->
+                    </div><!-- /col-lg-2 -->
+                    <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
+                        <div class="section-title">
+                            <h2 class="mb-3"><?php echo dsi_get_display_name($author_id); ?></h2>
+                            <p><?php echo $str_ruolo; ?></p>
+                        </div><!-- /title-section -->
+                    </div><!-- /col-lg-5 col-md-8 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section><!-- /section -->
 
-		<section class="section bg-white">
-			<div class="container container-border-top">
-				<div class="row variable-gutters">
-					<div class="col-lg-3 col-md-4 aside-border px-0">
-						<aside class="aside-main aside-sticky">
-							<div class="aside-title">
-								<a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
-									<span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
-									<svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
-								</a>
-							</div>
-							<div id="lista-paragrafi" class="link-list-wrapper collapse show">
-								<ul class="link-list">
-                                <?php if($bio != "") { ?>
-									<li>
-										<a class="list-item scroll-anchor-offset" href="#art-par-bio" title="Vai al paragrafo <?php _e("Biografia", "design_scuole_italia"); ?>"><?php _e("Biografia", "design_scuole_italia"); ?></a>
-									</li>
-                                <?php } ?>
-                                    <?php if((count($schede_didattiche) > 0) || (count($schede_progetto) > 0) || (count($documenti) > 0))  { ?>
-                                    <li>
-                                        <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Didattica", "design_scuole_italia"); ?>"><?php _e("Didattica", "design_scuole_italia"); ?></a>
-                                    </li>
-                                    <?php }
-                                     if(trim($altre_info) != ""){
-                                    ?>
-                                    <li>
-                                        <a class="list-item scroll-anchor-offset" href="#art-par-altre-info"
-                                           title="Vai al paragrafo <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
-                                    </li>
+        <section class="section bg-white">
+            <div class="container container-border-top">
+                <div class="row variable-gutters">
+                    <div class="col-lg-3 col-md-4 aside-border px-0">
+                        <aside class="aside-main aside-sticky">
+                            <div class="aside-title">
+                                <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                    <span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
+                                    <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
+                                </a>
+                            </div>
+                            <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                <ul class="link-list">
+                                    <?php if($bio != "") { ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-bio" title="Vai al paragrafo <?php _e("Biografia", "design_scuole_italia"); ?>"><?php _e("Biografia", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(count($schede_didattiche) > 0)  { ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Schede didattiche", "design_scuole_italia"); ?>"><?php _e("Schede didattiche", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(count($schede_progetto) > 0)  { ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Progetti", "design_scuole_italia"); ?>"><?php _e("Progetti", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(count($documenti) > 0)  { ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
+                                        </li>
+                                    <?php } ?>
+
                                     <?php
+                                    if(trim($altre_info) != ""){
+                                        ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-altre-info"
+                                               title="Vai al paragrafo <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
+                                        </li>
+                                        <?php
                                     }
                                     if(($telefono_pubblico != "") || ($email_pubblico != "")){ ?>
-									<li>
-										<a class="list-item scroll-anchor-offset" href="#art-par-contatti" title="Vai al paragrafo <?php _e("Contatti", "design_scuole_italia"); ?>"><?php _e("Contatti", "design_scuole_italia"); ?></a>
-									</li>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-contatti" title="Vai al paragrafo <?php _e("Contatti", "design_scuole_italia"); ?>"><?php _e("Contatti", "design_scuole_italia"); ?></a>
+                                        </li>
                                     <?php } ?>
-								</ul>
-							</div>
-						</aside>
+                                </ul>
+                            </div>
+                        </aside>
 
-					</div>
-					<div class="col-lg-8 col-md-8 offset-lg-1 pt84">
-						<article class="article-wrapper">
+                    </div>
+                    <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <article class="article-wrapper">
                             <?php if($bio != "") { ?>
                                 <h4 id="art-par-bio"><?php _e("Biografia", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
@@ -200,156 +212,128 @@ $documenti = get_posts($args);
                                         <p><?php echo $bio; ?></p>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-	                        <?php }
-	                        if ((count($schede_didattiche) > 0) || (count($schede_progetto) > 0) || (count($documenti) > 0)) {
+                            <?php }
+                            if (count($schede_didattiche) > 0) {
                                 ?>
                                 <h4 id="art-par-didattica"
-                                    class="mb-4"><?php _e("Didattica", "design_scuole_italia"); ?></h4>
-                                <?php
-                                // todo: programma materia
-                                /*
+                                    class="mb-4"><?php _e("Schede didattiche", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($schede_didattiche as $scheda) { ?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon svg-project">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 xlink:href="#svg-project"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"> <?php echo $scheda->post_title; ?></a></strong>
+                                                            </p>
+                                                            <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_didattica_", $scheda->ID); ?></small>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                            <?php } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
+                            <?php } ?>
+                            <?php
+                            if (count($schede_progetto) > 0) {
                                 ?>
-                                <h6><?php _e("Materie", "design_scuole_italia"); ?></h6>
+                                <h4 id="art-par-progetti"  class="mb-4"><?php _e("Progetti", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($schede_progetto as $scheda) { ?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon svg-project">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 xlink:href="#svg-project"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"><?php echo $scheda->post_title; ?></a></strong>
+                                                            </p>
+                                                            <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_progetto_", $scheda->ID); ?></small>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                            <?php } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
+                            <?php }
+
+                            if (count($documenti) > 0) {
+                                ?>
+                                <h4 id="art-par-documenti"  class="mb-4"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($documenti as $doc) { ?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon it-pdf-document">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 xlink:href="#it-pdf-document"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($doc); ?>"><?php echo $doc->post_title; ?></a></strong>
+                                                            </p>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                            <?php } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
+                            <?php }
+
+                            if(trim($altre_info) != ""){
+                                ?>
+                                <h4 id="art-par-altre-info"
+                                    class="mb-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="card-simple-wrapper mb-5">
-                                            <div class="card-simple rounded">
-                                                <div class="card-simple-body">
-                                                    <p>Matematica</p>
-                                                </div><!-- /card-simple-body -->
-                                            </div><!-- /card-simple -->
-                                            <div class="card-simple rounded">
-                                                <div class="card-simple-body">
-                                                    <p>Fisica</p>
-                                                </div><!-- /card-simple-body -->
-                                            </div><!-- /card-simple -->
-                                        </div><!-- /card-simple-wrapper -->
+                                        <p><?php echo $altre_info; ?></p>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php
-                                */
-                                if (count($schede_didattiche) > 0) {
-                                    ?>
-                                    <h6><?php _e("Schede didattiche", "design_scuole_italia"); ?></h6>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php foreach ($schede_didattiche as $scheda) { ?>
-                                                    <div class="card card-bg card-icon rounded">
-                                                        <div class="card-body">
-                                                            <svg class="icon svg-project">
-                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                     xlink:href="#svg-project"></use>
-                                                            </svg>
-                                                            <div class="card-icon-content">
-                                                                <p>
-                                                                    <strong><a href="<?php echo get_permalink($scheda); ?>"> <?php echo $scheda->post_title; ?></a></strong>
-                                                                </p>
-                                                                <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_didattica_", $scheda->ID); ?></small>
-                                                            </div><!-- /card-icon-content -->
-                                                        </div><!-- /card-body -->
-                                                    </div><!-- /card card-bg card-icon rounded -->
-                                                <?php } ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                <?php } ?>
-                                <?php
-                                if (count($schede_progetto) > 0) {
-                                    ?>
-                                    <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
-                                    <div class="row variable-gutters mb-4">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php foreach ($schede_progetto as $scheda) { ?>
-                                                    <div class="card card-bg card-icon rounded">
-                                                        <div class="card-body">
-                                                            <svg class="icon svg-project">
-                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                     xlink:href="#svg-project"></use>
-                                                            </svg>
-                                                            <div class="card-icon-content">
-                                                                <p>
-                                                                    <strong><a href="<?php echo get_permalink($scheda); ?>"><?php echo $scheda->post_title; ?></a></strong>
-                                                                </p>
-                                                                <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_progetto_", $scheda->ID); ?></small>
-                                                            </div><!-- /card-icon-content -->
-                                                        </div><!-- /card-body -->
-                                                    </div><!-- /card card-bg card-icon rounded -->
-                                                <?php } ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                <?php }
-
-                                if (count($documenti) > 0) {
-                                    ?>
-                                    <h6><?php _e("Documenti", "design_scuole_italia"); ?></h6>
-                                    <div class="row variable-gutters mb-4">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php foreach ($documenti as $doc) { ?>
-                                                    <div class="card card-bg card-icon rounded">
-                                                        <div class="card-body">
-                                                            <svg class="icon it-pdf-document">
-                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                     xlink:href="#it-pdf-document"></use>
-                                                            </svg>
-                                                            <div class="card-icon-content">
-                                                                <p>
-                                                                    <strong><a href="<?php echo get_permalink($doc); ?>"><?php echo $doc->post_title; ?></a></strong>
-                                                                </p>
-                                                            </div><!-- /card-icon-content -->
-                                                        </div><!-- /card-body -->
-                                                    </div><!-- /card card-bg card-icon rounded -->
-                                                <?php } ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                <?php }
-
                             }
-
-                                if(trim($altre_info) != ""){
-                                    ?>
-                                    <h4 id="art-par-altre-info"
-                                        class="mb-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-9">
-                                            <p><?php echo $altre_info; ?></p>
-                                        </div><!-- /col-lg-9 -->
-                                    </div><!-- /row -->
-                                    <?php
-                                }
                             ?>
 
                             <?php if(($telefono_pubblico != "") || ($email_pubblico != "")){ ?>
-							<h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
-							<div class="row variable-gutters">
-								<div class="col-lg-9">
-                                    <ul>
-                                    <?php if($telefono_pubblico != ""){?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono_pubblico; ?></li><?php } ?>
-                                    <?php if($email_pubblico != ""){?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <a href="mailto:<?php echo $email_pubblico; ?>"><?php echo $email_pubblico; ?></a></li><?php } ?>
-									</ul>
-								</div><!-- /col-lg-9 -->
-							</div><!-- /row -->
+                                <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9">
+                                        <ul>
+                                            <?php if($telefono_pubblico != ""){?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono_pubblico; ?></li><?php } ?>
+                                            <?php if($email_pubblico != ""){?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <a href="mailto:<?php echo $email_pubblico; ?>"><?php echo $email_pubblico; ?></a></li><?php } ?>
+                                        </ul>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
                             <?php } ?>
-						</article>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</section>
+                        </article>
+                    </div><!-- /col-lg-8 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </section>
         <?php
         // controllo se esistono post e eventi pubblicati dall'autore
 
         $args = array(
-	        'author' =>  $author_id,
-	        'posts_per_page' => 6,
-	        'post_type' => array('post'),
+            'author' =>  $author_id,
+            'posts_per_page' => 6,
+            'post_type' => array('post'),
         );
         $posts = get_posts($args);
         if(count($posts)) {
-	        ?>
+            ?>
             <section class="section bg-gray-gradient py-5">
                 <div class="container pt-3">
 
@@ -368,9 +352,9 @@ $documenti = get_posts($args);
                                                     <?php
                                                     $argomenti = dsi_get_argomenti_of_post($post);
                                                     if(count($argomenti)) {
-	                                                    foreach ( $argomenti as $argomento ) { ?>
+                                                        foreach ( $argomenti as $argomento ) { ?>
                                                             <a href="<?php echo get_term_link($argomento); ?>"  class="badge badge-sm badge-pill badge-outline-greendark" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $argomento->name; ?>"><?php echo $argomento->name; ?></a><?php
-	                                                    }
+                                                        }
                                                     }
                                                     ?>
                                                 </div><!-- /badges -->
@@ -387,9 +371,9 @@ $documenti = get_posts($args);
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-	        <?php
+            <?php
         }
-            ?>
-	</main><!-- #main -->
+        ?>
+    </main><!-- #main -->
 <?php
 get_footer();
