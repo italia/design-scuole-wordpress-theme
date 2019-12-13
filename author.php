@@ -374,7 +374,7 @@ $documenti = get_posts($args);
                                                     }
                                                     ?>
                                                 </div><!-- /badges -->
-                                                <h4 class="h5"><a href="<?php echo get_the_title($post); ?>"><strong>Titolo notizia standard</strong></a></h4>
+                                                <h4 class="h5"><a href="<?php echo get_permalink($post); ?>"><strong><?php echo get_the_title($post); ?></strong></a></h4>
                                                 <p><?php echo get_the_excerpt($post); ?></p>
                                             </div><!-- /card-body -->
                                         </div><!-- /card -->
