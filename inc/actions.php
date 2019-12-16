@@ -286,7 +286,7 @@ global $wp_query;
         if(isset($_GET["archive"]) && $_GET["archive"] == "true"){
             $title .= " archiviati  ";
         }
-            } elseif ( is_post_type_archive() ) {
+    } elseif ( is_post_type_archive() ) {
         $title = post_type_archive_title('', false);
     }
 
@@ -454,7 +454,7 @@ function dsi_bandi_shortcode($atts) {
 
                 })(document);
             </script>
-<?php
+    <?php
     $atshortcode = ob_get_clean();
     return $atshortcode;
 }

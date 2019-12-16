@@ -79,6 +79,11 @@ require get_template_directory() . '/inc/menu-order.php';
  */
 require get_template_directory() . '/inc/import.php';
 
+/**
+ * TCPDF
+ */
+require get_template_directory() . '/inc/dompdf.php';
+
 
 
 

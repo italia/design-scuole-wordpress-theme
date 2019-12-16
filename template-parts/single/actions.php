@@ -1,5 +1,5 @@
 <?php
-
+global $post;
 $parts = parse_url( home_url() );
 $current_uri = "{$parts['scheme']}://{$parts['host']}" . add_query_arg( NULL, NULL );
 if(is_singular()){
@@ -37,6 +37,14 @@ if(is_singular()){
 								</a>
 							</li>
 							//-->
+                            <?php if(is_singular("circolare")){ ?>
+                            <li>
+                                <a href="<?php echo add_query_arg( array( 'pdf' => 'true' ), get_permalink($post) ); ?>" class="list-item left-icon" title="<?php _e("Genera PDF", "design_scuole_italia"); ?>">
+                                    <svg class="icon it-pdf"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-pdf-document"></use></svg>
+                                    <span><?php _e("Genera PDF", "design_scuole_italia"); ?></span>
+                                </a>
+                            </li>
+                            <?php } ?>
                             <li>
                                 <a href="javascript:window.print();" class="list-item left-icon" title="<?php _e("Stampa il contenuto", "design_scuole_italia"); ?>">
                                     <svg class="icon it-print"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-print"></use></svg>

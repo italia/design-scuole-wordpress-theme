@@ -467,3 +467,7 @@ table td ul{
     white-space: nowrap;
 
 }
+
+.link-list-wrapper li a{
+    font-family:"Titillium Web", Geneva, Tahoma, sans-seri;
+}
