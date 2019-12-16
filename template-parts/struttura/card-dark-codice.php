@@ -9,10 +9,10 @@ $codice_meccanografico = dsi_get_meta("codice_meccanografico", "", $struttura->I
 
 ?>
 <div class="card card-bg  bg-color bg-dark card-icon-main rounded">
-	<a href="<?php echo get_permalink($struttura); ?>">
+    <a href="<?php echo get_permalink($struttura); ?>" aria-describedby="card-desc-<?php echo $struttura->ID; ?>">
 		<div class="card-body">
 			<?php get_template_part("template-parts/svg/icona",$tipologia); ?>
-			<div class="card-icon-content">
+            <div class="card-icon-content"  id="card-desc-<?php echo $struttura->ID; ?>">
                 <p><strong class="text-white"><?php echo $struttura->post_title; ?></strong></p>
                 <?php
                 if($codice_meccanografico != "") {
