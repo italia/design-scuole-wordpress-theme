@@ -125,7 +125,17 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+        // image size
+        if ( function_exists( 'add_image_size' ) ) {
+            add_image_size( 'article-simple-thumb', 500, 384 , true);
+            add_image_size( 'item-thumb', 280, 280 , true);
+            add_image_size( 'item-gallery', 730, 485 , true);
+            add_image_size( 'vertical-card', 190, 290 , true);
+
+            add_image_size( 'banner', 600, 250 , false);
+        }
+
+        // This theme uses wp_nav_menu()
 		register_nav_menus( array(
 			'menu-scuola' => esc_html__( 'Sottovoci del menu principale, voce "Scuola"', 'design_scuole_italia' ),
 			'menu-servizi' => esc_html__( 'Sottovoci del menu principale, voce "Servizi"', 'design_scuole_italia' ),
@@ -135,30 +145,6 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 			'menu-topright' => esc_html__( 'Menu secondario (in alto a destra)', 'design_scuole_italia' ),
 			'menu-footer' => esc_html__( 'Menu a piè di pagina', 'design_scuole_italia' ),
 		) );
-
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 *//*
-		if ( function_exists( 'add_theme_support' ) ) {
-			add_theme_support( 'custom-logo', array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			) );
-		}*/
-
-		if ( function_exists( 'add_image_size' ) ) {
-			add_image_size( 'article-simple-thumb', 500, 384 , true);
-			add_image_size( 'item-thumb', 280, 280 , true);
-			add_image_size( 'item-gallery', 730, 485 , true);
-			add_image_size( 'vertical-card', 190, 290 , true);
-
-
-		}
 
 	}
 endif;

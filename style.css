@@ -471,3 +471,8 @@ table td ul{
 .link-list-wrapper li a{
     font-family:"Titillium Web", Geneva, Tahoma, sans-seri;
 }
+
+.owl-item .banner img{
+    width:auto !important;
+    display: inline !important;
+}

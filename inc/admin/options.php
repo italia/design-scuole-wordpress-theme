@@ -162,6 +162,70 @@ function dsi_register_main_options_metabox() {
     ));
 
     $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_banner',
+        'name'        => __( 'Sezione Banner', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Banner (opzionale) mostrata in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+
+
+
+    $home_options->add_field(  array(
+        'id' => $prefix.'visualizza_banner',
+        'name'    => __( 'Visualizza la fascia banner', 'design_scuole_italia' ),
+        'type'    => 'radio_inline',
+        'options' => array(
+            'si' => __( 'Si', 'design_scuole_italia' ),
+            'no'   => __( 'No', 'design_scuole_italia' ),
+        ),
+        'default' => "no"
+    ) );
+
+
+    $bsnner_group_id = $home_options->add_field( array(
+        'id'          =>  $prefix . 'banner_group',
+        'type'        => 'group',
+        'repeatable'  => true,
+        'options'     => array(
+            'group_title'   => 'Banner {#}',
+            'add_button'    => 'Aggiungi un nuovo banner',
+            'remove_button' => 'Rimuovi Banner',
+            'closed'        => true,  // Repeater fields closed by default - neat & compact.
+            'sortable'      => true,  // Allow changing the order of repeated groups.
+        ),
+    ) );
+
+    $home_options->add_group_field( $bsnner_group_id, array(
+        'name' => 'Banner',
+        'id'   => 'banner',
+        'type'    => 'file',
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Aggiungi file' // Change upload button text. Default: "Add or Upload File"
+        ),
+        'query_args' => array(
+             'type' => array(
+             	'image/gif',
+             	'image/jpeg',
+             	'image/png',
+             ),
+        ),
+        'preview_size' => 'banner',
+    ) );
+    $home_options->add_group_field( $bsnner_group_id, array(
+        'name' => 'Url di destinazione',
+        'desc' => 'Url di destinazione (lasciare vuoto se non necessario)',
+        'id'   => 'url',
+        'type' => 'text_url',
+    ) );
+
+
+
+    $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_2',
         'name'        => __( 'Sezione Servizi', 'design_scuole_italia' ),
         'desc' => __( 'Gestione sezione Servizi mostrati in home page' , 'design_scuole_italia' ),
