@@ -51,23 +51,29 @@ function dsi_pdf_generator(){
 
         </p>
 
-        <div style="clear:both; "><br>
+        <div style="font-size: 12px;clear:both; "><br>
 
-            <span style="font-size: 14px;"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></span>
+            <span ><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></span>
+            <?php if($numerazione_circolare){ ?>
+                <h3>Circolare numero <?php echo $numerazione_circolare; ?></h3>
+            <?php }  ?>
+
         </div>
         <h3><?php echo $post->post_title; ?></h3>
-        <?php if($numerazione_circolare){ ?>
-            <h6>Circolare numero <?php echo $numerazione_circolare; ?></h6>
-        <?php }  ?>
+
 
         <?php
         echo strip_tags(apply_filters("the_content", $post->post_content), "<p><b><strong><i><a><div>");
         ?>
 
 
-        <footer>
+        <footer style="text-align: center">
             <?php
-            _e("PDF generato dalla circolare pubblicata sul sito  ");
+            _e("PDF generato dalla circolare  ");
+            if($numerazione_circolare)
+                echo "n. ".$numerazione_circolare." ";
+            _e("pubblicata sul sito ");
+            echo dsi_get_option("nome_scuola");
             echo "<br>";
             echo get_permalink($post);
             ?>
@@ -94,7 +100,7 @@ function dsi_pdf_generator(){
         $dompdf->render();
 
         // Output the generated PDF to Browser
-        $dompdf->stream();
+        $dompdf->stream("circolare-".$post->post_name.".pdf");
         exit();
     }
 }
