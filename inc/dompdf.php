@@ -19,6 +19,9 @@ function dsi_pdf_generator(){
         $data = file_get_contents($image_url);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
+        $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $post->ID);
+
+
         ob_start();
 ?>
         <!DOCTYPE html>
@@ -27,6 +30,13 @@ function dsi_pdf_generator(){
             <meta charset='utf-8'>
             <style>
                 body{font-size: 16px;color: black;}
+                footer {
+                    position: fixed;
+                    bottom: 0cm;
+                    left: 0cm;
+                    right: 0cm;
+                    font-size: 12px;
+                }
             </style>
             <title><?php echo $post->post_title; ?></title>
         </head>
@@ -38,13 +48,31 @@ function dsi_pdf_generator(){
             <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
             <br>
             <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+
         </p>
 
-        <div class="clear:both;"><br><br></div>
+        <div style="clear:both; "><br>
+
+            <span style="font-size: 14px;"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></span>
+        </div>
         <h3><?php echo $post->post_title; ?></h3>
+        <?php if($numerazione_circolare){ ?>
+            <h6>Circolare numero <?php echo $numerazione_circolare; ?></h6>
+        <?php }  ?>
+
         <?php
         echo strip_tags(apply_filters("the_content", $post->post_content), "<p><b><strong><i><a><div>");
         ?>
+
+
+        <footer>
+            <?php
+            _e("PDF generato dalla circolare pubblicata sul sito  ");
+            echo "<br>";
+            echo get_permalink($post);
+            ?>
+        </footer>
+
         </body>
         </html>
         <?php
