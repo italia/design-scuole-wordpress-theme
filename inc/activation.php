@@ -976,7 +976,7 @@ function dsi_create_pages_on_theme_activation() {
     $admins = get_role( 'administrator' );
 //    $custom_types = array("eventi", "documenti", "luoghi", "programmi", "schede_didattica", "schede_progetto", "strutture", "servizi");
     $custom_types = array("eventi", "documenti", "luoghi", "schede_didattica", "schede_progetto", "strutture", "servizi", "indirizzi_di_studio", "circolari");
-    $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_");
+    $caps = array("edit_","edit_others_","publish_","read_private_","delete_","delete_private_","delete_published_","delete_others_","edit_private_","edit_published_", "create_roles", "edit_roles", "delete_roles");
     foreach ($custom_types as $custom_type){
         foreach ($caps as $cap){
             $admins->add_cap( $cap.$custom_type);
