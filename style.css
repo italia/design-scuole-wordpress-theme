@@ -477,6 +477,34 @@ table td ul{
     display: inline !important;
 }
 
-.big-quote .h2 {
+
+
+
+
+.big-quote h2, .big-quote .h2 {
     font-size: 5rem;
+}
+
+@media (max-width: 1199.98px) {
+    .big-quote h2, .big-quote .h2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .big-quote h2, .big-quote .h2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .big-quote h2, .big-quote .h2 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .big-quote h2, .big-quote .h2 {
+        font-size: 2.6rem;
+    }
 }
