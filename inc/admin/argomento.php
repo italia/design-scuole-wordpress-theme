@@ -60,10 +60,12 @@ function dsi_query_post_type($query) {
                     'circolare',
 					'servizio',
 					'documento',
-					'materia',
+				//	'materia',
 					'luogo',
 					'struttura',
 					'evento',
+                    'scheda_progetto',
+                    'scheda_didattica',
 					// 'programma_materia', // todo: programma materia
 					'nav_menu_item'
 				);
