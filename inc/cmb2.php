@@ -382,9 +382,12 @@ class dsi_bidirectional_cmb2 {
 		}
 		foreach ( $unbind_posts as $value => $id ) {
 			$post_values = get_post_meta( $id, $this->post_field_from, true );
-			$pos = array_search( $post_ID, $post_values );
-			unset( $post_values[ $pos ] );
-			update_post_meta( $id, $this->post_field_from, $post_values );
+			if(is_array($post_values)){
+                $pos = array_search( $post_ID, $post_values );
+                unset( $post_values[ $pos ] );
+                update_post_meta( $id, $this->post_field_from, $post_values );
+            }
+
 		}
 	}
 
