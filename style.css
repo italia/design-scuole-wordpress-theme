@@ -476,3 +476,7 @@ table td ul{
     width:auto !important;
     display: inline !important;
 }
+
+.big-quote .h2 {
+    font-size: 5rem;
+}
