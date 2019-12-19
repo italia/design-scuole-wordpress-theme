@@ -85,7 +85,7 @@ function dsi_add_indirizzo_metaboxes() {
      */
     $cmb_stato = new_cmb2_box( array(
         'id'           => $prefix . 'box_stato',
-        'title'        => __( 'Stato del servizio', 'design_scuole_italia' ),
+        'title'        => __( 'Stato', 'design_scuole_italia' ),
         'object_types' => array( 'indirizzo' ),
         'context'      => 'side',
         'priority'     => 'core',
@@ -93,7 +93,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_stato->add_field( array(
         'id' => $prefix . 'stato',
-        'desc' => __( 'Lo stato del servizio indica l\'effettiva fruibilità del percorso di studio', 'design_scuole_italia' ),
+        'desc' => __( 'Lo stato  indica l\'effettiva fruibilità dell\'indirizzo di studio', 'design_scuole_italia' ),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
@@ -107,7 +107,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_stato->add_field(array(
         'id' => $prefix . 'desc_stato',
         'name' => __( 'Motivo', 'design_scuole_italia' ),
-        'desc' => __( 'Descrizione testuale del motivo per cui  non è attivo. Es. Servizio momentaneamente disattivato perché....Servizio attivo dal...', 'design_scuole_italia' ),
+        'desc' => __( 'Descrizione testuale del motivo per cui  non è attivo. Es. Indirizzo momentaneamente sospeso perché....', 'design_scuole_italia' ),
         'type' => 'textarea_small',
         'attributes'    => array(
             'data-conditional-id'     => $prefix.'stato',
@@ -127,7 +127,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'indirizzi',
-        'name'        => __( 'Indirizzi di studio del percorso', 'design_scuole_italia' ),
+        'name'        => __( 'Percorso di studio', 'design_scuole_italia' ),
         'type'             => 'taxonomy_multicheck_hierarchy_child',
         'select_all_button' => false,
         'taxonomy'       => 'percorsi-di-studio',
@@ -149,7 +149,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'descrizione',
         'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
-        'desc' => __( 'Indicare una sintetica descrizione del percorso di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
+        'desc' => __( 'Indicare una sintetica descrizione dell\'indirizzo di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
         'type' => 'textarea',
         'attributes'    => array(
             'maxlength'  => '160',
@@ -161,7 +161,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_undercontent = new_cmb2_box( array(
         'id'           => $prefix . 'box_elementi_indirizzo',
-        'title'         => __( 'Dettagli Servizio', 'design_scuole_italia' ),
+        'title'         => __( 'Dettagli Indirizzo', 'design_scuole_italia' ),
         'object_types' => array( 'indirizzo' ),
         'context'      => 'normal',
         'priority'     => 'high',
@@ -185,7 +185,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'come_si_fa',
-        'name'        => __( 'Come si fa ', 'design_scuole_italia' ),
+        'name'        => __( 'Come si accede ', 'design_scuole_italia' ),
         'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del percorso. ' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
@@ -195,19 +195,11 @@ function dsi_add_indirizzo_metaboxes() {
         ),
     ) );
 
-/*
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'canale_fisico_prenotazione',
-        'name'        => __( 'Link prenotazione', 'design_scuole_italia' ),
-        'desc' => __( 'es: se il percorso di studi è prenotabile, link al servizio di prenotazione ' , 'design_scuole_italia' ),
-        'type' => 'text_url'
-    ) );
-*/
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'procedura_esito',
         'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),
-        'desc' => __( 'Questo campo indica eventuali procedure collegate al servizio.' , 'design_scuole_italia' ),
+        'desc' => __( 'Questo campo indica eventuali procedure collegate.' , 'design_scuole_italia' ),
         'type' => 'textarea'
     ) );
 
@@ -252,7 +244,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'autenticazione',
         'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
-        'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie. Ad es. "Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L\'iscrizione è possibile anche attraverso spid."' , 'design_scuole_italia' ),
+        'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie."' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -264,7 +256,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'spid',
         'name'        => __( 'SPID', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare se è previsto SPID tra le modalità di autenticazione necessarie per accedere al Servizio.' , 'design_scuole_italia' ),
+        'desc' => __( 'Selezionare se è previsto SPID tra le modalità di autenticazione previste.' , 'design_scuole_italia' ),
         'type' => 'checkbox',
     ) );
 
@@ -279,8 +271,8 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'luoghi',
-        'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui vengono erogati i servizi', 'design_scuole_italia' ),
-        'desc' => __( 'In caso di percorso di studio sia erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
+        'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui viene erogato', 'design_scuole_italia' ),
+        'desc' => __( 'In caso l\'indirizzo di studio sia erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' => dsi_get_luoghi_options(),
     ) );
@@ -346,10 +338,28 @@ function dsi_add_indirizzo_metaboxes() {
         ),
     ) );
 
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'consigli_di_classe',
+        'name'    => __( 'Consigli di classe', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui i documenti dei consigli di classe. ' , 'design_scuole_italia' ),
+        'type'    => 'custom_attached_posts',
+        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+        'options' => array(
+            'show_thumbnails' => false, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array(
+                'posts_per_page' => 10,
+                'post_type'      => 'documento',
+            ), // override the get_posts args
+        ),
+    ) );
+
+
+
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'cosa_serve',
         'name'        => __( 'Cosa Serve (testo introduttivo) ', 'design_scuole_italia' ),
-        'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link', 'design_scuole_italia' ),
         'type'    => 'wysiwyg',
         'attributes'    => array(
             'required'    => 'required'
@@ -376,7 +386,6 @@ function dsi_add_indirizzo_metaboxes() {
         'id'          => $prefix . 'fasi_scadenze',
         'name'        => __('<h1>Fasi e Scadenze</h1>', 'design_scuole_italia' ),
         'type'        => 'group',
-        'description' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi " - data)', 'design_scuole_italia' ),
         'options'     => array(
             'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
             'add_button'     => __( 'Aggiungi una fase', 'design_scuole_italia' ),
@@ -406,7 +415,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'casi_particolari',
         'name'        => __( 'Casi particolari', 'design_scuole_italia' ),
-        'desc' => __( 'Inserire come testo libero, eventuali casi particolari riferiti all\'ottenimento del Servizio in questione. Es. Le persone con disabilità (legge 104) possono contattare direttamente l\'ufficio e concordare una procedura di rinnovo a domicilio' , 'design_scuole_italia' ),
+        'desc' => __( 'Inserire come testo libero, eventuali casi particolari riferiti all\'ottenimento del Servizio in questione.' , 'design_scuole_italia' ),
         'type' => 'textarea',
 
     ) );
@@ -428,7 +437,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
         'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
-        'desc'       => __( 'Indirizzo di posta elettronica del servizio. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Indirizzo di posta elettronica . ', 'design_scuole_italia' ),
         'type'       => 'text_email',
         /*'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
@@ -440,7 +449,7 @@ function dsi_add_indirizzo_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
         'name'       => __( 'Riferimento telefonico ', 'design_scuole_italia' ),
-        'desc'       => __( 'Telefono del servizio. ', 'design_scuole_italia' ),
+        'desc'       => __( 'Telefono . ', 'design_scuole_italia' ),
         'type'       => 'text',
         /*
         'attributes' => array(
@@ -493,7 +502,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_ipa->add_field( array(
         'id' => $prefix . 'ipa',
-        'desc' => __( 'Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo sul Servizio.', 'design_scuole_italia' ),
+        'desc' => __( 'Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo.', 'design_scuole_italia' ),
         'type' => 'text'
     ) );
 

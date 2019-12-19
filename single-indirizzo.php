@@ -36,7 +36,7 @@ get_header();
             $autenticazione = dsi_get_meta("autenticazione");
             $spid = dsi_get_meta("spid");
             //$canale_fisico = dsi_get_meta("canale_fisico");
-           // $canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
+            // $canale_fisico_prenotazione = dsi_get_meta("canale_fisico_prenotazione");
 
             //$sedi = dsi_get_meta("sedi");
             $cosa_serve = dsi_get_meta("cosa_serve");
@@ -57,6 +57,8 @@ get_header();
             $calendario_classi_file = dsi_get_meta("calendario_classi_file");
             $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
             $libri_testo_file = dsi_get_meta("libri_testo_file");
+            $consigli_di_classe = dsi_get_meta("consigli_di_classe");
+
 
             $servizi_correlati = dsi_get_meta("servizi_correlati");
             $mail = dsi_get_meta("mail");
@@ -126,11 +128,15 @@ get_header();
                                         <?php
                                         // do action per innestare elementi tramite plugin / child theme
                                         do_action("dsi_indirizzo_menu_after_description");
-                                        ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-accedi" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede", "design_scuole_italia"); ?>"><?php _e("Come si accede", "design_scuole_italia"); ?></a>
-                                        </li>
-                                        <?php if($programma){ ?>
+                                        if(trim($come_si_fa) != "") {
+                                            ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-accedi"
+                                                   title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Come si accede", "design_scuole_italia"); ?>"><?php _e("Come si accede", "design_scuole_italia"); ?></a>
+                                            </li>
+                                            <?php
+                                        }
+                                        if($programma){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-programma" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Programma di studio", "design_scuole_italia"); ?>"><?php _e("Programma di studio", "design_scuole_italia"); ?></a>
                                             </li>
@@ -144,6 +150,12 @@ get_header();
                                         <?php if(($libri_testo_file || $libri_testo_descrizione)){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-libri" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Libri di testo", "design_scuole_italia"); ?>"><?php _e("Libri di testo", "design_scuole_italia"); ?></a>
+                                            </li>
+
+                                        <?php } ?>
+                                        <?php if($consigli_di_classe){ ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-consigli" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Consigli di classe", "design_scuole_italia"); ?>"><?php _e("Consigli di classe", "design_scuole_italia"); ?></a>
                                             </li>
 
                                         <?php } ?>
@@ -217,18 +229,14 @@ get_header();
                                     <?php
                                 }
                                 ?>
-                                <h4 id="art-par-accedi"><?php _e("Come si accede", "design_scuole_italia"); ?></h4>
+
                                 <?php
                                 if(trim($come_si_fa) != ""){
                                     ?>
+                                    <h4 id="art-par-accedi"><?php _e("Come si accede", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($come_si_fa); ?>
-                                            <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
-                                                <div class="btn-wrapper mb-5">
-                                                    <a class="btn btn-purplelight" href="<?php echo $canale_fisico_prenotazione; ?>"><?php _e("Prenota", "design_scuole_italia"); ?></a>
-                                                </div>
-                                            <?php } */ ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
@@ -370,7 +378,7 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="col-lg-12  px-0 wysiwig-text">
-                                            <?php echo wpautop($calendario_classi_descrizione); ?>
+                                                <?php echo wpautop($calendario_classi_descrizione); ?>
                                             </div>
                                             <div class="card-deck card-deck-spaced">
                                                 <?php global $idfile, $nomefile;
@@ -391,7 +399,7 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="col-lg-12  px-0 wysiwig-text">
-                                            <?php echo wpautop($libri_testo_descrizione); ?>
+                                                <?php echo wpautop($libri_testo_descrizione); ?>
                                             </div>
                                             <div class="card-deck card-deck-spaced">
                                                 <?php global $idfile, $nomefile;
@@ -407,7 +415,26 @@ get_header();
                                     </div><!-- /row -->
                                 <?php } ?>
 
-                                <?php
+                                <?php if($consigli_di_classe) { ?>
+                                    <h4 class="mb-4" id="art-par-documenti"><?php _e("Consigli di classe", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php
+                                                if (is_array($consigli_di_classe) && count($consigli_di_classe) > 0) {
+                                                    global $documento;
+                                                    foreach ($consigli_di_classe as $link_scheda_documento) {
+                                                        $documento = get_post($link_scheda_documento);
+                                                        get_template_part("template-parts/documento/card");
+                                                    }
+                                                }
+                                                ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+
+                                    <?php
+                                }
                                 // print_r($fasi_scadenze);
                                 if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
                                     ?>
