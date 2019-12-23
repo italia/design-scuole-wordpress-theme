@@ -17,7 +17,7 @@ if($img_identita == ""){
 			<div class="col-md-<?php echo $colid; ?>">
 				<div class="hero-title">
 					<small><?php the_title(); ?></small>
-					<h1><?php echo dsi_get_option("tipologia_scuola"); ?> <?php echo dsi_get_option("nome_scuola"); ?><span class="text-redbrown"><?php echo dsi_get_option("luogo_scuola"); ?></span></h1>
+					<h1><?php echo dsi_get_option("tipologia_scuola"); ?> <?php echo dsi_get_option("nome_scuola"); ?><br /><span class="text-redbrown"><?php echo dsi_get_option("luogo_scuola"); ?></span></h1>
 				</div><!-- /hero-title -->
 			</div><!-- /col-md-<?php echo $colid; ?> -->
 		</div><!-- /row -->
