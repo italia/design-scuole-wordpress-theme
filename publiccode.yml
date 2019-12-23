@@ -49,6 +49,9 @@ intendedAudience:
     - it
   scope:
     - education
+usedBy:
+  - LICEO SCIENTIFICO - GIORGIO DAL PIAZ (istsc_blps020006)
+  - ISTITUTO SUPERIORE - T.CATULLO (istsc_blis01200t)
 it:
   countryExtensionVersion: '0.2'
   riuso:
