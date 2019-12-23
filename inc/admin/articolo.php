@@ -96,16 +96,8 @@ function dsi_add_articolo_metaboxes() {
 		'id' => $prefix . 'luoghi',
 		'name'    => __( 'Luogo', 'design_scuole_italia' ),
 		'desc' => __( 'Link a schede luoghi del sito citati  ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => true, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'luogo',
-			), // override the get_posts args
-		),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_luoghi_options(),
 	) );
 
 
