@@ -116,19 +116,12 @@ function dsi_add_eventi_metaboxes() {
 		'id' =>  $prefix . 'link_schede_luoghi',
 		'name'    => __( 'Luogo', 'design_scuole_italia' ),
 		'desc' => __( 'Selezione il <a href="edit.php?post_type=luogo">luogo della Scuola</a> in cui viene organizzato l\'evento. ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => true, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'luogo',
-			), // override the get_posts args
-		),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_luoghi_options(),
         'attributes'    => array(
-        'data-conditional-id'     => $prefix.'is_luogo_scuola',
-        'data-conditional-value'  => "true",
+            'placeholder' =>  __( 'Seleziona il luogo', 'design_scuole_italia' ),
+            'data-conditional-id'     => $prefix.'is_luogo_scuola',
+            'data-conditional-value'  => "true",
         ),
 	) );
 
@@ -249,21 +242,16 @@ function dsi_add_eventi_metaboxes() {
 
     ) );
 
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'link_schede_notizia',
-		'name'    => __( 'Per approfondire', 'design_scuole_italia' ),
-		'description' => __( 'Link alla circolare o alla notizia' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => false, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => array("post", "circolare"),
-			), // override the get_posts args
-		),
-	) );
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'link_schede_notizia',
+        'name'    => __( 'Per approfondire', 'design_scuole_italia' ),
+        'description' => __( 'Link alla circolare o alla notizia' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_approfondimenti_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona articoli o circolari di approdontimento', 'design_scuole_italia' ),
+        ),
+    ) );
 
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'gallery',

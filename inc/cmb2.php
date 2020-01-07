@@ -240,6 +240,28 @@ function dsi_get_strutture_indirizzo_scuole_options( ) {
 }
 
 
+/**
+ * @return array
+ *
+ * Lista opzioni approfondimento
+ */
+function dsi_get_approfondimenti_options( ) {
+
+    $args = array(
+        "post_type" => array("post", "circolare"),
+        "posts_per_page" => 200
+    );
+    $items = get_posts($args);
+
+    $options = array();
+    if ( $items ) {
+        foreach ( $items as $item) {
+            $options[ $item->ID ] = $item->post_title;
+        }
+    }
+
+    return $options;
+}
 
 
 /*
