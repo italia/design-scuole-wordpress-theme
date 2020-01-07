@@ -249,7 +249,7 @@ function dsi_add_eventi_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_approfondimenti_options(),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona articoli o circolari di approdontimento', 'design_scuole_italia' ),
+            'placeholder' =>  __( 'Seleziona articoli o circolari di approfondimento', 'design_scuole_italia' ),
         ),
     ) );
 
