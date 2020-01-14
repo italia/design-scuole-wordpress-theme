@@ -74,7 +74,7 @@ function dsi_register_main_options_metabox() {
         'capability'    => 'manage_options',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
-        'tab_title'    => __('Messsaggi in home', "design_scuole_italia"),	);
+        'tab_title'    => __('Avvisi in Home', "design_scuole_italia"),	);
 
     // 'tab_group' property is supported in > 2.4.0.
     if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -85,8 +85,8 @@ function dsi_register_main_options_metabox() {
 
     $alerts_options->add_field( array(
         'id' => $prefix . 'messages_istruzioni',
-        'name'        => __( 'Messaggi di allerta in home page', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci messaggi di allerta che saranno visualizzati nella homepage.' , 'design_scuole_italia' ),
+        'name'        => __( 'Avvisi di allerta in home page', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci messaggi che saranno visualizzati nella homepage.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
