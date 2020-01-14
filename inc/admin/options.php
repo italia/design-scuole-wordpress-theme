@@ -5,7 +5,6 @@
 function dsi_register_main_options_metabox() {
 	$prefix = '';
 
-
 	$args = array(
 		'id'           => 'dsi_options_header',
 		'title'        => esc_html__( 'Configurazione', 'design_scuole_italia' ),
@@ -62,6 +61,95 @@ function dsi_register_main_options_metabox() {
 			'required'    => 'required'
 		),
 	) );
+
+    /**
+     * Registers options page "Alerts".
+     */
+
+    $args = array(
+        'id'           => 'dsi_options_messages',
+        'title'        => esc_html__( 'Messaggi', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'home_messages',
+        'capability'    => 'manage_options',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Messsaggi in home', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $alerts_options = new_cmb2_box( $args );
+
+    $alerts_options->add_field( array(
+        'id' => $prefix . 'messages_istruzioni',
+        'name'        => __( 'Messaggi di allerta in home page', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci messaggi di allerta che saranno visualizzati nella homepage.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $alerts_group_id = $alerts_options->add_field( array(
+        'id'           => $prefix . 'messages',
+        'type'        => 'group',
+        'desc' => __( 'Ogni messaggio è costruito attraverso descrizione breve (max 140 caratteri) e data di scadenza (opzionale).' , 'design_scuole_italia' ),
+        'repeatable'  => true,
+        'options'     => array(
+            'group_title'   => __( 'Messaggio {#}', 'design_scuole_italia' ),
+            'add_button'    => __( 'Aggiungi un messaggio', 'design_scuole_italia' ),
+            'remove_button' => __( 'Rimuovi il messaggio', 'design_scuole_italia' ),
+            'sortable'      => true,  // Allow changing the order of repeated groups.
+        ),
+    ) );
+
+    $alerts_options->add_group_field( $alerts_group_id, array(
+        'name'    => 'Selezione colore del messaggio',
+        'id'      => 'colore_message',
+        'type'    => 'radio_inline',
+        'options' => array(
+            'red'   => __( '<span class="radio-color red"></span>Rosso', 'design_scuole_italia' ),
+            'yellow' => __( '<span class="radio-color yellow"></span>Giallo', 'design_scuole_italia' ),
+            'green'     => __( '<span class="radio-color green"></span>Verde', 'design_scuole_italia' ),
+            'blue'     => __( '<span class="radio-color blue"></span>Blu', 'design_scuole_italia' ),
+            'purple'     => __( '<span class="radio-color purple"></span>Viola', 'design_scuole_italia' ),
+        ),
+        'default' => 'yellow',
+    ) );
+
+    $alerts_options->add_group_field( $alerts_group_id, array(
+        'name' => 'Visualizza icona',
+        'id'   => 'icona_message',
+        'type' => 'checkbox',
+    ) );
+
+    $alerts_options->add_group_field( $alerts_group_id, array(
+        'id' => $prefix . 'data_message',
+        'name'        => __( 'Data fine', 'design_scuole_italia' ),
+        'type' => 'text_date',
+        'date_format' => 'd-m-Y',
+        'data-datepicker' => json_encode( array(
+            'yearRange' => '-100:+0',
+        ) ),
+    ) );
+
+    $alerts_options->add_group_field( $alerts_group_id, array(
+        'id' => $prefix . 'testo_message',
+        'name'        => __( 'Testo', 'design_scuole_italia' ),
+        'desc' => __( 'Massimo 140 caratteri' , 'design_scuole_italia' ),
+        'type' => 'textarea_small',
+        'attributes'    => array(
+            'rows'  => 3,
+            'maxlength'  => '140',
+        ),
+    ) );
+
+    $alerts_options->add_group_field( $alerts_group_id, array(
+        'id' => $prefix . 'link_message',
+        'name'        => __( 'Collegamento', 'design_scuole_italia' ),
+        'desc' => __( 'Link al una pagina di approfondimento anche esterna al sito' , 'design_scuole_italia' ),
+        'type' => 'text_url',
+    ) );
 
 
     /**
@@ -168,10 +256,6 @@ function dsi_register_main_options_metabox() {
         'type' => 'title',
     ) );
 
-
-
-
-
     $home_options->add_field(  array(
         'id' => $prefix.'visualizza_banner',
         'name'    => __( 'Visualizza la fascia banner', 'design_scuole_italia' ),
@@ -216,6 +300,7 @@ function dsi_register_main_options_metabox() {
         ),
         'preview_size' => 'banner',
     ) );
+
     $home_options->add_group_field( $bsnner_group_id, array(
         'name' => 'Url di destinazione',
         'desc' => 'Url di destinazione (lasciare vuoto se non necessario)',
@@ -223,15 +308,12 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
-
-
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_2',
         'name'        => __( 'Sezione Servizi', 'design_scuole_italia' ),
         'desc' => __( 'Gestione sezione Servizi mostrati in home page' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica_servizi',
@@ -244,7 +326,6 @@ function dsi_register_main_options_metabox() {
             'false' => __('No', 'design_scuole_italia'),
         ),
     ));
-
 
     $home_options->add_field(array(
             'name' => __('Selezione articoli ', 'design_scuole_italia'),
@@ -343,16 +424,12 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-
-
 	$main_options->add_field( array(
 		'name'        => __( 'La Storia', 'design_scuole_italia' ),
 		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id' => $prefix . 'prefisso_storia',
 	) );
-
-
 
 	$main_options->add_field( array(
 		'id' => $prefix . 'descrizione_scuola',
@@ -376,7 +453,6 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-
 	$main_options->add_group_field( $timeline_group_id, array(
 		'id' => $prefix . 'data_timeline',
 		'name'        => __( 'Data', 'design_scuole_italia' ),
@@ -392,6 +468,7 @@ function dsi_register_main_options_metabox() {
 		'name'        => __( 'Titolo', 'design_scuole_italia' ),
 		'type' => 'text',
 	) );
+
 	$main_options->add_group_field( $timeline_group_id, array(
 		'id' => $prefix . 'descrizione_timeline',
 		'name'        => __( 'Descrizione', 'design_scuole_italia' ),
@@ -412,7 +489,6 @@ function dsi_register_main_options_metabox() {
 		'desc' => __( 'Es: Una scuola è fatta di persone. Ecco come siamo organizzati e come possiamo entrare in contatto' , 'design_scuole_italia' ),
 		'type' => 'textarea_small',
 	) );
-
 
 	$main_options->add_field( array(
 		'id' => $prefix . 'link_strutture_evidenza',
@@ -502,8 +578,6 @@ function dsi_register_main_options_metabox() {
 		'type' => 'textarea_small',
 	) );
 
-
-
 	$main_options->add_field( array(
 		'id' => $prefix . 'link_schede_documenti',
 		'name'    => __( 'Le Carte', 'design_scuole_italia' ),
@@ -520,7 +594,6 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-
 	$main_options->add_field( array(
 		'name'        => __( 'I numeri della Scuola', 'design_scuole_italia' ),
 		'desc' => __('Inserisci il numero di studenti e classi della Scuola', 'design_scuole_italia' ),
@@ -534,10 +607,10 @@ function dsi_register_main_options_metabox() {
 		'desc' => __( 'Breve descrizione (140 caratteri) *' , 'design_scuole_italia' ),
 		'type' => 'textarea_small',
 		'attributes'    => array(
-			'required'    => 'required'
+			'required'    => 'required',
+            'maxlength' =>  140
 		),
 	) );
-
 
 	$main_options->add_field( array(
 		'id' => $prefix . 'studenti',
@@ -648,7 +721,6 @@ function dsi_register_main_options_metabox() {
 
 	$servizi_options = new_cmb2_box( $args );
 
-
     $servizi_landing_url = dsi_get_template_page_url("page-templates/servizi.php");
     $servizi_options->add_field( array(
         'id' => $prefix . 'servizi_istruzioni',
@@ -656,7 +728,6 @@ function dsi_register_main_options_metabox() {
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$servizi_landing_url.'">la pagina di panoramica dei Servizi</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $servizi_options->add_field( array(
 		'id' => $prefix . 'testo_servizi',
@@ -667,7 +738,6 @@ function dsi_register_main_options_metabox() {
 			'maxlength'  => '140'
 		),
 	) );
-
 
 	$servizi_options->add_field( array(
 			'name'       => __('Tipologie Servizi', 'design_scuole_italia' ),
@@ -710,7 +780,6 @@ function dsi_register_main_options_metabox() {
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$notizie_landing_url.'">la pagina di panoramica delle Novità</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $notizie_options->add_field( array(
 		'id' => $prefix . 'testo_notizie',
@@ -800,7 +869,6 @@ function dsi_register_main_options_metabox() {
            'data-conditional-value' => 'scuole',
        ),
     ) );
-
 
     $didattica_options->add_field(  array(
         'id' => $prefix.'indirizzi_didattica',
@@ -903,14 +971,12 @@ function dsi_register_main_options_metabox() {
 
     $organizzazione_options = new_cmb2_box( $args );
 
-
     $organizzazione_options->add_field( array(
         'id' => $prefix . 'organizzazione_istruzioni',
         'name'        => __( 'Sezione Organizzazione', 'design_scuole_italia' ),
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("struttura").'">la pagina dell\'Organizzazione scolastica</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $organizzazione_options->add_field( array(
         'id' => $prefix . 'testo_sezione_organizzazione',
@@ -956,14 +1022,12 @@ function dsi_register_main_options_metabox() {
 
     $luoghi_options = new_cmb2_box( $args );
 
-
     $luoghi_options->add_field( array(
         'id' => $prefix . 'luoghi_istruzioni',
         'name'        => __( 'Sezione Luoghi', 'design_scuole_italia' ),
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("luogo").'">la pagina dei luoghi scolastici</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $luoghi_options->add_field( array(
         'id' => $prefix . 'testo_sezione_luoghi',
@@ -1008,14 +1072,12 @@ function dsi_register_main_options_metabox() {
 
     $luoghi_options = new_cmb2_box( $args );
 
-
     $luoghi_options->add_field( array(
         'id' => $prefix . 'documenti_istruzioni',
         'name'        => __( 'Sezione Documenti', 'design_scuole_italia' ),
         'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.get_post_type_archive_link("documento").'">la pagina dei documenti scolastici</a>.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
 
     $luoghi_options->add_field( array(
         'id' => $prefix . 'testo_sezione_documenti',
@@ -1089,13 +1151,11 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
-
     $login_options->add_group_field( $timeline_group_id, array(
         'id' => $prefix . 'nome_link',
         'name'        => __( 'Nome Servizio', 'design_scuole_italia' ),
         'type' => 'text',
     ) );
-
 
     $login_options->add_group_field( $timeline_group_id, array(
         'id' => $prefix . 'url_link',
@@ -1140,7 +1200,6 @@ function dsi_register_main_options_metabox() {
         'type' => 'textarea'
     ) );
 
-
     $setup_options->add_field( array(
         'id' => $prefix . 'altro_istruzioni',
         'name'        => __( 'Altre Informazioni', 'design_scuole_italia' ),
@@ -1154,7 +1213,6 @@ function dsi_register_main_options_metabox() {
 		'desc' => __( 'Inserisci l\'access token mapbox per l\'erogazione delle mappe. Puoi crearlo <a target="_blank" href="https://www.mapbox.com/studio/account/tokens/">da qui</a>', 'design_scuole_italia' ),
 		'type' => 'text'
     ) );
-
 
     $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolari',
@@ -1170,14 +1228,12 @@ function dsi_register_main_options_metabox() {
         'default' => 'Nuova circolare dalla scuola '.dsi_get_option("nome_scuola")
     ) );
 
-
     $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolare_messaggio',
         'name' => 'Messaggio della mail',
         'type' => 'textarea',
         'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione: '.wp_login_url(),
     ) );
-
 
     $setup_options->add_field( array(
         'id' => $prefix . 'altro_scadenza_albo',
@@ -1199,8 +1255,6 @@ function dsi_register_main_options_metabox() {
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
-
-
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 
@@ -1217,16 +1271,27 @@ function dsi_options_display_with_tabs( $cmb_options ) {
 		<?php if ( get_admin_page_title() ) : ?>
 			<h2><?php echo wp_kses_post( get_admin_page_title() ); ?></h2>
 		<?php endif; ?>
-		<h2 class="nav-tab-wrapper">
-			<?php foreach ( $tabs as $option_key => $tab_title ) : ?>
-				<a class="nav-tab<?php if ( isset( $_GET['page'] ) && $option_key === $_GET['page'] ) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
-			<?php endforeach; ?>
-		</h2>
-		<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $cmb_options->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
-			<input type="hidden" name="action" value="<?php echo esc_attr( $cmb_options->option_key ); ?>">
-			<?php $cmb_options->options_page_metabox(); ?>
-			<?php submit_button( esc_attr( $cmb_options->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb' ); ?>
-		</form>
+
+        <div class="cmb2-options-box">
+            <div class="nav-tab-wrapper">
+                <?php foreach ( $tabs as $option_key => $tab_title ) : ?>
+                    <a class="nav-tab<?php if ( isset( $_GET['page'] ) && $option_key === $_GET['page'] ) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
+                <?php endforeach; ?>
+            </div>
+
+            <form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $cmb_options->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
+                <fieldset class="form-content">
+                    <input type="hidden" name="action" value="<?php echo esc_attr( $cmb_options->option_key ); ?>">
+                    <?php $cmb_options->options_page_metabox(); ?>
+                </fieldset>
+
+                <fieldset class="form-footer">
+                    <div class="submit-box"><?php submit_button( esc_attr( $cmb_options->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb', false ); ?></div>
+                </fieldset>
+            </form>
+
+            <div class="clear-form"></div>
+        </div>
 	</div>
 	<?php
 }
@@ -1255,4 +1320,36 @@ function dsi_options_page_tabs( $cmb_options ) {
 }
 
 
+function dsi_options_assets() {
+    $current_screen = get_current_screen();
 
+    if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dsi_options') {
+        wp_enqueue_style( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-css/jquery-ui.css' );
+        wp_enqueue_script( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
+    }
+}
+add_action( 'admin_enqueue_scripts', 'dsi_options_assets' );
+
+if (! wp_next_scheduled ( 'dsi_cron_options' )) {
+    wp_schedule_event(time(), 'daily', 'dsi_cron_options');
+}
+add_action('dsi_cron_options', 'dsi_check_cron_options');
+
+function dsi_check_cron_options() {
+    $update = false;
+    $messages = dsi_get_option( "messages", "home_messages" );
+
+    foreach ($messages as $key => $message) {
+        $message_date = strtotime($message['data_message']);
+        $now = strtotime("now");
+        if($message_date <= $now) {
+            $update = true;
+            unset($messages[$key]);
+        }
+    }
+
+    if($update) {
+        $to_update['messages'] = array_values($messages);
+        update_option('home_messages', $to_update, true);
+    }
+}

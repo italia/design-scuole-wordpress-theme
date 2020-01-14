@@ -21,6 +21,8 @@ $link_schede_servizi = dsi_get_meta("link_schede_servizi");
 $is_realizzato = dsi_get_meta("is_realizzato");
 $risultati = dsi_get_meta("risultati");
 $gallery = dsi_get_meta("gallery");
+
+$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container bluelectric">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -66,6 +68,7 @@ $gallery = dsi_get_meta("gallery");
             <section class="section bg-white">
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
+                        <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title">
@@ -316,6 +319,11 @@ $gallery = dsi_get_meta("gallery");
                                 </div>
                             </article>
                         </div><!-- /col-lg-6 -->
+                        <?php else: ?>
+                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                <?php the_content(); ?>
+                            </div>
+                        <?php endif; ?>
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>

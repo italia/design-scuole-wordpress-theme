@@ -19,6 +19,10 @@ $filetocheck = get_attached_file($idfile);
 $filesize = filesize($filetocheck);
 $fulltype = mime_content_type($filetocheck);
 $arrtype = explode("/", $fulltype);
+$arrtype_more = explode(".", $arrtype[count($arrtype)-1]);
+if(is_array($arrtype_more)) {
+    $arrtype = $arrtype_more;
+}
 $type = "file";
 if(is_array($arrtype))
     $type = $arrtype[count($arrtype)-1];

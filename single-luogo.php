@@ -10,6 +10,8 @@ global $post, $documento, $servizio,  $autore, $struttura;
 
 $luogo = $post;
 get_header();
+
+$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
 
 
@@ -52,9 +54,6 @@ get_header();
             $mail = dsi_get_meta("mail", "_dsi_luogo_", $post->post_parent);
             $telefono = dsi_get_meta("telefono", "_dsi_luogo_", $post->post_parent);
         }
-
-
-
         ?>
 
         <?php if(has_post_thumbnail($post)){ ?>

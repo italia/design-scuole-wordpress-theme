@@ -9079,6 +9079,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-size: 1rem;
     margin: 0 0 0 0;
     line-height: 1.5;
+    word-break: break-all;
 }
 
 .card.card-icon .card-icon-content small {
@@ -18013,4 +18014,68 @@ a.read-more:before {
     left: 50%;
     margin-top: -50px;
     margin-left: -50px;
+}
+
+/**Home page messages*/
+@media screen and (min-width:768px) and (max-width:991px),
+screen and (min-width:992px) and (max-width:1365px),
+screen and (min-width:1366px) {
+    .home-message-content {
+        padding-left: 12rem!important;
+        padding-right: 12rem!important
+    }
+}
+
+.home-message .msg{
+    font-size: 1.5rem!important;
+    line-height: 1.55!important;
+    padding: 0;
+    margin: 0;
+}
+
+.home-message .msg svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.home-message.red,
+.home-message.red .msg svg,
+.home-message.red a {
+    background-color: #D1344C;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.home-message.purple,
+.home-message.purple .msg svg,
+.home-message.purple a {
+    background-color: #B21DD0;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.home-message.green,
+.home-message .msg svg,
+.home-message.green a {
+    background-color: #0E8A5F;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.home-message.blue,
+.home-message.blue .msg svg,
+.home-message.blue a {
+    background-color: #0D00FF;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.home-message.yellow,
+.home-message.yellow .msg svg,
+.home-message.yellow a {
+    background-color: #FFCC00;
+    color: #333!important;
+    fill: #333!important;
 }

@@ -13,7 +13,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 $luoghi = dsi_get_meta("luoghi");
 $persone = dsi_get_meta("persone");
 
-
+$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container greendark">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -27,7 +27,7 @@ $persone = dsi_get_meta("persone");
             <section class="section bg-white py-5">
                 <div class="container">
                     <div class="row variable-gutters">
-
+                        <?php if($user_can_view_post): ?>
                         <div class="main-content col-lg-9 col-md-8 order-lg-1">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
@@ -124,8 +124,12 @@ $persone = dsi_get_meta("persone");
                                 </div><!-- /cards-avatar -->
                             <?php } ?>
                         </div><!-- /col-lg-3 -->
+                        <?php else: ?>
+                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                <?php the_content(); ?>
+                            </div>
+                        <?php endif; ?>
                     </div><!-- /row -->
-
                 </div><!-- /container -->
             </section>
 

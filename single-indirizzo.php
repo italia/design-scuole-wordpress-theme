@@ -8,6 +8,7 @@
  */
 
 get_header();
+
 ?>
 
     <main id="main-container" class="main-container purplelight">
@@ -16,6 +17,7 @@ get_header();
         <?php
         while ( have_posts() ) :
             the_post();
+            $user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
 
             // get all post meta cmb2
             $percorsi = dsi_get_percorsi_of_scuola($post);
@@ -112,6 +114,7 @@ get_header();
             <section class="section bg-white">
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
+                        <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title">
@@ -566,6 +569,11 @@ get_header();
 
                             </article>
                         </div><!-- /col-lg-8 -->
+                        <?php else: ?>
+                        <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                            <?php the_content(); ?>
+                        </div>
+                        <?php endif; ?>
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>

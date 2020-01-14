@@ -995,6 +995,8 @@ function dsi_create_pages_on_theme_activation() {
     $admins->add_cap( "edit_roles");
     $admins->add_cap( "delete_roles");
 
+    //TODO: ricordarsi di aggiungere restrict_content per i ruoli abilitati
+
 
     // controllo se è una prima installazione
     if(!$dsi_has_installed){

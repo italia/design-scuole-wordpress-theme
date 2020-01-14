@@ -14,6 +14,8 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $date = dsi_get_meta("date");
+
+$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container greendark">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -67,6 +69,7 @@ $date = dsi_get_meta("date");
             <section class="section bg-white">
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
+                        <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 aside-border px-0">
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title">
@@ -307,42 +310,40 @@ $date = dsi_get_meta("date");
 										?>
                                     </div><!-- /card-deck card-deck-spaced -->
 									<?php
-								}
-								?>
+								} ?>
                                 <?php if((($organizzato_da_scuola != "si") && ((dsi_get_meta("contatto_telefono") != "") || (dsi_get_meta("contatto_persona") != "") || (dsi_get_meta("contatto_email") != ""))) || ((dsi_get_meta("website") != "") ||  (dsi_get_meta("patrocinato") != "") || (dsi_get_meta("sponsor") != "") )) { ?>
-                                        <div class="in-evidence mb-5 py-4 pl-2 pr-2">
-                                            <ul class="mb-0">
-                                                <?php if (dsi_get_meta("website") != "") { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
-                                                    <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
-                                                    </li><?php } ?>
-                                                <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_persona") != "")) { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Referente:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_persona"); ?>
-                                                    </li><?php } ?>
-                                                <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_telefono") != "")) { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
-                                                    </li><?php } ?>
-                                                <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_email") != "")) { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
-                                                    <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a>
-                                                    </li><?php } ?>
-                                                <?php if (dsi_get_meta("patrocinato") != "") { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?>
-                                                    </li><?php } ?>
-                                                <?php if (dsi_get_meta("sponsor") != "") { ?>
-                                                    <li><strong
-                                                            class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?>
-                                                    </li><?php } ?>
-                                            </ul>
-                                        </div>
-                                        <?php
-                                }
- ?>
+                                    <div class="in-evidence mb-5 py-4 pl-2 pr-2">
+                                        <ul class="mb-0">
+                                            <?php if (dsi_get_meta("website") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
+                                                <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
+                                                </li><?php } ?>
+                                            <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_persona") != "")) { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Referente:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_persona"); ?>
+                                                </li><?php } ?>
+                                            <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_telefono") != "")) { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
+                                                </li><?php } ?>
+                                            <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_email") != "")) { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
+                                                <a href="mailto:<?php echo dsi_get_meta("contatto_email"); ?>"><?php echo dsi_get_meta("contatto_email"); ?></a>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("patrocinato") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Patrocinato da:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("patrocinato"); ?>
+                                                </li><?php } ?>
+                                            <?php if (dsi_get_meta("sponsor") != "") { ?>
+                                                <li><strong
+                                                        class="mr-2"><?php _e("Sponsor:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("sponsor"); ?>
+                                                </li><?php } ?>
+                                        </ul>
+                                    </div>
+                                <?php } ?>
+
 								<?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                     <h4 id="art-par-altro"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
                                     <h6><?php _e("Documenti", "design_scuole_italia"); ?></h6>
@@ -389,6 +390,11 @@ $date = dsi_get_meta("date");
                                     <?php get_template_part("template-parts/single/actions"); ?>
                                 </div>
                         </div><!-- /col-lg-3 -->
+                        <?php else: ?>
+                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                <?php the_content(); ?>
+                            </div>
+                        <?php endif; ?>
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>

@@ -35,6 +35,7 @@ if(!function_exists("dsi_get_option")) {
  */
 if(!function_exists("dsi_get_meta")){
 	function dsi_get_meta( $key = '', $prefix = "", $post_id = "") {
+        if ( ! members_can_user_view_post(get_current_user_id(), $post_id) ) return false;
 
 		if($post_id == "")
 			$post_id = get_the_ID();
