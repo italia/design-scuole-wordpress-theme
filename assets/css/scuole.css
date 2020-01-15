@@ -14680,6 +14680,7 @@ a.read-more:before {
     display: block;
     top: 50%;
     margin-top: -1px;
+    text-indent: -9999em;
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
@@ -14704,6 +14705,11 @@ a.read-more:before {
 
 .hamburger-inner::after {
     bottom: -7px;
+}
+
+.ministerial-logo {
+    display: inline-block;
+    text-indent: -9999em;
 }
 
 /*

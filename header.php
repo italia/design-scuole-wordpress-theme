@@ -64,7 +64,7 @@ if(is_search() || is_archive())
                 <div class="col-10 d-flex align-items-center">
                     <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button">
                         <span class="hamburger-box">
-                          <span class="hamburger-inner"></span>
+                          <span class="hamburger-inner">burgermenu</span>
                         </span>
                     </button>
                     <div class="logo-header">

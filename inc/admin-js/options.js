@@ -13,7 +13,7 @@ $j(function() {
 
                 let link = $j(this).attr('href');
 
-                let modal = $j('<div>').html("Porcoilre ma vuoi salvare prima di andare oltre?");
+                let modal = $j('<div>').html("Attenzione, le informazioni inserite nel form non sono state salvate, si vuole proseguire comunque?");
                 let args = {
                     title: "Attenzione!",
                     draggable: false,

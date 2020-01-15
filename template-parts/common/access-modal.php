@@ -1,9 +1,9 @@
 <!-- Access Modal -->
-<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="accessModal" aria-hidden="true">
+<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="access-modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content perfect-scrollbar">
             <div class="modal-body">
-                <form class="access-main-wrapper" name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+                <form id="access-form" class="access-main-wrapper" name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
                     <div class="container">
                         <div class="row variable-gutters mb-0 mb-lg-4 mb-xl-5">
                             <div class="col">
@@ -34,11 +34,11 @@
                                     <p class="text-large"><?php _e("Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.", "design_scuole_italia"); ?></p>
                                     <div class="access-login-form">
                                         <div class="form-group">
-                                            <label>Email address</label>
+                                            <label for="user_login">Email address</label>
                                             <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="Nome utente o indirizzo email">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label>Password</label>
+                                            <label for="user_pass">Password</label>
                                             <input type="password" name="pwd" id="user_pass" class="form-control" value="" size="20" aria-describedby="access-form" placeholder="Password">
                                         </div>
 
