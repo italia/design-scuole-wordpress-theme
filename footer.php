@@ -17,9 +17,11 @@
                     <?php get_template_part("template-parts/common/logo"); ?>
 
                     <p class="h1">
-                        <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-                        <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                        <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                        <a href="<?php echo home_url(); ?>">
+                            <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
+                            <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
+                            <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                        </a>
                     </p>
                 </div><!-- /logo-footer -->
             </div><!-- /col -->

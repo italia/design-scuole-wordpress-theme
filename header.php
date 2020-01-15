@@ -29,9 +29,11 @@ $theme_locations = get_nav_menu_locations();
     <div class="logo-header">
 		<?php get_template_part("template-parts/common/logo"); ?>
         <p class="h1">
-            <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-            <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-            <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+            <a href="<?php echo home_url(); ?>">
+                <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
+                <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
+                <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+            </a>
         </p>
     </div><!-- /logo-header -->
     <div class="nav-list-mobile dl-menuwrapper">
@@ -61,7 +63,7 @@ if(is_search() || is_archive())
 
         <div class="container header-top">
             <div class="row variable-gutters">
-                <div class="col-10 d-flex align-items-center">
+                <div class="col-9 d-flex align-items-center">
                     <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button">
                         <span class="hamburger-box">
                           <span class="hamburger-inner">burgermenu</span>
@@ -69,17 +71,19 @@ if(is_search() || is_archive())
                     </button>
                     <div class="logo-header">
 						<?php get_template_part("template-parts/common/logo"); ?>
-                        <h1  style="cursor:pointer;" onclick="document.location.href='<?php echo home_url(); ?>'">
-                            <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-                            <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                            <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                        <h1>
+                            <a href="<?php echo home_url(); ?>">
+                                <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
+                                <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
+                                <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                            </a>
                         </h1>
                     </div><!-- /logo-header -->
                     <div class="sticky-main-nav">
 
                     </div><!-- /sticky-main-nav -->
                 </div><!-- /col -->
-                <div class="col-2 d-flex align-items-center justify-content-end">
+                <div class="col-3 d-flex align-items-center justify-content-end">
                     <div class="header-search d-flex align-items-center">
                         <a class="d-flex align-items-center" href="#" data-target="#search-modal" data-toggle="modal">
                             <p class="d-none d-lg-block"><strong><?php _e("Cerca", "design_scuole_italia"); ?></strong></p>
