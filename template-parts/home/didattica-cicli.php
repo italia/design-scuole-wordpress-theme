@@ -25,7 +25,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                         </div><!-- /title-section -->
                         <div class="tabs-img">
-                            <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png">
+                            <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png" title="<?php _e("I cicli", "design_scuole_italia"); ?>" alt="<?php _e("La didattica", "design_scuole_italia"); ?>">
                         </div>
                         <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
                             <ul>

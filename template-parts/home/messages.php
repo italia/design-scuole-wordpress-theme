@@ -3,12 +3,10 @@
     <?php
     $message_date = strtotime($message['data_message']);
     $now = strtotime("now");
+    $color = $message['colore_message'] == 'yellow' ? 'black' : 'white';
     if($message_date <= $now) continue ?>
     <div class="p-4 home-message <?php echo $message['colore_message'] ?>">
         <div class="home-message-content">
-            <?php if($message['link_message']): ?>
-            <a href="<?php echo $message['link_message']; ?>">
-            <?php endif; ?>
             <p class="msg">
                 <?php if($message['icona_message']): ?>
                 <svg id="alert" viewBox="0 0 492.963 492.963">
@@ -18,10 +16,10 @@
                 </svg>
                 <?php endif; ?>
                 <?php echo nl2br($message['testo_message']) ?>
+                <?php if($message['link_message']): ?>
+                    <a href="<?php echo $message['link_message']; ?>" class="btn btn-sm btn-outline-<?php echo $color; ?> ml-3">Dettagli</a>
+                <?php endif; ?>
             </p>
-            <?php if($message['link_message']): ?>
-            </a>
-        <?php endif; ?>
         </div>
     </div>
 <?php endforeach; ?>
