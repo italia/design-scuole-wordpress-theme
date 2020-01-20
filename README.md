@@ -259,7 +259,7 @@ Per scaricare il progetto esegui i seguenti comandi
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
 + cd design-scuole-wordpress-theme/
 + git submodule init
-+ git submodule update
++ git submodule update --remote
 
 
 ## Licenze software dei componenti di terze parti
