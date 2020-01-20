@@ -558,6 +558,45 @@ screen and (min-width:1366px) {
     margin: 0;
 }
 
+.home-message .btn-outline-black {
+    color: #333;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: inset 0 0 0 1px #333;
+}
+
+.home-message .btn-outline-black:hover {
+    color: #fff;
+    background-color: #333;
+    box-shadow: inset 0 0 0 1px #333;
+}
+
+.home-message .btn-outline-black:focus,
+.home-message .btn-outline-black.focus {
+    box-shadow: inset 0 0 0 1px #17324d, 0 0 0 0.2rem rgba(23, 50, 77, 0.5);
+}
+
+.home-message .btn-outline-black.disabled,
+.home-message .btn-outline-black:disabled {
+    color: #17324d;
+    background-color: transparent;
+}
+
+.home-message .btn-outline-black:not(:disabled):not(.disabled):active,
+.home-message .btn-outline-black:not(:disabled):not(.disabled).active,
+.show > .btn-outline-black.dropdown-toggle {
+    color: #17324d;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: inset 0 0 0 1px #17324d;
+}
+
+.home-message .btn-outline-black:not(:disabled):not(.disabled):active:focus,
+.home-message .btn-outline-black:not(:disabled):not(.disabled).active:focus,
+.home-message .show > .btn-outline-black.dropdown-toggle:focus {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(23, 50, 77, 0.5);
+}
+
 .home-message .msg svg {
     height: 1.5em;
     width: 1.5em;
@@ -566,40 +605,35 @@ screen and (min-width:1366px) {
 }
 
 .home-message.red,
-.home-message.red .msg svg,
-.home-message.red a {
+.home-message.red .msg svg {
     background-color: #D1344C;
     color: #fff!important;
     fill: #fff!important;
 }
 
 .home-message.purple,
-.home-message.purple .msg svg,
-.home-message.purple a {
+.home-message.purple .msg svg {
     background-color: #B21DD0;
     color: #fff!important;
     fill: #fff!important;
 }
 
 .home-message.green,
-.home-message .msg svg,
-.home-message.green a {
+.home-message .msg svg {
     background-color: #0E8A5F;
     color: #fff!important;
     fill: #fff!important;
 }
 
 .home-message.blue,
-.home-message.blue .msg svg,
-.home-message.blue a {
+.home-message.blue .msg svg {
     background-color: #0D00FF;
     color: #fff!important;
     fill: #fff!important;
 }
 
 .home-message.yellow,
-.home-message.yellow .msg svg,
-.home-message.yellow a {
+.home-message.yellow .msg svg {
     background-color: #FFCC00;
     color: #333!important;
     fill: #333!important;
