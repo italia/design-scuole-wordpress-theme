@@ -638,3 +638,72 @@ screen and (min-width:1366px) {
     color: #333!important;
     fill: #333!important;
 }
+
+/**
+modifiche alla search in header da riportare su scuole.css
+ */
+
+.custom-control-submit,
+.custom-control-submit:focus {
+    padding: 7px 15px 7px 15px;
+    border: 2px solid #455b71;
+    color: #455b71;
+    border-radius: 4px;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;;
+}
+
+
+.cat-filters .custom-control.custom-submit-primary button {
+    color: #0066cc;
+    border-color: #0066cc;
+}
+
+.cat-filters .custom-control.custom-submit-primary button.checked {
+    color: white;
+    background-color: #0066cc;
+}
+
+.cat-filters .custom-control.custom-submit-redbrown button {
+    color: #D1344C;
+    border-color: #D1344C;
+}
+
+.cat-filters .custom-control.custom-submit-redbrown button.checked {
+    color: white;
+    background-color: #D1344C;
+}
+
+.cat-filters .custom-control.custom-submit-greendark button {
+    color: #0E8A5F;
+    border-color: #0E8A5F;
+}
+
+.cat-filters .custom-control.custom-submit-greendark button.checked {
+    color: white;
+    background-color: #0E8A5F;
+}
+
+.cat-filters .custom-control.custom-submit-purplelight button {
+    color: #B21DD0;
+    border-color: #B21DD0;
+}
+
+.cat-filters .custom-control.custom-submit-purplelight button.checked {
+    color: white;
+    background-color: #B21DD0;
+}
+
+.cat-filters .custom-control.custom-submit-bluelectric button {
+    color: #0D00FF;
+    border-color: #0D00FF;
+}
+
+.cat-filters .custom-control.custom-submit-bluelectric button.checked {
+    color: white;
+    background-color: #0D00FF;
+}
+
+

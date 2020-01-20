@@ -24,36 +24,32 @@
                                     $post_types = dsi_get_post_types_grouped("school");
                                     if(dsi_count_grouped_posts($post_types)) {
 	                                    ?>
-                                        <div class="custom-control custom-checkbox custom-checkbox-redbrown">
-                                            <input type="submit" class="custom-control-input <?php if ( isset( $_GET["type"] ) && $_GET["type"] == "school" ) { echo "checked"; } ?>" id="scuola" name="type" value="school">
-                                            <div class="custom-control-label" for="scuola"><?php _e( "Cerca nella sezione <strong class='text-uppercase text-small-bold'>scuola</strong>", "design_scuole_italia" ); ?></div>
+                                        <div class="custom-control custom-submit-redbrown">
+									        <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "school") echo "checked"; ?>" id="scuola" name="type" value="school"><?php _e( "Cerca nella sezione <strong class='text-uppercase text-small-bold'>scuola</strong>", "design_scuole_italia" ); ?></button>
                                         </div>
 	                                    <?php }
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("news");
                                     if(dsi_count_grouped_posts($post_types)) {
                                     ?>
-									<div class="custom-control custom-checkbox custom-checkbox-greendark">
-										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news">
-										<div class="custom-control-label" for="notizie"><?php _e("Cerca tra le <strong class='text-uppercase text-small-bold'>novità</strong>","design_scuole_italia"); ?></div>
+									<div class="custom-control custom-submit-greendark">
+									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "news") echo "checked"; ?>" id="notizie" name="type" value="news"><?php _e("Cerca tra le <strong class='text-uppercase text-small-bold'>novità</strong>","design_scuole_italia"); ?></button>
 									</div>
 									<?php }
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("service");
                                     if(dsi_count_grouped_posts($post_types)) {
                                     ?>
-									<div class="custom-control custom-checkbox custom-checkbox-purplelight">
-										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "service") echo "checked"; ?>" id="servizi" name="type" value="service">
-										<div class="custom-control-label" for="servizi"><?php _e("Cerca nei <strong class='text-uppercase text-small-bold'>servizi</strong>","design_scuole_italia"); ?></div>
-									</div>
+									<div class="custom-control custom-submit-purplelight">
+									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "service") echo "checked"; ?>" id="servizi" name="type" value="service"><?php _e("Cerca nei <strong class='text-uppercase text-small-bold'>servizi</strong>","design_scuole_italia"); ?></button>
+                                    </div>
 									<?php }
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("education");
                                     if(dsi_count_grouped_posts($post_types)) {
                                     ?>
-									<div class="custom-control custom-checkbox custom-checkbox-bluelectric">
-										<input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "education") echo "checked"; ?>" id="didattica" name="type" value="education">
-										<div class="custom-control-label" for="didattica"><?php _e("Cerca nella <strong class='text-uppercase text-small-bold'>didattica</strong>","design_scuole_italia"); ?></div>
+									<div class="custom-control custom-submit-bluelectric">
+									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "education") echo "checked"; ?>" id="didattica" name="type" value="education"><?php _e("Cerca nella <strong class='text-uppercase text-small-bold'>didattica</strong>","design_scuole_italia"); ?></button>
 									</div>
 									<?php }
                                     // check if post type is used
@@ -66,9 +62,8 @@
 										<label class="custom-control-label" for="la-mia-classe"><?php _e("La mia classe","design_scuole_italia"); ?></label>
 									</div>
 									<?php } */ ?>
-                                    <div class="custom-control custom-checkbox custom-checkbox-primary">
-                                        <input type="submit" class="custom-control-input <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any" >
-                                        <div class="custom-control-label" for="tutto"><?php _e("Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>","design_scuole_italia"); ?></div>
+                                    <div class="custom-control custom-submit-primary">
+									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any"><?php _e("Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>","design_scuole_italia"); ?></button>
                                     </div>
 								</div>
 							</div>
