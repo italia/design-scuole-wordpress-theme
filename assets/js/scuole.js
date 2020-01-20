@@ -3990,5 +3990,7 @@ $(document).ready(function() {
 
 /** custom **/
 $(document).ready(function() {
-$('.responsive-tabs').responsiveTabs('activate', 0);
+	if($('.responsive-tabs').length > 0){
+		$('.responsive-tabs').responsiveTabs('activate', 0);
+	}
 });
