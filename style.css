@@ -525,22 +525,6 @@ table td ul{
     word-break: break-all;
 }
 
-.hamburger-inner {
-    text-indent: -9999em;
-}
-
-.ministerial-logo {
-    display: inline-block;
-    text-indent: -9999em;
-}
-
-.ministerial-logo span {
-    display: none;
-    visibility: hidden;
-}
-
-
-
 /**Home page messages*/
 @media screen and (min-width:768px) and (max-width:991px),
 screen and (min-width:992px) and (max-width:1365px),

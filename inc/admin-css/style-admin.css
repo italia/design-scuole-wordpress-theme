@@ -453,3 +453,13 @@ luogo
 .cmb2-options-box .radio-color.yellow {
     background-color: #FFCC00;
 }
+
+#spinner-overlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(images/spinner.gif) center center no-repeat;
+}

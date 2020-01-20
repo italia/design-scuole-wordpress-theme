@@ -7,7 +7,9 @@ $j(function() {
     form.data('serialize',form.serialize());
     $j('.nav-tab').each(function() {
         $j(this).click(function(e) {
+            $j( "body" ).append('<div id="spinner-overlayer"></div>');
             if (form.serialize() !== form.data('serialize')) {
+                $j('#spinner-overlayer').remove();
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -31,5 +33,9 @@ $j(function() {
                 modal.dialog(args);
             }
         });
+    });
+
+    form.submit(function() {
+        $j( "body" ).append('<div id="spinner-overlayer"></div>');
     });
 });

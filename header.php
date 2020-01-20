@@ -64,9 +64,9 @@ if(is_search() || is_archive())
         <div class="container header-top">
             <div class="row variable-gutters">
                 <div class="col-9 d-flex align-items-center">
-                    <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button">
+                    <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button" aria-label="burger menu">
                         <span class="hamburger-box">
-                          <span class="hamburger-inner">burgermenu</span>
+                          <span class="hamburger-inner"></span>
                         </span>
                     </button>
                     <div class="logo-header">
