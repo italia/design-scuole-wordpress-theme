@@ -11,16 +11,16 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
-                            <h3><?php _e("La didattica", "design_scuole_italia"); ?></h3>
-                            <h4 class="text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></h4>
+                            <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                            <div class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></div>
                         </div><!-- /title-large -->
                         <div class="title-small">
-                            <h5><?php
+                            <div class="h5"><?php
                                 // se sono più strutture è un istituto, altrimenti una scuola
                                 if(count($scuole_didattica) == 1)
                                     _e("La scuola", "design_scuole_italia");
                                 else
-                                    _e("L'Istituto", "design_scuole_italia"); ?></h5>
+                                    _e("L'Istituto", "design_scuole_italia"); ?></div>
                             <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
 
                         </div><!-- /title-section -->

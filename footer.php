@@ -16,13 +16,13 @@
                 <div class="logo-footer">
                     <?php get_template_part("template-parts/common/logo"); ?>
 
-                    <p class="h1">
+                    <h2 class="h1">
                         <a href="<?php echo home_url(); ?>">
                             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                             <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                             <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
                         </a>
-                    </p>
+                    </h2>
                 </div><!-- /logo-footer -->
             </div><!-- /col -->
         </div><!-- /row -->

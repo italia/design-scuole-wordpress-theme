@@ -12,11 +12,11 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
             <div class="col">
                 <div class="responsive-tabs-wrapper padding-top-200">
                     <div class="title-large">
-                        <h3><?php _e("La didattica", "design_scuole_italia"); ?></h3>
-                        <h4 class="text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></h4>
+                        <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                        <div class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></div>
                     </div><!-- /title-large -->
                     <div class="title-small">
-                        <h5><?php _e("L'Istituto", "design_scuole_italia"); ?></h5>
+                        <div class="h5"><?php _e("L'Istituto", "design_scuole_italia"); ?></div>
                         <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
 
                     </div><!-- /title-section -->
@@ -78,7 +78,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                         ?>
                                         <hr/>
                                         <div class="accordion-large-title accordion-header">
-                                            <h3><?php echo $struttura->post_title; ?></h3>
+                                            <h3><?php echo $struttura->post_title; ?>pp</h3>
                                         </div><!-- /accordion-large-title -->
                                         <div class="accordion-large-content accordion-content">
                                             <?php echo wpautop($descrizione); ?>

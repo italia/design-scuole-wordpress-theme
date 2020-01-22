@@ -12,11 +12,11 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
-                            <h3><?php _e("La didattica", "design_scuole_italia"); ?></h3>
-                            <h4 class="text-white"><?php _e("Cicli scolastici e percorsi di studio e formazione che trovi nell'istituto.", "design_scuole_italia"); ?></h4>
+                            <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                            <div class="h4 text-white"><?php _e("Cicli scolastici e percorsi di studio e formazione che trovi nell'istituto.", "design_scuole_italia"); ?></div>
                         </div><!-- /title-large -->
                         <div class="title-small">
-                            <h5>L'Istituto</h5>
+                            <div class="h5">L'Istituto</div>
                         </div><!-- /title-section -->
                         <div class="tabs-img">
                             <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png" title="<?php _e("Le classi", "design_scuole_italia"); ?>" alt="<?php _e("La didattica", "design_scuole_italia"); ?>">

@@ -68,28 +68,30 @@
 								</div>
 							</div>
 						</div>
-						<div class="row variable-gutters">
-							<div class="col-lg-12">
-								<div class="badges-wrapper">
-									<h4><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h4>
-									<div class="badges">
+                        <?php
+                        $argomenti = get_terms(array(
+                            'taxonomy' => 'post_tag',
+                            'orderby' => 'count',
+                            'order'   => 'DESC',
+                            'hide_empty'   => 1,
+                            'number' => "20"
+                        ));
+                        if(!empty($argomenti)) { ?>
+                        <div class="row variable-gutters">
+                            <div class="col-lg-12">
+                                <div class="badges-wrapper">
+                                    <h3 class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h3>
+                                    <div class="badges">
                                         <?php
-
-                                        $argomenti = get_terms(array(
-                                            'taxonomy' => 'post_tag',
-	                                        'orderby' => 'count',
-	                                        'order'   => 'DESC',
-	                                        'hide_empty'   => 1,
-	                                        'number' => "20"
-                                        ));
                                         foreach ($argomenti as $argomento){
                                             $taglink = get_tag_link($argomento);  ?>
                                             <a href="<?php echo $taglink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
-                                       <?php } ?>
+                                        <?php } ?>
                                     </div><!-- /badges -->
-								</div><!-- /badges-wrapper -->
-							</div>
-						</div>
+                                </div><!-- /badges-wrapper -->
+                            </div>
+                        </div>
+                        <?php } ?>
 					</div>
 				</form>
 			</div>

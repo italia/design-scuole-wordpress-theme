@@ -12,8 +12,8 @@ if(count($progetti) || count($scheda_didattica)) {
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col-lg-4">
-                    <h6 class="mb-3"><?php _e("Didattica", "design_scuole_italia"); ?></h6>
-                    <p class="text-large mb-4 pr-4"><?php _e("Esplora le risorse didattiche dell'Istituto", "design_scuole_italia"); ?></p>
+                    <div class="h6 mb-3"><?php _e("Didattica", "design_scuole_italia"); ?></div>
+                    <div class="text-large mb-4 pr-4"><?php _e("Esplora le risorse didattiche dell'Istituto", "design_scuole_italia"); ?></div>
                     <?php if (is_home()) { ?>
                         <a class="btn btn-sm btn-outline-bluelectric"
                            href="<?php echo dsi_get_template_page_url("page-templates/didattica.php"); ?>"><?php _e("Vai alla didattica", "design_scuole_italia"); ?></a>

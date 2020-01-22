@@ -3990,7 +3990,8 @@ $(document).ready(function() {
 
 /** custom **/
 $(document).ready(function() {
-	if($('.responsive-tabs').length > 0){
-		$('.responsive-tabs').responsiveTabs('activate', 0);
-	}
+    let tabs = $('.responsive-tabs');
+    if(tabs.length > 0 ) {
+        tabs.responsiveTabs('activate', 0);
+    }
 });
