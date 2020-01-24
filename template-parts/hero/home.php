@@ -35,8 +35,8 @@ if($img_identita == ""){
             <div class="col-md-<?php echo $colid; ?>">
                 <div class="hero-title pt-4 pb-4">
                     <div class="text-white font-weight-normal h4"><?php echo dsi_get_option("tipologia_scuola"); ?> </div>
-                    <div class="h1"><span class="d-line d-xl-block"><?php echo dsi_get_option("nome_scuola"); ?></span> </div>
-                    <div class="text-white font-weight-normal h3"><?php echo dsi_get_option("luogo_scuola"); ?></div>
+                    <h1><span class="d-line d-xl-block"><?php echo dsi_get_option("nome_scuola"); ?></span> </h1>
+                    <h2 class="text-white font-weight-normal h3"><?php echo dsi_get_option("luogo_scuola"); ?></h2>
                     <?php if($landing_url){ ?>
                         <a class="btn btn-sm btn-outline-white mt-4" href="<?php echo $landing_url; ?>"><?php _e("Vai alla scuola", "design_scuole_italia"); ?></a>
                     <?php } ?>

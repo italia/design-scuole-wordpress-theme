@@ -1,0 +1,192 @@
+//
+// JPUSH MENU
+// --------------------------------------------------
+
+
+/* JPUSH MENU */
+
+.cbp-spmenu {
+    background: #ffffff;
+    position: fixed;
+}
+
+/* Orientation-dependent styles for the content of the menu */
+.cbp-spmenu-vertical {
+    width: 400px;
+    height: 100%;
+    top: 0;
+    z-index: 9999;
+    overflow-y: scroll;
+    position: fixed;
+    
+    
+  @media (max-width: $screen-xs-max) {
+    width: 250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 350px;
+  }
+}
+
+/* Vertical menu that slides from the left or right */
+.cbp-spmenu-left {
+    left: -400px;
+  
+  @media (max-width: $screen-xs-max) {
+    left: -250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    left: -350px;
+  }
+}
+
+.cbp-spmenu-left.menu-open {
+    left: 0px;
+}
+
+
+.cbp-spmenu-right {
+    right: -400px;
+    
+  @media (max-width: $screen-xs-max) {
+    right: -250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    right: -350px;
+  }
+    
+}
+
+.cbp-spmenu-right.menu-open {
+    right: 0px;
+}
+
+
+/* Push classes applied to the body */
+.push-body {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+    
+  &.toggle-menu {
+    overflow-y: hidden;
+    overflow: hidden !important;
+    
+  }
+  
+  
+}
+
+
+/* Transitions */
+.cbp-spmenu,
+.push-body,
+.push_container,
+.main_nav_container {
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+transition: all 0.3s ease;
+}
+
+
+
+.push_container {
+    position: relative;
+    left: 0;
+}
+
+.push-body-toright .push_container {
+    left: 400px;
+  
+  @media (max-width: $screen-xs-max) {
+    left: 250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    left: 350px;
+  }
+}
+
+
+.push-body-toleft .push_container {
+    left: -400px;
+    
+  @media (max-width: $screen-xs-max) {
+    left: -250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    left: -350px;
+  }
+}
+
+
+
+
+            
+.push-body-toright .main_nav_container {
+  left: 400px;
+  
+  @media (max-width: $screen-xs-max) {
+    left: 250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    left: 350px;
+  }
+}
+
+
+.push-body-toleft .main_nav_container {
+  left: -400px;
+  
+  @media (max-width: $screen-xs-max) {
+    left: -250px;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    left: -350px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.push-body-mask {
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background:rgb(0,0,0);
+  background: transparent\9;
+  background:rgba(0,0,0,0.2);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+  zoom: 1;
+  display: none;
+  cursor: pointer;
+}
+
+.push-body-mask:nth-child(n) {
+    filter: none;
+}
+
+
+.push-body-toright .push-body-mask, .push-body-toleft .push-body-mask {  
+  display: block;
+}

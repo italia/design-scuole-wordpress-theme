@@ -11,7 +11,7 @@ $testo_sezione_luoghi = dsi_get_option("testo_sezione_luoghi", "luoghi");
             <div class="col-md-5">
                 <div class="hero-title text-left">
                     <h1 class="p-0 mb-2"><?php _e("I luoghi della Scuola", "design_scuole_italia"); ?></h1>
-                    <p class="h4 font-weight-normal"><?php echo $testo_sezione_luoghi; ?></p>
+                    <h2 class="h4 font-weight-normal"><?php echo $testo_sezione_luoghi; ?></h2>
                 </div><!-- /hero-title -->
             </div><!-- /col-md-5 -->
         </div><!-- /row -->

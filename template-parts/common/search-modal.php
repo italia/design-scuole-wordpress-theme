@@ -7,12 +7,12 @@
 					<div class="container">
 						<div class="row variable-gutters">
 							<div class="col">
-								<h2>
+								<div class="h2">
 									<?php _e("Cerca","design_scuole_italia"); ?>
 									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
 										<svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
 									</button>
-								</h2>
+								</div>
 								<div class="form-group search-form">
 									<svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use></svg>
 									<label for="search"><?php _e("Cerca","design_scuole_italia"); ?></label>

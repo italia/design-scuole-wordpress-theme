@@ -1,0 +1,25 @@
+{
+  "name": "ResponsiveDom",
+  "version": "0.0.1",
+  "description": "A jQuery plugin to move elements in the DOM based on media queries",
+  "main": "js/jquery.responsive-dom.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "responsive",
+    "dom",
+    "jquery",
+    "media",
+    "query"
+  ],
+  "author": "Thomas Higginbotham",
+  "license": "MIT"
+}

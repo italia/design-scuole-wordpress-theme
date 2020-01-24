@@ -11,7 +11,7 @@ if($testo_didattica == "")
                 <div class="col-md-6">
                     <div class="hero-title">
                         <h1 class="p-0 mb-2"><?php the_title(); ?></h1>
-                        <p class="h4 font-weight-normal"><?php echo $testo_didattica; ?></p>
+                        <h2 class="h4 font-weight-normal"><?php echo $testo_didattica; ?></h2>
                     </div><!-- /hero-title -->
                 </div><!-- /col-md-6 -->
             </div><!-- /row -->

@@ -58,12 +58,10 @@ if(is_search() || is_archive())
 <?php get_template_part("template-parts/header/slimheader"); ?>
 
 <div id="main-wrapper" class="push_container">
-
     <header id="main-header" class="bg-white">
-
         <div class="container header-top">
             <div class="row variable-gutters">
-                <div class="col-9 d-flex align-items-center">
+                <div class="col-8 d-flex align-items-center">
                     <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button" aria-label="burger menu">
                         <span class="hamburger-box">
                           <span class="hamburger-inner"></span>
@@ -71,19 +69,20 @@ if(is_search() || is_archive())
                     </button>
                     <div class="logo-header">
 						<?php get_template_part("template-parts/common/logo"); ?>
-                        <h1>
+                        <div class="h1">
                             <a href="<?php echo home_url(); ?>">
                                 <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                 <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                 <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
                             </a>
-                        </h1>
+                        </div>
                     </div><!-- /logo-header -->
                     <div class="sticky-main-nav">
 
                     </div><!-- /sticky-main-nav -->
+
                 </div><!-- /col -->
-                <div class="col-3 d-flex align-items-center justify-content-end">
+                <div class="col-4 d-flex align-items-center justify-content-end">
                     <div class="header-search d-flex align-items-center">
                         <a class="d-flex align-items-center" href="#" data-target="#search-modal" data-toggle="modal">
                             <p class="d-none d-lg-block"><strong><?php _e("Cerca", "design_scuole_italia"); ?></strong></p>
@@ -102,6 +101,17 @@ if(is_search() || is_archive())
 					}
                     */
 					?>
+                    <?php
+                    $show_socials = dsi_get_option( "show_socials", "socials" );
+                    if($show_socials) : ?>
+                    <div class="header-social d-none d-lg-flex">
+                        <div class="header-social-wrapper">
+                            <?php if($facebook = dsi_get_option( "facebook", "socials" )) :?><a href="<?php echo $facebook; ?>"><svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg></a><?php endif; ?>
+                            <?php if($twitter = dsi_get_option( "twitter", "socials" )) :?><a href="<?php echo $twitter; ?>"><svg class="icon it-social-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-twitter"></use></svg></a><?php endif; ?>
+                            <?php if($linkedin = dsi_get_option( "linkedin", "socials" )) :?><a href="<?php echo $linkedin; ?>"><svg class="icon it-social-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-linkedin"></use></svg></a><?php endif; ?>
+                        </div><!-- /header-social-wrapper -->
+                    </div><!-- /header-social -->
+                    <?php endif ?>
                 </div><!-- /col -->
             </div><!-- /row -->
         </div><!-- /container -->

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sticky kit test</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="../jquery.sticky-kit.js"></script>
+</head>
+<body>
+
+<div class="buttons">
+  <button class="attach">Attach</button>
+  <button class="detach">Detach</button>
+  <button class="recalc">Recalc</button>
+</div>
+
+<h1>Basic Stick</h1>
+<div class="container one">
+  <div class="item"></div>
+  <div class="item full" id="grow_1"></div>
+  <div class="item"></div>
+</div>
+
+<button class="grow_element" data-target="#grow_1">Grow</button>
+<button class="scramble_element" data-target="#grow_1">Scramble no event</button>
+
+<h1>Variable</h1>
+<div class="container one">
+  <div class="item"></div>
+  <div class="item half"></div>
+  <div class="item full"></div>
+</div>
+
+<h1>Inner Scroll</h1>
+<div class="container one">
+  <div class="item threequarter"></div>
+  <div class="item full"></div>
+  <div class="item onefive"></div>
+  <div class="item triple"></div>
+</div>
+
+<h1>Borders/Margins/Padding</h1>
+<div class="container one borders">
+  <div class="item"></div>
+  <div class="item half"></div>
+  <div class="item full"></div>
+</div>
+
+<h1>Right Align</h1>
+<div class="container one borders" style="text-align: right">
+  <div class="item"></div>
+  <div class="item half"></div>
+  <div class="item full"></div>
+</div>
+
+<h1>Events</h1>
+<div class="container one" id="events_container">
+  <div class="item"></div>
+  <div class="item half"></div>
+  <div class="item full"></div>
+</div>
+
+<h1>Floating Columns</h1>
+<div class="container one clearfix borders">
+  <div class="item float"></div>
+  <div class="item float half"></div>
+  <div class="item float full"></div>
+</div>
+
+<h1>Floating Columns Right</h1>
+<div class="container one clearfix borders">
+  <div class="item float right"></div>
+  <div class="item float half"></div>
+  <div class="item float full"></div>
+</div>
+
+<h1>Floating Columns Right2</h1>
+<div class="container one clearfix borders">
+  <div class="item float right"></div>
+  <div class="item float half right"></div>
+  <div class="item float full"></div>
+</div>
+
+<h1>Floating w/ Margin</h1>
+<div class="container one clearfix borders">
+  <div class="item float" style="margin: 10px"></div>
+  <div class="item float half" style="margin: 10px"></div>
+  <div class="item float full" style="margin: 10px"></div>
+</div>
+
+<h1>Float & Div</h1>
+<div class="container one clearfix borders">
+  <div class="item float full"></div>
+  <div class="item" style="display: block; margin-left: 210px;"></div>
+</div>
+
+<h1>No Stick</h1>
+<div class="container one">
+  <div class="item full"></div>
+  <div class="item full"></div>
+</div>
+
+
+<h1>Custom Spacer Block</h1>
+<div class="container one">
+  <div class="manual_spacer">
+    <div class="item block use_manual"></div>
+  </div>
+  <div class="full static" style="margin: 10px auto; width: 400px;"></div>
+</div>
+
+<h1>Custom Spacer Float</h1>
+<div class="container one">
+  <div class="manual_spacer">
+    <div class="item float use_manual">
+      <iframe src="http://leafo.net/hi.png" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div class="item float right">
+    <iframe src="http://leafo.net/hi.png" frameborder="0"></iframe>
+  </div>
+
+  <div class="full static" style="margin: 10px auto; width: 400px;"></div>
+</div>
+
+<div class="full"></div>
+
+<script type="text/javascript">
+  (function() {
+    var win = $(window);
+    var sizes = {
+      half: 0.5,
+      full: 1,
+      threequarter: 3/4,
+      onefive: 1.5,
+      "double": 2,
+      triple: 3
+    }
+    for (k in sizes) {
+      var v = sizes[k]
+      $("." + k).css({
+       height: Math.floor(win.height() * v) + "px"
+      });
+    }
+
+    function attach() {
+      $(".container .item:not(.use_manual)").stick_in_parent();
+
+      $(".container .item.use_manual").stick_in_parent({
+        parent: ".container",
+        spacer: ".manual_spacer"
+      });
+    }
+
+    attach();
+
+    $("#events_container").on("sticky_kit:stick", function(e) {
+      $(e.target).html("got stick event");
+    });
+
+    $("#events_container").on("sticky_kit:unstick", function(e) {
+      $(e.target).html("got unstick event");
+    });
+
+    $("#events_container").on("sticky_kit:bottom", function(e) {
+      $(e.target).html("got bottom event");
+    });
+
+    $("#events_container").on("sticky_kit:unbottom", function(e) {
+      $(e.target).html("got unbottom event");
+    });
+
+    $(document.body)
+      .on("click", ".recalc", function() {
+        console.log("Triggering recalc");
+        $(document.body).trigger("sticky_kit:recalc")
+      })
+      .on("click", ".detach", function() {
+        console.log("Triggering detach");
+        $(".container .item").trigger("sticky_kit:detach");
+      })
+      .on("click", ".attach", function() {
+        console.log("Triggering attach");
+        attach();
+      })
+      .on("click", ".grow_element", function(e) {
+        var elm = $($(e.currentTarget).data("target"));
+        elm.animate({height: elm.height() * 2}, function() {
+          console.log("triggering recalc...");
+          $(document.body).trigger("sticky_kit:recalc")
+        });
+      })
+      .on("click", ".scramble_element", function(e) {
+        var elm = $($(e.currentTarget).data("target"));
+        var new_height = Math.floor(win.height() * (1 + Math.random()));
+        console.log("setting new height", new_height);
+        elm.css({height: new_height + "px"});
+      });
+
+  })();
+</script>
+
+</body>
+</html>

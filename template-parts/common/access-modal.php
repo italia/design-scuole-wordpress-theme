@@ -7,11 +7,11 @@
                     <div class="container">
                         <div class="row variable-gutters mb-0 mb-lg-4 mb-xl-5">
                             <div class="col">
-                                <h2><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
+                                <div class="h2"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
                                     <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
                                         <svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
                                     </button>
-                                </h2>
+                                </div>
                             </div>
                         </div>
                         <div class="row variable-gutters justify-content-center pt-4 pt-xl-5">

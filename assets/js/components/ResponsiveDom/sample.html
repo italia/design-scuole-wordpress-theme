@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample</title>
+	<style>
+		.left-column,
+		.right-column {
+			box-sizing: border-box;
+			padding: 0 1em;
+			width: 50%;
+			min-height: 400px;
+		}
+
+		.left-column {
+			float: left;
+			background: #e0e9f0;
+		}
+
+		.right-column {
+			float: right;
+			background: #f0e9e0;
+		}
+		.transient {
+			/* Hide our paragraph until the JS has run */
+			display: none;
+		}
+		.transient.js-complete {
+			display: block;
+		}
+	</style>
+
+	<noscript>
+		<style>
+			/* Show the paragraph now if JS is not available */
+			.transient {
+				display: block;
+			}
+		</style>
+	</noscript>
+</head>
+<body>
+	<p>The paragraph below will move to the right column if your window is larger than 800px. Resize your window to see.</p>
+
+	<div class="left-column">
+		<p class="transient">I am in the left column by default.</p>
+	</div>
+
+	<div class="right-column">
+	</div>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/jquery.responsive-dom.min.js"></script>
+
+	<script>
+		(function() {
+			var $transient = $('.transient');
+
+			// Move transient paragraph to the right column when viewport width > 800px
+			$transient.responsiveDom({
+				appendTo: '.right-column',
+				mediaQuery: 'screen and (min-width: 800px)',
+				callback: function(mediaMatched) {
+					// This callback is called when the DOM is updated
+					if (mediaMatched) {
+						$transient.text('I was moved to the right column!');
+					} else {
+						$transient.text('I moved back to my original column.');
+					}
+				}
+			});
+
+			// Let our CSS know the JS is done
+			$transient.addClass('js-complete');
+		})();
+	</script>
+</body>
+</html>

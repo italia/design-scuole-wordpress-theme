@@ -1,0 +1,315 @@
+
+<div class="nav">
+  <div class="nav_social hidden">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://leafo.net/sticky-kit/" data-text="Sticky-kit $version - A jQuery plugin for sticky elements" data-count="horizontal" data-via="moonscript">Tweet</a>
+    <a href="https://twitter.com/moonscript" class="twitter-follow-button" data-width="70px" data-show-count="false" data-show-screen-name="false">Follow @moonscript</a>
+  </div>
+
+  <a href="#examples">Examples</a>
+  <a href="#reference">Reference</a>
+  <a href="https://cdn.rawgit.com/leafo/sticky-kit/$version/jquery.sticky-kit.min.js" class="hidden">Download</a>
+</div>
+
+
+$markdown{[[
+Sticky-kit provides an easy way to attach elements to the page when the user
+scrolls such that the element is always visible. The source can be found on
+[GitHub](https://github.com/leafo/sticky-kit).
+]]}
+
+<div class="github_buttons">
+<iframe src="http://ghbtns.com/github-btn.html?user=leafo&repo=sticky-kit&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+<iframe src="http://ghbtns.com/github-btn.html?user=leafo&repo=sticky-kit&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+</div>
+
+<h1>
+  Examples
+  <a name="examples" class="anchor"></a>
+</h1>
+
+<h2>Basic Sticking</h2>
+
+<div class="example">
+
+$markdown{[[
+Just call `stick_in_parent` on the elements you want to be stuck inside of
+their parent. Sticky elements "bottom out" so they never leave the container,
+no more worrying if a sticky element will accidentally cover your footer.
+]]}
+
+<div class="example_controls">
+<button>Scroll it!</button>
+$markdown{[[
+```js
+$("#sidebar").stick_in_parent();
+```
+]]}
+</div>
+
+<div class="window_frame pink">
+  <div class="window_title">Demo Browser</div>
+  <div class="window_inner">
+    <iframe src="$root/examples/1.html" frameborder="0"></iframe>
+  </div>
+</div>
+</div>
+
+
+<h2>Many Sticky Items</h2>
+
+<div class="example">
+
+$markdown{[[
+Have a lot of sticky columns, or different sticky portions of the page? Call
+`stick_in_parent` on all the elements at once.
+]]}
+
+<div class="example_controls">
+<button>Scroll it!</button>
+$markdown{[[
+```js
+$(".sticky_column").stick_in_parent();
+```
+]]}
+</div>
+
+<div class="window_frame pink">
+  <div class="window_title">Demo Browser</div>
+  <div class="window_inner">
+    <iframe src="$root/examples/2.html" frameborder="0"></iframe>
+  </div>
+</div>
+</div>
+
+
+<div class="example">
+$markdown{[[
+Not sure if your sidebar or your main content is taller? Doesn't matter, just
+call `stick_in_parent` on all columns. Sticky-kit will only stick items if they
+don't take up the entire height of their parent.
+]]}
+
+<div class="example_controls long_example">
+<button>Scroll it!</button>
+$markdown{[[
+```js
+$("#sidebar, #main_column").stick_in_parent();
+```
+]]}
+</div>
+
+<div class="window_frame pink">
+  <div class="window_title">Demo Browser</div>
+  <div class="window_inner">
+    <iframe src="$root/examples/3.html" frameborder="0"></iframe>
+  </div>
+</div>
+</div>
+
+<h2>Scrollable Sticky Element</h2>
+
+<div class="example">
+$markdown{[[
+Sticky elements taller than the viewport can scroll independently up and down,
+meaning you don't have to worry about your content being cut off should the
+sticky element be too tall or the user's resolution too small.
+]]}
+
+<div class="example_controls">
+<button>Scroll it!</button>
+$markdown{[[
+```js
+$("#sidebar").stick_in_parent();
+```
+]]}
+</div>
+<div class="window_frame pink">
+  <div class="window_title">Demo Browser</div>
+  <div class="window_inner">
+    <iframe src="$root/examples/4.html" frameborder="0"></iframe>
+  </div>
+</div>
+</div>
+
+
+<h1>
+  Reference
+  <a name="reference" class="anchor"></a>
+</h1>
+
+$markdown{[[
+
+To install include `jquery.sticky-kit.js` after including jQuery.
+
+Usage:
+
+```js
+$("#sticky_item").stick_in_parent();
+// or
+$("#sticky_item").stick_in_parent(options);
+```
+
+You can pass a hash of options to configure how Sticky Kit works. The following
+options are accepted, each one is optional:
+
+* `parent` -- The element will be the parent of the sticky item. The
+  dimensions of the parent control when the sticky element bottoms out. Defaults
+  to the closest parent of the sticky element. Can be a selector.
+* `inner_scrolling` -- Boolean to enable or disable the ability of the sticky
+  element to scroll independently of the scrollbar when it's taller than the
+  viewport. Defaults to `true` for enabled.
+* `sticky_class` -- The name of the CSS class to apply to elements when they
+  have become stuck. Defaults to `"is_stuck"`.
+* `offset_top` -- offsets the initial sticking position by of number of pixels,
+  can be either negative or positive
+* `spacer` -- either a selector to use for the spacer element, or `false` to
+  disable the spacer. The selector is passed to
+  [`closest`](http://api.jquery.com/closest/), so you should nest the sticky
+  element within the spacer. Defaults to Stiky Kit creating its own spacer.
+* `bottoming` -- Boolean to control whether elements bottom out. Defaults to `true`
+* `recalc_every` -- Integer specifying that a recalc should automatically
+  take place between that many ticks. A tick takes place on every scroll event.
+  Defaults to never calling recalc on a tick.
+
+### Events
+
+Various events are triggered from a sticky element when its state changes.
+They are:
+
+* `sticky_kit:stick` -- Triggered when element becomes stuck.
+* `sticky_kit:unstick` -- Triggered when element becomes unstuck. (Note: an
+  element is still considered stuck when it has bottomed out)
+* `sticky_kit:bottom` -- Triggered when element bottoms out.
+* `sticky_kit:unbottom` -- Triggered when element is no longer bottomed out.
+
+
+For example, if we want to log when an element sticks and unsticks we might do:
+
+```js
+$("#sticky_item").stick_in_parent()
+  .on("sticky_kit:stick", function(e) {
+    console.log("has stuck!", e.target);
+  })
+  .on("sticky_kit:unstick", function(e) {
+    console.log("has unstuck!", e.target);
+  });
+```
+
+Sticky Kit listens to one event on `document.body`.
+
+* `sticky_kit:recalc` -- trigger this event to cause all sticky elements to be
+  recalculated. More information below.
+
+
+Sticky Kit also listens to an event on the sticky elements:
+
+* `sticky_kit:detach` -- remove sticky kit and restore element to original
+  position
+
+If you want to remove sticky kit from an element after applying it you can send
+that element a `sticky_kit:detach` event.
+
+For example:
+
+```js
+$("#sticky_item").trigger("sticky_kit:detach");
+```
+
+### Scrolling Performance
+
+StickyKit takes scrolling performance very seriously. It's built from the
+ground up to let you have sticky elements without incurring scroll lag or jank.
+
+Probably the biggest cause of scrolling lag is `onscroll` handlers that do too much
+work, trigger page reflows, etc. StickyKit avoids this by having a very light
+scroll handler that operates on cached values.
+
+If you notice that your sticky element is acting strange, like it pops to the
+bottom of the page, or jumps around, then your cached value are most likely
+outdated.  Luckily it's easy to fix, read *Recalculating Sticky Elements*
+below.
+
+Sticky Kit has two internal callbacks:
+
+* `recalc` -- Updates the cached sizes of the elements it checks
+* `tick` -- Checks and updates if necessary the sticky state from the cached values
+
+A `tick` happens on every scroll event. It's designed to be as fast as possible.
+
+A `recalc` happens whenever the cached values need to be updated. It's
+(comparatively) slower, so you don't want to run this on every scroll event. A
+`recalc` can happen automatically in the following cases: Sticky kit is first
+initialized, on the following tick after the height of the document changes.
+
+You can also manually trigger a `recalc` by sending an event, see below.
+
+### Recalculating Sticky Elements
+
+If you're changing the markup of your page on the fly by removing, adding or
+resizing elements then you most likely need to tell Sticky Kit to recalculate
+the sticky elements to guarantee they're positioned correctly.
+
+You can manually cause a recalculation to happen by triggering an event on
+`document.body`:
+
+```js
+$(document.body).trigger("sticky_kit:recalc");
+```
+
+Typically you only need to trigger a recalculation if you are changing the
+positions/sizes of elements above the sticky element, adjacent to it, or the
+sticky element itself.
+
+
+Instead of manually calling `sticky_kit:recalc` you can use the `recalc_every`
+option described above to periodically do a recalculation between ticks.
+Setting it to 1 will cause a recalculation to happen on every scroll event,
+preventing the state from ever being out of date.
+
+```js
+$("#sticky_item").stick_in_parent({recalc_every: 1});
+```
+
+### About Columns
+
+If you're familiar with HTML and CSS then you probably know there are a handful
+of different ways to make columns. Sticky kit works automatically with floated
+columns, `inline-block` columns, or absolutely positioned elements. (Non column
+elements like toolbars work great as well, for example the toolbar on this
+site.)
+
+### Browser Support
+
+Sticky Kit works with all modern browsers, and IE7+.
+
+Note: only floated columns work in IE7.
+
+]]}
+
+<h1>
+  Changelog
+  <a name="changelog" class="anchor"></a>
+</h1>
+
+$markdown{[[
+  * **v1.1.2** - *Apr 27, 2015* -- Automatically recalc on body scroll height
+  change, support undefined/auto margin-top in IE. (Norman Chen)
+  * **v1.1.1** - *Nov 23, 2014* -- Fix issue where tick/recalc could get called
+  after detach which would cause sticky element to be removed. Full height
+  calculation takes offset into account (johnwchadwick)
+  * **v1.1.0** - *Nov 13, 2014* -- Add `recalc_every`, `bottoming`, and
+  `spacer` options. Fix bug where some events weren't getting removed on
+  detach. Fixed bug where sticky class was not removed on detach (poziworld),
+  pull `jQuery` from `window` if it can't be found on `this` (Connor Peet)
+  * **v1.0.4** - *Mar 29, 2014* -- `touchmove` events for mobile (Alfredo
+  Motta), support absolutely positioned element (Pierre Spring), `border-box`
+  element sets spacer correctly (jasonpolito), bug fix for bottomed state (Pierre
+  Spring)
+  * **v1.0.2** *Nov 16, 2013* -- Add `sticky_kit:detach`, Bug fixes: remove
+  stray top attribute when unfixing, fix issue with top when inner scrolling,
+  handle variable width elements correctly, recalc is called on window resize
+  * **v1.0.1** *Sept 11, 2013* -- Added offset_top option, fixed recaclc when items are
+    already stuck
+  * **v1.0.0** *Aug 1, 2013* -- Initial release
+]]}
+

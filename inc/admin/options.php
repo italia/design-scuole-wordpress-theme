@@ -246,7 +246,6 @@ function dsi_register_main_options_metabox() {
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
             'data-conditional-value' => "true",
         ),
-
     ));
 
     $home_options->add_field( array(
@@ -1160,6 +1159,68 @@ function dsi_register_main_options_metabox() {
     $login_options->add_group_field( $timeline_group_id, array(
         'id' => $prefix . 'url_link',
         'name'        => __( 'Link Servizio', 'design_scuole_italia' ),
+        'type' => 'text_url',
+    ) );
+
+
+    /**
+     * Registers options page "Socials".
+     */
+
+    $args = array(
+        'id'           => 'dsi_options_socials',
+        'title'        => esc_html__( 'Socialmedia', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'socials',
+        'capability'    => 'manage_options',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Socialmedia', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $social_options = new_cmb2_box( $args );
+
+    $social_options->add_field( array(
+        'id' => $prefix . 'socials_istruzioni',
+        'name'        => __( 'Sezione socialmedia', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui i link ai tuoi socialmedia.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $social_options->add_field(array(
+        'id' => $prefix . 'show_socials',
+        'name' => __('Mostra le icone social', 'design_scuole_italia'),
+        'desc' => __('Abilita la visualizzazione dei socialmedia nell\'header e nel footer della pagina.', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'false',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-value' => "false",
+        ),
+    ));
+
+    $social_options->add_field( array(
+        'id' => $prefix . 'facebook',
+        'name' => 'Facebook',
+        'type' => 'text_url',
+    ) );
+
+    $social_options->add_field( array(
+        'id' => $prefix . 'twitter',
+        'name' => 'Twitter',
+        'type' => 'text_url',
+    ) );
+
+    $social_options->add_field( array(
+        'id' => $prefix . 'linkedin',
+        'name' => 'Linkedin',
         'type' => 'text_url',
     ) );
 

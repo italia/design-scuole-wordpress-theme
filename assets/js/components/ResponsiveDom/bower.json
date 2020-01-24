@@ -1,0 +1,27 @@
+{
+  "name": "ResponsiveDom",
+  "version": "0.0.1",
+  "authors": [
+    "Thomas Higginbotham"
+  ],
+  "description": "A jQuery plugin to move elements in the DOM based on media queries",
+  "main": "js/jquery.responsive-dom.js",
+  "keywords": [
+    "responsive",
+    "dom",
+    "jquery",
+    "media",
+    "query"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11"
+  }
+}
