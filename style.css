@@ -294,9 +294,6 @@ table td ul{
     padding:20px;
 }
 
-#menu-footer li {
-    margin-right: 20px;
-}
 @media (max-width: 767.98px) {
     .footer-inline-menu {
         display: inline;
@@ -690,4 +687,78 @@ modifiche alla search in header da riportare su scuole.css
     background-color: #0D00FF;
 }
 
+/*
+* Menu Footer
+*/
+.menu-footer  {
+    margin: 0;
+    float:left;
+    width:100%;
+    list-style: none;
+    padding: 0
+}
 
+.menu-footer li {
+    float: left;
+    margin: 0;
+    position: relative;
+    padding: 5px 20px 5px 0;
+}
+
+.menu-footer li a {
+    font-weight: bold;
+}
+
+.menu-footer > li:not(:first-child):before {
+    content: "-";
+    margin-right: 1em;
+}
+
+@media (min-width: 1200px) {
+    .menu-footer {
+        width: 100%;
+        float:left;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+    .menu-footer {
+        width: 100%;
+        float:left;
+    }
+
+    .col-2 {
+        min-width: 100%;
+    }
+
+    .footer-social {
+        margin: auto;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-footer {
+        width:100%;
+        float:left;
+    }
+
+    .menu-footer li {
+        float: none;
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    .menu-footer > li:before {
+        display: none;
+    }
+
+    .col-2 {
+        min-width: 100%;
+    }
+
+    .footer-social {
+        margin: auto;
+        padding: 10px;
+    }
+}

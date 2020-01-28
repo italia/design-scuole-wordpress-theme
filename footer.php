@@ -44,13 +44,15 @@
         </div><!-- /row -->
 
         <div class="row variable-gutters">
-            <div class="col-lg-12 sub-footer">
+            <div class="col-lg-10  sub-footer">
                 <?php
                 $location = "menu-footer";
                 if ( has_nav_menu( $location ) ) {
-                    wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "footer-inline-menu", "container" => ""));
+                    wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "menu-footer", "container" => ""));
                 }
                 ?>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-end">
                 <?php
                 $show_socials = dsi_get_option( "show_socials", "socials" );
                 if($show_socials) : ?>
@@ -62,7 +64,7 @@
                             <?php if($linkedin = dsi_get_option( "linkedin", "socials" )) :?><a href="<?php echo $linkedin; ?>"><svg class="icon it-social-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-linkedin"></use></svg></a><?php endif; ?>
                         </div><!-- /footer-social-wrapper -->
                     </div><!-- /gooter-social -->
-                <?php endif ?>
+            <?php endif ?>
             </div>
         </div><!-- /row -->
         <?php

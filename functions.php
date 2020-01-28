@@ -238,11 +238,11 @@ function dsi_scripts() {
 	wp_enqueue_script( 'dsi-scuole-js', get_template_directory_uri() . '/assets/js/scuole.js', array(), false, true);
 
 	if(is_singular(array("evento","scheda_progetto")) || is_home() || is_archive() ){
-		wp_enqueue_script( 'clndr-json2', get_template_directory_uri() . '/assets/components/clndr/json2.js', array(), false, false);
-		wp_enqueue_script( 'clndr-moment', get_template_directory_uri() . '/assets/components/clndr/moment-2.8.3.js', array(), false, false);
-		wp_enqueue_script( 'clndr-underscore', get_template_directory_uri() . '/assets/components/clndr/underscore.js', array(), false, false);
-		wp_enqueue_script( 'clndr-clndr', get_template_directory_uri() . '/assets/components/clndr/clndr.js', array(), false, false);
-		wp_enqueue_script( 'clndr-it', get_template_directory_uri() . '/assets/components/clndr/it.js', array(), false, false);
+		wp_enqueue_script( 'dsi-clndr-json2', get_template_directory_uri() . '/assets/js/components/clndr/json2.js', array(), false, false);
+		wp_enqueue_script( 'dsi-clndr-moment', get_template_directory_uri() . '/assets/js/components/clndr/moment-2.8.3.js', array(), false, false);
+		wp_enqueue_script( 'dsi-clndr-underscore', get_template_directory_uri() . '/assets/js/components/clndr/underscore.js', array(), false, false);
+		wp_enqueue_script( 'dsi-clndr-clndr', get_template_directory_uri() . '/assets/js/components/clndr/clndr.js', array(), false, false);
+		wp_enqueue_script( 'dsi-clndr-it', get_template_directory_uri() . '/assets/js/components/clndr/it.js', array(), false, false);
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
