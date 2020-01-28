@@ -89,12 +89,12 @@ function multi_array_search($search_for, $search_in, $okey = false) {
                             $lng = $place['lng'];
                             $indirizzo = $place['indirizzo'];
                         }
-                        $title[] = htmlspecialchars($place['title']);
-                        $links[] = '<b><a href="'.$place['permalink'].'">'.htmlspecialchars($place['title']).'</a></b>';
+                        $title[] = addslashes($place['title']);
+                        $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
                     }
                     $markers[] = '[' . $lat . "," . $lng . ']'; ?>
                     var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
-                    marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo htmlspecialchars($indirizzo); ?>');
+                    marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
                     <?php
                 }?>
 
