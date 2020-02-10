@@ -78,7 +78,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                         ?>
                                         <hr/>
                                         <div class="accordion-large-title accordion-header">
-                                            <h3><?php echo $struttura->post_title; ?>pp</h3>
+                                            <h3><?php echo $struttura->post_title; ?></h3>
                                         </div><!-- /accordion-large-title -->
                                         <div class="accordion-large-content accordion-content">
                                             <?php echo wpautop($descrizione); ?>
