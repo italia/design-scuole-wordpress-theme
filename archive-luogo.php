@@ -9,16 +9,6 @@
 
 get_header();
 global $luogo;
-
-function multi_array_search($search_for, $search_in, $okey = false) {
-    foreach ($search_in as $key => $element) {
-        $key = $okey ? $okey : $key;
-        if ( ($element === $search_for) || (is_array($element) && $key = multi_array_search($search_for, $element, $key)) ){
-            return $key;
-        }
-    }
-    return false;
-}
 ?>
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -28,7 +18,7 @@ function multi_array_search($search_for, $search_in, $okey = false) {
         <?php
         // recupero la lista delle tipologie
         $i=0;
-        $locations = $pippo = [];
+        $locations = [];
         $strutture_luoghi = dsi_get_option("strutture_luoghi", "luoghi");
         if($strutture_luoghi) { ?>
             <section class="section bg-white section-map-wrapper">
@@ -59,7 +49,7 @@ function multi_array_search($search_for, $search_in, $okey = false) {
             foreach ($locations as $location_key => $value) {
                 foreach ($value as $place_key => $place) {
                     if(!$place['lat'] || !$place['lng']) {
-                        $pos = multi_array_search($place['indirizzo'], $locations);
+                        $pos = dsi_multi_array_search($place['indirizzo'], $locations);
                         if($pos) {
                             $locations[$pos][] = $place;
                             unset($locations[$location_key][$place_key]);

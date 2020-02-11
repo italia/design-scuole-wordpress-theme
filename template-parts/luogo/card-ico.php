@@ -1,5 +1,5 @@
 <?php
-global $luogo, $struttura, $c, $locations, $pippo;
+global $luogo, $struttura, $c, $locations;
 $card_title = $luogo->post_title;
 $id = 0;
 // controllo se è un parent, in caso recupero i dati del genitore

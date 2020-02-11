@@ -919,3 +919,24 @@ function dsi_get_display_name($user_id){
         return $display;
 
 }
+
+
+/**
+ *  Funzione per la ricerca di un valore in un array multiplo
+ *  * @since  0.1.0
+ * @param  string $search_for  Value to search
+ * @param  array  $search_in Array where to search
+ * @param  mixed  $okey Previous value
+ * @return mixed
+ */
+if(!function_exists("dsi_multi_array_search")) {
+    function dsi_multi_array_search($search_for, $search_in, $okey = false) {
+        foreach ($search_in as $key => $element) {
+            $key = $okey ? $okey : $key;
+            if (($element === $search_for) || (is_array($element) && $key = dsi_multi_array_search($search_for, $element, $key))) {
+                return $key;
+            }
+        }
+        return false;
+    }
+}

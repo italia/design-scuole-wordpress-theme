@@ -11,7 +11,7 @@ function dsi_register_circolare_post_type()
         'name' => _x('Circolari', 'Post Type General Name', 'design_scuole_italia'),
         'singular_name' => _x('Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'add_new' => _x('Aggiungi una Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
-        'add_new_item' => _x('Aggiungi una nuona Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
+        'add_new_item' => _x('Aggiungi una nuova Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'edit_item' => _x('Modifica la Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
     );
     $args = array(

@@ -406,7 +406,7 @@ function dsi_register_main_options_metabox() {
 			 	'image/png',
 			 ),
 		),
-		'preview_size' => 'large', // Image size to use when previewing in the admin.
+		'preview_size' => 'medium', // Image size to use when previewing in the admin.
 		'attributes'    => array(
 			'required'    => 'required'
 		),
@@ -455,7 +455,7 @@ function dsi_register_main_options_metabox() {
 	$main_options->add_group_field( $timeline_group_id, array(
 		'id' => $prefix . 'data_timeline',
 		'name'        => __( 'Data', 'design_scuole_italia' ),
-		'type' => 'text_date',
+		'type' => 'text_date_timestamp',
 		'date_format' => 'd-m-Y',
 		'data-datepicker' => json_encode( array(
 			'yearRange' => '-100:+0',

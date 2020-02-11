@@ -20,11 +20,12 @@ if(is_array($timeline) && count($timeline) > 0) {
 					<div class="owl-carousel carousel-theme carousel-calendar">
 						<?php
 						foreach ( $timeline as $item ) {
+                            $timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
 							?>
 							<div class="item item-calendar">
 								<div class="card card-img card-serif">
 									<div class="card-body px-0">
-										<h5><?php echo date_i18n("F Y", strtotime($item["data_timeline"])); ?></h5>
+										<h5><?php echo date_i18n("F Y", $timestamp); ?></h5>
 										<h3><?php echo $item["titolo_timeline"] ?></h3>
 										<p><?php echo $item["descrizione_timeline"] ?></p>
 									</div><!-- /card-body -->
@@ -38,10 +39,11 @@ if(is_array($timeline) && count($timeline) > 0) {
 					<div class="owl-carousel carousel-theme carousel-calendar-years">
 						<?php
 						foreach ( $timeline as $item ) {
+                            $timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
 							?>
 							<div class="item item-calendar-year">
 								<div class="dot-text">
-									<span><?php echo date_i18n("Y", strtotime($item["data_timeline"])); ?></span>
+									<span><?php echo date_i18n("Y", $timestamp); ?></span>
 								</div><!-- /dot-text -->
 							</div><!-- /item -->
 							<?php
