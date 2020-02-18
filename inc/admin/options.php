@@ -1283,6 +1283,14 @@ function dsi_register_main_options_metabox() {
     ) );
 
     $setup_options->add_field( array(
+        'id' => $prefix . 'mail_circolare_non_inviare',
+        'name' => __('DIsabilita le notifiche email', 'design_scuole_italia' ),
+        'type' => 'checkbox',
+        'default' => false,
+        'description' => __('Selezionando questa opzione <b>NESSUNA email</b> verrà inviata per le circolari in <b>NESSUN caso</b>.', 'design_scuole_italia' )
+    ) );
+
+    $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolare_oggetto',
         'name' => 'Oggetto della mail',
         'type' => 'text',

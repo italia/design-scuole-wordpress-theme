@@ -26,5 +26,17 @@ jQuery( document ).ready(function() {
             }else{
                 jQuery(".cmb2-id--dsi-evento-prezzo").show();
             }
-        });
+        }
+    );
+
+    let from = jQuery("#_dsi_evento_timestamp_inizio").datepicker();
+    let to = jQuery("#_dsi_evento_timestamp_fine").datepicker();
+
+    from.on( "change", function() {
+        to.datepicker( "option", "minDate", this.value );
+    });
+
+    to.on( "change", function() {
+        from.datepicker( "option", "maxDate", this.value );
+    });
 });

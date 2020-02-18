@@ -76,7 +76,6 @@ function dsi_register_evento_post_type() {
  */
 add_action( 'cmb2_init', 'dsi_add_eventi_metaboxes' );
 function dsi_add_eventi_metaboxes() {
-
 	$prefix = '_dsi_evento_';
 
 	$cmb_sottotitolo = new_cmb2_box( array(
@@ -498,35 +497,56 @@ function dsi_add_eventi_metaboxes() {
 		'priority'     => 'high',
 	) );
 
+    $timestamp_inizio = $timestamp_fine = "";
+    if(isset($_GET['post']) & is_numeric($_GET['post'])) {
+        $post_id = absint($_GET['post']);
+        $timestamp_inizio = dsi_get_meta("timestamp_inizio", $prefix, $post_id);
+        $timestamp_fine= dsi_get_meta("timestamp_fine", $prefix,$post_id);
+    }
 
-	$cmb_side->add_field( array(
-		'id'         => $prefix . 'timestamp_inizio',
-		'before' => 'Data Inizio Evento<br>',
-		'type' => 'text_date_timestamp',
+	$inizio = array(
+        'id'         => $prefix . 'timestamp_inizio',
+        'before' => 'Data Inizio Evento<br>',
+        'type' => 'text_date_timestamp',
         'date_format' => 'd-m-Y',
-		'attributes' => array(
-			'required' => 'required',
+        'attributes' => array(
+            'required' => 'required',
             'autocomplete' => 'off'
-		),
+        ),
         'column' => array(
             'position' => 2,
             'name'     => 'Inizio Evento',
         ),
-	) );
+    );
 
+    if($timestamp_fine !== "") {
+        $inizio['attributes']['data-datepicker'] = json_encode( array(
+                'maxDate' => date("d-m-Y", $timestamp_fine),
+            )
+        );
+    }
 
-	$cmb_side->add_field( array(
-		'id'         => $prefix . 'timestamp_fine',
-		'before' => 'Data Fine Evento<br>',
-		'type' => 'text_date_timestamp',
+    $cmb_side->add_field( $inizio );
+
+    $fine = array(
+        'id'         => $prefix . 'timestamp_fine',
+        'before' => 'Data Fine Evento<br>',
+        'type' => 'text_date_timestamp',
         'date_format' => 'd-m-Y',
-		'attributes' => array(
-			'required' => 'required',
+        'attributes' => array(
+            'required' => 'required',
             'autocomplete' => 'off'
-		),
-	) );
+        ),
+    ) ;
 
+    if($timestamp_inizio !== "") {
+        $fine['attributes']['data-datepicker'] = json_encode( array(
+                'minDate' => date("d-m-Y", $timestamp_inizio),
+            )
+        );
+    }
 
+	$cmb_side->add_field( $fine );
 }
 
 /**

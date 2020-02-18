@@ -265,6 +265,9 @@ function dsi_feedback_circolare( $post_id, $post )
     if ( 'publish' !== $post->post_status)
         return;
 
+    if ( dsi_get_option("mail_circolare_non_inviare", "setup") )
+        return;
+
     if ( 'circolare' !== $post->post_type )
         return; // restrict the filter to a specific post type
 

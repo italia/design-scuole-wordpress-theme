@@ -25,10 +25,10 @@ if(!function_exists("dsi_notify_circolare_to_user")){
 
 
         $user = get_user_by("ID", $userID);
-        $mail_circolare_oggetto = dsi_get_option("mail_circolare_oggetto");
+        $mail_circolare_oggetto = dsi_get_option("mail_circolare_oggetto", "setup");
         if($mail_circolare_oggetto == "") $mail_circolare_oggetto = "Hai un nuovo messaggio su ".dsi_get_option("nome_scuola");
 
-        $mail_circolare_messaggio = dsi_get_option("mail_circolare_messaggio");
+        $mail_circolare_messaggio = dsi_get_option("mail_circolare_messaggio", "setup");
         if($mail_circolare_messaggio == "") $mail_circolare_messaggio = "C'è un nuovo messaggio per te sul sito della Scuola ".dsi_get_option("nome_scuola")." ";
 
         $mail_circolare_messaggio .= ": ".get_permalink($post);

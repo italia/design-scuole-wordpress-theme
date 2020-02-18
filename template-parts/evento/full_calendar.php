@@ -23,11 +23,6 @@
 </script>
 <script type="text/javascript">
     moment.locale('it');
-    <?php
-
-
-
-    	?>
     var events = [
 		<?php
         $args = array('post_type' => 'evento',
@@ -46,17 +41,19 @@
         );
         $eposts = get_posts($args);
         foreach ($eposts as $epost) {
+            $timestamp_inizio = dsi_get_meta("timestamp_inizio", "", $epost->ID);
+            $timestamp_fine= dsi_get_meta("timestamp_fine", "", $epost->ID);
 
-        $timestamp_inizio = dsi_get_meta("timestamp_inizio", "", $epost->ID);
-        $timestamp_fine= dsi_get_meta("timestamp_fine", "", $epost->ID);
+            $begin = new DateTime(date_i18n("c",$timestamp_inizio));
+            $end = new DateTime(date_i18n("c",$timestamp_fine));
 
-        $begin = new DateTime(date_i18n("c",$timestamp_inizio));
-        $end = new DateTime(date_i18n("c",$timestamp_fine));
-
-        for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
-        {date: '<?php echo date("Y-m-d", $i->getTimestamp() + 10000);  ?>'},
-        <?php }
+            for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
+            {date: '<?php echo date("Y-m-d", $i->getTimestamp() + 10000);  ?>'},
+            <?php }
         }
+
+        $timestamp_inizio = $timestamp_inizio ? $timestamp_inizio : time();
+        $timestamp_fine = $timestamp_fine ? $timestamp_fine : time() + (7 * 24 * 60 * 60);
         ?>
     ];
 
@@ -69,5 +66,4 @@
     });
 
 </script>
-
-
+<?php

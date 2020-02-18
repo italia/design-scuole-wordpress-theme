@@ -27,10 +27,13 @@ global $post;
 
     $timestamp_inizio = dsi_get_meta("timestamp_inizio");
     $timestamp_fine= dsi_get_meta("timestamp_fine");
+    $timestamp_inizio = $timestamp_inizio ? $timestamp_inizio : time();
+    $timestamp_fine = $timestamp_fine ? $timestamp_fine : time() + (7 * 24 * 60 * 60);
+
     $begin = new DateTime(date_i18n("c",$timestamp_inizio));
     $end = new DateTime(date_i18n("c",$timestamp_fine));
 
-    	?>
+   	?>
     var events = [
 		<?php for($i = $begin; $i <= $end; $i->modify('+1 day')){ ?>
         { date: '<?php echo date( "Y-m-d", $i->getTimestamp() + 10000);  ?>'},
