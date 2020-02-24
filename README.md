@@ -6,6 +6,27 @@
 
 **Design Scuole Italia** è un tema di WordPress utilizzabile per i siti internet delle **Scuole Italiane**.
 
+## Installazione e supporto
+#### Come scaricare il tema
+
+Per scaricare il progetto esegui i seguenti comandi
+
++ git clone https://github.com/italia/design-scuole-wordpress-theme.git
++ cd design-scuole-wordpress-theme/
++ git submodule init
++ git submodule update --remote
+
+Una volta eseguiti i comandi è sufficiente caricare la directory dentro wp-content/themes/
+
+#### Supporto tecnico ed editoriale
+E' attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
+E' il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
+
+Lo potete raggiungere da qui:
+https://developersitalia.slack.com/messages/design-siti-scuole/
+
+Se non avete una utenza slack di Developers Italia dovete prima crearla da qui:
+https://slack.developers.italia.it/
 
 ## Indice
 

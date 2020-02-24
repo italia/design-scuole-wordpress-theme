@@ -1301,7 +1301,7 @@ function dsi_register_main_options_metabox() {
         'id' => $prefix . 'mail_circolare_messaggio',
         'name' => 'Messaggio della mail',
         'type' => 'textarea',
-        'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione: '.wp_login_url(),
+        'default' => 'Hai ricevuto una nuova circolare. Accedi alla tua bacheca personale per prenderne visione ',
     ) );
 
     $setup_options->add_field( array(

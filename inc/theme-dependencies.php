@@ -136,6 +136,7 @@ function dsi_register_required_plugins() {
             'slug'     => 'contact-form-cfdb7',
             'required' => false,
         ),
+         /*
          array(
             'name'     => 'WP QuickLaTeX',
             'slug'     => 'wp-quicklatex',
@@ -145,7 +146,7 @@ function dsi_register_required_plugins() {
             'name'     => 'WP Super Cache',
             'slug'     => 'wp-super-cache',
             'required' => false,
-        ),
+        ),*/
 
         /*
         array(
