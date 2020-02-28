@@ -9,7 +9,7 @@ if($visualizza_banner == "si") {
         <div class="container py-2">
             <div class="row variable-gutters">
                 <div class="col">
-                    <p class="text-center pb-4"><?php _e("Pubblicità e Informazione", "design_scuole_italia"); ?></p>
+                    <p class="text-center"><?php _e("Pubblicità e Informazione", "design_scuole_italia"); ?></p>
                     <div class="owl-carousel carousel-theme carousel-simple">
                         <?php
                         foreach ($banner_group as $banner){
