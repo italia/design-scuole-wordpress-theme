@@ -762,3 +762,7 @@ modifiche alla search in header da riportare su scuole.css
         padding: 10px;
     }
 }
+
+.card.card-icon .card-icon-content p{
+    word-break:break-word;
+}
