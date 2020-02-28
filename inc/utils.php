@@ -29,6 +29,18 @@ if(!function_exists("dsi_get_option")) {
 }
 
 /**
+ * Define members check user function if not defined and return true
+ * @param  int     $user_id
+ * @param  int     $post_id
+ * @return bool
+ */
+if(!function_exists("members_can_user_view_post")) {
+    function members_can_user_view_post($user_id, $post_id) {
+        return true;
+    }
+}
+
+/**
  * Wrapper function for get_post_meta
  * @param string $key
  * @return mixed meta_value
