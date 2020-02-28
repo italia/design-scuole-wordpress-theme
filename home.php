@@ -19,6 +19,8 @@ get_header();
 
             get_template_part("template-parts/hero/home");
 
+            get_template_part("template-parts/home/banner");
+
             $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
             if($home_is_selezione_automatica == "false"){
                 get_template_part("template-parts/home/articoli", "manuali");
@@ -26,7 +28,6 @@ get_header();
                 get_template_part("template-parts/home/articoli", "eventi");
             }
 
-            get_template_part("template-parts/home/banner");
             ?>
         <section class="section bg-white">
         <?php get_template_part("template-parts/hero/servizi"); ?>
