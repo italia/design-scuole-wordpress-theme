@@ -9,14 +9,22 @@
 ## Installazione e supporto
 #### Come scaricare il tema
 
-Per scaricare il progetto esegui i seguenti comandi
+Per scaricare il progetto esegui il seguenti comando git
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
+
+per aggiornare invece il tema da una versione precedentemente scaricata va eseguito
+
++ git pull
+
+
+NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono più necessari i seguenti comandi:
+
 + cd design-scuole-wordpress-theme/
 + git submodule init
 + git submodule update --remote
 
-Una volta eseguiti i comandi è sufficiente caricare la directory dentro wp-content/themes/
+In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull. 
 
 #### Supporto tecnico ed editoriale
 E' attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
@@ -278,9 +286,6 @@ Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://itali
 Per scaricare il progetto esegui i seguenti comandi
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
-+ cd design-scuole-wordpress-theme/
-+ git submodule init
-+ git submodule update --remote
 
 
 ## Licenze software dei componenti di terze parti
