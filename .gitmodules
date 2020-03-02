@@ -1,4 +1,0 @@
-[submodule "inc/vendor/CMB2"]
-	path = inc/vendor/CMB2
-	url = https://github.com/CMB2/CMB2.git
-	branch = develop

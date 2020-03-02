@@ -1,0 +1,25 @@
+<phpunit
+	bootstrap                   = "tests/bootstrap.php"
+	backupGlobals               = "false"
+	colors                      = "true"
+	convertErrorsToExceptions   = "true"
+	convertNoticesToExceptions  = "true"
+	convertWarningsToExceptions = "true"
+	verbose                     = "true"
+	>
+	<testsuites>
+		<testsuite>
+			<directory prefix="test-" suffix=".php">./tests/</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory>includes</directory>
+			<file>init.php</file>
+			<exclude>
+				<directory suffix=".php">includes/shim</directory>
+				<directory suffix=".php">example-functions.php</directory>
+			</exclude>
+		</whitelist>
+	</filter>
+</phpunit>
