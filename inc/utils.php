@@ -34,9 +34,14 @@ if(!function_exists("dsi_get_option")) {
  * @param  int     $post_id
  * @return bool
  */
-if(!function_exists("members_can_user_view_post")) {
-    function members_can_user_view_post($user_id, $post_id) {
-        return true;
+if(!function_exists("dsi_members_can_user_view_post")) {
+    function dsi_members_can_user_view_post($user_id, $post_id) {
+        if(!function_exists("members_can_user_view_post")) {
+            return true;
+        }else{
+            return members_can_user_view_post($user_id, $post_id);
+        }
+
     }
 }
 

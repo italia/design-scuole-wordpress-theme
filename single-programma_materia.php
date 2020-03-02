@@ -14,7 +14,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 $link_progetti = dsi_get_meta("link_progetti");
 $altre_info = dsi_get_meta("note");
 
-$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
+$user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container bluelectric">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>

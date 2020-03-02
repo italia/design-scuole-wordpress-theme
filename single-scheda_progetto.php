@@ -22,7 +22,7 @@ $is_realizzato = dsi_get_meta("is_realizzato");
 $risultati = dsi_get_meta("risultati");
 $gallery = dsi_get_meta("gallery");
 
-$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
+$user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container bluelectric">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>

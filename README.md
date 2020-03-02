@@ -9,7 +9,7 @@
 ## Installazione e supporto
 #### Come scaricare il tema
 
-Per scaricare il progetto esegui il seguenti comando git
+Per scaricare il progetto esegui il seguente comando git
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
 

@@ -15,7 +15,7 @@ $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $date = dsi_get_meta("date");
 
-$user_can_view_post = members_can_user_view_post(get_current_user_id(), $post->ID);
+$user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
     <main id="main-container" class="main-container greendark">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>

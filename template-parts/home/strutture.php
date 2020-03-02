@@ -44,10 +44,12 @@ global $struttura;
 			</div><!-- /col-md-6 -->
 			<div class="col-md-5 offset-md-1 cards-wrapper-center">
 				<?php
-				foreach ($link_strutture_evidenza as $id_struttura){
-					$struttura = get_post($id_struttura);
-					get_template_part("template-parts/struttura/card", "large");
-				}
+                if(isset($link_strutture_evidenza) && is_array($link_strutture_evidenza) && count($link_strutture_evidenza)>0) {
+                    foreach ($link_strutture_evidenza as $id_struttura) {
+                        $struttura = get_post($id_struttura);
+                        get_template_part("template-parts/struttura/card", "large");
+                    }
+                }
 				?>
 			</div><!-- /col-md-5 -->
 		</div><!-- /row -->
