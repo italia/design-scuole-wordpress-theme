@@ -20,10 +20,13 @@
                                 <div class="access-buttons">
                                     <?php
                                     $link_esterni = dsi_get_option("link_esterni", "login");
-                                    foreach ($link_esterni as $item){
-                                        ?>
-                                        <a class="btn btn-petrol btn-block btn-lg rounded mb-3" href="<?php echo $item["url_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
-                                    <?php
+                                    if(isset($link_esterni) && is_array($link_esterni) && count($link_esterni)>0) {
+                                        foreach ($link_esterni as $item) {
+                                            ?>
+                                            <a class="btn btn-petrol btn-block btn-lg rounded mb-3"
+                                               href="<?php echo $item["url_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
+                                            <?php
+                                        }
                                     }
                                     ?>
                                 </div>
