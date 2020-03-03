@@ -175,7 +175,7 @@ function dsi_add_servizi_metaboxes() {
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'come_si_fa',
-		'name'        => __( 'Come si fa ', 'design_scuole_italia' ),
+		'name'        => __( 'Come si accede al servizio', 'design_scuole_italia' ),
 		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto"' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
 		'options' => array(
