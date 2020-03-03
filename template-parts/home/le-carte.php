@@ -19,17 +19,17 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 						<?php
 						foreach ( $gruppo_carte as $carta ) {
 							$doc = get_post($carta);
-							?>
+                            $desc = dsi_get_meta("descrizione", '', $doc->ID);
+                            ?>
 							<div class="item item-card">
 								<div class="card card-icon card-bg card-large card-folded card-no-shadow rounded">
 									<div class="card-title card-title-icon">
-
 										<svg class="it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-pdf-document"></use></svg>
 
 										<h3><a href="<?php echo get_permalink($doc); ?>"><?php echo $doc->post_title; ?></a></h3>
 									</div><!-- /card-body -->
 									<div class="card-body card-body-min-height">
-										<p><?php  echo get_the_excerpt($doc); ?></p>
+										<p><?php  echo $desc; ?></p>
 									</div><!-- /card-body -->
 									<div class="card-bottom">
 										<a class="read-more" href="<?php echo get_permalink($doc); ?>"><?php _e("Scopri", "design_scuole_italia"); ?></a>
