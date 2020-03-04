@@ -640,41 +640,7 @@ add_filter( 'admin_head', 'dsi_edit_permission_check', 1, 4 );
 
 /**
  * filtri avcp per i path di salvataggio dei file, per fixare problema multisite
- * @param $ret
- * @param $year
  */
-function dsi_avcp_get_basexmlurl($ret, $year){
-    if(is_multisite()){
-        $upload_dir = wp_get_upload_dir();
-        if ( $year ) {
-            $ret = $upload_dir["baseurl"] . '/avcp/' .$year.'.xml';
-        } else {
-            $ret =  $upload_dir["baseurl"] . '/avcp/';
-        }
-    }
-    return $ret;
-}
-add_filter("avcp_get_basexmlurl", "dsi_avcp_get_basexmlurl", 2);
-
-/**
- * filtri per i path su multisite
- * @param $ret
- * @param $year
- * @return mixed
- */
-function dsi_avcp_get_basexmlpath($ret, $year){
-    if(is_multisite()){
-        $upload_dir = wp_get_upload_dir();
-        if ( $year ) {
-            $ret = $upload_dir["basedir"] . '/avcp/' . $year . '.xml';
-        } else {
-            $ret = $upload_dir["basedir"] . '/avcp/';
-        }
-    }
-    return $ret;
-}
-add_filter("avcp_get_basexmlpath", "dsi_avcp_get_basexmlpath", 2);
-
 
 add_filter( 'anac_filter_basexmlpath', function( $string ) { // Base PATH
      if(is_multisite()){
@@ -685,8 +651,6 @@ add_filter( 'anac_filter_basexmlpath', function( $string ) { // Base PATH
     }
 
 }, 10, 3 );
-
- 
 
 add_filter( 'anac_filter_basexmlurl', function( $string ) { // Base URL
 
