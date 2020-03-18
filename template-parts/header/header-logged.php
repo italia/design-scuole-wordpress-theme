@@ -8,7 +8,7 @@ $link_notification = get_permalink($last_notification);
 if($last_notification){
     ?>
     <div class="header-notification-alert has-notifications">
-        <a href="<?php echo $link_notification; ?>">
+        <a href="<?php echo $link_notification; ?>" aria-label="Notifiche">
             <svg class="svg-bell-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell-solid"></use></svg>
         </a>
     </div>
@@ -21,12 +21,12 @@ if($last_notification){
 
     <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="avatar">
         </div><!-- /avatar-wrapper -->
     </a>
     <a class="dropdown-toggle d-none d-xl-flex" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="avatar">
         </div><!-- /avatar-wrapper -->
         <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
     </a>
@@ -34,7 +34,7 @@ if($last_notification){
         <div class="menu-user-wrapper">
             <div class="user-details">
                 <div class="avatar-wrapper">
-                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>">
+                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="avatar">
                 </div><!-- /avatar-wrapper -->
                 <div class="user-details-content">
                     <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>

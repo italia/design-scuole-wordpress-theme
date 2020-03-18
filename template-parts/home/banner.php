@@ -20,7 +20,7 @@ if($visualizza_banner == "si") {
                             <div class="banner">
                                 <?php if($banner["url"] != "") echo '<a href="'.$banner["url"].'">'; ?>
                                     <figure class="text-center px-2">
-                                        <img src="<?php echo $image_url; ?>" style="max-width: 100%;" />
+                                        <img src="<?php echo $image_url; ?>" style="max-width: 100%;" alt="banner" />
                                     </figure>
                                 <?php if($banner["url"] != "") echo '</a>'; ?>
                             </div><!-- /item -->

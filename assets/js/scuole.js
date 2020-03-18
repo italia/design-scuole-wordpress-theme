@@ -152,7 +152,8 @@ $(document).ready(function() {
 jQuery(document).ready(function($) {
   $('.carousel-simple').owlCarousel({
 		nav: true,
-		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+        navElement: 'button type="button" role="presentation" aria-label="button"',
+        navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: false,
 		margin: 30,
 		loop: false,
@@ -194,7 +195,8 @@ jQuery(document).ready(function($) {
   });
   $('.carousel-simple-pager').owlCarousel({
 		nav: false,
-		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
+        navElement: 'button type="button" role="presentation" aria-label="button"',
+        navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: true,
 		margin: 30,
 		loop: false,
@@ -228,6 +230,7 @@ jQuery(document).ready(function($) {
   });
   $('.carousel-single').owlCarousel({
 		nav: true,
+        navElement: 'button type="button" role="presentation" aria-label="button"',
 		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: false,
 		margin: 30,
@@ -271,6 +274,7 @@ jQuery(document).ready(function($) {
   });
   $('.carousel-double').owlCarousel({
 		nav: true,
+        navElement: 'button type="button" role="presentation" aria-label="button"',
 		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: false,
 		margin: 30,
@@ -314,6 +318,7 @@ jQuery(document).ready(function($) {
   });
   $('.carousel-large').owlCarousel({
 		nav: true,
+        navElement: 'button type="button" role="presentation" aria-label="button"',
 		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: false,
 		margin: 24,
@@ -366,6 +371,7 @@ jQuery(document).ready(function($) {
 
   calendaryears.owlCarousel({
     nav: true,
+    navElement: 'button type="button" role="presentation" aria-label="button"',
     navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
     center: false,
     items: 2,
@@ -442,6 +448,7 @@ jQuery(document).ready(function($) {
     var owl = $('.carousel-cards'),
     owlOptions = {
       nav: false,
+      navElement: 'button type="button" role="presentation" aria-label="button"',
       navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
       dots: false,
       margin: 30,
@@ -500,6 +507,7 @@ jQuery(document).ready(function($) {
   
   $('.carousel-hours').owlCarousel({
 		nav: true,
+        navElement: 'button type="button" role="presentation" aria-label="button"',
 		navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
 		dots: false,
 		margin: 25,
