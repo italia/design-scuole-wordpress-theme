@@ -80,7 +80,7 @@ function dsi_add_circolare_metaboxes() {
 
     $cmb_abstrat->add_field( array(
         'id' => $prefix . 'tipologia',
-        'name'        => __( 'Tipologia circolare *', 'design_scuole_italia' ),
+        'name'        => '<span class="_dsi_circolare_tipologia">'.__( 'Tipologia circolare *', 'design_scuole_italia' ).'<span>',
         'type'             => 'taxonomy_multicheck_inline',
         'taxonomy'       => 'tipologia-circolare',
         'select_all_button' => false,

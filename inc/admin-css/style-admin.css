@@ -463,3 +463,26 @@ luogo
     height: 100%;
     background: rgba(0, 0, 0, 0.5) url(images/spinner.gif) center center no-repeat;
 }
+
+._dsi_circolare_tipologia.error, label.error {
+    color: #D8000C;
+}
+
+.cmb2-option.error {
+    border-color: #D8000C;
+}
+
+._dsi_circolare_tipologia_error {
+    display: block!important;
+    font-weight: bold;
+    color: #D8000C;
+}
+
+.taxonomy-percorsi-di-studio .column-posts {
+    width: 98px;
+}
+
+.taxonomy-percorsi-di-studio .column-ordinamento {
+    width: 54px;
+    text-align: center;
+}

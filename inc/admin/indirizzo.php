@@ -546,3 +546,38 @@ function dsi_indirizzo_admin_script() {
     if( 'indirizzo' == $post_type )
         wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/indirizzo.js' );
 }
+
+if(!function_exists('dsi_percorsi_di_studio_edit_meta_field')) {
+    function dsi_percorsi_di_studio_edit_meta_field($term, $taxonomy) {
+        if($term->parent != 0) return false;
+        // get meta
+        $term_meta = get_term_meta( $term->term_id, 'dsi_order', true ); ?>
+        <tr class="form-field">
+            <th scope="row" valign="top"><label for="ordinamento"><?php _e( 'Ordinamento', 'design_scuole_italia' ); ?></label></th>
+            <td>
+                <input type="number" name="ordinamento" id="term_meta[custom_term_meta]" value="<?php echo $term_meta !== false ? esc_attr( $term_meta ) : ''; ?>">
+                <p class="description"><?php _e( 'Indicare la posizione facendo attenzione che non sia già occupata','design_scuole_italia' ); ?></p>
+            </td>
+        </tr><?php
+    }
+}
+add_action( 'percorsi-di-studio_edit_form_fields', 'dsi_percorsi_di_studio_edit_meta_field', 10, 2 );
+
+if(!function_exists('dsi_save_percorsi_di_studio_custom_meta')) {
+    // Save extra taxonomy fields callback function.
+    function dsi_save_percorsi_di_studio_custom_meta( $term_id, $tt_id ) {
+        if (isset($_POST['taxonomy']) && $_POST['taxonomy'] == "percorsi-di-studio"){
+            if(term_exists($term_id, "percorsi-di-studio")){
+                if ( isset( $_POST['ordinamento'] ) ) {
+                    update_term_meta( $tt_id, 'dsi_order', $_POST['ordinamento'] );
+                } elseif($_POST['parent']<=0) {
+                    global $wpdb;
+                    $last_index = $wpdb->get_var( "SELECT meta_value FROM $wpdb->termmeta WHERE meta_key = 'dsi_order' order by meta_value desc limit 1;" );
+                    add_term_meta( $tt_id, 'dsi_order', (int) $last_index +1 );
+                }
+            }
+        }
+    }
+}
+add_action( 'edited_percorsi-di-studio', 'dsi_save_percorsi_di_studio_custom_meta', 10, 2 );
+add_action( 'create_percorsi-di-studio', 'dsi_save_percorsi_di_studio_custom_meta', 10, 2 );

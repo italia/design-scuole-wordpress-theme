@@ -817,7 +817,7 @@ if(!function_exists("dsi_pluralize_string")) {
             break;
 
         case "Dirigenza Scolastica":
-            $string = "";
+            $string = "Dirigenze Scolastiche";
             break;
 
         case "Segreteria":
@@ -860,11 +860,9 @@ if(!function_exists("dsi_pluralize_string")) {
             $string = "Delibere";
             break;
 
-
         case "Verbale":
             $string = "Verbali";
             break;
-
 
         case "Regolamento":
             $string = "Regolamenti";
@@ -909,6 +907,10 @@ if(!function_exists("dsi_pluralize_string")) {
 
         case "Indirizzo di Studio":
             $string = "Indirizzi di studio";
+            break;
+
+        case "Scuola / Istituto":
+            $string = "Scuole / Istituti";
             break;
 
         case "":

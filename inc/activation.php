@@ -449,7 +449,7 @@ function dsi_create_pages_on_theme_activation() {
     wp_insert_term( 'Commissione', 'tipologia-struttura' );
     wp_insert_term( 'Dipartimento', 'tipologia-struttura' );
     wp_insert_term( 'Dirigenza Scolastica', 'tipologia-struttura' );
-   // wp_insert_term( 'Istituto', 'tipologia-struttura' );
+    // wp_insert_term( 'Istituto', 'tipologia-struttura' );
     $istituto = get_term_by("name", "Istituto", 'tipologia-struttura');
     if($istituto)
         wp_delete_term($istituto->term_id, "tipologia-struttura");
@@ -496,7 +496,7 @@ function dsi_create_pages_on_theme_activation() {
 
     wp_insert_term( 'Famiglie e studenti', 'tipologia-servizio' );
     wp_insert_term( 'Personale scolastico', 'tipologia-servizio' );
-   // wp_insert_term( 'Percorsi di studio', 'tipologia-servizio' );
+    // wp_insert_term( 'Percorsi di studio', 'tipologia-servizio' );
 
     /*
         $del = get_term_by('name', 'Circolari', 'tipologia-articolo');
@@ -549,7 +549,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('La Scuola', "design_scuole_italia");
 
-     wp_delete_nav_menu($name);
+    wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_scuola = $menu_object->term_id;
@@ -631,7 +631,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Servizi', "design_scuole_italia");
 
-     wp_delete_nav_menu($name);
+    wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_servizi = $menu_object->term_id;
@@ -685,7 +685,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Novità', "design_scuole_italia");
 
-     wp_delete_nav_menu($name);
+    wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_notizie = $menu_object->term_id;
@@ -738,7 +738,7 @@ function dsi_create_pages_on_theme_activation() {
      */
     $name = __('Didattica', "design_scuole_italia");
 
-     wp_delete_nav_menu($name);
+    wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
     if($menu_object) {
         $menu_didattica = $menu_object->term_id;
@@ -902,7 +902,7 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-target' => '_blank',
         ));
 
-       wp_update_nav_menu_item($menu->term_id, 0, array(
+        wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Invalsi', "design_scuole_italia"),
             'menu-item-url' => "https://www.invalsi.it",
             'menu-item-status' => 'publish',

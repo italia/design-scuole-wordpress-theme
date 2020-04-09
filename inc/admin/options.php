@@ -1045,9 +1045,21 @@ function dsi_register_main_options_metabox() {
         'type'    => 'pw_multiselect',
         'options' => dsi_get_tipologie_luoghi_options(),
         'attributes' => array(
-            'placeholder' =>  __( 'Seleziona e ordina le tipologie di luoghi da mostrare nella pagina Luoghi', 'design_scuole_italia' ),
+            'placeholder' =>  __( ' Seleziona e ordina le tipologie di luoghi da mostrare nella pagina Luoghi', 'design_scuole_italia' ),
         ),
     ) );
+
+    $luoghi_options->add_field(array(
+        'id' => $prefix . 'posizione_mappa',
+        'name' => __('Mappa in primo piano', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>No</b> per visualizzare la mappa in fondo alla pagina dopo l\'elenco delle strutture.', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
 
 
     /**

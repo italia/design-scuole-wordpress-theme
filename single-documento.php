@@ -88,11 +88,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione"
                                                title="Vai al paragrafo <?php _e( "Descrizione", "design_scuole_italia" ); ?>"><?php _e( "Descrizione", "design_scuole_italia" ); ?></a>
                                         </li>
+                                        <?php if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-documento"
                                                title="Vai al paragrafo <?php _e( "Il Documento", "design_scuole_italia" ); ?>"><?php _e( "Il Documento", "design_scuole_italia" ); ?></a>
                                         </li>
-                                        <?php if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
+                                        <?php }
+                                        if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizio"
                                                    title="Vai al paragrafo <?php _e( "Servizi collegati", "design_scuole_italia" ); ?>"><?php _e( "Servizi collegati", "design_scuole_italia" ); ?></a>
@@ -166,8 +168,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
-                                    <h4 id="art-par-documento"
-                                        class="mb-4"><?php _e("Il Documento", "design_scuole_italia"); ?></h4>
+                                    <h4 id="art-par-documento" class="mb-4"><?php echo _n( 'Il Documento', 'I Documenti', count( $file_documenti ), 'design_scuole_italia' ); ?></h4>
 
                                     <h6><?php _e("Allegati", "design_scuole_italia"); ?></h6>
                                     <?php
