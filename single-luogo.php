@@ -218,17 +218,35 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         if(is_array($elementi_di_interesse) && $elementi_di_interesse != ""){
                                             ?>
                                             <h6><?php _e("Elementi di interesse", "design_scuole_italia"); ?></h6>
-                                            <div class="card-deck card-deck-spaced mb-4">
+                                            <div class="card-deck card-deck-spaced mb-4 card_container_accordion">
                                                 <?php
+                                                $count = 0;
                                                 foreach ($elementi_di_interesse as $elemento){
+                                                    $descrizione_more = '';
+                                                    $descrizione = $elemento["descrizione"];
+                                                    $description_length = dsi_get_option("excerpt_length", "luoghi");
+                                                    $descrizione_excerpt = dsi_truncate($descrizione, $description_length, ' ', '');
+                                                    if(strlen($descrizione)>$description_length) {
+                                                        $descrizione_more = str_replace($descrizione_excerpt, '', $descrizione);
+                                                        $descrizione_excerpt .= '...';
+                                                    }
                                                     ?>
-                                                    <div class="card card-bg card-bg-simple rounded">
+                                                    <div class="card card-bg card-bg-simple rounded card_accordion">
                                                         <div class="card-body">
-                                                            <p><?php echo $elemento["titolo"]; ?></p>
-                                                            <small><?php echo $elemento["descrizione"]; ?></small>
+                                                            <div id="dsi_description_container_<?php echo $count; ?>">
+                                                                <p><?php echo $elemento["titolo"]; ?></p>
+                                                                <small>
+                                                                    <span id="dsi_description_<?php echo $count; ?>"><?php echo $descrizione_excerpt; ?></span>
+                                                                    <?php if(!empty($descrizione_more)): ?>
+                                                                    <p style="position: absolute; left: -9999em" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></p>
+                                                                    <?php endif; ?>
+                                                                </small>
+                                                            </div>
+                                                            <a href="#" class="show small dsi_more" data-id="<?php echo $count; ?>">Visualizza altro</a>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-icon rounded -->
                                                     <?php
+                                                    $count++;
                                                 }
                                                 ?>
                                             </div>

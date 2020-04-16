@@ -165,6 +165,8 @@ if(isset($struttura->ID)){
 		</div><!-- /card card-bg rounded -->
 	</div><!-- /col-lg-9 -->
 </div><!-- /row -->
+
+<?php if(!empty($posizione_gps["lat"])): ?>
 <script>
     var mymap = L.map('map_<?php echo $c; ?>', {
         zoomControl: false,
@@ -178,3 +180,4 @@ if(isset($struttura->ID)){
         accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
     }).addTo(mymap);
 </script>
+<?php endif; ?>

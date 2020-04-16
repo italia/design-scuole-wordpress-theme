@@ -29,11 +29,17 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
 
                             $tipologia_luogo = get_term_by("id", $id_tipologia_luogo, "tipologia-luogo");
                             if (!is_wp_error($tipologia_luogo)) {
-
-
                                 $luoghi = get_posts("post_type=luogo&tipologia-luogo=" . $tipologia_luogo->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
                                 if (is_array($luoghi) && count($luoghi) > 0) {
-                                    ?><h3><?php if (count($luoghi) > 1) echo dsi_pluralize_string($tipologia_luogo->name); else echo $tipologia_luogo->name; ?></h3><?php
+                                    ?>
+                                    <h3>
+                                    <?php if (count($luoghi) > 1) {
+                                        echo dsi_pluralize_string($tipologia_luogo->name);
+                                    } else {
+                                        echo $tipologia_luogo->name;
+                                    } ?>
+                                    </h3>
+                                    <?php
                                     foreach ($luoghi as $luogo) {
                                         get_template_part("template-parts/luogo/card", "ico");
                                     }
@@ -44,24 +50,25 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                     <div class="map-wrapper">
                         <div class="map" id="map"></div>
                     </div>
-                </section><!-- /section -->
-            <?php
-            //get_template_part("template-parts/luogo/map");
+                </section>
+                <!-- /section -->
+                <?php
 
-            foreach ($locations as $location_key => $value) {
-                foreach ($value as $place_key => $place) {
-                    if(!$place['lat'] || !$place['lng']) {
-                        $pos = dsi_multi_array_search($place['indirizzo'], $locations);
-                        if($pos) {
-                            $locations[$pos][] = $place;
-                            unset($locations[$location_key][$place_key]);
-                            if(empty($locations[$location_key])) unset($locations[$location_key]);
+                foreach ($locations as $location_key => $value) {
+                    foreach ($value as $place_key => $place) {
+                        if(!$place['lat'] || !$place['lng']) {
+                            $pos = dsi_multi_array_search($place['indirizzo'], $locations);
+                            if($pos) {
+                                $locations[$pos][] = $place;
+                                unset($locations[$location_key][$place_key]);
+                                if(empty($locations[$location_key])) unset($locations[$location_key]);
+                            }
                         }
                     }
                 }
-            }
 
-            $first = array_pop(array_reverse($locations));
+                $locations = array_reverse($locations);
+                $first = array_pop($locations);
             }
             ?>
             <script>
@@ -94,7 +101,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                         attribution: '',
                         maxZoom: 18,
                         id: 'mapbox.streets',
-                        accessToken: 'pk.eyJ1Ijoid2ViZ3JhZmlhIiwiYSI6ImNqdnMzdnl0azI0c3AzeWxlaThyaG8zN2kifQ.3oRpuS7XbsZp0o1sveLskQ'
+                        accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
                     }).addTo(mymap);
 
                     var arrayOfMarkers = [<?php echo implode(",", $markers); ?>];

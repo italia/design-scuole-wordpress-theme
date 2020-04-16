@@ -409,6 +409,10 @@ function dsi_circolari_meta_box($post)
             }
 
             echo "</ul>";
+            echo '<br>';
+            $url =  get_permalink($post->ID);
+            $csv_link = add_query_arg( array( 'csv' => 'true' ), $url );
+            echo '<a href="'.$csv_link.'" class="button" >Scarica elenco firmatari</a>';
         }
 
     }else{ ?><style type="text/css">#circolari-meta-box{display:none;}</style> <?php }
@@ -465,17 +469,20 @@ function dsi_circolare_admin_script() {
 // aggiungo link per il download del pdf della circolare
 add_filter( 'post_row_actions', 'dsi_circolare_modify_list_row_actions', 10, 2 );
 function dsi_circolare_modify_list_row_actions( $actions, $post ) {
-
     if ( $post->post_type == "circolare" ) {
+        $notificato =  get_post_meta($post->ID, "_dsi_notificato", "true");
+
         $url =  get_permalink($post->ID);
         // Maybe put in some extra arguments based on the post status.
         $pdf_link = add_query_arg( array( 'pdf' => 'true' ), $url );
 
-         $actions = array_merge( $actions, array(
-            'pdf' => sprintf( '<a href="%1$s"><b>%2$s</b></a>',
-                esc_url( $pdf_link ),
-                esc_html( __( 'PDF', 'design_scuole_italia' ) ) )
-        ));
+        $new_actions['pdf'] = sprintf( '<a href="%1$s"><b>%2$s</b></a>', esc_url( $pdf_link ), esc_html( __( 'PDF', 'design_scuole_italia' ) ) );
+
+        if($notificato) {
+            $csv_link = add_query_arg( array( 'csv' => 'true' ), $url );
+            $new_actions['csv'] = sprintf( '<a href="%1$s"><b>%2$s</b></a>', esc_url( $csv_link ), esc_html( __( 'Elenco Firmatari', 'design_scuole_italia' ) ) );
+        }
+         $actions = array_merge( $actions, $new_actions);
     }
     return $actions;
 }
@@ -487,3 +494,35 @@ add_action( 'post_submitbox_misc_actions', function( $post ){
         echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera PDF</a></div>';
     }
 });
+
+if(!function_exists('dsi_csv_generator')) {
+    function dsi_csv_generator(){
+        if(is_singular("circolare") && isset($_GET) && ($_GET["csv"] == "true")) {
+            global $post;
+
+            // output headers so that the file is downloaded rather than displayed
+            header('Content-type: text/csv');
+            header('Content-Disposition: attachment; filename="elenco-firmatari-'.sanitize_title($post->post_title).'.csv"');
+
+            // do not cache the file
+            header('Pragma: no-cache');
+            header('Expires: 0');
+    
+            // create a file pointer connected to the output stream
+            $file = fopen('php://output', 'w');
+
+            // send the column headers
+            fputcsv($file, array('Firmatario'));
+            $notificato = get_post_meta($post->ID, "_dsi_notificato", "true");
+
+            // output each row of the data
+            foreach ($notificato as $row) {
+                fputcsv($file, $row);
+            }
+
+            exit();
+        }
+    }
+}
+add_action("template_redirect", "dsi_csv_generator");
+

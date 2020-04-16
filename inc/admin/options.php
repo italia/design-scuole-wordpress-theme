@@ -1061,6 +1061,28 @@ function dsi_register_main_options_metabox() {
         ),
     ));
 
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'luogho_istruzioni',
+        'name'        => __( 'Dettaglio Luogo', 'design_scuole_italia' ),
+        'desc' => __( 'Specifica le opzioni di visualizzazione per il dettaglio del singolo luogo.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'excerpt_length',
+        'name'        => __( 'Testo elementi di interesse *', 'design_scuole_italia' ),
+        'desc' => __('Specificare la lunghezzadi default, in caratteri, per il testo descrittivo degli elmenti di interesse oltre la quale il testo verrà nascosto', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'required'    => 'required',
+            'min' => 60
+        ),
+        'sanitization_cb' => 'absint',
+        'escape_cb'       => 'absint',
+    ) );
+
 
     /**
      * Documenti

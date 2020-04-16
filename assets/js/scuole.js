@@ -646,3 +646,51 @@ $(document).ready(function() {
         tabs.responsiveTabs('activate', 0);
     }
 });
+
+$(document).ready(function() {
+    var max_heigth = 0;
+    $('.dsi_more').each(function() {
+        let id= $(this).data('id');
+        let obj_container = $('#dsi_description_container_'+id);
+        let height = obj_container.outerHeight();
+        max_heigth = height > max_heigth ? height : max_heigth;
+    });
+
+    $('.dsi_more').each(function() {
+        let id= $(this).data('id');
+        let obj_description = $('#dsi_description_'+id);
+        let excerpt = obj_description.html();
+        let obj_container = $('#dsi_description_container_'+id);
+        let dif = max_heigth - obj_description.outerHeight();
+        obj_container.css('height', max_heigth + "px");
+
+        $(this).click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let obj_more = $(this);
+
+            obj_description.html(excerpt.replace('...', '') + $('#dsi_description_more_'+id).html());
+            let container_height = obj_more.hasClass('show') ? obj_description.outerHeight()+dif : max_heigth;
+
+            obj_container.animate({
+                height: container_height
+            }, {
+                duration: 750,
+                start: function () {
+                    if (obj_more.hasClass('show')) {
+                        obj_more.html('Nascondi');
+                    }
+                },
+                complete: function () {
+                    if (obj_more.hasClass('show')) {
+                        obj_more.removeClass('show').addClass('hide');
+                    } else {
+                        obj_more.removeClass('hide').addClass('show');
+                        obj_more.html('Visualizza altro');
+                        obj_description.html(excerpt);
+                    }
+                }
+            });
+        });
+    });
+});

@@ -959,3 +959,32 @@ if(!function_exists("dsi_multi_array_search")) {
         return false;
     }
 }
+
+
+/**
+ *  Tronca un testo in base ai valori specificati
+ *  * @since 0.1.0
+ * @param $string initial text
+ * @param $limit truncate length
+ * @param string $break
+ * @param string $pad
+ * @return string
+ */
+if(!function_exists("dsi_truncate")) {
+    function dsi_truncate($string, $limit, $break = " ", $pad = "..."){
+        $string = html_entity_decode($string, ENT_QUOTES, "UTF-8");
+
+        $string = strip_tags($string);
+        if (mb_strlen($string) <= $limit)
+            return $string;
+
+        // is $break present between $limit and the end of the string?
+        if (false !== ($breakpoint = strpos($string, $break, $limit))) {
+            if ($breakpoint < mb_strlen($string) - 1) {
+                $string = mb_substr($string, 0, $breakpoint) . $pad;
+            }
+        }
+
+        return $string;
+    }
+}
