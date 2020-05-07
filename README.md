@@ -123,7 +123,7 @@ Il tema tenterà  una riconciliazione automatica delle tipologie di contenuto pi
 
 
 #### Relazioni tra i contenuti
-Una delle caratteristiche principali del sito in Wordpress è il fatto di di avere diverse tipologie di contenuto (*content type*) tutte in relazione tra loro. 
+Una delle caratteristiche principali del sito in Wordpress è il fatto di avere diverse tipologie di contenuto (*content type*) tutte in relazione tra loro. 
 
 Questa caratteristica richiederà un po’ di sforzo da parte tua nella fase iniziale: avrai bisogno di entrare nella logica del modello e nella logica con cui abbiamo stabilito di collegare i vari contenuti tra loro. Una volta compreso il modo di lavorare siamo sicuri che il lavoro così impostato porterà dei benefici significativi sia per chi deve gestire e aggiornare i contenuti, sia per gli utenti che ricercano informazioni. 
 
