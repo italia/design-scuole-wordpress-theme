@@ -58,7 +58,20 @@ $posizione_gps = false;
 </article><!-- /card card-bg card-article -->
 <?php if($posizione_gps != false){ ?>
     <script>
-        var mymap = L.map('map_<?php echo $post->ID; ?>', {
+        jQuery(function() {
+            var map = L.map('map_<?php echo $post->ID; ?>', {
+                zoomControl: false,
+                scrollWheelZoom: false
+            }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
+            var marker = L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(map);
+
+            var gl = L.mapboxGL({
+                accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>',
+                style: 'https://api.maptiler.com/maps/streets/style.json?key=99Tr9Jg5CtfMvLFq4mfX'
+            }).addTo(map);
+        });
+
+        /*var mymap = L.map('map_<?php echo $post->ID; ?>', {
             zoomControl: false,
             scrollWheelZoom: false
         }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
@@ -68,6 +81,6 @@ $posizione_gps = false;
             maxZoom: 18,
             id: 'mapbox.streets',
             accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
-        }).addTo(mymap);
+        }).addTo(mymap);*/
     </script>
 <?php }  ?>

@@ -25,6 +25,28 @@ if($c) { ?>
     <script>
         jQuery(function() {
             var mymap = L.map('map_all', {
+                maxZoom: 18,
+                zoomControl: true,
+                scrollWheelZoom: false
+            }).setView([<?php echo $arr_luoghi[0]["gps"]["lat"]; ?>, <?php echo $arr_luoghi[0]["gps"]["lng"]; ?>], 13);
+
+            var gl = L.mapboxGL({
+                accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>',
+                style: 'https://api.maptiler.com/maps/streets/style.json?key=99Tr9Jg5CtfMvLFq4mfX'
+            }).addTo(mymap);
+
+            <?php foreach ($arr_luoghi as $marker){ ?>
+            var marker = L.marker([<?php echo $marker["gps"]["lat"]; ?>, <?php echo $marker["gps"]["lng"]; ?>, { title: '<?php echo addslashes($marker["post_title"]); ?>'}]).addTo(mymap);
+            marker.bindPopup('<b><a href="<?php echo $marker["permalink"] ?>"><?php echo addslashes($marker["post_title"]); ?></a></b><br><?php echo addslashes($marker["indirizzo"]); ?>');
+            <?php } ?>
+
+            var arrayOfMarkers = [<?php foreach ($arr_luoghi as $marker){ ?> [ <?php echo $marker["gps"]["lat"]; ?>, <?php echo $marker["gps"]["lng"]; ?>], <?php } ?>];
+            var bounds = new L.LatLngBounds(arrayOfMarkers);
+            mymap.fitBounds(bounds);
+        });
+
+        /*jQuery(function() {
+            var mymap = L.map('map_all', {
                 zoomControl: true,
                 scrollWheelZoom: false
             }).setView([<?php echo $arr_luoghi[0]["gps"]["lat"]; ?>, <?php echo $arr_luoghi[0]["gps"]["lng"]; ?>], 13);
@@ -46,7 +68,7 @@ if($c) { ?>
             var arrayOfMarkers = [<?php foreach ($arr_luoghi as $marker){ ?> [ <?php echo $marker["gps"]["lat"]; ?>, <?php echo $marker["gps"]["lng"]; ?>], <?php } ?>];
             var bounds = new L.LatLngBounds(arrayOfMarkers);
             mymap.fitBounds(bounds);
-        });
+        });*/
     </script>
 
 <?php } ?>

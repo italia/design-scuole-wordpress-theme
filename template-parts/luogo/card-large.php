@@ -71,7 +71,20 @@ if(isset($struttura->ID)){
 
 
 <script>
-    var mymap = L.map('map_<?php echo $c; ?>', {
+    jQuery(function() {
+        var map = L.map('map_<?php echo $c; ?>', {
+            zoomControl: false,
+            scrollWheelZoom: false
+        }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
+        var marker = L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(map);
+
+        var gl = L.mapboxGL({
+            accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>',
+            style: 'https://api.maptiler.com/maps/streets/style.json?key=99Tr9Jg5CtfMvLFq4mfX'
+        }).addTo(map);
+    });
+
+    /*var mymap = L.map('map_<?php echo $c; ?>', {
         zoomControl: false,
         scrollWheelZoom: false
     }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
@@ -81,5 +94,5 @@ if(isset($struttura->ID)){
         maxZoom: 18,
         id: 'mapbox.streets',
         accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
-    }).addTo(mymap);
+    }).addTo(mymap);*/
 </script>
