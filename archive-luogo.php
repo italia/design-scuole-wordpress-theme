@@ -74,16 +74,11 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
             <script>
                 jQuery(function() {
                     var mymap = L.map('map', {
-                        maxZoom: 18,
                         zoomControl: true,
                         scrollWheelZoom: false
-                    }).setView([<?php echo $first[0]['lat'] ?>, <?php echo $first[0]['lng'] ?>], 16);
+                    }).setView([<?php echo $first[0]['lat'] ?>, <?php echo $first[0]['lng'] ?>], 13);
 
-                    var gl = L.mapboxGL({
-                        accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>',
-                        style: 'https://api.maptiler.com/maps/streets/style.json?key=99Tr9Jg5CtfMvLFq4mfX'
-                    }).addTo(mymap);
-
+                    let marker;
                     <?php
                     $markers = [];
                     foreach ($locations as $location) {
@@ -98,53 +93,21 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                         $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
                     }
                     $markers[] = '[' . $lat . "," . $lng . ']'; ?>
-                    var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
+                    marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
                     marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
                     <?php
                     }?>
 
+                    // add the OpenStreetMap tiles
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '',
+                        maxZoom: 18,
+                    }).addTo(mymap);
 
                     var arrayOfMarkers = [<?php echo implode(",", $markers); ?>];
                     var bounds = new L.LatLngBounds(arrayOfMarkers);
                     mymap.fitBounds(bounds);
                 });
-
-                /*jQuery(function() {
-                    var mymap = L.map('map', {
-                        zoomControl: true,
-                        scrollWheelZoom: false
-                    }).setView([<?php echo $first[0]['lat'] ?>, <?php echo $first[0]['lng'] ?>], 13);
-
-                    <?php
-                    $markers = [];
-                    foreach ($locations as $location) {
-                    $title = $links =[];
-                    foreach ($location as $place) {
-                        if($place['lat'] && $place['lng']) {
-                            $lat = $place['lat'];
-                            $lng = $place['lng'];
-                            $indirizzo = $place['indirizzo'];
-                        }
-                        $title[] = addslashes($place['title']);
-                        $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
-                    }
-                    $markers[] = '[' . $lat . "," . $lng . ']'; ?>
-                    var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
-                    marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
-                    <?php
-                    }?>
-
-                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                        attribution: '',
-                        maxZoom: 18,
-                        id: 'mapbox.streets',
-                        accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
-                    }).addTo(mymap);
-
-                    var arrayOfMarkers = [<?php echo implode(",", $markers); ?>];
-                    var bounds = new L.LatLngBounds(arrayOfMarkers);
-                    mymap.fitBounds(bounds);
-                });*/
             </script><?php
         } else {
             // recupero la lista delle tipologie

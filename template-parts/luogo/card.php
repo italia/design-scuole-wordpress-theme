@@ -169,28 +169,18 @@ if(isset($struttura->ID)){
 <?php if(!empty($posizione_gps["lat"])): ?>
     <script>
         jQuery(function() {
-            var map = L.map('map_<?php echo $c; ?>', {
+            var mymap = L.map('map_<?php echo $c; ?>', {
                 zoomControl: false,
                 scrollWheelZoom: false
             }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
-            var marker = L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(map);
 
-            var gl = L.mapboxGL({
-                accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>',
-                style: 'https://api.maptiler.com/maps/streets/style.json?key=99Tr9Jg5CtfMvLFq4mfX'
-            }).addTo(map);
+            L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(mymap);
+
+            // add the OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: ''
+            }).addTo(mymap);
         });
-
-        /*var mymap = L.map('map_<?php echo $c; ?>', {
-            zoomControl: false,
-            scrollWheelZoom: false
-        }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
-        var marker = L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(mymap);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: '',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: '<?php echo dsi_get_mapbox_access_token(); ?>'
-        }).addTo(mymap);*/
     </script>
 <?php endif; ?>

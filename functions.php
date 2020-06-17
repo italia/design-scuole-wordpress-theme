@@ -228,10 +228,6 @@ function dsi_scripts() {
 
 	if(is_singular(array("servizio", "struttura", "luogo", "evento", "scheda_progetto", "post", "circolare", "indirizzo")) || is_archive() || is_search() || is_post_type_archive("luogo")) {
 		wp_enqueue_script( 'dsi-leaflet-js', get_template_directory_uri() . '/assets/js/components/leaflet/leaflet.js', array(), false, false);
-        //Mapbox GL
-        wp_enqueue_style( 'dsi-mapbox', 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css');
-        wp_enqueue_script( 'dsi-mapbox-js', 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js', array(), false, false);
-        wp_enqueue_script( 'dsi-leaflet-mapbox-js', get_template_directory_uri() . '/assets/js/leaflet-mapbox-gl.js', array(), false, false);
     }
 /*
 	if(is_singular()){
