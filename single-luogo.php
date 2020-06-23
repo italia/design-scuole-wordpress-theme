@@ -145,6 +145,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php } ?>
                                     </ul>
                                 </div>
+                                <?php do_action("dsi_menu_bottom_items", $post); ?>
                             </aside>
 
                         </div>
@@ -255,9 +256,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-
-
-
 
                                 <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
                                 <?php
@@ -444,6 +442,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                 <?php } ?>
+                                <?php do_action("dsi_content_bottom_items", $post); ?>
                             </article>
                         </div><!-- /col-lg-8 -->
                     </div><!-- /row -->
