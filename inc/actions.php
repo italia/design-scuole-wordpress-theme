@@ -238,6 +238,34 @@ function dsi_schede_progetti_filters( $query ) {
 
 add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
 
+
+/**
+ * filter for circolati
+ *  controllo la visibilità delle circolari
+ */
+function dsi_circolari_filters( $query ) {
+
+    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("circolari") || is_archive("tipologia-circolare") )) {
+        if(!is_user_logged_in()){
+            $query->set( 'meta_query', array(
+                'relation' => 'OR',
+                array(
+                    'key' => '_dsi_circolare_is_pubblica',
+                    'compare' => 'NOT EXISTS'
+                ),
+                array(
+                    'key' => '_dsi_circolare_is_pubblica',
+                    'value' => "true",
+                    'compare' => '==',
+                )
+            ));
+        }
+    }
+}
+
+add_action( 'pre_get_posts', 'dsi_circolari_filters' );
+
+
 /**
  * Personalizzo archive title
  */

@@ -7,6 +7,16 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $badgeclass;
+
+// controllo la visibilità della circolare
+$is_pubblica = dsi_get_meta("is_pubblica");
+if($is_pubblica == "false") {
+    if(!is_user_logged_in()){
+        wp_redirect(home_url());
+    }
+}
+
+
 get_header();
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
