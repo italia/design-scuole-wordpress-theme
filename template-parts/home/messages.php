@@ -1,10 +1,13 @@
 <?php global  $messages; ?>
 <?php foreach($messages as $message): ?>
     <?php
+
+    if(trim($message['testo_message']) == "") continue;
     $message_date = strtotime($message['data_message']);
     $now = strtotime("now");
     $color = $message['colore_message'] == 'yellow' ? 'black' : 'white';
-    if($message_date <= $now) continue ?>
+    if (($message_date != "") && ($message_date <= $now)) continue; ?>
+
     <div class="p-4 home-message <?php echo $message['colore_message'] ?>">
         <div class="home-message-content">
             <p class="msg">
