@@ -18,9 +18,7 @@ $theme_locations = get_nav_menu_locations();
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!--[if lt IE 8]>
-<p class="browserupgrade"><?php _e( "È necessario aggiornare il browser", "design_scuole_italia" ); ?></p>
-<![endif]-->
+
 <?php get_template_part("template-parts/common/svg"); ?>
 <?php get_template_part("template-parts/common/skiplink"); ?>
 
