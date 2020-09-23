@@ -223,7 +223,7 @@ get_header();
                                 // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
-                                    <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
+                                    <h5 class="h6"><?php _e("A cosa serve", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
@@ -247,7 +247,7 @@ get_header();
 
                                 if(trim($procedura_esito) != ""){
                                     ?>
-                                    <h6><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h6>
+                                <h5 class="h6"><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($procedura_esito); ?>
@@ -257,7 +257,7 @@ get_header();
                                 }
                                 if((trim($canale_digitale) != "") || (trim($canale_digitale_link) != "")) {
                                     ?>
-                                    <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
+                                    <h5 class="h6"><?php _e("Servizio online", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($canale_digitale); ?>
@@ -272,7 +272,7 @@ get_header();
                                 }
                                 if(trim($autenticazione) != ""){
                                     ?>
-                                    <h6><?php _e("Autenticazione", "design_scuole_italia"); ?></h6>
+                                    <h5 class="h6"><?php _e("Autenticazione", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($autenticazione); ?>
@@ -293,7 +293,7 @@ get_header();
 
                                 if(is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
                                     global $struttura;
-                                    echo "<h6>".__("Struttura responsabile dell'indirizzo di studio", "design_scuole_italia")."</h6>";
+                                    echo "<h5 class='h6'>".__("Struttura responsabile dell'indirizzo di studio", "design_scuole_italia")."</h5>";
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
@@ -314,7 +314,7 @@ get_header();
                                 }
                                 ?>
                                 <?php if($servizi_correlati){ ?>
-                                    <h6><?php _e("Servizi correlati", "design_scuole_italia"); ?></h6>
+                                    <h5 class="h6"><?php _e("Servizi correlati", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -333,7 +333,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi in cui viene erogato l'indirizzo di studio", "design_scuole_italia"); ?></h6>
+                                            <h5 class="h6"><?php _e("Luoghi in cui viene erogato l'indirizzo di studio", "design_scuole_italia"); ?></h5>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){
@@ -515,7 +515,7 @@ get_header();
 
                                 if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
                                     ?>
-                                    <h6  class="mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h6>
+                                    <h5 class="h6  mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
