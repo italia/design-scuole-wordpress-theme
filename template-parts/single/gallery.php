@@ -11,7 +11,7 @@ global $gallery;
 				<div class="item gallery-item">
 					<a href="<?php echo $urlg; ?>">
 						<figure>
-							<img src="<?php echo $imageatt[0]; ?>">
+							<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">
 							<figcaption><?php echo $attach->post_title; ?></figcaption>
 						</figure>
 					</a>
