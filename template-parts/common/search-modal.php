@@ -80,7 +80,7 @@
                         <div class="row variable-gutters">
                             <div class="col-lg-12">
                                 <div class="badges-wrapper">
-                                    <h3 class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h3>
+                                    <p class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></p>
                                     <div class="badges">
                                         <?php
                                         foreach ($argomenti as $argomento){
