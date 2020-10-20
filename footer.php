@@ -55,7 +55,7 @@
             <div class="col-2 d-flex align-items-center justify-content-end">
                 <?php
                 $show_socials = dsi_get_option( "show_socials", "socials" );
-                if($show_socials) : ?>
+                if($show_socials == "true") : ?>
                     <div class="footer-social">
                         <span>Seguici su:</span>
                         <div class="footer-social-wrapper">

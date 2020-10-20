@@ -103,7 +103,7 @@ if(is_search() || is_archive())
 					?>
                     <?php
                     $show_socials = dsi_get_option( "show_socials", "socials" );
-                    if($show_socials) : ?>
+                    if($show_socials == "true") : ?>
                     <div class="header-social d-none d-lg-flex">
                         <div class="header-social-wrapper">
                             <?php if($facebook = dsi_get_option( "facebook", "socials" )) :?><a href="<?php echo $facebook; ?>" aria-label="facebook"><svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg></a><?php endif; ?>
