@@ -56,7 +56,7 @@ if(isset($_GET["post_terms"]))
     <?php
     }
     ?>
-        <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design-scuole-italia"); ?></strong></h3>
+        <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_scuole_italia"); ?></strong></h3>
         <ul>
             <?php
             $terms = get_terms( array(
