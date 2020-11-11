@@ -1247,6 +1247,18 @@ function dsi_register_main_options_metabox() {
     ) );
 
     $social_options->add_field( array(
+        'id' => $prefix . 'youtube',
+        'name' => 'Youtube',
+        'type' => 'text_url',
+    ) );
+    
+    $social_options->add_field( array(
+        'id' => $prefix . 'instagram',
+        'name' => 'Instagram',
+        'type' => 'text_url',
+    ) );
+
+    $social_options->add_field( array(
         'id' => $prefix . 'twitter',
         'name' => 'Twitter',
         'type' => 'text_url',
