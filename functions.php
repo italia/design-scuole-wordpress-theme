@@ -30,7 +30,10 @@ require get_template_directory() . '/inc/theme-dependencies.php';
 /**
  * Implement CMB2 Custom Field Manager
  */
-require get_template_directory() . '/inc/cmb2.php';
+if ( ! function_exists ( 'dsi_get_tipologia_articoli_options' ) ) {
+	require get_template_directory() . '/inc/cmb2.php';
+	require get_template_directory() . '/inc/backend-template.php';
+}
 
 /**
  * Utils functions

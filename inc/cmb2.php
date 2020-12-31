@@ -349,12 +349,6 @@ function dsi_get_tipologia_articoli_options( $query_args = false) {
 }
 
 
-// includo i singoli file di template di backend
-foreach (glob(get_template_directory() ."/inc/admin/*.php") as $filename)
-{
-	require $filename;
-}
-
 /**
  * Rende i campi cmb2 bidirezionali
  * @param $type_from
