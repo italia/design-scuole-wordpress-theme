@@ -498,7 +498,7 @@ function dsi_add_eventi_metaboxes() {
 	) );
 
     $timestamp_inizio = $timestamp_fine = "";
-    if( ( isset($_GET) ) && isset($_GET['post']) & is_numeric($_GET['post']) ) ) {
+    if( ( isset($_GET) ) && isset($_GET['post']) & is_numeric($_GET['post']) ) {
         $post_id = absint($_GET['post']);
         $timestamp_inizio = dsi_get_meta("timestamp_inizio", $prefix, $post_id);
         $timestamp_fine= dsi_get_meta("timestamp_fine", $prefix,$post_id);
