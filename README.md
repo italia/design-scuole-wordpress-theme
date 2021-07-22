@@ -27,8 +27,8 @@ NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono pi�
 In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull. 
 
 #### Supporto tecnico ed editoriale
-E' attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
-E' il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
+È attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
+È il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
 
 Lo potete raggiungere da qui:
 https://developersitalia.slack.com/messages/design-siti-scuole/
@@ -180,7 +180,7 @@ La sezione dei percorsi di studio è dedicata a illustrare l’offerta formativa
 *I documenti*
 
 La sezione dei documenti è quella dedicata a raccogliere i documenti, tipicamente dei file PDF: PTOF, POF, RAV, PAI…..
-In questa sezione vanno caricati anche i documenti che hanno come destinazione l’albo online o la sezione di amministrazione trasparente. I documenti in albo hanno una numerazione progressiva non modificabile e una volta pubblicati possono solo essere annullati. I documenti sono poi richiamabili nei diversi content type del sito, quando necessario. E’ sempre consigliabile creare schede documenti piuttosto che caricare i file direttamente dentro i content type, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca
+In questa sezione vanno caricati anche i documenti che hanno come destinazione l’albo online o la sezione di amministrazione trasparente. I documenti in albo hanno una numerazione progressiva non modificabile e una volta pubblicati possono solo essere annullati. I documenti sono poi richiamabili nei diversi content type del sito, quando necessario. È sempre consigliabile creare schede documenti piuttosto che caricare i file direttamente dentro i content type, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca
 
 *I progetti*
 
@@ -258,11 +258,11 @@ In futuro ci saranno sicuramente fornitori e/o scuole e/o associazioni che svilu
 
 Prima di tutto: cambiare metodo di lavoro richiede sempre uno sforzo aggiuntivo :) 
 Detto ciò, rispetto alla media dei siti scolastici abbiamo osservato che:
-- si fa prima a classificare e organizzare i contenuti (“configurare il tema”). E’ già tutto pronto nella nuova logica “chiavi in mano”;
+- si fa prima a classificare e organizzare i contenuti (“configurare il tema”). È già tutto pronto nella nuova logica “chiavi in mano”;
 - c’è meno lavoro dal punto di vista tecnico, in generale molti aspetti della configurazione di Wordpress saranno già preimpostati;
 - si deve dedicare più tempo a curare i contenuti, per migliorarne la qualità. In particolare i contenuti sono più strutturati, e questa è la chiave per migliorare il tutto. 
 
-E’ solo un esempio ma...se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
+È solo un esempio ma...se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
 
 *Posso fare dei cambiamenti al sito?*
 
