@@ -41,18 +41,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
         $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
+	$indirizzo = dsi_get_meta("indirizzo");
+        $posizione_gps = dsi_get_meta("posizione_gps");
+        $cap = dsi_get_meta("cap");
+        $mail = dsi_get_meta("mail");
+        $telefono = dsi_get_meta("telefono");
+	    
         if($post->post_parent == 0){
-            $indirizzo = dsi_get_meta("indirizzo");
-            $posizione_gps = dsi_get_meta("posizione_gps");
-            $cap = dsi_get_meta("cap");
-            $mail = dsi_get_meta("mail");
-            $telefono = dsi_get_meta("telefono");
+           
         }else{
-            $indirizzo = dsi_get_meta("indirizzo", "_dsi_luogo_", $post->post_parent);
-            $posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $post->post_parent);
-            $cap = dsi_get_meta("cap", "_dsi_luogo_", $post->post_parent);
-            $mail = dsi_get_meta("mail", "_dsi_luogo_", $post->post_parent);
-            $telefono = dsi_get_meta("telefono", "_dsi_luogo_", $post->post_parent);
+	    if(!$indirizzo) $indirizzo = dsi_get_meta("indirizzo", "_dsi_luogo_", $post->post_parent);
+            if(!$posizione_gps) $posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $post->post_parent);
+            if(!$cap) $cap = dsi_get_meta("cap", "_dsi_luogo_", $post->post_parent);
+            if(!$mail) $mail = dsi_get_meta("mail", "_dsi_luogo_", $post->post_parent);
+            if(!$telefono) $telefono = dsi_get_meta("telefono", "_dsi_luogo_", $post->post_parent);
         }
         ?>
 
