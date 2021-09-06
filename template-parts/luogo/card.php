@@ -25,7 +25,7 @@ if($luogo->post_parent == 0){
 	$parent = get_post($luogo->post_parent);
 	$card_title = $parent->post_title;
 	if(!$indirizzo)	$indirizzo = dsi_get_meta("indirizzo", "_dsi_luogo_", $luogo->post_parent);
-	if(!$posizione_gps) $posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $luogo->post_parent);
+	if(!$posizione_gps["lat"] || $posizione_gps["lng"]) $posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $luogo->post_parent);
 	if(!$cap) $cap = dsi_get_meta("cap", "_dsi_luogo_", $luogo->post_parent);
 	if(!$mail) $mail = dsi_get_meta("mail", "_dsi_luogo_", $luogo->post_parent);
 	if(!$telefono) $telefono = dsi_get_meta("telefono", "_dsi_luogo_", $luogo->post_parent);
