@@ -68,7 +68,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                 }
 
                 $locations = array_reverse($locations);
-                $first = array_pop($locations);
+                $first = $locations[0];
             }
             ?>
             <script>
@@ -80,22 +80,25 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
 
                     let marker;
                     <?php
-                    $markers = [];
-                    foreach ($locations as $location) {
-                    $title = $links =[];
-                    foreach ($location as $place) {
-                        if($place['lat'] && $place['lng']) {
-                            $lat = $place['lat'];
-                            $lng = $place['lng'];
-                            $indirizzo = $place['indirizzo'];
+                    if (is_array($locations) && count($locations) > 0) {  
+                        // set markers is $location is not empty
+                        $markers = [];
+                        foreach ($locations as $location) {
+                        $title = $links =[];
+                        foreach ($location as $place) {
+                            if($place['lat'] && $place['lng']) {
+                                $lat = $place['lat'];
+                                $lng = $place['lng'];
+                                $indirizzo = $place['indirizzo'];
+                            }
+                            $title[] = addslashes($place['title']);
+                            $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
                         }
-                        $title[] = addslashes($place['title']);
-                        $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
-                    }
-                    $markers[] = '[' . $lat . "," . $lng . ']'; ?>
-                    marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
-                    marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
-                    <?php
+                        $markers[] = '[' . $lat . "," . $lng . ']'; ?>
+                        marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
+                        marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
+                        <?php
+                        }
                     }?>
 
                     // add the OpenStreetMap tiles
