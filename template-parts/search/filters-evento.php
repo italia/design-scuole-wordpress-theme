@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<aside class="aside-list sticky-sidebar search-results-filters">
+<aside class="aside-list sticky-sidebar search-results-filters pt-3">
     <?php
     if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
 
