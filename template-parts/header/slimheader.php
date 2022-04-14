@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row variable-gutters">
             <div class="col-6">
-                <a href="https://www.miur.gov.it/"><strong>MIUR</strong></a>
+                <a href="https://www.miur.gov.it/" target="_blank" aria-label="MIUR - Collegamento esterno - Apre su nuova scheda">
+                    <strong>MIUR</strong>
+                </a>
             </div><!-- /col-6 -->
             <div class="col-6 header-utils-wrapper">
                 <div class="header-utils">
