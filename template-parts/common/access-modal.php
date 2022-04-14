@@ -24,7 +24,7 @@
                                         foreach ($link_esterni as $item) {
                                             ?>
                                             <a class="btn btn-petrol btn-block btn-lg rounded mb-3"
-                                               href="<?php echo $item["url_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
+                                               href="<?php echo $item["url_link"]; ?>" aria-label="<?php echo $item["nome_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
                                             <?php
                                         }
                                     }
@@ -47,7 +47,7 @@
 
                                         <div class="row variable-gutters mb-4">
                                             <div class="col text-right">
-                                                <p><a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?' ); ?></a></p>
+                                                <p><a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" arial-label="<?php _e( 'Lost your password?' ); ?>"><?php _e( 'Lost your password?' ); ?></a></p>
                                             </div>
                                         </div>
 

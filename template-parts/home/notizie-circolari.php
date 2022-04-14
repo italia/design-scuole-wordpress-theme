@@ -9,8 +9,8 @@ if($ct%2)
 
 <section class="section <?php echo $container_class; ?> py-5">
 	<div class="container">
-		<div class="title-section text-center mb-5">
-			<h3 class="h4"><?php _e("Circolari", "design_scuole_italia"); ?></h3>
+		<div class="title-section mb-5">
+			<h2 class="h4"><?php _e("Circolari", "design_scuole_italia"); ?></h2>
 		</div><!-- /title-large -->
         <div class="owl-carousel carousel-theme carousel-large">
 			<?php

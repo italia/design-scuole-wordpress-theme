@@ -9,7 +9,7 @@ if(is_singular("servizio")){
 		<section class="bg-alert py-2" id="alert">
 			<div class="container">
 				<div class="row variable-gutters">
-					<div class="col d-flex align-items-center">
+					<div class="col d-flex align-items-center justify-content-center">
 						<p class="m-0"><strong><?php echo $desc_stato; ?></strong></p>
 					</div><!-- /col -->
 				</div><!-- /row -->
@@ -27,7 +27,7 @@ if(is_singular("servizio")){
         <section class="bg-alert py-2" id="alert">
             <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col d-flex align-items-center">
+                    <div class="col d-flex align-items-center justify-content-center">
                         <p class="m-0"><strong><?php _e("Documento Annullato", "design_scuole_italia"); ?></strong>
                             <?php
                             if($motivo_annullamento != "")
@@ -44,7 +44,7 @@ if(is_singular("servizio")){
         <section class="bg-alert py-2" id="alert">
             <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col d-flex align-items-center">
+                    <div class="col d-flex align-items-center justify-content-center">
                         <p class="m-0"><strong><?php _e("Documento Scaduto", "design_scuole_italia"); ?></strong></p>
                     </div><!-- /col -->
                 </div><!-- /row -->

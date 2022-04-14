@@ -71,13 +71,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
-                                <div class="aside-title">
-                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                <div class="aside-title" id="project-legend">
+                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="indice della pagina">
                                         <span><?php _e("Indice del progetto", "design_scuole_italia"); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
                                 </div>
-                                <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="project-legend">
                                     <ul class="link-list">
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Presentazione", "design_scuole_italia"); ?>"><?php _e("Presentazione", "design_scuole_italia"); ?></a>

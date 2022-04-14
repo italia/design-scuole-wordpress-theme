@@ -104,13 +104,13 @@ get_header();
                         <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
-                                <div class="aside-title">
-                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                <div class="aside-title" id="page-index">
+                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="indice della pagina">
                                         <span><?php _e("Indice della pagina", "design_scuole_italia"); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
                                 </div>
-                                <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="page-index">
                                     <ul class="link-list">
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
@@ -227,7 +227,7 @@ get_header();
                                             <?php echo wpautop($canale_digitale); ?>
                                             <?php if(trim($canale_digitale_link) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
-                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>"><?php echo $canale_digitale_label; ?></a>
+                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>" aria-label="<?php echo $canale_digitale_label; ?>"><?php echo $canale_digitale_label; ?></a>
                                                 </div>
                                             <?php } ?>
                                         </div><!-- /col-lg-9 -->

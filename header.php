@@ -9,10 +9,6 @@
  * @package Design_Scuole_Italia
  */
 
-function console_log ($output, $msg = "log") {
-    echo '<script> console.log("'. $msg .'",'. json_encode($output) .')</script>';
-};
-
 $theme_locations = get_nav_menu_locations();
 ?>
 <!doctype html>
