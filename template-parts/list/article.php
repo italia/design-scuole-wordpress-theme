@@ -27,7 +27,7 @@ if(!$excerpt)
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <h2 class="h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <p><?php echo $excerpt; ?></p>
             <?php /* if(count($argomenti)) { ?>
                     <div class="badges">
