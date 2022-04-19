@@ -15,10 +15,10 @@ if(count($posts)) {
                     <div class="section-title text-center mb-4">
                         <h2><?php _e("I Progetti", "design_scuole_italia"); ?></h2>
                         <p class="mb-4"><?php _e("Scopri i progetti dell'Istituto", "design_scuole_italia") ?></p>
-                        <div class="clearfix">
+                        <!-- <div class="clearfix">
                             <a class="btn btn-bluelectric" style="min-width: 200px;"
                                href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><?php _e("Scopri", "design_scuole_italia"); ?></a>
-                        </div>
+                        </div> -->
                     </div><!-- /hero-title -->
                 </div><!-- /col -->
             </div><!-- /row -->
