@@ -165,8 +165,8 @@ function dsi_widgets_init() {
 		'description'   => esc_html__( 'Prima colonna a più di pagina.', 'design_scuole_italia' ),
 		'before_widget' => '',
 		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 2', 'design_scuole_italia' ),
@@ -174,7 +174,7 @@ function dsi_widgets_init() {
 		'description'   => esc_html__( 'Seconda colonna a più di pagina.', 'design_scuole_italia' ),
 		'before_widget' => '',
 		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h2 class="h3">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(
@@ -183,7 +183,7 @@ function dsi_widgets_init() {
 		'description'   => esc_html__( 'Terza colonna a più di pagina.', 'design_scuole_italia' ),
 		'before_widget' => '',
 		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h2 class="h3">',
 		'after_title'   => '</h3>',
 	) );
 	register_sidebar( array(
@@ -192,7 +192,7 @@ function dsi_widgets_init() {
 		'description'   => esc_html__( 'Quarta colonna a più di pagina.', 'design_scuole_italia' ),
 		'before_widget' => '',
 		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h2 class="h3">',
 		'after_title'   => '</h3>',
 	) );
 }
