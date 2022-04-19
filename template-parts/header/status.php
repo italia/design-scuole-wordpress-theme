@@ -60,7 +60,7 @@ if(is_singular("servizio")){
             <div class="container">
                 <div class="row variable-gutters">
                     <div class="col d-flex align-items-center">
-                        <p class="m-0"><strong><a class="list-item scroll-anchor-offset" href="#art-par-risultati"><?php _e("Progetto Realizzato", "design_scuole_italia"); ?></a></strong></p>
+                        <p class="m-0"><strong><a class="list-item scroll-anchor-offset" href="#art-par-risultati" aria-label="Vai al paragrafo Risultati"><?php _e("Progetto Realizzato", "design_scuole_italia"); ?></a></strong></p>
                     </div><!-- /col -->
                 </div><!-- /row -->
             </div><!-- /container -->

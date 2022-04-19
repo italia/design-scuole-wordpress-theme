@@ -56,7 +56,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div><!-- /col-lg-5 col-md-8 -->
                         <div class="col-lg-3 col-md-4 offset-lg-1">
                             <?php get_template_part( "template-parts/single/actions" ); ?>
-                            <?php get_template_part( "template-parts/common/badges-argomenti" ); ?>
+                            <?php 
+                                $badgeclass = "badge-outline-redbrown";
+                                get_template_part( "template-parts/common/badges-argomenti" ); ?>
 
                         </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
                     </div><!-- /row -->

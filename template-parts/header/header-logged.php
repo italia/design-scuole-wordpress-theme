@@ -19,14 +19,14 @@ if($last_notification){
 
 ?>
 
-    <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#">
+    <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#" aria-label="toggle menu">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
         </div><!-- /avatar-wrapper -->
     </a>
-    <a class="dropdown-toggle d-none d-xl-flex" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="dropdown-toggle d-none d-xl-flex" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="dropdown toggle">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
         </div><!-- /avatar-wrapper -->
         <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
     </a>
@@ -34,7 +34,7 @@ if($last_notification){
         <div class="menu-user-wrapper">
             <div class="user-details">
                 <div class="avatar-wrapper">
-                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
                 </div><!-- /avatar-wrapper -->
                 <div class="user-details-content">
                     <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>

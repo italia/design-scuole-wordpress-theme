@@ -115,20 +115,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <h4 id="art-par-cosa"><?php _e("Presentazione", "design_scuole_italia"); ?></h4>
-                                        <h6 class="mb-2"><?php _e("Data", "design_scuole_italia"); ?></h6>
+                                        <h3 id="art-par-cosa"><?php _e("Presentazione", "design_scuole_italia"); ?></h3>
+                                        <h4 class="mb-2"><?php _e("Data", "design_scuole_italia"); ?></h4>
                                         <p class="text-bluelectric"><strong><?php echo dsi_get_date_evento($post); ?></strong></p>
                                         <?php
                                         if(trim(get_the_content()) != "") {
                                             ?>
                                             <div class="col-lg-12 px-0 wysiwig-text">
-                                            <h6><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h6>
+                                            <h4><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h4>
                                             <?php the_content(); ?>
                                             </div>
                                             <?php
                                         }
                                         ?>
-                                        <h6><?php _e("Obiettivi", "design_scuole_italia"); ?></h6>
+                                        <h4><?php _e("Obiettivi", "design_scuole_italia"); ?></h4>
 
                                         <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php
@@ -143,7 +143,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 </div><!-- /row -->
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <h6><?php _e( "Luogo", "design_scuole_italia" ); ?></h6>
+                                        <h4><?php _e( "Luogo", "design_scuole_italia" ); ?></h4>
 
                                         <?php
                                         $c = 0;
@@ -165,7 +165,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php
                                 if(is_array($link_strutture)) {
                                     ?>
-                                    <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
+                                    <h4><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced mb-2">
@@ -188,7 +188,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 $partecipanti = dsi_get_meta("partecipanti");
                                 if(trim($partecipanti)){
                                     ?>
-                                    <h6><?php _e( "Partecipanti", "design_scuole_italia" ); ?></h6>
+                                    <h4><?php _e( "Partecipanti", "design_scuole_italia" ); ?></h4>
                                     <div class="row variable-gutters wysiwig-text">
                                         <div class="col-lg-12">
                                             <?php
@@ -207,7 +207,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         $autore = get_user_by("ID", $idutente);
                                         ?>
                                         <div class="card card-bg card-avatar rounded">
-                                            <a href="<?php echo get_author_posts_url($idutente); ?>">
+                                            <a href="<?php echo get_author_posts_url($idutente); ?>" >
                                                 <div class="card-body">
                                                     <?php get_template_part("template-parts/autore/card"); ?>
                                                 </div>
@@ -223,7 +223,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 $classi = dsi_get_meta("classi");
                                 if(is_array($classi) && count($classi)>0) {
                                     ?>
-                                    <h6><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h6>
+                                    <h4><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
 
@@ -242,7 +242,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 $collaborazione = dsi_get_meta("collaborazione");
                                 if(trim($collaborazione) != "") {
                                     ?>
-                                    <h6><?php _e( "In collaborazione con", "design_scuole_italia" ); ?></h6>
+                                    <h4><?php _e( "In collaborazione con", "design_scuole_italia" ); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12 wysiwig-text">
                                             <?php echo wpautop($collaborazione); ?>
@@ -290,7 +290,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 }
                                 ?>
                                 <?php if($link_schede_servizi){ ?>
-                                    <h6><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h6>
+                                    <h4><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h4>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_servizi as $idservizio){

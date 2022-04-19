@@ -143,7 +143,7 @@ $posts = get_posts($args);
                     <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
                         <div class="section-thumb thumb-large mx-3">
                             <?php if($image_url) {
-                                echo "<img src='".$image_url."' />";
+                                echo "<img src='".$image_url."' alt=''/>";
                             } ?>
                         </div><!-- /section-thumb -->
                     </div><!-- /col-lg-2 -->
@@ -162,13 +162,13 @@ $posts = get_posts($args);
                 <div class="row variable-gutters">
                     <div class="col-lg-3 col-md-4 aside-border px-0">
                         <aside class="aside-main aside-sticky">
-                            <div class="aside-title">
+                            <div class="aside-title" id="people-detail" >
                                 <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
                                     <span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
                                     <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small" aria-label="indice della pagina"></use></svg>
                                 </a>
                             </div>
-                            <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                            <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="people-detail">
                                 <ul class="link-list">
                                     <?php if($bio != "") { ?>
                                         <li>
@@ -218,7 +218,7 @@ $posts = get_posts($args);
                     <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
                         <article class="article-wrapper">
                             <?php if($bio != "") { ?>
-                                <h4 id="art-par-bio"><?php _e("Biografia", "design_scuole_italia"); ?></h4>
+                                <h3 id="art-par-bio"><?php _e("Biografia", "design_scuole_italia"); ?></h3>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <p><?php echo $bio; ?></p>

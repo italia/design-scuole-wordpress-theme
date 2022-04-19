@@ -43,9 +43,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <h1 class="h2"><?php the_title(); ?></h1>
                                 <h2 class="d-none"><?php echo get_post_type(); ?></h2>
 
-                                <h3 class="text-greendark mb-3"><?php echo dsi_get_date_evento($post); ?></h3>
+                                <div class="h3 text-greendark mb-3"><?php echo dsi_get_date_evento($post); ?></div>
                                 <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p>
-								<?php get_template_part("template-parts/common/badges-argomenti"); ?>
+								<?php 
+                                $badgeclass = "badge-outline-greendark";
+                                get_template_part("template-parts/common/badges-argomenti"); ?>
 								<?php
 								$link_schede_notizia = dsi_get_meta("link_schede_notizia");
 								if(is_array($link_schede_notizia) && count($link_schede_notizia) > 0){
@@ -74,13 +76,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 aside-border px-0">
                             <aside class="aside-main aside-sticky">
-                                <div class="aside-title">
+                                <div class="aside-title" id="event-legend">>
                                     <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="indice della pagina">
                                         <span><?php _e("Indice dell'evento", "design_scuole_italia"); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
                                 </div>
-                                <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="event-legend">
                                     <ul class="link-list">
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-cosa" title="Vai al paragrafo <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
@@ -116,7 +118,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div>
                         <div class="main-content col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
-                                <h4 id="art-par-cosa"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
+                                <h2 id="art-par-cosa" class="h4"><?php _e("Cos'è", "design_scuole_italia"); ?></h2>
                                 <div class="col-lg-12 px-0 wysiwig-text">
                                 <?php the_content(); ?>
                                 </div>
@@ -141,7 +143,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 										<?php echo wp_oembed_get ($video); ?>
                                     </div>
 								<?php } ?>
-                                <h5  class="h6"><?php _e("Destinatari", "design_scuole_italia"); ?></h5>
+                                <h3  class="h6"><?php _e("Destinatari", "design_scuole_italia"); ?></h3>
 								<?php
 								$descrizione_destinatari = dsi_get_meta("descrizione_destinatari");
 								echo wpautop($descrizione_destinatari);
@@ -152,7 +154,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 if(is_array($persone_amministrazione)) {
 
                                     ?>
-                                    <h5  class="h6"><?php _e("Parteciperanno", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Parteciperanno", "design_scuole_italia"); ?></h3>
 
                                     <div class="card-deck card-deck-spaced mb-2">
                                         <?php
@@ -176,7 +178,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 if((is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) || ($nome_luogo_custom != "" )) {
                                     ?>
 
-                                    <h4 id="art-par-luogo"><?php _e("Luogo", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-luogo"><?php _e("Luogo", "design_scuole_italia"); ?></h2>
 
                                     <?php
                                     $c = 0;
@@ -195,7 +197,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php
                                 if($date) {
                                     ?>
-                                    <h4 id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4"  id="art-par-date"><?php _e("Date e Orari", "design_scuole_italia"); ?></h2>
                                     <div class="calendar-vertical mb-5">
                                         <?php
 
@@ -264,7 +266,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php
                                 }
 								?>
-                                <h4 id="art-par-costi"><?php _e("Costi", "design_scuole_italia"); ?></h4>
+                                <h2 class="h4" id="art-par-costi"><?php _e("Costi", "design_scuole_italia"); ?></h2>
 								<?php
 								$tipo_evento = dsi_get_meta("tipo_evento");
 								$prezzo = dsi_get_meta("prezzo");
@@ -289,13 +291,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 								}
 								?>
 
-                                <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
+                                <h2 class="h4"  id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h2>
 								<?php
 								$organizzato_da_scuola = dsi_get_meta("organizzato_da_scuola");
 								$link_struttura = dsi_get_meta("link_struttura_organizzativa");
 								if($organizzato_da_scuola == "si") {
 									?>
-                                    <h5  class="h6"><?php _e( "Organizzato da", "design_scuole_italia" ); ?></h6>
+                                    <div  class="h6"><?php _e( "Organizzato da", "design_scuole_italia" ); ?></div>
                                     <div class="card-deck card-deck-spaced">
 										<?php
 										global $icon_color, $second_icon_color;
@@ -347,8 +349,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php } ?>
 
 								<?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
-                                    <h4 id="art-par-altro"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
-                                    <h5  class="h6"><?php _e("Documenti", "design_scuole_italia"); ?></>
+                                    <h2 class="h4" id="art-par-altro"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
+                                    <div  class="h6"><?php _e("Documenti", "design_scuole_italia"); ?></div>
                                     <div class="card-deck card-deck-spaced">
 										<?php
 										if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
