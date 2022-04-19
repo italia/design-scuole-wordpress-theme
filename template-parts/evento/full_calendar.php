@@ -16,7 +16,7 @@
 				<% }); %>
 			</div>
 			<% _.each(days, function(day) { %>
-			<div class="<%= day.classes %>"><a title="<%= day.title %>" href="<?php echo get_post_type_archive_link("evento"); ?>?date=<%= moment(day.date).format('D-MM-YYYY') %> "><%= day.day %></a></div>
+			<div aria-label="link to <%= moment(day.date).format('D-MM-YYYY') %> events" class="<%= day.classes %>"><a title="<%= day.title %>" href="<?php echo get_post_type_archive_link("evento"); ?>?date=<%= moment(day.date).format('D-MM-YYYY') %> "><%= day.day %></a></div>
 			<% }); %>
 		</div>
 	</div>
