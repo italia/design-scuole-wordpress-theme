@@ -175,7 +175,7 @@ function dsi_widgets_init() {
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h3>',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 3', 'design_scuole_italia' ),
@@ -184,7 +184,7 @@ function dsi_widgets_init() {
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h3>',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 4', 'design_scuole_italia' ),
@@ -193,7 +193,7 @@ function dsi_widgets_init() {
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h3>',
+		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'dsi_widgets_init' );
