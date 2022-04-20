@@ -8,7 +8,7 @@
  */
 
 get_header();
-global $luogo;
+global $luogo, $tipologia_luogo;
 $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? true : false;
 ?>
     <main id="main-container" class="main-container redbrown">

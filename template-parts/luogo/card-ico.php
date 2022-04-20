@@ -1,5 +1,5 @@
 <?php
-global $luogo, $struttura, $c, $locations;
+global $luogo, $tipologia_luogo, $struttura, $c, $locations;
 $card_title = $luogo->post_title;
 $id = 0;
 // controllo se è un parent, in caso recupero i dati del genitore
@@ -31,7 +31,7 @@ $locations[$id][] = [
 ];
 ?>
 <div class="card card-bg card-icon rounded mb-3">
-    <a href="<?php echo get_permalink($luogo); ?>">
+    <a href="<?php echo get_permalink($luogo); ?>" aria-label="<?php echo 'Vedi scheda per ' .$tipologia_luogo->name . ' ' . $luogo->post_title .'' ?>">
         <div class="card-body">
             <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
             <div class="card-icon-content">
