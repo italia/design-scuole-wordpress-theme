@@ -7,6 +7,29 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $struttura, $gallery;
+$argomenti = dsi_get_argomenti_of_post();
+if(count($argomenti)) {
+	// estraggo gli id
+	$arr_ids = array();
+	foreach ( $argomenti as $item ) {
+		$arr_ids[] = $item->term_id;
+	}
+	// recupero articoli, eventi e circolari collegati agli argomenti del post
+	$posts_array = get_posts(
+		array(
+			'posts_per_page' => 6,
+			'post_type'      => array( "scheda_progetto"),
+			'post__not_in'   => array( $post->ID ),
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'post_tag',
+					'field'    => 'term_id',
+					'terms'    => $arr_ids,
+				)
+			)
+		)
+	);
+}
 get_header();
 
 $is_luogo_scuola = dsi_get_meta("is_luogo_scuola");
@@ -102,6 +125,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <?php
                                         }
                                         ?>
+                                        <?php if ( count( $posts_array ) )  {   ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
+                                                   title="Vai al paragrafo <?php _e("Schede progetto correlate", "design_scuole_italia"); ?>"><?php _e("Schede progetto correlate", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
 
                                     </ul>
                                 </div>
