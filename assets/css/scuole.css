@@ -9605,6 +9605,13 @@ h4,
   margin: 0 0 15px 0;
 }
 
+.badges-wrapper h2,
+.badges-wrapper .h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+
 @media (max-width: 767.98px) {
   .badges-wrapper.badges-main {
     padding-left: 15px;
@@ -15285,6 +15292,17 @@ button.icon-text {
   display: block;
 }
 
+.header-utils-sticky button.icon-text {
+  color: #455b71;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.header-utils-sticky .icon-wrapper {
+  padding: 0;
+}
+
 #pre-header {
   height: 40px;
   padding: 0;
@@ -17093,12 +17111,12 @@ button.icon-text {
   font-size: 1.13rem;
 }
 
-.footer-list {
+.footer-list ul {
   padding: 0;
   list-style: none;
 }
 
-.footer-list li {
+.footer-list ul li {
   margin: 0 0 0 0;
 }
 
@@ -19628,4 +19646,29 @@ button.icon-text {
 
 .resource-section h2 {
   color: #455b71;
+}
+
+.project-card-title {
+  display: inline-block;
+}
+
+.project-card-title:hover {
+  text-decoration: underline !important;
+}
+
+.presentation-card-link:hover {
+  text-decoration: none;
+}
+
+.presentation-card-link:hover h2 {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.presentation-card-link {
+  display: block;
+}
+
+.card.card-bg a:not(.badge):hover {
+  opacity: 1;
 }

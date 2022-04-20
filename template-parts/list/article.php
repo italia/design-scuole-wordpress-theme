@@ -14,6 +14,7 @@ if(!$excerpt)
 
 ?>
 
+<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
     <div class="card-body">
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
@@ -27,7 +28,7 @@ if(!$excerpt)
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h2 class="h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="h3"><<?php the_title(); ?></h2>
             <p><?php echo $excerpt; ?></p>
             <?php /* if(count($argomenti)) { ?>
                     <div class="badges">
@@ -40,3 +41,4 @@ if(!$excerpt)
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
+</a>
