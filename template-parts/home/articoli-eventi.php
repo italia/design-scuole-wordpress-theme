@@ -26,7 +26,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             ?>
             <div class="col-lg-<?php echo $lg; ?>">
                 <div class="title-section pb-4">
-                    <h3 class="h2"><?php echo $tipologia_notizia->name; ?></h3>
+                    <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
                 <?php
@@ -74,7 +74,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         <div class="col-lg-4">
 
         <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>">
-            <h3 class="h2"><?php _e("Eventi", "design_scuole_italia"); ?></h3>
+            <h2><?php _e("Eventi", "design_scuole_italia"); ?></h2>
         </div><!-- /title-section -->
 
         <?php
