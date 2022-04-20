@@ -7,6 +7,30 @@
  * @package Design_Scuole_Italia
  */
 global $post, $documento, $servizio,  $autore, $struttura;
+$argomenti = dsi_get_argomenti_of_post();
+if(count($argomenti)) {
+	// estraggo gli id
+	$arr_ids = array();
+	foreach ( $argomenti as $item ) {
+		$arr_ids[] = $item->term_id;
+	}
+	// recupero articoli, eventi e circolari collegati agli argomenti del post
+    $posts_array = get_posts(
+        array(
+            'posts_per_page' => 6,
+            'post_type'      => array( "post", "events", "circolari" ),
+            'post__not_in'   => array( $post->ID ),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field'    => 'term_id',
+                    'terms'    => $arr_ids,
+                )
+            )
+        )
+    );
+}
+console_log($posts_array);
 
 $luogo = $post;
 get_header();
@@ -145,6 +169,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php if(is_array($gallery) && count($gallery) > 0){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-galleria" title="Vai al paragrafo <?php _e("Galleria", "design_scuole_italia"); ?>"><?php _e("Galleria", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ( count( $posts_array ) )  {   ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
+                                                title="Vai al paragrafo <?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?>"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                     </ul>

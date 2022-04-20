@@ -18,13 +18,13 @@ $autore = get_user_by("ID", $post->post_author);
         <div class="row variable-gutters">
             <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">
                 <div class="section-thumb mx-3">
-                    <img src="<?php echo $image_url; ?>">
+                    <img src="<?php echo $image_url; ?>" alt="">
                 </div><!-- /section-thumb -->
             </div><!-- /col-lg-2 -->
             <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                 <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
                 <div class="section-title">
-                    <h1><?php the_title(); ?></h1>
+                    <h1 class="h2"><?php the_title(); ?></h1>
                     <p><?php echo dsi_get_meta("descrizione"); ?></p>
                 </div><!-- /title-section -->
             </div><!-- /col-lg-5 col-md-8 -->
