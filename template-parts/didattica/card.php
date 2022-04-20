@@ -10,7 +10,7 @@ if(!$image_url)
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
-            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>"></a>
+            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>" alt=""></a>
             <?php } ?>
         </div><!-- /card-thumb -->
 
