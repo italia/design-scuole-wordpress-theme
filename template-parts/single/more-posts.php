@@ -2,7 +2,7 @@
 /**
  * Box correlati per tassonomia argomento
  */
-global $post, $related_type;
+global $post, $related_type, $posts_array;
 if(!$related_type)
     $related_type = "card-vertical-thumb";
 $oldpost = $post;
@@ -19,13 +19,13 @@ if(count($argomenti)) {
 			'posts_per_page' => 6,
 			'post_type'      => array( "post", "events", "circolari" ),
 			'post__not_in'   => array( $post->ID ),
-			'tax_query'      => array(
-				array(
-					'taxonomy' => 'post_tag',
-					'field'    => 'term_id',
-					'terms'    => $arr_ids,
-				)
-			)
+			// 'tax_query'      => array(
+			// 	array(
+			// 		'taxonomy' => 'post_tag',
+			// 		'field'    => 'term_id',
+			// 		'terms'    => $arr_ids,
+			// 	)
+			// )
 		)
 	);
 
