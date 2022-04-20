@@ -29,7 +29,7 @@ if(count($argomenti)) {
 		)
 	);
 
-
+	
 	if ( count( $posts_array ) ) { ?>
 		<section class="section bg-gray-gradient py-5" id="art-par-correlati">
 		<div class="container pt-3">
@@ -37,7 +37,7 @@ if(count($argomenti)) {
 			<div class="row variable-gutters">
 				<div class="col-lg-12">
 
-					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></h3>
+					<h2 class="h3 mb-5 text-center semi-bold text-gray-primary"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></h2>
 
 					<div class="owl-carousel carousel-theme carousel-large">
 						<?php

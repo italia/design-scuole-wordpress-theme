@@ -66,12 +66,12 @@ if(is_singular()){
                                 </a>
                             </li>
                             <li>
-                                <a class="list-item collapsed link-toggle" title="<?php _e("Condividi", "design_scuole_italia"); ?>" href="#social-share" data-toggle="collapse" aria-expanded="false" aria-controls="social-share">
+                                <a class="list-item collapsed link-toggle" title="<?php _e("Condividi", "design_scuole_italia"); ?>" href="#social-share" data-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button"id="share-control"> 
                                     <svg class="icon it-share"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-share"></use></svg>
                                     <span><?php _e("Condividi", "design_scuole_italia"); ?></span>
                                     <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                 </a>
-                                <ul class="link-sublist collapse" id="social-share">
+                                <ul class="link-sublist collapse" id="social-share" role="region" aria-labelledby="share-control">
                                     <li>
                                         <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($current_uri); ?>" title="<?php _e("Condividi su", "design_scuole_italia"); ?>: Facebook" target="_blank">
                                             <svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg>

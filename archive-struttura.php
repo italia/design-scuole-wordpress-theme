@@ -39,7 +39,7 @@ get_header();
                     <section class="section <?php echo $classcolor; ?> py-4">
                         <div class="container">
                             <?php if($haschild){ // adotto la struttura a 2 colonne ?>
-                                <div class="title-section text-center mb-5">
+                                <div class="title-section mb-5">
                                     <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
                                     </h3>
                                 </div><!-- /title-large -->
@@ -80,7 +80,7 @@ get_header();
                                 if (is_array($strutture) && count($strutture) > 0) {
                                     ?>
 
-                                    <div class="title-section text-center mb-5">
+                                    <div class="title-section mb-5">
                                         <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
                                         </h3>
                                     </div><!-- /title-large -->
@@ -91,12 +91,8 @@ get_header();
                                             <div class="row variable-gutters">
                                                 <?php
                                                 foreach ($strutture as $struttura) {
-                                                    $offset="";
-                                                    if(count($strutture) == 1)
-                                                        $offset = "offset-lg-4";
-
                                                     ?>
-                                                    <div class="col-lg-4  <?php echo $offset; ?> mb-4">
+                                                    <div class="col-lg-4 mb-4">
                                                         <?php get_template_part("template-parts/struttura/card"); ?>
                                                     </div><!-- /col-lg-4 -->
                                                     <?php

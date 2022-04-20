@@ -255,6 +255,8 @@ function dsi_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dsi_scripts' );
 
-
+function console_log ($output, $msg = "log") {
+    echo '<script> console.log("'. $msg .'",'. json_encode($output) .')</script>';
+};
 
 

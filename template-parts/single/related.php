@@ -80,7 +80,7 @@ if(count($argomenti)) {
 							foreach ( $argomenti as $item ) { ?>
 								<a href="<?php echo get_term_link( $item ); ?>"
 								   title="<?php _e( "Vai all'argomento", "design_scuole_italia" ); ?>: <?php echo $item->name; ?>"
-								   class="badge badge-sm badge-pill badge-outline-gray-primary"><?php echo $item->name; ?></a>
+								   class="badge badge-sm badge-pill badge-outline-gray-primary" ><?php echo $item->name; ?></a>
 							<?php } ?>
 						</div><!-- /badges -->
 					</div><!-- /badges-wrapper -->
@@ -103,7 +103,7 @@ if(count($argomenti)) {
 												<ul>
 													<?php
 													foreach ( $servizi_array as $item ) {
-														echo '<li><a href="'.get_permalink($item).'">'.get_the_title($item).'</a></li>';
+														echo '<li><a href="'.get_permalink($item).'" aria-label="'.get_the_title($item).'">'.get_the_title($item).'</a></li>';
 													}
 													?>
 												</ul>
@@ -128,7 +128,7 @@ if(count($argomenti)) {
 												<ul>
 													<?php
 													foreach ( $posts_array as $item ) {
-														echo '<li><a href="'.get_permalink($item).'">'.get_the_title($item).'</a></li>';
+														echo '<li><a href="'.get_permalink($item).'" aria-label="'.get_the_title($item).'">'.get_the_title($item).'</a></li>';
 													}
 													?>
 												</ul>
@@ -154,7 +154,7 @@ if(count($argomenti)) {
 												<ul>
 													<?php
 													foreach ( $documenti_array as $item ) {
-														echo '<li><a href="'.get_permalink($item).'">'.get_the_title($item).'</a></li>';
+														echo '<li><a href="'.get_permalink($item).'" aria-label="'.get_the_title($item).'">'.get_the_title($item).'</a></li>';
 													}
 													?>
 												</ul>

@@ -19,14 +19,14 @@ if($last_notification){
 
 ?>
 
-    <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#">
+    <a class="toggle-user-menu-mobile toggle-menu menu-right push-body d-xl-none" href="#" aria-label="toggle menu">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
         </div><!-- /avatar-wrapper -->
     </a>
-    <a class="dropdown-toggle d-none d-xl-flex" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="dropdown-toggle d-none d-xl-flex" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="dropdown toggle">
         <div class="avatar-wrapper">
-            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+            <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
         </div><!-- /avatar-wrapper -->
         <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
     </a>
@@ -34,18 +34,18 @@ if($last_notification){
         <div class="menu-user-wrapper">
             <div class="user-details">
                 <div class="avatar-wrapper">
-                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>" alt="avatar">
+                    <img src="<?php echo dsi_get_user_avatar($current_user); ?>" aria-label="img-avatar" alt="img-avatar">
                 </div><!-- /avatar-wrapper -->
                 <div class="user-details-content">
                     <p><strong><?php echo dsi_get_display_name($current_user->ID); ?></strong></p>
                     <p><?php echo dsi_get_user_role($current_user); ?></p>
-                    <a class="btn btn-action btn-xs" href="<?php echo admin_url(); ?>">Crea e gestisci</a>
+                    <a class="btn btn-action btn-xs" href="<?php echo admin_url(); ?>" aria-label="Crea e gestisci">Crea e gestisci</a>
                 </div>
             </div><!-- /user-details -->
             <div class="menu-user-list">
                 <ul>
                     <li class="active">
-                        <a href="<?php echo admin_url(); ?>">
+                        <a href="<?php echo admin_url(); ?>" aria-label="area personale">
                             <span><?php _e("Area personale", "design_scuole_italia"); ?></span>
                             <svg class="svg-home-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-home-solid"></use></svg>
                         </a>
@@ -54,7 +54,7 @@ if($last_notification){
                     if($last_notification) {
                         ?>
                         <li class="has-notifications">
-                            <a href="<?php echo $link_notification; ?>">
+                            <a href="<?php echo $link_notification; ?>" aria-label="notifiche">
                                 <span><?php _e("Notifiche", "design_scuole_italia"); ?></span>
                                 <svg class="svg-bell-solid">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell-solid"></use>
@@ -65,21 +65,21 @@ if($last_notification){
                     }
                     ?>
                     <li>
-                        <a href="<?php echo get_author_posts_url($current_user->ID); ?>">
-                            <span><?php _e("Profilo Pubblico", "design_scuole_italia"); ?></span>
-                            <svg class="svg-user-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-user-solid"></use></svg>
+                        <a href="<?php echo get_edit_profile_url(); ?>" aria-label="preferiti">
+                            <span><?php _e("Modifica Profilo", "design_scuole_italia"); ?></span>
+                            <svg class="svg-bookmark-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bookmark-solid"></use></svg>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo get_edit_profile_url(); ?>">
-                            <span><?php _e("Modifica Profilo", "design_scuole_italia"); ?></span>
-                            <svg class="svg-bookmark-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bookmark-solid"></use></svg>
+                        <a href="<?php echo get_author_posts_url($current_user->ID); ?>" aria-label="impostazioni profilo">
+                            <span><?php _e("Profilo Pubblico", "design_scuole_italia"); ?></span>
+                            <svg class="svg-user-solid"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-user-solid"></use></svg>
                         </a>
                     </li>
                 </ul>
             </div><!-- /menu-user-list -->
             <div class="menu-user-bottom">
-                <a href="<?php echo wp_logout_url(); ?>">
+                <a href="<?php echo wp_logout_url(); ?>" aria-label="esci">
                     <span><?php _e("Esci", "design_scuole_italia"); ?></span>
                     <svg class="svg-exit"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-exit"></use></svg>
                 </a>
