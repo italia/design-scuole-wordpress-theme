@@ -26,7 +26,7 @@ if(count($posts)) {
     </section>
 
     <div class="container position-relative slided-top">
-        <div class="row variable-gutters mb-4">
+        <div class="row variable-gutters pb-5">
             <?php
 
             foreach ($posts as $progetto) { ?>
@@ -36,7 +36,7 @@ if(count($posts)) {
             <?php } ?>
         </div><!-- /row -->
     </div><!-- /row -->
-    <div class="pb-5 text-center">
+    <div class="pb-5 text-center mt-4">
         <a class="text-underline"
            href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><strong><?php _e("Vedi tutti i progetti", "design_scuole_italia"); ?></strong></a>
     </div>
