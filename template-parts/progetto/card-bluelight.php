@@ -8,8 +8,8 @@ $post = $progetto;
         <div class="card-body">
             <a href="<?php echo get_permalink($progetto); ?>">
                 <div class="card-content">
-                    <h3 class="mb-0"><?php echo $progetto->post_title; ?></h3>
-                    <p class="mb-4"><?php  echo dsi_get_meta("descrizione" , '_dsi_scheda_progetto_', $progetto->ID); ?></p>
+                    <a class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
+                    <p class="mb-4 mt-3"><?php  echo dsi_get_meta("descrizione" , '_dsi_scheda_progetto_', $progetto->ID); ?></p>
                 </div>
             </a>
         </div><!-- /card-body -->
