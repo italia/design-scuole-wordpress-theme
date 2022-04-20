@@ -12,8 +12,8 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
             <div class="col">
                 <div class="responsive-tabs-wrapper padding-top-200">
                     <div class="title-large">
-                        <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
-                        <div class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></div>
+                        <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
+                        <h2 class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></h2>
                     </div><!-- /title-large -->
                     <div class="title-small">
                         <div class="h5"><?php _e("L'Istituto", "design_scuole_italia"); ?></div>
