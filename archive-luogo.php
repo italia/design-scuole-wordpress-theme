@@ -32,13 +32,13 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                                 $luoghi = get_posts("post_type=luogo&tipologia-luogo=" . $tipologia_luogo->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
                                 if (is_array($luoghi) && count($luoghi) > 0) {
                                     ?>
-                                    <h3>
+                                    <h2 class="h3">
                                     <?php if (count($luoghi) > 1) {
                                         echo dsi_pluralize_string($tipologia_luogo->name);
                                     } else {
                                         echo $tipologia_luogo->name;
                                     } ?>
-                                    </h3>
+                                    </h2>
                                     <?php
                                     foreach ($luoghi as $luogo) {
                                         get_template_part("template-parts/luogo/card", "ico");
