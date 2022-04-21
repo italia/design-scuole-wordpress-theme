@@ -1,6 +1,6 @@
 <?php
 
-global $calendar_card;
+// global $calendar_card;
 
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
@@ -91,8 +91,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 get_template_part("template-parts/evento/card");
             }
         }else {
-            $calendar_card = true;
-            get_template_part("template-parts/evento/full_calendar");
+            // $calendar_card = true;
+            // get_template_part("template-parts/evento/full_calendar");
         }
 
     ?>

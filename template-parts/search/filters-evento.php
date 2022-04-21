@@ -6,7 +6,7 @@
     if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
 
     }else{
-        get_template_part("template-parts/evento/full_calendar");
+        // get_template_part("template-parts/evento/full_calendar");
     }
 
 
