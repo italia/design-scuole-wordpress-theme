@@ -5,7 +5,7 @@
     ?>
     <div class="card card-bg card-event bg-white card-thumb-rounded">
         <div class="card-body">
-    <?
+    <?php
     }
 ?>
     <div class="mini-clndr" id="mini-clndr"></div>
