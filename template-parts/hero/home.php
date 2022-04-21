@@ -33,7 +33,7 @@ if($img_identita == ""){
     <div class="container">
         <div class="row variable-gutters">
             <div class="col-md-<?php echo $colid; ?>">
-                <div class="hero-title pt-4 pb-4">
+                <div class="hero-title">
                     <div class="text-white font-weight-normal h4"><?php echo dsi_get_option("tipologia_scuola"); ?> </div>
                     <h1><span class="d-line d-xl-block"><?php echo dsi_get_option("nome_scuola"); ?></span> </h1>
                     <h2 class="text-white font-weight-normal h3"><?php echo dsi_get_option("luogo_scuola"); ?></h2>

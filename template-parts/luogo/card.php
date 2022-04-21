@@ -115,7 +115,7 @@ if(isset($struttura->ID)){
 											<span><?php _e( "Email", "design_scuole_italia" ); ?></span>
 										</div>
 										<div class="location-content">
-											<p><a href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></p>
+											<p><a href="mailto:<?php echo $mail; ?>" aria-label="email"><?php echo $mail; ?></a></p>
 										</div>
 									</li>
 								<?php } ?>
@@ -125,7 +125,7 @@ if(isset($struttura->ID)){
 											<span><?php _e( "PEC", "design_scuole_italia" ); ?></span>
 										</div>
 										<div class="location-content">
-											<p><a href="mailto:<?php echo $pec; ?>"><?php echo $pec; ?></a></p>
+											<p><a href="mailto:<?php echo $pec; ?>" aria-label="pec"><?php echo $pec; ?></a></p>
 										</div>
 									</li>
 								<?php } ?>

@@ -8,7 +8,7 @@ if(is_array($tipologie) && count($tipologie) > 0){
 }
 ?>
 <div class="card card-bg card-icon-main rounded">
-	<a href="<?php echo get_permalink($struttura); ?>" aria-describedby="card-desc-<?php echo $struttura->ID; ?>">
+	<a href="<?php echo get_permalink($struttura); ?>" aria-describedby="card-desc-<?php echo $struttura->ID; ?>" aria label="Apre link: <?php echo $struttura->post_title; ?>">
 		<div class="card-body">
 			<?php get_template_part("template-parts/svg/icona",$tipologia); ?>
 			<div class="card-icon-content"  id="card-desc-<?php echo $struttura->ID; ?>">

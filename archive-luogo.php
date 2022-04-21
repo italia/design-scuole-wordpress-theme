@@ -8,7 +8,7 @@
  */
 
 get_header();
-global $luogo;
+global $luogo, $tipologia_luogo;
 $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? true : false;
 ?>
     <main id="main-container" class="main-container redbrown">
@@ -32,13 +32,13 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                                 $luoghi = get_posts("post_type=luogo&tipologia-luogo=" . $tipologia_luogo->slug . "&posts_per_page=-1&orderby=post_parent&order=ASC");
                                 if (is_array($luoghi) && count($luoghi) > 0) {
                                     ?>
-                                    <h3>
+                                    <h2 class="h3">
                                     <?php if (count($luoghi) > 1) {
                                         echo dsi_pluralize_string($tipologia_luogo->name);
                                     } else {
                                         echo $tipologia_luogo->name;
                                     } ?>
-                                    </h3>
+                                    </h2>
                                     <?php
                                     foreach ($luoghi as $luogo) {
                                         get_template_part("template-parts/luogo/card", "ico");
@@ -68,7 +68,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                 }
 
                 $locations = array_reverse($locations);
-                $first = array_pop($locations);
+                $first = $locations[0];
             }
             ?>
             <script>
@@ -80,22 +80,25 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
 
                     let marker;
                     <?php
-                    $markers = [];
-                    foreach ($locations as $location) {
-                    $title = $links =[];
-                    foreach ($location as $place) {
-                        if($place['lat'] && $place['lng']) {
-                            $lat = $place['lat'];
-                            $lng = $place['lng'];
-                            $indirizzo = $place['indirizzo'];
+                    if (is_array($locations) && count($locations) > 0) {  
+                        // set markers is $location is not empty
+                        $markers = [];
+                        foreach ($locations as $location) {
+                        $title = $links =[];
+                        foreach ($location as $place) {
+                            if($place['lat'] && $place['lng']) {
+                                $lat = $place['lat'];
+                                $lng = $place['lng'];
+                                $indirizzo = $place['indirizzo'];
+                            }
+                            $title[] = addslashes($place['title']);
+                            $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
                         }
-                        $title[] = addslashes($place['title']);
-                        $links[] = '<b><a href="'.$place['permalink'].'">'.addslashes($place['title']).'</a></b>';
-                    }
-                    $markers[] = '[' . $lat . "," . $lng . ']'; ?>
-                    marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
-                    marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
-                    <?php
+                        $markers[] = '[' . $lat . "," . $lng . ']'; ?>
+                        marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>, {title: '<?php echo implode("-", $title); ?>'}]).addTo(mymap);
+                        marker.bindPopup('<?php echo implode(", ", $links) ?><br><?php echo addslashes($indirizzo); ?>');
+                        <?php
+                        }
                     }?>
 
                     // add the OpenStreetMap tiles

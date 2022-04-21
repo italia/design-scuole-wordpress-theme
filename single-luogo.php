@@ -7,6 +7,30 @@
  * @package Design_Scuole_Italia
  */
 global $post, $documento, $servizio,  $autore, $struttura;
+$argomenti = dsi_get_argomenti_of_post();
+if(count($argomenti)) {
+	// estraggo gli id
+	$arr_ids = array();
+	foreach ( $argomenti as $item ) {
+		$arr_ids[] = $item->term_id;
+	}
+	// recupero articoli, eventi e circolari collegati agli argomenti del post
+    $posts_array = get_posts(
+        array(
+            'posts_per_page' => 6,
+            'post_type'      => array( "post", "events", "circolari" ),
+            'post__not_in'   => array( $post->ID ),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field'    => 'term_id',
+                    'terms'    => $arr_ids,
+                )
+            )
+        )
+    );
+}
+console_log($posts_array);
 
 $luogo = $post;
 get_header();
@@ -74,7 +98,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <div class="title-content">
                                 <h1><?php the_title(); ?></h1>
                                 <p class="mb-0"><?php echo $descrizione_breve; ?></p>
-                                <?php get_template_part("template-parts/common/badges-argomenti"); ?>
+                                <?php 
+                                $badgeclass = "badge-outline-redbrown";
+                                get_template_part("template-parts/common/badges-argomenti"); ?>
                             </div><!-- /title-content -->
                         </div><!-- /col-md-6 -->
                     </div><!-- /row -->
@@ -86,13 +112,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     <div class="row variable-gutters">
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
-                                <div class="aside-title">
-                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                <div class="aside-title" id="place-detail">
+                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="indice della pagina">
                                         <span><?php _e("Dettagli del luogo", "design_scuole_italia"); ?> <?php the_title(); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
                                 </div>
-                                <div id="lista-paragrafi" class="link-list-wrapper collapse show">
+                                <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="place-detail">
                                     <ul class="link-list">
                                         <?php if($video){ ?>
                                             <li>
@@ -143,6 +169,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php if(is_array($gallery) && count($gallery) > 0){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-galleria" title="Vai al paragrafo <?php _e("Galleria", "design_scuole_italia"); ?>"><?php _e("Galleria", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
+                                        <?php if ( count( $posts_array ) )  {   ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
+                                                title="Vai al paragrafo <?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?>"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                     </ul>

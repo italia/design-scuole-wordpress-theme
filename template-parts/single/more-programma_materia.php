@@ -37,7 +37,7 @@ if(count($argomenti)) {
 			<div class="row variable-gutters">
 				<div class="col-lg-12">
 
-					<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?></h3>
+					<h2 class="h3 mb-5 text-center semi-bold text-gray-primary"><?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?></h2>
 
 					<div class="owl-carousel carousel-theme carousel-large">
 						<?php

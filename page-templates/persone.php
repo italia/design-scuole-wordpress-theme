@@ -36,14 +36,14 @@ get_header();
                     <section class="section <?php echo $classcolor; ?> py-5">
                         <div class="container">
                             <div class="title-section text-center mb-5">
-                                <h3 class="h4"><a
+                                <h2 class="h4"><a
                                             href="<?php echo get_permalink($struttura); ?>"><?php echo $struttura->post_title; ?></a>
-                                </h3>
+                                </h2>
                             </div><!-- /title-large -->
                             <?php if (is_array($responsabile) && count($responsabile) > 0) { ?>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-3">
-                                        <h4 class="text-lg-right mb-3"><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
+                                        <h3 class="text-lg-right mb-3"><?php _e("Responsabile", "design_scuole_italia"); ?></h3>
                                     </div><!-- /col-lg-3 -->
                                     <div class="col-lg-9">
                                         <div class="row variable-gutters">

@@ -53,9 +53,9 @@ global $struttura;
 				?>
 			</div><!-- /col-md-5 -->
 		</div><!-- /row -->
-        <div class="row variable-gutters">
-            <div class="col-lg-12">
-                <a class="btn btn-block btn-white rounded mb-3 mb-lg-0" href="<?php echo get_post_type_archive_link("struttura"); ?>"><?php _e("Tutta l’organizzazione", "design_scuole_italia"); ?></a>
+        <div class="row variable-gutters my-5">
+            <div class="col d-flex justify-content-center">
+                <a class="btn btn-white rounded mb-3 mb-lg-0" href="<?php echo get_post_type_archive_link("struttura"); ?>"><?php _e("Tutta l’organizzazione", "design_scuole_italia"); ?></a>
             </div><!-- /col-lg-4 -->
         </div><!-- /row -->
 	</div><!-- /container -->

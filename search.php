@@ -84,6 +84,8 @@ get_header();
 								the_post();
 								get_template_part( 'template-parts/list/article', get_post_type() );
 
+                                console_log(get_post_Type());
+
 							endwhile;
 							?>
                             <nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">

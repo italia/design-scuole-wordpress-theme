@@ -2,6 +2,7 @@
 /**
  * Box correlati per tassonomia argomento
  */
+
 global $post, $related_type;
 if(!$related_type)
     $related_type = "card-vertical-thumb";

@@ -10,7 +10,7 @@ if(!$image_url)
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
-            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>"></a>
+            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>" alt=""></a>
             <?php } ?>
         </div><!-- /card-thumb -->
 
@@ -24,16 +24,29 @@ if(!$image_url)
         </div>
         <small class="card-date"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></small>
         <h3><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
-        <ul class="list-icon">
-            <li class="icon-duration"><?php echo $tempo_apprendimento; ?></li>
-            <?php
-            if(get_comment_count($post->ID)["approved"] > 0) {
-                ?>
-                <li class="icon-comments"><?php echo get_comment_count($post->ID)["approved"]; ?></li>
-                <?php
-            }
+        <?php
+        if(!empty($tempo_apprendimento) || get_comment_count($post->ID)["approved"] > 0) {
             ?>
-        </ul>
+            <ul class="list-icon">
+                <?php
+                if(!empty($tempo_apprendimento)) {
+                    echo '<script> console.log("card > null check",'. json_encode($tempo_apprendimento) .','. json_encode(is_null($tempo_apprendimento)) .','. json_encode(empty($tempo_apprendimento)) .')</script>';
+                    ?>
+                    <li class="icon-duration"><?php echo $tempo_apprendimento; ?></li>
+                    <?php
+                }
+                ?>
+                <?php
+                if(get_comment_count($post->ID)["approved"] > 0) {
+                    ?>
+                    <li class="icon-comments"><?php echo get_comment_count($post->ID)["approved"]; ?></li>
+                    <?php
+                }
+                ?>
+            </ul>
+        <?php
+        }
+        ?>
         <div class="card-author">
             <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
         </div><!-- /card-author -->

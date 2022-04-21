@@ -1,5 +1,7 @@
 <?php
 
+global $calendar_card;
+
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
 
@@ -26,7 +28,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             ?>
             <div class="col-lg-<?php echo $lg; ?>">
                 <div class="title-section pb-4">
-                    <h3 class="h2"><?php echo $tipologia_notizia->name; ?></h3>
+                    <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
                 <?php
@@ -73,8 +75,9 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         <div class="col-lg-4">
 
-        <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>">
-            <h3 class="h2"><?php _e("Eventi", "design_scuole_italia"); ?></h3>
+        <!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
+        <div class="title-section pb-4">
+            <h2><?php _e("Eventi", "design_scuole_italia"); ?></h2>
         </div><!-- /title-section -->
 
         <?php
@@ -88,6 +91,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 get_template_part("template-parts/evento/card");
             }
         }else {
+            $calendar_card = true;
             get_template_part("template-parts/evento/full_calendar");
         }
 
