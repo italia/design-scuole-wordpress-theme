@@ -397,10 +397,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div>
                                 </div>
 
-                                <?php get_template_part("template-parts/evento/calendar"); ?>
+                                <?php
+                                // get_template_part("template-parts/evento/calendar");
+                                ?>
                                 <div class="d-flex justify-content-end pb-4">
                                     <?php get_template_part("template-parts/single/actions"); ?>
                                 </div>
+                            </div>
                         </div><!-- /col-lg-3 -->
                         <?php else: ?>
                             <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
