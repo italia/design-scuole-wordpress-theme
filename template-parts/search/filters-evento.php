@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<aside class="aside-list sticky-sidebar search-results-filters">
+<aside class="aside-list sticky-sidebar search-results-filters pt-3">
     <?php
     if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){
 
@@ -12,7 +12,7 @@
 
     ?>
 	<form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
-			<h3 class="h6 text-uppercase mt-5"><strong><?php _e("Tipologia", "design_scuole_italia"); ?></strong></h3>
+			<div class="h6 text-uppercase mt-4"><strong><?php _e("Tipologia", "design_scuole_italia"); ?></strong></div>
 			<ul>
 				<?php
 				$terms = get_terms( array(

@@ -163,37 +163,37 @@ function dsi_widgets_init() {
 		'name'          => esc_html__( 'Footer - colonna 1', 'design_scuole_italia' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Prima colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'before_widget' => '<div class="footer-list">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 2', 'design_scuole_italia' ),
 		'id'            => 'footer-2',
 		'description'   => esc_html__( 'Seconda colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'before_widget' => '<div class="footer-list">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 3', 'design_scuole_italia' ),
 		'id'            => 'footer-3',
 		'description'   => esc_html__( 'Terza colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'before_widget' => '<div class="footer-list">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 4', 'design_scuole_italia' ),
 		'id'            => 'footer-4',
 		'description'   => esc_html__( 'Quarta colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '',
-		'after_widget'  => '',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
+		'before_widget' => '<div class="footer-list">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'dsi_widgets_init' );

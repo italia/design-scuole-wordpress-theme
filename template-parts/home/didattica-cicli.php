@@ -11,8 +11,8 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
-                            <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
-                            <div class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></div>
+                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
+                            <h2 class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></h2>
                         </div><!-- /title-large -->
                         <div class="title-small">
                             <div class="h5"><?php
@@ -61,7 +61,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                     <div class="accordion-large-title accordion-header">
                                                         <h3><?php echo $indirizzo->post_title; ?></h3>
                                                     </div><!-- /accordion-large-title -->
-                                                    <div class="accordion-large-content accordion-content">
+                                                    <div tabindex="0" class="accordion-large-content accordion-content">
                                                         <?php echo wpautop($descrizione); ?>
                                                         <p><a href="<?php echo get_permalink($indirizzo); ?>"
                                                               class="btn btn-bluelectric"

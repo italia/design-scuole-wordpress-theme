@@ -15,10 +15,10 @@ if(count($posts)) {
                     <div class="section-title text-center mb-4">
                         <h2><?php _e("I Progetti", "design_scuole_italia"); ?></h2>
                         <p class="mb-4"><?php _e("Scopri i progetti dell'Istituto", "design_scuole_italia") ?></p>
-                        <div class="clearfix">
+                        <!-- <div class="clearfix">
                             <a class="btn btn-bluelectric" style="min-width: 200px;"
                                href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><?php _e("Scopri", "design_scuole_italia"); ?></a>
-                        </div>
+                        </div> -->
                     </div><!-- /hero-title -->
                 </div><!-- /col -->
             </div><!-- /row -->
@@ -26,7 +26,7 @@ if(count($posts)) {
     </section>
 
     <div class="container position-relative slided-top">
-        <div class="row variable-gutters mb-4">
+        <div class="row variable-gutters pb-5">
             <?php
 
             foreach ($posts as $progetto) { ?>
@@ -36,7 +36,7 @@ if(count($posts)) {
             <?php } ?>
         </div><!-- /row -->
     </div><!-- /row -->
-    <div class="pb-5 text-center">
+    <div class="pb-5 text-center mt-4">
         <a class="text-underline"
            href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><strong><?php _e("Vedi tutti i progetti", "design_scuole_italia"); ?></strong></a>
     </div>

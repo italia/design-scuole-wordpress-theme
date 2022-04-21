@@ -12,7 +12,13 @@ global $gallery;
 					<a href="<?php echo $urlg; ?>">
 						<figure>
 							<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">
-							<figcaption><?php echo $attach->post_title; ?></figcaption>
+							<?php
+							if (!empty($attach->post_title)) {
+							?>
+								<figcaption><?php echo $attach->post_title; ?></figcaption>
+								<?php
+							}
+							?>
 						</figure>
 					</a>
 				</div><!-- /item -->
