@@ -87,7 +87,7 @@ function dsi_register_required_plugins() {
 			'name'   => 'Ginger - EU Cookie Law',
 			'slug'   => 'ginger',
 			'source' => 'https://github.com/webgrafia/ginger/archive/master.zip',
-            'required' => false,
+            'required' => true,
 		),
 
 
@@ -95,29 +95,34 @@ function dsi_register_required_plugins() {
 		array(
 			'name'     => 'Disable Gutenberg',
 			'slug'     => 'disable-gutenberg',
-			'required' => false,
+			'required' => true,
 		),
         array(
             'name'     => 'Members',
             'slug'     => 'members',
-            'required' => false,
+            'required' => true,
         ),
-        array(
-            'name'     => 'Amministrazione Aperta',
-            'slug'     => 'amministrazione-aperta',
-            'required' => false,
-        ),
-        // form del plugin avcp per fix multisite
-        array(
-            'name'   => 'ANAC XML Bandi di Gara',
-            'slug'   => 'avcp',
-            'source' => 'https://github.com/webgrafia/avcp/archive/master.zip',
-            'required' => false,
-        ),
+		array(
+			'name'     => 'Italia - Amministrazione Aperta',
+			'slug'     => 'italia-amministrazione-aperta',
+			'source'     => 'https://github.com/italia/plugin_wp_amministrazione_aperta/archive/refs/heads/master.zip',
+			'required' => true,
+		),
+		array(
+			'name'   => 'Italia - XML Bandi di Gara',
+			'slug'   => 'italia-anac-xml-bandi-gara',
+			'source' => 'https://github.com/italia/plugin_wp_anac_xml_bandi_gara/archive/refs/heads/master.zip',
+			'required' => true,
+		),
+		array(
+			'name'     => 'Better aria label support',
+			'slug'     => 'better-aria-label-support',
+			'required' => true,
+		),
         array(
             'name'     => 'ANAC XML Viewer',
             'slug'     => 'anac-xml-viewer',
-            'required' => false,
+            'required' => true,
         ),
         /*
         array(
@@ -129,12 +134,12 @@ function dsi_register_required_plugins() {
         array(
             'name'     => 'Contact Form 7',
             'slug'     => 'contact-form-7',
-            'required' => false,
+            'required' => true,
         ),
         array(
             'name'     => 'Contact Form 7 Database Addon – CFDB7',
             'slug'     => 'contact-form-cfdb7',
-            'required' => false,
+            'required' => true,
         ),
          /*
          array(
