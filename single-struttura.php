@@ -7,6 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $servizio, $progetto, $autore, $luogo, $c;
+get_template_part("template-parts/single/related-posts", $args = array( "post", "events", "circolari" )); 
 get_header();
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
@@ -148,6 +149,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <a class="list-item scroll-anchor-offset" href="#art-par-more" title="Vai al paragrafo <?php _e("Per saperne di più", "design_scuole_italia"); ?>"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                         </li>
                                          <?php }*/ ?>
+                                        <?php if ( count( $posts_array ) )  {   ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
+                                                title="Vai al paragrafo <?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?>"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </aside>

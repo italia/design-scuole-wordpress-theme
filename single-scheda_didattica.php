@@ -7,29 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore;
-$argomenti = dsi_get_argomenti_of_post();
-if(count($argomenti)) {
-	// estraggo gli id
-	$arr_ids = array();
-	foreach ( $argomenti as $item ) {
-		$arr_ids[] = $item->term_id;
-	}
-	// recupero articoli, eventi e circolari collegati agli argomenti del post
-	$posts_array = get_posts(
-		array(
-			'posts_per_page' => 6,
-			'post_type'      => array( "scheda_didattica"),
-			'post__not_in'   => array( $post->ID ),
-			'tax_query'      => array(
-				array(
-					'taxonomy' => 'post_tag',
-					'field'    => 'term_id',
-					'terms'    => $arr_ids,
-				)
-			)
-		)
-	);
-}
+get_template_part("template-parts/single/related-posts", $args = array( "scheda_didattica")); 
 get_header();
 
 $link_schede_materiale_didattico = dsi_get_meta("link_schede_materiale_didattico");

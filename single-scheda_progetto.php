@@ -7,29 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $struttura, $gallery;
-$argomenti = dsi_get_argomenti_of_post();
-if(count($argomenti)) {
-	// estraggo gli id
-	$arr_ids = array();
-	foreach ( $argomenti as $item ) {
-		$arr_ids[] = $item->term_id;
-	}
-	// recupero articoli, eventi e circolari collegati agli argomenti del post
-	$posts_array = get_posts(
-		array(
-			'posts_per_page' => 6,
-			'post_type'      => array( "scheda_progetto"),
-			'post__not_in'   => array( $post->ID ),
-			'tax_query'      => array(
-				array(
-					'taxonomy' => 'post_tag',
-					'field'    => 'term_id',
-					'terms'    => $arr_ids,
-				)
-			)
-		)
-	);
-}
+get_template_part("template-parts/single/related-posts", $args = array( "scheda_progetto")); 
 get_header();
 
 $is_luogo_scuola = dsi_get_meta("is_luogo_scuola");
