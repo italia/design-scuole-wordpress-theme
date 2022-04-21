@@ -17483,7 +17483,6 @@ button.icon-text {
 
 .aside-border-left {
   position: relative;
-  z-index: 0;
 }
 
 .aside-border-left:after {

@@ -384,7 +384,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             </article>
                         </div><!-- /col-lg-6 -->
                         <div class="col-lg-3 aside-border-left px-0">
-                            <div class="aside-sticky">
+                            <div>
                                 <div class="d-flex justify-content-end pb-4">
                                     <?php
                                     $timestamp_inizio = dsi_get_meta("timestamp_inizio");
@@ -397,7 +397,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div>
                                 </div>
 
-                                <?php get_template_part("template-parts/evento/calendar"); ?>
+                                <?php 
+                                get_template_part("template-parts/evento/calendar"); 
+                                ?>
                                 <div class="d-flex justify-content-end pb-4">
                                     <?php get_template_part("template-parts/single/actions"); ?>
                                 </div>
