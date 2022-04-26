@@ -83,13 +83,6 @@ function dsi_register_required_plugins() {
 		// This presumes that the plugin code is based in the root of the GitHub repository
 		// and not in a subdirectory ('/src') of the repository.
 */
-		array(
-			'name'   => 'Ginger - EU Cookie Law',
-			'slug'   => 'ginger',
-			'source' => 'https://github.com/webgrafia/ginger/archive/master.zip',
-            'required' => true,
-		),
-
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
