@@ -26,6 +26,18 @@ NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono pi�
 
 In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull. 
 
+#### Come inserire il tema all'interno di un'installazione Wordpress
+Una volta scaricata la repository inserire la cartella all'interno del progetto Wordpress al seguente percoso:
++ ```wp-content > themes ```
+
+(NB: Se il tema viene scaricato come file ```.zip``` estrarre prima l'archivio e inserirlo allo stesso percorso).
+
+#### Come abilitare il tema
+Una volta inserita la cartella come descritto al punto precedente, aprire il backoffice e navigare al seguente percorso:
++ ```Aspetto > Temi ``` (o aprire la seguente url: {{host}}/wp-admin/themes.php).
+
+Abilitare poi il tema scuole cliccando sul bottone ```Attiva```.
+
 #### Supporto tecnico ed editoriale
 È attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
 È il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
