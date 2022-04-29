@@ -9,43 +9,43 @@
 ## Installazione e supporto
 #### Come scaricare il tema
 
-Per scaricare il progetto esegui il seguente comando git
+Per scaricare il progetto esegui il seguente comando git:
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
 
-per aggiornare invece il tema da una versione precedentemente scaricata va eseguito
+Per aggiornare invece il tema da una versione precedentemente scaricata esegui:
 
-+ git pull
++ git pull.
 
 
 NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono più necessari i seguenti comandi:
 
-+ cd design-scuole-wordpress-theme/
-+ git submodule init
-+ git submodule update --remote
++ cd design-scuole-wordpress-theme/;
++ git submodule init;
++ git submodule update --remote.
 
-In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull. 
+In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull.
 
-#### Come inserire il tema all'interno di un'installazione Wordpress
-Una volta scaricata la repository inserire la cartella all'interno del progetto Wordpress al seguente percoso:
-+ ```wp-content > themes ```
+#### Come inserire il tema all'interno di un'installazione WordPress
+Una volta scaricato il repository, inserisci la cartella all'interno del progetto WordPress al seguente percorso:
++ ```wp-content > themes ```.
 
-(NB: Se il tema viene scaricato come file ```.zip``` estrarre prima l'archivio e inserirlo allo stesso percorso).
+(NB: Se il tema viene scaricato come file ```.zip``` estrai prima l'archivio e inseriscilo allo stesso percorso).
 
 #### Come abilitare il tema
-Una volta inserita la cartella come descritto al punto precedente, aprire il backoffice e navigare al seguente percorso:
-+ ```Aspetto > Temi ``` (o aprire la seguente url: {{host}}/wp-admin/themes.php).
+Una volta inserita la cartella come descritto al punto precedente, apri il backoffice e naviga al seguente percorso:
++ ```Aspetto > Temi ``` (o apri la seguente url: {{host}}/wp-admin/themes.php).
 
-Abilitare poi il tema scuole cliccando sul bottone ```Attiva```.
+Abilita poi il tema scuole cliccando sul bottone ```Attiva```.
 
 #### Supporto tecnico ed editoriale
-È attivo il canale slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
+È attivo il canale Slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
 È il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
 
-Lo potete raggiungere da qui:
+Lo puoi raggiungere da qui:
 https://developersitalia.slack.com/messages/design-siti-scuole/
 
-Se non avete una utenza slack di Developers Italia dovete prima crearla da qui:
+Se non hai una utenza Slack di Developers Italia devi prima crearla da qui:
 https://slack.developers.italia.it/
 
 ## Indice
@@ -53,6 +53,8 @@ https://slack.developers.italia.it/
 - [Cos'è](#cosè)
 - [Cosa fa](#cosa-fa)
 - [Curare i contenuti](#curare-i-contenuti)
+- [Gestione dei cookie](#gestione-dei-cookie)
+- [Cookie plugin](#cookie-plugin)
 - [Da dove iniziare](#da-dove-iniziare)
 - [Riscrivere o importare i contenuti del vecchio sito](#riscrivere-o-importare-i-contenuti-del-vecchio-sito)
 - [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
@@ -66,26 +68,34 @@ https://slack.developers.italia.it/
 - [Come contribuire](#come-contribuire)
 
 #### Cos'è
-Il template Wordpress per i siti delle scuole è basato sul modello di siti per le scuole italiane creato nell’ambito del progetto **Designers Italia di Presidenza del Consiglio**, in accordo con il MIUR. 
+Il template WordPress per i siti delle scuole è basato sul modello di siti per le scuole italiane creato nell’ambito del progetto **Designers Italia di Presidenza del Consiglio**, in accordo con il MIUR.
 
 Nel rispetto dell’autonomia scolastica e con l’obiettivo di creare un prodotto in grado di rispondere ai principali bisogni di tutte le scuole, lo abbiamo progettato dopo aver condotto decine di workshop e centinaia di interviste con insegnanti, personale tecnico amministrativo, genitori e studenti.
 
-Il tema Wordpress lo puoi trovare e utilizzare gratuitamente scaricandolo da questo repository.
+Il tema WordPress lo puoi trovare e utilizzare gratuitamente scaricandolo da questo repository.
 
 
 #### Cosa fa
-Il sito Wordpress è stato progettato in modo da aiutare l’utente a capire con facilità com’è organizzata la scuola, quali percorsi di studio mette a disposizione e quali servizi di supporto alla didattica sono disponibili per la comunità scolastica. 
+Il sito WordPress è stato progettato in modo da aiutare l’utente a capire con facilità com’è organizzata la scuola, quali percorsi di studio mette a disposizione e quali servizi di supporto alla didattica sono disponibili per la comunità scolastica.
 
 Si pone quindi l’obiettivo di comunicare in modo chiaro e semplice l’identità di una scuola, riducendo il peso della burocrazia (naturalmente nel rispetto degli obblighi previsti), dando spazio ai contenuti e alle persone e cercando di ricostruire anche online l’atmosfera che caratterizza la vita di una scuola.
 
 #### Curare i contenuti
-Il tema è un modello “chiavi in mano”: all’attivazione sono infatti state già definite le aree, le voci di menù e, più in generale, l’architettura ideale di un sito di una scuola. 
+Il tema è un modello “chiavi in mano”: all’attivazione sono infatti state già definite le aree, le voci di menu e, più in generale, l’architettura ideale di un sito di una scuola.
 
 Quindi, a differenza di come a volte  si lavora su WordPress, non ci si deve interessare di come verranno presentati i contenuti, di cosa finirà in homepage o in altre sezioni del sito.
 
-Il tema comporrà le diverse pagine sulla base dei contenuti inseriti. In questo modello il compito principale del redattore è quello di creare con cura i contenuti, sfruttando il più possibile tutti i campi già predisposti per ogni tipologia di contenuto (*content type*). 
+Il tema comporrà le diverse pagine sulla base dei contenuti inseriti. In questo modello il compito principale del redattore è quello di creare con cura i contenuti, sfruttando il più possibile tutti i campi già predisposti per ogni tipologia di contenuto (*content type*).
 
-L’idea generale è che una scuola possa risparmiare tempo nel progettazione e realizzazione del proprio sito (il sito è già pronto!) e possa dedicare più tempo a comunicare con precisione e semplicità cosa una scuola fa e come è organizzata.  
+L’idea generale è che una scuola possa risparmiare tempo nella progettazione e realizzazione del proprio sito (il sito è già pronto!) e possa dedicare più tempo a comunicare con precisione e semplicità cosa una scuola fa e come è organizzata.
+
+### Gestione dei cookie
+I cookie presenti nel sito web devono essere solamente cookie tecnici e **NON** cookie di tracciamento. Nello specifico:
+- i **cookie tecnici** vengono utilizzati in forma anonima per garantire il corretto funzionamento del sito e dei propri servizi (ad esempio cookie di sessione);
+- i **cookie di tracciamento** (o di profilazione) servono per raccogliere informazioni su comportamenti, preferenze e scelte dell’utente per definire il suo profilo.
+
+### Cookie plugin
+È stato **rimosso** il plugin "Ginger Cookie" per la gestione dei cookie.
 
 #### Da dove iniziare
 Il primo consiglio che diamo, è quello di iniziare guardando altre scuole che hanno fatto questo lavoro prima di te. Troverai ispirazione su come scrivere i contenuti necessari per la tua scuola:
@@ -96,67 +106,67 @@ Il primo consiglio che diamo, è quello di iniziare guardando altre scuole che h
 
 
 Il consiglio è quello di cominciare a creare i diversi contenuti in questo ordine:
-- luoghi
-- strutture organizzative
-- persone
-- servizi
-- indirizzi di studio
+- luoghi;
+- strutture organizzative;
+- persone;
+- servizi;
+- indirizzi di studio.
 
-Per creare i contenuti del nuovo sito e imparare a gestirlo al meglio, sarà utile creare un piccolo gruppo di lavoro composto da una rappresentanza del personale tecnico amministrativo e da una rappresentanza dei docenti. 
+Per creare i contenuti del nuovo sito e imparare a gestirlo al meglio, sarà utile creare un piccolo gruppo di lavoro composto da una rappresentanza del personale tecnico amministrativo e da una rappresentanza dei docenti.
 
-La creazione di un team è importante soprattutto per mappare le informazioni necessarie prima della fase di scrittura vera e propria (per esempio, questo sito ti spronerà a spiegare i servizi della tua scuola in modo semplice e questo richiede un lavoro preliminare per chiarire come sono fatti e come funzionano i servizi). 
+La creazione di un team è importante soprattutto per mappare le informazioni necessarie prima della fase di scrittura vera e propria (per esempio, questo sito ti spronerà a spiegare i servizi della tua scuola in modo semplice e questo richiede un lavoro preliminare per chiarire come sono fatti e come funzionano i servizi).
 
 I vari gruppi di lavoro creati dovranno porsi l’obiettivo di creare questi contenuti e di tenerli aggiornati quando necessario.
 
-Una volta iniziato il lavoro sui primi cinque punti elencati sopra, ci si può spostare ai seguenti ulteriori contenuti: 
-- notizie
-- eventi 
-- circolari 
-- documenti
-- progetti scolastici
-- schede didattiche. 
+Una volta iniziato il lavoro sui primi cinque punti elencati sopra, ci si può spostare ai seguenti ulteriori contenuti:
+- notizie;
+- eventi;
+- circolari;
+- documenti;
+- progetti scolastici;
+- schede didattiche.
 
-In una fase iniziale la cosa migliore è creare un solo esempio per ciascuna tipologia, per poi creare mano a mano i contenuti quando il sito sarà online, sulla base di ciò che è attuale in quel momento. 
+In una fase iniziale la cosa migliore è creare un solo esempio per ciascuna tipologia, per poi creare mano a mano i contenuti quando il sito sarà online, sulla base di ciò che è attuale in quel momento.
 
 Prima dell’uscita del sito bisogna definire con chiarezza chi sarà responsabile della pubblicazione di ciascuna delle tipologie di contenuti descritti, in modo da garantire un flusso di pubblicazione costante e rigoroso. Non tutte le sezioni del sito andranno gestite e aggiornate con la stessa frequenza. È bene prendere consapevolezza delle varie sezioni e della frequenza con cui ciascun aggiornamento va fatto.
 
 [Abbiamo preparato una piccola tabella che ti mostra un esempio di come poter suddividere il lavoro.](https://docs.google.com/spreadsheets/d/1MoayTY05SE4ixtgBsfsdngdrFJf_Z2KNvDkMF3tKfc8/edit#gid=703325418)
 
-Le schede didattiche (che sono pillole di approfondimento su un argomento specifico) sono l’unico contenuto che la scuola può decidere di far scrivere liberamente a tutti i docenti della scuola, dopo averli fatti iscrivere a wordpress.
+Le schede didattiche (che sono pillole di approfondimento su un argomento specifico) sono l’unico contenuto che la scuola può decidere di far scrivere liberamente a tutti i docenti della scuola, dopo averli fatti iscrivere a WordPress.
 
 #### Riscrivere o importare i contenuti del vecchio sito
-Purtroppo, negli attuali siti scolastici, solitamente non viene prestata grande attenzione e cura ai contenuti. Pertanto il nostro suggerimento è quello di sfruttare l’occasione del nuovo sito per riscrivere interamente tutti i contenuti relativi ai luoghi, alle strutture, ai servizi, alle persone, agli indirizzi di studio e ai progetti della tua scuola.
+Purtroppo, negli attuali siti scolastici, solitamente non viene prestata grande attenzione e cura ai contenuti. Pertanto, il nostro suggerimento è quello di sfruttare l’occasione del nuovo sito per riscrivere interamente tutti i contenuti relativi ai luoghi, alle strutture, ai servizi, alle persone, agli indirizzi di studio e ai progetti della tua scuola.
 
 Notizie ed eventi di solito non sono più attuali, quindi non serve portarli sul nuovo sito.
 
-Tuttavia potrebbe comunque essere utile importare documenti e circolari dal vecchio al nuovo sito, utilizzando lo strumento di import/export nativo di Wordpress e verificando che il risultato finale sia soddisfacente (molto dipende da come sono stati scritti nel sito precedente). Per effettuare questa attività puoi richiedere il nostro supporto. 
+Tuttavia, potrebbe comunque essere utile importare documenti e circolari dal vecchio al nuovo sito, utilizzando lo strumento di import/export nativo di WordPress e verificando che il risultato finale sia soddisfacente (molto dipende da come sono stati scritti nel sito precedente). Per effettuare questa attività puoi richiedere il nostro supporto.
 
-Il tema tenterà  una riconciliazione automatica delle tipologie di contenuto più frequentemente usate dalle scuole che utilizzano Wordpress: come gli eventi, le circolari e i documenti di amministrazione trasparente.
+Il tema tenterà  una riconciliazione automatica delle tipologie di contenuto più frequentemente usate dalle scuole che utilizzano WordPress: come gli eventi, le circolari e i documenti di amministrazione trasparente.
 
 
 #### Relazioni tra i contenuti
-Una delle caratteristiche principali del sito in Wordpress è il fatto di avere diverse tipologie di contenuto (*content type*) tutte in relazione tra loro. 
+Una delle caratteristiche principali del sito in WordPress è il fatto di avere diverse tipologie di contenuto (*content type*) tutte in relazione tra loro.
 
-Questa caratteristica richiederà un po’ di sforzo da parte tua nella fase iniziale: avrai bisogno di entrare nella logica del modello e nella logica con cui abbiamo stabilito di collegare i vari contenuti tra loro. Una volta compreso il modo di lavorare siamo sicuri che il lavoro così impostato porterà dei benefici significativi sia per chi deve gestire e aggiornare i contenuti, sia per gli utenti che ricercano informazioni. 
+Questa caratteristica richiederà un po’ di sforzo da parte tua nella fase iniziale: avrai bisogno di entrare nella logica del modello e nella logica con cui abbiamo stabilito di collegare i vari contenuti tra loro. Una volta compreso il modo di lavorare siamo sicuri che il lavoro così impostato porterà dei benefici significativi sia per chi deve gestire e aggiornare i contenuti, sia per gli utenti che ricercano informazioni.
 
 Alcune relazioni che abbiamo costruito sono, ad esempio:
 
-- Strutture organizzative - Servizi
-- Progetti - Persone
-- Strutture organizzative - Luoghi
-- Servizi - Documenti
+- Strutture organizzative - Servizi;
+- Progetti - Persone;
+- Strutture organizzative - Luoghi;
+- Servizi - Documenti.
 
-Attenzione. Dal punto di vista pratico, soprattutto all’inizio, ti troverai nella situazione in cui mentre compili una determinata scheda (es: una struttura organizzativa), vorresti associare a quella scheda un altro tipo di contenuto (es: luogo dove è situata la struttura organizzativa). Per poterlo fare, la scheda “luogo” in questione dovrà essere stata precedentemente creata. 
+Attenzione. Dal punto di vista pratico, soprattutto all’inizio, ti troverai nella situazione in cui mentre compili una determinata scheda (es: una struttura organizzativa), vorresti associare a quella scheda un altro tipo di contenuto (es: luogo dove è situata la struttura organizzativa). Per poterlo fare, la scheda “luogo” in questione dovrà essere stata precedentemente creata.
 
 I passi da compiere sono i seguenti:
-1. Crea una scheda luogo che descrive il luogo (es. “Palazzo Badini”) che andrà poi associato ad una specifica struttura organizzativa (es. “Segreteria scolastica”);
-2. Crea la scheda che descrive la struttura organizzativa (es. “Segreteria scolastica”);
-3. Associa, tramite il campo opportuno, il luogo “Palazzo Badini” alla struttura organizzativa “Segreteria scolastica”.
+1. crea una scheda luogo che descrive il luogo (es. “Palazzo Badini”) che andrà poi associato ad una specifica struttura organizzativa (es. “Segreteria scolastica”);
+2. crea la scheda che descrive la struttura organizzativa (es. “Segreteria scolastica”);
+3. associa, tramite il campo opportuno, il luogo “Palazzo Badini” alla struttura organizzativa “Segreteria scolastica”.
 
-Vorresti associare anche dei servizi alla “Segreteria scolastica”? 
+Vorresti associare anche dei servizi alla “Segreteria scolastica”?
 Procedi allo stesso modo descritto in precedenza.
-1. Crea una scheda servizio che descrive il servizio da associare alla “Segreteria scolastica” (es. “Pagamento mensa scolastica”);
-2. Entra nella scheda “Segreteria scolastica” e tramite il campo opportuno associa il servizio “Pagamento mensa scolastica” alla “Segreteria scolastica”.
+1. crea una scheda servizio che descrive il servizio da associare alla “Segreteria scolastica” (es. “Pagamento mensa scolastica”);
+2. entra nella scheda “Segreteria scolastica” e tramite il campo opportuno associa il servizio “Pagamento mensa scolastica” alla “Segreteria scolastica”.
 
 In generale quindi, nel costruire le relazioni tra diversi content type, è necessario costruire prima i contenuti e solo alla fine il contenitore (es. prima i servizi, i luoghi e le persone e solo dopo la struttura organizzativa che raggruppa servizi, luoghi, persone descritte in precedenza).
 
@@ -171,19 +181,19 @@ I luoghi possono essere messi in relazione tra loro, come per esempio un laborat
 
 *Le strutture*
 
-La struttura organizzativa è uno degli elementi essenziali nella presentazione dell’istituto. In caso di istituti comprensivi è necessario creare in primo luogo la struttura “Genitore” di tipo “Scuola” (l’istituto stesso) e solo in un secondo momento le strutture “figlie” (i singoli plessi). Nella scheda della singola struttura va indicato il luogo o i luoghi in cui la struttura ha sede. Oltre ai plessi sono strutture organizzative anche le commissioni, gli uffici di segreteria, i dipartimenti, gli organi collegiali, etc..
+La struttura organizzativa è uno degli elementi essenziali nella presentazione dell’istituto. In caso di istituti comprensivi è necessario creare in primo luogo la struttura “Genitore” di tipo “Scuola” (l’istituto stesso) e solo in un secondo momento le strutture “figlie” (i singoli plessi). Nella scheda della singola struttura va indicato il luogo o i luoghi in cui la struttura ha sede. Oltre ai plessi sono strutture organizzative anche le commissioni, gli uffici di segreteria, i dipartimenti, gli organi collegiali, etc.
 
 *I servizi*
 
-Quello dei servizi è un aspetto di novità presente nella struttura del tema, utili a raccontare e organizzare i servizi offerti dalla scuola (iscrizione alle scuole, registro elettronico, etc). Questi sono organizzati e presentati in base alla loro tipologia. 
+Quello dei servizi è un aspetto di novità presente nella struttura del tema, utili a raccontare e organizzare i servizi offerti dalla scuola (iscrizione alle scuole, registro elettronico, etc). Questi sono organizzati e presentati in base alla loro tipologia.
 Anche qualora il servizio sia erogato da una piattaforma esterna, è utile creare una scheda che racconti il servizio e indichi i punti e le modalità di accesso.
 
 *Le persone*
 
-Un altro aspetto importante è quello delle persone. 
-In questo tema le persone corrispondono agli utenti Wordpress. Questo permetterà loro di essere menzionate sul sito, di avere una scheda di dettaglio,  di poter gestire individualmente le informazioni di descrizione e di contatto, e di accedere per la gestione delle notifiche e delle firme delle circolari.
+Un altro aspetto importante è quello delle persone.
+In questo tema le persone corrispondono agli utenti WordPress. Questo permetterà loro di essere menzionate sul sito, di avere una scheda di dettaglio,  di poter gestire individualmente le informazioni di descrizione e di contatto, e di accedere per la gestione delle notifiche e delle firme delle circolari.
 
-Consigliamo di mappare e creare il prima possibile le utenze delle persone, così da poterle subito correlare con i contenuti inseriti. È necessario farlo anche se queste non avranno un ruolo attivo sul sito, creando le utenze senza inviare loro la mail con le credenziali di accesso (possono essere inviate eventualmente in seguito) . In questo modo tutto il personale scolastico avrà la possibilità di produrre contenuti (quando necessario), ricevere notifiche personalizzate relative alla circolari oltre ad altre funzionalità.
+Consigliamo di mappare e creare il prima possibile le utenze delle persone, così da poterle subito correlare con i contenuti inseriti. È necessario farlo anche se queste non avranno un ruolo attivo sul sito, creando le utenze senza inviare loro la mail con le credenziali di accesso (possono essere inviate eventualmente in seguito). In questo modo tutto il personale scolastico avrà la possibilità di produrre contenuti (quando necessario), ricevere notifiche personalizzate relative alle circolari oltre ad altre funzionalità.
 
 *I percorsi e gli indirizzi di studio*
 
@@ -191,7 +201,7 @@ La sezione dei percorsi di studio è dedicata a illustrare l’offerta formativa
 
 *I documenti*
 
-La sezione dei documenti è quella dedicata a raccogliere i documenti, tipicamente dei file PDF: PTOF, POF, RAV, PAI…..
+La sezione dei documenti è quella dedicata a raccogliere i documenti, tipicamente dei file PDF: PTOF, POF, RAV, PAI.
 In questa sezione vanno caricati anche i documenti che hanno come destinazione l’albo online o la sezione di amministrazione trasparente. I documenti in albo hanno una numerazione progressiva non modificabile e una volta pubblicati possono solo essere annullati. I documenti sono poi richiamabili nei diversi content type del sito, quando necessario. È sempre consigliabile creare schede documenti piuttosto che caricare i file direttamente dentro i content type, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca
 
 *I progetti*
@@ -204,7 +214,7 @@ Le schede didattiche permettono di descrivere un approfondimento tematico a cura
 
 *Le notizie*
 
-Le notizie sono rappresentate dal *content type* “articolo”, nativo di Wordpress. Queste sono organizzate per tipologia (news e articoli sono le 2 tipologie create all’attivazione del tema), e sono utili a organizzare le notizie nella pagina di presentazione generale, o per filtrare le notizie per tipologia nelle pagine di archivio. 
+Le notizie sono rappresentate dal *content type* “articolo”, nativo di WordPress. Queste sono organizzate per tipologia (news e articoli sono le 2 tipologie create all’attivazione del tema), e sono utili a organizzare le notizie nella pagina di presentazione generale, o per filtrare le notizie per tipologia nelle pagine di archivio.
 
 La tipologia news è pensata per raccontare le notizie della scuola, mentre la sezione articoli è pensata per una gestione di articoli generici, stile blog.
 
@@ -215,20 +225,20 @@ Il content type “evento” serve a raccontare eventi che hanno una data di ini
 *Le circolari*
 
 Il flusso di vita tipico di una circolare all’interno di un istituto è solitamente il seguente:
-a. L'insegnante riempie una scheda circolare
-b. Invio la scheda alla segreteria
-c. la segreteria la mostra al preside
-d. il preside la legge ed apporta, eventualmente, delle modifiche, Poi la firma.
-e. la segreteria protocolla la circolare
-f. la segreteria invia la circolare a tutti i docenti (o a tutta la scuola) che riceverà una notifica nella propria area personale
+a. l'insegnante riempie una scheda circolare;
+b. invia la scheda alla segreteria;
+c. la segreteria la mostra al preside;
+d. il preside la legge ed apporta, eventualmente, delle modifiche, poi la firma;
+e. la segreteria protocolla la circolare;
+f. la segreteria invia la circolare a tutti i docenti (o a tutta la scuola) che riceverà una notifica nella propria area personale.
 
 Il *content type* “circolare” assolve sia alla funzione di presentazione della circolare sul sito della scuola, sia alla raccolta dei feedback da parte degli utenti a cui la circolare è associata.
-L’utente wordpress a cui è associata una circolare sarà notificato tramite email, avrà un avviso sul sito come “alert” visibile in testata,  e troverà la circolare a lui assegnata all’interno della dashboard wordpress.
+L’utente WordPress a cui è associata una circolare sarà notificato tramite email, avrà un avviso sul sito come “alert” visibile in testata,  e troverà la circolare a lui assegnata all’interno della dashboard WordPress.
 
-All’interno della scheda della circolare è possibile anche visionare tutti i feedback ricevuti (firme, adesioni, prese visione)
+All’interno della scheda della circolare è possibile anche visionare tutti i feedback ricevuti (firme, adesioni, prese visione).
 
 #### Personalizzazione
-È prevista un’area di configurazione, in cui è possibile (e necessario) personalizzare alcuni comportamenti del tema (testi di presentazione, notizie da mostrare in evidenza o nella pagina di presentazione della scuola) , ma è un’area sulla quale si deve intervenire solo dopo che sono stati creati un congruo numero di contenuti delle diverse tipologie, necessari a descrivere l’istituto.
+È prevista un’area di configurazione, in cui è possibile (e necessario) personalizzare alcuni comportamenti del tema (testi di presentazione, notizie da mostrare in evidenza o nella pagina di presentazione della scuola), ma è un’area sulla quale si deve intervenire solo dopo che sono stati creati un congruo numero di contenuti delle diverse tipologie, necessari a descrivere l’istituto.
 
 L’area di configurazione è divisa in tab per le diverse aree del sito.
 
@@ -238,7 +248,7 @@ Cliccando su “Configurazione” è possibile definire:
 - **home**: per configurare cosa mostrare in home page nelle sezioni  notizie e servizi;
 - **scuola**: qui è possibile configurare l’immagine i campi relativi alla sezione scuola: immagine e citazione, la timeline della storia (mostrata anche nella pagina “la storia”, le strutture dell’organizzazione scolastica, i luoghi  della scuola, l’area documentale e i numeri della scuola;
 - **presentazione**: area in cui selezionare gli articoli che popolano la sezione “presentazione della scuola”;
-**servizi**: area di gestione della pagina di panoramica dei servizi, in cui è possibile selezionare le tipologie di servizi da mostrare; 
+  **servizi**: area di gestione della pagina di panoramica dei servizi, in cui è possibile selezionare le tipologie di servizi da mostrare;
 - **novità**: area in cui selezionare le tipologie di articoli da mostrare nella pagina di panoramica delle novità;
 - **didattica**: area in cui selezionare il tipo di visualizzazione da mostrare nella sezione didattica, scegliendo se mostrare a sinistra le scuole e a destra i percorsi di studio (utile nel caso di istituti composti da diverse scuole) o se mostrare gli indirizzi di studio a sinistra e le scuole a destra (utile per istituti con poche scuole ma diversi indirizzi di studio);
 - **persone**: area di configurazione della sezione di presentazione del personale scolastico, ordinata in base alle strutture organizzative selezionate;
@@ -246,7 +256,7 @@ Cliccando su “Configurazione” è possibile definire:
 - **luoghi**: area in cui configurare la tipologia e l’ordine delle tipologie di luoghi da mostrare;
 - **documenti**: area di configurazione dei documenti, organizzati in base alle tipologie selezionate;
 - **servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di login (registro elettronico o altri);
-- **altro**: area di gestione di diverse aree: il testo da mostrare nel footer (in cui vanno inserite le informazioni di base della scuola: indirizzo, pec, codice ipa, codice meccanografico, etc), il token mapbox (da creare per utilizzare le mappe openstreetmap dei luoghi), il testo delle mail delle circolari, e il setup della sezione albo.
+- **altro**: area di gestione di diverse aree: il testo da mostrare nel footer (in cui vanno inserite le informazioni di base della scuola: indirizzo, PEC, codice IPA, codice meccanografico, etc), il token Mapbox (da creare per utilizzare le mappe OpenStreetMap dei luoghi), il testo delle mail delle circolari, e il setup della sezione albo.
 
 #### Ti serve aiuto?
 Su Slack di Developers Italia (una piattaforma del Dipartimento di trasformazione digitale di Presidenza del Consiglio) è disponibile un canale dove fare domande e confrontarsi con altre scuole
@@ -258,27 +268,27 @@ Su Slack di Developers Italia (una piattaforma del Dipartimento di trasformazion
 
 Le modalità con cui gestisci abitualmente il tuo sito non cambieranno (di solito le scuole hanno un fornitore per hosting e manutenzione). La gestione dei siti scolastici è di responsabilità delle scuole.
 
-*Perché esiste un tema pronto solo per Wordpress?*
+*Perché esiste un tema pronto solo per WordPress?*
 
-Wordpress è il CMS più usato nelle scuole, non abbiamo risorse per creare tutte le tipologie di CMS ma abbiamo creato un kit (kit template e architettura informativa) per chi lo voglia fare. [Qui](https://github.com/italia/design-scuole-pagine-statiche/) trovi il kit.
+WordPress è il CMS più usato nelle scuole, non abbiamo risorse per creare tutte le tipologie di CMS ma abbiamo creato un kit (kit template e architettura informativa) per chi lo voglia fare. [Qui](https://github.com/italia/design-scuole-pagine-statiche/) trovi il kit.
 
-*Non ho wordpress cosa devo fare?*
+*Non ho WordPress cosa devo fare?*
 
-In futuro ci saranno sicuramente fornitori e/o scuole e/o associazioni che svilupperanno soluzioni Drupal e per altri CMS basati sul kit per le scuole. Puoi aspettare, oppure, se vuoi adottare subito il kit e il nuovo sito, devi passare a Wordpress.
+In futuro ci saranno sicuramente fornitori e/o scuole e/o associazioni che svilupperanno soluzioni Drupal e per altri CMS basati sul kit per le scuole. Puoi aspettare, oppure, se vuoi adottare subito il kit e il nuovo sito, devi passare a WordPress.
 
 *Inserire i contenuti sembra più complesso che in passato, è così?*
 
-Prima di tutto: cambiare metodo di lavoro richiede sempre uno sforzo aggiuntivo :) 
+Prima di tutto: cambiare metodo di lavoro richiede sempre uno sforzo aggiuntivo :)
 Detto ciò, rispetto alla media dei siti scolastici abbiamo osservato che:
 - si fa prima a classificare e organizzare i contenuti (“configurare il tema”). È già tutto pronto nella nuova logica “chiavi in mano”;
-- c’è meno lavoro dal punto di vista tecnico, in generale molti aspetti della configurazione di Wordpress saranno già preimpostati;
-- si deve dedicare più tempo a curare i contenuti, per migliorarne la qualità. In particolare i contenuti sono più strutturati, e questa è la chiave per migliorare il tutto. 
+- c’è meno lavoro dal punto di vista tecnico, in generale molti aspetti della configurazione di WordPress saranno già preimpostati;
+- si deve dedicare più tempo a curare i contenuti, per migliorarne la qualità. In particolare, i contenuti sono più strutturati, e questa è la chiave per migliorare il tutto.
 
-È solo un esempio ma...se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
+È solo un esempio ma, se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
 
 *Posso fare dei cambiamenti al sito?*
 
-Wordpress è un ambiente pensato per consentire di modificare con semplicità ogni aspetto del sito. 
+WordPress è un ambiente pensato per consentire di modificare con semplicità ogni aspetto del sito.
 
 *Consigliate di fare cambiamenti al sito?*
 
@@ -295,7 +305,7 @@ Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://itali
 
 ## Come installare Design Scuole Italia
 
-Per scaricare il progetto esegui i seguenti comandi
+Per scaricare il progetto esegui i seguenti comandi:
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
 
@@ -303,44 +313,44 @@ Per scaricare il progetto esegui i seguenti comandi
 ## Licenze software dei componenti di terze parti
 
 ### Componenti distribuiti con i template
-Di seguito elencati i componenti distribuiti con il tema Wordpress
+Di seguito elencati i componenti distribuiti con il tema WordPress:
 
-- [CMB2](https://github.com/CMB2/CMB2) © Justin Sternberg, licenza GNU GPL v3.0
-- [CMB2-conditional-logic](https://github.com/awran5/CMB2-conditional-logic/) © Ahmed Khalil, licenza GNU GPL v2.0
-- [CMB2-field-Leaflet-Geocoder](https://github.com/villeristi/CMB2-field-Leaflet-Geocoder) © Ville Ristimäki, licenza MIT
-- [cmb-field-select2](https://github.com/mustardBees/cmb-field-select2) © Phil Wylie, licenza GNU GPL v3.0
-- [cmb2-attached-posts](https://github.com/CMB2/cmb2-attached-posts) © Justin Sternberg, licenza GNU GPL v3.0
-- [TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) © Gary Jones, licenza GNU GPL v2.0
-- [Parsedown](http://parsedown.org) © Aidan Woods, licenza 
-- [dompdf](https://github.com/dompdf/dompdf) © Matthew Bauer, licenza LGPL 2.1
+- [CMB2](https://github.com/CMB2/CMB2) © Justin Sternberg, licenza GNU GPL v3.0;
+- [CMB2-conditional-logic](https://github.com/awran5/CMB2-conditional-logic/) © Ahmed Khalil, licenza GNU GPL v2.0;
+- [CMB2-field-Leaflet-Geocoder](https://github.com/villeristi/CMB2-field-Leaflet-Geocoder) © Ville Ristimäki, licenza MIT;
+- [cmb-field-select2](https://github.com/mustardBees/cmb-field-select2) © Phil Wylie, licenza GNU GPL v3.0;
+- [cmb2-attached-posts](https://github.com/CMB2/cmb2-attached-posts) © Justin Sternberg, licenza GNU GPL v3.0;
+- [TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) © Gary Jones, licenza GNU GPL v2.0;
+- [Parsedown](http://parsedown.org) © Aidan Woods, licenza MIT;
+- [dompdf](https://github.com/dompdf/dompdf) © Matthew Bauer, licenza LGPL 2.1.
 
 
 
-Di seguito elencati i componenti distribuiti (derivati dal template html utilizzato per realizzare il tema: https://github.com/italia/design-scuole-pagine-statiche), che hanno una propria licenza diversa da CC0.
+Di seguito elencati i componenti distribuiti (derivati dal template html utilizzato per realizzare il tema: https://github.com/italia/design-scuole-pagine-statiche), che hanno una propria licenza diversa da CC0:
 
-- [jQuery](https://jquery.com/) © jQuery Foundation, licenza MIT
-- [Popper.js](https://popper.js.org/) © Federico Zivolo and contributors, licenza MIT
-- [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) © Team per la Trasformazione Digitale, licenza BSD
-- [Bootstrap 4](https://getbootstrap.com/) © Twitter, Inc., licenza MIT
-- [Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) © SnapAppointments, LLC, licenza MIT
-- [Owl Carousel 2](https://owlcarousel2.github.io/OwlCarousel2/) © Owl (David Deutsch), licenza MIT
-- [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/) © George McGinley Smith, licenza BSD
-- [CLNDR](https://kylestetz.github.io/CLNDR/) © Kyle Stetz, licenza MIT
-- [FitVids](http://fitvidsjs.com/) © Dave Rupert, licenza MIT
-- [Hamburgers](https://jonsuh.com/hamburgers/) © Jonathan Suh, licenza MIT
-- [Match Height](https://brm.io/jquery-match-height/) © Liam Brummitt, licenza MIT
-- [ScrollTo](https://github.com/flesler/jquery.scrollTo) © Ariel Flesler, licenza MIT
-- [Leaflet](https://leafletjs.com/) © Vladimir Agafonkin, licenza BSD
-- [Perfect Scrollbar](https://github.com/mdbootstrap/perfect-scrollbar/) © Hyunje Jun, licenza MIT
-- [Responsive Tabs](http://jellekralt.github.io/Responsive-Tabs/) © Jelle Kralt, licenza MIT
-- [Sticky Kit](https://leafo.net/sticky-kit/) © Leafo, licenza MIT
-- [svgxuse](https://icomoon.io/svgxuse-demo/) © Icomoon, licenza MIT
+- [jQuery](https://jquery.com/) © jQuery Foundation, licenza MIT;
+- [Popper.js](https://popper.js.org/) © Federico Zivolo and contributors, licenza MIT;
+- [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) © Team per la Trasformazione Digitale, licenza BSD;
+- [Bootstrap 4](https://getbootstrap.com/) © Twitter, Inc., licenza MIT;
+- [Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) © SnapAppointments, LLC, licenza MIT;
+- [Owl Carousel 2](https://owlcarousel2.github.io/OwlCarousel2/) © Owl (David Deutsch), licenza MIT;
+- [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/) © George McGinley Smith, licenza BSD;
+- [CLNDR](https://kylestetz.github.io/CLNDR/) © Kyle Stetz, licenza MIT;
+- [FitVids](http://fitvidsjs.com/) © Dave Rupert, licenza MIT;
+- [Hamburgers](https://jonsuh.com/hamburgers/) © Jonathan Suh, licenza MIT;
+- [Match Height](https://brm.io/jquery-match-height/) © Liam Brummitt, licenza MIT;
+- [ScrollTo](https://github.com/flesler/jquery.scrollTo) © Ariel Flesler, licenza MIT;
+- [Leaflet](https://leafletjs.com/) © Vladimir Agafonkin, licenza BSD;
+- [Perfect Scrollbar](https://github.com/mdbootstrap/perfect-scrollbar/) © Hyunje Jun, licenza MIT;
+- [Responsive Tabs](http://jellekralt.github.io/Responsive-Tabs/) © Jelle Kralt, licenza MIT;
+- [Sticky Kit](https://leafo.net/sticky-kit/) © Leafo, licenza MIT;
+- [svgxuse](https://icomoon.io/svgxuse-demo/) © Icomoon, licenza MIT.
 
 
 ## Segnalazione bug e richieste di aiuto
 Vuoi segnalare un bug o fare una richiesta?
 
-Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a plugin installati o impostazioni del CMS, poi dai un'occhiata a come creare una [issue](https://github.com/italia/bootstrap-italia/blob/master/CONTRIBUTING.md#creare-una-issue) ed infine, se lo ritieni necessario, apri la iusse [in questo repository](https://github.com/italia/design-scuole-wordpress-theme/issues).
+Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a plugin installati o impostazioni del CMS, poi dai un'occhiata a come creare una [issue](https://github.com/italia/bootstrap-italia/blob/master/CONTRIBUTING.md#creare-una-issue) ed infine, se lo ritieni necessario, apri la issue [in questo repository](https://github.com/italia/design-scuole-wordpress-theme/issues).
 
 ## Come contribuire
 Vorresti dare una mano su Bootstrap Italia? Sei nel posto giusto!
@@ -362,4 +372,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program.  If not, see <http://www.gnu.org/licenses/>
