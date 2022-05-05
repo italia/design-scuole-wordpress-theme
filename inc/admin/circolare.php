@@ -297,7 +297,13 @@ function dsi_feedback_circolare( $post_id, $post )
 
     if(count($users)){
         foreach ($users as $user){
-            dsi_notify_circolare_to_user($user->ID, $post);
+            // in caso di destinatari di tipo "gruppo" get_objects_in_term restituisce un array di interi, negli altri casi l'array contiene oggetti WP_User
+            if (is_a($user, 'WP_User')) {
+                $userId=$user->ID;
+            } else {
+                $userId=$user;
+            }
+            dsi_notify_circolare_to_user($userId, $post);
         }
         update_post_meta($post->ID, "_dsi_notificato", "true");
     }
