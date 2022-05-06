@@ -16,7 +16,10 @@ if ( count( $posts_array ) ) { ?>
 
 				<h2 class="h3 mb-5 text-center semi-bold text-gray-primary"><?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?></h2>
 
-				<div class="owl-carousel carousel-theme carousel-large">
+				<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide"
+                  data-bs-carousel-splide>
+                  <div class="splide__track ps-lg-3 pe-lg-3">
+                    <ul class="splide__list it-carousel-all">
 					<?php
 					foreach ( $posts_array as $post ) {
 						?>
@@ -24,7 +27,9 @@ if ( count( $posts_array ) ) { ?>
 							<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
 						</div><!-- /item -->
 					<?php } ?>
-				</div><!-- /carousel-large -->
+					</ul>
+				  </div><!-- /carousel-large -->
+				</div>
 
 			</div><!-- /col-lg-12 -->
 		</div><!-- /row -->

@@ -14,15 +14,21 @@ if(count($posts)) {
                     <div class="section-title mb-5">
                         <h3><?php _e("Schede didattiche", "design_scuole_italia"); ?></h3>
                     </div>
+                    <p>ciao</p>
 
-                    <div class="owl-carousel carousel-theme carousel-double">
-                        <?php
-
-                        foreach ($posts as $post) { ?>
-                            <div class="item">
-                                <?php get_template_part("template-parts/didattica/card"); ?>
-                            </div>
-                        <?php } ?>
+                    <div class="splide splide-double mb-5" data-bs-carousel-splide>
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <?php
+                                foreach ($posts as $post) { ?>
+                                    <li class="splide__slide">
+                                        <div class="item">
+                                            <?php get_template_part("template-parts/didattica/card"); ?>
+                                        </div>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
                     </div><!-- /carousel-single -->
                 </div><!-- /col -->
             </div><!-- /row -->

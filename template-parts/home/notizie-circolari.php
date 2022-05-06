@@ -12,18 +12,23 @@ if($ct%2)
 		<div class="title-section mb-5">
 			<h2 class="h4"><?php _e("Circolari", "design_scuole_italia"); ?></h2>
 		</div><!-- /title-large -->
-        <div class="owl-carousel carousel-theme carousel-large">
-			<?php
-			$args = array('post_type' => 'circolare',
-			              'posts_per_page' => 9,
-			);
-			$posts = get_posts($args);
-			foreach ($posts as $post){ ?>
-            <div class="item">
-				<?php get_template_part("template-parts/single/card", "vertical-thumb"); ?>
+		<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
+			<div class="splide__track">
+				<ul class="splide__list">
+					<?php
+					$args = array('post_type' => 'circolare',
+								'posts_per_page' => 9,
+					);
+					$posts = get_posts($args);
+					foreach ($posts as $post){ ?>				
+					<li class="splide__slide">
+						<div class="it-single-slide-wrapper">
+							<?php get_template_part("template-parts/single/card", "vertical-thumb"); ?>
+						</div>
+					</li>
+					<?php } ?>
+				</ul>
 			</div>
-			<?php } ?>
-
 		</div><!-- /carousel-large -->
 		<div class="pt-3 text-center">
 			<a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong>Vedi tutti</strong></a>

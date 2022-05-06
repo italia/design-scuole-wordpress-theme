@@ -345,33 +345,37 @@ $posts = get_posts($args);
                     <div class="row variable-gutters">
                         <div class="col-lg-12">
                             <h3 class="mb-5 text-center semi-bold text-gray-primary" id="art-par-articoli"><?php _e( "Articoli pubblicati da ", "design_scuole_italia" ); ?><?php echo dsi_get_display_name($author_id); ?></h3>
-                            <div class="owl-carousel carousel-theme carousel-large">
-                                <?php
-                                foreach ( $posts as $post ) {
+                            <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
+                                <div class="splide__track ps-lg-3 pe-lg-3">
+                                    <ul class="splide__list it-carousel-all">
+                                        <?php
+                                        foreach ( $posts as $post ) {
 
-                                    ?>
-                                    <div class="item">
-                                        <div class="card card-bg bg-white card-thumb-rounded">
-                                            <div class="card-body">
-                                                <div class="badges mb-2">
-                                                    <?php
-                                                    $argomenti = dsi_get_argomenti_of_post($post);
-                                                    if(count($argomenti)) {
-                                                        foreach ( $argomenti as $argomento ) { ?>
-                                                            <a href="<?php echo get_term_link($argomento); ?>"  class="badge badge-sm badge-pill badge-outline-greendark" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $argomento->name; ?>"><?php echo $argomento->name; ?></a><?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </div><!-- /badges -->
-                                                <h4 class="h5"><a href="<?php echo get_permalink($post); ?>"><strong><?php echo get_the_title($post); ?></strong></a></h4>
-                                                <p><?php echo get_the_excerpt($post); ?></p>
-                                            </div><!-- /card-body -->
-                                        </div><!-- /card -->
-                                    </div><!-- /item -->
-                                    <?php
-                                }
-                                ?>
-                            </div><!-- /carousel-large -->
+                                            ?>
+                                            <li class="splide__slide">
+                                                <div class="card card-bg bg-white card-thumb-rounded">
+                                                    <div class="card-body">
+                                                        <div class="badges mb-2">
+                                                            <?php
+                                                            $argomenti = dsi_get_argomenti_of_post($post);
+                                                            if(count($argomenti)) {
+                                                                foreach ( $argomenti as $argomento ) { ?>
+                                                                    <a href="<?php echo get_term_link($argomento); ?>"  class="badge badge-sm badge-pill badge-outline-greendark" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $argomento->name; ?>"><?php echo $argomento->name; ?></a><?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </div><!-- /badges -->
+                                                        <h4 class="h5"><a href="<?php echo get_permalink($post); ?>"><strong><?php echo get_the_title($post); ?></strong></a></h4>
+                                                        <p><?php echo get_the_excerpt($post); ?></p>
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card -->
+                                            </li><!-- /splide__slide -->
+                                            <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </div><!-- /carousel-large -->
+                            </div>
                         </div><!-- /col-lg-12 -->
                     </div><!-- /row -->
                 </div><!-- /container -->

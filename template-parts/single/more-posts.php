@@ -16,16 +16,20 @@ if ( count( $posts_array ) ) { ?>
 
 				<h2 class="h3 mb-5 text-center semi-bold text-gray-primary"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></h2>
 
-				<div class="owl-carousel carousel-theme carousel-large">
-					<?php
-					foreach ( $posts_array as $post ) {
-						?>
-						<div class="item">
-							<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
-						</div><!-- /item -->
-					<?php } ?>
-				</div><!-- /carousel-large -->
-
+				<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide"
+                  data-bs-carousel-splide>
+                  <div class="splide__track ps-lg-3 pe-lg-3">
+                    <ul class="splide__list it-carousel-all">
+						<?php
+						foreach ( $posts_array as $post ) {
+							?>
+							<li class="splide__slide">
+								<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
+							</li><!-- /item -->
+						<?php } ?>
+					</ul>
+				  </div><!-- /carousel-large -->
+				</div>
 			</div><!-- /col-lg-12 -->
 		</div><!-- /row -->
 	</div><!-- /container -->
