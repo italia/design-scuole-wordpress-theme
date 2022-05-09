@@ -240,7 +240,7 @@ function dsi_register_main_options_metabox() {
         'options' => array(
             'false' => __('No', 'design_scuole_italia'),
             'true_event' => __('Si, mostra il prossimo evento', 'design_scuole_italia'),
-            'true_calendar' => __('Si, mostra il calendario', 'design_scuole_italia'),
+            // 'true_calendar' => __('Si, mostra il calendario', 'design_scuole_italia'),
         ),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
