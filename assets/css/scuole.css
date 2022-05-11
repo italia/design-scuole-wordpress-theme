@@ -11155,7 +11155,7 @@ body.push-body.push-body-search #main-header:after {
   opacity: 0.5;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1300px) {
   .simple-two-carousel .splide__pagination {
     display: none;
   }

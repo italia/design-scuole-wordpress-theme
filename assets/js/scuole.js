@@ -245,464 +245,58 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  const classCarousels = document.querySelectorAll(".carousel-classroom");
   const twoCarousel = document.querySelectorAll(".simple-two-carousel");
 
-  if (twoCarousel.length) {
-    twoCarousel.forEach((element) => {
-      setTimeout(() => {
+  if (classCarousels.length) {
+    setTimeout(() => {
+      classCarousels.forEach((element) => {
         new Splide(element, {
-          gap: "2rem",
+          gap: "1.5rem",
           arrows: true,
-          isNavigation: true,
           pagination: false,
-          perPage: 2,
           perMove: 1,
+          perPage: 3,
+          padding: { left: "200px", right: "200px" },
           breakpoints: {
-            1024: {
+            1200: {
+              perPage: 2,
+              padding: { left: "120px", right: "120px" },
+            },
+            768: {
+              padding: { left: "120px", right: "120px" },
+            },
+            550: {
+              gap: "0.5rem",
               perPage: 1,
-              perMove: 1,
-              arrows: false,
-              pagination: true,
+              padding: { left: "80px", right: "80px" },
             },
           },
         }).mount();
-      }, 500);
-    });
+      });
+    }, 600);
   }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
-    new Splide(".carousel-classroom", {
-      gap: "1.5rem",
-      arrows: true,
-      pagination: false,
-      perMove: 1,
-      perPage: 3,
-      padding: { left: "200px", right: "200px" },
-      breakpoints: {
-        1200: {
-          perPage: 2,
-          padding: { left: "120px", right: "120px" },
+    twoCarousel.forEach((element) => {
+      new Splide(element, {
+        gap: "2rem",
+        arrows: true,
+        perPage: 2,
+        perMove: 1,
+        breakpoints: {
+          1300: {
+            arrows: false,
+          },
+          768: {
+            perPage: 1,
+            perMove: 1,
+          },
         },
-        768: {
-          padding: { left: "120px", right: "120px" },
-        },
-        550: {
-          gap: "0.5rem",
-          perPage: 1,
-          padding: { left: "80px", right: "80px" },
-        },
-      },
-    }).mount();
-  }, 500);
-});
-
-/* Carousel */
-jQuery(document).ready(function ($) {
-  $(".carousel-simple").owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: false,
-    margin: 30,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      576: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      768: {
-        items: 2,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      992: {
-        items: 2,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      1400: {
-        items: 2,
-        stagePadding: 0,
-      },
-    },
-  });
-  $(".carousel-simple-pager").owlCarousel({
-    nav: false,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: true,
-    margin: 30,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 0,
-        margin: 0,
-      },
-      576: {
-        items: 1,
-        stagePadding: 0,
-        margin: 0,
-      },
-      768: {
-        items: 2,
-        stagePadding: 0,
-      },
-      992: {
-        items: 2,
-        stagePadding: 0,
-      },
-      1400: {
-        items: 2,
-        stagePadding: 0,
-      },
-    },
-  });
-  $(".carousel-single").owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: false,
-    margin: 30,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      576: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      768: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      992: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      1400: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-      },
-    },
-  });
-  $(".carousel-double").owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: false,
-    margin: 30,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      576: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      768: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      992: {
-        items: 2,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      1400: {
-        items: 2,
-        stagePadding: 0,
-        dots: true,
-      },
-    },
-  });
-  $(".carousel-large").owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: false,
-    margin: 24,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 0,
-        dots: true,
-        margin: 0,
-        nav: false,
-      },
-      576: {
-        items: 2,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      768: {
-        items: 3,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      992: {
-        items: 3,
-        stagePadding: 0,
-        dots: true,
-        nav: false,
-      },
-      1400: {
-        items: 3,
-        stagePadding: 0,
-      },
-    },
-  });
-
-  calendaryears = $(".carousel-calendar-years");
-  calendarevents = $(".carousel-calendar");
-
-  calendaryears.on("change.owl.carousel", function (event) {
-    if (event.namespace && event.property.name === "position") {
-      var target = event.relatedTarget.relative(event.property.value, true);
-      calendarevents.owlCarousel("to", target, 500, true);
-    }
-  });
-
-  calendaryears.owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    center: false,
-    items: 2,
-    loop: false,
-    dots: false,
-    margin: 0,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
-      992: {
-        items: 2,
-      },
-      1200: {
-        items: 3,
-      },
-    },
-  });
-
-  calendarevents.owlCarousel({
-    nav: false,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    center: false,
-    items: 2,
-    loop: false,
-    dots: false,
-    margin: 30,
-    lazyLoad: true,
-
-    responsive: {
-      0: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
-      992: {
-        items: 2,
-      },
-      1200: {
-        items: 3,
-      },
-    },
-  });
-
-  function brandSliderClasses() {
-    calendaryears.each(function () {
-      var total = $(this).find(".owl-item.active").length;
-      $(this).find(".owl-item").removeClass("firstactiveitem");
-      $(this).find(".owl-item").removeClass("lastactiveitem");
-      $(this)
-        .find(".owl-item.active")
-        .each(function (index) {
-          if (index === 0) {
-            $(this).addClass("firstactiveitem");
-          }
-          if (index === 1) {
-            $(this).addClass("lastactiveitem");
-          }
-        });
+      }).mount();
     });
-  }
-  brandSliderClasses();
-  calendaryears.on("translated.owl.carousel", function (event) {
-    brandSliderClasses();
-  });
-
-  // $(function() {
-  //   var owl = $('.carousel-cards'),
-  //   owlOptions = {
-  //     nav: false,
-  //     navText: ['<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>','<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>'],
-  //     dots: false,
-  //     margin: 30,
-  //     loop: false,
-  //     autoplay: false,
-  //     responsive: {
-  //       0: {
-  //       items: 1,
-  //       stagePadding: 40,
-  //       loop: true,
-  //       center: false,
-  //       dots: true,
-  //       },
-  //       576: {
-  //       items: 2,
-  //       stagePadding: 40,
-  //       loop: true,
-  //       center: false,
-  //       dots: true,
-  //       },
-  //       768: {
-  //       items: 2,
-  //       stagePadding: 0,
-  //       loop: true,
-  //       center: false,
-  //       dots: true,
-  //       },
-  //       1200: {
-  //       items: 3,
-  //       stagePadding: 0,
-  //       }
-  //     }
-  //   };
-
-  //   if ( $(window).width() < 1200 ) {
-  //     var owlActive = owl.owlCarousel(owlOptions);
-  //   } else {
-  //     owl.addClass('off');
-  //   }
-
-  //   $(window).resize(function() {
-  //     if ( $(window).width() < 1200 ) {
-  //       if ( $('.carousel-cards').hasClass('off') ) {
-  //         var owlActive = owl.owlCarousel(owlOptions);
-  //         owl.removeClass('off');
-  //       }
-  //     } else {
-  //       if ( !$('.carousel-cards').hasClass('off') ) {
-  //         owl.addClass('off').trigger('destroy.owl.carousel');
-  //         owl.find('.owl-stage-outer').children(':eq(0)').unwrap();
-  //       }
-  //     }
-  //   });
-  // });
-
-  $(".carousel-hours").owlCarousel({
-    nav: true,
-    navText: [
-      '<svg class="svg-arrow-circular-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-left"></use></svg>',
-      '<svg class="svg-arrow-circular-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-circular-right"></use></svg>',
-    ],
-    dots: false,
-    margin: 25,
-    loop: false,
-    autoplay: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1,
-        stagePadding: 80,
-        margin: 10,
-      },
-      576: {
-        items: 2,
-        stagePadding: 120,
-      },
-      768: {
-        items: 2,
-        stagePadding: 120,
-      },
-      992: {
-        items: 2,
-        stagePadding: 120,
-      },
-      1200: {
-        items: 3,
-        stagePadding: 200,
-      },
-    },
-  });
+  }, 800);
 });
-/* End Carousel */
 
 /* Responsive Tabs */
 $(".responsive-tabs").responsiveTabs({
