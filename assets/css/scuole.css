@@ -11115,6 +11115,10 @@ body.push-body.push-body-search #main-header:after {
   margin-top: 10px;
 }
 
+.splide .splide__track {
+  padding-bottom: 20px;
+}
+
 .splide .splide__pagination {
   text-align: center;
   -webkit-tap-highlight-color: transparent;
@@ -11149,6 +11153,12 @@ body.push-body.push-body-search #main-header:after {
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
   opacity: 0.5;
+}
+
+@media (min-width: 1024px) {
+  .simple-two-carousel .splide__pagination {
+    display: none;
+  }
 }
 
 .bg-bluelectric .splide .splide__pagination .splide__pagination__page,
@@ -11281,6 +11291,95 @@ body.push-body.push-body-search #main-header:after {
 .history-carousel .splide__pagination.splide__pagination--ltr {
   display: none;
 }
+
+/* INIZIO CAROUSEL HOURS */
+.carousel-classroom {
+  padding: 0 0 30px 0;
+}
+
+.carousel-classroom .splide__slide h3,
+.carousel-classroom .splide__slide .h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin: 0 0 0 0;
+}
+
+@media (max-width: 575.98px) {
+
+  .carousel-classroom .splide__slide h3,
+  .carousel-classroom .splide__slide .h3 {
+    font-size: 1rem;
+  }
+}
+
+.carousel-classroom .splide__slide .card {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.carousel-classroom .splide__slide .card .card-body {
+  padding: 0 15px 0 15px;
+}
+
+.carousel-classroom .splide__slide .card .card-body p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #455b71;
+  line-height: 1.4;
+}
+
+.carousel-classroom .splide__slide .card .card-body small {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #8b98a6;
+}
+
+.carousel-classroom .splide__slide .card.card-1 {
+  height: 60px;
+}
+
+.carousel-classroom .splide__slide .card.card-2 {
+  height: 130px;
+}
+
+.carousel-classroom .splide__slide .card.card-3 {
+  height: 200px;
+}
+
+.carousel-classroom .splide__arrows {
+  width: 40px;
+  position: absolute;
+  top: -30px;
+  right: 20px;
+}
+
+.carousel-classroom .splide__arrows .splide__arrow--prev,
+.carousel-classroom .splide__arrows .splide__arrow--next {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0D00FF !important;
+}
+
+.carousel-classroom .splide__arrows .splide__arrow--prev svg,
+.carousel-classroom .splide__arrows .splide__arrow--next svg {
+  width: 50%;
+  height: 100%;
+  fill: #0D00FF !important;
+}
+
+.carousel-classroom .splide__arrows .splide__arrow--next {
+  right: 0;
+}
+/*  */
 
 
 /* INIZIO YEAR CAROUSEL */
@@ -15056,6 +15155,7 @@ button.icon-text {
   margin: 0 0 0 0;
   padding: 0 3px 0 0;
   font-size: 0.875rem;
+  position: relative;
 }
 
 .header-utils a.dropdown-toggle p:after {
@@ -15067,7 +15167,7 @@ button.icon-text {
   position: absolute;
   z-index: 1;
   top: 50%;
-  right: 0;
+  right: -15px;
   margin: -4px 0 0 0;
 }
 
@@ -17114,7 +17214,7 @@ button.icon-text {
   height: 100%;
   display: block;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   right: 0;
 }
@@ -17276,7 +17376,7 @@ button.icon-text {
   height: 100%;
   display: block;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   left: 0;
 }
@@ -17659,6 +17759,11 @@ button.icon-text {
 .article-title .title-content .h2 {
   font-size: 2.8rem;
   margin: 0 0 7px 0;
+}
+
+.article-title .title-content h2.h4 {
+  font-size: 1rem;
+  margin: 0 0 15px 0;
 }
 
 .article-title .title-content h3,

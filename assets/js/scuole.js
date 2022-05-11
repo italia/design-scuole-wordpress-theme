@@ -252,19 +252,50 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         new Splide(element, {
           gap: "2rem",
-          arrows: false,
-          pagination: true,
+          arrows: true,
+          isNavigation: true,
+          pagination: false,
           perPage: 2,
           perMove: 1,
           breakpoints: {
-            768: {
+            1024: {
               perPage: 1,
+              perMove: 1,
+              arrows: false,
+              pagination: true,
             },
           },
         }).mount();
-      }, 100);
+      }, 500);
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    new Splide(".carousel-classroom", {
+      gap: "1.5rem",
+      arrows: true,
+      pagination: false,
+      perMove: 1,
+      perPage: 3,
+      padding: { left: "200px", right: "200px" },
+      breakpoints: {
+        1200: {
+          perPage: 2,
+          padding: { left: "120px", right: "120px" },
+        },
+        768: {
+          padding: { left: "120px", right: "120px" },
+        },
+        550: {
+          gap: "0.5rem",
+          perPage: 1,
+          padding: { left: "80px", right: "80px" },
+        },
+      },
+    }).mount();
+  }, 500);
 });
 
 /* Carousel */
