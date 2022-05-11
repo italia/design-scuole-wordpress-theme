@@ -225,8 +225,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     ?>
                                 </div><!-- /card-deck -->
                                 <?php }
-/*
-// todo: programma materia
+                                /*
+                                // todo: programma materia
                                 $classi = dsi_get_meta("classi");
                                 if(is_array($classi) && count($classi)>0) {
                                     ?>
@@ -245,7 +245,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div>
                                     </div>
                                 <?php }
-  */
+                                */
                                 $collaborazione = dsi_get_meta("collaborazione");
                                 if(trim($collaborazione) != "") {
                                     ?>
@@ -328,7 +328,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div>
                                 </div>
                             </article>
-                        </div><!-- /col-lg-6 -->
+                        </div><!-- /col-lg-8 -->
                         <?php else: ?>
                             <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
                                 <?php the_content(); ?>
