@@ -36,7 +36,7 @@ get_header();
                             $haschild = true;
                     }
                     ?>
-                    <section class="section <?php echo $classcolor; ?> py-4">
+                    <section class="section section-padding <?php echo $classcolor; ?>">
                         <div class="container">
                             <?php if($haschild){ // adotto la struttura a 2 colonne ?>
                                 <div class="title-section mb-5">
