@@ -25,7 +25,7 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 								?>
 								<li class="splide__slide">
 									<div class="it-single-slide-wrapper">
-										<div class="card card-icon card-bg card-large card-folded card-no-shadow rounded">
+										<div class="card card-icon card-bg card-large card-folded rounded">
 											<div class="card-title card-title-icon">
 												<svg class="it-pdf-document"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-pdf-document"></use></svg>
 
