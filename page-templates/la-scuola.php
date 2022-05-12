@@ -20,8 +20,8 @@ get_header();
 			get_template_part("template-parts/home/timeline");
 			get_template_part("template-parts/home/strutture");
 //			get_template_part("template-parts/home/commissioni");
-			get_template_part("template-parts/home/gallery-luoghi");
-			get_template_part("template-parts/home/le-carte");
+            get_template_part("template-parts/home/le-carte");
+            get_template_part("template-parts/home/gallery-luoghi");
 			get_template_part("template-parts/home/i-numeri");
 
 		endwhile; // End of the loop.
