@@ -28,7 +28,7 @@ if(!$excerpt)
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h2 class="h3"><<?php the_title(); ?></h2>
+            <h2 class="h3"><?php the_title(); ?></h2>
             <p><?php echo $excerpt; ?></p>
             <?php /* if(count($argomenti)) { ?>
                     <div class="badges">
