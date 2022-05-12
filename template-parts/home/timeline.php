@@ -25,7 +25,7 @@ if(is_array($timeline) && count($timeline) > 0) {
 								$timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
 								?>							
 								<li class="splide__slide">
-									<div class="it-single-slide-wrapper">	
+									<div class="it-single-slide-wrapper h-100">	
 										<div class="card card-img card-serif">
 											<div class="card-body px-0">
 												<h5><?php echo date_i18n("F Y", $timestamp); ?></h5>
@@ -49,7 +49,7 @@ if(is_array($timeline) && count($timeline) > 0) {
 							$timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
 								?>	
 							<li class="splide__slide">
-								<div class="it-single-slide-wrapper dot-text"><?php echo date_i18n("Y", $timestamp); ?></div>
+								<div class="it-single-slide-wrapper dot-text h-100"><?php echo date_i18n("Y", $timestamp); ?></div>
 							</li>
 							<?php
 						}

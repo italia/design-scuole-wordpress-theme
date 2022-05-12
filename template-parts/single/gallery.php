@@ -9,7 +9,7 @@ global $gallery;
 
 				?>
 				<li class="splide__slide">
-					<div class="it-single-slide-wrapper gallery-item">
+					<div class="it-single-slide-wrapper gallery-item h-100">
 						<a href="<?php echo $urlg; ?>">
 							<figure>
 								<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">

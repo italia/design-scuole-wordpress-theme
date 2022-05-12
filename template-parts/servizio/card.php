@@ -2,7 +2,7 @@
 global $servizio;
 if($servizio->post_status == "publish") {
     ?>
-    <div class="card card-bg card-icon rounded">
+    <div class="card card-bg card-icon rounded h-100">
         <a href="<?php echo get_permalink($servizio); ?>" aria-describedby="card-desc-<?php echo $servizio->ID; ?>" aria-label="Apre <?php echo $servizio->post_title; ?>">
             <div class="card-body">
                 <svg class="icon svg-marker-simple" aria-hidden="true">
