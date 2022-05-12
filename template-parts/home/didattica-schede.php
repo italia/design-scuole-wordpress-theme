@@ -14,7 +14,6 @@ if(count($posts)) {
                     <div class="section-title mb-5">
                         <h3><?php _e("Schede didattiche", "design_scuole_italia"); ?></h3>
                     </div>
-                    <p>ciao</p>
 
                     <div class="splide splide-double mb-5" data-bs-carousel-splide>
                         <div class="splide__track">

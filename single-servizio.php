@@ -183,7 +183,7 @@ get_header();
                                 // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
-                                    <h6><?php _e("A cosa serve", "design_scuole_italia"); ?></h6>
+                                    <h5><?php _e("A cosa serve", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
@@ -211,7 +211,7 @@ get_header();
 
                                 if(trim($procedura_esito) != ""){
                                     ?>
-                                    <h6><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h6>
+                                    <h5><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h5>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($procedura_esito); ?>
