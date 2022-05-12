@@ -44,7 +44,7 @@
                 <li>13:00</li>
             </ul>
         </div>
-        <div class="owl-carousel carousel-theme carousel-hours">
+        <div class="carousel-theme carousel-hours">
             <div class="item">
                 <h3>Lunedì</h3>
                 <div class="card card-bg card-noicon card-2 rounded shadow-none">

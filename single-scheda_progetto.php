@@ -312,10 +312,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
                                     <h4  id="art-par-gallery"><?php _e("Galleria Immagini", "design_scuole_italia"); ?></h4>
-
-                                    <div class="owl-carousel carousel-theme carousel-simple mb-3">
-                                        <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
-                                    </div><!-- /carousel-simple -->
+                                    <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
+                                        <div class="splide__track">
+                                            <ul class="splide__list">
+                                                <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
+                                            </ul>
+                                        </div><!-- /carousel-simple -->
+                                    </div>
                                 <?php }
                                 ?>
 

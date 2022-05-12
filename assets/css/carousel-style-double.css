@@ -1,0 +1,301 @@
+.splide .splide__arrow {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: 1px solid;
+}
+
+.splide .splide__arrow [class*='splide__arrow--'] {
+  color: #51758d;
+  font-size: 1.68em;
+  margin: 0px;
+  padding: 0px;
+  background: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.splide .splide__arrow [class*='splide__arrow--']:hover {
+  background: none;
+  color: #51758d;
+  text-decoration: none;
+}
+
+.splide .splide__arrow .disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.splide .splide__arrow.disabled+.splide__pagination {
+  margin-top: 10px;
+}
+
+.splide .splide__pagination {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  bottom: 0;
+}
+
+/* .splide .splide__pagination .splide__pagination__page{
+      display: inline-block;
+  zoom: 1;
+  *display: inline;
+} */
+
+.splide__track--nav>.splide__list>.splide__slide.is-active {
+  border: 0;
+}
+
+.splide__track--nav>.splide__list>.splide__slide {
+  border: 0;
+}
+
+.splide .splide__pagination .splide__pagination__page {
+  width: 12px;
+  height: 12px;
+  margin: 0px 5px 0px 5px;
+  background: transparent;
+  border: 2px solid #51758d;
+  display: block;
+  -webkit-backface-visibility: visible;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  opacity: 0.5;
+}
+
+.bg-bluelectric .splide .splide__pagination .splide__pagination__page,
+.bg-bluelectricdark .splide .splide__pagination .splide__pagination__page {
+  border-color: #ffffff;
+}
+
+.splide .splide__pagination__page.is-active,
+.splide .splide__pagination__page:hover {
+  background: #51758d;
+  border: 2px solid #51758d;
+  opacity: 1;
+  transform: none;
+}
+
+.bg-bluelectricdark .splide .splide__pagination .splide__pagination__page.is-active,
+.bg-bluelectricdark .splide .splide__pagination .splide__pagination__page:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.bg-bluelectric .splide .splide__pagination .splide__pagination__page.is-active,
+.bg-bluelectric .splide .splide__pagination .splide__pagination__page:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.splide .splide__pagination .splide__arrow--prev,
+.splide .splide__pagination .splide__arrow--next {
+  position: absolute;
+  z-index: 1;
+  width: 50px;
+  height: 100%;
+  background: transparent;
+  top: 0;
+  text-align: center;
+}
+
+.splide .splide__arrow svg {
+  height: .6rem;
+  width: .6rem;
+}
+
+.splide .splide__arrow--prev {
+  left: -3rem;
+}
+
+
+.splide .splide__arrow--next {
+  right: -3rem;
+
+}
+
+.redbrown .splide .splide__arrows .splide__arrow--prev svg,
+.redbrown .splide .splide__arrows .splide__arrow--next svg {
+  fill: #D1344C;
+}
+
+.redbrown .splide .didascalia-text {
+  background-color: #D1344C;
+}
+
+.redbrown .splide__arrow {
+  color: #D1344C;
+}
+
+.bluelectric .splide .splide__arrows .splide__arrow--prev svg,
+.bluelectric .splide .splide__arrows .splide__arrow--next svg {
+  fill: #0D00FF;
+}
+
+.bluelectric .didascalia-text {
+  background-color: #0D00FF;
+}
+
+.bluelectric .splide__arrow {
+  color: #0D00FF;
+}
+
+.bg-bluelectric .splide .splide__arrows .splide__arrow--prev svg,
+.bg-bluelectric .splide .splide__arrows .splide__arrow--next svg {
+  fill: #ffffff;
+}
+
+.section-bluedark .splide .splide__arrows .splide__arrow--prev svg,
+.section-bluedark .splide .splide__arrows .splide__arrow--next svg {
+  fill: #ffffff;
+}
+
+.greendark .splide .splide__arrows .splide__arrow--prev svg,
+.greendark .splide .splide__arrows .splide__arrow--next svg {
+  fill: #0E8A5F;
+}
+
+.greendark .didascalia-text {
+  background-color: #0E865c;
+}
+
+.greendark .splide__arrow svg {
+  fill: #0E8A5F;
+}
+
+.greendark .splide__arrow {
+  color: #0E865c;
+}
+
+.section-bluedark .splide__arrow svg,
+.bg-bluelectricdark .splide__arrow svg {
+  fill: #ffffff;
+  ;
+}
+
+.section-bluedark .splide__arrow,
+.bg-bluelectricdark .splide__arrow {
+  color: #ffffff;
+}
+
+.didascalia-text {
+  bottom: 0;
+  font-size: .88rem;
+  color: white;
+  max-width: 100%;
+}
+
+.splide__slide img {
+  display: block;
+  width: 100%;
+}
+
+.history-carousel .splide__pagination.splide__pagination--ltr{
+  display: none;
+}
+
+
+/* INIZIO YEAR CAROUSEL */
+
+.year-carousel .splide__pagination.splide__pagination--ltr{
+  display: none;
+}
+
+.year-carousel .splide__slide .dot-text {
+  padding: 15px 0 0;
+  position: relative;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 40px;
+}
+
+.redbrown .year-carousel .splide__slide .dot-text {
+  color: #D1344C;
+}
+
+.year-carousel .splide__slide .dot-text:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #D1344C;
+}
+
+.year-carousel .splide__slide:first-child .dot-text:before {
+  width: 50%;
+}
+
+.year-carousel .splide__slide .dot-text:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid #D1344C;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #ffffff;
+}
+
+.bg-blue-dark .year-carousel .splide__slide .dot-text:after {
+  background-color: #001a33;
+}
+
+.year-carousel .splide__arrow--prev {
+  left: 0;
+  top: 70%;
+}
+
+.year-carousel .splide__arrow--next {
+  right: 0;
+  top: 70%;
+}
+
+/* FINE YEAR CAROUSEL */
+
+/* INIZIO CARD CAROUSEL*/
+.carousel-cards .splide__track {
+  padding-bottom: 50px;
+}
+
+.carousel-cards .splide__pagination {
+  bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .carousel-cards .splide__list {
+    display: flex !important;
+    flex-wrap: wrap;
+    margin: 0 -14px 0 -14px;
+    width: auto;
+    z-index: 2;
+  }
+
+  .carousel-cards .splide__slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 14px 28px 14px;
+    margin-right: 0 !important;
+
+  }
+}
+/* FINE CARD CAROUSEL */
+
+/* INIZIO NOTICE CAROUSEL */
+.carousel-notice .splide__track {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 20px;
+}
+
+.carousel-notice .splide__pagination {
+  bottom: 0;
+}
+/* FINE NOTICE CAROUSEL */
