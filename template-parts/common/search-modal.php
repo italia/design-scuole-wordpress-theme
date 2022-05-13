@@ -19,6 +19,9 @@
 									<input type="text" name="s" id="search" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
 								</div>
 								<div class="cat-filters">
+                                    <div class="custom-control custom-submit-primary" style="display:none;">
+									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any"><?php _e("Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>","design_scuole_italia"); ?></button>
+                                    </div>
                                     <?php
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("school");
