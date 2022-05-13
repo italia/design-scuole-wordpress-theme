@@ -187,6 +187,13 @@ function dsi_add_luogo_metaboxes() {
 		),*/
 	) );
 
+	$cmb_aftercontent_luoghi->add_field( array(
+        'id'         => $prefix . 'pec',
+        'name'       => __( 'PEC', 'design_scuole_italia' ),
+        'desc'       => __( 'Indirizzo di posta elettronica certificata (PEC).', 'design_scuole_italia' ),
+        'type'       => 'text_email',
+    ) );
+
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'telefono',
