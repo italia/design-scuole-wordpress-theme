@@ -66,7 +66,7 @@ function dsi_add_scheda_didattica_metaboxes() {
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'obiettivi',
 		'name'        => __( 'Obiettivi *', 'design_scuole_italia' ),
-		'desc' => __( 'Obiettivi del progetto' , 'design_scuole_italia' ),
+		'desc' => __( 'Obiettivi del progetto.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -184,7 +184,7 @@ scuola secondaria secondo grado / percorsi di istruzione e formazione profession
 add_action( 'edit_form_after_title', 'sdi_scheda_didattica_add_content_after_title' );
 function sdi_scheda_didattica_add_content_after_title($post) {
 	if($post->post_type == "scheda_didattica")
-		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Scheda</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Scheda Didattica</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 
@@ -195,4 +195,13 @@ add_action( 'edit_form_after_title', 'sdi_scheda_didattica_add_content_before_ed
 function sdi_scheda_didattica_add_content_before_editor($post) {
 	if($post->post_type == "scheda_didattica")
 		_e('<h1>L\'argomento della scheda</h1>', 'design_scuole_italia' );
+}
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_scheda_didattica_add_content_after_editor', 100 );
+function sdi_scheda_didattica_add_content_after_editor($post) {
+    if($post->post_type == "scheda_didattica")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
 }

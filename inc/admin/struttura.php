@@ -324,7 +324,7 @@ function dsi_add_struttura_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'altre_info',
         'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
-        'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi' , 'design_scuole_italia' ),
+        'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type'    => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -346,7 +346,6 @@ function sdi_struttura_add_content_after_title($post) {
         _e('<span><i>il <b>Titolo</b> è il <b>Nome della struttura organizzativa</b>. es: Presidenza / Segreteria / Scuola del nome istituto</i></span><br><br>', 'design_scuole_italia' );
 }
 
-
 /**
  * Aggiungo testo prima del content
  */
@@ -354,6 +353,15 @@ add_action( 'edit_form_after_title', 'sdi_struttura_add_content_before_editor', 
 function sdi_struttura_add_content_before_editor($post) {
     if($post->post_type == "struttura")
         _e('<h1>Cosa fa </h1> Elenco/descrizione dei compiti assegnati alla struttura', 'design_scuole_italia' );
+}
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_struttura_add_content_after_editor', 100 );
+function sdi_struttura_add_content_after_editor($post) {
+    if($post->post_type == "struttura")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
 }
 
 // relazione bidirezionale struttura / progetti
