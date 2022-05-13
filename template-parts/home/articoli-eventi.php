@@ -21,10 +21,22 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
         if($tipologia_notizia) {
+            $args = array('post_type' => 'post',
+                    'posts_per_page' => $ppp,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'tipologia-articolo',
+                            'field' => 'term_id',
+                            'terms' => $tipologia_notizia->term_id,
+                        ),
+                    ),
+                );
+            $posts = get_posts($args);
 
             $lg = 4;
             if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                 $lg = 8;
+            if (is_array($posts) && count($posts)) { 
             ?>
             <div class="col-lg-<?php echo $lg; ?>">
                 <div class="title-section pb-4">
@@ -39,17 +51,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                     echo '<div class="row variable-gutters">';
                 }
 
-                $args = array('post_type' => 'post',
-                    'posts_per_page' => $ppp,
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'tipologia-articolo',
-                            'field' => 'term_id',
-                            'terms' => $tipologia_notizia->term_id,
-                        ),
-                    ),
-                );
-                $posts = get_posts($args);
+                
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                         echo '<div class="col-lg-6 mb-2">';
@@ -67,6 +69,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 </div>
             </div><!-- /col-lg-4 -->
             <?php
+            }
         }
         $ct++;
     }
