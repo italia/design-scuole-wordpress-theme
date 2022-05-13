@@ -14,7 +14,8 @@ get_header();
     <main id="main-container" class="main-container">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-		<?php while ( have_posts() ) :  the_post(); ?>
+		<?php while ( have_posts() ) :  the_post();
+        set_views($post->ID); ?>
 
             <section class="section bg-white">
                 <div class="container">

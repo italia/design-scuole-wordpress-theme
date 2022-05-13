@@ -19,6 +19,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
         <?php while ( have_posts() ) :  the_post();
+        set_views($post->ID);
 
             $percorsi = dsi_get_percorsi_of_scuola($post);
             $link_servizi_didattici = dsi_get_meta("link_servizi_didattici");

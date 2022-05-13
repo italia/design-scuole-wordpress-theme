@@ -15,6 +15,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part( "template-parts/common/breadcrumb" ); ?>
         <?php while ( have_posts() ) : the_post();
+        set_views($post->ID);
             $image_url              = get_the_post_thumbnail_url( $post, "item-gallery" );
             $autore                 = get_user_by( "ID", $post->post_author );
             $gallery                = dsi_get_meta( "gallery" );

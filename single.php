@@ -15,6 +15,7 @@ get_header();
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
 		<?php while ( have_posts() ) :  the_post();
+        set_views($post->ID);
 		$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 		$autore = get_user_by("ID", $post->post_author);
 		?>

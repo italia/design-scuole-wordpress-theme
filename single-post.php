@@ -20,6 +20,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <?php while ( have_posts() ) :  the_post();
+        set_views($post->ID);
 
 
                 get_template_part("template-parts/single/header-post");

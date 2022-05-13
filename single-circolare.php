@@ -31,6 +31,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <?php while ( have_posts() ) :  the_post();
+        set_views($post->ID);
 
 
                 get_template_part("template-parts/single/header-circolare");

@@ -21,6 +21,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
 		<?php while ( have_posts() ) :  the_post();
+        set_views($post->ID);
 			if(has_post_thumbnail($post))
 				$image_url = get_the_post_thumbnail_url($post, "item-thumb");
 			else

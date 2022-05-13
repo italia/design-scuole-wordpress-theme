@@ -68,30 +68,62 @@
 								</div>
 							</div>
 						</div>
-                        <?php
-                        $argomenti = get_terms(array(
-                            'taxonomy' => 'post_tag',
-                            'orderby' => 'count',
-                            'order'   => 'DESC',
-                            'hide_empty'   => 1,
-                            'number' => "20"
-                        ));
-                        if(!empty($argomenti)) { ?>
                         <div class="row variable-gutters">
-                            <div class="col-lg-12">
-                                <div class="badges-wrapper">
-                                    <p class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></p>
-                                    <div class="badges">
-                                        <?php
-                                        foreach ($argomenti as $argomento){
-                                            $taglink = get_tag_link($argomento);  ?>
-                                            <a href="<?php echo $taglink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
-                                        <?php } ?>
-                                    </div><!-- /badges -->
-                                </div><!-- /badges-wrapper -->
+                            <div class="col-lg-5">
+                                <div class="searches-list-wrapper">
+                                <div class="h4">Ricerche frequenti</div>
+                                <ul class="searches-list">
+                                    <?php
+                                    $popular_posts = new WP_Query( array(
+                                        'post_type'     => ['circolare','documento','evento','incarico','indirizzo', 'luogo', 'post','scheda_didattica','scheda_progetto','servizio','struttura'], 
+                                        'posts_per_page' => 7, 
+                                        'meta_key'      => 'views',
+                                        'orderby'       => 'meta_value_num',
+                                        'order'         => 'DESC'
+                                        )
+                                     );
+                                    
+                                    if (is_array($popular_posts->posts)) {
+                                         foreach ($popular_posts->posts as $post) {
+                                        $group = dsi_get_post_types_group($post->post_type);
+                                    ?>
+                                        <li><a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a><span><?php echo dsi_get_italian_name_group($group) ?></span></li>
+                                    <?php
+                                    }} else { ?>
+                                        <li>Nessun risultato</li>
+                                    <?php };
+                                    wp_reset_query();
+                                    ?>
+                                </ul>
+                                </div>
+                            </div> 
+                            <div class="col-lg-6">
+                            <?php
+                            $argomenti = get_terms(array(
+                                'taxonomy' => 'post_tag',
+                                'orderby' => 'count',
+                                'order'   => 'DESC',
+                                'hide_empty'   => 1,
+                                'number' => "20"
+                            ));
+                            if(!empty($argomenti)) { ?>
+                            <div class="row variable-gutters">
+                                <div class="col-lg-12">
+                                    <div class="badges-wrapper">
+                                        <p class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></p>
+                                        <div class="badges">
+                                            <?php
+                                            foreach ($argomenti as $argomento){
+                                                $taglink = get_tag_link($argomento);  ?>
+                                                <a href="<?php echo $taglink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
+                                            <?php } ?>
+                                        </div><!-- /badges -->
+                                    </div><!-- /badges-wrapper -->
+                                </div>
                             </div>
-                        </div>
-                        <?php } ?>
+                            <?php } ?>
+                            </div> <!-- TAGS -->
+                        </div>                        
 					</div>
 				</form>
 			</div>

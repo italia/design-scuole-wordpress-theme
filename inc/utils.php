@@ -537,6 +537,24 @@ function dsi_get_post_types_group($post_type){
 /**
  * @param $post_type
  *
+ * ritorna il gruppo in italiano
+ * @return string
+ */
+function dsi_get_italian_name_group($group) {
+	$gruppo = "Novità";
+	if($group == "school")
+		$gruppo = "La Scuola";
+	else if($group == "education")
+		$gruppo = "Didattica";
+	else if($group == "service")
+		$gruppo = "Servizi";
+	
+    return $gruppo;
+}
+
+/**
+ * @param $post_type
+ *
  * ritorna il suffisso della classe relativa al colore
  * @return string
  */
