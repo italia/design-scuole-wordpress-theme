@@ -254,10 +254,24 @@ function dsi_add_indirizzo_metaboxes() {
 
     ) );
     $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'spid',
-        'name'        => __( 'SPID', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare se è previsto SPID tra le modalità di autenticazione previste.' , 'design_scuole_italia' ),
+        'id' => $prefix . 'modalita_autenticazione',
+        'name'        => __( 'Modalità di autenticazione', 'design_scuole_italia' ),
+        'desc' => __( 'Selezionare se sono previste modalità di autenticazione.' , 'design_scuole_italia' ),
         'type' => 'checkbox',
+    ) );
+    $cmb_undercontent->add_field(array(
+        'id' => $prefix . 'provider_autenticazione',
+        'name'        => __( 'Provider di autenticazione', 'design_scuole_italia' ),
+        'desc' => __( 'Selezionare i provider di autenticazione tra SPID e Carta di Identità Elettronica (CIE).' , 'design_scuole_italia' ),
+        'type' => 'pw_multiselect',
+        'options' => array(
+            'SPID' => 'SPID',
+            'CIE' => 'CIE'
+        ),
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'modalita_autenticazione',
+            'data-conditional-value'  => "false",
+        ),
     ) );
 
 
