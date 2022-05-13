@@ -21,6 +21,12 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
         if($tipologia_notizia) {
+            // se è selezionata solo una tipologia, pesco 2 elementi
+            $ppp=1;
+            if((count($tipologie_notizie) == 1) && ($home_show_events == "false")){
+                $ppp=2;
+                echo '<div class="row variable-gutters">';
+            }
             $args = array('post_type' => 'post',
                     'posts_per_page' => $ppp,
                     'tax_query' => array(
@@ -44,14 +50,6 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 </div><!-- /title-section -->
 
                 <?php
-                // se è selezionata solo una tipologia, pesco 2 elementi
-                $ppp=1;
-                if((count($tipologie_notizie) == 1) && ($home_show_events == "false")){
-                    $ppp=2;
-                    echo '<div class="row variable-gutters">';
-                }
-
-                
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                         echo '<div class="col-lg-6 mb-2">';
