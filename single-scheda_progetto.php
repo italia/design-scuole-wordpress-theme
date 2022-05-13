@@ -338,27 +338,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                 </div><!-- /container -->
             </section>
 
-            <section class="section bg-gray-light py-5" id="art-par-04">
-                <div class="container py-4">
-                    <div class="title-section text-center mb-5">
-                        <h3 class="h4">Galleria</h3>
-                    </div><!-- /title-large -->
-                    <div class="row variable-gutters">
-                        <div class="col">
-                        <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
-                            <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
-                                <div class="splide__track">
-                                    <ul class="splide__list">
-                                    <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
-                                    </ul>
-                                </div><!-- /carousel-simple -->
-                            </div>
-                        <?php } ?>
-                        </div><!-- /col -->
-                    </div><!-- /row -->
-                </div><!-- /container -->
-            </section>
-                            
             <?php get_template_part("template-parts/single/more-scheda_progetto"); ?>
 
         <?php  	endwhile; // End of the loop. ?>
