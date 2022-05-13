@@ -18039,6 +18039,10 @@ button.icon-text {
   text-decoration: underline;
 }
 
+.note.cie svg {
+  margin-bottom: 0;
+}
+
 .purplelight .note a {
   color: #B21DD0;
 }
