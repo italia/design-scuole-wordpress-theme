@@ -1,17 +1,17 @@
 <!-- Access Modal -->
 <div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="access-modal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content perfect-scrollbar">
             <div class="modal-body">
                 <form id="access-form" class="access-main-wrapper" name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
                     <div class="container">
                         <div class="row variable-gutters mb-0 mb-lg-4 mb-xl-5">
                             <div class="col">
-                                <div class="h2"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
+                                <h2 class="d-inline" id="access-modal"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
                                     <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
                                         <svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
                                     </button>
-                                </div>
+                                </h2>
                             </div>
                         </div>
                         <div class="row variable-gutters justify-content-center pt-4 pt-xl-5">
@@ -37,12 +37,12 @@
                                     <p class="text-large"><?php _e("Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.", "design_scuole_italia"); ?></p>
                                     <div class="access-login-form">
                                         <div class="form-group">
-                                            <label for="user_login">Email address</label>
-                                            <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="Nome utente o indirizzo email">
+                                            <label for="login-email-field">Email address</label>
+                                            <input type="text" name="log" id="login-email-field" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="Nome utente o indirizzo email">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="user_pass">Password</label>
-                                            <input type="password" name="pwd" id="user_pass" class="form-control" value="" size="20" aria-describedby="access-form" placeholder="Password">
+                                            <label for="login-password-field">Password</label>
+                                            <input type="password" name="pwd" id="login-password-field" class="form-control" value="" size="20" aria-describedby="access-form" placeholder="Password">
                                         </div>
 
                                         <div class="row variable-gutters mb-4">

@@ -282,7 +282,7 @@ get_header();
                                             foreach ($luoghi as $idluogo){
                                                 $c++;
                                                 $luogo = get_post($idluogo);
-                                                get_template_part( "template-parts/luogo/card" , "nophone");
+                                                get_template_part( "template-parts/luogo/card");
                                             }
                                             ?>
                                         </div>
