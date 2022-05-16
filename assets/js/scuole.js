@@ -341,7 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }, 800);
   }
-});
 
 /* Responsive Tabs */
 $(".responsive-tabs").responsiveTabs({
