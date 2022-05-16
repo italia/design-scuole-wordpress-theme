@@ -8,7 +8,7 @@ if(!$related_type)
 $oldpost = $post;
 	
 if ( is_array( $posts_array ) && count( $posts_array ) ) { ?>
-	<section class="section bg-gray-gradient py-5" id="contenuti-correlati">
+	<section class="section bg-gray-gradient py-5" id="art-par-correlati">
 	<div class="container pt-3">
 
 		<div class="row variable-gutters">
