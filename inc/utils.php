@@ -459,8 +459,8 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 			'end_size'     => 3,
 			'mid_size'     => 1,
 			'prev_next'    => true,
-			'prev_text'    => __( '« ' ),
-			'next_text'    => __( ' »' ),
+			'prev_text'    => __( '<svg class="icon icon-primary"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-arrow-left-small"></use></svg><span class="sr-only">Pagina precedente</span>' ),
+			'next_text'    => __( '<span class="sr-only">Pagina successiva</span><svg class="icon icon-primary"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-arrow-right-small"></use></svg>' ),
 			'add_args'     => false,
 			'add_fragment' => ''
 		]
