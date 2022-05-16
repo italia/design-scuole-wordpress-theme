@@ -441,7 +441,7 @@ function dsi_add_documento_metaboxes() {
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'riferimenti_normativi',
         'name'        => __( 'Riferimenti normativi', 'design_scuole_italia' ),
-        'desc' => __( 'Lista di link con riferimenti normativi utili per il documento"' , 'design_scuole_italia' ),
+        'desc' => __( 'Lista di link con riferimenti normativi utili per il documento.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -478,6 +478,16 @@ add_action( 'edit_form_after_title', 'sdi_documento_add_content_after_title' );
 function sdi_documento_add_content_after_title($post) {
     if($post->post_type == "documento")
         _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b></span><br><br>', 'design_scuole_italia' );
+}
+
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_documento_add_content_after_editor', 100 );
+function sdi_documento_add_content_after_editor($post) {
+    if($post->post_type == "documento")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
 }
 
 

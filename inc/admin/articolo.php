@@ -135,3 +135,12 @@ function dsi_add_articolo_metaboxes() {
 
 }
 
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_articolo_add_content_after_editor', 100 );
+function sdi_articolo_add_content_after_editor($post) {
+    if($post->post_type == "post")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
+}

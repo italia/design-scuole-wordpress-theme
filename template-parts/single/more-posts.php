@@ -7,7 +7,7 @@ if(!$related_type)
     $related_type = "card-vertical-thumb";
 $oldpost = $post;
 	
-if ( count( $posts_array ) ) { ?>
+if ( is_array( $posts_array ) && count( $posts_array ) ) { ?>
 	<section class="section bg-gray-gradient py-5" id="contenuti-correlati">
 	<div class="container pt-3">
 

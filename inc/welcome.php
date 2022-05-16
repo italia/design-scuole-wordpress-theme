@@ -200,7 +200,7 @@ function dsi_add_toolbar_manual($admin_bar)
     $admin_bar->add_menu(array(
         'id' => 'manuale',
         'title' => 'Manuale',
-        'href' => 'https://docs.google.com/document/d/1naD7nk9R62tb2OyE25ofPpqUZolfbPjwtF_AwceSnQg/edit#heading=h.cavkdt8hpm8v',
+        'href' => 'https://designers.italia.it/modello/scuole/',
         'meta' => array(
             'title' => __('Manuale'),
             'target' => '_blank'

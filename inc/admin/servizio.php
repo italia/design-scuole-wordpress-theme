@@ -163,7 +163,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'esito',
 		'name'        => __( 'A cosa serve', 'design_scuole_italia' ),
-		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa"' , 'design_scuole_italia' ),
+		'desc' => __( 'Indicare uno o più output prodotti dal servizio. Ad es.: " Questo servizio ti permette l\'iscrizione al servizio mensa".<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -176,7 +176,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'come_si_fa',
 		'name'        => __( 'Come si accede al servizio', 'design_scuole_italia' ),
-		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto"' , 'design_scuole_italia' ),
+		'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del servizio. Es. "per iscriverti al servizio mensa puoi utilizzare il servizio on line oppure andare in una delle sedi indicate qui sotto".<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -203,7 +203,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'canale_digitale',
 		'name'        => __( 'Servizi on line', 'design_scuole_italia' ),
-		'desc' => __( 'Link per avviare la procedura di attivazione del servizio. Questo campo mette in relazione "Servizio" con il suo canale digitale di attivazione. Es. "Per richiedere il servizio mensa utilizza la procedura on line prevista nel sito del Comune X (link)"' , 'design_scuole_italia' ),
+		'desc' => __( 'Link per avviare la procedura di attivazione del servizio. Questo campo mette in relazione "Servizio" con il suo canale digitale di attivazione. Es. "Per richiedere il servizio mensa utilizza la procedura on line prevista nel sito del Comune X (link)".<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -240,7 +240,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'autenticazione',
 		'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
-		'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie. Ad es. "Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L\'iscrizione è possibile anche attraverso spid."' , 'design_scuole_italia' ),
+		'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie. Ad es. "Per attivare il servizio mensa dovrai iscriverti al sito del Comune. L\'iscrizione è possibile anche attraverso spid.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie."' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -249,28 +249,28 @@ function dsi_add_servizi_metaboxes() {
 		),
 
 	) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'modalita_autenticazione',
-        'name'        => __( 'Modalità di autenticazione', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare se sono previste modalità di autenticazione per accedere al servizio.' , 'design_scuole_italia' ),
-        'type' => 'checkbox',
-    ) );
-    $cmb_undercontent->add_field(array(
-        'id' => $prefix . 'provider_autenticazione',
-        'name'        => __( 'Provider di autenticazione', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare i provider di autenticazione tra SPID e Carta di Identità Elettronica (CIE).' , 'design_scuole_italia' ),
-        'type' => 'pw_multiselect',
-        'options' => array(
-            'SPID' => 'SPID',
-            'CIE' => 'CIE'
-        ),
-        'attributes'    => array(
-            'data-conditional-id'     => $prefix.'modalita_autenticazione',
-            'data-conditional-value'  => "false",
-        ),
-    ) );
 
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'modalita_autenticazione',
+		'name' => __( 'Modalità di autenticazione', 'design_scuole_italia' ),
+		'desc' => __( 'Selezionare se sono previste modalità di autenticazione per accedere al servizio.' , 'design_scuole_italia' ),
+		'type' => 'checkbox',
+	) );
 
+	$cmb_undercontent->add_field(array(
+		'id' => $prefix . 'provider_autenticazione',
+		'name' => __( 'Provider di autenticazione', 'design_scuole_italia' ),
+		'desc' => __( 'Selezionare i provider di autenticazione tra SPID e Carta di Identità Elettronica (CIE).' , 'design_scuole_italia' ),
+		'type' => 'pw_multiselect',
+		'options' => array(
+			'SPID' => 'SPID',
+			'CIE' => 'CIE'
+		),
+		'attributes'    => array(
+			'data conditional id'     => $prefix.'modalita_autenticazione',
+			'data conditional value'  => "false",
+		),
+	) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'struttura_responsabile',
@@ -310,7 +310,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'cosa_serve',
 		'name'        => __( 'Cosa Serve (testo introduttivo) * ', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Per attivare il servizio bisogna prima compilare il modulo on line oppure stampare e compilare il modulo cartaceo che trovi nella sezione documenti di questa pagina. [Vai alla sezione documenti]" Per creare un link mediante ancora inserisci #art-par-documenti come valore del link.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.', 'design_scuole_italia' ),
 		'type'    => 'wysiwyg',
 		'attributes'    => array(
 			'required'    => 'required'
@@ -381,7 +381,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'altre_info',
 		'name'        => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
-		'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi' , 'design_scuole_italia' ),
+		'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
 		'type'    => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -503,6 +503,16 @@ function sdi_servizio_add_content_before_editor($post) {
 	if($post->post_type == "servizio")
 		_e('<h1>Descrizione Estesa e Completa del Servizio</h1>', 'design_scuole_italia' );
 }
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_servizio_add_content_after_editor', 100 );
+function sdi_servizio_add_content_after_editor($post) {
+    if($post->post_type == "servizio")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
+}
+
 
 
 // relazione bidirezionale struttura / servizi
