@@ -41,7 +41,7 @@ get_header();
                                 get_template_part( 'template-parts/list/article', get_post_type() );
                             endwhile;
                             ?>
-                            <nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
+                            <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
                                 <?php echo dsi_bootstrap_pagination(); ?>
                             </nav>
                         <?php
