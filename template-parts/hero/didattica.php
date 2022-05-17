@@ -9,7 +9,7 @@ if($testo_didattica == "")
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col-md-6">
-                    <div class="hero-title">
+                    <div class="hero-title text-left">
                         <h1 class="p-0 mb-2"><?php the_title(); ?></h1>
                         <h2 class="h4 font-weight-normal"><?php echo $testo_didattica; ?></h2>
                     </div><!-- /hero-title -->

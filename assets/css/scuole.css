@@ -10943,6 +10943,16 @@ h4,
   z-index: 0;
 }
 
+.section.bg-bluelectricgradient h1,
+.section.bg-bluelectricgradient .h1,
+.section.bg-bluelectricgradient h2,
+.section.bg-bluelectricgradient .h2,
+.section.bg-bluelectricgradient h3,
+.section.bg-bluelectricgradient .h3,
+.section.bg-bluelectricgradient p {
+  color: #fff;
+}
+
 @media (max-width: 767.98px) {
   .card-simple-wrapper .card-simple .card-simple-body {
     padding: 18px;
@@ -11466,7 +11476,7 @@ body.push-body.push-body-search #main-header:after {
 }
 
 @media (min-width: 1300px) {
-  .simple-two-carousel .splide__pagination {
+  .simple-two-carousel .splide__pagination li:nth-child(-n + 2) {
     display: none;
   }
 }
@@ -14635,6 +14645,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
   margin-left: auto;
 }
 
+.section.bg-bluelectricgradient h1,
+.section.bg-bluelectricgradient .h1,
+.section.bg-bluelectricgradient h2,
+.section.bg-bluelectricgradient .h2,
+.section.bg-bluelectricgradient h3,
+.section.bg-bluelectricgradient .h3,
+.section.bg-bluelectricgradient p {
+  color: #fff;
+}
+
 .section.section-map {
   position: relative;
   z-index: 0;
@@ -15727,6 +15747,12 @@ button.icon-text {
   height: 19px;
   display: block;
   fill: #455b71;
+}
+
+@media (max-width: 991.98px) {
+  .header-search svg {
+    margin-bottom: 5px;
+  }
 }
 
 .header-user-access::after {
@@ -17715,7 +17741,7 @@ button.icon-text {
 
 .aside-sticky {
   position: sticky !important;
-  top: 97px;
+  top: 140px;
 }
 
 .aside-main .toggle-link-list {
