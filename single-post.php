@@ -40,7 +40,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div>
                                 </div>
                                 <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
-                                    <h4 class="mb-4"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                    <h2 class="mb-4 h4"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -72,7 +72,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 if(is_array($luoghi) && count($luoghi)>0){
                                     ?>
-                                    <h4 class="mb-4"><?php _e("Luoghi", "design_scuole_italia"); ?></h4>
+                                    <h2 class="mb-4 h4"><?php _e("Luoghi", "design_scuole_italia"); ?></h2>
                                     <?php
                                     $c=0;
                                     foreach ( $luoghi as $idluogo ) {
@@ -108,7 +108,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             if(is_array($persone) && count($persone)>0){
                                 ?>
                                 <div class="cards-aside mt-4">
-                                    <h4><?php _e("Persone", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4"><?php _e("Persone", "design_scuole_italia"); ?></h2>
                                     <?php
                                     foreach ($persone as $idutente) {
                                         $autore = get_user_by("ID", $idutente);

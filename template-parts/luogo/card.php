@@ -16,6 +16,7 @@ $indirizzo = dsi_get_meta("indirizzo", '_dsi_luogo_', $luogo->ID);
 $posizione_gps = dsi_get_meta("posizione_gps", '_dsi_luogo_', $luogo->ID);
 $cap = dsi_get_meta("cap", '_dsi_luogo_', $luogo->ID);
 $mail = dsi_get_meta("mail", '_dsi_luogo_', $luogo->ID);
+$pec = dsi_get_meta("pec", '_dsi_luogo_', $luogo->ID);
 $telefono = dsi_get_meta("telefono", '_dsi_luogo_', $luogo->ID);
 
 // controllo se è un parent, in caso recupero i dati del genitore
@@ -28,6 +29,7 @@ if($luogo->post_parent == 0){
 	if(!$posizione_gps["lat"] || !$posizione_gps["lng"]) $posizione_gps = dsi_get_meta("posizione_gps", "_dsi_luogo_", $luogo->post_parent);
 	if(!$cap) $cap = dsi_get_meta("cap", "_dsi_luogo_", $luogo->post_parent);
 	if(!$mail) $mail = dsi_get_meta("mail", "_dsi_luogo_", $luogo->post_parent);
+	if(!$pec) $pec = dsi_get_meta("pec", "_dsi_luogo_", $luogo->post_parent);
 	if(!$telefono) $telefono = dsi_get_meta("telefono", "_dsi_luogo_", $luogo->post_parent);
 }
 
@@ -38,6 +40,9 @@ if(isset($struttura->ID) && dsi_get_meta("telefono", '_dsi_struttura_', $struttu
 
 if(isset($struttura->ID) && dsi_get_meta("mail", '_dsi_struttura_', $struttura->ID) != "")
 	$mail = dsi_get_meta("mail", '_dsi_struttura_', $struttura->ID);
+
+if(isset($struttura->ID) && dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID) != "")
+$pec = dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID);
 
 if(isset($struttura->ID) && dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID) != "")
 	$pec = dsi_get_meta("pec", '_dsi_struttura_', $struttura->ID);

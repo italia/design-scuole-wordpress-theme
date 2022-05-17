@@ -187,6 +187,13 @@ function dsi_add_luogo_metaboxes() {
 		),*/
 	) );
 
+	$cmb_aftercontent_luoghi->add_field( array(
+        'id'         => $prefix . 'pec',
+        'name'       => __( 'PEC', 'design_scuole_italia' ),
+        'desc'       => __( 'Indirizzo di posta elettronica certificata (PEC).', 'design_scuole_italia' ),
+        'type'       => 'text_email',
+    ) );
+
 
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'telefono',
@@ -392,7 +399,7 @@ function dsi_add_luogo_metaboxes() {
 	$cmb_aftercontent_luoghi->add_field( array(
 		'id'         => $prefix . 'info',
 		'name'       => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
-		'desc'       => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi', 'design_scuole_italia' ),
+		'desc'       => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.', 'design_scuole_italia' ),
 		'type'       => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -496,6 +503,14 @@ function sdi_luogo_add_content_before_editor($post) {
 		_e('<h1>Descrizione del luogo</h1>', 'design_scuole_italia' );
 }
 
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_luogo_add_content_after_editor', 100 );
+function sdi_luogo_add_content_after_editor($post) {
+    if($post->post_type == "luogo")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
+}
 
 /**
  * aggiungo js per condizionale parent
@@ -544,7 +559,6 @@ function dsi_save_luogo( $post_id) {
 	);
 	add_action( 'save_post_luogo', 'dsi_save_luogo' );
 }
-
 
 // relazione bidirezionale struttura / luoghi
 new dsi_bidirectional_cmb2("_dsi_luogo_", "luogo", "link_strutture", "box_elementi_dati", "_dsi_struttura_sedi");

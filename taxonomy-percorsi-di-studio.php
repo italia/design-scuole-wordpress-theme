@@ -45,7 +45,7 @@ get_header();
 
                             endwhile;
                             ?>
-                            <nav class="pagination-wrapper justify-content-center col-12" aria-label="Navigazione centrata">
+                            <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
                                 <?php echo dsi_bootstrap_pagination(); ?>
                             </nav>
                         <?php

@@ -50,7 +50,7 @@ $media = intval($studenti / $classi);
 				?>
 				<div class="row variable-gutters mb-4">
 					<div class="col d-flex justify-content-center">
-						<a class="btn btn-redbrown" href="<?php echo $url_scuoleinchiaro; ?>" target="_blank"><?php _e("Vedi tutto su scuole in chiaro", "design_scuole_italia"); ?></a>
+						<a class="btn btn-redbrown" href="<?php echo $url_scuoleinchiaro; ?>" target="_blank"><?php _e("Scopri di più", "design_scuole_italia"); ?></a>
 					</div><!-- /col -->
 				</div><!-- /row -->
 				<?php

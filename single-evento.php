@@ -138,7 +138,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             	    ?>
                                 <div class="row variable-gutters">
                                     <div class="col">
-                                        <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
+                                        <div class="it-carousel-wrapper inside-carousel splide" data-bs-carousel-splide>
                                             <div class="splide__track">
                                                 <ul class="splide__list">
                                                     <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>

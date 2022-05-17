@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * disable all comments
+ */
+function dsi_disable_all_comments() {
+	// Turn off comments
+	if( '' != get_option( 'default_comment_status' ) ) {
+		update_option( 'default_comment_status', '' );
+	}
+}
+add_action( 'after_setup_theme', 'dsi_disable_all_comments' );
 
 
 /**

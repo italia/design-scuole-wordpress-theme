@@ -137,41 +137,35 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         }
                                         ?>
                                         <h4><?php _e("Obiettivi", "design_scuole_italia"); ?></h4>
-
                                         <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php
                                         $obiettivi = dsi_get_meta("obiettivi");
                                         echo wpautop($obiettivi);
                                         ?>
                                         </div>
-                                        <?php
-                                        if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
-                                        ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <h4><?php _e( "Luogo", "design_scuole_italia" ); ?></h4>
+                                <?php if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
+                                    ?>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <h4><?php _e( "Luogo", "design_scuole_italia" ); ?></h4>
+                                            <?php
+                                            $c = 0;
+                                            if ( $is_luogo_scuola == "true" && is_array( $link_schede_luoghi ) && count( $link_schede_luoghi ) > 0 ) {
+                                                foreach ( $link_schede_luoghi as $idluogo ) {
+                                                    $c ++;
+                                                    $luogo = get_post( $idluogo );
+                                                    get_template_part( "template-parts/luogo/card", "large" );
+                                                }
+                                            } else if ( $nome_luogo_custom != "" ) {
+                                                get_template_part( "template-parts/luogo/card", "custom" );
 
-                                        <?php
-                                        $c = 0;
-                                        if ( $is_luogo_scuola == "true" && is_array( $link_schede_luoghi ) && count( $link_schede_luoghi ) > 0 ) {
-                                            foreach ( $link_schede_luoghi as $idluogo ) {
-                                                $c ++;
-                                                $luogo = get_post( $idluogo );
-                                                get_template_part( "template-parts/luogo/card", "large" );
                                             }
-                                        } else if ( $nome_luogo_custom != "" ) {
-                                            get_template_part( "template-parts/luogo/card", "custom" );
-
-                                        }
-                                        }
-                                        ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-
-                                <?php
-                                if(is_array($link_strutture)) {
+                                        } ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                <?php if(is_array($link_strutture)) {
                                     ?>
                                     <h4><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">

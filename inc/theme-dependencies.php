@@ -117,6 +117,11 @@ function dsi_register_required_plugins() {
             'slug'     => 'anac-xml-viewer',
             'required' => true,
         ),
+		array(
+			'name'     => 'Version Control for jQuery',
+			'slug'     => 'version-control-for-jquery',
+			'required' => true,
+		),
         /*
         array(
             'name'     => 'Easy Appointments',

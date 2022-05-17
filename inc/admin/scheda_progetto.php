@@ -108,7 +108,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 	$cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'obiettivi',
 		'name'        => __( 'Obiettivi *', 'design_scuole_italia' ),
-		'desc' => __( 'Obiettivi del progetto' , 'design_scuole_italia' ),
+		'desc' => __( 'Obiettivi del progetto.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
 		'type' => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -372,7 +372,7 @@ function dsi_add_scheda_progetto_metaboxes() {
     $cmb_risultati->add_field( array(
         'id' => $prefix . 'risultati',
         'name'        => __( 'Risultati', 'design_scuole_italia' ),
-        'desc' => __( 'Ampio testo descrittivo delle attività svolte nel progetto' , 'design_scuole_italia' ),
+        'desc' => __( 'Ampio testo descrittivo delle attività svolte nel progetto.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -438,7 +438,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 add_action( 'edit_form_after_title', 'sdi_scheda_progetto_add_content_after_title' );
 function sdi_scheda_progetto_add_content_after_title($post) {
 	if($post->post_type == "scheda_progetto")
-		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Progetto</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome della Scheda Progetto</b>.  Vincoli: massimo 60 caratteri spazi inclusi</i></span><br><br>', 'design_scuole_italia' );
 }
 
 
@@ -452,6 +452,14 @@ function sdi_scheda_progetto_add_content_before_editor($post) {
 
 }
 
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_scheda_progetto_add_content_after_editor', 100 );
+function sdi_scheda_progetto_add_content_after_editor($post) {
+    if($post->post_type == "scheda_progetto")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
+}
 
 new dsi_bidirectional_cmb2("_dsi_scheda_progetto_", "scheda_progetto", "link_strutture", "box_elementi_struttura", "_dsi_struttura_link_schede_progetti");
 

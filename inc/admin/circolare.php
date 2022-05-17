@@ -129,7 +129,7 @@ function dsi_add_circolare_metaboxes() {
     $cmb_tipologie->add_field(array(
         'id' => $prefix . 'circolare_title',
         'name' => __('Notifiche agli utenti', 'design_scuole_italia'),
-        'desc' => __('Le circolari inviano notifiche al destinatario, e rendono visibile la circolare sulla sua bacheca utente.<br> NB: Le notifiche vengono inviate <b>al primo salvataggio dell\'articolo in stato "pubblicato"<b>. <b>Da quel momento in poi cambiamenti nei campi che seguono non genereranno notifiche agli utenti</b>.' , 'design_scuole_italia'),
+        'desc' => __('Le circolari inviano notifiche al destinatario, e rendono visibile la circolare sulla sua bacheca utente.<br> NB: Le notifiche vengono inviate <b>al primo salvataggio dell\'articolo in stato "pubblicato"</b>. <b>Da quel momento in poi cambiamenti nei campi che seguono non genereranno notifiche agli utenti</b>.' , 'design_scuole_italia'),
         'type' => 'title',
     ));
 
@@ -442,6 +442,17 @@ function dsi_circolari_admin_notice(){
 add_action('admin_notices', 'dsi_circolari_admin_notice');
 
 
+
+/**
+ * Aggiungo label sotto il titolo
+ */
+add_action( 'edit_form_after_title', 'sdi_circolare_add_content_after_title' );
+function sdi_circolare_add_content_after_title($post) {
+    if($post->post_type == "circolare")
+        _e('<span><>il <b>Titolo</b> è il <b>Nome della Circolare</b></span><br><br>', 'design_scuole_italia' );
+}
+
+
 /**
  * Aggiungo testo prima del content
  */
@@ -451,7 +462,14 @@ function sdi_circolare_add_content_before_editor($post) {
         _e('<h1>Testo della Circolare</h1>', 'design_scuole_italia' );
 }
 
-
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_circolare_add_content_after_editor', 100 );
+function sdi_circolare_add_content_after_editor($post) {
+    if($post->post_type == "circolare")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
+}
 
 /**
  * aggiungo js

@@ -359,7 +359,7 @@ function dsi_add_eventi_metaboxes() {
 	) );
 	$cmb_undercontent->add_group_field( $group_field_id,  array(
 		'id'      => 'descrizione',
-		'name'    => __( 'Descrizione della tipologia di biglietto ', 'design_scuole_italia' ),
+		'name'    => __( 'Descrizione della tipologia di biglietto.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie. ', 'design_scuole_italia' ),
 		'type'    => 'wysiwyg',
 		'options' => array(
 			'media_buttons' => false, // show insert/upload button(s)
@@ -555,9 +555,8 @@ function dsi_add_eventi_metaboxes() {
 add_action( 'edit_form_after_title', 'sdi_evento_add_content_after_title' );
 function sdi_evento_add_content_after_title($post) {
 	if($post->post_type == "evento")
-		_e('<span><i>il <b>Titolo</b> è il <b>Nome del Evento</b></span><br><br>', 'design_scuole_italia' );
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome dell\'Evento</b></span><br><br>', 'design_scuole_italia' );
 }
-
 
 /**
  * Aggiungo testo prima del content
@@ -566,6 +565,16 @@ add_action( 'edit_form_after_title', 'sdi_evento_add_content_before_editor', 100
 function sdi_evento_add_content_before_editor($post) {
 	if($post->post_type == "evento")
 		_e('<h1>Descrizione Estesa dell\'evento</h1>', 'design_scuole_italia' );
+}
+
+
+/**
+ * Aggiungo testo dopo l'editor
+ */
+add_action( 'edit_form_after_editor', 'sdi_evento_add_content_after_editor', 100 );
+function sdi_evento_add_content_after_editor($post) {
+    if($post->post_type == "evento")
+        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
 }
 
 /**
