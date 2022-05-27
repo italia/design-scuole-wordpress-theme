@@ -278,11 +278,12 @@ function dsi_add_indirizzo_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'provider_autenticazione',
 		'name' => __( 'Provider di autenticazione', 'design_scuole_italia' ),
-		'desc' => __( 'Selezionare i provider di autenticazione tra SPID e Carta di Identità Elettronica (CIE).' , 'design_scuole_italia' ),
+		'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE) e Carta Nazionale dei Servizi (CNS).' , 'design_scuole_italia' ),
 		'type' => 'pw_multiselect',
 		'options' => array(
 		    'SPID' => 'SPID',
-			'CIE' => 'CIE'
+			'CIE' => 'CIE',
+            'CNS' => 'CNS'
 		),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix.'modalita_autenticazione',
