@@ -258,6 +258,13 @@ get_header();
                                                     <p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE (apre pagina su nuova scheda)">Scopri di più</a>.</p>
                                                 </div>
                                             <?php }
+											if(in_array("CNS", $provider_autenticazione)) {
+											?>
+												<div class="note cie">
+													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/CNS-quadrata-512x512.jpeg' ); ?>" alt="">
+													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+												</div>
+											<?php }									
                                         }?>
                                         </div><!-- /col-lg-3 -->
                                     </div><!-- /row -->
