@@ -1,24 +1,25 @@
 # ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Design Scuole Italia
 [![Join the #design siti scuole channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_scuole-blue.svg)](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
-## Un sito per le scuole italiane
+## **Un sito per le scuole italiane**
+### I primi passi con il tema Wordpress (v1.0)
 
 
-**Design Scuole Italia** è un tema di WordPress utilizzabile per i siti internet delle **Scuole Italiane**.
+**Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modello/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
 
-## Installazione e supporto
-#### Come scaricare il tema
+## **Installazione e supporto**
+#### **Come scaricare il tema**
 
 Per scaricare il progetto esegui il seguente comando git:
 
 + git clone https://github.com/italia/design-scuole-wordpress-theme.git
 
-Per aggiornare invece il tema da una versione precedentemente scaricata esegui:
+Se già usi una vecchia versione del tema e vuoi aggiornarla, esegui il comando:
 
 + git pull.
 
 
-NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono più necessari i seguenti comandi:
+Attenzione! Il tema non è più dipendente dei sottomoduli CMB2 e non sono più necessari i comandi:
 
 + cd design-scuole-wordpress-theme/;
 + git submodule init;
@@ -26,99 +27,80 @@ NB: è stata rimossa la dipendenza del tema con i sottomoduli CMB2, non sono pi�
 
 In caso di problemi nell'aggiornamento di un repository già installato con i sottomoduli, è sufficiente rimuovere la directory inc/vendor/CMB2 prima di fare la git pull.
 
-#### Come inserire il tema all'interno di un'installazione WordPress
-Una volta scaricato il repository, inserisci la cartella all'interno del progetto WordPress al seguente percorso:
-+ ```wp-content > themes ```.
 
-(NB: Se il tema viene scaricato come file ```.zip``` estrai prima l'archivio e inseriscilo allo stesso percorso).
 
-#### Come abilitare il tema
-Una volta inserita la cartella come descritto al punto precedente, apri il backoffice e naviga al seguente percorso:
-+ ```Aspetto > Temi ``` (o apri la seguente url: {{host}}/wp-admin/themes.php).
+#### **Supporto tecnico ed editoriale**
+Sul [canale Slack #design-siti-scuole](http://developersitalia.slack.com/messages/design-siti-scuole) puoi confrontarti sulle risorse e trovare le risposte a tutte le domande riguardo problemi tecnici o l’architettura dei contenuti.
 
-Abilita poi il tema scuole cliccando sul bottone ```Attiva```.
+È necessario avere un’utenza Slack di Developers Italia. [Attivala adesso](https://slack.developers.italia.it/).
 
-#### Supporto tecnico ed editoriale
-È attivo il canale Slack del progetto, presidiato sia dai developer del tema che dalle prime scuole che hanno partecipato alla sperimentazione.
-È il posto giusto per fare domande e risolvere problemi tecnici o di architettura dei contenuti.
 
-Lo puoi raggiungere da qui:
-https://developersitalia.slack.com/messages/design-siti-scuole/
-
-Se non hai una utenza Slack di Developers Italia devi prima crearla da qui:
-https://slack.developers.italia.it/
-
-## Indice
+## **Indice**
 
 - [Cos'è](#cosè)
 - [Cosa fa](#cosa-fa)
-- [Curare i contenuti](#curare-i-contenuti)
-- [Gestione dei cookie](#gestione-dei-cookie)
-- [Cookie plugin](#cookie-plugin)
+- [La cura verso i contenuti](#la-cura-verso-i-contenuti)
 - [Da dove iniziare](#da-dove-iniziare)
 - [Riscrivere o importare i contenuti del vecchio sito](#riscrivere-o-importare-i-contenuti-del-vecchio-sito)
 - [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
 - [I diversi content type](#i-diversi-content-type)
 - [Personalizzazione](#personalizzazione)
+- [La community di riferimento](#la-community-di-riferimento)
 - [FAQ](#faq)
-- [Ti serve aiuto?](#ti-serve-aiuto)
-- [Come installare Design Scuole Italia](#come-installare-design-scuole-italia)
 - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
-- [Segnalazione bug e richieste di aiuto](#segnalazione-bug-e-richieste-di-aiuto)
+- [Segnalazione bug](#segnalazione-bug)
 - [Come contribuire](#come-contribuire)
 
-#### Cos'è
-Il template WordPress per i siti delle scuole è basato sul modello di siti per le scuole italiane creato nell’ambito del progetto **Designers Italia di Presidenza del Consiglio**, in accordo con il MIUR.
+#### **Cos'è**
+Il tema Design Scuole Italia è un’applicazione di WordPress, il sistema di gestione di contenuti (CMS) che consente di creare un sito web. 
 
-Nel rispetto dell’autonomia scolastica e con l’obiettivo di creare un prodotto in grado di rispondere ai principali bisogni di tutte le scuole, lo abbiamo progettato dopo aver condotto decine di workshop e centinaia di interviste con insegnanti, personale tecnico amministrativo, genitori e studenti.
-
-Il tema WordPress lo puoi trovare e utilizzare gratuitamente scaricandolo da questo repository.
+Il tema è basato sul [modello di sito istituzionale delle scuole italiane](https://designers.italia.it/modello/scuole/), creato nell’ambito del progetto Designers Italia dal Dipartimento per la trasformazione digitale e il Ministero dell’Istruzione.
 
 
-#### Cosa fa
-Il sito WordPress è stato progettato in modo da aiutare l’utente a capire con facilità com’è organizzata la scuola, quali percorsi di studio mette a disposizione e quali servizi di supporto alla didattica sono disponibili per la comunità scolastica.
 
-Si pone quindi l’obiettivo di comunicare in modo chiaro e semplice l’identità di una scuola, riducendo il peso della burocrazia (naturalmente nel rispetto degli obblighi previsti), dando spazio ai contenuti e alle persone e cercando di ricostruire anche online l’atmosfera che caratterizza la vita di una scuola.
+#### **Cosa fa**
+Il tema WordPress è stato progettato per adottare rapidamente il modello di sito istituzionale delle scuole. Il tema imposta automaticamente lo stile grafico del sito, i layout delle pagine e il menu di navigazione, permettendo di velocizzare l’adozione tecnica del modello e di focalizzarsi sulla creazione dei contenuti sulle pagine.
 
-#### Curare i contenuti
-Il tema è un modello “chiavi in mano”: all’attivazione sono infatti state già definite le aree, le voci di menu e, più in generale, l’architettura ideale di un sito di una scuola.
+[La progettazione del modello](https://docs.italia.it/italia/designers-italia/design-scuole-docs/it/v2022.1/index.html), iniziata nel 2018 con un aggiornamento nel 2022, si è basata su un’ampia ricerca con gli utenti. L’obiettivo del modello è di offrire a genitori, studenti e all’intera comunità scolastica un punto di accesso digitale al mondo della scuola che sia semplice, funzionale e che risponda alle loro esigenze. 
 
-Quindi, a differenza di come a volte  si lavora su WordPress, non ci si deve interessare di come verranno presentati i contenuti, di cosa finirà in homepage o in altre sezioni del sito.
+Il modello di sito istituzionale scolastico vuole comunicare l’identità e l’atmosfera di una scuola, fornendo agli utenti tutte le informazioni sull’organizzazione dell’istituto, sui percorsi di studio e sui servizi di supporto alla didattica.
 
-Il tema comporrà le diverse pagine sulla base dei contenuti inseriti. In questo modello il compito principale del redattore è quello di creare con cura i contenuti, sfruttando il più possibile tutti i campi già predisposti per ogni tipologia di contenuto (*content type*).
+Il tema Wordpress è pronto all’uso. [Scaricalo gratuitamente da GitHub](https://github.com/italia/design-scuole-wordpress-theme)
 
-L’idea generale è che una scuola possa risparmiare tempo nella progettazione e realizzazione del proprio sito (il sito è già pronto!) e possa dedicare più tempo a comunicare con precisione e semplicità cosa una scuola fa e come è organizzata.
 
-### Gestione dei cookie
-I cookie presenti nel sito web devono essere solamente cookie tecnici e **NON** cookie di tracciamento. Nello specifico:
-- i **cookie tecnici** vengono utilizzati in forma anonima per garantire il corretto funzionamento del sito e dei propri servizi (ad esempio cookie di sessione);
-- i **cookie di tracciamento** (o di profilazione) servono per raccogliere informazioni su comportamenti, preferenze e scelte dell’utente per definire il suo profilo.
+#### **La cura verso i contenuti**
+Il tema imposta automaticamente le aree del sito, le voci di menù e la struttura delle pagine. 
 
-### Cookie plugin
-È stato **rimosso** il plugin "Ginger Cookie" per la gestione dei cookie.
+Inserendo i contenuti negli appositi campi predisposti per le varie tipologie di contenuto (content type), il tema comporrà automaticamente le diverse pagine del sito. Il compito dei redattori è quindi quello di curare i contenuti, senza doversi preoccupare di come verranno presentati a livello visivo sulle pagine. 
 
-#### Da dove iniziare
-Il primo consiglio che diamo, è quello di iniziare guardando altre scuole che hanno fatto questo lavoro prima di te. Troverai ispirazione su come scrivere i contenuti necessari per la tua scuola:
+Gli istituti scolastici possono così risparmiare tempo nella progettazione e realizzazione del proprio sito e dedicare più tempo a comunicare con precisione e semplicità le informazioni, dall’organizzazione della scuola ai percorsi di studio e i servizi didattici. 
+
+
+#### **Da dove iniziare**
+Inizia guardando gli esempi di istituti scolastici che hanno già adottato il modello, per prendere ispirazione su come scrivere i contenuti del sito:
 
 [Il Liceo “Dal Piaz” di Feltre](https://liceodalpiaz.la-scuola.it/)
 
 [L’Istituto Comprensivo Bosisio Parini di Lecco](https://comprensivobosisio.la-scuola.it/)
 
 
-Il consiglio è quello di cominciare a creare i diversi contenuti in questo ordine:
+Consigliamo di cominciare a creare i diversi contenuti in questo ordine:
 - luoghi;
 - strutture organizzative;
 - persone;
 - servizi;
 - indirizzi di studio.
 
-Per creare i contenuti del nuovo sito e imparare a gestirlo al meglio, sarà utile creare un piccolo gruppo di lavoro composto da una rappresentanza del personale tecnico amministrativo e da una rappresentanza dei docenti.
+Per creare i contenuti del nuovo sito e imparare a gestirlo al meglio, è utile creare uno o più gruppi di lavoro composti da una rappresentanza del personale tecnico-amministrativo e da una rappresentanza dei docenti. 
 
-La creazione di un team è importante soprattutto per mappare le informazioni necessarie prima della fase di scrittura vera e propria (per esempio, questo sito ti spronerà a spiegare i servizi della tua scuola in modo semplice e questo richiede un lavoro preliminare per chiarire come sono fatti e come funzionano i servizi).
+La creazione di un team è importante soprattutto per mappare le informazioni necessarie prima della fase di scrittura vera e propria. Ad esempio, per poter scrivere contenuti sui servizi didattici dell’istituto, è necessario un confronto preliminare con gli esperti di questo ambito per chiarire come sono fatti i servizi e come funzionano. 
 
-I vari gruppi di lavoro creati dovranno porsi l’obiettivo di creare questi contenuti e di tenerli aggiornati quando necessario.
+L’obiettivo dei vari gruppi di lavoro è di creare questi contenuti e di aggiornarli quando necessario.
 
-Una volta iniziato il lavoro sui primi cinque punti elencati sopra, ci si può spostare ai seguenti ulteriori contenuti:
+In fase iniziale, consigliamo di creare un unico esempio per ciascuna tipologia di contenuto, in modo da validare la struttura con i gruppi di lavoro e usarlo come linea guida per la stesura di tutti i contenuti di quella tipologia.
+
+
+Una volta iniziato il lavoro sulle prime 5 tipologie di contenuto suggerite, si può continuare con: 
 - notizie;
 - eventi;
 - circolari;
@@ -126,74 +108,72 @@ Una volta iniziato il lavoro sui primi cinque punti elencati sopra, ci si può s
 - progetti scolastici;
 - schede didattiche.
 
-In una fase iniziale la cosa migliore è creare un solo esempio per ciascuna tipologia, per poi creare mano a mano i contenuti quando il sito sarà online, sulla base di ciò che è attuale in quel momento.
+Prima della pubblicazione del sito, è utile definire con chiarezza chi sarà responsabile della pubblicazione di ciascuna delle tipologie di contenuti, in modo da garantire un flusso di pubblicazione costante. Non tutte le sezioni del sito andranno gestite e aggiornate con la stessa frequenza. È bene prendere consapevolezza delle varie sezioni e della frequenza con cui ciascun aggiornamento va fatto.
 
-Prima dell’uscita del sito bisogna definire con chiarezza chi sarà responsabile della pubblicazione di ciascuna delle tipologie di contenuti descritti, in modo da garantire un flusso di pubblicazione costante e rigoroso. Non tutte le sezioni del sito andranno gestite e aggiornate con la stessa frequenza. È bene prendere consapevolezza delle varie sezioni e della frequenza con cui ciascun aggiornamento va fatto.
+[Consulta un esempio di suddivisione del lavoro](https://docs.google.com/spreadsheets/d/1MoayTY05SE4ixtgBsfsdngdrFJf_Z2KNvDkMF3tKfc8/edit#gid=703325418)
 
-[Abbiamo preparato una piccola tabella che ti mostra un esempio di come poter suddividere il lavoro.](https://docs.google.com/spreadsheets/d/1MoayTY05SE4ixtgBsfsdngdrFJf_Z2KNvDkMF3tKfc8/edit#gid=703325418)
+Le schede didattiche, ovvero gli approfondimenti su un argomento specifico, sono l’unico contenuto che può esser scritto liberamente dai docenti, dopo averli fatti iscrivere a WordPress.
 
-Le schede didattiche (che sono pillole di approfondimento su un argomento specifico) sono l’unico contenuto che la scuola può decidere di far scrivere liberamente a tutti i docenti della scuola, dopo averli fatti iscrivere a WordPress.
+#### **Riscrivere o importare i contenuti del vecchio sito**
+L’aggiornamento di un sito è un’ottima opportunità per riscrivere, riorganizzare ed aggiornare tutti i contenuti relativi ai luoghi, alle strutture, ai servizi, alle persone, agli indirizzi di studio e ai progetti della scuola.
 
-#### Riscrivere o importare i contenuti del vecchio sito
-Purtroppo, negli attuali siti scolastici, solitamente non viene prestata grande attenzione e cura ai contenuti. Pertanto, il nostro suggerimento è quello di sfruttare l’occasione del nuovo sito per riscrivere interamente tutti i contenuti relativi ai luoghi, alle strutture, ai servizi, alle persone, agli indirizzi di studio e ai progetti della tua scuola.
+Notizie ed eventi passati, non essendo più attuali, non vanno migrati sul nuovo sito.
 
-Notizie ed eventi di solito non sono più attuali, quindi non serve portarli sul nuovo sito.
+Per importare documenti e circolari dal vecchio al nuovo sito, si può utilizzare lo strumento di import/export nativo di WordPress. La resa di questi contenuti, una volta migrati, andrà verificata manualmente e dipenderà molto dalla qualità degli stessi nel sito precedente. 
 
-Tuttavia, potrebbe comunque essere utile importare documenti e circolari dal vecchio al nuovo sito, utilizzando lo strumento di import/export nativo di WordPress e verificando che il risultato finale sia soddisfacente (molto dipende da come sono stati scritti nel sito precedente). Per effettuare questa attività puoi richiedere il nostro supporto.
-
-Il tema tenterà  una riconciliazione automatica delle tipologie di contenuto più frequentemente usate dalle scuole che utilizzano WordPress: come gli eventi, le circolari e i documenti di amministrazione trasparente.
+Il tema tenterà una riconciliazione automatica delle tipologie di contenuto più frequentemente usate dalle scuole che utilizzano WordPress: come gli eventi, le circolari e i documenti di amministrazione trasparente.
 
 
-#### Relazioni tra i contenuti
-Una delle caratteristiche principali del sito in WordPress è il fatto di avere diverse tipologie di contenuto (*content type*) tutte in relazione tra loro.
 
-Questa caratteristica richiederà un po’ di sforzo da parte tua nella fase iniziale: avrai bisogno di entrare nella logica del modello e nella logica con cui abbiamo stabilito di collegare i vari contenuti tra loro. Una volta compreso il modo di lavorare siamo sicuri che il lavoro così impostato porterà dei benefici significativi sia per chi deve gestire e aggiornare i contenuti, sia per gli utenti che ricercano informazioni.
+#### **Relazioni tra i contenuti**
+I siti WordPress presentano una serie di tipologie di contenuto (content type) che sono in relazione tra loro. Ogni tipologia di contenuto viene creata attraverso una “scheda” nel backend di WordPress, che presenta i vari campi dove aggiungere i contenuti per creare la pagina.
 
-Alcune relazioni che abbiamo costruito sono, ad esempio:
+Questa impostazione permette di combinare i vari elementi per la creazione delle pagine, così che i contenuti vengano creati soltanto una volta e poi riutilizzati, se necessario, in varie parti del sito. Una volta comprese le relazioni tra le tipologie di contenuti, sarà facile creare le pagine del sito.
 
-- Strutture organizzative - Servizi;
-- Progetti - Persone;
-- Strutture organizzative - Luoghi;
-- Servizi - Documenti.
+Alcune relazioni tra tipologie di contenuti, sono:
 
-Attenzione. Dal punto di vista pratico, soprattutto all’inizio, ti troverai nella situazione in cui mentre compili una determinata scheda (es: una struttura organizzativa), vorresti associare a quella scheda un altro tipo di contenuto (es: luogo dove è situata la struttura organizzativa). Per poterlo fare, la scheda “luogo” in questione dovrà essere stata precedentemente creata.
+Strutture organizzative - Servizi
+Progetti - Persone
+Strutture organizzative - Luoghi
+Servizi - Documenti
 
-I passi da compiere sono i seguenti:
-1. crea una scheda luogo che descrive il luogo (es. “Palazzo Badini”) che andrà poi associato ad una specifica struttura organizzativa (es. “Segreteria scolastica”);
-2. crea la scheda che descrive la struttura organizzativa (es. “Segreteria scolastica”);
-3. associa, tramite il campo opportuno, il luogo “Palazzo Badini” alla struttura organizzativa “Segreteria scolastica”.
+Questo significa, ad esempio, che ogni pagina di una struttura organizzativa può presentare una relazione con contenuti come i luoghi e i servizi.
 
-Vorresti associare anche dei servizi alla “Segreteria scolastica”?
-Procedi allo stesso modo descritto in precedenza.
-1. crea una scheda servizio che descrive il servizio da associare alla “Segreteria scolastica” (es. “Pagamento mensa scolastica”);
-2. entra nella scheda “Segreteria scolastica” e tramite il campo opportuno associa il servizio “Pagamento mensa scolastica” alla “Segreteria scolastica”.
+**Attenzione!** Dal punto di vista pratico, è necessario che i contenuti che si vuole collegare vengano creati in un ordine preciso: prima i content type che fungono da contenuti di dettaglio e poi il content type contenitore (es. prima i servizi, i luoghi e le persone e solo dopo la struttura organizzativa che raggruppa servizi, luoghi, persone creati in precedenza).
 
-In generale quindi, nel costruire le relazioni tra diversi content type, è necessario costruire prima i contenuti e solo alla fine il contenitore (es. prima i servizi, i luoghi e le persone e solo dopo la struttura organizzativa che raggruppa servizi, luoghi, persone descritte in precedenza).
+Per collegare tra loro diverse tipologie di contenuto, quindi:
+1.	crea la scheda o le schede dei contenuti di dettaglio (ad esempio, il luogo “Palazzo Baldini” che verrà associato ad una struttura organizzativa);
+2.	crea la scheda del contenuto contenitore (ad esempio, la scheda della struttura organizzativa “Segreteria scolastica”);
+3.	Associa, tramite l’apposito campo, le schede contenuto di dettaglio alla scheda contenuto (ad esempio, il luogo “Palazzo Baldini” alla struttura organizzativa “Segreteria scolastica”).
 
-Nella maggior parte dei casi questa correlazione è bidirezionale e automatica (se creo una relazione tra un luogo e una struttura, questa relazione verrà mostrata sia nel dettaglio del luogo che in quello della struttura).
+Per associare nuovi contenuti di dettaglio ad altri già esistenti:
+1.	Crea la nuova scheda di contenuto di dettaglio (ad esempio, la scheda servizio “Pagamento mensa scolastica” da associare alla scheda del contenuto contenitore “Segreteria scolastica”).
+2.	Entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio (la scheda servizio “Pagamento mensa scolastica” alla scheda “Segreteria scolastica”).
 
-#### I diversi *content type*
+
+Nella maggior parte dei casi questa correlazione è bidirezionale e automatica. Quando si crea, ad esempio, una relazione tra un luogo e una struttura, questa verrà mostrata sia nel dettaglio del luogo che in quello della struttura.
+
+
+#### **I diversi *content type***
 
 *I luoghi*
 
-Nella scheda luoghi è possibile descrivere tutti gli ambienti presenti nell’istituto: edifici scolastici, laboratori, palestre, biblioteche. I campi presenti nella parte di redazione del testo guidano nella compilazione. È possibile indicare la posizione sulla mappa dei luoghi che si vanno a descrivere. Questo permetterà di avere una mappa dei luoghi della scuola.
-I luoghi possono essere messi in relazione tra loro, come per esempio un laboratorio presente all’interno di un edificio scolastico.
+Con la scheda luoghi è possibile creare pagine per tutti gli ambienti dell’istituto: edifici scolastici, uffici, laboratori, palestre e biblioteche. I campi presenti nella scheda guidano alla realizzazione della pagina. È possibile indicare la posizione sulla mappa dei luoghi, che sarà poi visibile sulla pagina. I luoghi possono essere messi in relazione tra loro, come per esempio un laboratorio presente all’interno di un edificio scolastico.
 
-*Le strutture*
+*Le strutture organizzative*
 
-La struttura organizzativa è uno degli elementi essenziali nella presentazione dell’istituto. In caso di istituti comprensivi è necessario creare in primo luogo la struttura “Genitore” di tipo “Scuola” (l’istituto stesso) e solo in un secondo momento le strutture “figlie” (i singoli plessi). Nella scheda della singola struttura va indicato il luogo o i luoghi in cui la struttura ha sede. Oltre ai plessi sono strutture organizzative anche le commissioni, gli uffici di segreteria, i dipartimenti, gli organi collegiali, etc.
+La struttura organizzativa è uno degli elementi essenziali nella presentazione dell’istituto. In caso di istituti comprensivi, è necessario creare in primo luogo la struttura “Genitore” di tipo “Scuola” (l’istituto stesso) e successivamente le strutture “figlie” (i singoli plessi). Nella scheda della singola struttura va indicato il luogo o i luoghi in cui la struttura ha sede. Oltre ai plessi sono strutture organizzative anche le commissioni, gli uffici di segreteria, i dipartimenti, gli organi collegiali, etc.
 
 *I servizi*
 
-Quello dei servizi è un aspetto di novità presente nella struttura del tema, utili a raccontare e organizzare i servizi offerti dalla scuola (iscrizione alle scuole, registro elettronico, etc). Questi sono organizzati e presentati in base alla loro tipologia.
-Anche qualora il servizio sia erogato da una piattaforma esterna, è utile creare una scheda che racconti il servizio e indichi i punti e le modalità di accesso.
+La scheda servizi è una novità del tema Design Scuole Italia ed è utile a raccontare e organizzare i servizi offerti dalla scuola, dall’iscrizione al registro elettronico. I servizi vengono organizzati e presentati in base alla loro tipologia. Anche quando i servizi sono erogati tramite piattaforme esterne, è utile creare una scheda per informare del servizio e indicarne le modalità di accesso.
 
 *Le persone*
 
-Un altro aspetto importante è quello delle persone.
-In questo tema le persone corrispondono agli utenti WordPress. Questo permetterà loro di essere menzionate sul sito, di avere una scheda di dettaglio,  di poter gestire individualmente le informazioni di descrizione e di contatto, e di accedere per la gestione delle notifiche e delle firme delle circolari.
+Le persone corrispondono agli utenti WordPress. Attivando un’utenza WordPress, sarà possibile creare una pagina per ogni persona e menzionarle sugli altri contenuti del sito.
+È necessario creare un’utenza WordPress anche per chi non avrà un ruolo attivo nella gestione del sito, scegliendo di non condividere le credenziali d’accesso. Se vengono condivise le credenziali d’accesso, ogni utente potrà gestire le proprie informazioni personali e di contatto, produrre altri contenuti (assegnando le giuste autorizzazioni), gestire notifiche personalizzate e firmare delle circolari.
 
-Consigliamo di mappare e creare il prima possibile le utenze delle persone, così da poterle subito correlare con i contenuti inseriti. È necessario farlo anche se queste non avranno un ruolo attivo sul sito, creando le utenze senza inviare loro la mail con le credenziali di accesso (possono essere inviate eventualmente in seguito). In questo modo tutto il personale scolastico avrà la possibilità di produrre contenuti (quando necessario), ricevere notifiche personalizzate relative alle circolari oltre ad altre funzionalità.
+Si consiglia di creare il prima possibile le utenze delle persone, così da poterle subito correlare con i contenuti inseriti. 
 
 *I percorsi e gli indirizzi di studio*
 
@@ -201,114 +181,113 @@ La sezione dei percorsi di studio è dedicata a illustrare l’offerta formativa
 
 *I documenti*
 
-La sezione dei documenti è quella dedicata a raccogliere i documenti, tipicamente dei file PDF: PTOF, POF, RAV, PAI.
-In questa sezione vanno caricati anche i documenti che hanno come destinazione l’albo online o la sezione di amministrazione trasparente. I documenti in albo hanno una numerazione progressiva non modificabile e una volta pubblicati possono solo essere annullati. I documenti sono poi richiamabili nei diversi content type del sito, quando necessario. È sempre consigliabile creare schede documenti piuttosto che caricare i file direttamente dentro i content type, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca
+La sezione documenti raccoglie tutti i documenti scolastici, dai file PDF ai documenti dell’albo online e della sezione amministrazione trasparente.
+I documenti in albo hanno una numerazione progressiva non modificabile e, una volta pubblicati, possono esere soltanto eliminati. I documenti possono esssere associati ai diversi *content type* del sito, quando necessario. Si consiglia di creare schede documenti piuttosto che caricare i file direttamente dentro i *content type*, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca.
+
 
 *I progetti*
 
-Il *content type* “progetto” serve a raccontare i risultati di un'attività svolta insieme agli studenti all'interno della scuola o nell'ambito di una uscita didattica, nell'ambito della didattica tradizionale o di attività ad essa complementari.
+Il *content type* “progetto” presenta i progetti e le attività svolte insieme agli studenti nell’ambito della didattica tradizionale, progetti extracurriculari o delle uscite didattiche.
 
 *Le schede didattiche*
 
-Le schede didattiche permettono di descrivere un approfondimento tematico a cura di uno o più insegnanti. La scheda è rivolta agli studenti. Nel content type “scheda didattica” è inoltre possibile definire il collegamento delle schede didattiche con i luoghi, le strutture e i documenti della scuola
+Le schede didattiche permettono di descrivere un approfondimento tematico a cura di uno o più insegnanti. Il contenuto è rivolto agli studenti. Il *content type* “scheda didattica” può essere associato con con i luoghi, le strutture e i documenti della scuola.
 
 *Le notizie*
 
-Le notizie sono rappresentate dal *content type* “articolo”, nativo di WordPress. Queste sono organizzate per tipologia (news e articoli sono le 2 tipologie create all’attivazione del tema), e sono utili a organizzare le notizie nella pagina di presentazione generale, o per filtrare le notizie per tipologia nelle pagine di archivio.
+Le notizie sono rappresentate dal *content type* nativo di WordPress “articolo” e sono di 2 tipi, news e articoli. Vengono raccolte in una pagina di presentazione generale e sono filtrabili per tipologia. È anche presente una pagina di archivio.
 
-La tipologia news è pensata per raccontare le notizie della scuola, mentre la sezione articoli è pensata per una gestione di articoli generici, stile blog.
+La tipologia news è pensata per raccontare le notizie e i comunicati ufficiali della scuola, mentre la tipologia articoli è pensata per articoli generici stile blog.
+
 
 *Eventi e calendario eventi*
 
-Il content type “evento” serve a raccontare eventi che hanno una data di inizio e fine, e che  possono essere quindi rappresentati in un calendario scolastico (es: la chiusura delle attività nel periodo natalizio)
+Il *content type* “evento” serve a creare eventi che hanno una data di inizio e fine, visualizzabili in un calendario scolastico (ad esempio, la chiusura delle attività nel periodo natalizio).
 
 *Le circolari*
 
+Il *content type* “circolare” crea una pagina di presentazione della circolare sul sito della scuola e permette di raccogliere commenti e feedback da parte degli utenti interessati.
+
 Il flusso di vita tipico di una circolare all’interno di un istituto è solitamente il seguente:
-a. l'insegnante riempie una scheda circolare;
-b. invia la scheda alla segreteria;
-c. la segreteria la mostra al preside;
-d. il preside la legge ed apporta, eventualmente, delle modifiche, poi la firma;
-e. la segreteria protocolla la circolare;
-f. la segreteria invia la circolare a tutti i docenti (o a tutta la scuola) che riceverà una notifica nella propria area personale.
+1.	l'insegnante crea una scheda circolare;
+2.	la scheda viene inviata alla segreteria;
+3.	la segreteria la mostra al preside;
+4.	il preside la legge e, apportate eventuali modifiche, la firma;
+5.	la segreteria protocolla la circolare;
+6.	la segreteria invia la circolare a tutti i docenti (o a tutta la scuola), i quali riceveranno una notifica nella propria area personale.
 
-Il *content type* “circolare” assolve sia alla funzione di presentazione della circolare sul sito della scuola, sia alla raccolta dei feedback da parte degli utenti a cui la circolare è associata.
-L’utente WordPress a cui è associata una circolare sarà notificato tramite email, avrà un avviso sul sito come “alert” visibile in testata,  e troverà la circolare a lui assegnata all’interno della dashboard WordPress.
+L’utente WordPress a cui è associata una circolare riceverà una notifica via email e vedrà un avviso sul sito, un “alert” visibile in testata. Sarà possibile accedere alla circolare tramite la dashboard WordPress.
 
-All’interno della scheda della circolare è possibile anche visionare tutti i feedback ricevuti (firme, adesioni, prese visione).
+Nella scheda della circolare è possibile anche visionare tutti i feedback ricevuti (firme, adesioni, prese visione).
 
-#### Personalizzazione
-È prevista un’area di configurazione, in cui è possibile (e necessario) personalizzare alcuni comportamenti del tema (testi di presentazione, notizie da mostrare in evidenza o nella pagina di presentazione della scuola), ma è un’area sulla quale si deve intervenire solo dopo che sono stati creati un congruo numero di contenuti delle diverse tipologie, necessari a descrivere l’istituto.
+
+#### **Personalizzazione**
+Nell’area di configurazione è possibile (e talvolta necessario) personalizzare alcuni caratteristiche del sito, come i testi di presentazione o le notizie da mostrare in evidenza o nella pagina di presentazione della scuola.
 
 L’area di configurazione è divisa in tab per le diverse aree del sito.
 
-Cliccando su “Configurazione” è possibile definire:
+Cliccando su “Configurazione,  è possibile definire:
 
-- **opzioni di base**: i campi qui impostati valorizzano i dati nella testata del sito: tipo, nome scuola e città;
-- **home**: per configurare cosa mostrare in home page nelle sezioni  notizie e servizi;
-- **scuola**: qui è possibile configurare l’immagine i campi relativi alla sezione scuola: immagine e citazione, la timeline della storia (mostrata anche nella pagina “la storia”, le strutture dell’organizzazione scolastica, i luoghi  della scuola, l’area documentale e i numeri della scuola;
-- **presentazione**: area in cui selezionare gli articoli che popolano la sezione “presentazione della scuola”;
-  **servizi**: area di gestione della pagina di panoramica dei servizi, in cui è possibile selezionare le tipologie di servizi da mostrare;
-- **novità**: area in cui selezionare le tipologie di articoli da mostrare nella pagina di panoramica delle novità;
-- **didattica**: area in cui selezionare il tipo di visualizzazione da mostrare nella sezione didattica, scegliendo se mostrare a sinistra le scuole e a destra i percorsi di studio (utile nel caso di istituti composti da diverse scuole) o se mostrare gli indirizzi di studio a sinistra e le scuole a destra (utile per istituti con poche scuole ma diversi indirizzi di studio);
-- **persone**: area di configurazione della sezione di presentazione del personale scolastico, ordinata in base alle strutture organizzative selezionate;
-- **organizzazione**: area di configurazione della pagina di presentazione dell’organizzazione scolastica, tramite la selezione delle strutture organizzative da mostrare;
-- **luoghi**: area in cui configurare la tipologia e l’ordine delle tipologie di luoghi da mostrare;
-- **documenti**: area di configurazione dei documenti, organizzati in base alle tipologie selezionate;
-- **servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di login (registro elettronico o altri);
-- **altro**: area di gestione di diverse aree: il testo da mostrare nel footer (in cui vanno inserite le informazioni di base della scuola: indirizzo, PEC, codice IPA, codice meccanografico, etc), il token Mapbox (da creare per utilizzare le mappe OpenStreetMap dei luoghi), il testo delle mail delle circolari, e il setup della sezione albo.
+-	**opzioni di base**: i contenuti nell’header del sito, come il tipo di istituto, il nome dell’istituto e la città;
+-	**home**: i contenuti delle sezioni notizie e servizi sull’homepage del sito;
+-	**scuola**: tutti i contenuti relativi alla sezione scuola, ovvero l’immagine e la citazione principali, la timeline della storia della scuola, le strutture dell’organizzazione scolastica, i luoghi, l’area documentale e i numeri della scuola;
+-	**presentazione**: area dove selezionare gli articoli che popolano la sezione “presentazione della scuola”;
+-	**servizi**: area di gestione della pagina di panoramica dei servizi, in cui è possibile selezionare le tipologie di servizi da mostrare; 
+-	**novità**: area in cui selezionare le tipologie di articoli da mostrare nella pagina di panoramica delle novità;
+-	**didattica**: area in cui selezionare il tipo di visualizzazione da mostrare nella sezione didattica, scegliendo se mostrare a sinistra le scuole e a destra i percorsi di studio (utile nel caso di istituti composti da diverse scuole) o se mostrare gli indirizzi di studio a sinistra e le scuole a destra (utile per istituti con poche scuole ma diversi indirizzi di studio);
+-	**persone**: area di configurazione della sezione di presentazione del personale scolastico, ordinata in base alle strutture organizzative selezionate;
+-	**organizzazione**: area di configurazione della pagina di presentazione dell’organizzazione scolastica, tramite la selezione delle strutture organizzative da mostrare;
+-	**luoghi**: area in cui configurare la tipologia e l’ordine delle tipologie di luoghi da mostrare;
+-	**documenti**: area di configurazione dei documenti, organizzati in base alle tipologie selezionate;
+-	**servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di login (registro elettronico o altri);
+-	**altro**: i contenuti del footer (in cui vanno inserite le informazioni di base della scuola: indirizzo, pec, codice ipa, codice meccanografico, etc), il token mapbox (da creare per utilizzare le mappe openstreetmap dei luoghi), il testo delle mail delle circolari, e il setup della sezione albo.
 
-#### Ti serve aiuto?
-Su Slack di Developers Italia (una piattaforma del Dipartimento di trasformazione digitale di Presidenza del Consiglio) è disponibile un canale dove fare domande e confrontarsi con altre scuole
 
-[Vai al canale Slack](https://developersitalia.slack.com/messages/design-siti-scuole/)
+#### **La community di riferimento**
+Scopri i canali della community dove confrontarti sulle risorse del modello:
 
-#### FAQ
-*Chi gestisce il sito?*
+-	[Forum Italia](https://forum.italia.it/) - unisciti alla discussione sul design dei servizi digitali con gli esperti del settore;
+-	[Canale Slack](http://developersitalia.slack.com/messages/design-siti-scuole) - dialoga e collabora in tempo reale con la community di Designers Italia;
+-	[GitHub](https://github.com/italia/design-scuole-wordpress-theme) - il repository GitHub del tema WordPress “Design Scuole Italia”.
 
-Le modalità con cui gestisci abitualmente il tuo sito non cambieranno (di solito le scuole hanno un fornitore per hosting e manutenzione). La gestione dei siti scolastici è di responsabilità delle scuole.
+#### **F.A.Q**
+➔	**Chi gestisce il sito?**
 
-*Perché esiste un tema pronto solo per WordPress?*
+L’uso del tema non impatta le modalità con cui viene abitualmente gestito il sito scolastico e rimane una responsabilità degli istituti. Molti istituti fanno affidamento su fornitori esterni per hosting e manutenzione.
 
-WordPress è il CMS più usato nelle scuole, non abbiamo risorse per creare tutte le tipologie di CMS ma abbiamo creato un kit (kit template e architettura informativa) per chi lo voglia fare. [Qui](https://github.com/italia/design-scuole-pagine-statiche/) trovi il kit.
+➔	**Perché esiste un tema pronto solo per WordPress?**
 
-*Non ho WordPress cosa devo fare?*
+WordPress è il CMS più usato dalle scuole. Puoi usare l’apposito [kit per creare temi per altri CMS](https://github.com/italia/design-scuole-pagine-statiche/).
 
-In futuro ci saranno sicuramente fornitori e/o scuole e/o associazioni che svilupperanno soluzioni Drupal e per altri CMS basati sul kit per le scuole. Puoi aspettare, oppure, se vuoi adottare subito il kit e il nuovo sito, devi passare a WordPress.
+➔	**Non ho WordPress. Cosa devo fare?**
 
-*Inserire i contenuti sembra più complesso che in passato, è così?*
+Puoi passare a[ WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito scolastico](https://designers.italia.it/modello/scuole/). 
 
-Prima di tutto: cambiare metodo di lavoro richiede sempre uno sforzo aggiuntivo :)
-Detto ciò, rispetto alla media dei siti scolastici abbiamo osservato che:
-- si fa prima a classificare e organizzare i contenuti (“configurare il tema”). È già tutto pronto nella nuova logica “chiavi in mano”;
-- c’è meno lavoro dal punto di vista tecnico, in generale molti aspetti della configurazione di WordPress saranno già preimpostati;
-- si deve dedicare più tempo a curare i contenuti, per migliorarne la qualità. In particolare, i contenuti sono più strutturati, e questa è la chiave per migliorare il tutto.
 
-È solo un esempio ma, se descrivo un luogo della scuola all’interno di una scheda, sarà più facile visualizzarlo in una mappa. Se “annego” questa informazione dentro il testo di un articolo sarà impossibile farlo.
+➔	**Quali sono i benefici dell’uso del tema WordPress?**
 
-*Posso fare dei cambiamenti al sito?*
+L’adozione del tema WordPress, pronto all’uso, ti permette di:
+- usare configurazioni preimpostate, risparmiando tempo sugli aspetti più tecnici della creazione di un sito;
+- dedicare più tempo alla cura dei contenuti e alla loro organizzazione, puntando sulla qualità. 
 
-WordPress è un ambiente pensato per consentire di modificare con semplicità ogni aspetto del sito.
+**➔	Posso fare dei cambiamenti al sito?**
 
-*Consigliate di fare cambiamenti al sito?*
+WordPress è un ambiente pensato per modificare con semplicità ogni aspetto del sito. 
 
-Il sito copre tutte le esigenze di base emerse da centinaia di interviste fatte con personale scolastico e famiglie. Ciò non toglie che un sito possa essere usato per fare una infinità di cose attualmente non previste (ad esempio, creare un’area condivisa di materiali didattici). Queste novità possono essere utili anche ad altre scuole, per questo è bene non solo realizzarle ma anche condividerle con realtà come la comunità Porte Aperte sul Web che può supportarvi e aiutare a mettere a fattore comune le diverse innovazioni.
+➔	**È consigliato fare cambiamenti al sito?**
 
-Sconsigliamo fortemente di apportare modifiche per introdurre “modi diversi di fare le cose”, modificare la classificazione delle informazioni o la struttura di navigazione. Modifiche di questo tipo portano al proliferare di soluzioni diverse e ridurranno la possibilità della vostra scuola di beneficiare di evoluzioni future del prodotto (problematiche di aggiornamento del tema, ecc. ecc.). In questi casi è invece più utile segnalare a realtà come Porte Aperte sul Web idee e piccoli miglioramenti in modo che loro possano valutarli e poi metterli a disposizioni di tutti.
+Il tema WordPress copre già tutte le esigenze di base, emerse da una lunga ricerca con con il personale scolastico e le famiglie. 
 
-#### Bootstrap Italia
+WordPress permette di aggiungere innumerevoli funzionalità, per far fronte alle esigneze dei singoli istituti (come, ad esempio, creare un’area condivisa di materiali didattici). Quando si sviluppa una nuova funzionalità, è opportuno condividerla con il resto della comunità tramite [Forum Italia](https://forum.italia.it/), [GitHub](https://github.com/italia/design-scuole-wordpress-theme) o il [progetto Porte Aperte sul Web](https://www.porteapertesulweb.it/).
+
+È sconsigliato apportare modifiche strutturali al sito, come modificare la classificazione delle informazioni o la struttura di navigazione. Modifiche di questo tipo possono impedire di beneficiare di evoluzioni future del prodotto, a cause di problematiche di aggiornamento del tema. Puoi segnalare necessità di questo tipo direttamente alla community di Designers Italia tramite i vari canali di contatto. I feedback ricevuti verranno raccolti e considerati per le successive evoluzioni del modello.
+
+#### **Bootstrap Italia**
 Design Scuole Italia rispetta le nuove linee guida di design dell’Agenzia per l’Italia digitale rilasciare dal [**Team per la Trasformazione Digitale**](https://teamdigitale.governo.it/) e le caratteristiche per i servizi web della Pubblica Amministrazione contenute nel Piano triennale per l’informatica nella Pubblica Amministrazione 2017/2019.
 
 Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://italia.github.io/bootstrap-italia/).
 
 ---
-
-## Come installare Design Scuole Italia
-
-Per scaricare il progetto esegui i seguenti comandi:
-
-+ git clone https://github.com/italia/design-scuole-wordpress-theme.git
-
 
 ## Licenze software dei componenti di terze parti
 
@@ -347,7 +326,7 @@ Di seguito elencati i componenti distribuiti (derivati dal template html utilizz
 - [svgxuse](https://icomoon.io/svgxuse-demo/) © Icomoon, licenza MIT.
 
 
-## Segnalazione bug e richieste di aiuto
+## Segnalazione bug
 Vuoi segnalare un bug o fare una richiesta?
 
 Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a plugin installati o impostazioni del CMS, poi dai un'occhiata a come creare una [issue](https://github.com/italia/bootstrap-italia/blob/master/CONTRIBUTING.md#creare-una-issue) ed infine, se lo ritieni necessario, apri la issue [in questo repository](https://github.com/italia/design-scuole-wordpress-theme/issues).
