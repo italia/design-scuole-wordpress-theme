@@ -839,11 +839,11 @@ function dsi_create_pages_on_theme_activation() {
         ));
 
 		wp_update_nav_menu_item($menu->term_id, 0, array(
-			'menu-item-title' => __('Dichirazione di accessibilità', "design_scuole_italia"),
+			'menu-item-title' => __('Dichiarazione di accessibilità', "design_scuole_italia"),
 			'menu-item-url' => "",
 			'menu-item-status' => 'publish',
 			'menu-item-type' => 'custom',
-			'menu-item-attr-title' => __('Dichirazione di accessibilità', "design_scuole_italia"),
+			'menu-item-attr-title' => __('Dichiarazione di accessibilità', "design_scuole_italia"),
 		));
 
         $locations_primary_arr = get_theme_mod('nav_menu_locations');
