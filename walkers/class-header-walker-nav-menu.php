@@ -87,7 +87,9 @@ class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $menu_item->ID, $menu_item, $args, $depth );
 		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		$output .= $indent . '<li' . $id . $class_names . '>';
+		$roles = 'menuitem';
+
+		$output .= $indent . '<li' . $id . $class_names . 'role=' . $roles . '>';
 
 		$atts           = array();
 		$atts['title']  = ! empty( $menu_item->attr_title ) ? $menu_item->attr_title : '';
@@ -99,7 +101,6 @@ class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 		}
 		$atts['href']         = ! empty( $menu_item->url ) ? $menu_item->url : '';
 		$atts['aria-current'] = $menu_item->current ? 'page' : '';
-		$atts['role'] = 'menuitem';
 
 		/**
 		 * Filters the HTML attributes applied to a menu item's anchor element.
