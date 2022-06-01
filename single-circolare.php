@@ -118,7 +118,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                         $autore = get_user_by("ID", $idutente);
                                         ?>
                                         <div class="card card-avatar card-comments">
-                                            <a href="<?php echo get_author_posts_url($idutente); ?>">
+                                            <a href="<?php echo get_author_posts_url( $autore->ID);  ?>" aria-label="Vai alla sezione di <?php echo esc_attr(dsi_get_display_name( $autore->ID )); ?>">
                                                 <div class="card-body">
                                                     <?php get_template_part("template-parts/autore/card"); ?>
                                                 </div>

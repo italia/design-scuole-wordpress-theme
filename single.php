@@ -47,7 +47,6 @@ get_header();
                                     </div><!-- /comments -->
                                     <?php
                                 } ?>
-
                             </div><!-- /card-body -->
                         </div><!-- /card card-avatar -->
                     </div><!-- /col-md-6 -->
