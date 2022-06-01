@@ -1,5 +1,5 @@
 <!-- Access Modal -->
-<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="access-modal" aria-hidden="true">
+<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="access-modal" aria-hidden="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content perfect-scrollbar">
             <div class="modal-body">
