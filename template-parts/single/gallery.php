@@ -10,9 +10,10 @@ global $gallery;
 				?>
 				<li class="splide__slide">
 					<div class="it-single-slide-wrapper gallery-item h-100">
-						<a href="<?php echo $urlg; ?>">
 							<figure>
-								<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">
+								<a href="<?php echo $urlg; ?>" aria-label="Visualizza foto: <?php echo $attach->post_title; ?>">
+									<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">	
+								</a>
 								<?php
 								if (!empty($attach->post_title)) {
 								?>
@@ -21,7 +22,6 @@ global $gallery;
 								}
 								?>
 							</figure>
-						</a>
 					</div><!-- /item -->
 				</li>
 				<?php

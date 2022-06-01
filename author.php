@@ -165,7 +165,7 @@ $posts = get_posts($args);
                             <div class="aside-title" id="people-detail" >
                                 <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
                                     <span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
-                                    <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small" aria-label="indice della pagina"></use></svg>
+                                    <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small" aria-label="apri/chiudi indice della pagina"></use></svg>
                                 </a>
                             </div>
                             <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="people-detail">
