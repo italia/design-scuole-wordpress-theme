@@ -35,9 +35,9 @@ if(trim($ptitle) == ""){
 ?>
 	<div class="card card-bg card-icon rounded">
 		<div class="card-body">
-			<svg class="icon <?php echo $icon; ?>" role="img" aria-label="<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
+			<svg class="icon <?php echo $icon; ?>" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
 			<div class="card-icon-content">
-				<p><strong><a target="_blank" href="<?php echo $attach->guid; ?>" ><?php echo $ptitle; ?></a></strong></p>
+				<p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"  aria-label="Vai alla scheda <?php echo $ptitle; ?>"><?php echo $ptitle; ?></a></strong></p>
 				<small><?php echo $type; ?> - <?php echo intval($filesize/1024); ?> kb</small>
 			</div><!-- /card-icon-content -->
 		</div><!-- /card-body -->

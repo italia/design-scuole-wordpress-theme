@@ -207,7 +207,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                     $descrizione_breve_child = dsi_get_meta("descrizione_breve", "", $child->ID);
                                                     ?>
                                                     <div class="card card-bg card-icon rounded">
-                                                        <a href="<?php echo get_permalink($child); ?>">
+                                                        <a href="<?php echo get_permalink($child); ?>" aria-label="Vai alla scheda <?php echo $child->post_title; ?>">
                                                             <div class="card-body">
                                                                 <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
                                                                 <div class="card-icon-content">

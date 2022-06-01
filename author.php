@@ -241,7 +241,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"> <?php echo $scheda->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>" aria-label="Vai alla scheda <?php echo $scheda->post_title; ?>"> <?php echo $scheda->post_title; ?></a></strong>
                                                             </p>
                                                             <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_didattica_", $scheda->ID); ?></small>
                                                         </div><!-- /card-icon-content -->
@@ -268,7 +268,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"><?php echo $scheda->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>" aria-label="Vai alla scheda <?php echo $scheda->post_title; ?>"><?php echo $scheda->post_title; ?></a></strong>
                                                             </p>
                                                             <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_progetto_", $scheda->ID); ?></small>
                                                         </div><!-- /card-icon-content -->
@@ -295,7 +295,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($doc); ?>"><?php echo $doc->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($doc); ?>" aria-label="Vai alla scheda <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a></strong>
                                                             </p>
                                                         </div><!-- /card-icon-content -->
                                                     </div><!-- /card-body -->
