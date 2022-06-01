@@ -9,14 +9,23 @@
 							<div class="col">
 								<div class="h2" id="searchModal" >
 									<?php _e("Cerca","design_scuole_italia"); ?>
-									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
+									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
 										<svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
 									</button>
 								</div>
 								<div class="form-group search-form">
-									<svg class="svg-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search" role="presentation"></use></svg>
-									<label for="search"><?php _e("Cerca","design_scuole_italia"); ?></label>
-									<input type="text" name="s" id="search" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?></label>
+									<input type="text" name="s" id="search-input" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+                                    <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">
+                                        <svg class="svg-cancel-large" role="presentation">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="search-btn" aria-label="avvia la ricerca">
+                                        <svg class="svg-search">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
+                                        </svg>
+                                    </button>
 								</div>
 								<div class="cat-filters">
                                     <div class="custom-control custom-submit-primary" style="display:none;">
@@ -118,7 +127,7 @@
                                             <?php
                                             foreach ($argomenti as $argomento){
                                                 $taglink = get_tag_link($argomento);  ?>
-                                                <a href="<?php echo $taglink; ?>" title="<?php _e("Vai all'argomento","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
+                                                <a href="<?php echo $taglink; ?>" title="<?php _e("Visualizza gli argomenti per","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
                                             <?php } ?>
                                         </div><!-- /badges -->
                                     </div><!-- /badges-wrapper -->

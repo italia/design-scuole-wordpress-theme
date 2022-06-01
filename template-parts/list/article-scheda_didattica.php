@@ -15,7 +15,7 @@ if(!$excerpt)
 ?>
 
 <a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
-<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" onclick="document.location.href='<?php the_permalink(); ?>';">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
     <div class="card-body" >
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>

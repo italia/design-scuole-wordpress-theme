@@ -8,7 +8,7 @@
                         <div class="row variable-gutters mb-0 mb-lg-4 mb-xl-5">
                             <div class="col">
                                 <h2 class="d-inline" id="access-modal"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
-                                    <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
                                         <svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
                                     </button>
                                 </h2>
@@ -46,7 +46,7 @@
                                         </div>
 
                                         <div class="row variable-gutters mb-4">
-                                            <div class="col text-right">
+                                            <div class="col text-right text-underline">
                                                 <p><a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" arial-label="<?php _e( 'Lost your password?' ); ?>"><?php _e( 'Lost your password?' ); ?></a></p>
                                             </div>
                                         </div>

@@ -21,7 +21,6 @@ $theme_locations = get_nav_menu_locations();
 <body <?php body_class(); ?>>
 
 <?php get_template_part("template-parts/common/svg"); ?>
-<?php get_template_part("template-parts/common/skiplink"); ?>
 
 <!-- Left menu element-->
 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left perfect-scrollbar">
@@ -47,9 +46,9 @@ $theme_locations = get_nav_menu_locations();
             if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                 $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
                 if($landing_url)
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                 else
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s">%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s">%3$s</ul>';
 
                 ?>
                 <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -69,9 +68,9 @@ $theme_locations = get_nav_menu_locations();
             if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                 $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
                 if($landing_url)
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                 else
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s">%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s">%3$s</ul>';
 
                 ?>
                 <li class="text-purplelight menu-dropdown-simple-wrapper">
@@ -92,9 +91,9 @@ $theme_locations = get_nav_menu_locations();
             if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                 $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
                 if($landing_url)
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                 else
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s">%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s">%3$s</ul>';
 
                 ?>
                 <li class="text-greendark menu-dropdown-simple-wrapper">
@@ -114,9 +113,9 @@ $theme_locations = get_nav_menu_locations();
             if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                 $landing_url = dsi_get_template_page_url("page-templates/didattica.php");
                 if($landing_url)
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                 else
-                    $items_wrap = '<ul role="region" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s">%3$s</ul>';
+                    $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s">%3$s</ul>';
 
                 ?>
                 <li class="text-bluelectric menu-dropdown-simple-wrapper">
@@ -153,6 +152,7 @@ if(is_search() || is_archive())
 <?php get_template_part("template-parts/header/slimheader"); ?>
 
 <div id="main-wrapper" class="push_container">
+    <?php get_template_part("template-parts/common/skiplink"); ?>
     <header id="main-header" class="bg-white">
         <div class="container header-top">
             <div class="row variable-gutters">
@@ -239,7 +239,7 @@ if(is_search() || is_archive())
 		                        ?>
                                 <li class="text-redbrown menu-dropdown-simple-wrapper">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown1"><?php _e("Scuola","design_scuole_italia"); ?></a>
-                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="region" aria-labelledby="mainNavDropdown1">
+                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown1">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item")) ?>
                                         </div>
@@ -265,7 +265,7 @@ if(is_search() || is_archive())
 		                        ?>
                                 <li class="text-purplelight menu-dropdown-simple-wrapper">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown2"><?php _e("Servizi","design_scuole_italia"); ?></a>
-                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="region" aria-labelledby="mainNavDropdown2">
+                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown2">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item")) ?>
                                         </div>
@@ -292,7 +292,7 @@ if(is_search() || is_archive())
 		                        ?>
                                 <li class="text-greendark menu-dropdown-simple-wrapper">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Notizie","design_scuole_italia"); ?></a>
-                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="region" aria-labelledby="mainNavDropdown3">
+                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown3">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item")) ?>
                                         </div>
@@ -318,7 +318,7 @@ if(is_search() || is_archive())
 		                        ?>
                                 <li class="text-bluelectric menu-dropdown-simple-wrapper">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown4"><?php _e("Didattica","design_scuole_italia"); ?></a>
-                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="region" aria-labelledby="mainNavDropdown4">
+                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown4">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item")) ?>
                                         </div>
