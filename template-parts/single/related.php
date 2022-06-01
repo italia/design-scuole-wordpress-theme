@@ -64,7 +64,7 @@ if(count($argomenti)) {
 		if(count( $posts_array )) $contabox++;
 		$colnum = 12/$contabox;
 		?>
-		<section class="section bg-gray-gradient py-5" id="contenuti-correlati">
+		<section class="section bg-gray-gradient py-5" id="art-par-correlati">
 		<div class="container">
 
 			<div class="row variable-gutters">
