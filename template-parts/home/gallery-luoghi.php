@@ -13,7 +13,7 @@ if(is_array($gallery) && count($gallery) > 0){
 			</div><!-- /title-large -->
 			<div class="row variable-gutters">
 				<div class="col">
-					<div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
+					<div class="it-carousel-wrapper simple-two-carousel big splide" data-bs-carousel-splide>
 						<div class="splide__track">
 							<ul class="splide__list">
 								<?php get_template_part("template-parts/single/gallery", $post->post_type); ?>

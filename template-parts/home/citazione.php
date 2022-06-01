@@ -5,7 +5,7 @@ $citazione = dsi_get_option("citazione", "la_scuola");
 if(trim($citazione) != ""){
 	?>
 	<section class="section py-4 bg-redbrown big-quote-wrapper">
-		<div class="big-quote-bg">
+		<div class="big-quote-bg quote">
 			<svg width="100%" height="100%" viewBox="0 0 1280 463" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
               <g id="Quote-Desktop" serif:id="Quote/Desktop">
 	              <rect id="red-to-red" x="0" y="0" width="1280" height="463" style="fill:url(#_Linear1);"/>
