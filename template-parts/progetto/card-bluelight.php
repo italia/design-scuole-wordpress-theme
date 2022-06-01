@@ -6,12 +6,10 @@ $post = $progetto;
 
     <div class="card card-bg bg-blue-light card-thumb-rounded mb-3 h-100">
         <div class="card-body">
-            <a href="<?php echo get_permalink($progetto); ?>">
-                <div class="card-content">
-                    <a class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
-                    <p class="mb-4 mt-3"><?php  echo dsi_get_meta("descrizione" , '_dsi_scheda_progetto_', $progetto->ID); ?></p>
-                </div>
-            </a>
+            <div class="card-content">
+                <a href="<?php echo get_permalink($progetto); ?>" aria-label="Vai alla sezione <?php echo $progetto->post_title; ?>" class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
+                <p class="mb-4 mt-3"><?php  echo dsi_get_meta("descrizione" , '_dsi_scheda_progetto_', $progetto->ID); ?></p>
+            </div>
         </div><!-- /card-body -->
         <div class="card-top badge-container mb-3">
             <?php
