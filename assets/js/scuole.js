@@ -34,6 +34,10 @@ jQuery(document).ready(function ($) {
     closeOnClickLink: false,
     activeClass: 'is-active'
   });
+  $('.close-user-menu').jPushMenu({
+    closeOnClickLink: false,
+    activeClass: 'is-active'
+  });
   $('.menu-mobile-close').click(function () {
     $('.push-body').removeClass('push-body-search');
     $('.push-body').removeClass('push-body-toleft');
@@ -438,20 +442,100 @@ $(document).ready(function () {
   function header_utils_sticky() {
     var window_top = $(window).scrollTop();
     var div_top = $('#main-wrapper').offset().top;
-    if (window_top > div_top) {
-      // $(".header-utils").appendTo($(".header-utils-sticky"));
-      $(".header-utils-wrapper").addClass("utils-moved");
-      $("#sub-nav .nav-list-primary").appendTo($(".sticky-main-nav"));
-    } else {
-      // $(".header-utils").appendTo($(".header-utils-wrapper"));
-      $(".header-utils-wrapper").removeClass("utils-moved");
-      $(".header-top .nav-list-primary").prependTo($("#sub-nav .nav-container"));
+    var containerDsk = document.querySelector('.sticky-main-nav');
+    var navContainer = document.querySelector('#sub-nav .nav-container');
+
+    var navmobile = document.querySelector('.cbp-spmenu-left .nav-list-mobile');
+    var navListPrimaryBottom = document.querySelector('.header-bottom .dl-menu.nav-list-primary');
+    var navListPrimaryTop = document.querySelector('.header-top .sticky-main-nav .dl-menu.nav-list-primary');
+
+    var linkList = document.querySelectorAll('.sticky-main-nav a');
+
+    if (window.matchMedia('(min-width: 1200px)').matches) {
+      linkList.forEach(element => {
+        element.removeAttribute('tabindex');
+      });
+      if (window_top > div_top) {
+        $(".header-utils-wrapper").addClass("utils-moved");
+        if (!navListPrimaryTop) {
+          containerDsk.insertAdjacentElement('afterbegin', navListPrimaryBottom);
+        }
+      } else {
+        $(".header-utils-wrapper").removeClass("utils-moved");
+        if (!navListPrimaryBottom) {
+          navContainer.insertAdjacentElement('afterbegin', navListPrimaryTop);
+        }
+      }
     }
   }
   $(function () {
     $(window).scroll(header_utils_sticky);
     header_utils_sticky();
   });
+
+  function tabIndexHmburger() {
+    var nav = document.querySelector('.cbp-spmenu-vertical.cbp-spmenu-left');
+    var linkList = document.querySelectorAll('.cbp-spmenu-vertical.cbp-spmenu-left a');
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true };
+
+    // Callback function to execute when mutations are observed
+    const callback = function (mutationList, observer) {
+      // Use traditional 'for loops' for IE 11
+      for (const mutation of mutationList) {
+        if (mutation.type === 'attributes') {
+          if (mutation.target.classList.contains('menu-open')) {
+            linkList.forEach(element => {
+              element.removeAttribute('tabindex');
+            });
+            catchFocus(linkList);
+          } else {
+            linkList.forEach(element => {
+              element.setAttribute('tabindex', '-1');
+            });
+          }
+        }
+      }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+    observer.observe(nav, config);
+
+    // Later, you can stop observing
+    // observer.disconnect();
+  }
+
+  function catchFocus(linkList) {
+  document.addEventListener('keydown', (e) => {
+    var userMenu = document.querySelector('.toggle-user-menu-mobile');
+    var modal = document.querySelector('[data-target="#access-modal"]');
+    var closeMenu = document.querySelector('.hamburger.is-active');
+    var logo = document.querySelector('.logo-header a');
+      if (e.which == 9 && !e.shiftKey && document.activeElement == linkList[linkList.length - 1]) {
+        if (userMenu) {
+          userMenu.focus();
+        } else {
+          modal.focus();
+        }
+      }
+
+      if (e.which == 9 && e.shiftKey && document.activeElement === closeMenu) {
+        logo.focus();
+      }
+    });
+  }
+
+  tabIndexHmburger();
+
+  var resizeId;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeId);
+    resizeId = setTimeout(header_utils_sticky, 200);
+  });
+
+
 });
 /* End User Logged Sticky */
 
@@ -549,3 +633,73 @@ function initCleanInput() {
 }
 
 initCleanInput();
+
+function closeUserMenu() {
+  var btn = document.querySelector('.close-user-menu');
+  var body = document.querySelector('body');
+  var menu = document.querySelector('.cbp-spmenu-right');
+
+  btn.addEventListener('click', () => {
+    body.classList.remove('push-body-toleft');
+    menu.classList.remove('menu-open');
+  });
+}
+
+closeUserMenu();
+
+function tabIndexUser() {
+  var nav = document.querySelector('.cbp-spmenu-vertical.cbp-spmenu-right');
+  var linkList = document.querySelectorAll('.cbp-spmenu-vertical.cbp-spmenu-right a');
+  var buttonList = document.querySelectorAll('.cbp-spmenu-vertical.cbp-spmenu-right button');
+
+  // Options for the observer (which mutations to observe)
+  const config = { attributes: true };
+
+  // Callback function to execute when mutations are observed
+  const callback = function (mutationList, observer) {
+    // Use traditional 'for loops' for IE 11
+    for (const mutation of mutationList) {
+      if (mutation.type === 'attributes') {
+        if (mutation.target.classList.contains('menu-open')) {
+          linkList.forEach(element => {
+            element.removeAttribute('tabindex');
+          });
+          buttonList.forEach(element => {
+            element.removeAttribute('tabindex');
+          });
+          catchFocusUser(linkList, buttonList);
+        } else {
+          linkList.forEach(element => {
+            element.setAttribute('tabindex', '-1');
+          });
+          buttonList.forEach(element => {
+            element.setAttribute('tabindex', '-1');
+          });
+        }
+      }
+    }
+  };
+
+  // Create an observer instance linked to the callback function
+  const observer = new MutationObserver(callback);
+  observer.observe(nav, config);
+
+  // Later, you can stop observing
+  // observer.disconnect();
+}
+
+function catchFocusUser(linkList, buttonList) {
+  document.addEventListener('keydown', (e) => {
+    var notification = document.querySelector('.toggle-user-menu-mobile');
+  var logo = document.querySelector('.hamburger');
+    if (e.which == 9 && !e.shiftKey && document.activeElement == linkList[linkList.length - 1]) {
+      notification.focus();
+    }
+
+    if (e.which == 9 && e.shiftKey && document.activeElement == buttonList[0]) {
+      logo.focus();
+    }
+  });
+}
+
+tabIndexUser();
