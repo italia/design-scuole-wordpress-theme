@@ -163,7 +163,7 @@ $posts = get_posts($args);
                     <div class="col-lg-3 col-md-4 aside-border px-0">
                         <aside class="aside-main aside-sticky">
                             <div class="aside-title" id="people-detail" >
-                                <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi">
+                                <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="apri / chiudi dettagli della persona">
                                     <span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
                                     <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small" aria-label="apri/chiudi indice della pagina"></use></svg>
                                 </a>
