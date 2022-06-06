@@ -160,7 +160,7 @@ if(is_search() || is_archive())
         <div class="container header-top">
             <div class="row variable-gutters">
                 <div class="col-8 d-flex align-items-center">
-                    <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button" aria-label="burger menu">
+                    <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button" aria-label="menu di navigazione">
                         <span class="hamburger-box">
                           <span class="hamburger-inner"></span>
                         </span>
@@ -168,7 +168,7 @@ if(is_search() || is_archive())
                     <div class="logo-header">
 						<?php get_template_part("template-parts/common/logo"); ?>
                         <div class="h1">
-                            <a href="<?php echo home_url(); ?>">
+                            <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="vai alla homepage" >
                                 <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                 <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                 <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
