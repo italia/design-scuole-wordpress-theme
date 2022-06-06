@@ -248,21 +248,21 @@ get_header();
                                             ?>
                                                 <div class="note">
                                                     <svg class="svg-filters" width="68" height="34" aria-label="spid" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
-                                                    <p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+                                                    <p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
                                                 </div>
                                             <?php }
                                             if(in_array("CIE", $provider_autenticazione)) {
                                             ?>
                                                 <div class="note cie">
                                                     <svg class="svg-filters" width="90" height="64" aria-label="cie" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
-                                                    <p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+                                                    <p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
                                                 </div>
                                             <?php }
 											if(in_array("CNS", $provider_autenticazione)) {
 											?>
 												<div class="note cie">
 													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/CNS-quadrata-512x512.jpeg' ); ?>" alt="">
-													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											<?php }									
                                         }?>
