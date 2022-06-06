@@ -38,7 +38,7 @@
                                     <div class="access-login-form">
                                         <div class="form-group">
                                             <label for="login-email-field">Email address</label>
-                                            <input type="text" name="log" id="login-email-field" class="input" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="Nome utente o indirizzo email">
+                                            <input type="text" name="log" id="login-email-field" class="input form-control" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="La tua email">
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="login-password-field">Password</label>
@@ -62,13 +62,11 @@
                                                 <button type="submit" class="btn btn-white btn-block rounded" name="login" value="Accedi"><?php _e("Accedi", "design_scuole_italia"); ?></button>
                                             </div>
                                         </div>
-                                        <!--
-                                        <div class="row variable-gutters">
+                                        <!-- <div class="row variable-gutters">
                                             <div class="col text-center">
                                                 <p>Non hai un account? <a href="#">Iscriviti</a></p>
                                             </div>
-                                        </div>
-                                        //-->
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -21,16 +21,13 @@
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
                                         </svg>
                                     </button>
-                                    <button type="button" class="search-btn" aria-label="avvia la ricerca">
+                                    <button type="submit" class="search-btn" aria-label="avvia la ricerca" id="tutto" name="type" value="any">
                                         <svg class="svg-search">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
                                         </svg>
                                     </button>
 								</div>
 								<div class="cat-filters">
-                                    <div class="custom-control custom-submit-primary" style="display:none;">
-									    <button type="submit" class="custom-control-submit <?php if(isset($_GET["type"]) && $_GET["type"] == "any") echo "checked"; ?>" id="tutto" name="type" value="any"><?php _e("Cerca in <strong class='text-uppercase text-small-bold'>tutto il sito</strong>","design_scuole_italia"); ?></button>
-                                    </div>
                                     <?php
                                     // check if post type is used
                                     $post_types = dsi_get_post_types_grouped("school");
