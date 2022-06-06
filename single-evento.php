@@ -334,7 +334,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <?php if (dsi_get_meta("website") != "") { ?>
                                                 <li><strong
                                                         class="mr-2"><?php _e("Sito web:", "design_scuole_italia"); ?></strong>
-                                                <a href="<?php echo dsi_get_meta("website"); ?>"><?php echo dsi_get_meta("website"); ?></a>
+                                                <a class="text-underline-hover" href="<?php echo dsi_get_meta("website"); ?>" aria-label="Vai a <?php echo dsi_get_meta("website"); ?> - link esterno"><?php echo dsi_get_meta("website"); ?></a>
                                                 </li><?php } ?>
                                             <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_persona") != "")) { ?>
                                                 <li><strong
