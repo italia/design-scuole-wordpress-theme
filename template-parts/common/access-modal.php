@@ -1,5 +1,5 @@
 <!-- Access Modal -->
-<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="access-modal" aria-hidden="false">
+<div class="modal fade" id="access-modal" tabindex="-1" role="dialog" aria-labelledby="accessModal" aria-hidden="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content perfect-scrollbar">
             <div class="modal-body">
@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="row variable-gutters mb-0 mb-lg-4 mb-xl-5">
                             <div class="col">
-                                <h2 class="d-inline" id="access-modal"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
+                                <h2 class="d-inline" id="accessModal"><?php _e("Accedi ai servizi", "design_scuole_italia"); ?>
                                     <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
                                         <svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
                                     </button>
