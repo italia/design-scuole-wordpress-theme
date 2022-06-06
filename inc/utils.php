@@ -1065,7 +1065,7 @@ if(!function_exists("dsi_get_current_group")) {
                     return 'school';
                 case 'didattica' :
                     return 'education';
-                case 'novita': case 'evento':
+                case 'novita': case 'evento': case 'circolare':
                     return 'news';
                 case 'servizi':
                     return 'service';
