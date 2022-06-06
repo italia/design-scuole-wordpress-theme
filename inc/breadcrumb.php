@@ -204,7 +204,7 @@ class Breadcrumb_Trail {
 
 				// Wrap the item with its itemprop.
 				$item = ! empty( $matches )
-					? preg_replace( '/(<a.*?)([\'"])>/i', '$1$2 itemprop=$2item$2 aria-label="Apre link">', $item )
+					? preg_replace( '/(<a.*?)([\'"])>/i', '$1$2 itemprop=$2item$2 aria-label="Vai alla pagina '.$matches[2].'">', $item )
 					: sprintf( '<span itemprop="item">%s</span>', $item );
 
 				// Add list item classes.
