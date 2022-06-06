@@ -96,21 +96,18 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php }
+                                        if ( count( $posts_array ) )  {   ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
+                                                   title="Vai al paragrafo <?php _e("Schede progetto correlate", "design_scuole_italia"); ?>"><?php _e("Schede progetto correlate", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php }                                         
                                         if ( is_array( $gallery ) && count( $gallery ) > 0 ) {
                                             ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-gallery" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Galleria Immagini", "design_scuole_italia"); ?>"><?php _e("Galleria Immagini", "design_scuole_italia"); ?></a>
                                             </li>
-                                            <?php
-                                        }
-                                        ?>
-                                        <?php if ( count( $posts_array ) )  {   ?>
-                                            <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
-                                                   title="Vai al paragrafo <?php _e("Schede progetto correlate", "design_scuole_italia"); ?>"><?php _e("Schede progetto correlate", "design_scuole_italia"); ?></a>
-                                            </li>
                                         <?php } ?>
-
                                     </ul>
                                 </div>
                             </aside>
@@ -303,20 +300,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
 
-                                <?php
-
-                                if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
-                                    <h4  id="art-par-gallery"><?php _e("Galleria Immagini", "design_scuole_italia"); ?></h4>
-                                    <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
-                                        <div class="splide__track">
-                                            <ul class="splide__list">
-                                                <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
-                                            </ul>
-                                        </div><!-- /carousel-simple -->
-                                    </div>
-                                <?php }
-                                ?>
-
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <?php get_template_part("template-parts/single/bottom"); ?>
@@ -332,15 +315,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-
-            <section class="section bg-gray-light py-5" id="art-par-04">
+                            
+            <?php get_template_part("template-parts/single/more-scheda_progetto"); ?>
+            
+            <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
+            <section class="section bg-gray-light py-5" id="art-par-gallery">
                 <div class="container py-4">
                     <div class="title-section text-center mb-5">
                         <h3 class="h4">Galleria</h3>
                     </div><!-- /title-large -->
                     <div class="row variable-gutters">
                         <div class="col">
-                        <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
                             <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
                                 <div class="splide__track">
                                     <ul class="splide__list">
@@ -348,13 +333,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </ul>
                                 </div><!-- /carousel-simple -->
                             </div>
-                        <?php } ?>
                         </div><!-- /col -->
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-                            
-            <?php get_template_part("template-parts/single/more-scheda_progetto"); ?>
+            <?php } ?>
 
         <?php  	endwhile; // End of the loop. ?>
     </main><!-- #main -->

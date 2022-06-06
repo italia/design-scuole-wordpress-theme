@@ -12,7 +12,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 		</div>
 		<?php if($image_url) { ?>
 			<div class="card-thumb">
-                <img src="<?php echo $image_url; ?>" alt="<?php echo esc_attr(get_the_title($post)); ?>">
+                <img src="<?php echo $image_url; ?>" alt="">
 			</div>
 		<?php  } ?>
 	</div><!-- /card-body -->

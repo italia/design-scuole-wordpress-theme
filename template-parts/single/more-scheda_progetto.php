@@ -25,7 +25,8 @@ if ( count( $posts_array ) ) { ?>
 						foreach ( $posts_array as $post ) {
 							?>
 							<li class="splide__slide">
-								<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
+								<?php 
+								get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
 							</li><!-- /item -->
 						<?php } ?>
 					</ul>
