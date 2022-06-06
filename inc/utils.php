@@ -469,6 +469,23 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 		//$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
 		$pagination = '<div class="pagination"><ul class="pagination">';
 		foreach ($pages as $page) {
+            $exploded = explode('>',$page);
+            $i = 0;
+            $aria_label = 'aria-label=';
+            foreach ($exploded as $str) {
+                if (strpos($str, '<a') !== false) {
+                    if (strpos($str, 'next') !== false) $aria_label .= "'Vai alla pagina successiva'";
+                    elseif (strpos($str, 'prev') !== false) $aria_label .= "'Vai alla pagina precedente'";
+                    else {
+                        $page_num_array = explode('/',$str);
+                        $page_num = $page_num_array[count($page_num_array) - 2];
+                        $aria_label .= "'Vai alla pagina ".$page_num."'";
+                    }
+                    $exploded[$i] .= $aria_label;
+                }
+                ++$i;
+            }
+            $page = implode('>',$exploded);
 			$pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
 		}
 		$pagination .= '</ul></div>';
