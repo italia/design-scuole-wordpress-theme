@@ -1023,3 +1023,65 @@ if(!function_exists("dsi_truncate")) {
         return $string;
     }
 }
+
+/**
+ * get group related to current page
+ */
+if(!function_exists("dsi_get_current_group")) {
+    function dsi_get_current_group() {
+        if (is_front_page()) {
+            return null;
+        }
+        if (is_tax()) {
+            $taxonomy = get_queried_object() -> taxonomy;
+            $term = get_queried_object() -> slug;
+            if ($taxonomy == 'tipologia-servizio'){
+               $tipo_post = 'servizio';
+            }
+            if ($taxonomy == 'tipologia-documento'){
+                $tipo_post ='documento';
+            }
+            if ($taxonomy == 'tipologia-articolo'){
+                $tipo_post = 'post';
+            }
+            if ($tipo_post == 'documento' && $term == 'albo-online') {
+                return 'news';
+            }
+            return  dsi_get_post_types_group($tipo_post);
+        }
+        if (is_author()) {
+            return 'school';
+        }
+        if ( is_archive()  ) {
+            $tipo_post = get_queried_object() -> name;
+            return  dsi_get_post_types_group($tipo_post);
+        }
+        if (is_page()) {
+            $rel_url = wp_make_link_relative(get_permalink());
+            $rel_url =  preg_replace('/^' . preg_quote('/', '/') . '/', '', $rel_url);
+            $group_slug = strtok($rel_url, '/');
+            switch($group_slug){
+                case 'la-scuola':
+                    return 'school';
+                case 'didattica' :
+                    return 'education';
+                case 'novita': case 'evento':
+                    return 'news';
+                case 'servizi':
+                    return 'service';
+            }
+            return null;
+        }
+        $current_post_type = get_post_type();
+        if ($current_post_type == 'documento') {
+            $term = wp_get_post_terms(get_the_ID(),'tipologia-documento');
+            if ($term[0]->slug == 'albo-online'){
+                return 'news';
+            }
+        }
+        if ( ($current_post_type != false)) {
+            return dsi_get_post_types_group(get_post_type());
+        }
+        return null;
+    }
+}

@@ -23,7 +23,10 @@ $theme_locations = get_nav_menu_locations();
 </head>
 <body <?php body_class(); ?>>
 
-<?php get_template_part("template-parts/common/svg"); ?>
+<?php 
+    $active_page = dsi_get_current_group();
+    get_template_part("template-parts/common/svg"); 
+?>
 
 <!-- Left menu element-->
 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left perfect-scrollbar">
@@ -55,7 +58,7 @@ $theme_locations = get_nav_menu_locations();
 
                 ?>
                 <li class="text-redbrown menu-dropdown-simple-wrapper">
-                    <a class="toggle-dropdown toggle-dropdown-simple" role="button" href="#" aria-expanded="false" id="mainNavDropdown1" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
+                    <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'school' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown1" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
                     <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
                 </li>
                 <?php
@@ -77,7 +80,7 @@ $theme_locations = get_nav_menu_locations();
 
                 ?>
                 <li class="text-purplelight menu-dropdown-simple-wrapper">
-                    <a class="toggle-dropdown toggle-dropdown-simple" role="button" href="#" aria-expanded="false" id="mainNavDropdown2" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
+                    <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'service' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown2" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
                     <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
                 </li>
                 <?php
@@ -100,7 +103,7 @@ $theme_locations = get_nav_menu_locations();
 
                 ?>
                 <li class="text-greendark menu-dropdown-simple-wrapper">
-                    <a class="toggle-dropdown toggle-dropdown-simple" role="button" href="#" aria-expanded="false" id="mainNavDropdown3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
+                    <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'news' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
                     <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
                 </li>
                 <?php
@@ -122,7 +125,7 @@ $theme_locations = get_nav_menu_locations();
 
                 ?>
                 <li class="text-bluelectric menu-dropdown-simple-wrapper">
-                    <a class="toggle-dropdown toggle-dropdown-simple" role="button" href="#" aria-expanded="false" id="mainNavDropdown4" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
+                    <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'education' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown4" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
                     <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
                 </li>
                 <?php
@@ -152,7 +155,9 @@ if(is_search() || is_archive())
 ?>
 
 
-<?php get_template_part("template-parts/header/slimheader"); ?>
+<?php 
+$active_page = dsi_get_current_group();
+get_template_part("template-parts/header/slimheader"); ?>
 
 <div id="main-wrapper" class="push_container">
     <?php get_template_part("template-parts/common/skiplink"); ?>
@@ -241,7 +246,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-redbrown menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown1"><?php _e("Scuola","design_scuole_italia"); ?></a>
+                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'school' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown1"><?php _e("Scuola","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown1">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
@@ -267,7 +272,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-purplelight menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown2"><?php _e("Servizi","design_scuole_italia"); ?></a>
+                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'service' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown2"><?php _e("Servizi","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown2">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
@@ -294,7 +299,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-greendark menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Notizie","design_scuole_italia"); ?></a>
+                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'news' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Notizie","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown3">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
@@ -320,7 +325,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-bluelectric menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown4"><?php _e("Didattica","design_scuole_italia"); ?></a>
+                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'education' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown4"><?php _e("Didattica","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown4">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
