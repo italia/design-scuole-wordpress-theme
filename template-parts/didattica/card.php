@@ -10,7 +10,7 @@ if(!$image_url)
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
-            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>" alt=""></a>
+            <a href="<?php echo get_permalink($post); ?>" aria-label="Vai alla sezione <?php echo get_the_title($post); ?>"><img src="<?php echo $image_url; ?>" alt=""></a>
             <?php } ?>
         </div><!-- /card-thumb -->
 
@@ -19,11 +19,11 @@ if(!$image_url)
             <?php
             $argomenti = dsi_get_argomenti_of_post();
             foreach ( $argomenti as $item ) { ?>
-                <a class="btn btn-xs btn-rounded btn-outline-white" href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" class="badge badge-sm badge-pill badge-outline-bluelectric"><?php echo $item->name; ?></a>
+                <a class="btn btn-xs btn-rounded btn-outline-white" href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" class="badge badge-sm badge-pill badge-outline-bluelectric" aria-label="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"><?php echo $item->name; ?></a>
             <?php } ?>
         </div>
         <small class="card-date"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></small>
-        <h3><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
+        <h3><a href="<?php echo get_permalink($post); ?>" aria-label="Vai alla sezione <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h3>
         <?php
         if(!empty($tempo_apprendimento) || get_comment_count($post->ID)["approved"] > 0) {
             ?>
@@ -48,7 +48,7 @@ if(!$image_url)
         }
         ?>
         <div class="card-author">
-            <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
+            <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>" aria-label="Vai alla sezione di <?php echo dsi_get_display_name($autore->ID); ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
         </div><!-- /card-author -->
     </div><!-- /card-body -->
 </div><!-- /card -->
