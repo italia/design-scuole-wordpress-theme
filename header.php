@@ -42,13 +42,12 @@ if(is_search() || is_archive())
 ?>
 
 
-<?php 
-$active_page = dsi_get_current_group();
-get_template_part("template-parts/header/slimheader"); ?>
+<?php $active_page = dsi_get_current_group(); ?>
 
-<div id="main-wrapper" class="push_container">
+<div id="main-wrapper" class="push_container" id="page_top">
     <?php get_template_part("template-parts/common/skiplink"); ?>
     <header id="main-header" class="bg-white">
+        <?php get_template_part("template-parts/header/slimheader"); ?>
         <div class="container header-top">
             <div class="row variable-gutters">
                 <div class="col-8 d-flex align-items-center">

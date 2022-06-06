@@ -1,4 +1,4 @@
-<section id="pre-header" class="bg-petrol">
+<div id="pre-header" class="bg-petrol">
     <div class="container">
         <div class="row variable-gutters">
             <div class="col-6">
@@ -19,5 +19,5 @@
             </div><!-- /col-6 -->
         </div><!-- /row -->
     </div><!-- /container -->
-</section>
+</div>
 <?php
