@@ -297,7 +297,7 @@ get_header();
 											if(in_array("CNS", $provider_autenticazione)) {
 												?>
 												<div class="note cie">
-													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/CNS-quadrata-512x512.jpeg' ); ?>" alt="">
+													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>" alt="">
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
 												</div>
 											<?php }	
