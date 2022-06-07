@@ -21,7 +21,7 @@
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
                                         </svg>
                                     </button>
-                                    <button type="submit" class="search-btn" aria-label="avvia la ricerca" id="tutto" name="type" value="any">
+                                    <button type="submit" class="search-btn" aria-label="avvia la ricerca" id="tutto-2" name="type" value="any">
                                         <svg class="svg-search">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
                                         </svg>
