@@ -224,7 +224,7 @@ if(is_search() || is_archive())
             </div><!-- /row -->
         </div><!-- /container -->
 
-        <div class="bg-white d-none d-xl-block" id="sub-nav">
+        <div class="bg-white d-none d-xl-block header-bottom" id="sub-nav">
             <div class="container">
                 <div class="row variable-gutters">
                     <div class="col nav-container">
