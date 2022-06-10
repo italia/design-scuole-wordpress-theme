@@ -48,7 +48,13 @@
                 <?php
                 $location = "menu-footer";
                 if ( has_nav_menu( $location ) ) {
-                    wp_nav_menu(array("theme_location" => $location, "depth" => 1, "menu_class" => "footer-inline-menu", "container" => ""));
+                    wp_nav_menu(array(
+                        "theme_location" => $location, 
+                        "depth" => 1, 
+                        "menu_class" => "footer-inline-menu", 
+                        "container" => "",
+                        'walker' => new Footer_Menu_Walker()
+                    ));
                 }
                 ?>
                 <?php

@@ -298,3 +298,32 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+
+
+class Footer_Menu_Walker extends Walker_Nav_Menu {
+	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		$output .= "<li>";
+
+		if ($item->post_name == 'privacy-policy' || $item->post_name == 'dichiarazione-di-accessibilita') { 
+			if ($item->url) {
+				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" id="'.$item->post_name.'">';
+			} else {
+				$output .= '<a class="text-underline-hover" href="#" id="'.$item->post_name.'">';
+			}
+		} else {
+			if ($item->url) {
+				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '">';
+			} else {
+				$output .= '<a class="text-underline-hover" href="#">';
+			}
+		}
+ 
+		$output .= $item->title;
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '</a>';
+		} else {
+			$output .= '</a>';
+		}
+	}
+}
