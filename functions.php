@@ -27,6 +27,17 @@ require get_template_directory() . '/inc/extend-tax-to-user.php';
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
+
+/**
+ * header menu walker
+ */
+require get_template_directory() . '/walkers/header-walker.php';
+
+/**
+ * footer menu walker
+ */
+require get_template_directory() . '/walkers/footer-walker.php';
+
 /**
  * Implement CMB2 Custom Field Manager
  */
@@ -298,35 +309,3 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
-
-
-class Footer_Menu_Walker extends Walker_Nav_Menu {
-	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
-		$output .= "<li>";
-
-		if ($item->post_name == 'privacy-policy' || $item->post_name == 'dichiarazione-di-accessibilita') { 
-			$custom_id = $item->post_name == 'privacy-policy' 
-			? 'privacy-policy' 
-			: 'dichiarazione-accessibilita';
-			if ($item->url) {
-				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" id="'.$custom_id.'">';
-			} else {
-				$output .= '<a class="text-underline-hover" href="#" id="'.$custom_id.'">';
-			}
-		} else {
-			if ($item->url) {
-				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '">';
-			} else {
-				$output .= '<a class="text-underline-hover" href="#">';
-			}
-		}
- 
-		$output .= $item->title;
- 
-		if ($item->url && $item->url != '#') {
-			$output .= '</a>';
-		} else {
-			$output .= '</a>';
-		}
-	}
-}

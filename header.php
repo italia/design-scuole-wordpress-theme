@@ -9,7 +9,7 @@
  * @package Design_Scuole_Italia
  */
 
-/** Header_Walker_Nav_Menu class */
+/** Header_Mobile_Menu class */
 require_once get_template_directory() . '/walkers/class-header-walker-nav-menu.php';
 
 $theme_locations = get_nav_menu_locations();
@@ -69,7 +69,7 @@ if(is_search() || is_archive())
                             </div>
                         </div><!-- /logo-header -->
                         <div class="nav-list-mobile dl-menuwrapper">
-                            <ul class="dl-menu nav-list nav-list-primary" id="menup">
+                            <ul class="dl-menu nav-list nav-list-primary" id="menup-mob">
                                 <?php
                                 // check if scuola has menu
                                 $theme_location = "menu-scuola";
@@ -80,14 +80,14 @@ if(is_search() || is_archive())
                                 if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                                     $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
                                     if($landing_url)
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="submenu-scuola" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="%1$s" class="%2$s">%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" id="submenu-scuola" class="%2$s">%3$s</ul>';
 
                                     ?>
                                     <li class="text-redbrown menu-dropdown-simple-wrapper">
                                         <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'school' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown1" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
-                                        <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                        <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
                                     </li>
                                     <?php
                                 }
@@ -102,14 +102,14 @@ if(is_search() || is_archive())
                                 if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                                     $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
                                     if($landing_url)
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                                     else
                                         $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown2" id="%1$s" class="%2$s">%3$s</ul>';
 
                                     ?>
                                     <li class="text-purplelight menu-dropdown-simple-wrapper">
                                         <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'service' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown2" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
-                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
                                     </li>
                                     <?php
 
@@ -125,14 +125,14 @@ if(is_search() || is_archive())
                                 if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                                     $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
                                     if($landing_url)
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                                     else
                                         $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s">%3$s</ul>';
 
                                     ?>
                                     <li class="text-greendark menu-dropdown-simple-wrapper">
                                         <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'news' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
-                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
                                     </li>
                                     <?php
                                 }
@@ -147,14 +147,14 @@ if(is_search() || is_archive())
                                 if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                                     $landing_url = dsi_get_template_page_url("page-templates/didattica.php");
                                     if($landing_url)
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s"><li class="menu-title"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                                     else
                                         $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown4" id="%1$s" class="%2$s">%3$s</ul>';
 
                                     ?>
                                     <li class="text-bluelectric menu-dropdown-simple-wrapper">
                                         <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'education' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown4" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
-                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
                                     </li>
                                     <?php
                                 }
@@ -239,16 +239,16 @@ if(is_search() || is_archive())
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
 		                        $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
 		                        if($landing_url)
-			                        $items_wrap = '<ul class="%2$s"><li class="menu-title"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s" id="submenu-scuola"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
 		                        else
-			                        $items_wrap = '<ul class="%2$s">%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s" id="submenu-scuola">%3$s</ul>';
 
 		                        ?>
                                 <li class="text-redbrown menu-dropdown-simple-wrapper">
                                     <a class="nav-link dropdown-toggle <?php echo $active_page == 'school' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown1"><?php _e("Scuola","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown1">
                                         <div class="link-list-wrapper">
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
                                         </div>
                                     </div>
                                 </li>
@@ -265,7 +265,7 @@ if(is_search() || is_archive())
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
 		                        $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
                                 if($landing_url)
-			                        $items_wrap = '<ul class="%2$s"><li class="menu-title"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
 		                        else
 			                        $items_wrap = '<ul class="%2$s">%3$s</ul>';
 
@@ -274,7 +274,7 @@ if(is_search() || is_archive())
                                     <a class="nav-link dropdown-toggle <?php echo $active_page == 'service' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown2"><?php _e("Servizi","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown2">
                                         <div class="link-list-wrapper">
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
                                         </div>
                                     </div>
                                 </li>
@@ -292,7 +292,7 @@ if(is_search() || is_archive())
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
 		                        $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
 		                        if($landing_url)
-			                        $items_wrap = '<ul class="%2$s"><li class="menu-title"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
 		                        else
 			                        $items_wrap = '<ul class="%2$s">%3$s</ul>';
 
@@ -301,7 +301,7 @@ if(is_search() || is_archive())
                                     <a class="nav-link dropdown-toggle <?php echo $active_page == 'news' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Notizie","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown3">
                                         <div class="link-list-wrapper">
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
                                         </div>
                                     </div>
                                 </li>
@@ -318,7 +318,7 @@ if(is_search() || is_archive())
 							if(isset($menu_obj) && !is_wp_error($menu_obj)) {
 								$landing_url = dsi_get_template_page_url("page-templates/didattica.php");
 								if($landing_url)
-			                        $items_wrap = '<ul class="%2$s"><li class="menu-title"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
 		                        else
 			                        $items_wrap = '<ul class="%2$s">%3$s</ul>';
 
@@ -327,7 +327,7 @@ if(is_search() || is_archive())
                                     <a class="nav-link dropdown-toggle <?php echo $active_page == 'education' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown4"><?php _e("Didattica","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown4">
                                         <div class="link-list-wrapper">
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Walker_Nav_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
                                         </div>
                                     </div>
                                 </li>

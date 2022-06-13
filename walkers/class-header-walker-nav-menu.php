@@ -1,7 +1,7 @@
 
 <?php
 /**
- * Nav Menu API: Header_Walker_Nav_Menu class
+ * Nav Menu API: Header_Mobile_Menu class
  *
  * @package WordPress
  * @subpackage Nav_Menus
@@ -15,7 +15,7 @@
  *
  * @see Walker
  */
-class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
+class Header_Mobile_Menu extends Walker_Nav_Menu {
 	/**
 	 * Starts the element output.
 	 *
@@ -146,8 +146,15 @@ class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 */
 		$title = apply_filters( 'nav_menu_item_title', $title, $menu_item, $args, $depth );
 
+		$custom_id = '';		
+		if ($menu_item->post_name == "servizi-per-il-personale-scolastico" || $menu_item->post_name == "servizi-per-famiglie-e-studenti") {
+			$custom_id = $menu_item->post_name == "servizi-per-il-personale-scolastico"
+			? ' id="servizio-personale-scolastico"'
+			: ' id="servizi-famiglie-studenti"';
+		}
+
 		$item_output  = $args->before;
-		$item_output .= '<a' . $attributes . '>';
+		$item_output .= '<a' . $attributes . $custom_id . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
