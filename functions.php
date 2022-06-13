@@ -305,10 +305,13 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "<li>";
 
 		if ($item->post_name == 'privacy-policy' || $item->post_name == 'dichiarazione-di-accessibilita') { 
+			$custom_id = $item->post_name == 'privacy-policy' 
+			? 'privacy-policy' 
+			: 'dichiarazione-accessibilita';
 			if ($item->url) {
-				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" id="'.$item->post_name.'">';
+				$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" id="'.$custom_id.'">';
 			} else {
-				$output .= '<a class="text-underline-hover" href="#" id="'.$item->post_name.'">';
+				$output .= '<a class="text-underline-hover" href="#" id="'.$custom_id.'">';
 			}
 		} else {
 			if ($item->url) {
