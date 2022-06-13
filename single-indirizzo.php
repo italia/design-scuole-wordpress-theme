@@ -277,34 +277,40 @@ get_header();
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($autenticazione); ?>
-                                            </div><!-- /col-lg-9 -->
-                                        <div class="col-lg-3">
+										</div><!-- /col-lg-9 -->
+									</div><!-- /row -->
+									<div class="row variable-gutters mb-4">
                                         <?php if($provider_autenticazione && is_array($provider_autenticazione)){
-                                            if(in_array("SPID", $provider_autenticazione)) {
-                                            ?>
-                                                <div class="note">
-                                                    <svg class="svg-filters" width="68" height="34" aria-label="spid" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
-                                                    <p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID (apre pagina su nuova scheda)">Scopri di più</a>.</p>
-                                                </div>
-                                            <?php }
-                                            if(in_array("CIE", $provider_autenticazione)) {
-                                            ?>
-                                                <div class="note cie">
-                                                    <svg class="svg-filters" width="90" height="64" aria-label="cie" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
-                                                    <p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE (apre pagina su nuova scheda)">Scopri di più</a>.</p>
-                                                </div>
-                                            <?php }
-											if(in_array("CNS", $provider_autenticazione)) {
-												?>
+										if(in_array("SPID", $provider_autenticazione)) {
+										?>
+											<div class="col-4 col-md-3">
+												<div class="note">
+													<svg class="svg-filters" width="68" height="34" aria-label="spid" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
+													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+												</div>
+											</div>
+										<?php }
+										if(in_array("CIE", $provider_autenticazione)) {
+										?>
+											<div class="col-4 col-md-3">
 												<div class="note cie">
+													<svg class="svg-filters" width="90" height="64" aria-label="cie" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
+													<p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+												</div>
+											</div>
+										<?php }
+										if(in_array("CNS", $provider_autenticazione)) {
+											?>
+											<div class="col-4 col-md-3">
+												<div class="note cns">
 													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>" alt="">
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
 												</div>
-											<?php }	
+											</div>
+										<?php }	
                                         }?>
-                                        </div><!-- /col-lg-3 -->
                                     </div><!-- /row -->
-                                    <?php
+                                <?php
                                 }
                                 if(is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
                                     global $struttura;
