@@ -95,13 +95,13 @@ get_header();
                             <?php if ($altri_componenti != "") { ?>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-3">
-                                        <h4 class="text-lg-right mb-3"><?php _e("Componenti esterni", "design_scuole_italia"); ?></h4>
+                                        <h3 class="h4 text-lg-right mb-3"><?php _e("Componenti esterni", "design_scuole_italia"); ?></h3>
                                     </div><!-- /col-lg-3 -->
                                     <div class="col-lg-9">
                                         <div class="row variable-gutters">
-                                            <h5 class="text-lg-right mb-3 pt-1 pl-4">
+                                            <span class="h5 text-lg-right mb-3 pt-1 pl-4">
                                                 <?php echo $altri_componenti; ?>
-                                            </h5>
+                                            </span>
                                         </div><!-- /row -->
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->

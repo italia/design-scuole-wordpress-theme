@@ -79,10 +79,8 @@ get_header();
                                 }
                                     ?>
                             <div class="section-title">
-                                <h2 class="mb-3"><?php the_title(); ?></h2>
-
-                                <?php echo wpautop($descrizione); ?>
-
+                                <h1 id="titolo-sevizio" class="mb-3"><?php the_title(); ?></h1>
+                                <p id="descrizione-servizio"><?php echo $descrizione; ?></p>
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
 
@@ -112,7 +110,7 @@ get_header();
                                     </a>
                                 </div>
                                 <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="page-index">
-                                    <ul class="link-list">
+                                    <ul class="link-list" id="index-list">
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
                                         </li>
@@ -166,7 +164,7 @@ get_header();
                         </div>
                         <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
-                                <h4 id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
+                                <h2 class="h4" id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h2>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <div class="article-description wysiwig-text">
@@ -184,7 +182,7 @@ get_header();
                                 // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
-                                    <h5><?php _e("A cosa serve", "design_scuole_italia"); ?></h5>
+                                    <h3 class="h6"><?php _e("A cosa serve", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
@@ -193,7 +191,7 @@ get_header();
                                     <?php
                                 }
                                 ?>
-                                <h4 id="art-par-accedi"><?php _e("Come si accede al servizio", "design_scuole_italia"); ?></h4>
+                                <h2 class="h4" id="art-par-accedi"><?php _e("Come si accede al servizio", "design_scuole_italia"); ?></h2>
                                 <?php
                                 if(trim($come_si_fa) != ""){
                                     ?>
@@ -212,7 +210,7 @@ get_header();
 
                                 if(trim($procedura_esito) != ""){
                                     ?>
-                                    <h5><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h5>
+                                    <h3 class="h6"><?php _e("Procedure collegate all'esito", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($procedura_esito); ?>
@@ -222,7 +220,7 @@ get_header();
                                 }
                                 if((trim($canale_digitale) != "") || (trim($canale_digitale_link) != "")) {
                                     ?>
-                                    <h6><?php _e("Servizio online", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Servizio online", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($canale_digitale); ?>
@@ -237,7 +235,7 @@ get_header();
                                 }
                                 if(trim($autenticazione) != ""){
                                     ?>
-                                    <h6><?php _e("Autenticazione", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Autenticazione", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo apply_filters("the_content", $autenticazione); ?>
@@ -278,7 +276,7 @@ get_header();
 								<?php
                                 }
                                 if($servizi_correlati){ ?>
-                                    <h6><?php _e("Servizi correlati", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Servizi correlati", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -297,7 +295,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h6><?php _e("Luoghi in cui viene erogato il servizio", "design_scuole_italia"); ?></h6>
+                                            <h3 class="h6"><?php _e("Luoghi in cui viene erogato il servizio", "design_scuole_italia"); ?></h3>
                                             <?php
                                             $c=0;
                                             foreach ($luoghi as $idluogo){
@@ -314,7 +312,7 @@ get_header();
 
                                 if(($cosa_serve) || (is_array($cosa_serve_list))) {
                                     ?>
-                                    <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
+                                    <h2 class="h4" id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h2>
 
                                     <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
@@ -348,7 +346,7 @@ get_header();
                                 // print_r($fasi_scadenze);
                                 if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
                                     ?>
-                                    <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="calendar-vertical mb-5">
@@ -367,7 +365,7 @@ get_header();
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
                                                                 <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
-                                                                    <h5 class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h5>
+                                                                    <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
                                                                     <?php
                                                                 }
                                                                 echo wpautop($fase["desc_fase"]); ?>
@@ -386,7 +384,7 @@ get_header();
 
                                 if(trim($casi_particolari) != ""){
                                     ?>
-                                    <h4 id="art-par-casi-particolari"><?php _e("Casi particolari", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-casi-particolari"><?php _e("Casi particolari", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($casi_particolari); ?>
@@ -399,7 +397,7 @@ get_header();
 
                                 if(trim($altre_info) != ""){
                                     ?>
-                                    <h4 id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <?php echo wpautop($altre_info); ?>
@@ -412,7 +410,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters mb-4" >
                                         <div class="col-lg-9">
-                                            <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
+                                            <h2 class="h4" id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h2>
                                             <div class="card card-bg bg-color rounded">
                                                 <div class="card-body pb-1">
                                                     <ul>
@@ -427,11 +425,11 @@ get_header();
                                 if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
                                     //$struttura = get_post($struttura_responsabile[0]);
-                                    echo "<h6>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h6>";
+                                    echo "<h3 class='h6'>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h3>";
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="card-deck card-deck-spaced">
+                                            <div class="card-deck card-deck-spaced" id="lista-strutture">
                                                 <?php
                                                 foreach ($struttura_responsabile as $idstruttura) {
                                                     $struttura = get_post($idstruttura);
@@ -449,7 +447,7 @@ get_header();
                                 ?>
 
                                 <?php if($link_schede_progetti){ ?>
-                                    <h6><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_progetti as $idprogetto){
@@ -465,7 +463,7 @@ get_header();
 
                                 if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
                                     ?>
-                                    <h4  class="mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">

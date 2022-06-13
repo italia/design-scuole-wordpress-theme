@@ -422,7 +422,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             <section class="section bg-gray-light py-5" id="art-par-04">
                 <div class="container py-4">
                     <div class="title-section text-center mb-5">
-                        <h3 class="h4">Foto e video</h3>
+                        <h2 class="h4">Foto e video</h2>
                     </div><!-- /title-large -->
                     <div class="row variable-gutters">
                         <div class="col">

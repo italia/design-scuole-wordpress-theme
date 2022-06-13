@@ -33,5 +33,27 @@ if(isset($_REQUEST["archive"]))
 			?>
         </ul>
 
+        <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_scuole_italia"); ?></strong></h3>
+        <ul>
+            <?php
+            $terms = get_terms( array(
+	            'taxonomy' => 'post_tag',
+	            'hide_empty' => true,
+	            'orderby'    => 'count',
+                'order'   => 'DESC',
+                'number' => 20,
+            ) );
+            foreach ($terms as $term){
+                ?>
+                <li>
+                    <div class="custom-control custom-checkbox custom-checkbox-outline">
+                        <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()">
+                        <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+                    </div>
+                </li>
+            <?php
+            }
+            ?>
+        </ul>
     </form>
 </aside>

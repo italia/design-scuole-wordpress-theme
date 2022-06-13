@@ -83,7 +83,7 @@ if(isset($struttura->ID)){
 					</div><!-- /col-lg-4 -->
 					<div class="col-lg-<?php echo $col2; ?>">
 						<div class="py-4">
-							<ul class="location-list mt-2">
+							<ul class="location-list mt-2" id="location-list">
 								<?php if(isset($indirizzo) && $indirizzo != ""){ ?>
 									<li>
 										<div class="location-title">
