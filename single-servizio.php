@@ -182,7 +182,7 @@ get_header();
                                 // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
-                                    <h3 class="h6"><?php _e("A cosa serve", "design_scuole_italia"); ?></h3>
+                                    <h3 class="h6" id="a-cosa-serve"><?php _e("A cosa serve", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
