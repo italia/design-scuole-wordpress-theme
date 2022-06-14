@@ -79,7 +79,7 @@ get_header();
                                 }
                                     ?>
                             <div class="section-title">
-                                <h1 id="titolo-sevizio" class="mb-3"><?php the_title(); ?></h1>
+                                <h1 id="titolo-servizio" class="mb-3"><?php the_title(); ?></h1>
                                 <p id="descrizione-servizio"><?php echo $descrizione; ?></p>
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
