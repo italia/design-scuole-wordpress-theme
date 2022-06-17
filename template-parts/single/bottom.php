@@ -2,7 +2,7 @@
 global $post, $licenza;
 ?>
 <div class="article-footer">
-    <p data-crawler="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
+    <p data-structure="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
 		$date_publish = new DateTime($post->post_date);
 		echo $date_publish->format('d.m.Y');
 		?> <span>-</span> <strong><?php _e("Revisione", "design_scuole_italia"); ?>:</strong> <?php

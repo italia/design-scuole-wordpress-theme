@@ -79,8 +79,8 @@ get_header();
                                 }
                                     ?>
                             <div class="section-title">
-                                <h1 data-crawler="service-title" class="mb-3"><?php the_title(); ?></h1>
-                                <p data-crawler="descrizione-servizio"><?php echo $descrizione; ?></p>
+                                <h1 data-structure="service-title" class="mb-3"><?php the_title(); ?></h1>
+                                <p data-structure="descrizione-servizio"><?php echo $descrizione; ?></p>
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
 
@@ -110,7 +110,7 @@ get_header();
                                     </a>
                                 </div>
                                 <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="page-index">
-                                    <ul class="link-list" data-crawler="page-index">
+                                    <ul class="link-list" data-structure="page-index">
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cos'è", "design_scuole_italia"); ?>"><?php _e("Cos'è", "design_scuole_italia"); ?></a>
                                         </li>
@@ -182,7 +182,7 @@ get_header();
                                 // $esito = "";
                                 if(trim($esito) != ""){
                                     ?>
-                                    <h3 class="h6" data-crawler="a-cosa-serve"><?php _e("A cosa serve", "design_scuole_italia"); ?></h3>
+                                    <h3 class="h6" data-structure="a-cosa-serve"><?php _e("A cosa serve", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($esito); ?>
@@ -429,7 +429,7 @@ get_header();
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="card-deck card-deck-spaced" data-crawler="structures">
+                                            <div class="card-deck card-deck-spaced" data-structure="structures">
                                                 <?php
                                                 foreach ($struttura_responsabile as $idstruttura) {
                                                     $struttura = get_post($idstruttura);

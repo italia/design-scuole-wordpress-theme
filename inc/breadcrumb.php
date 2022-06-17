@@ -182,7 +182,7 @@ class Breadcrumb_Trail {
 
 			// Open the unordered list.
 			$breadcrumb .= sprintf(
-				'<%s class="breadcrumbs-list" data-crawler="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">',
+				'<%s class="breadcrumbs-list" data-structure="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">',
 				tag_escape( $this->args['list_tag'] )
 			);
 
