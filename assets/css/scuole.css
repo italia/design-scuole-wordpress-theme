@@ -177,6 +177,16 @@
   color: #ffffff;
 }
 
+.form-check [type="checkbox"]:focus + label,
+.form-check [type="radio"]:focus + label,
+.toggles label input[type="checkbox"]:focus + .lever,
+:focus:not(.focus--mouse):not([data-focus-mouse="true"]) {
+  border-color: #000 !important;
+  box-shadow: 0 0 0 2px #000 !important;
+  outline: 2px solid #fff !important;
+  outline-offset: 3px;
+}
+
 .bg-red-gradient h1,
 .bg-red-gradient .h1,
 .bg-red-gradient h2,
@@ -20187,11 +20197,11 @@ button.icon-text {
   text-decoration: none;
 }
 
-#footer-wrapper .footer-link a {
+.footer-link a {
   text-decoration: underline;
 }
 
-#footer-wrapper .footer-link a:hover {
+.footer-link a:hover {
   text-decoration: none;
 }
 
