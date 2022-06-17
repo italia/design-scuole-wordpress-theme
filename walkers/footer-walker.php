@@ -24,7 +24,7 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		if ($item->post_name == 'privacy-policy' || $item->post_name == 'dichiarazione-di-accessibilita') { 
 			$custom_data = $item->post_name == 'privacy-policy' 
 			? 'data-crawler="privacy-policy-link"' 
-			: 'data-crawler="a11y-link"';
+			: 'data-crawler="accessibility-link"';
 		}
 		if ($item->url) {
 			$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" '.$custom_data.'>';
