@@ -80,7 +80,7 @@ get_header();
                                     ?>
                             <div class="section-title">
                                 <h1 data-structure="service-title" class="mb-3"><?php the_title(); ?></h1>
-                                <p data-structure="descrizione-servizio"><?php echo $descrizione; ?></p>
+                                <p data-structure="service-description"><?php echo $descrizione; ?></p>
                             </div><!-- /title-section -->
                             <div class="article-description-mobile">
 
