@@ -57,7 +57,7 @@ if(isset($_GET["post_terms"]))
     }
     ?>
         <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_scuole_italia"); ?></strong></h3>
-        <ul data-structure="all-topics">
+        <ul data-element="all-topics">
             <?php
             $terms = get_terms( array(
 	            'taxonomy' => 'post_tag',

@@ -22,7 +22,7 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 		$custom_data = '';
 
 		if ($item->post_name == "servizi-per-il-personale-scolastico" || $item->post_name == "servizi-per-famiglie-e-studenti") {
-			$custom_data = 'data-structure="service-type"';
+			$custom_data = 'data-element="service-type"';
 		}
 
 		if($custom_data) {

@@ -148,7 +148,7 @@ class Header_Mobile_Menu extends Walker_Nav_Menu {
 
 		$custom_data = '';		
 		if ($menu_item->post_name == "servizi-per-il-personale-scolastico" || $menu_item->post_name == "servizi-per-famiglie-e-studenti") {
-			$custom_data = 'data-structure="service-type"';
+			$custom_data = 'data-element="service-type"';
 		}
 
 		$item_output  = $args->before;

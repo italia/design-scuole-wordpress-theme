@@ -15,13 +15,13 @@
 								</div>
 								<div class="form-group search-form">
 									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?></label>
-									<input type="text" name="s" id="search-input" data-structure="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
                                     <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">
                                         <svg class="svg-cancel-large" role="presentation">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
                                         </svg>
                                     </button>
-                                    <button type="submit" class="search-btn" aria-label="avvia la ricerca" data-structure="search-submit" name="type" value="any">
+                                    <button type="submit" class="search-btn" aria-label="avvia la ricerca" data-element="search-submit" name="type" value="any">
                                         <svg class="svg-search">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
                                         </svg>
