@@ -80,9 +80,9 @@ if(is_search() || is_archive())
                                 if(isset($menu_obj) && !is_wp_error($menu_obj)) {
                                     $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
                                     if($landing_url)
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" data-structure="submenu-scuola" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" data-structure="school-submenu" class="%2$s"><li class="menu-title" role="menuitem"><div class="h3"><a href="'.$landing_url.'">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" data-structure="submenu-scuola" class="%2$s">%3$s</ul>';
+                                        $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown1" data-structure="school-submenu" class="%2$s">%3$s</ul>';
 
                                     ?>
                                     <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -239,9 +239,9 @@ if(is_search() || is_archive())
 	                        if(isset($menu_obj) && !is_wp_error($menu_obj)) {
 		                        $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
 		                        if($landing_url)
-			                        $items_wrap = '<ul class="%2$s" data-structure="submenu-scuola"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s" data-structure="school-submenu"><li class="menu-title" role="menuitem"><div class="h3"><a class="list-item" href="'.$landing_url.'" aria-label="Panoramica">'.__("Panoramica", "design_scuole_italia").'</a></div></li>%3$s</ul>';
 		                        else
-			                        $items_wrap = '<ul class="%2$s" data-structure="submenu-scuola">%3$s</ul>';
+			                        $items_wrap = '<ul class="%2$s" data-structure="school-submenu">%3$s</ul>';
 
 		                        ?>
                                 <li class="text-redbrown menu-dropdown-simple-wrapper">
