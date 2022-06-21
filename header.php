@@ -298,7 +298,7 @@ if(is_search() || is_archive())
 
 		                        ?>
                                 <li class="text-greendark menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'news' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Notizie","design_scuole_italia"); ?></a>
+                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'news' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Novità","design_scuole_italia"); ?></a>
                                     <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown3">
                                         <div class="link-list-wrapper">
                                             <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
