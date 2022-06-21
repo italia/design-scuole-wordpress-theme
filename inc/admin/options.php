@@ -903,7 +903,7 @@ function dsi_register_main_options_metabox() {
 
     $args = array(
         'id'           => 'dsi_options_persone',
-        'title'        => esc_html__( 'Le Persone', 'design_scuole_italia' ),
+        'title'        => esc_html__( 'Persone', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'persone',
         'parent_slug'  => 'dsi_options',

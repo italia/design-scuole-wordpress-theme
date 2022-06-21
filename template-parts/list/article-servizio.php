@@ -13,8 +13,8 @@ if(!$excerpt)
 // $argomenti = dsi_get_tipologia_servizio_of_post($post);
 
 ?>
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
-<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
+
+<article class="card card-bg card-article card-article-purplelight">
     <div class="card-body">
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>
@@ -22,17 +22,9 @@ if(!$excerpt)
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h2 class="h3"><?php the_title(); ?></h2>
+            <h2 class="h3"><a href="<?php echo get_permalink(); ?>" data-element="service-link" aria-label="Vai alla scheda <?php the_title(); ?>"><?php the_title(); ?></a>
+            </h2>
             <p><?php echo $excerpt; ?></p>
-            <?php /* if(count($argomenti)) { ?>
-                    <div class="badges">
-                        <?php foreach ( $argomenti as $item ) { ?>
-                            <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
-                               class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
-                        <?php } ?>
-                    </div><!-- /badges -->
-                <?php } */ ?>
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
-</a>

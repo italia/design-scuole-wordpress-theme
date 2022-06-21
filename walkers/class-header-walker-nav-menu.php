@@ -146,15 +146,13 @@ class Header_Mobile_Menu extends Walker_Nav_Menu {
 		 */
 		$title = apply_filters( 'nav_menu_item_title', $title, $menu_item, $args, $depth );
 
-		$custom_id = '';		
+		$custom_data = '';		
 		if ($menu_item->post_name == "servizi-per-il-personale-scolastico" || $menu_item->post_name == "servizi-per-famiglie-e-studenti") {
-			$custom_id = $menu_item->post_name == "servizi-per-il-personale-scolastico"
-			? ' id="servizio-personale-scolastico"'
-			: ' id="servizi-famiglie-studenti"';
+			$custom_data = 'data-element="service-type"';
 		}
 
 		$item_output  = $args->before;
-		$item_output .= '<a' . $attributes . $custom_id . '>';
+		$item_output .= '<a' . $attributes . $custom_data . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;

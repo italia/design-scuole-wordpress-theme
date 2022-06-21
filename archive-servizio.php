@@ -29,7 +29,7 @@ get_header();
 					<div class="col-lg-3 bg-white bg-white-left">
 						<?php get_template_part("template-parts/search/filters", "servizio"); ?>
 					</div>
-					<div class="col-lg-7 offset-lg-1 pt84" id="lista-card-tipologia">
+					<div class="col-lg-7 offset-lg-1 pt84">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */
