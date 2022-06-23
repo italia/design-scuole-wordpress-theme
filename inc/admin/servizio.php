@@ -253,7 +253,7 @@ function dsi_add_servizi_metaboxes() {
 	$cmb_undercontent->add_field( array(
         'id'   => $prefix . 'modalita_autenticazione',
         'name' => __( 'Modalità di autenticazione', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare se sono previste modalità di autenticazione per accedere al servizio.' , 'design_scuole_italia' ),
+        'desc' => __( 'Mostra eventuali modalità di autenticazione per accedere al servizio. Per la loro corretta visualizzazione, è necessario aver inserito una descrizione nel campo “Autenticazione”.' , 'design_scuole_italia' ),
         'type' => 'checkbox',
     ) );
     $cmb_undercontent->add_field(array(
