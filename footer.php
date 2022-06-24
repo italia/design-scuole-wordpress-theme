@@ -12,7 +12,11 @@
 <footer id="footer-wrapper" class="footer-wrapper">
     <div class="container">
         <div class="row variable-gutters mb-5">
-            <div class="col">
+            <div class="col logos-wrapper">
+                <img class="ue-logo"
+                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-eu-inverted.svg' ); ?>"
+                    alt="logo Unione Europea"
+                >
                 <div class="logo-footer">
                     <?php get_template_part("template-parts/common/logo"); ?>
 
