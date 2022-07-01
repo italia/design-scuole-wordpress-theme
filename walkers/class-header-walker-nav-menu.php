@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Nav Menu API: Header_Mobile_Menu class
