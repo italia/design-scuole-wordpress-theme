@@ -309,3 +309,22 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+
+// Custom logo login
+
+function modify_admin_logo()
+{ ?>
+    <style type="text/css">
+        #login h1 a,
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/custom-logo.png);
+            height: 84px;
+            width: 84px;
+            background-size: 84px 84px;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+
+add_action('login_enqueue_scripts', 'modify_admin_logo');
