@@ -136,9 +136,9 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-casi-particolari" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Casi particolari", "design_scuole_italia"); ?>"><?php _e("Casi particolari", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if(trim($altre_info) != ""){ ?>
+                                        <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                             <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
                                         <?php
@@ -151,9 +151,9 @@ get_header();
                                             <?php
                                         }
                                         ?>
-                                        <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+                                        <?php if(trim($altre_info) != ""){ ?>
                                             <li>
-                                                <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
 
@@ -394,14 +394,32 @@ get_header();
                                 }
                                 // check for anchor
 
-
-                                if(trim($altre_info) != ""){
+                                if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
                                     ?>
-                                    <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
+                                    <h2 class="h4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
-                                            <?php echo wpautop($altre_info); ?>
-                                        </div><!-- /col-lg-9 -->
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php
+                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+                                                    global $documento;
+                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
+                                                        $documento = get_post( $link_scheda_documento );
+                                                        get_template_part( "template-parts/documento/card" );
+                                                    }
+                                                }
+
+                                                global $idfile, $nomefile;
+                                                if(is_array($file_documenti) && count($file_documenti)>0) {
+
+                                                    foreach ( $file_documenti as $idfile => $nomefile ) {
+                                                        get_template_part( "template-parts/documento/file" );
+                                                    }
+                                                }
+
+                                                ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
                                     </div><!-- /row -->
                                     <?php
                                 }
@@ -446,50 +464,7 @@ get_header();
                                 }
                                 ?>
 
-                                <?php if($link_schede_progetti){ ?>
-                                    <h3 class="h6"><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h3>
-                                    <div class="card-deck card-deck-spaced mb-4">
-                                        <?php
-                                        foreach ($link_schede_progetti as $idprogetto){
-                                            $progetto = get_post($idprogetto);
-                                            get_template_part("template-parts/progetto/card");
-                                        }
-                                        ?>
-                                    </div><!-- /card-deck card-deck-spaced -->
-                                <?php } ?>
-
-                                <?php
-
-
-                                if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
-                                    ?>
-                                    <h2 class="h4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php
-                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                                                    global $documento;
-                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                        $documento = get_post( $link_scheda_documento );
-                                                        get_template_part( "template-parts/documento/card" );
-                                                    }
-                                                }
-
-                                                global $idfile, $nomefile;
-                                                if(is_array($file_documenti) && count($file_documenti)>0) {
-
-                                                    foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                        get_template_part( "template-parts/documento/file" );
-                                                    }
-                                                }
-
-                                                ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                    <?php
-                                }
+                                <?php                                
 
                                 if(isset($arrstrutture) && is_array($arrstrutture) && count($arrstrutture) > 0){
                                     ?>
@@ -507,6 +482,29 @@ get_header();
                                     </div><!-- /row -->
                                     <?php
                                 }
+
+                                if(trim($altre_info) != ""){
+                                    ?>
+                                    <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <?php echo wpautop($altre_info); ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+
+                                if($link_schede_progetti){ ?>
+                                    <h3 class="h6"><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h3>
+                                    <div class="card-deck card-deck-spaced mb-4">
+                                        <?php
+                                        foreach ($link_schede_progetti as $idprogetto){
+                                            $progetto = get_post($idprogetto);
+                                            get_template_part("template-parts/progetto/card");
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                <?php } 
 
                                 ?>
                                 <div class="row variable-gutters">
