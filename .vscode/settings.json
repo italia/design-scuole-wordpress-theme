@@ -3,6 +3,6 @@
         "*"
     ],
     "liveSassCompile.settings.includeItems": [
-        "**/assets/css/**"
+        "**/assets/**"
     ]
 }
