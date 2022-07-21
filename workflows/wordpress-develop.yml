@@ -1,0 +1,37 @@
+name: Triger theme update
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@v1
+      env:
+        URL: ${{ secrets.DEVURL }}
+        COOKIE: ${{ secrets.DEVCOOKIE }}
+      with:
+        args: |
+          https://${URL}/wp-admin/admin.php?page=wppusher-themes
+          -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+          -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,it;q=0.6,la;q=0.5' \
+          -H 'Cache-Control: no-cache' \
+          -H 'Connection: keep-alive' \
+          -H 'Content-Type: application/x-www-form-urlencoded' \
+          -H "${COOKIE}" \
+          -H 'DNT: 1' \
+          -H "Origin: https://${URL}" \
+          -H 'Pragma: no-cache' \
+          -H "Referer: https://${URL}/wp-admin/admin.php?page=wppusher-themes" \
+          -H 'Sec-Fetch-Dest: document' \
+          -H 'Sec-Fetch-Mode: navigate' \
+          -H 'Sec-Fetch-Site: same-origin' \
+          -H 'Sec-Fetch-User: ?1' \
+          -H 'Upgrade-Insecure-Requests: 1' \
+          -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36' \
+          -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"' \
+          -H 'sec-ch-ua-mobile: ?0' \
+          -H 'sec-ch-ua-platform: "Linux"' \
+          --data-raw '_wpnonce=429e7a7cdd&_wp_http_referer=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwppusher-themes&wppusher%5Baction%5D=update-theme&wppusher%5Brepository%5D=ToldoDesign128%2Fdesign-scuole-wordpress-theme&wppusher%5Bstylesheet%5D=design-scuole-wordpress-theme' \
+          --compressed
