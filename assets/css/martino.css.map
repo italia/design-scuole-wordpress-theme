@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "ACEA,AAAA,IAAI,CAAC;EAAC,gBAAgB,EAAE,UAAU;CAAG",
+    "mappings": "",
     "sources": [
         "martino.scss",
         "martino-scss/_color.scss"
