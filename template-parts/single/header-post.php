@@ -11,10 +11,8 @@ $autore = get_user_by("ID", $post->post_author);
 ?>
 <?php if(has_post_thumbnail($post)){ ?>
 <section class="section bg-white article-title article-title-author">
-
-    <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
     <?php
-    $colsize = 6;
+    $colsize = 12;
     }else{
     ?>
     <section class="section bg-white article-title article-title-small article-title-author">
@@ -23,19 +21,15 @@ $autore = get_user_by("ID", $post->post_author);
         } ?>
         <div class="container">
             <div class="row variable-gutters">
-                <div class="col-md-<?php echo $colsize; ?> article-title-author-container">
+                <div class="col-<?php echo $colsize; ?> article-title-author-container">
                     <div class="title-content">
                         <h1><?php the_title(); ?></h1>
-                        <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p>
+                        <?php
+                        $badgeclass = "badge-outline-greendark";
+                        get_template_part("template-parts/common/badges-argomenti"); ?>
+                        <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                        <?php get_template_part( "template-parts/single/bottom" ); ?>
                     </div><!-- /title-content -->
-                    <div class="card card-avatar card-comments">
-                        <div class="card-body p-0">
-                            <?php get_template_part("template-parts/autore/card"); ?>
-                            <div class="comments ml-auto">
-                                <p><?php echo $post->comment_count; ?></p>
-                            </div><!-- /comments -->
-                        </div><!-- /card-body -->
-                    </div><!-- /card card-avatar -->
                 </div><!-- /col-md-6 -->
             </div><!-- /row -->
         </div><!-- /container -->
