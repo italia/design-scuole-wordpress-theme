@@ -318,7 +318,7 @@ function modify_admin_logo()
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/custom-logo.png);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/logo-custom.png);
             height: 84px;
             width: 84px;
             background-size: 84px 84px;
