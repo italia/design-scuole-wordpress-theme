@@ -693,9 +693,10 @@ class Breadcrumb_Trail {
 		if ( false !== $post_type_object->rewrite ) {
 
 			// If 'with_front' is true, add $wp_rewrite->front to the trail.
-			if ( $post_type_object->rewrite['with_front'] )
-				$this->add_rewrite_front_items();
-
+			if( is_array($post_type_object) ) {
+				if ( $post_type_object->rewrite['with_front'] )
+					$this->add_rewrite_front_items();
+			}
 			// If there's a rewrite slug, check for parents.
 			if ( ! empty( $post_type_object->rewrite['slug'] ) )
 				$this->add_path_parents( $post_type_object->rewrite['slug'] );

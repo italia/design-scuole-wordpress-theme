@@ -24,4 +24,4 @@
 *.sublime-workspace
 nbproject
 Thumbs.db
-.vscode
+# .vscode
