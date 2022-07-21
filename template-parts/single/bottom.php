@@ -5,11 +5,8 @@ global $post, $licenza;
     <p data-element="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
 		$date_publish = new DateTime($post->post_date);
 		echo $date_publish->format('d.m.Y');
-		?> <span>-</span> <strong><?php _e("Revisione", "design_scuole_italia"); ?>:</strong> <?php
-		$date_update = new DateTime($post->post_modified);
-		echo $date_update->format('d.m.Y');
 		?></p>
-    <p><?php
+    <p class="d-none"><?php
         if(trim($licenza)!= "")
             echo $licenza;
         else
