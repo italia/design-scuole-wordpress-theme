@@ -333,8 +333,13 @@ class Breadcrumb_Trail {
 			if ( is_home() ) {
 				$this->add_blog_items();
 			}
-
-			// If viewing a single post.
+            
+            // If viewing a single post.
+            if ( is_singular() &&  get_post_type() == 'circolare') {
+                $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+                $this->items[] =  "<a href='".home_url("circolare")."'>".__("Circolari", "design_scuole_italia")."</a>";
+                $this->items[] = get_the_title();
+            }
 			elseif ( is_singular() ) {
 				$this->add_singular_items();
 			}
