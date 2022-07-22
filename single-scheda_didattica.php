@@ -94,17 +94,22 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <a class="list-item scroll-anchor-offset" href="#art-par-obiettivi" title="Vai al paragrafo <?php _e("Obiettivi", "design_scuole_italia"); ?>"><?php _e("Obiettivi", "design_scuole_italia"); ?></a>
                                         </li>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("Il Contenuto", "design_scuole_italia"); ?>"><?php _e("Il Contenuto", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("Argomento", "design_scuole_italia"); ?>"><?php _e("Argomento", "design_scuole_italia"); ?></a>
                                         </li>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Risorse", "design_scuole_italia"); ?>"><?php _e("Risorse", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Attività", "design_scuole_italia"); ?>"><?php _e("Attività", "design_scuole_italia"); ?></a>
                                         </li>
-                                        <?php if ( count( $posts_array ) )  {   ?>
+                                        <li>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
+                                        </li>
+                                        
+
+                                        <!-- <?php if ( count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
                                                    title="Vai al paragrafo <?php _e("Schede didattiche correlate", "design_scuole_italia"); ?>"><?php _e("Schede didattiche correlate", "design_scuole_italia"); ?></a>
                                             </li>
-                                        <?php } ?>
+                                        <?php } ?> -->
 
                                     </ul>
                                 </div>
@@ -112,14 +117,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div>
                         <div class="main-content col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
-                                <h2 class="h4" id="art-par-obiettivi"><?php _e("Obiettivo", "design_scuole_italia"); ?></h2>
-                                <?php
-                                $obiettivi = dsi_get_meta("obiettivi");
-                                echo wpautop($obiettivi);
 
-
+                                <?php $obiettivi = dsi_get_meta("obiettivi");
                                 $tempo_apprendimento = dsi_get_meta("tempo_apprendimento");
-                                if($tempo_apprendimento != "") {
+                                if (!empty($obiettivi) || !empty($tempo_apprendimento)) {
+                                    ?>
+                                    <h2 class="h4" id="art-par-obiettivi"><?php _e("Obiettivi", "design_scuole_italia"); ?></h2>
+                                <?php }
+                                if (!empty($obiettivi)) {
+                                    echo wpautop($obiettivi);
+                                }
+                                if(!empty($tempo_apprendimento)) {
                                     ?>
                                     <div class="h6"><?php _e( "Tempo di apprendimento", "design_scuole_italia" ); ?></div>
                                     <div class="col-lg-9 px-0">
@@ -133,27 +141,29 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div><!-- /card-simple -->
                                         </div><!-- /card-simple-wrapper -->
                                     </div>
-
-                                    <?php
-                                }
-                                ?>
-                                <h2 class="h4" id="art-par-contenuti"><?php _e("L'argomento", "design_scuole_italia"); ?></h2>
-                                <div class="col-lg-12 px-0 wysiwig-text">
-                                <?php the_content(); ?>
-                                </div>
-
-                                <?php
-                                $descrizione_attivita = dsi_get_meta("descrizione_attivita");
-                                ?>
-                                <h2 class="h4"><?php _e("Attività", "design_scuole_italia"); ?></h2>
-                                <div class="col-lg-12 px-0">
-                                <?php
-                                echo wpautop($descrizione_attivita);
-
-                                $attivita = dsi_get_meta("fasi_attivita");
-                                if(is_array($attivita) && count($attivita) > 0){
+                                <?php }
+                                
+                                $thecontent = get_the_content();
+                                if(!empty($thecontent)) {
                                     ?>
-                                    <?php
+                                    <h2 class="h4" id="art-par-contenuti"><?php _e("Argomento", "design_scuole_italia"); ?></h2>
+                                    <div class="col-lg-12 px-0 wysiwig-text">
+                                    <?php the_content(); ?>
+                                    </div>
+                                <?php }
+
+                                $descrizione_attivita = dsi_get_meta("descrizione_attivita");
+                                $attivita = dsi_get_meta("fasi_attivita");
+                                $verifica = dsi_get_meta("fasi_verifica");
+                                $show_attivita = !empty($descrizione_attivita) || is_array($attivita) && count($attivita) > 0 || !empty($verifica);
+                                if ($show_attivita) { ?>
+                                    <h2 class="h4" id="art-par-info"><?php _e("Attività", "design_scuole_italia"); ?></h2>
+                                    <div class="col-lg-12 px-0">
+                                <?php }
+                                if (!empty($descrizione_attivita)) {
+                                    echo wpautop($descrizione_attivita);
+                                }
+                                if (is_array($attivita) && count($attivita) > 0){
                                     foreach ($attivita as $step) {
                                         ?>
                                         <div class="card-simple-wrapper mb-3">
@@ -163,35 +173,26 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 </div><!-- /card-simple-body -->
                                             </div><!-- /card-simple -->
                                         </div>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                                </div>
-                                <?php
-
-                                $verifica = dsi_get_meta("fasi_verifica");
-                                if(is_array($verifica) && count($verifica) > 0) {
-
+                                    <?php }
+                                } 
+                                if (is_array($verifica) && count($verifica) > 0) {
                                     ?>
                                     <div class="h6"><?php _e( "Verifica apprendimento", "design_scuole_italia" ); ?></div>
-
-                                    <?php
-                                    foreach ($verifica as $step) {
+                                    <?php foreach ($verifica as $step) {
                                         ?>
                                         <div class="card-simple-wrapper mb-3">
                                             <div class="card-simple rounded">
                                                 <div class="card-simple-body">
-                                            <p><?php echo wpautop($step); ?></p>
+                                                    <p><?php echo wpautop($step); ?></p>
                                                 </div><!-- /card-simple-body -->
                                             </div><!-- /card-simple -->
                                         </div>
-                                        <?php
-                                    }
+                                    <?php }
                                 }
-                                ?>
-                                <h2 class="h4" id="art-par-info"><?php _e("Risorse", "design_scuole_italia"); ?></h2>
+                                if ($show_attivita) { ?> </div> <?php } ?>
+
                                 <?php if((is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+                                    <h2 class="h4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
                                     <div class="card-deck card-deck-spaced">
                                         <?php
                                         if(is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) {
@@ -211,17 +212,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         }
                                         ?>
                                     </div><!-- /card-deck card-deck-spaced -->
-                                <?php } ?>
-
-
-
-                                <?php get_template_part("template-parts/single/bottom"); ?>
+                                <?php }
+                                get_template_part("template-parts/single/bottom"); ?>
                             </article>
                         </div><!-- /col-lg-6 -->
                         <div class="col-lg-3 ">
                             <div class="aside-sticky">
-
-
                             </div>
                         </div><!-- /col-lg-3 -->
                     <?php else: ?>
