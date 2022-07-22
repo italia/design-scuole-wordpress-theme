@@ -1,5 +1,5 @@
 <?php
-global $post, $licenza;
+global $post, $licenza, $nascondi_licenza;
 ?>
 <div class="article-footer">
     <p data-element="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
@@ -10,7 +10,9 @@ global $post, $licenza;
 		echo $date_update->format('d.m.Y');
 		?></p>
     <p><?php
-        if(trim($licenza)!= "")
+        if ($nascondi_licenza) {
+
+        } elseif(trim($licenza)!= "")
             echo $licenza;
         else
             _e("Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia.", "design_scuole_italia"); ?></p>
