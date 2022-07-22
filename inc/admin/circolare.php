@@ -295,7 +295,7 @@ function dsi_feedback_circolare( $post_id, $post )
         $users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
     }
 
-    if(count($users)){
+    if(is_array($users) && count($users)){
         foreach ($users as $user){
             dsi_notify_circolare_to_user($user->ID, $post);
         }
@@ -391,7 +391,7 @@ function dsi_circolari_meta_box($post)
         $signed = get_post_meta($post->ID, "_dsi_has_signed", true);
         if(!$signed)
             $signed = array();
-        if(count($signed) == 0){
+        if(is_array($signed) && count($signed) == 0){
             echo "<p>Nessuna firma ancora registrata</p>";
         }else{
             echo "<ul>";

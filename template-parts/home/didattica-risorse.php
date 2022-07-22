@@ -5,7 +5,7 @@ $progetti = get_posts($args);
 $args = array('post_type' => 'scheda_didattica', 'posts_per_page' => 1);
 $scheda_didattica = get_posts($args);
 
-if(count($progetti) || count($scheda_didattica)) {
+if((is_array($progetti) && count($progetti)) || (is_array($scheda_didattica) && count($scheda_didattica))) {
     ?>
 
     <section class="section bg-white py-5">
@@ -39,7 +39,7 @@ if(count($progetti) || count($scheda_didattica)) {
      */
 
 
-                        if (count($progetti)) {
+                        if (is_array($progetti) && count($progetti)) {
                             ?>
                             <div class="col-lg-6">
                                 <div class="card card-bg card-icon-main rounded mb-3">
@@ -60,7 +60,7 @@ if(count($progetti) || count($scheda_didattica)) {
                         }
 
 
-                        if (count($scheda_didattica)) {
+                        if (is_array($scheda_didattica) && count($scheda_didattica)) {
                             ?>
                             <div class="col-lg-6">
                                 <div class="card card-bg card-icon-main rounded mb-3">

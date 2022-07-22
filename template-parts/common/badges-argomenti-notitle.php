@@ -5,7 +5,7 @@ if(!isset($badgeclass))
 	$badgeclass = "badge-outline-purplelight";
 
 $argomenti = dsi_get_argomenti_of_post();
-if(count($argomenti)) {
+if(is_array($argomenti) && count($argomenti)) {
 	?>
 		<div class="badges mb-2">
 			<?php foreach ( $argomenti as $item ) { ?>

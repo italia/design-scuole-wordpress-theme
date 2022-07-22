@@ -124,7 +124,7 @@ function dsi_eventi_filters( $query ) {
 
             $arrdate = explode("-", $_GET["date"]);
 
-            if(count($arrdate) != 3) return;
+            if(is_array($arrdate) && count($arrdate) != 3) return;
 
             $newdate = $arrdate[1]."/".$arrdate[0]."/".$arrdate[2];
 

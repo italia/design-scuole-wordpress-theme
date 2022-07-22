@@ -4,7 +4,7 @@
  */
 global $post;
 $argomenti = dsi_get_argomenti_of_post();
-if(count($argomenti)) {
+if(is_array($argomenti) && count($argomenti)) {
 	// estraggo gli id
 	$arr_ids = array();
 	foreach ( $argomenti as $item ) {
@@ -57,11 +57,11 @@ if(count($argomenti)) {
 	);
 
 
-	if ( count( $servizi_array ) || count( $documenti_array ) || count( $posts_array ) ) {
+	if ((is_array($servizi_array) && count( $servizi_array )) || (is_array($documenti_array) && count( $documenti_array )) || (is_array($posts_array) && count( $posts_array )) ) {
 		$contabox=0;
-		if(count( $servizi_array )) $contabox++;
-		if(count( $documenti_array )) $contabox++;
-		if(count( $posts_array )) $contabox++;
+		if(is_array($servizi_array) && count( $servizi_array )) $contabox++;
+		if(is_array($documenti_array) && count( $documenti_array )) $contabox++;
+		if(is_array($posts_array) && count( $posts_array )) $contabox++;
 		$colnum = 12/$contabox;
 		?>
 		<section class="section bg-gray-gradient py-5" id="art-par-correlati">
@@ -88,7 +88,7 @@ if(count($argomenti)) {
 					<div class="accordion-wrapper accordion-cards accordion-responsive">
 						<div class="row variable-gutters">
 
-							<?php if(count($servizi_array)){ ?>
+							<?php if(is_array($servizi_array) && count($servizi_array)){ ?>
 								<div class="col-xl-<?php echo $colnum; ?>">
 									<div class="card card-bg h-100 rounded">
 										<div class="card-body">
@@ -113,7 +113,7 @@ if(count($argomenti)) {
 								</div><!-- /col-xl-<?php echo $colnum; ?> -->
 							<?php } ?>
 
-							<?php if(count($posts_array)){ ?>
+							<?php if(is_array($posts_array) && count($posts_array)){ ?>
 								<div class="col-xl-<?php echo $colnum; ?>">
 									<div class="card card-bg h-100 rounded">
 										<div class="card-body">
@@ -138,7 +138,7 @@ if(count($argomenti)) {
 								</div><!-- /col-xl-<?php echo $colnum; ?> -->
 							<?php } ?>
 
-							<?php if(count($documenti_array)){ ?>
+							<?php if(is_array($documenti_array) && count($documenti_array)){ ?>
 								<div class="col-xl-<?php echo $colnum; ?>">
 
 									<div class="card card-bg h-100 rounded">

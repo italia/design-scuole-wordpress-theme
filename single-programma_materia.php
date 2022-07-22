@@ -92,7 +92,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori Informazioni", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if ( count( $posts_array ) )  {   ?>
+                                    <?php if ( is_array($posts_array) && count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
                                                    title="Vai al paragrafo <?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?>"><?php _e("Gli altri programmi della Classe", "design_scuole_italia"); ?></a>

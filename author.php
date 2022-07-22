@@ -175,22 +175,22 @@ $posts = get_posts($args);
                                             <a class="list-item scroll-anchor-offset" href="#art-par-bio" title="Vai al paragrafo <?php _e("Biografia", "design_scuole_italia"); ?>"><?php _e("Biografia", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if(count($schede_didattiche) > 0)  { ?>
+                                    <?php if(is_array($schede_didattiche) && count($schede_didattiche) > 0)  { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Schede didattiche", "design_scuole_italia"); ?>"><?php _e("Schede didattiche", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if(count($schede_progetto) > 0)  { ?>
+                                    <?php if(is_array($schede_progetto) && count($schede_progetto) > 0)  { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-progetti" title="Vai al paragrafo <?php _e("Progetti", "design_scuole_italia"); ?>"><?php _e("Progetti", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if(count($documenti) > 0)  { ?>
+                                    <?php if(is_array($documenti) && count($documenti) > 0)  { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if(count($posts) > 0)  { ?>
+                                    <?php if(is_array($posts) && count($posts) > 0)  { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-articoli" title="Vai al paragrafo <?php _e("Articoli", "design_scuole_italia"); ?>"><?php _e("Articoli", "design_scuole_italia"); ?></a>
                                         </li>
@@ -225,7 +225,7 @@ $posts = get_posts($args);
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                             <?php }
-                            if (count($schede_didattiche) > 0) {
+                            if (is_array($schede_didattiche) && count($schede_didattiche) > 0) {
                                 ?>
                                 <h4 id="art-par-didattica"
                                     class="mb-4"><?php _e("Schede didattiche", "design_scuole_italia"); ?></h4>
@@ -253,7 +253,7 @@ $posts = get_posts($args);
                                 </div><!-- /row -->
                             <?php } ?>
                             <?php
-                            if (count($schede_progetto) > 0) {
+                            if (is_array($schede_progetto) && count($schede_progetto) > 0) {
                                 ?>
                                 <h4 id="art-par-progetti"  class="mb-4"><?php _e("Progetti", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters mb-4">
@@ -280,7 +280,7 @@ $posts = get_posts($args);
                                 </div><!-- /row -->
                             <?php }
 
-                            if (count($documenti) > 0) {
+                            if (is_array($documenti) && count($documenti) > 0) {
                                 ?>
                                 <h4 id="art-par-documenti"  class="mb-4"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters mb-4">
@@ -342,7 +342,7 @@ $posts = get_posts($args);
         </section>
         <?php
         // controllo se esistono post e eventi pubblicati dall'autore
-        if(count($posts)) {
+        if(is_array($posts) && count($posts)) {
             ?>
             <section class="section bg-gray-gradient py-5">
                 <div class="container pt-3">
@@ -363,7 +363,7 @@ $posts = get_posts($args);
                                                         <div class="badges mb-2">
                                                             <?php
                                                             $argomenti = dsi_get_argomenti_of_post($post);
-                                                            if(count($argomenti)) {
+                                                            if(is_array($argomenti) && count($argomenti)) {
                                                                 foreach ( $argomenti as $argomento ) { ?>
                                                                     <a href="<?php echo get_term_link($argomento); ?>"  class="badge badge-sm badge-pill badge-outline-greendark" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $argomento->name; ?>"><?php echo $argomento->name; ?></a><?php
                                                                 }

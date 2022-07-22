@@ -75,7 +75,7 @@ function dsi_circolari_dashboard_widget() {
         echo "</ul>";
 
 
-        if(count($lista_circolari) != count($real_circolari)){
+        if(is_array($lista_circolari) && count($lista_circolari) != count($real_circolari)){
             update_user_meta($userID, "_dsi_circolari", $real_circolari, $lista_circolari);
         }
     }else{
@@ -117,7 +117,7 @@ function dsi_circolari_signed_dashboard_widget() {
         echo "</ul>";
 
         // aggiorno l'array circolari se è differente da pregresso
-        if(count($lista_circolari) != count($real_circolari)){
+        if(is_array($lista_circolari) && count($lista_circolari) != count($real_circolari)){
             update_user_meta($userID, "_dsi_circolari_signed", $real_circolari, $lista_circolari);
         }
     }else{

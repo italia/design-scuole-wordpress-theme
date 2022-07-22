@@ -4,7 +4,7 @@
  */
 global $post, $args, $posts_array;
 $argomenti = dsi_get_argomenti_of_post();
-if(count($argomenti)) {
+if(is_array($argomenti) && count($argomenti)) {
 	// estraggo gli id
 	$arr_ids = array();
 	foreach ( $argomenti as $item ) {

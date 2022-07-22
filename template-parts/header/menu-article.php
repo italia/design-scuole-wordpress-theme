@@ -23,7 +23,7 @@ global $item;
 			<div class="article-content">
 				<?php
 				$argomenti = dsi_get_argomenti_of_post($item);
-				if(count($argomenti)) {
+				if(is_array($argomenti) && count($argomenti)) {
 					$c=0;
 					?>
 					<div class="details"> in

@@ -30,7 +30,7 @@ if(!$excerpt)
         <div class="card-article-content">
             <h2 class="h3"><?php the_title(); ?></h2>
             <p><?php echo $excerpt; ?></p>
-            <?php /* if(count($argomenti)) { ?>
+            <?php /* if(is_array($argomenti) && count($argomenti)) { ?>
                     <div class="badges">
                         <?php foreach ( $argomenti as $item ) { ?>
                             <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"

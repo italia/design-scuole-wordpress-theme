@@ -233,7 +233,7 @@ class Table extends AbstractFrameReflower
 
                 // This works because $used_width includes the min-width of each
                 // unassigned column
-                if (count($auto) > 0) {
+                if (is_array($auto) && count($auto) > 0) {
                     $increment = ($width - $used_width) / count($auto);
 
                     foreach ($auto as $i) {
