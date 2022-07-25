@@ -220,6 +220,7 @@ function dsi_scripts() {
 	wp_enqueue_style( 'dsi-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css');
 	wp_enqueue_style( 'dsi-boostrap-italia', get_stylesheet_directory_uri() . '/assets/css/bootstrap-italia.css');
 	wp_enqueue_style( 'dsi-scuole', get_stylesheet_directory_uri() . '/assets/css/scuole.css');
+	wp_enqueue_style( 'dsi-martino', get_stylesheet_directory_uri() . '/assets/css/martino.css');
 	wp_enqueue_style( 'dsi-carousel-style', get_stylesheet_directory_uri() . '/assets/css/carousel-style-double.css');
 	wp_enqueue_style( 'dsi-splide-min', get_stylesheet_directory_uri() . '/assets/css/splide.min.css');
 
@@ -317,7 +318,7 @@ function modify_admin_logo()
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/custom-logo.png);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/logo-custom.png);
             height: 84px;
             width: 84px;
             background-size: 84px 84px;

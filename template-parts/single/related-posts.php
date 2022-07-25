@@ -13,7 +13,7 @@ if(count($argomenti)) {
 	// recupero articoli, eventi e circolari collegati agli argomenti del post
     $posts_array = get_posts(
         array(
-            'posts_per_page' => 6,
+            'posts_per_page' => 2,
             'post_type'      => $args,
             'post__not_in'   => array( $post->ID ),
             'tax_query'      => array(

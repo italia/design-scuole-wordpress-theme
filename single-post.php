@@ -19,21 +19,25 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
     <main id="main-container" class="main-container greendark">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php while ( have_posts() ) :  the_post();
-        set_views($post->ID);
-
-
-                get_template_part("template-parts/single/header-post");
-            ?>
-
             <section class="section bg-white py-5">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-9">
+                            <?php while ( have_posts() ) :  the_post();
+                            set_views($post->ID);
+                            get_template_part("template-parts/single/header-post");
+                            ?>
+                        </div>
+                        <div class="col-3">
+                            <?php get_template_part("template-parts/single/more-posts"); ?>
+                        </div>
+                    </div>
                     <div class="row variable-gutters">
                         <?php if($user_can_view_post): ?>
-                        <div class="main-content col-lg-9 col-md-8 order-lg-1">
+                        <div class="main-content col-lg-9 col-md-8">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
-                                    <div class="col-lg-8 wysiwig-text">
+                                    <div class="col-lg-11 wysiwig-text">
                                         <?php
                                         the_content();
                                         ?>
@@ -92,18 +96,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                     </div>
                                 </div>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <?php get_template_part( "template-parts/single/bottom" ); ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
                             </article>
+
                         </div><!-- /col-lg-8 -->
-                        <div class="col-lg-3 col-md-4 order-lg-0">
-                            <?php get_template_part("template-parts/single/actions"); ?>
-                            <?php
-                            $badgeclass = "badge-outline-greendark";
-                            get_template_part("template-parts/common/badges-argomenti"); ?>
+
+                        <div class="col-lg-3 col-md-4 d-none">
                             <?php
                             if(is_array($persone) && count($persone)>0){
                                 ?>
@@ -134,9 +131,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-
-
-            <?php get_template_part("template-parts/single/more-posts"); ?>
 
         <?php  	endwhile; // End of the loop. ?>
     </main><!-- #main -->
