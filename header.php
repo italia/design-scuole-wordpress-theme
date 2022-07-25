@@ -48,7 +48,7 @@ if(is_search() || is_archive())
     <?php get_template_part("template-parts/common/skiplink"); ?>
     <header id="main-header" class="bg-white">
         <?php get_template_part("template-parts/header/slimheader"); ?>
-        <div class="container header-top">
+        <div  id="bg-red" class="container header-top">
             <div class="row variable-gutters">
                 <div class="col-8 d-flex align-items-center">
                     <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-xl-none" type="button" aria-label="menu di navigazione">
