@@ -1,0 +1,22 @@
+#hero {
+  height: 300px;
+  width: 100%;
+  background-image: url(https://source.unsplash.com/random);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+
+#content {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+#content h1 {
+  color: white;
+  margin: auto;
+  text-align: center;
+}
