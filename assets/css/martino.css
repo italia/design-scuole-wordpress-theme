@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 #bg-red {
   background-color: red;
+=======
+* {
+  background-color: rgb(255, 0, 0) !important;
+>>>>>>> 8645e7e9473849bf5b946168cbf76f374feb6a4b
 }
