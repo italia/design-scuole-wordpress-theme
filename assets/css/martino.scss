@@ -1,7 +1,12 @@
 // Martino Martini Styles
 
-// * {
-//     color: pink;
-// }
 
-@import "martino-scss/color";
+//variable
+@import "martino-scss/variable/color";
+
+//page
+@import "martino-scss/page/articolo";
+
+
+//block
+

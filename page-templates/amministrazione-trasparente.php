@@ -17,7 +17,7 @@ get_header();
         while ( have_posts() ) :
             the_post();
             ?>
-            <section class="section bg-white pb-4">
+            <section  id="bg-red" class="section bg-white pb-4">
                 <div class="container">
                     <div class="row variable-gutters">
                         <div class="col-md-12 article-title-author-container pt-0">
