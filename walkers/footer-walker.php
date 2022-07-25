@@ -26,9 +26,9 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 			: 'data-element="accessibility-link"';
 		}
 		if ($item->url) {
-			$output .= '<a class="text-underline-hover" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" '.$custom_data.'>';
+			$output .= '<a class="text-underline-hover" href="' . $item->url . '" '.$custom_data.'>';
 		} else {
-			$output .= '<a class="text-underline-hover" href="#" aria-label="Vai alla pagina ' . $item->title . '" '.$custom_data.'>';
+			$output .= '<a class="text-underline-hover" href="#" '.$custom_data.'>';
 		}
  
 		$output .= $item->title;
