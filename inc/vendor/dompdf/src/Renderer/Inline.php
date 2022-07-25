@@ -150,7 +150,7 @@ class Inline extends AbstractRenderer
 
         // Add the border widths
         $w += (float)$widths[1] + (float)$widths[3];
-        $h += (float)$widths[0] + (float)$widths[2];
+        $h = (float)$h + (float)$widths[0] + (float)$widths[2];
 
         // make sure the border and background start inside the left margin
         $left_margin = (float)$style->length_in_pt($style->margin_left);
