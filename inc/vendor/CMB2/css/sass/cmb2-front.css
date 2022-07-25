@@ -381,7 +381,8 @@ span.cmb2-metabox-description {
   background: #eee;
   border: 5px solid #ffffff;
   outline: 1px solid #e9e9e9;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
   background-image: linear-gradient(45deg, #d0d0d0 25%, transparent 25%, transparent 75%, #d0d0d0 75%, #d0d0d0), linear-gradient(45deg, #d0d0d0 25%, transparent 25%, transparent 75%, #d0d0d0 75%, #d0d0d0);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
@@ -698,6 +699,7 @@ span.cmb2-metabox-description {
   background-color: #fff;
   border: 1px solid #dfdfdf;
   border-top: none;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.075);
   min-width: 17em;
   width: auto;
@@ -802,7 +804,8 @@ span.cmb2-metabox-description {
   width: 33%;
   background: transparent;
   border-color: transparent;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   color: #fff;
 }
 .cmb2-element.ui-datepicker select.ui-datepicker-month option,
@@ -832,6 +835,7 @@ span.cmb2-metabox-description {
   border: 1px solid #f4f4f4;
 }
 .cmb2-element.ui-datepicker td.ui-datepicker-week-end.ui-datepicker-today, .cmb2-element .ui-datepicker td.ui-datepicker-week-end.ui-datepicker-today {
+  -webkit-box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .cmb2-element.ui-datepicker td.ui-datepicker-today, .cmb2-element .ui-datepicker td.ui-datepicker-today {
@@ -1122,4 +1126,4 @@ span.cmb2-metabox-description {
 
 .cmb2-char-max-msg {
   display: none;
-}/*# sourceMappingURL=cmb2-front.css.map */
+}
