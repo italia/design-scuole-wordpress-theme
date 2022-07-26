@@ -3,7 +3,7 @@ global $badgeclass, $materia;
 if(!isset($badgeclass))
 	$badgeclass = "badge-outline-purplelight";
 $argomenti = dsi_get_materie_of_post();
-if(count($argomenti)) {
+if(is_array($argomenti) && count($argomenti)) {
 	?>
 	<aside class="badges-wrapper badges-main">
 	<h4><?php _e("Materia", "design_scuole_italia"); ?></h4>

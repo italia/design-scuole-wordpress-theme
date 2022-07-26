@@ -123,7 +123,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             </li>
                                         <?php } ?>
 
-                                        <?php if ( count( $posts_array ) )  {   ?>
+                                        <?php if (is_array($posts_array) && count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
                                                    title="Vai al paragrafo <?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?>"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></a>

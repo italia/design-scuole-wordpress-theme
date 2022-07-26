@@ -41,7 +41,7 @@ global $documento;
                                     ?>
                                     <div class="title-section mb-5">
                                         <h2 class="h4">
-                                            <?php if (count($documenti) > 1) echo dsi_pluralize_string($tipologia_documento->name); else echo $tipologia_documento->name; ?>
+                                            <?php if (is_array($documenti) && count($documenti) > 1) echo dsi_pluralize_string($tipologia_documento->name); else echo $tipologia_documento->name; ?>
                                         </h2>
                                     </div><!-- /title-section -->
                                     <div class="row variable-gutters">

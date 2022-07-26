@@ -4,7 +4,7 @@ $args = array('post_type' => 'scheda_didattica',
 );
 $posts = get_posts($args);
 
-if(count($posts)) {
+if(is_array($posts) && count($posts)) {
 
     ?>
     <section class="section bg-bluelectricdark py-5">

@@ -5,12 +5,12 @@ $args = array('post_type' => 'scheda_progetto',
     'posts_per_page' => 3
 );
 $posts = get_posts($args);
-if(count($posts)) {
+if(is_array($posts) && count($posts)) {
     ?>
     <section class="section bg-white">
     <section class="section bg-linear-vertical-blue-light">
         <div class="container py-5">
-            <div class="row variable-gutters">
+            <div class="row variable-gutters">
                 <div class="col">
                     <div class="section-title text-center mb-4">
                         <h2><?php _e("I Progetti", "design_scuole_italia"); ?></h2>

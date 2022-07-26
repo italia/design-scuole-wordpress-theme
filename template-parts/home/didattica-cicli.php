@@ -17,7 +17,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                         <div class="title-small">
                             <div class="h5"><?php
                                 // se sono più strutture è un istituto, altrimenti una scuola
-                                if(count($scuole_didattica) == 1)
+                                if(is_array($scuole_didattica) && count($scuole_didattica) == 1)
                                     _e("La scuola", "design_scuole_italia");
                                 else
                                     _e("L'Istituto", "design_scuole_italia"); ?></div>

@@ -959,7 +959,7 @@ class Parsedown
 
         $headerCells = explode('|', $header);
 
-        if (count($headerCells) !== count($alignments))
+        if (is_array($headerCells) && is_array($alignments) && count($headerCells) !== count($alignments))
         {
             return;
         }

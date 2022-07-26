@@ -33,7 +33,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                                 if (is_array($luoghi) && count($luoghi) > 0) {
                                     ?>
                                     <h2 class="h3">
-                                    <?php if (count($luoghi) > 1) {
+                                    <?php if (is_array($luoghi) && count($luoghi) > 1) {
                                         echo dsi_pluralize_string($tipologia_luogo->name);
                                     } else {
                                         echo $tipologia_luogo->name;
@@ -138,7 +138,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                                         <div class="row variable-gutters mt-4">
                                             <div class="col-lg-10 offset-lg-1 mb-4">
                                                 <h4 class="text-left mb-3">
-                                                    <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php if (count($luoghi) > 1) echo dsi_pluralize_string($tipologia_luogo->name); else echo $tipologia_luogo->name; ?></a>
+                                                    <a href="<?php echo get_term_link($tipologia_luogo); ?>"><?php if (is_array($luoghi) && count($luoghi) > 1) echo dsi_pluralize_string($tipologia_luogo->name); else echo $tipologia_luogo->name; ?></a>
                                                 </h4>
                                             </div><!-- /col-lg-10 -->
 

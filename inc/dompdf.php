@@ -12,7 +12,7 @@ use Dompdf\Options;
 add_action("template_redirect", "dsi_pdf_generator");
 
 function dsi_pdf_generator(){
-    global $post;
+    global $post, $type;
     if(is_singular("circolare") && isset($_GET) && ($_GET["pdf"] == "true")){
 
         $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
@@ -95,6 +95,9 @@ function dsi_pdf_generator(){
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4');
+        
+        // clean buffer
+        ob_end_clean();
 
         // Render the HTML as PDF
         $dompdf->render();
