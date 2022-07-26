@@ -165,7 +165,7 @@ $posts = get_posts($args);
                             <div class="aside-title" id="people-detail" >
                                 <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="apri / chiudi dettagli della persona">
                                     <span><?php _e("Dettagli della persona", "design_scuole_italia"); ?></span>
-                                    <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small" aria-label="apri/chiudi indice della pagina"></use></svg>
+                                    <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                 </a>
                             </div>
                             <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="people-detail">
@@ -241,7 +241,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($scheda); ?>" aria-label="Vai alla scheda <?php echo $scheda->post_title; ?>"> <?php echo $scheda->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"> <?php echo $scheda->post_title; ?></a></strong>
                                                             </p>
                                                             <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_didattica_", $scheda->ID); ?></small>
                                                         </div><!-- /card-icon-content -->
@@ -268,7 +268,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($scheda); ?>" aria-label="Vai alla scheda <?php echo $scheda->post_title; ?>"><?php echo $scheda->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($scheda); ?>"><?php echo $scheda->post_title; ?></a></strong>
                                                             </p>
                                                             <small><?php echo dsi_get_meta("descrizione", "_dsi_scheda_progetto_", $scheda->ID); ?></small>
                                                         </div><!-- /card-icon-content -->
@@ -295,7 +295,7 @@ $posts = get_posts($args);
                                                         </svg>
                                                         <div class="card-icon-content">
                                                             <p>
-                                                                <strong><a href="<?php echo get_permalink($doc); ?>" aria-label="Vai alla scheda <?php echo $doc->post_title; ?>"><?php echo $doc->post_title; ?></a></strong>
+                                                                <strong><a href="<?php echo get_permalink($doc); ?>" ><?php echo $doc->post_title; ?></a></strong>
                                                             </p>
                                                         </div><!-- /card-icon-content -->
                                                     </div><!-- /card-body -->

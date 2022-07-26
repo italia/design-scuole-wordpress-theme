@@ -16,7 +16,7 @@ if(count($progetti) || count($scheda_didattica)) {
                     <h2 class="text-large mb-4 pr-4"><?php _e("Esplora le risorse didattiche dell'Istituto", "design_scuole_italia"); ?></h2>
                     <?php if (is_home()) { ?>
                         <a class="btn btn-sm btn-outline-bluelectric"
-                           href="<?php echo dsi_get_template_page_url("page-templates/didattica.php"); ?>" aria-label="Vai alla sezione Didattica"><?php _e("Vai alla didattica", "design_scuole_italia"); ?></a>
+                           href="<?php echo dsi_get_template_page_url("page-templates/didattica.php"); ?>"><?php _e("Vai alla didattica", "design_scuole_italia"); ?></a>
                     <?php } ?>
                 </div><!-- /col-lg-4 -->
                 <div class="col-lg-8">
@@ -43,7 +43,7 @@ if(count($progetti) || count($scheda_didattica)) {
                             ?>
                             <div class="col-lg-6">
                                 <div class="card card-bg card-icon-main rounded mb-3">
-                                    <a href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>" aria-label="Vai alla sezione Progetti">
+                                    <a href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>">
                                         <div class="card-body">
                                             <svg class="icon icon-bluelectric svg-books">
                                                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -64,7 +64,7 @@ if(count($progetti) || count($scheda_didattica)) {
                             ?>
                             <div class="col-lg-6">
                                 <div class="card card-bg card-icon-main rounded mb-3">
-                                    <a href="<?php echo get_post_type_archive_link("scheda_didattica"); ?>" aria-label="Vai alla sezione Schede didattiche">
+                                    <a href="<?php echo get_post_type_archive_link("scheda_didattica"); ?>">
                                         <div class="card-body">
                                             <svg class="icon icon-bluelectric svg-timetable">
                                                 <use xmlns:xlink="http://www.w3.org/1999/xlink"

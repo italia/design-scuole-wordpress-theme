@@ -207,7 +207,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                     $descrizione_breve_child = dsi_get_meta("descrizione_breve", "", $child->ID);
                                                     ?>
                                                     <div class="card card-bg card-icon rounded">
-                                                        <a href="<?php echo get_permalink($child); ?>" aria-label="Vai alla scheda <?php echo $child->post_title; ?>">
+                                                        <a href="<?php echo get_permalink($child); ?>">
                                                             <div class="card-body">
                                                                 <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
                                                                 <div class="card-icon-content">
@@ -383,7 +383,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 $autore = get_user_by("ID", $idutente);
                                                 ?>
                                                 <div class="card card-bg card-avatar rounded">
-                                                    <a href="<?php echo get_author_posts_url( $autore->ID);  ?>" aria-label="Vai alla sezione di <?php echo esc_attr(dsi_get_display_name( $autore->ID )); ?>">
+                                                    <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
                                                         <div class="card-body">
                                                             <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div>

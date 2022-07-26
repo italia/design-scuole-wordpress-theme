@@ -15,7 +15,7 @@ $numerazione_circolare =  dsi_get_meta("numerazione_circolare", "", $post->ID);
 
 
 ?>
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
+<a class="presentation-card-link" href="<?php the_permalink(); ?>">
     <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
         <div class="card-body">
                 <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>

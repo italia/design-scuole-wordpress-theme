@@ -97,7 +97,7 @@
                                         $group = dsi_get_post_types_group($post->post_type);
                                     ?>
                                         <li>
-                                            <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             <!-- <span><?php #echo dsi_get_italian_name_group($group) ?></span> -->
                                         </li>
                                     <?php

@@ -22,7 +22,7 @@ if(!$excerpt)
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h2 class="h3"><a href="<?php echo get_permalink(); ?>" data-element="service-link" aria-label="Vai alla scheda <?php the_title(); ?>"><?php the_title(); ?></a>
+            <h2 class="h3"><a href="<?php echo get_permalink(); ?>" data-element="service-link"><?php the_title(); ?></a>
             </h2>
             <p><?php echo $excerpt; ?></p>
         </div><!-- /card-avatar-content -->
