@@ -79,7 +79,6 @@ if(is_array($argomenti) && count($argomenti)) {
 							<?php
 							foreach ( $argomenti as $item ) { ?>
 								<a href="<?php echo get_term_link( $item ); ?>"
-								   title="<?php _e( "Vai all'argomento", "design_scuole_italia" ); ?>: <?php echo $item->name; ?>"
 								   class="badge badge-sm badge-pill badge-outline-gray-primary" ><?php echo $item->name; ?></a>
 							<?php } ?>
 						</div><!-- /badges -->

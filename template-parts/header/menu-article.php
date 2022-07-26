@@ -31,7 +31,7 @@ global $item;
 						foreach ( $argomenti as $argomento ) {
 							if($c) echo ", "; $c++;
 							?>
-							<a href="<?php echo get_term_link($argomento); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $argomento->name; ?>"><?php echo $argomento->name; ?></a><?php
+							<a href="<?php echo get_term_link($argomento); ?>"><?php echo $argomento->name; ?></a><?php
 						} ?>
 					</div>
 					<?php

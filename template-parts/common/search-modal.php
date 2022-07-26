@@ -127,7 +127,7 @@
                                             <?php
                                             foreach ($argomenti as $argomento){
                                                 $taglink = get_tag_link($argomento);  ?>
-                                                <a href="<?php echo $taglink; ?>" title="<?php _e("Visualizza gli argomenti per","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
+                                                <a href="<?php echo $taglink; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
                                             <?php } ?>
                                         </div><!-- /badges -->
                                     </div><!-- /badges-wrapper -->
