@@ -24,7 +24,7 @@
                                         foreach ($link_esterni as $item) {
                                             ?>
                                             <a class="btn btn-petrol btn-block btn-lg rounded mb-3"
-                                               href="<?php echo $item["url_link"]; ?>" aria-label="<?php echo $item["nome_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
+                                               href="<?php echo $item["url_link"]; ?>"><?php echo $item["nome_link"]; ?></a>
                                             <?php
                                         }
                                     }
