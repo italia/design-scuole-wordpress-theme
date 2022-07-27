@@ -15,7 +15,7 @@ $numerazione_albo =  dsi_get_meta("numerazione_albo", "", $post->ID);
 
 
 ?>
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
+<a class="presentation-card-link" href="<?php the_permalink(); ?>">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
     <div class="card-body">
 

@@ -34,8 +34,7 @@ if(is_array($posts) && count($posts)) {
 
         </div><!-- /container -->
         <div class="pb-5 text-center mt-4">
-            <a class="text-underline" aria-label="Vedi tutte le schede didattiche"
-               href="<?php echo get_post_type_archive_link("scheda_didattica") ?>"><strong><?php _e("Vedi tutte le schede didattiche", "design_scuole_italia"); ?></strong></a>
+            <a class="text-underline" href="<?php echo get_post_type_archive_link("scheda_didattica") ?>"><strong><?php _e("Vedi tutte le schede didattiche", "design_scuole_italia"); ?></strong></a>
         </div>
     </section><!-- /section --><?php
 }

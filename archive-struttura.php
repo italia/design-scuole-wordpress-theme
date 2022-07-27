@@ -43,8 +43,8 @@ get_header();
                             ?>
                             <?php if($haschild){ // adotto la struttura a 2 colonne ?>
                                 <div class="title-section mb-5">
-                                    <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>" aria-label="Vai alla sezione <?php if (is_array($strutture) && count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?>">
-                                        <?php if (is_array($strutture) && count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?>
+                                    <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>">
+                                        <?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?>
                                     </a>
                                     </h3>
                                 </div><!-- /title-large -->
@@ -86,7 +86,7 @@ get_header();
                                     ?>
 
                                     <div class="title-section mb-5">
-                                        <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>" aria-label="Vai alla sezione <?php if (is_array($strutture) && count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?>"><?php if (is_array($strutture) && count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
+                                        <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
                                         </h3>
                                     </div><!-- /title-large -->
 

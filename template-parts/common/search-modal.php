@@ -7,15 +7,15 @@
 					<div class="container">
 						<div class="row variable-gutters">
 							<div class="col">
-								<div class="h2" id="searchModal" >
+								<h2 class="h2" id="searchModal" >
 									<?php _e("Cerca","design_scuole_italia"); ?>
 									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
 										<svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
 									</button>
-								</div>
+								</h2>
 								<div class="form-group search-form">
 									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?></label>
-									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
                                     <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">
                                         <svg class="svg-cancel-large" role="presentation">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
@@ -80,7 +80,7 @@
                         <div class="row variable-gutters">
                             <div class="col-lg-5">
                                 <div class="searches-list-wrapper">
-                                <div class="h4">Ricerche frequenti</div>
+                                <h3 class="h4">Ricerche frequenti</h3>
                                 <ul class="searches-list">
                                     <?php
                                     $popular_posts = new WP_Query( array(
@@ -96,7 +96,10 @@
                                          foreach ($popular_posts->posts as $post) {
                                         $group = dsi_get_post_types_group($post->post_type);
                                     ?>
-                                        <li><a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a><span><?php echo dsi_get_italian_name_group($group) ?></span></li>
+                                        <li>
+                                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                            <!-- <span><?php #echo dsi_get_italian_name_group($group) ?></span> -->
+                                        </li>
                                     <?php
                                     }} else { ?>
                                         <li>Nessun risultato</li>
@@ -119,12 +122,12 @@
                             <div class="row variable-gutters">
                                 <div class="col-lg-12">
                                     <div class="badges-wrapper">
-                                        <p class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></p>
+                                        <h3 class="h4"><?php _e("Potrebbero interessarti","design_scuole_italia"); ?></h3>
                                         <div class="badges">
                                             <?php
                                             foreach ($argomenti as $argomento){
                                                 $taglink = get_tag_link($argomento);  ?>
-                                                <a href="<?php echo $taglink; ?>" title="<?php _e("Visualizza gli argomenti per","design_scuole_italia"); ?>: <?php echo $argomento->name; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
+                                                <a href="<?php echo $taglink; ?>" class="badge badge-sm badge-pill badge-outline-primary"><?php echo $argomento->name; ?></a>
                                             <?php } ?>
                                         </div><!-- /badges -->
                                     </div><!-- /badges-wrapper -->

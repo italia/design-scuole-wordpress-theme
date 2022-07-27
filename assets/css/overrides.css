@@ -1,0 +1,15 @@
+.footer-link a {
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}
+
+#footer-wrapper .footer-link a {
+  text-decoration: underline;
+}
+
+#footer-wrapper .footer-link a:hover {
+  text-decoration: none;
+}

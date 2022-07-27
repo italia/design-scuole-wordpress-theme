@@ -220,6 +220,7 @@ function dsi_scripts() {
 	wp_enqueue_style( 'dsi-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css');
 	wp_enqueue_style( 'dsi-boostrap-italia', get_stylesheet_directory_uri() . '/assets/css/bootstrap-italia.css');
 	wp_enqueue_style( 'dsi-scuole', get_stylesheet_directory_uri() . '/assets/css/scuole.css');
+	wp_enqueue_style( 'dsi-overrides', get_stylesheet_directory_uri() . '/assets/css/overrides.css');
 	wp_enqueue_style( 'dsi-carousel-style', get_stylesheet_directory_uri() . '/assets/css/carousel-style-double.css');
 	wp_enqueue_style( 'dsi-splide-min', get_stylesheet_directory_uri() . '/assets/css/splide.min.css');
 

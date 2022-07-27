@@ -3,7 +3,7 @@ global $servizio;
 if($servizio->post_status == "publish") {
     ?>
     <div class="card card-bg card-noicon rounded">
-        <a href="<?php echo get_permalink($servizio); ?>" aria-label="Val al servizio <?php echo $servizio->post_title; ?>">
+        <a href="<?php echo get_permalink($servizio); ?>">
             <div class="card-body">
                 <div class="card-icon-content" id="card-desc-<?php echo $servizio->ID; ?>">
                     <p><strong><?php echo $servizio->post_title; ?></strong></p>

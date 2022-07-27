@@ -4,7 +4,7 @@ global $progetto;
 ?>
 
 	<div class="card card-bg card-icon rounded">
-		<a href="<?php echo get_permalink($progetto); ?>"  aria-label="Vai alla scheda <?php echo $progetto->post_title; ?>">
+		<a href="<?php echo get_permalink($progetto); ?>">
 			<div class="card-body">
 				<svg class="icon svg-marker-simple"  aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-project"></use></svg>
 				<div class="card-icon-content" id="card-desc-<?php echo $progetto->ID; ?>">

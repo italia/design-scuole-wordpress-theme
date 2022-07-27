@@ -65,7 +65,7 @@ get_header();
                             <div class="section-thumb mx-3">
                                 <?php
                                 if(has_post_thumbnail($post)){
-                                    echo "<img src='".get_the_post_thumbnail_url($post, "item-thumb")."'  aria-label='logo service' alt='logo-service'>";
+                                    echo "<img src='".get_the_post_thumbnail_url($post, "item-thumb")."'>";
                                 }
                                 ?>
                             </div><!-- /section-thumb -->
@@ -226,7 +226,7 @@ get_header();
                                             <?php echo wpautop($canale_digitale); ?>
                                             <?php if(trim($canale_digitale_link) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
-                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>" aria-label="<?php echo $canale_digitale_label; ?>"><?php echo $canale_digitale_label; ?></a>
+                                                    <a class="btn btn-purplelight" href="<?php echo $canale_digitale_link; ?>"><?php echo $canale_digitale_label; ?></a>
                                                 </div>
                                             <?php } ?>
                                         </div><!-- /col-lg-9 -->
@@ -248,7 +248,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note">
-													<svg class="svg-filters" width="68" height="34" aria-label="spid" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
+													<svg class="svg-filters" width="68" height="34" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
 													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
@@ -257,7 +257,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note cie">
-													<svg class="svg-filters" width="90" height="64" aria-label="cie" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
+													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
 													<p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
