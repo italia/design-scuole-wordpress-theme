@@ -1,0 +1,81 @@
+.carousel {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  -ms-grid-columns: 9% 1fr 1fr;
+      grid-template-columns: 9% 1fr 1fr;
+  -ms-grid-rows: (1fr)[var];
+      grid-template-rows: repeat(var(--grid-rows-num, 4), 1fr);
+  gap: 0% 0px;
+      grid-template-areas: ".      title  text";
+  width: 100%;
+  height: 100%;
+}
+
+.carousel > h2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: title;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.carousel > input[type=radio] {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  margin: auto;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+
+.carousel > input[type=radio]:not(:checked) {
+  background-color: #C4C4C4;
+}
+
+.carousel > input[type=radio]:checked {
+  background-color: #E6285F;
+}
+
+.carousel > label {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  margin: auto 0;
+}
+
+.carousel > article {
+  grid-area: 1 / 3 / last-line / -1;
+}
+
+.carousel > * {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.carousel > input {
+  height: 14px;
+  width: 14px;
+}
+
+.carousel > article {
+  padding: 1rem 2rem;
+}
+
+.carousel > input:checked + label {
+  font-weight: bold;
+}
+
+.carousel > input:checked + label + article {
+  font-weight: bold;
+}
+
+.carousel > input:not(:checked) + label + article {
+  display: none;
+}
+/*# sourceMappingURL=martino-carousel.css.map */
