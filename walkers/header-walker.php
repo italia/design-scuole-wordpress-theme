@@ -17,7 +17,7 @@
 
 class Header_Menu_Walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
-		$output .= "<li role='menuitem'>";
+		$output .= "<li>";
 		$custom_data = '';
 
 		if ($item->post_name == "servizi-per-il-personale-scolastico" || $item->post_name == "servizi-per-famiglie-e-studenti") {
@@ -26,15 +26,15 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 
 		if($custom_data) {
 			if ($item->url) {
-				$output .= '<a class="'. $args->menu_class .' " href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" '.$custom_data.'>';
+				$output .= '<a class="list-item" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '" '.$custom_data.'>';
 			} else {
-				$output .= '<a class="'. $args->menu_class .' " href="#" '.$custom_data.'>';
+				$output .= '<a class="list-item" href="#" '.$custom_data.'>';
 			}
 		} else {
 			if ($item->url) {
-				$output .= '<a class="'. $args->menu_class .' " href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '">';
+				$output .= '<a class="list-item" href="' . $item->url . '" aria-label="Vai alla pagina ' . $item->title . '">';
 			} else {
-				$output .= '<a class="'. $args->menu_class .' " href="#">';
+				$output .= '<a class="list-item" href="#">';
 			}
 		}
  
