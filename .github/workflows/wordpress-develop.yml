@@ -11,7 +11,7 @@ jobs:
         URL: ${{ secrets.DEVURL }}
         COOKIE: ${{ secrets.DEVCOOKIE }}
       run: |
-          curl -sS https://${URL}/wp-admin/admin.php?page=wppusher-themes \
+          curl -sS https://${URL}/?wppusher-hook&token= \
           -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
           -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,it;q=0.6,la;q=0.5' \
           -H 'Cache-Control: no-cache' \
