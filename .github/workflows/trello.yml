@@ -17,6 +17,8 @@ jobs:
         ISSUE_BODY: ${{ github.event.issue.body }}
         ISSUE_URL: ${{ github.event.issue.url }}
       run: |
+        echo "${#ID}:${#API_KEY}:${#API_TOKEN}:${#ISSUE_TITLE}:${#ISSUE_BODY}:${#ISSUE_URL}"
+        
         CARD=$(curl --request POST \
             --url "https://api.trello.com/1/cards" \
             -d "name=${ISSUE_TITLE}" \
