@@ -1,8 +1,0 @@
-{
-    "liveSassCompile.settings.excludeList": [
-        "*"
-    ],
-    "liveSassCompile.settings.includeItems": [
-        "assets/css**"
-    ]
-}
