@@ -1,0 +1,14 @@
+{
+    "name": "martino-martini-wordpress-theme",
+    "version": "1.0.0",
+    "description": "Martino Martini | Mezzolombardo",
+    "scripts": {
+        "watch": "sass --watch 'assets/css/:assets/css/'"
+    },
+    "author": "TAG | Trento",
+    "license": "MIT",
+    "repository": {},
+    "dependencies": {
+      "bootstrap": "^4.6.1"
+    }
+  }
