@@ -71,4 +71,15 @@
       }
     }
   }
+
+  // TODO info-carousel mobile styles
+  // Create accordion-like styles for mobile  
+  @include media-breakpoint-down(sm) {
+    background-color: #E6285F;
+  }
+
+
+  // TODO info-carousel print styles
+  // Create styles for printers
+  // ...
 }
