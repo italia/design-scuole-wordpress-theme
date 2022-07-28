@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "martino.scss",
-        "martino-scss/_color.scss"
-    ],
-    "names": [],
-    "file": "martino.css"
-}
+{"version":3,"sources":["martino-scss/page/_presentazione.scss","martino.css","martino-scss/page/_cic.scss","martino-scss/block/_hero.scss","martino-scss/block/_aside.scss","martino-scss/variable/_color.scss"],"names":[],"mappings":"AAAA;EAEI,gBAAA;ACAJ;ADEI;EACI,eAAA;EACA,0BAAA;ACAR;;ACLI;EACI,cAAA;ADQR;;AERA;EACI,aAAA;EACA,WAAA;EACA,yDAAA;EACA,2BAAA;EACA,4BAAA;EACA,sBAAA;EACA,UAAA;AFWJ;;AEPA;EACI,YAAA;EACA,oCAAA;EACA,YAAA;EACA,WAAA;EACA,SAAA;AFUJ;AERI;EACI,YAAA;EACA,YAAA;EACA,kBAAA;AFUR;;AGjCA;EACI,yBCuBM;AJaV;AGlCI;EACI,cCFE;AJsCV","file":"martino.css"}

@@ -1,3 +1,15 @@
+#image-block {
+  margin-top: 3rem;
+}
+#image-block img {
+  max-width: 100%;
+  padding: 30px 0px 30px 0px;
+}
+
+#text-block h3 {
+  color: #1260A4;
+}
+
 #hero {
   height: 300px;
   width: 100%;
@@ -20,3 +32,10 @@
   margin: auto;
   text-align: center;
 }
+
+#sidebar {
+  background-color: #DFE2EB;
+}
+#sidebar h3 {
+  color: #1260A4;
+}/*# sourceMappingURL=martino.css.map */
