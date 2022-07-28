@@ -1,48 +1,52 @@
-#default-btn-lg{
+#btn-sm-default{
   background: $primary;
   border-radius: 0.25rem;
   color:$on-primary;
   border: 0;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.63rem  1.25rem;
   margin-bottom: 1.5rem;
 }
 
-#default-btn-lg:hover{
+#btn-sm-default:hover{
 background: $primary-hover;
 }
 
-#default-btn-outline-lg{
+#btn-sm-default-outline{
   background: $on-primary;
   border-radius: 0.25rem;
   color:$primary;
   border: 3px $primary solid;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.63rem  1.25rem;
   margin-bottom: 1.5rem;
 }
 
-#default-btn-outline-lg:hover{
+#btn-sm-default-outline:hover{
   color:$primary-hover;
   border: 3px $primary-hover solid;
 }
 
-#default-disabled-btn-lg{
-  background: $primary;
+// BUTTON DISABILITATI
+
+#btn-sm-disabled{
+  background: $surface;
   border-radius: 0.25rem;
-  color:$on-primary;
+  color:$on-surface;
   border: 0;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.63rem  1.25rem;
   margin-bottom: 1.5rem;
+  cursor: default;
 }
 
-#default-disabled-btn-outline-lg{
+#btn-sm-disabled-outline{
   background: $on-primary;
   border-radius: 0.25rem;
-  color:$primary;
-  border: 3px $primary solid;
+  color:$on-surface;
+  border: 3px $on-surface solid;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.63rem  1.25rem;
   margin-bottom: 1.5rem;
+  cursor: default;
 }

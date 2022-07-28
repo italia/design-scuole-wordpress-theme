@@ -37,14 +37,14 @@ get_header();
         <div id="sidebar-presentazione" class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0">
           <h4 class="d-lg-none">Area Docenti</h4>
             <div class="row">
-              <a href="#" target="blank" class="col-12">
-                <button id="default-btn-lg">Registro elettronico</button>
+              <a id="btn-block" href="#" target="blank" class="col-12">
+                <button id="btn-lg-default">Registro elettronico</button>
               </a>
-              <a href="#" target="blank" class="col-12">
-                <button id="default-btn-outline-lg" href="#" target="blank">Orari docenti</button>
+              <a id="btn-block" href="#" target="blank" class="col-12">
+                <button id="btn-lg-default-outline" href="#" target="blank">Orari docenti</button>
               </a>
-              <a href="#" target="blank" class="col-12">
-                <button id="default-btn-outline-lg" href="#" target="blank">GestOre</button>
+              <a id="btn-block" href="#" target="blank" class="col-12">
+                <button id="btn-lg-default-outline" href="#" target="blank">GestOre</button>
               </a>
             </div><!--.row -->
 
@@ -56,10 +56,10 @@ get_header();
         <div id="button-navigazione" class="col-12"> 
         <h4 class="d-lg-none">Scopri di più</h4>
           <div class="row">
-            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button href="#" id="default-btn-outline-md" target="blank">DIDATTICA <h6>Corso ITE serale</h6></button></a></div>
-            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button href="#" id="default-btn-outline-md" target="blank">DIDATTICA <h6>Offerta formativa</h6></button></a></div>
-            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button id="secondary-btn-outline-md" href="#" target="blank">SERVIZI <h6>Open day</h6></button></a></div>
-            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button id="secondary-btn-outline-md" href="#" target="blank">SERVIZI <h6>ASL</h6></button></a></div>
+            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button href="#" id="btn-lg-default-outline" target="blank">DIDATTICA <h6>Corso ITE serale</h6></button></a></div>
+            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button href="#" id="btn-lg-default-outline" target="blank">DIDATTICA <h6>Offerta formativa</h6></button></a></div>
+            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button id="btn-lg-secondary-outline" href="#" target="blank">SERVIZI <h6>Open day</h6></button></a></div>
+            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button id="btn-lg-secondary-outline" href="#" target="blank">SERVIZI <h6>ASL</h6></button></a></div>
           </div>
         </div><!--.row -->
       </div><!--#button-navigazione -->

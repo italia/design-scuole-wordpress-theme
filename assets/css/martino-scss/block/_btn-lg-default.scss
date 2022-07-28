@@ -1,0 +1,57 @@
+#btn-lg-default{
+  background: $primary;
+  border-radius: 0.25rem;
+  color:$on-primary;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#btn-lg-default:hover{
+background: $primary-hover;
+}
+
+#btn-lg-default-outline{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$primary;
+  border: 3px $primary solid;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#btn-lg-default-outline:hover{
+  color:$primary-hover;
+  border: 3px $primary-hover solid;
+}
+
+// BUTTON DISABILITATI
+
+#btn-lg-disabled{
+  background: $surface;
+  border-radius: 0.25rem;
+  color:$on-surface;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+#btn-lg-disabled-outline{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$on-surface;
+  border: 3px $on-surface solid;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+#btn-block:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
