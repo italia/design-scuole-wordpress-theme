@@ -1,3 +1,5 @@
+name: Create Trello card on issue created
+
 on:
   issues:
     types: [opened]
@@ -19,7 +21,7 @@ jobs:
             --url "https://api.trello.com/1/cards" \
             -d "name=${ISSUE_TITLE}" \
             -d "desc=${ISSUE_BODY}" \
-            -d "idList=${ID_TODO}" \
+            -d "idList=${ID}" \
             -d "key=${API_KEY}" \
             -d "token=${API_TOKEN}" \
             --header 'Accept: application/json')
