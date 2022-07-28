@@ -1,3 +1,27 @@
+#presentazione-scuola {
+  margin-top: 6rem;
+}
+
+#button-navigazione a {
+  display: grid;
+}
+
+#button-navigazione {
+  margin: 2rem 0;
+}
+
+#w100 {
+  width: 100%;
+}
+
+.rem5 {
+  margin-bottom: 5rem;
+}
+
+#spazi-storia {
+  margin-bottom: 3rem;
+}
+
 #hero {
   height: 300px;
   width: 100%;
@@ -20,3 +44,85 @@
   margin: auto;
   text-align: center;
 }
+
+#default-btn-lg {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-lg:hover {
+  background: #0073E6;
+}
+
+#default-btn-outline-lg {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 3px #1260A4 solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-outline-lg:hover {
+  color: #0073E6;
+  border: 3px #0073E6 solid;
+}
+
+#default-disabled-btn-lg {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-disabled-btn-outline-lg {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 3px #1260A4 solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-md {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-md:hover {
+  background: #0073E6;
+}
+
+#default-btn-outline-md {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 3px #1260A4 solid;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-outline-md:hover {
+  color: #0073E6;
+  border: 3px #0073E6 solid;
+}
+
+#btn-block a:hover {
+  text-decoration: none !important;
+}/*# sourceMappingURL=martino.css.map */

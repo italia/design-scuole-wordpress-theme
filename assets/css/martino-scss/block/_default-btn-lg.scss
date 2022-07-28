@@ -1,0 +1,48 @@
+#default-btn-lg{
+  background: $primary;
+  border-radius: 0.25rem;
+  color:$on-primary;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-lg:hover{
+background: $primary-hover;
+}
+
+#default-btn-outline-lg{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$primary;
+  border: 3px $primary solid;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-outline-lg:hover{
+  color:$primary-hover;
+  border: 3px $primary-hover solid;
+}
+
+#default-disabled-btn-lg{
+  background: $primary;
+  border-radius: 0.25rem;
+  color:$on-primary;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-disabled-btn-outline-lg{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$primary;
+  border: 3px $primary solid;
+  width: 100%;
+  padding: 0.88rem  1.75rem;
+  margin-bottom: 1.5rem;
+}

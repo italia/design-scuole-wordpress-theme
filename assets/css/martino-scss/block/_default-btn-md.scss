@@ -1,0 +1,32 @@
+#default-btn-md{
+  background: $primary;
+  border-radius: 0.25rem;
+  color:$on-primary;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.50rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-md:hover{
+background: $primary-hover;
+}
+
+#default-btn-outline-md{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$primary;
+  border: 3px $primary solid;
+  width: 100%;
+  padding: 0.75rem 1.50rem;
+  margin-bottom: 1.5rem;
+}
+
+#default-btn-outline-md:hover{
+  color:$primary-hover;
+  border: 3px $primary-hover solid;
+ 
+}
+#btn-block a:hover {
+  text-decoration: none !important;
+}

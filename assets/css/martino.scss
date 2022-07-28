@@ -3,6 +3,8 @@
 
 //variable
 @import "martino-scss/variable/color";
+@import "martino-scss/variable/spacer";
+
 
 //page
 @import "martino-scss/page/articolo";
@@ -10,4 +12,6 @@
 
 //block
 @import "martino-scss/block/hero";
+@import "martino-scss/block/default-btn-lg";
+@import "martino-scss/block/default-btn-md";
 

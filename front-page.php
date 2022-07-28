@@ -34,10 +34,19 @@ get_header();
         </div><!--#container-presentazione -->
     
 
-        <div id="sidebar-presentazione" class="offset-lg-1 col-12 col-lg-3">
-          <a href="#" target="blank"><button >Registro elettronico</button></a>
-          <a href="#" target="blank"><button href="#" target="blank">Orari docenti</button></a>
-          <a href="#" target="blank"><button href="#" target="blank">GestOre</button></a>
+        <div id="sidebar-presentazione" class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0">
+          <h4 class="d-lg-none">Area Docenti</h4>
+            <div class="row">
+              <a href="#" target="blank" class="col-12">
+                <button id="default-btn-lg">Registro elettronico</button>
+              </a>
+              <a href="#" target="blank" class="col-12">
+                <button id="default-btn-outline-lg" href="#" target="blank">Orari docenti</button>
+              </a>
+              <a href="#" target="blank" class="col-12">
+                <button id="default-btn-outline-lg" href="#" target="blank">GestOre</button>
+              </a>
+            </div><!--.row -->
 
           <frame> 
             <!--QUI CI VA IL CALENDARIO  -->
@@ -45,11 +54,12 @@ get_header();
         </div><!--#sidebar-presentazione -->
         
         <div id="button-navigazione" class="col-12"> 
+        <h4 class="d-lg-none">Scopri di più</h4>
           <div class="row">
-            <div class="col-3" id="btn-block"><a href="#" target="blank"><button href="#" target="blank">DIDATTICA <h6>Corso ITE serale</h6></button></a></div>
-            <div class="col-3" id="btn-block"><a href="#" target="blank"><button >DIDATTICA <h6>Offerta formativa</h6></button></a></div>
-            <div class="col-3" id="btn-block"><a href="#" target="blank"><button href="#" target="blank">SERVIZI <h6>Open day</h6></button></a></div>
-            <div class="col-3" id="btn-block"><a href="#" target="blank"><button href="#" target="blank">SERVIZI <h6>ASL</h6></button></a></div>
+            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button href="#" id="default-btn-outline-md" target="blank">DIDATTICA <h6>Corso ITE serale</h6></button></a></div>
+            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button href="#" id="default-btn-outline-md" target="blank">DIDATTICA <h6>Offerta formativa</h6></button></a></div>
+            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button id="secondary-btn-outline-md" href="#" target="blank">SERVIZI <h6>Open day</h6></button></a></div>
+            <div class="col-6 col-md-3" id="btn-block"><a href="#" target="blank"><button id="secondary-btn-outline-md" href="#" target="blank">SERVIZI <h6>ASL</h6></button></a></div>
           </div>
         </div><!--.row -->
       </div><!--#button-navigazione -->
@@ -60,33 +70,24 @@ get_header();
       <div class="row">
         <div id="ultime-news-home" class="col-12 col-lg-8">
           <h4>Ultime news </h4>
-            <div class="row"></div>
-              <?php 
-              while ($loop -> have_posts()) : $loop -> the_post(); ?> 
-              <article> 
-                  <div class="row">
-                    
-                  </div>        
-                  <div class="row">
-
-                  </div>        
-              </article> 
-          <?php endwhile; ?>
-    
-              ?>
-              </div>
+            <div class="row">
+        
+            </div>
         </div>
+
 
         <div id="ultime-news-home" class="col-12 col-lg-3">
           <h4>Alcuni dei nostri progetti </h4>
-          <!-- INSERIRE QUERY LOOP -->
+            <div class="row">
+          
+            </div>
         </div>
       </div><!--.row -->
-    </section><<!--#loop-news-home -->
+    </section><!--#loop-news-home -->
     
     <!--SPAZI E STORIA  -->
     <section id="spazi-storia" class="container"> 
-      <div class="row">
+      <div class="row rem5">
         <div id="gli-spazi-img" class="col-6">
           <img id="w100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#gli-spazi-img -->
