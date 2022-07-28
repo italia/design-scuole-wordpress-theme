@@ -15,8 +15,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part("template-parts/hero/notizie");
-
+			get_template_part("template-parts/hero/hero_page");
 
 			$tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 			$ct=1;

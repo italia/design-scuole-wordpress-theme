@@ -1,8 +1,8 @@
 <?php
 global $post, $licenza;
 ?>
-<div class="article-footer">
-    <p data-element="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
+<div id="article_data" class="article-footer">
+    <p data-element="metadata"><strong><?php _e("", "design_scuole_italia"); ?></strong> <?php
 		$date_publish = new DateTime($post->post_date);
 		echo $date_publish->format('d.m.Y');
 		?></p>

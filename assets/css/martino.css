@@ -1,3 +1,12 @@
+#article_data {
+  border-top: none;
+}
+
+#article_image {
+  position: static;
+  width: 100%;
+}
+
 #hero {
   height: 300px;
   width: 100%;
@@ -19,4 +28,4 @@
   color: white;
   margin: auto;
   text-align: center;
-}
+}/*# sourceMappingURL=martino.css.map */

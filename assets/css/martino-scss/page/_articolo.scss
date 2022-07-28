@@ -1,0 +1,29 @@
+//single-post 
+.container {
+    max-width: 90% !important;
+    padding: 0px;
+}
+
+// post_header 
+#article_data {
+    border-top: none;
+}
+
+#article_image {
+    position: static;
+    width: 100%;
+}
+
+// sidebar_news correlate
+#card_news {
+    img {
+        height: 35%;
+    }
+    .card-vertical-thumb .card-body .card-content {
+        padding: 10px 10px 10px 10px !important;
+    }
+}
+
+#news_correlate {
+    margin-top: 15px;
+}
