@@ -1,0 +1,32 @@
+
+h2 {
+    text-transform: uppercase;
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+h3{
+    font-size: 32px;
+    color: $primary;
+
+    .title-alt {
+        text-transform: uppercase;
+        font-weight: lighter;
+    }
+}
+h4 {
+    font-size: 24px;
+    color: black;
+}
+h5 {
+    font-size: 20px;
+    font-weight: normal;
+    color: black;
+}
+
+h6{
+    font-size: 16px;
+    font-weight: 200;
+}
+
