@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Presentazione
+/* Template Name: Cic
  *
  * didattica template file
  *
