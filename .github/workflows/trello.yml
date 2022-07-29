@@ -29,6 +29,8 @@ jobs:
         CARD_ID=$(echo "${CARD}" | grep -oP '(?<={"id":")[0-9a-zA-Z]+(?=")')
 
         echo "${CARD_ID}"
+        
+        ISSUE_URL=$(echo "${ISSUE_URL}" | sed -e 's/api\.//' -e 's/repos\///')
 
         curl --request POST \
           --url "https://api.trello.com/1/cards/${CARD_ID}/attachments" \
