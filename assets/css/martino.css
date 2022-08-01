@@ -1,3 +1,52 @@
+.single-post .container {
+  max-width: 90%;
+  padding: 0px;
+}
+
+#article_data {
+  border-top: none;
+}
+
+#article_image {
+  position: static;
+  width: 100%;
+}
+
+#header_post {
+  padding: 0rem;
+}
+
+.single-post .article-title-author-container {
+  padding: 0rem;
+}
+
+#badge a {
+  margin-bottom: 1rem;
+}
+
+#card_news .card-content {
+  padding: 10px 10px 10px 10px;
+}
+
+#news_correlate {
+  margin-top: 15px;
+}
+
+#card-documento {
+  display: block;
+}
+
+#filtro_articolo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+}
+
+.page-template-notizie .container {
+  max-width: 90%;
+  padding: 0px;
+}
+
 #main-container #presentazione-scuola {
   margin-top: 6rem;
 }
