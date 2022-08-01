@@ -329,3 +329,17 @@ function modify_admin_logo()
 <?php }
 
 add_action('login_enqueue_scripts', 'modify_admin_logo');
+
+add_action('wp_head', function () {
+    global $post;
+    if ($post) {
+        setup_postdata($post);
+        $content = get_the_content();
+        preg_match('/\[info_carousel.*?\]/', $content, $matches);
+        if ($matches) {
+			echo '<style>';
+			include get_template_directory() . '/assets/css/martino-carousel.css';
+			echo '</style>';
+        }
+    }
+});

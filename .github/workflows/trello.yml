@@ -1,0 +1,40 @@
+name: Create Trello card on issue created
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-card: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      env:
+        ID: ${{ secrets.TRELLO_ID_TODO }}
+        API_KEY: ${{ secrets.TRELLO_KEY }}
+        API_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+        ISSUE_TITLE: ${{ github.event.issue.title }}
+        ISSUE_BODY: ${{ github.event.issue.body }}
+        ISSUE_URL: ${{ github.event.issue.url }}
+      run: |
+        CARD=$(curl --request POST \
+            --url "https://api.trello.com/1/cards" \
+            -d "name=${ISSUE_TITLE}" \
+            -d "desc=${ISSUE_BODY}" \
+            -d "idList=${ID}" \
+            -d "key=${API_KEY}" \
+            -d "token=${API_TOKEN}" \
+            --header 'Accept: application/json')
+
+        CARD_ID=$(echo "${CARD}" | grep -oP '(?<={"id":")[0-9a-zA-Z]+(?=")')
+
+        echo "${CARD_ID}"
+        
+        ISSUE_URL=$(echo "${ISSUE_URL}" | sed -e 's/api\.//' -e 's/repos\///')
+
+        curl --request POST \
+          --url "https://api.trello.com/1/cards/${CARD_ID}/attachments" \
+          -d "url=${ISSUE_URL}" \
+          -d "key=${API_KEY}" \
+          -d "token=${API_TOKEN}" \
+          --header 'Accept: application/json'

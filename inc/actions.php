@@ -701,3 +701,36 @@ add_filter( 'anac_filter_basexmlurl', function( $string ) { // Base URL
 
 }, 10, 3 );
 
+
+function info_carousel( $atts, $content = "" ) {
+    // slice by heading html tag H1
+    $sections = preg_split("/<h1/", $content);
+    $labels = array();
+
+    array_walk($sections, function(&$value, $key) use (&$labels) { 
+        // restore syntax
+        $value = '<h1' . $value; 
+        
+        $value = preg_replace_callback(
+            '/<h1.*\/h1>/',
+            function ($matches) use (&$labels, &$key) {
+                // remove h1 tag and push label to array
+                $labels[$key] = preg_replace( '/<\/?h1.*?>/', '', $matches[0]);
+                return '';
+            },
+            $value
+        );        
+    });
+
+    $attributes = shortcode_atts( array(
+        'title' => false,
+        'limit' => 4,
+        'sections' => $sections,
+        'labels' => $labels,
+    ), $atts );
+
+    ob_start();
+    get_template_part( 'template-parts/single/info-carousel', null, $attributes );
+    return ob_get_clean();
+}
+add_shortcode( 'info_carousel', 'info_carousel' );
