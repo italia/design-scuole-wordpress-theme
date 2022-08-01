@@ -18,10 +18,10 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
 
 
     <section id="text-block" class="section bg-white">
-        <div class="container container-border-top">
+        <div class="container-fluid container-border-top">
             <div class="row variable-gutters">
                 
-                <div class="main-content col-lg-8">
+                <div class="main-content col-lg-8 col-xl-6">
                     <div class="article-wrapper pt-4 px-3">    
                         <H3>Centro di Informazione e Consulenza</H3>
                         <p>Il CIC (Centro di Informazione e Consulenza) è un servizio offerto a studenti, genitori e personale scolastico, curato e gestito dalla dott.ssa Francesca Fontana, psicologa e psicoterapeuta (Iscrizione all’Ordine della Provincia di Trento n. 349).
@@ -32,7 +32,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                     </div>
                 </div><!-- /col-lg-6 -->
 
-                <div id="sidebar" class="col-lg-3 offset-lg-1 aside-border px-3 py-5">
+                <div id="sidebar" class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-5">
                     <aside class="aside-main aside-sticky">
                         <div class="aside-title" id="program-legend">
                             <H3>Prova di un titolo</H3>

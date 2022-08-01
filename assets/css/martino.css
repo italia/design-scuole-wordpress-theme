@@ -7,6 +7,16 @@
   margin-bottom: 30px;
 }
 
+@media (max-width: 767.98px) {
+  #image-block {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  #image-block img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
 #text-block h3 {
   color: #1260A4;
 }
@@ -39,4 +49,10 @@
 }
 #sidebar h3 {
   color: #1260A4;
+}
+
+@media (max-width: 767.98px) {
+  #sidebar {
+    margin: 0;
+  }
 }/*# sourceMappingURL=martino.css.map */
