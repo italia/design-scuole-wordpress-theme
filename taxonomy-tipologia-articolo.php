@@ -32,11 +32,11 @@ if($slug == "articoli")
 		</section>
 		<section class="section bg-gray-light">
 			<div class="container">
-				<div class="row variable-gutters sticky-sidebar-container">
-					<div class="col-lg-3 bg-white bg-white-left">
+				<div class="variable-gutters sticky-sidebar-container">
+					<div class="bg-white bg-white-left">
 						<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 					</div>
-					<div class="col-lg-7 offset-lg-1 pt84">
+					<div class="pt84">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */

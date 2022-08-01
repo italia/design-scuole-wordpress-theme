@@ -117,6 +117,15 @@ function dsi_add_articolo_metaboxes() {
 		),
 	) );
 
+	$cmb_undercontent->add_field( array(
+		'id'         => $prefix . 'gallery',
+		'name'       => __( 'Galleria', 'design_scuole_italia' ),
+		'desc'       => __( 'Galleria di immagini', 'design_scuole_italia' ),
+		'type' => 'file_list',
+		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+		'query_args' => array( 'type' => 'image' ), // Only images attachment
+	) );
+
 
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'file_documenti',
