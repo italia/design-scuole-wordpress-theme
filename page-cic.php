@@ -32,15 +32,32 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                     </div>
                 </div><!-- /col-lg-6 -->
 
-                <div id="sidebar" class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-5">
+                <div id="sidebar" class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-4">
                     <aside class="aside-main aside-sticky">
-                        <div class="aside-title" id="program-legend">
-                            <H3>Prova di un titolo</H3>
+                        <div class="aside-title col-10 col-xl-8" id="program-legend">
+                            <H3>Contatti</H3>
+                            <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
                             <a class="toggle-link-list">
                                 <span>
                                     <!-- <?php _e("Indice del Programma", "design_scuole_italia"); ?> Qui ci deve andare il contenuto ma dobbiamo capire come gestirlo -->
                                 </span>
                             </a>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-4">
+                        <?php 
+ 
+                                    if(trim($procedura_esito) != ""){ 
+                                        ?> 
+                                        <h5 class="h6"><?php _e("email", "design_scuole_italia"); ?></h5> 
+                                        <div class="row variable-gutters"> 
+                                            <div class="col-lg-9"> 
+                                                <?php echo wpautop($procedura_esito); ?> 
+                                            </div><!-- /col-lg-9 --> 
+                                        </div><!-- /row --> 
+                                        <?php 
+                                    } 
+                                    ?>
+
                         </div>
                         <!-- <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region"
                             aria-labelledby="program-legend"> -->
@@ -52,9 +69,6 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                     </aside>
                 </div>
                   
-                <!-- <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
-                    <?php the_content(); ?>
-                </div> -->
                 
             </div><!-- /row -->
         </div><!-- /container -->

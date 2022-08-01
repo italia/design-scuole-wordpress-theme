@@ -21,6 +21,11 @@
   color: #1260A4;
 }
 
+#quotes {
+  font-style: italic;
+  color: #1260A4;
+}
+
 #hero {
   height: 300px;
   width: 100%;
