@@ -20,10 +20,10 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white py-5">
-            <div class="container">
-                <div class="row">
+            <div class="container" id="header_post">
+                <div class="row d-flex">
                 
-                    <div class="col-lg-9 ">
+                    <div class="col-lg-9 order-lg-1">
                         <?php while ( have_posts() ) :  the_post();
                         set_views($post->ID);
                         get_template_part("template-parts/single/header-post");
@@ -32,15 +32,15 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                 
 
                 
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 order-lg-2 order-3">
                         <div class="col-12">
                         <?php get_template_part("template-parts/single/more-posts"); ?>
                         </div><!-- /news correlate -->
 
-                        <div class="col-12">
+                        <div class="col-12 mt-5">
                             <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
                                 <h2 class="mb-4 h4"><?php _e("Allegati", "design_scuole_italia"); ?></h2>
-                                        <div class="card-deck card-deck-spaced">
+                                        <div class="card-deck card-deck-spaced" id="card-documento">
                                             <?php
                                             if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
                                                 global $documento;
@@ -65,31 +65,34 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 ?>
                         </div><!-- /allegati -->
                     </div><!-- /sidebar-->
-                </div>
+                
 
 
-                <div class="variable-gutters">
-                    <?php if($user_can_view_post): ?>
-                    <div class="main-content col-lg-9 col-md-8 col-12">
-                        <article class="article-wrapper pt-4">
-                            <div class="row variable-gutters">
-                                <div class="col-lg-11 col-12 wysiwig-text">
-                                    <?php
-                                    the_content();
-                                    ?>
-                                </div><!-- /contenuto post -->
-                            </div><!-- /row -->
-                        
-                        </article><!-- /contenuto articolo -->
+                    <div class="variable-gutters order-lg-3">
+                        <?php if($user_can_view_post): ?>
+                        <div class="main-content col-lg-9 col-md-8 col-12">
+                            <article class="article-wrapper pt-4">
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-11 col-12 wysiwig-text">
+                                        <?php
+                                        the_content();
+                                        ?>
+                                    </div><!-- /contenuto post -->
+                                </div><!-- /row -->
+                            
+                            </article><!-- /contenuto articolo -->
 
-                    </div><!-- /col-lg-8 contenuto articolo, luoghi e persone citati-->
+                        </div><!-- /col-lg-8 contenuto articolo, luoghi e persone citati-->
 
-                    <?php else: ?>
-                        <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
-                            <?php the_content(); ?>
-                        </div>
-                    <?php endif; ?>
-                </div><!-- /row-->               
+                        <?php else: ?>
+                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                <?php the_content(); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div><!-- /row--> 
+                </div>  
+                
+                
             </div><!-- /container -->
         </section>
 
