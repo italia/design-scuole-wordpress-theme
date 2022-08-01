@@ -65,4 +65,10 @@
       cursor: default;
     }
   }
+  a[id^="btn-"] p{
+    margin: 0;
+  }
+  a[id^="btn-"] p + p{
+    margin-top: 0.62rem;
+  }
 }

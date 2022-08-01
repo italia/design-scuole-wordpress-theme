@@ -38,13 +38,13 @@ get_header();
           <h4 class="d-lg-none">Area Docenti</h4>
             <div class="row">
               <a id="btn-lg-default" href="#" target="blank" class="col-12">
-                <button>Registro elettronico</button>
+                <button><span>Registro elettronico</span></button>
               </a>
               <a id="btn-lg-default-outline" href="#" target="blank" class="col-12">
-                <button>Orari docenti</button>
+                <button><span>Orari docenti</span></button>
               </a>
               <a id="btn-lg-default-outline" href="#" target="blank" class="col-12">
-                <button>GestOre</button>
+                <button><span>GestOre</span></button>
               </a>
             </div><!--.row -->
 
@@ -58,22 +58,22 @@ get_header();
           <div class="row">
             <div class="col-6 col-md-3">
               <a id="btn-lg-default-outline" href="#" target="blank">
-                  <button>DIDATTICA <h6>Corso ITE serale</h6></button>
+                  <button><p>DIDATTICA</p> <p>Corso ITE serale</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-default-outline" href="#" target="blank">
-                <button>DIDATTICA <h6>Offerta formativa</h6></button>
+                <button><p>DIDATTICA</p> <p>Offerta formativa</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-secondary-outline" href="#" target="blank">
-                <button>SERVIZI <h6>Open day</h6></button>
+                <button><p>SERVIZI</p> <p>Open day</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-secondary-outline" href="#" target="blank">
-                <button>SERVIZI <h6>ASL</h6></button>
+                <button><p>SERVIZI</p> <p>ASL</p></button>
               </a>
             </div>
           </div><!--.row -->
@@ -84,22 +84,55 @@ get_header();
     <!--LOOP NEWS  -->
     <section id="loop-news-home" class="container"> 
       <div class="row">
-        <div id="ultime-news-home" class="col-12 col-lg-8">
+        <div id="ultime-news-home" class="col-12 col-lg-7">
           <h4>Ultime news </h4>
-            <div class="row">
-        
-            </div>
-        </div>
+            <div class="row justify-content-between">
+              
+              <div class="col-4 card">
+                <div>
+                  <img src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" class="card-img-top" alt="">
+                  <div class="card-body">
+                    <p class="card-title text-sx">Card title</p>
+                    <a href="#" id="btn-mini-default"><button class="wauto"><span>Scopri</span></button></a>
+                  </div><!--.card-body -->
+                </div>
+              </div><!--.card -->
+              
+              <div class="col-4 card">
+                <div>
+                  <img src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" class="card-img-top" alt="">
+                  <div class="card-body">
+                    <p class="card-title text-sx">Card title</p>
+                    <a href="#" id="btn-mini-default"><button class="wauto"><span>Scopri</span></button></a>
+                  </div><!--.card-body -->
+                </div>
+              </div><!--.card -->
+             
+              <div class="col-4 card">
+                <div>
+                  <img src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" class="card-img-top" alt="">
+                  <div class="card-body">
+                    <p class="card-title text-sx">Card title</p>
+                    <a href="#" id="btn-mini-default"><button class="wauto"><span>Scopri</span></button></a>
+                  </div><!--.card-body -->
+                </div>
+              </div><!--.card -->
+
+              <a id="btn-lg-default-outline" href="#" target="blank" class="col-12">
+                <button><span>Vai alla sezione</span></button>
+              </a>
+            </div><!--.row -->
+        </div><!--#ultime-news-home -->
 
 
-        <div id="ultime-news-home" class="col-12 col-lg-3">
+        <div id="ultimi-progetti-home" class="col-12 col-lg-4 offset-lg-1">
           <h4>Alcuni dei nostri progetti </h4>
             <div class="row">
-          
-            </div>
-        </div>
+              
+            </div><!--.row -->
+        </div><!--#ultimi-progetti-home -->
       </div><!--.row -->
-    </section><!--#loop-news-home -->
+    </section><!--#loop-news-home .container -->
     
     <!--SPAZI E STORIA  -->
     <section id="spazi-storia" class="container"> 
@@ -112,7 +145,7 @@ get_header();
           <h4>Il nostro istituto</h4>
           <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
           Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
-          <a id="btn-lg-default" href="#" target="blank"><button class="wauto">Scopri</button></a>
+          <a id="btn-lg-default" href="#" target="blank"><button class="wauto"><span>Scopri</span></button></a>
         </div><!--#gli-spazi-txt -->
       </div><!--.row -->
       
@@ -124,7 +157,7 @@ get_header();
           <h4>La storia di Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. 
           Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-          <a id="btn-lg-default" href="#" target="blank"><button class="wauto">Scopri</button></a>
+          <a id="btn-lg-default" href="#" target="blank"><button class="wauto"><span>Scopri</span></button></a>
         </div><!--#storia-txt -->
       </div><!--.row -->
     </section><!--#spazi-storia .container -->
