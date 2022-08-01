@@ -19,7 +19,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         <section id="image-block">
             <div class="row">           
                 <div class="col-sm-12 col-md-6 offset-md-1 order-md-2">
-                    <h3>Il nostro istituto</h3>
+                    <h2>Il nostro istituto</h2>
                     <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
                     Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono quelli del liceo scientifico opzione <strong>scienze applicate</strong>, del <strong>liceo scientifico sportivo</strong>, del <strong>liceo scientifico internazionale quadriennale</strong> e del <strong>liceo delle scienze umane opzione socio-economica</strong>. Gli indirizzi tecnici sono quelli dell'istituto <strong>economico opzione amministrazione finanza e marketing</strong>, dell’istituto <strong>economico internazionale sportivo</strong>, dell’istituto tecnologico opzione <strong>trasporti e logistica</strong> e dell’istituto tecnologico <strong>conduzione del mezzo aereo</strong>.</p>
                 </div>
@@ -33,7 +33,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         <section id="image-block">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h3>La scuola secondo noi</h3>
+                    <h2>La scuola secondo noi</h2>
                     <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla <strong>flessibilità</strong>, sull’<strong>innovazione</strong> e sulla <strong>personalizzazione</strong>. 
                     Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’<strong>accoglienza</strong> e dell’<strong>inclusione</strong> dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.
                     L’idea di fondo è quella di offrire ai ragazzi un <strong>ambiente di apprendimento sereno e motivante</strong>, ma nel contempo attento alla costruzione di <strong>competenze solide,</strong> indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.</p>
@@ -88,7 +88,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         <section id="image-block">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h3>Martino Martini</h3>
+                    <h2>Martino Martini</h2>
                     <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto <strong>geografo e cartografo che visse a lungo nella
                     Cina imperiale</strong>, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e
                     geografica. Notevole fu il suo contributo alla conoscenza dell’impero cinese e della sua cultura, che rese accessibile

@@ -5,11 +5,11 @@
 
                 <h1> Istituto Martino Martini </h1>
 
-                <h2>Open Day</h2>
+                <p>Open Day</p>
 
                 <a href="#">
                     <button>
-                        Scopri
+                        Scopri di più
                     </button>
                 </a>
 

@@ -60,7 +60,7 @@ $on-red:#fff;
 $red-container:#FFD9E7;
 $on-red-container:#410002;
 
-// Orange
+// Orange  =
 $orange:#EE502F;
 $on-orange:#fff;
 $orange-container:#FFDAD1;
@@ -72,7 +72,9 @@ $on-green:#fff;
 $green-container:#9BF983;
 $on-green-container:#002200;
 
-$sidebar: #DFE2EB;
+// Sidebar
+$sidebar: $surface-variant;
+
 
 
 // TODO Add scss color variables

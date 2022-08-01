@@ -1,3 +1,43 @@
+h1 {
+  font-size: 56px;
+  line-height: 48px;
+  color: black;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+  color: #1260A4;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  color: black;
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1260A4;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  color: #1260A4;
+}
+
+h6 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #1260A4;
+}
+
 .single-post .container {
   max-width: 90%;
   padding: 0px;
@@ -115,6 +155,16 @@
   margin: 0;
 }
 #content h1 {
+  color: white;
+  font-size: 56px;
+  line-height: 48px;
+  margin: auto;
+  text-align: center;
+}
+#content p {
+  text-transform: uppercase;
+  font-size: 48px;
+  line-height: 60px;
   color: white;
   margin: auto;
   text-align: center;

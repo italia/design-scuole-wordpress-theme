@@ -1,30 +1,38 @@
 
-h2 {
-    text-transform: uppercase;
-    font-size: 48px;
-    color: white;
-    margin: auto;
-    text-align: center;
-}
-
-h3{
-    font-size: 40px;
-    color: $primary;
-}
-
-h4 {
-    font-size: 32px;
-    text-transform: uppercase;
-    font-weight: normal;
-    color: $primary;
-}
-h5 {
-    font-size: 28px;
+h1  {
+    font-size: 56px;
+    line-height: 48px;
     color: black;
 }
+    // da definire per pagine senza hero
 
-h6{
-    font-size: 24px;
-    font-weight: 200;
+h2 {
+    font-size: 40px;
+    line-height: 48px;
+    color: $primary;
 }
 
+h3 {
+    font-size: 32px;
+    line-height: 40px;
+    color: black;
+}
+h4 {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $primary;
+    }
+h5{
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    color: $primary;
+}
+h6 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    color: $primary;
+}
