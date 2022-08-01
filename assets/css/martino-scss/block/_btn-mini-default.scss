@@ -1,0 +1,30 @@
+#btn-mini-default{
+  background: $primary;
+  border-radius: 0.25rem;
+  color:$on-primary;
+  border: 0;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+}
+
+#btn-mini-default:hover{
+background: $primary-hover;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+#btn-mini-default-outline{
+  background: $on-primary;
+  border-radius: 0.25rem;
+  color:$primary;
+  border: 2px $primary solid;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+}
+
+#btn-mini-default-outline:hover{
+  color:$primary-hover;
+  border: 2px $primary-hover solid;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}

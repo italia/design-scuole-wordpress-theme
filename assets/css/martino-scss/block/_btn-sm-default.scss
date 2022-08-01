@@ -10,6 +10,7 @@
 
 #btn-sm-default:hover{
 background: $primary-hover;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 #btn-sm-default-outline{
@@ -25,6 +26,7 @@ background: $primary-hover;
 #btn-sm-default-outline:hover{
   color:$primary-hover;
   border: 3px $primary-hover solid;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 // BUTTON DISABILITATI

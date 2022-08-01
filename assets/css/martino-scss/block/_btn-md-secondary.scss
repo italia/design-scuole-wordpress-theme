@@ -1,29 +1,29 @@
-#btn-lg-secondary{
+#btn-md-secondary{
   background: $secondary;
   border-radius: 0.25rem;
   color:$on-secondary;
   border: 0;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.75rem 1.50rem;
   margin-bottom: 1.5rem;
 }
 
-#btn-lg-secondary:hover{
+#btn-md-secondary:hover{
 background: $secondary-hover;
 transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-#btn-lg-secondary-outline{
+#btn-md-secondary-outline{
   background: $on-secondary;
   border-radius: 0.25rem;
   color:$secondary;
   border: 3px $secondary solid;
   width: 100%;
-  padding: 0.88rem  1.75rem;
+  padding: 0.75rem 1.50rem;
   margin-bottom: 1.5rem;
 }
 
-#btn-lg-secondary-outline:hover{
+#btn-md-secondary-outline:hover{
   color:$secondary-hover;
   border: 3px $secondary-hover solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;

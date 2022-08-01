@@ -10,6 +10,7 @@
 
 #btn-md-default:hover{
 background: $primary-hover;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 #btn-md-default-outline{
@@ -25,6 +26,7 @@ background: $primary-hover;
 #btn-md-default-outline:hover{
   color:$primary-hover;
   border: 3px $primary-hover solid;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
  
 }
 
