@@ -1,30 +1,43 @@
-#btn-lg-secondary{
-  background: $secondary;
-  border-radius: 0.25rem;
-  color:$on-secondary;
-  border: 0;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-}
+#main-container{
+  #btn-lg-secondary{
+    button{
+      background: $secondary;
+      border-radius: 0.25rem;
+      color:$on-secondary;
+      border: 0;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
 
-#btn-lg-secondary:hover{
-background: $secondary-hover;
-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
+      &:hover{
+        background: $secondary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    } 
+    &:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+  #btn-lg-secondary-outline{
+    button{
+      background: $on-secondary;
+      border-radius: 0.25rem;
+      color:$secondary;
+      border: 0.18rem $secondary solid;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
 
-#btn-lg-secondary-outline{
-  background: $on-secondary;
-  border-radius: 0.25rem;
-  color:$secondary;
-  border: 3px $secondary solid;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-}
-
-#btn-lg-secondary-outline:hover{
-  color:$secondary-hover;
-  border: 3px $secondary-hover solid;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      &:hover{
+        border-color: $secondary-hover;
+        color: $secondary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    }
+    &:hover{
+      text-decoration: none;
+      cursor: default;
+    }
+  }
 }

@@ -1,25 +1,23 @@
-#presentazione-scuola {
+#main-container #presentazione-scuola {
   margin-top: 6rem;
 }
-
-#button-navigazione a {
-  display: grid;
-}
-
-#button-navigazione {
+#main-container #button-navigazione {
   margin: 2rem 0;
 }
-
-#w100 {
+#main-container #button-navigazione a {
+  display: grid;
+}
+#main-container #w100 {
   width: 100%;
 }
-
-.rem5 {
+#main-container .rem5 {
   margin-bottom: 5rem;
 }
-
-#spazi-storia {
+#main-container #spazi-storia {
   margin-bottom: 3rem;
+}
+#main-container .wauto {
+  width: auto !important;
 }
 
 #hero {
@@ -45,7 +43,7 @@
   text-align: center;
 }
 
-#btn-lg-default {
+#main-container #btn-lg-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -54,29 +52,33 @@
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-lg-default:hover {
+#main-container #btn-lg-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-lg-default-outline {
+#main-container #btn-lg-default:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
-  border: 3px #1260A4 solid;
+  border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-lg-default-outline:hover {
+#main-container #btn-lg-default-outline button:hover {
+  border-color: #0073E6;
   color: #0073E6;
-  border: 3px #0073E6 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-lg-disabled {
+#main-container #btn-lg-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -86,55 +88,53 @@
   margin-bottom: 1.5rem;
   cursor: default;
 }
-
-#btn-lg-disabled-outline {
+#main-container #btn-lg-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
-  border: 3px #C3C6CF solid;
+  border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
   cursor: default;
 }
 
-#btn-block:hover {
+#main-container #btn-md-default button {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-md-default button:hover {
+  background: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-md-default:hover {
   text-decoration: none !important;
   cursor: default;
 }
-
-#btn-md-default {
-  background: #1260A4;
-  border-radius: 0.25rem;
-  color: #fff;
-  border: 0;
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-#btn-md-default:hover {
-  background: #0073E6;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-#btn-md-default-outline {
+#main-container #btn-md-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
-  border: 3px #1260A4 solid;
+  border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-md-default-outline:hover {
+#main-container #btn-md-default-outline button:hover {
+  border-color: #0073E6;
   color: #0073E6;
-  border: 3px #0073E6 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-md-disabled {
+#main-container #btn-md-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-md-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -144,19 +144,18 @@
   margin-bottom: 1.5rem;
   cursor: default;
 }
-
-#btn-md-disabled-outline {
+#main-container #btn-md-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
-  border: 3px #C3C6CF solid;
+  border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1.5rem;
   cursor: default;
 }
 
-#btn-sm-default {
+#main-container #btn-sm-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -165,29 +164,33 @@
   padding: 0.63rem 1.25rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-sm-default:hover {
+#main-container #btn-sm-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-sm-default-outline {
+#main-container #btn-sm-default:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-sm-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
-  border: 3px #1260A4 solid;
+  border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-sm-default-outline:hover {
+#main-container #btn-sm-default-outline button:hover {
+  border-color: #0073E6;
   color: #0073E6;
-  border: 3px #0073E6 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-sm-disabled {
+#main-container #btn-sm-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-sm-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -197,19 +200,18 @@
   margin-bottom: 1.5rem;
   cursor: default;
 }
-
-#btn-sm-disabled-outline {
+#main-container #btn-sm-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
-  border: 3px #C3C6CF solid;
+  border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1.5rem;
   cursor: default;
 }
 
-#btn-lg-secondary {
+#main-container #btn-lg-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -218,29 +220,34 @@
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-lg-secondary:hover {
+#main-container #btn-lg-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-lg-secondary-outline {
+#main-container #btn-lg-secondary:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
-  border: 3px #BD0043 solid;
+  border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-lg-secondary-outline:hover {
+#main-container #btn-lg-secondary-outline button:hover {
+  border-color: #FF4F79;
   color: #FF4F79;
-  border: 3px #FF4F79 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+#main-container #btn-lg-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
 
-#btn-md-secondary {
+#main-container #btn-md-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -249,29 +256,34 @@
   padding: 0.75rem 1.5rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-md-secondary:hover {
+#main-container #btn-md-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-md-secondary-outline {
+#main-container #btn-md-secondary:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-md-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
-  border: 3px #BD0043 solid;
+  border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-md-secondary-outline:hover {
+#main-container #btn-md-secondary-outline button:hover {
+  border-color: #FF4F79;
   color: #FF4F79;
-  border: 3px #FF4F79 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+#main-container #btn-md-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
 
-#btn-md-secondary {
+#main-container #btn-sm-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -280,29 +292,34 @@
   padding: 0.63rem 1.25rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-md-secondary:hover {
+#main-container #btn-sm-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-md-secondary-outline {
+#main-container #btn-sm-secondary:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-sm-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
-  border: 3px #BD0043 solid;
+  border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-md-secondary-outline:hover {
+#main-container #btn-sm-secondary-outline button:hover {
+  border-color: #FF4F79;
   color: #FF4F79;
-  border: 3px #FF4F79 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+#main-container #btn-sm-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
 
-#btn-mini-default {
+#main-container #btn-mini-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -311,24 +328,49 @@
   padding: 0.51rem 0.81rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-mini-default:hover {
+#main-container #btn-mini-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-
-#btn-mini-default-outline {
+#main-container #btn-mini-default:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-mini-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
-  border: 2px #1260A4 solid;
+  border: 0.12rem #1260A4 solid;
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1.5rem;
 }
-
-#btn-mini-default-outline:hover {
+#main-container #btn-mini-default-outline button:hover {
+  border-color: #0073E6;
   color: #0073E6;
-  border: 2px #0073E6 solid;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-mini-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-mini-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+#main-container #btn-mini-disabled-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0.12rem #C3C6CF solid;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
 }/*# sourceMappingURL=martino.css.map */

@@ -1,54 +1,68 @@
-#btn-sm-default{
-  background: $primary;
-  border-radius: 0.25rem;
-  color:$on-primary;
-  border: 0;
-  width: 100%;
-  padding: 0.63rem  1.25rem;
-  margin-bottom: 1.5rem;
-}
+#main-container{
+  #btn-sm-default{
+    button{
+      background: $primary;
+      border-radius: 0.25rem;
+      color:$on-primary;
+      border: 0;
+      width: 100%;
+      padding: 0.63rem  1.25rem;
+      margin-bottom: 1.5rem;
+      
+      &:hover{
+        background: $primary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    } 
+    &:hover {
+      text-decoration: none !important;
+      cursor: default;
+    }
+  }
+  #btn-sm-default-outline{
+    button{
+      background: $on-primary;
+      border-radius: 0.25rem;
+      color:$primary;
+      border: 0.18rem $primary solid;
+      width: 100%;
+      padding: 0.63rem  1.25rem;
+      margin-bottom: 1.5rem;
 
-#btn-sm-default:hover{
-background: $primary-hover;
-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-#btn-sm-default-outline{
-  background: $on-primary;
-  border-radius: 0.25rem;
-  color:$primary;
-  border: 3px $primary solid;
-  width: 100%;
-  padding: 0.63rem  1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-#btn-sm-default-outline:hover{
-  color:$primary-hover;
-  border: 3px $primary-hover solid;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-// BUTTON DISABILITATI
-
-#btn-sm-disabled{
-  background: $surface;
-  border-radius: 0.25rem;
-  color:$on-surface;
-  border: 0;
-  width: 100%;
-  padding: 0.63rem  1.25rem;
-  margin-bottom: 1.5rem;
-  cursor: default;
-}
-
-#btn-sm-disabled-outline{
-  background: $on-primary;
-  border-radius: 0.25rem;
-  color:$on-surface;
-  border: 3px $on-surface solid;
-  width: 100%;
-  padding: 0.63rem  1.25rem;
-  margin-bottom: 1.5rem;
-  cursor: default;
+      &:hover{
+        border-color: $primary-hover;
+        color: $primary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    }
+    &:hover{
+      text-decoration: none;
+      cursor: default;
+    }
+  }  
+  // BUTTON DISABILITATI
+  #btn-sm-disabled{
+    button{
+      background: $surface;
+      border-radius: 0.25rem;
+      color:$on-surface;
+      border: 0;
+      width: 100%;
+      padding: 0.63rem  1.25rem;
+      margin-bottom: 1.5rem;
+      cursor: default;
+    }
+  }
+  #btn-sm-disabled-outline{
+    button{
+      background: $on-primary;
+      border-radius: 0.25rem;
+      color:$on-surface;
+      border: 0.18rem $on-surface solid;
+      width: 100%;
+      padding: 0.63rem  1.25rem;
+      margin-bottom: 1.5rem;
+      cursor: default;
+    }
+  }
 }

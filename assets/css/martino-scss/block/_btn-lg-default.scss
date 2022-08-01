@@ -1,59 +1,68 @@
-#btn-lg-default{
-  background: $primary;
-  border-radius: 0.25rem;
-  color:$on-primary;
-  border: 0;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-}
+#main-container{
+  #btn-lg-default{
+    button{
+      background: $primary;
+      border-radius: 0.25rem;
+      color:$on-primary;
+      border: 0;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
 
-#btn-lg-default:hover{
-background: $primary-hover;
-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
+      &:hover{
+        background: $primary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    } 
+    &:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+  #btn-lg-default-outline{
+    button{
+      background: $on-primary;
+      border-radius: 0.25rem;
+      color:$primary;
+      border: 0.18rem $primary solid;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
 
-#btn-lg-default-outline{
-  background: $on-primary;
-  border-radius: 0.25rem;
-  color:$primary;
-  border: 3px $primary solid;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-}
-
-#btn-lg-default-outline:hover{
-  color:$primary-hover;
-  border: 3px $primary-hover solid;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-// BUTTON DISABILITATI
-
-#btn-lg-disabled{
-  background: $surface;
-  border-radius: 0.25rem;
-  color:$on-surface;
-  border: 0;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-  cursor: default;
-}
-
-#btn-lg-disabled-outline{
-  background: $on-primary;
-  border-radius: 0.25rem;
-  color:$on-surface;
-  border: 3px $on-surface solid;
-  width: 100%;
-  padding: 0.88rem  1.75rem;
-  margin-bottom: 1.5rem;
-  cursor: default;
-}
-
-#btn-block:hover {
-  text-decoration: none !important;
-  cursor: default;
+      &:hover{
+        border-color: $primary-hover;
+        color: $primary-hover;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      }
+    }
+    &:hover{
+      text-decoration: none;
+      cursor: default;
+    }
+  }   
+  // BUTTON DISABILITATI
+  #btn-lg-disabled{
+    button{
+      background: $surface;
+      border-radius: 0.25rem;
+      color:$on-surface;
+      border: 0;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
+      cursor: default;
+    }
+  }
+  #btn-lg-disabled-outline{
+    button{
+      background: $on-primary;
+      border-radius: 0.25rem;
+      color:$on-surface;
+      border: 0.18rem $on-surface solid;
+      width: 100%;
+      padding: 0.88rem  1.75rem;
+      margin-bottom: 1.5rem;
+      cursor: default;
+    }
+  }
 }

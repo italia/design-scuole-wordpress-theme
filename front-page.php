@@ -37,14 +37,14 @@ get_header();
         <div id="sidebar-presentazione" class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0">
           <h4 class="d-lg-none">Area Docenti</h4>
             <div class="row">
-              <a id="btn-block" href="#" target="blank" class="col-12">
-                <button id="btn-lg-default">Registro elettronico</button>
+              <a id="btn-lg-default" href="#" target="blank" class="col-12">
+                <button>Registro elettronico</button>
               </a>
-              <a id="btn-block" href="#" target="blank" class="col-12">
-                <button id="btn-lg-default-outline" href="#" target="blank">Orari docenti</button>
+              <a id="btn-lg-default-outline" href="#" target="blank" class="col-12">
+                <button>Orari docenti</button>
               </a>
-              <a id="btn-block" href="#" target="blank" class="col-12">
-                <button id="btn-lg-default-outline" href="#" target="blank">GestOre</button>
+              <a id="btn-lg-default-outline" href="#" target="blank" class="col-12">
+                <button>GestOre</button>
               </a>
             </div><!--.row -->
 
@@ -56,13 +56,29 @@ get_header();
         <div id="button-navigazione" class="col-12"> 
         <h4 class="d-lg-none">Scopri di più</h4>
           <div class="row">
-            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button href="#" id="btn-lg-default-outline" target="blank">DIDATTICA <h6>Corso ITE serale</h6></button></a></div>
-            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button href="#" id="btn-lg-default-outline" target="blank">DIDATTICA <h6>Offerta formativa</h6></button></a></div>
-            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button id="btn-lg-secondary-outline" href="#" target="blank">SERVIZI <h6>Open day</h6></button></a></div>
-            <div class="col-6 col-md-3"><a id="btn-block" href="#" target="blank"><button id="btn-lg-secondary-outline" href="#" target="blank">SERVIZI <h6>ASL</h6></button></a></div>
-          </div>
-        </div><!--.row -->
-      </div><!--#button-navigazione -->
+            <div class="col-6 col-md-3">
+              <a id="btn-lg-default-outline" href="#" target="blank">
+                  <button>DIDATTICA <h6>Corso ITE serale</h6></button>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a id="btn-lg-default-outline" href="#" target="blank">
+                <button>DIDATTICA <h6>Offerta formativa</h6></button>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a id="btn-lg-secondary-outline" href="#" target="blank">
+                <button>SERVIZI <h6>Open day</h6></button>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a id="btn-lg-secondary-outline" href="#" target="blank">
+                <button>SERVIZI <h6>ASL</h6></button>
+              </a>
+            </div>
+          </div><!--.row -->
+        </div><!--#button-navigazione -->
+      </div><!--.row -->
     </section><!--#presentazione-scuola .container-->
    
     <!--LOOP NEWS  -->
@@ -92,11 +108,11 @@ get_header();
           <img id="w100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#gli-spazi-img -->
 
-        <div id="gli-spazi-txt w100" class="col-6">
+        <div id="gli-spazi-txt" class="col-6">
           <h4>Il nostro istituto</h4>
           <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
           Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
-          <a href="#" target="blank"><button href="#" target="blank">Scopri</button></a>
+          <a id="btn-lg-default" href="#" target="blank"><button class="wauto">Scopri</button></a>
         </div><!--#gli-spazi-txt -->
       </div><!--.row -->
       
@@ -108,7 +124,7 @@ get_header();
           <h4>La storia di Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. 
           Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-          <a href="#" target="blank"><button href="#" target="blank">Scopri</button></a>
+          <a id="btn-lg-default" href="#" target="blank"><button class="wauto">Scopri</button></a>
         </div><!--#storia-txt -->
       </div><!--.row -->
     </section><!--#spazi-storia .container -->
