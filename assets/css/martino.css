@@ -43,6 +43,10 @@ h6 {
   color: #1260A4;
 }
 
+#image-block a {
+  color: #1260A4;
+}
+
 .single-post .container {
   max-width: 90%;
   padding: 0px;

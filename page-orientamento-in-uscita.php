@@ -8,7 +8,7 @@
 
 get_header();
 
-$presentazione_landing_url = dsi_get_template_page_url("page-templates/cic.php");
+
 ?>
 
 <main id="main-container" class="main-container">
@@ -23,7 +23,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/cic.php")
                 
                 <div class="main-content col-lg-6 col-xxl-6">
                     <div class="row variable-gutters mb-3">
-                        <div class="pt-5 px-3">    
+                        <div class="px-3">    
                             <h2>Orientamento in uscita</h2>
                             <p>L’Orientamento in uscita vuole aiutare gli studenti a maturare una scelta consapevole dopo il conseguimento del diploma, in ambito universitario o lavorativo. Di fronte alla vastità delle opzioni e ai mutamenti continui che investono il mondo della formazione e il mondo del lavoro è fondamentale sapersi orientare. Un lavoro efficace in tal senso permette più facilmente ai giovani di conoscere, cercare, trovare e sfruttare le opportunità offerte dal panorama italiano e non solo.
                             </p>
@@ -39,7 +39,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/cic.php")
                     </div><!--.row -->
                 </div><!-- content -->
                 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-5 offset-md-1">
                     <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
                 </div>  
 
