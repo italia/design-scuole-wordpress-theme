@@ -16,8 +16,7 @@ if ( count( $posts_array ) ) { ?>
 
 				<h3 class="mb-5 text-center semi-bold text-gray-primary"><?php _e("Schede didattiche correlate", "design_scuole_italia"); ?></h3>
 
-				<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide"
-                  data-bs-carousel-splide>
+				<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
                   <div class="splide__track ps-lg-3 pe-lg-3">
                     <ul class="splide__list it-carousel-all">
 					<?php
