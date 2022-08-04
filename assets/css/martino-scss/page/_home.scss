@@ -26,4 +26,11 @@
   .wauto{
     width: auto !important;
   }
+
+  .wauto{
+    @media (max-width: 575.98px) {
+        width: 100%!important;
+      }
+  } 
+  // Ho aggiunto questa classe a .wauto perchè su miscure piccole tornasse a occupare tutto lo spazio disponibile, se crea problemi lo sistemo. (alex)
 }

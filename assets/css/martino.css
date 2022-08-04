@@ -113,6 +113,11 @@ h6 {
 #main-container .wauto {
   width: auto !important;
 }
+@media (max-width: 575.98px) {
+  #main-container .wauto {
+    width: 100% !important;
+  }
+}
 
 #image-block {
   margin-top: 3rem;
