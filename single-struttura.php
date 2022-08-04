@@ -6,7 +6,7 @@
  *
  * @package Design_Scuole_Italia
  */
-global $post, $servizio, $progetto, $autore, $luogo, $c;
+global $post, $servizio, $progetto, $autore, $luogo, $nascondi_licenza, $c;
 get_template_part("template-parts/single/related-posts", $args = array( "post", "events", "circolari" )); 
 get_header();
 
@@ -34,7 +34,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $persone = dsi_get_meta("persone");
             $altri_componenti = dsi_get_meta("altri_componenti");
 
-
             $sedi = dsi_get_meta("sedi");
            // $luoghi = dsi_get_meta("luoghi");
 
@@ -42,6 +41,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
 //			$pec = dsi_get_meta("pec");
+
+            $nascondi_licenza = true;
 
         $children = false;
     if($post->post_parent == 0) {
@@ -134,7 +135,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-organizzazione" title="Vai al paragrafo <?php _e("Organizzazione e contatti", "design_scuole_italia"); ?>"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if(is_array($sedi) && count($sedi)>0) { ?>
+                                        <?php if(is_array($sedi) && count($sedi)==1) { ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-sede" title="Vai al paragrafo <?php _e("Sede", "design_scuole_italia"); ?>"><?php _e("Sede", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php } elseif(is_array($sedi) && count($sedi)>1) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-sede" title="Vai al paragrafo <?php _e("Sedi", "design_scuole_italia"); ?>"><?php _e("Sedi", "design_scuole_italia"); ?></a>
                                             </li>
@@ -206,7 +211,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
                                 <?php if($link_schede_servizi){ ?>
-                                    <h6><?php _e("Servizi di cui la struttura è responsabile", "design_scuole_italia"); ?></h6>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_servizi as $idservizio){
@@ -217,21 +221,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
 
-
-
-
-
-                                <?php if($link_schede_progetti){ ?>
-                                    <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
-                                    <div class="card-deck card-deck-spaced mb-4">
-                                        <?php
-                                        foreach ($link_schede_progetti as $idprogetto){
-                                            $progetto = get_post($idprogetto);
-                                            get_template_part("template-parts/progetto/card");
-                                        }
-                                        ?>
-                                    </div><!-- /card-deck card-deck-spaced -->
-                                <?php } ?>
                                 <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
                                     <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
 
@@ -383,6 +372,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
+                                    <?php if($link_schede_progetti){ ?>
+                                    <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
+                                    <div class="card-deck card-deck-spaced mb-4">
+                                        <?php
+                                        foreach ($link_schede_progetti as $idprogetto){
+                                            $progetto = get_post($idprogetto);
+                                            get_template_part("template-parts/progetto/card");
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                <?php } ?>
                                 <?php }
                                 /*
                                 if($telefono || $mail || $pec){
