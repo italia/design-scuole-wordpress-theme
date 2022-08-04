@@ -1,7 +1,7 @@
 //hero page
 
 #hero{
-    height: 300px;  
+    height: 400px;  
     width: 100%; 
     background-image: url( https://source.unsplash.com/random );
     background-position: center;
@@ -23,14 +23,17 @@
         font-size: 56px;
         line-height: 48px;
         margin: auto;
+        margin-bottom: 0.2rem;
         text-align: center;
     }
     p {
         text-transform: uppercase;
-            font-size: 48px;
-            line-height: 60px;
+            font-size: 36px;
+            line-height: 40px;
+            letter-spacing: -0.1rem;
             color: white;
             margin: auto;
+            margin-bottom: 1rem;
             text-align: center;
     }
 }
