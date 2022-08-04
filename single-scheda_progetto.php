@@ -52,12 +52,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php
                                 }
                                 ?>
+                                <!-- 
                                 <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p>
                                 <?php
                                 global $badgeclass;
                                 $badgeclass = "badge-outline-bluelectric";
                                 get_template_part("template-parts/common/badges-argomenti");
-                                ?>
+                                ?> --> 
                             </div><!-- /title-content -->
                         </div><!-- /col-md-6 -->
                     </div><!-- /row -->
@@ -72,7 +73,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     <div class="row variable-gutters">
                         <?php if($user_can_view_post): ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
-                            <aside class="aside-main aside-sticky">
+                            <aside class="aside-main aside-sticky d-none">
                                 <div class="aside-title" id="project-legend">
                                     <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="apri/chiudi indice della pagina">
                                         <span><?php _e("Indice del progetto", "design_scuole_italia"); ?></span>
@@ -119,7 +120,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <article class="article-wrapper pt-4 px-3">
 
                                 <div class="row variable-gutters">
-                                    <div class="col-lg-9">
+                                    <div class="col-lg-9"> <!--
                                         <h3 id="art-par-cosa"><?php _e("Presentazione", "design_scuole_italia"); ?></h3>
                                         <h4 class="mb-2"><?php _e("Data", "design_scuole_italia"); ?></h4>
                                         <p class="text-bluelectric"><strong><?php echo dsi_get_date_evento($post); ?></strong></p>
@@ -127,24 +128,24 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         if(trim(get_the_content()) != "") {
                                             ?>
                                             <div class="col-lg-12 px-0 wysiwig-text">
-                                            <h4><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h4>
+                                            <h4><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h4> -->
                                             <?php the_content(); ?>
                                             </div>
                                             <?php
                                         }
-                                        ?>
+                                        ?> <!--
                                         <h4><?php _e("Obiettivi", "design_scuole_italia"); ?></h4>
                                         <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php
                                         $obiettivi = dsi_get_meta("obiettivi");
                                         echo wpautop($obiettivi);
-                                        ?>
+                                        ?> -->
                                         </div>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
                                     ?>
-                                    <div class="row variable-gutters">
+                                    <div class="row variable-gutters d-none">
                                         <div class="col-lg-9">
                                             <h4><?php _e( "Luogo", "design_scuole_italia" ); ?></h4>
                                             <?php

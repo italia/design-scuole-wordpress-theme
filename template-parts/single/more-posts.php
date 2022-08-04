@@ -12,7 +12,7 @@ if ( is_array( $posts_array ) && count( $posts_array ) ) { ?>
 	<div class="container pt-3">
 
 		<div class="row variable-gutters">
-			<div class="col-lg-12">
+			<div class="col-12">
 
 				<h2 class="h3 text-left semi-bold text-gray-primary"><?php _e("News correlate", "design_scuole_italia"); ?></h2>
 

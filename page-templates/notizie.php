@@ -14,22 +14,16 @@ get_header();
 
 	<main id="main-container" class="main-container greendark">
 		<div class="container">
-			<div class="bg-white bg-white-left">
-				<?php get_template_part("template-parts/common/filtro-articoli"); ?>
-				<div class="header-search d-flex align-items-center">
-					<button type="button" class="d-flex align-items-center search-btn" data-toggle="modal" data-target="#search-modal" aria-label="Cerca nel sito" data-element="search-modal-button">
-						<span class="d-none d-lg-block mr-2"><strong>Cerca</strong></span>
-						<svg class="svg-search">
-							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
-						</svg>
-					</button>
-				</div>
+			<div class="bg-white bg-white-left py-4">
 			</div>
 			<div class="header-utils-sticky">
+				<div class="mb-4">
+					<?php get_search_form("template-parts/search/search-form"); ?>
+				</div>
 				<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 			</div><!-- /article-filter -->
 
-			<div class="" id="news">
+			<div class="row col-12" id="news">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -48,10 +42,7 @@ get_header();
 				?>
 			</div>
 		</div>
-		
-
 	</main>
-
 <?php
 get_footer();
 
