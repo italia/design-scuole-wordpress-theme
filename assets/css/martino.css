@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 #bg-red {
   background-color: red;
@@ -6,3 +7,432 @@
   background-color: rgb(255, 0, 0) !important;
 >>>>>>> 8645e7e9473849bf5b946168cbf76f374feb6a4b
 }
+=======
+.single-post .container {
+  max-width: 90%;
+  padding: 0px;
+}
+
+#article_data {
+  border-top: none;
+}
+
+#article_image {
+  position: static;
+  width: 100%;
+}
+
+#header_post {
+  padding: 0rem;
+}
+
+.single-post .article-title-author-container {
+  padding: 0rem;
+}
+
+#badge a {
+  margin-bottom: 1rem;
+}
+
+#card_news .card-content {
+  padding: 10px 10px 10px 10px;
+}
+
+#news_correlate {
+  margin-top: 15px;
+}
+
+#card-documento {
+  display: block;
+}
+
+#filtro_articolo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+}
+
+.page-template-notizie .container {
+  max-width: 90%;
+  padding: 0px;
+}
+
+#main-container #presentazione-scuola {
+  margin-top: 6rem;
+}
+#main-container #button-navigazione {
+  margin: 2rem 0;
+}
+#main-container #button-navigazione a {
+  display: grid;
+}
+#main-container #w100 {
+  width: 100%;
+}
+#main-container .rem5 {
+  margin-bottom: 5rem;
+}
+#main-container #spazi-storia {
+  margin-bottom: 3rem;
+}
+#main-container .wauto {
+  width: auto !important;
+}
+
+#hero {
+  height: 300px;
+  width: 100%;
+  background-image: url(https://source.unsplash.com/random);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+
+#content {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+#content h1 {
+  color: white;
+  margin: auto;
+  text-align: center;
+}
+
+#main-container #btn-lg-default button {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-lg-default button:hover {
+  background: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-lg-default:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-default-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 0.18rem #1260A4 solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-lg-default-outline button:hover {
+  border-color: #0073E6;
+  color: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-lg-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+#main-container #btn-lg-disabled-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0.18rem #C3C6CF solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+#main-container #btn-md-default button {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-md-default button:hover {
+  background: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-md-default:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-md-default-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 0.18rem #1260A4 solid;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-md-default-outline button:hover {
+  border-color: #0073E6;
+  color: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-md-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-md-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+#main-container #btn-md-disabled-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0.18rem #C3C6CF solid;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+#main-container #btn-sm-default button {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-sm-default button:hover {
+  background: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-sm-default:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-sm-default-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 0.18rem #1260A4 solid;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-sm-default-outline button:hover {
+  border-color: #0073E6;
+  color: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-sm-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-sm-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+#main-container #btn-sm-disabled-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0.18rem #C3C6CF solid;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+#main-container #btn-lg-secondary button {
+  background: #BD0043;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-lg-secondary button:hover {
+  background: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-lg-secondary:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-lg-secondary-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #BD0043;
+  border: 0.18rem #BD0043 solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-lg-secondary-outline button:hover {
+  border-color: #FF4F79;
+  color: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-lg-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+#main-container #btn-md-secondary button {
+  background: #BD0043;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-md-secondary button:hover {
+  background: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-md-secondary:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-md-secondary-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #BD0043;
+  border: 0.18rem #BD0043 solid;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-md-secondary-outline button:hover {
+  border-color: #FF4F79;
+  color: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-md-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+#main-container #btn-sm-secondary button {
+  background: #BD0043;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-sm-secondary button:hover {
+  background: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-sm-secondary:hover {
+  text-decoration: none !important;
+  cursor: default;
+}
+#main-container #btn-sm-secondary-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #BD0043;
+  border: 0.18rem #BD0043 solid;
+  width: 100%;
+  padding: 0.63rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-sm-secondary-outline button:hover {
+  border-color: #FF4F79;
+  color: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-sm-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+#main-container #btn-mini-default button {
+  background: #1260A4;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-mini-default button:hover {
+  background: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-mini-default:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-mini-default-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #1260A4;
+  border: 0.12rem #1260A4 solid;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+}
+#main-container #btn-mini-default-outline button:hover {
+  border-color: #0073E6;
+  color: #0073E6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container #btn-mini-default-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container #btn-mini-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+#main-container #btn-mini-disabled-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0.12rem #C3C6CF solid;
+  width: 100%;
+  padding: 0.51rem 0.81rem;
+  margin-bottom: 1.5rem;
+  cursor: default;
+}
+
+/*# sourceMappingURL=martino.css.map */
+>>>>>>> Stashed changes
