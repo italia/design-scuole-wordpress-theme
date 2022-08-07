@@ -20,3 +20,170 @@
   margin: auto;
   text-align: center;
 }
+
+.footer--wrapper {
+  /* material-theme/sys/dark/primary-container */
+  background: #004882;
+  color: #ffffff;
+  padding: 50px 1.1878rem;
+  font-family: "Titillium Web";
+  font-style: normal;
+}
+.footer--wrapper .container .footer {
+  gap: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
+}
+.footer--wrapper .footer-link a,
+.footer--wrapper a {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.footer--wrapper .footer-link a:not(:focus-visible, :focus, :hover),
+.footer--wrapper a:not(:focus-visible, :focus, :hover) {
+  text-decoration: none;
+}
+.footer--wrapper .logo-footer {
+  display: flex;
+  align-items: center;
+}
+.footer--wrapper .logo-footer h1,
+.footer--wrapper .logo-footer .h1 {
+  display: block;
+  font-weight: 400;
+  font-size: 1.313rem;
+  line-height: 1.29;
+  letter-spacing: 0;
+  margin: 0 0 0 25px;
+  color: #ffffff;
+}
+@media (max-width: 991.98px) {
+  .footer--wrapper .logo-footer h1,
+.footer--wrapper .logo-footer .h1 {
+    font-size: 10px;
+    margin-left: 15px;
+  }
+}
+.footer--wrapper .logo-footer h1 span,
+.footer--wrapper .logo-footer .h1 span {
+  display: block;
+}
+.footer--wrapper .logo-footer h1 span strong,
+.footer--wrapper .logo-footer .h1 span strong {
+  font-weight: 700;
+}
+.footer--wrapper .logo-footer::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.footer--wrapper .logo-footer svg {
+  width: 64px;
+  height: 72px;
+  display: block;
+  fill: white;
+}
+@media (max-width: 991.98px) {
+  .footer--wrapper .logo-footer svg {
+    width: 40px;
+    height: 45px;
+  }
+}
+.footer--wrapper h3,
+.footer--wrapper .h3 {
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 40px;
+  font-size: clamp(1.5rem, 6vw, 1.75rem);
+}
+
+.footer-list ul {
+  padding: 0;
+  list-style: none;
+}
+.footer-list ul li {
+  margin: 0 0 0 0;
+}
+
+.footer-inline-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-weight: 600;
+  list-style: none;
+  padding: 0;
+  row-gap: 10px;
+  column-gap: 30px;
+  /* li {
+    padding-right: 30px;
+  } */
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  position: relative;
+  z-index: 0;
+  padding: 20px 0;
+  margin: 20px 0 0 0;
+}
+.footer-text p {
+  margin: 0;
+}
+.footer-text::before, .footer-text::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.27;
+}
+
+.sub-footer {
+  display: flex;
+}
+@media (max-width: 991.98px) {
+  .sub-footer {
+    flex-direction: column;
+  }
+}
+.sub-footer .footer-social {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media (max-width: 991.98px) {
+  .sub-footer .footer-social {
+    margin-left: 0px;
+  }
+}
+
+.footer-social {
+  display: flex;
+  color: #ffffff;
+}
+.footer-social .footer-social-wrapper {
+  display: flex;
+  align-items: center;
+}
+.footer-social a {
+  color: #ffffff;
+  margin-left: 8px;
+}
+.footer-social a svg {
+  fill: #ffffff;
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.footer-social span {
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=martino.css.map */

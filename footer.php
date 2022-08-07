@@ -9,7 +9,7 @@
  * @package Design_Scuole_Italia
  */
 ?>
-<footer id="footer-wrapper" class="footer-wrapper">
+<footer id="footer--wrapper" class="footer--wrapper">
     <div class="container">
         <div class="row variable-gutters mb-5">
             <div class="col logos-wrapper">
@@ -30,26 +30,26 @@
                 </div><!-- /logo-footer -->
             </div><!-- /col -->
         </div><!-- /row -->
-        <div class="row variable-gutters mb-3">
-            <div class="col-lg-3">
+        <div class="footer">
+            <div class="footer--column">
                 <?php dynamic_sidebar( 'footer-1' ); ?>
-            </div><!-- /col-lg-3 -->
-            
-            <div class="col-lg-3">
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
                 <?php dynamic_sidebar( 'footer-2' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
 
-            <div class="col-lg-3">
+            <div class="footer--column">
                 <?php dynamic_sidebar( 'footer-3' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
 
-            <div class="col-lg-3">
+            <div class="footer--column">
                 <?php dynamic_sidebar( 'footer-4' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
 
-            <div class="col-lg-3">
+            <div class="footer--column">
                 <?php dynamic_sidebar( 'footer-5' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
         </div><!-- /row -->
 
         <div class="row variable-gutters">

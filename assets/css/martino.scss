@@ -1,5 +1,9 @@
 // Martino Martini Styles
 
+@import '../../node_modules/bootstrap/scss/_functions';
+@import '../../node_modules/bootstrap/scss/_variables';
+@import '../../node_modules/bootstrap/scss/mixins/_breakpoints';
+
 
 //variable
 @import "martino-scss/variable/color";
@@ -10,4 +14,5 @@
 
 //block
 @import "martino-scss/block/hero";
+@import "martino-scss/block/footer";
 
