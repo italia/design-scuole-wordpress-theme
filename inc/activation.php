@@ -708,6 +708,10 @@ function dsi_create_pages_on_theme_activation() {
         set_theme_mod('nav_menu_locations', $locations_primary_arr);
         update_option('menu_check', true);
     }
+    // TODO Add links to pages in `servizi` menu
+    // !HELP 
+    // labels: enhancement, help wanted
+    // assignees: paolosartori
     /**
      * creo il menu Servizi
      */
