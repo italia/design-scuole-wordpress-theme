@@ -32,22 +32,32 @@
         </div><!-- /row -->
         <div class="footer">
             <div class="footer--column">
+                <input type="checkbox" id="footer--column-1" name="footer-column" checked>
+                <label for="footer--column-1">
                 <?php dynamic_sidebar( 'footer-1' ); ?>
             </div><!-- /footer--column -->
 
             <div class="footer--column">
+                <input type="checkbox" id="footer--column-2" name="footer-column">
+                <label for="footer--column-2">
                 <?php dynamic_sidebar( 'footer-2' ); ?>
             </div><!-- /footer--column -->
 
             <div class="footer--column">
+                <input type="checkbox" id="footer--column-3" name="footer-column">
+                <label for="footer--column-3">
                 <?php dynamic_sidebar( 'footer-3' ); ?>
             </div><!-- /footer--column -->
 
             <div class="footer--column">
+                <input type="checkbox" id="footer--column-4" name="footer-column">
+                <label for="footer--column-4">
                 <?php dynamic_sidebar( 'footer-4' ); ?>
             </div><!-- /footer--column -->
 
             <div class="footer--column">
+                <input type="checkbox" id="footer--column-5" name="footer-column">
+                <label for="footer--column-5">
                 <?php dynamic_sidebar( 'footer-5' ); ?>
             </div><!-- /footer--column -->
         </div><!-- /row -->

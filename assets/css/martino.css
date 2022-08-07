@@ -34,6 +34,64 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
 }
+.footer--wrapper .container .footer > .footer--column label {
+  width: 100%;
+}
+.footer--wrapper .container .footer > .footer--column label h2 {
+  position: relative;
+}
+.footer--wrapper .container .footer > .footer--column input[type=checkbox] {
+  display: none;
+}
+@media (max-width: 507.98px) {
+  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label h2:empty::after {
+    margin-left: 0;
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+    color: #ffffff;
+    float: right;
+    position: relative;
+    top: 45%;
+    margin-left: auto;
+    margin-right: 0;
+    margin-block: 1rem;
+  }
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2:empty::after {
+    margin-left: 0;
+  }
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+    color: #ffffff;
+    float: right;
+    position: relative;
+    top: 45%;
+    margin-left: auto;
+    margin-right: 0;
+    margin-block: 1rem;
+  }
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label + .footer-list {
+    display: none;
+  }
+}
 .footer--wrapper .footer-link a,
 .footer--wrapper a {
   color: #ffffff;
