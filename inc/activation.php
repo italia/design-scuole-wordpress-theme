@@ -791,23 +791,23 @@ function dsi_create_pages_on_theme_activation() {
 
         $term = get_term_by("name", "Notizie", "tipologia-articolo");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Le notizie', "design_scuole_italia"),
+            'menu-item-title' => __('News', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-type' => 'taxonomy',
             'menu-item-object' => 'tipologia-articolo',
             'menu-item-object-id' => $term->term_id,
-            'menu-item-attr-title' => __('Le notizie', "design_scuole_italia"),
+            'menu-item-attr-title' => __('News', "design_scuole_italia"),
             'menu-item-classes' => 'footer-link',
         ));
 
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Le circolari', "design_scuole_italia"),
-            'menu-item-status' => 'publish',
-            'menu-item-object' => 'circolare',
-            'menu-item-type' => 'post_type_archive',
-            'menu-item-attr-title' => __('Le circolari', "design_scuole_italia"),
-            'menu-item-classes' => 'footer-link',
-        ));
+        // wp_update_nav_menu_item($menu->term_id, 0, array(
+        //     'menu-item-title' => __('Le circolari', "design_scuole_italia"),
+        //     'menu-item-status' => 'publish',
+        //     'menu-item-object' => 'circolare',
+        //     'menu-item-type' => 'post_type_archive',
+        //     'menu-item-attr-title' => __('Le circolari', "design_scuole_italia"),
+        //     'menu-item-classes' => 'footer-link',
+        // ));
 
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Calendario eventi', "design_scuole_italia"),
@@ -818,16 +818,16 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
-        $term = get_term_by("name", "Albo online", "tipologia-documento");
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Albo online', "design_scuole_italia"),
-            'menu-item-status' => 'publish',
-            'menu-item-type' => 'taxonomy',
-            'menu-item-object' => 'tipologia-documento',
-            'menu-item-object-id' => $term->term_id,
-            'menu-item-attr-title' => __('Albo online', "design_scuole_italia"),
-            'menu-item-classes' => 'footer-link',
-        ));
+        // $term = get_term_by("name", "Albo online", "tipologia-documento");
+        // wp_update_nav_menu_item($menu->term_id, 0, array(
+        //     'menu-item-title' => __('Albo online', "design_scuole_italia"),
+        //     'menu-item-status' => 'publish',
+        //     'menu-item-type' => 'taxonomy',
+        //     'menu-item-object' => 'tipologia-documento',
+        //     'menu-item-object-id' => $term->term_id,
+        //     'menu-item-attr-title' => __('Albo online', "design_scuole_italia"),
+        //     'menu-item-classes' => 'footer-link',
+        // ));
 
 
         $locations_primary_arr = get_theme_mod('nav_menu_locations');
