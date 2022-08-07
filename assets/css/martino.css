@@ -44,6 +44,15 @@
   display: none;
 }
 @media (max-width: 507.98px) {
+  .footer--wrapper .container .footer > .footer--column input ~ .footer-list {
+    padding-inline: max(1rem, 3vw);
+  }
+  .footer--wrapper .container .footer > .footer--column input + label {
+    border-top: 1px solid #ffffff;
+  }
+  .footer--wrapper .container .footer > .footer--column input + label h2 {
+    margin: 1rem 0 0 0;
+  }
   .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
     display: inline-block;
     margin-left: 0.255em;

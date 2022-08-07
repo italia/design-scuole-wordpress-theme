@@ -1,3 +1,6 @@
+// $footer-use-tabs: 'false';
+$footer-use-tabs: 'true';
+
 .footer--wrapper {
     // background-color: #5a768a;
     /* material-theme/sys/dark/primary-container */
@@ -32,29 +35,23 @@
 
                 //     }
                 // }
+                @if $footer-use-tabs == 'true' {
                 
-                @include media-breakpoint-down(xs,$breakpoints: (
-                    xs: 0,
-                    sm: 508px,
-                )) {
-                    &:checked+label h2 {
-                        @include caret(up);
-                        &::after {
-                            color: #ffffff;
-                            float: right;
-                            position: relative;
-                            top:45%;
-                            margin-left: auto;
-                            margin-right: 0;
-                            margin-block: 1rem;
+                    @include media-breakpoint-down(xs,$breakpoints: (
+                        xs: 0,
+                        sm: 508px,
+                    )) {
+                        ~.footer-list {
+                            padding-inline: max(1rem,3vw);
                         }
-                        // +.footer-list {
-
-                        // }
-                    }
-                    &:not(:checked)+label  {
-                        &>h2 {
-                            @include caret(down);
+                        +label {
+                            border-top: 1px solid #ffffff;
+                        }
+                        +label h2 {
+                            margin: 1rem 0 0 0 ;
+                        }
+                        &:checked+label h2 {
+                            @include caret(up);
                             &::after {
                                 color: #ffffff;
                                 float: right;
@@ -64,9 +61,26 @@
                                 margin-right: 0;
                                 margin-block: 1rem;
                             }
+                            // +.footer-list {
+
+                            // }
                         }
-                        +.footer-list {
-                            display: none;
+                        &:not(:checked)+label  {
+                            &>h2 {
+                                @include caret(down);
+                                &::after {
+                                    color: #ffffff;
+                                    float: right;
+                                    position: relative;
+                                    top:45%;
+                                    margin-left: auto;
+                                    margin-right: 0;
+                                    margin-block: 1rem;
+                                }
+                            }
+                            +.footer-list {
+                                display: none;
+                            }
                         }
                     }
                 }
