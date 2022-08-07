@@ -1068,6 +1068,86 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-attr-title' => __('Comune', "design_scuole_italia"),
         ));
     }
+    /**
+     * creo il menu Area Personale
+     */
+    $name = __('Area Personale', "design_scuole_italia");
+
+    wp_delete_nav_menu($name);
+    $menu_object = wp_get_nav_menu_object( $name );
+    if($menu_object) {
+        $menu_area_personale = $menu_object->term_id;
+    }else{
+
+        $menu_id = wp_create_nav_menu($name);
+        $menu = get_term_by('id', $menu_id, 'nav_menu');
+        $menu_area_personale = $menu_id;
+
+        // TODO Add links to pages in `area personale` menu
+        // !HELP 
+        // labels: enhancement, help wanted
+        // assignees: paolosartori, ToldoDesign128
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('GestOre', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('GestOre', "design_scuole_italia"),
+        ));
+
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Prenotazione sportelli', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('Prenotazione sportelli', "design_scuole_italia"),
+        ));
+
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Mastercom', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('Mastercom', "design_scuole_italia"),
+        ));
+
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Piani di lavoro', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('Piani di lavoro', "design_scuole_italia"),
+        ));
+
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('FAD', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('FAD', "design_scuole_italia"),
+        ));
+
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Modulistica docenti', "design_scuole_italia"),
+            'menu-item-url' => "#",
+            'menu-item-status' => 'publish',
+            'menu-item-type' => 'custom', // optional
+            // 'menu-item-target' => '_blank',
+            'menu-item-classes' => 'footer-link',
+            'menu-item-attr-title' => __('Modulistica docenti', "design_scuole_italia"),
+        ));
+
+    }
 
     /**
      * aggiungo i menu come widget
@@ -1108,8 +1188,7 @@ function dsi_create_pages_on_theme_activation() {
     $active_widgets["footer-5"][0] = 'nav_menu-4' ;
     $nav_menu[ 4 ] = array (
         'title'        => 'Area Personale',
-        // 'nav_menu'     => $menu_area_personale,
-        'nav_menu'     => $menu_link_esterno,
+        'nav_menu'     => $menu_area_personale,
         'menu-item-classes' => 'footer-link',
     );
 
