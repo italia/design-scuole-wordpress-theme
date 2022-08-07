@@ -993,38 +993,39 @@ function dsi_create_pages_on_theme_activation() {
     unset( $active_widgets );
     $active_widgets["footer-1"][0] = 'nav_menu-0' ;
     $nav_menu[ 0 ] = array (
-        'title'        => 'Link Esterni',
-        'nav_menu'     => $menu_link_esterno,
-        'menu-item-classes' => 'footer-link',
-    );
-    // unset( $active_widgets["footer-1"][1]);
-    // unset( $active_widgets["footer-1"][2]);
-
-    $active_widgets["footer-2"][0] = 'nav_menu-1' ;
-    $nav_menu[ 1 ] = array (
         'title'        => 'La Scuola',
         'nav_menu'     => $menu_scuola,
         'menu-item-classes' => 'footer-link',
     );
-
-    $active_widgets["footer-3"][0] = 'nav_menu-2' ;
-    $nav_menu[ 2 ] = array (
-        'title'        => 'I Servizi',
+    // unset( $active_widgets["footer-1"][1]);
+    // unset( $active_widgets["footer-1"][2]);
+    
+    $active_widgets["footer-2"][0] = 'nav_menu-1' ;
+    $nav_menu[ 1 ] = array (
+        'title'        => 'Servizi',
         'nav_menu'     => $menu_servizi,
         'menu-item-classes' => 'footer-link',
     );
-
+    
+    $active_widgets["footer-3"][0] = 'nav_menu-2' ;
+    $nav_menu[ 2 ] = array (
+        'title'        => 'Notizie',
+        'nav_menu'     => $menu_notizie,
+        'menu-item-classes' => 'footer-link',
+    );
+    
     $active_widgets["footer-4"][0] = 'nav_menu-3' ;
     $nav_menu[ 3 ] = array (
         'title'        => 'Didattica',
         'nav_menu'     => $menu_didattica,
         'menu-item-classes' => 'footer-link',
     );
-
+    
     $active_widgets["footer-5"][0] = 'nav_menu-4' ;
     $nav_menu[ 4 ] = array (
-        'title'        => 'Novità',
-        'nav_menu'     => $menu_notizie,
+        'title'        => 'Area Personale',
+        // 'nav_menu'     => $menu_area_personale,
+        'nav_menu'     => $menu_link_esterno,
         'menu-item-classes' => 'footer-link',
     );
 
