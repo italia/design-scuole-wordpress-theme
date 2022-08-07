@@ -988,16 +988,17 @@ function dsi_create_pages_on_theme_activation() {
     /**
      * aggiungo i menu come widget
      */
-
+    
     $active_widgets = get_option( 'sidebars_widgets' );
+    unset( $active_widgets );
     $active_widgets["footer-1"][0] = 'nav_menu-0' ;
     $nav_menu[ 0 ] = array (
         'title'        => 'Link Esterni',
         'nav_menu'     => $menu_link_esterno,
         'menu-item-classes' => 'footer-link',
     );
-    unset( $active_widgets["footer-1"][1]);
-    unset( $active_widgets["footer-1"][2]);
+    // unset( $active_widgets["footer-1"][1]);
+    // unset( $active_widgets["footer-1"][2]);
 
     $active_widgets["footer-2"][0] = 'nav_menu-1' ;
     $nav_menu[ 1 ] = array (
@@ -1007,30 +1008,31 @@ function dsi_create_pages_on_theme_activation() {
     );
 
     $active_widgets["footer-3"][0] = 'nav_menu-2' ;
-    $active_widgets["footer-3"][1] = 'nav_menu-5' ;
-
     $nav_menu[ 2 ] = array (
         'title'        => 'I Servizi',
         'nav_menu'     => $menu_servizi,
         'menu-item-classes' => 'footer-link',
     );
-    $nav_menu[ 5 ] = array (
+
+    $active_widgets["footer-4"][0] = 'nav_menu-3' ;
+    $nav_menu[ 3 ] = array (
         'title'        => 'Didattica',
         'nav_menu'     => $menu_didattica,
         'menu-item-classes' => 'footer-link',
     );
 
-    $active_widgets["footer-4"][0] = 'nav_menu-4' ;
-    $active_widgets["footer-4"][1] = 'nav_menu-6' ;
+    $active_widgets["footer-5"][0] = 'nav_menu-4' ;
     $nav_menu[ 4 ] = array (
         'title'        => 'Novità',
         'nav_menu'     => $menu_notizie,
         'menu-item-classes' => 'footer-link',
     );
-    $nav_menu[ 6 ] = array (
-        'title'        => '',
-        'nav_menu'     => $menu_top,
-    );
+
+    // $active_widgets["footer-6"][0] = 'nav_menu-5' ;
+    // $nav_menu[ 5 ] = array (
+    //     'title'        => '',
+    //     'nav_menu'     => $menu_top,
+    // );
 
 
     update_option( 'widget_nav_menu',  $nav_menu);

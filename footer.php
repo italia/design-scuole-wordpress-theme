@@ -34,6 +34,7 @@
             <div class="col-lg-3">
                 <?php dynamic_sidebar( 'footer-1' ); ?>
             </div><!-- /col-lg-3 -->
+            
             <div class="col-lg-3">
                 <?php dynamic_sidebar( 'footer-2' ); ?>
             </div><!-- /col-lg-3 -->
@@ -44,6 +45,10 @@
 
             <div class="col-lg-3">
                 <?php dynamic_sidebar( 'footer-4' ); ?>
+            </div><!-- /col-lg-3 -->
+
+            <div class="col-lg-3">
+                <?php dynamic_sidebar( 'footer-5' ); ?>
             </div><!-- /col-lg-3 -->
         </div><!-- /row -->
 
