@@ -809,14 +809,6 @@ function dsi_create_pages_on_theme_activation() {
         //     'menu-item-classes' => 'footer-link',
         // ));
 
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Calendario eventi', "design_scuole_italia"),
-            'menu-item-status' => 'publish',
-            'menu-item-object' => 'evento',
-            'menu-item-type' => 'post_type_archive',
-            'menu-item-attr-title' => __('Calendario eventi', "design_scuole_italia"),
-            'menu-item-classes' => 'footer-link',
-        ));
 
         // $term = get_term_by("name", "Albo online", "tipologia-documento");
         // wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -862,12 +854,32 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
+        // wp_update_nav_menu_item($menu->term_id, 0, array(
+        //     'menu-item-title' => __('Le schede didattiche', "design_scuole_italia"),
+        //     'menu-item-status' => 'publish',
+        //     'menu-item-object' => 'scheda_didattica',
+        //     'menu-item-type' => 'post_type_archive',
+        //     'menu-item-attr-title' => __('Le schede didattiche', "design_scuole_italia"),
+        //     'menu-item-classes' => 'footer-link',
+        // ));
+
+        // TODO Add links to pages in `didattica` menu
+        // !HELP 
+        // Alternanza Scuola-Lavoro
+        // EDA - 1° livello terza media
+        // EDA - 2° livello ITE serale
+        // EDA - Corsi liberi
+        // Orario classi
+        // Orario docenti
+        // Orario laboratori
+        // labels: enhancement, help wanted
+        // assignees: paolosartori, ToldoDesign128
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Le schede didattiche', "design_scuole_italia"),
+            'menu-item-title' => __('Calendario', "design_scuole_italia"),
             'menu-item-status' => 'publish',
-            'menu-item-object' => 'scheda_didattica',
+            'menu-item-object' => 'evento',
             'menu-item-type' => 'post_type_archive',
-            'menu-item-attr-title' => __('Le schede didattiche', "design_scuole_italia"),
+            'menu-item-attr-title' => __('Calendario', "design_scuole_italia"),
             'menu-item-classes' => 'footer-link',
         ));
 
