@@ -50,20 +50,24 @@ $footer-use-tabs: 'true';
                         +label h2 {
                             margin: 1rem 0 0 0 ;
                         }
-                        &:checked+label h2 {
-                            @include caret(up);
-                            &::after {
-                                color: #ffffff;
-                                float: right;
-                                position: relative;
-                                top:45%;
-                                margin-left: auto;
-                                margin-right: 0;
-                                margin-block: 1rem;
+                        &:checked+label {
+                            h2 {
+                                @include caret(up);
+                                &::after {
+                                    color: #ffffff;
+                                    float: right;
+                                    position: relative;
+                                    top:45%;
+                                    margin-left: auto;
+                                    margin-right: 0;
+                                    margin-block: 1rem;
+                                }
                             }
-                            // +.footer-list {
-
-                            // }
+                            +.footer-list a {
+                                display: inline-block;
+                                width: 100%;
+                                padding-block: clamp(0.2rem, 3rem - 8vw, .8rem);
+                            }
                         }
                         &:not(:checked)+label  {
                             &>h2 {

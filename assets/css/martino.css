@@ -75,6 +75,11 @@
     margin-right: 0;
     margin-block: 1rem;
   }
+  .footer--wrapper .container .footer > .footer--column input:checked + label + .footer-list a {
+    display: inline-block;
+    width: 100%;
+    padding-block: clamp(0.2rem, 3rem - 8vw, 0.8rem);
+  }
   .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
     display: inline-block;
     margin-left: 0.255em;
