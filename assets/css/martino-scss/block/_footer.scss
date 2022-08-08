@@ -7,7 +7,7 @@ $footer-use-tabs: 'true';
     background: #004882;
     color: #ffffff;
     // padding: 50px 0;
-    padding: 3.5rem 1.1878rem;
+    padding: 4rem 1.1878rem;
     font-family: 'Titillium Web';
     font-style: normal;
     .container .footer {
@@ -18,6 +18,9 @@ $footer-use-tabs: 'true';
 
         & > .footer--column {
             label {
+                margin-bottom: -.6rem;
+                padding-bottom: 1rem;
+                z-index: 10;
                 width: 100%;
                 h2 {
                     position: relative;
@@ -100,6 +103,8 @@ $footer-use-tabs: 'true';
         font-size: .875rem;
         font-weight: 600;
         text-decoration: underline;
+        display: inline-block;
+        width: 100%;
         
         &:not(:focus-visible, :focus, :hover) {
             text-decoration: none;
