@@ -9,8 +9,27 @@
  * @package Design_Scuole_Italia
  */
 ?>
-<footer id="footer-wrapper" class="footer-wrapper">
+<footer id="footer--wrapper" class="footer--wrapper">
     <div class="container">
+
+        <div class="row variable-gutters">
+            <div class="col-lg-12 sub-footer">
+                <?php
+                $show_socials = dsi_get_option( "show_socials", "socials" );
+                if($show_socials == "true") : ?>
+                    <div class="footer-social">
+                        <span>Seguici su:</span>
+                        <div class="footer-social-wrapper">
+                            <?php if($facebook = dsi_get_option( "facebook", "socials" )) :?><a href="<?php echo $facebook; ?>" aria-label="facebook" title="vai alla pagina facebook"><svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg></a><?php endif; ?>
+                            <?php if($youtube = dsi_get_option( "youtube", "socials" )) :?><a href="<?php echo $youtube; ?>" aria-label="youtube" title="vai alla pagina youtube"><svg class="icon it-social-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-youtube"></use></svg></a><?php endif; ?>
+                            <?php if($instagram = dsi_get_option( "instagram", "socials" )) :?><a href="<?php echo $instagram; ?>" aria-label="instagram" title="vai alla pagina instagram"><svg class="icon it-social-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-instagram"></use></svg></a><?php endif; ?>
+                            <?php if($twitter = dsi_get_option( "twitter", "socials" )) :?><a href="<?php echo $twitter; ?>" aria-label="twitter" title="vai alla pagina twitter"><svg class="icon it-social-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-twitter"></use></svg></a><?php endif; ?>
+                            <?php if($linkedin = dsi_get_option( "linkedin", "socials" )) :?><a href="<?php echo $linkedin; ?>" aria-label="linkedin" title="vai alla pagina linkedin"><svg class="icon it-social-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-linkedin"></use></svg></a><?php endif; ?>
+                        </div><!-- /footer-social-wrapper -->
+                    </div><!-- /gooter-social -->
+                <?php endif ?>
+            </div>
+        </div><!-- /row -->
         <div class="row variable-gutters mb-5">
             <div class="col logos-wrapper">
                 <img class="ue-logo"
@@ -30,26 +49,40 @@
                 </div><!-- /logo-footer -->
             </div><!-- /col -->
         </div><!-- /row -->
-        <div class="row variable-gutters mb-3">
-            <div class="col-lg-3">
+        <div class="footer">
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-1" name="footer-column" checked>
+                <label for="footer--column-1">
                 <?php dynamic_sidebar( 'footer-1' ); ?>
-            </div><!-- /col-lg-3 -->
-            <div class="col-lg-3">
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-2" name="footer-column">
+                <label for="footer--column-2">
                 <?php dynamic_sidebar( 'footer-2' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
 
-            <div class="col-lg-3">
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-3" name="footer-column">
+                <label for="footer--column-3">
                 <?php dynamic_sidebar( 'footer-3' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
 
-            <div class="col-lg-3">
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-4" name="footer-column">
+                <label for="footer--column-4">
                 <?php dynamic_sidebar( 'footer-4' ); ?>
-            </div><!-- /col-lg-3 -->
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-5" name="footer-column">
+                <label for="footer--column-5">
+                <?php dynamic_sidebar( 'footer-5' ); ?>
+            </div><!-- /footer--column -->
         </div><!-- /row -->
 
-        <div class="row variable-gutters">
-            <div class="col-lg-12 sub-footer">
-                <?php
+        <section class="bottom">
+        <?php
                 $location = "menu-footer";
                 if ( has_nav_menu( $location ) ) {
                     wp_nav_menu(array(
@@ -57,39 +90,12 @@
                         "depth" => 1, 
                         "menu_class" => "footer-inline-menu", 
                         "container" => "",
-                        'walker' => new Footer_Menu_Walker()
+                        "item" => 'privacy-policy',
+                        'walker' => new Footer_Privacy_Walker()
                     ));
                 }
                 ?>
-                <?php
-                $show_socials = dsi_get_option( "show_socials", "socials" );
-                if($show_socials == "true") : ?>
-                    <div class="footer-social">
-                        <span>Seguici su:</span>
-                        <div class="footer-social-wrapper">
-                            <?php if($facebook = dsi_get_option( "facebook", "socials" )) :?><a href="<?php echo $facebook; ?>" aria-label="facebook" title="vai alla pagina facebook"><svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg></a><?php endif; ?>
-                            <?php if($youtube = dsi_get_option( "youtube", "socials" )) :?><a href="<?php echo $youtube; ?>" aria-label="youtube" title="vai alla pagina youtube"><svg class="icon it-social-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-youtube"></use></svg></a><?php endif; ?>
-                            <?php if($instagram = dsi_get_option( "instagram", "socials" )) :?><a href="<?php echo $instagram; ?>" aria-label="instagram" title="vai alla pagina instagram"><svg class="icon it-social-instagram"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-instagram"></use></svg></a><?php endif; ?>
-                            <?php if($twitter = dsi_get_option( "twitter", "socials" )) :?><a href="<?php echo $twitter; ?>" aria-label="twitter" title="vai alla pagina twitter"><svg class="icon it-social-twitter"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-twitter"></use></svg></a><?php endif; ?>
-                            <?php if($linkedin = dsi_get_option( "linkedin", "socials" )) :?><a href="<?php echo $linkedin; ?>" aria-label="linkedin" title="vai alla pagina linkedin"><svg class="icon it-social-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-linkedin"></use></svg></a><?php endif; ?>
-                        </div><!-- /footer-social-wrapper -->
-                    </div><!-- /gooter-social -->
-                <?php endif ?>
-            </div>
-        </div><!-- /row -->
-        <?php
-        $footer_text = dsi_get_option("footer_text", "setup");
-        if(isset($footer_text) && trim($footer_text) != "") {
-            ?>
-            <div class="row variable-gutters mb-3">
-                <div class="col-lg-12 text-left text-md-center footer-text">
-                    <?php echo wpautop($footer_text); ?>
-                </div>
-            </div>
-            <?php
-        }
-        get_template_part("template-parts/common/copy");
-        ?>
+        </section>
 
 </footer>
 </div><!-- /push_container -->
