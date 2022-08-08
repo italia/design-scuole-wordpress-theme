@@ -7,7 +7,7 @@ $footer-use-tabs: 'true';
     background: #004882;
     color: #ffffff;
     // padding: 50px 0;
-    padding: 50px 1.1878rem;
+    padding: 3.5rem 1.1878rem;
     font-family: 'Titillium Web';
     font-style: normal;
     .container .footer {
@@ -92,24 +92,24 @@ $footer-use-tabs: 'true';
         //     &:last-of-type {
                 
         //     }
-        }
     }
+}
     .footer-link a,
     a {
         color: #ffffff;
         font-size: .875rem;
         font-weight: 600;
         text-decoration: underline;
-
+        
         &:not(:focus-visible, :focus, :hover) {
             text-decoration: none;
         }
     }
-
+    
     .logo-footer {
         display: flex;
         align-items: center;
-
+        
         h1,
         .h1 {
             display: block;
@@ -127,25 +127,25 @@ $footer-use-tabs: 'true';
 
             span {
                 display: block;
-
+                
                 strong {
                     font-weight: 700;
                 }
             }
         }
-
+        
         &::after {
             display: block;
             clear: both;
             content: "";
         }
-
+        
         svg {
             width: 64px;
             height: 72px;
             display: block;
             fill: white;
-
+            
             @include media-breakpoint-down(md) {
                 width: 40px;
                 height: 45px;
@@ -162,13 +162,32 @@ $footer-use-tabs: 'true';
         line-height: 40px;
         font-size: clamp(1.5rem, 6vw, 1.75rem);
     }
-
+    position: relative;
+    .bottom {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        ul {
+            margin-block: .8rem;
+            li {
+                margin-inline: auto;
+                a {
+                    font-size: 1.125rem;
+                    font-weight: normal;
+                    color: #000;
+                }
+            }
+        }
+    }
 }
 
 .footer-list ul {
     padding: 0;
     list-style: none;
-
+    
     li {
         margin: 0 0 0 0;
     }

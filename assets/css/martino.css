@@ -25,9 +25,10 @@
   /* material-theme/sys/dark/primary-container */
   background: #004882;
   color: #ffffff;
-  padding: 50px 1.1878rem;
+  padding: 3.5rem 1.1878rem;
   font-family: "Titillium Web";
   font-style: normal;
+  position: relative;
 }
 .footer--wrapper .container .footer {
   gap: 0.7rem;
@@ -169,6 +170,25 @@
   font-weight: 700;
   line-height: 40px;
   font-size: clamp(1.5rem, 6vw, 1.75rem);
+}
+.footer--wrapper .bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+}
+.footer--wrapper .bottom ul {
+  margin-block: 0.8rem;
+}
+.footer--wrapper .bottom ul li {
+  margin-inline: auto;
+}
+.footer--wrapper .bottom ul li a {
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: #000;
 }
 
 .footer-list ul {
