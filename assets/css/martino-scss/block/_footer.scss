@@ -158,14 +158,21 @@ $footer-use-tabs: 'true';
             content: "";
         }
 
+        a {
+            width: fit-content;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
         svg {
-            width: 64px;
-            height: 72px;
+            width: 4rem;
+            height: 4rem;
             display: block;
-            fill: white;
+            border-radius: 50%;
+            background-color: currentColor;
 
             @include media-breakpoint-down(md) {
-                width: 40px;
+                width: 45px;
                 height: 45px;
             }
         }
