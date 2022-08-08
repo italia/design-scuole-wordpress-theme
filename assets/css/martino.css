@@ -5,21 +5,22 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 42px;
   line-height: 48px;
   color: #1260A4;
+  padding-bottom: 1.5rem;
 }
 
 h3 {
   font-size: 32px;
   line-height: 40px;
-  color: black;
+  color: #1260A4;
 }
 
 h4 {
   font-size: 28px;
   line-height: 40px;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   color: #1260A4;
 }
@@ -28,7 +29,7 @@ h5 {
   font-size: 24px;
   line-height: 28px;
   font-weight: bold;
-  color: #1260A4;
+  color: black;
 }
 
 h6 {
@@ -44,6 +45,14 @@ h6 {
 }
 
 #image-block a {
+  color: #1260A4;
+}
+
+#text-block a {
+  color: #1260A4;
+}
+
+#sidebar h5 {
   color: #1260A4;
 }
 
@@ -149,6 +158,10 @@ h6 {
 #quotes {
   font-style: italic;
   color: #1260A4;
+}
+
+.img-mobile {
+  max-width: 90vw;
 }
 
 #hero {

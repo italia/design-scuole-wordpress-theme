@@ -7,20 +7,21 @@ h1  {
     // da definire per pagine senza hero
 
 h2 {
-    font-size: 40px;
+    font-size: 42px;
     line-height: 48px;
     color: $primary;
+    padding-bottom: 1.5rem;
 }
 
 h3 {
     font-size: 32px;
     line-height: 40px;
-    color: black;
+    color: $primary;
 }
 h4 {
     font-size: 28px;
     line-height: 40px;
-    font-weight: bold;
+    font-weight: normal;
     text-transform: uppercase;
     color: $primary;
     }
@@ -28,7 +29,7 @@ h5{
     font-size: 24px;
     line-height: 28px;
     font-weight: bold;
-    color: $primary;
+    color: black;
 }
 h6 {
     font-size: 18px;
@@ -44,6 +45,18 @@ h6 {
 
 #image-block {
     a {
+        color: $primary;
+    }
+}
+
+#text-block {
+    a {
+            color: $primary;
+        }
+}
+
+#sidebar {
+    h5 {
         color: $primary;
     }
 }
