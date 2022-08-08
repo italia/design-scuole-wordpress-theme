@@ -1,0 +1,36 @@
+.container {
+    max-width: 90%;
+    padding: 0px;
+}
+
+.article-title .container {
+    height: auto;
+    position: static;
+}
+
+#article-title {
+    position: static;
+    height: auto;
+    display: block;
+}
+
+#title-img {
+    img {
+        max-height: 400px;
+        width: 100%;
+    }
+}
+
+// related projects
+#related_projects {
+    list-style-type: none;
+    padding: 0rem;
+}
+
+#card-sidebar {
+    display: block;
+}
+
+#card-sidebar-width {
+    max-width: 23.2rem;
+}

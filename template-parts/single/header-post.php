@@ -10,7 +10,7 @@ $image_url = get_the_post_thumbnail_url($post, "item-gallery");
 $autore = get_user_by("ID", $post->post_author);
 ?>
 <?php if(has_post_thumbnail($post)){ ?>
-<section class="section bg-white article-title article-title-author">
+<section class="section bg-white">
     <?php
     $colsize = 12;
     }else{
@@ -29,7 +29,9 @@ $autore = get_user_by("ID", $post->post_author);
                         get_template_part("template-parts/common/badges-argomenti"); ?>
                     </div>
                     <div>
-                        <div id="article_image" class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                        <div id="title-img" class=""> 
+                            <?php echo get_the_post_thumbnail($page->ID, 'full'); ?>
+                        </div>
                         <?php get_template_part( "template-parts/single/bottom" ); ?>
                     </div>
                 </div><!-- /col-md-6 -->

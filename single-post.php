@@ -52,7 +52,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
 
-                <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
+                    <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
                         <div class="col-12">
                         <?php get_template_part("template-parts/single/more-posts"); ?>
                         </div><!-- /news correlate -->
@@ -85,7 +85,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 ?>
                         </div><!-- /allegati -->
                     </div><!-- /sidebar-->
-                
+                </div>
                 
                 
             </div><!-- /container -->
