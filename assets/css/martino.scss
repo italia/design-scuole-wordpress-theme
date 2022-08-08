@@ -1,11 +1,34 @@
 // Martino Martini Styles
 
+// /* === Import Bootstrap functions and variables === */
+// @import "/bootstrap/scss/functions";
+// @import "/bootstrap/scss/variables";
+
+// @use '../../node_modules/bootstrap/scss/functions';
+// @use '../../node_modules/bootstrap/scss/variables';
+// @use '../../node_modules/bootstrap/scss/mixins';
+// $caret-width: 1rem !default;
+
+// @use '../../node_modules/bootstrap/scss/mixins/caret' with (
+//                     $caret-width: 1rem
+//                     );
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+// $caret-vertical-align: $caret-width * .85,
+// $caret-spacing: $caret-width * .85
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
 
 //variable
 @import "martino-scss/variable/color";
 @import "martino-scss/variable/spacer";
 @import "martino-scss/variable/typography";
 
+@import "martino-scss/variables";
+
+
+// footer
+@import '../../node_modules/bootstrap/scss/mixins/caret';
 
 //page
 @import "martino-scss/page/articolo";
@@ -25,4 +48,5 @@
 @import "martino-scss/block/btn-md-secondary";
 @import "martino-scss/block/btn-sm-secondary";
 @import "martino-scss/block/btn-mini-default";
+@import "martino-scss/block/footer";
 

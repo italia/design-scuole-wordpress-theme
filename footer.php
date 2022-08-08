@@ -9,58 +9,11 @@
  * @package Design_Scuole_Italia
  */
 ?>
-<footer id="footer-wrapper" class="footer-wrapper">
+<footer id="footer--wrapper" class="footer--wrapper">
     <div class="container">
-        <div class="row variable-gutters mb-5">
-            <div class="col logos-wrapper">
-                <img class="ue-logo"
-                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-eu-inverted.svg' ); ?>"
-                    alt="logo Unione Europea"
-                >
-                <div class="logo-footer">
-                    <?php get_template_part("template-parts/common/logo"); ?>
-
-                    <h2 class="h1">
-                        <a href="<?php echo home_url(); ?>">
-                            <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-                            <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                            <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
-                        </a>
-                    </h2>
-                </div><!-- /logo-footer -->
-            </div><!-- /col -->
-        </div><!-- /row -->
-        <div class="row variable-gutters mb-3">
-            <div class="col-lg-3">
-                <?php dynamic_sidebar( 'footer-1' ); ?>
-            </div><!-- /col-lg-3 -->
-            <div class="col-lg-3">
-                <?php dynamic_sidebar( 'footer-2' ); ?>
-            </div><!-- /col-lg-3 -->
-
-            <div class="col-lg-3">
-                <?php dynamic_sidebar( 'footer-3' ); ?>
-            </div><!-- /col-lg-3 -->
-
-            <div class="col-lg-3">
-                <?php dynamic_sidebar( 'footer-4' ); ?>
-            </div><!-- /col-lg-3 -->
-        </div><!-- /row -->
 
         <div class="row variable-gutters">
             <div class="col-lg-12 sub-footer">
-                <?php
-                $location = "menu-footer";
-                if ( has_nav_menu( $location ) ) {
-                    wp_nav_menu(array(
-                        "theme_location" => $location, 
-                        "depth" => 1, 
-                        "menu_class" => "footer-inline-menu", 
-                        "container" => "",
-                        'walker' => new Footer_Menu_Walker()
-                    ));
-                }
-                ?>
                 <?php
                 $show_socials = dsi_get_option( "show_socials", "socials" );
                 if($show_socials == "true") : ?>
@@ -77,19 +30,72 @@
                 <?php endif ?>
             </div>
         </div><!-- /row -->
+        <div class="row variable-gutters mb-5">
+            <div class="col logos-wrapper">
+                <!-- <img class="ue-logo"
+                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-eu-inverted.svg' ); ?>"
+                    alt="logo Unione Europea"
+                > -->
+                <div class="logo-footer">
+                    <?php get_template_part("template-parts/common/logo"); ?>
+
+                    <h2 class="h1">
+                        <a href="<?php echo home_url(); ?>">
+                            <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
+                            <span><?php echo dsi_get_option("nome_scuola"); ?></span>
+                            <!-- <span><?php echo dsi_get_option("luogo_scuola"); ?></span> -->
+                        </a>
+                    </h2>
+                </div><!-- /logo-footer -->
+            </div><!-- /col -->
+        </div><!-- /row -->
+        <div class="footer">
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-1" name="footer-column" checked>
+                <label for="footer--column-1">
+                <?php dynamic_sidebar( 'footer-1' ); ?>
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-2" name="footer-column">
+                <label for="footer--column-2">
+                <?php dynamic_sidebar( 'footer-2' ); ?>
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-3" name="footer-column">
+                <label for="footer--column-3">
+                <?php dynamic_sidebar( 'footer-3' ); ?>
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-4" name="footer-column">
+                <label for="footer--column-4">
+                <?php dynamic_sidebar( 'footer-4' ); ?>
+            </div><!-- /footer--column -->
+
+            <div class="footer--column">
+                <input type="checkbox" id="footer--column-5" name="footer-column">
+                <label for="footer--column-5">
+                <?php dynamic_sidebar( 'footer-5' ); ?>
+            </div><!-- /footer--column -->
+        </div><!-- /row -->
+
+        <section class="bottom">
         <?php
-        $footer_text = dsi_get_option("footer_text", "setup");
-        if(isset($footer_text) && trim($footer_text) != "") {
-            ?>
-            <div class="row variable-gutters mb-3">
-                <div class="col-lg-12 text-left text-md-center footer-text">
-                    <?php echo wpautop($footer_text); ?>
-                </div>
-            </div>
-            <?php
-        }
-        get_template_part("template-parts/common/copy");
-        ?>
+                $location = "menu-footer";
+                if ( has_nav_menu( $location ) ) {
+                    wp_nav_menu(array(
+                        "theme_location" => $location, 
+                        "depth" => 1, 
+                        "menu_class" => "footer-inline-menu", 
+                        "container" => "",
+                        "item" => 'privacy-policy',
+                        'walker' => new Footer_Privacy_Walker()
+                    ));
+                }
+                ?>
+        </section>
 
 </footer>
 </div><!-- /push_container -->
