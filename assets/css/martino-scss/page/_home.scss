@@ -1,0 +1,29 @@
+#main-container{
+  #presentazione-scuola{
+    margin-top: $spazio-hero;
+  }
+
+  #button-navigazione {
+    margin: 2rem 0;
+
+    a {
+      display: grid;
+    }
+  }
+
+  #w100{
+    width: 100%;
+  }
+
+  .rem5{
+    margin-bottom: 5rem;
+  }
+
+  #spazi-storia{
+    margin-bottom: $spazio-footer;
+  }
+
+  .wauto{
+    width: auto !important;
+  }
+}
