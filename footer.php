@@ -32,18 +32,18 @@
         </div><!-- /row -->
         <div class="row variable-gutters mb-5">
             <div class="col logos-wrapper">
-                <img class="ue-logo"
+                <!-- <img class="ue-logo"
                     src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-eu-inverted.svg' ); ?>"
                     alt="logo Unione Europea"
-                >
+                > -->
                 <div class="logo-footer">
                     <?php get_template_part("template-parts/common/logo"); ?>
 
                     <h2 class="h1">
                         <a href="<?php echo home_url(); ?>">
                             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-                            <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                            <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                            <span><?php echo dsi_get_option("nome_scuola"); ?></span>
+                            <!-- <span><?php echo dsi_get_option("luogo_scuola"); ?></span> -->
                         </a>
                     </h2>
                 </div><!-- /logo-footer -->
