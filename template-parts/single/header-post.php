@@ -19,9 +19,9 @@ $autore = get_user_by("ID", $post->post_author);
         <?php
         $colsize = 12;
         } ?>
-        <div class="container">
+        <div class="">
             <div class="row variable-gutters">
-                <div class="col-<?php echo $colsize; ?> article-title-author-container justify-content-start">
+                <div class="col-<?php echo $colsize; ?>">
                     <div class="title-content">
                         <h1><?php the_title(); ?></h1>
                         <?php

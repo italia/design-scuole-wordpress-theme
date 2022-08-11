@@ -5,7 +5,7 @@ if(!isset($badgeclass))
 $argomenti = dsi_get_argomenti_of_post();
 if(count($argomenti)) {
 	?>
-	<aside class="badges-wrapper badges-main mt-4">
+	<aside class="badges-wrapper badges-main my-4">
 	<div class="badges" id="badge">
 		<?php foreach ( $argomenti as $item ) { ?>
 			<a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" aria-label="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"

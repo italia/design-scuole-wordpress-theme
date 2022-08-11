@@ -234,7 +234,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 </article>
 
                                 <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
-                                <section class="section bg-gray-light py-5" id="art-par-gallery">
+                                <section class="section py-5" id="art-par-gallery">
                                     <div class="container py-4">
                                         <div class="title-section text-center mb-5">
                                             <h3 class="h4">Galleria</h3>

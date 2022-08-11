@@ -21,7 +21,7 @@ if($ct%2)
 		$posts = get_posts($args);
 		foreach ($posts as $post){ ?>
 
-			<div class="col-3" id="card_grandi">
+			<div class="col-lg-3 col-md-6 col-12" id="card_grandi">
 			<?php get_template_part("template-parts/single/card", "grandi"); ?>
 			</div>
 
