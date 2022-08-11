@@ -19,11 +19,12 @@ jobs:
         run: npm install -g sass
       - name: Install dependencies
         run: npm ci
-      # - name: Run build
+      - name: Run build
+        run: npm run development
       #   run: npm run build
-      - name: Run watch
-        run: |
-          bash -c "$(cat package.json | jq -r .scripts.development)"
+      # - name: Run watch
+      #   run: |
+      #     bash -c "$(cat package.json | jq -r .scripts.development)"
       - name: Add and Commit changes
         id: commit
         run: |
