@@ -1,0 +1,43 @@
+@mixin copyText ($target: a) {
+    #{$target}[data-copy-text] {
+        position: relative;
+
+        &::after {
+            content: "...............";
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            padding: .5rem 1rem;
+            background-color: white;
+            color: white;
+            text-align: center;
+            width: fit-content;
+            opacity: .8;
+            clip-path: inset(100% 50% 0 round 16px);
+            transform: translate(-50%, -100%);
+            transition: clip-path .2s ease-in-out;
+        }
+
+        &.copied::after {
+            // TODO Translate text for better UX
+            // labels: help wanted, enhancement
+            // assignees: alessandromagnaguagno, Eccel02, NannaPettene, paolosartori, ToldoDesign128
+            content: "Text copied!";
+            clip-path: inset(0 0 round 4px);
+            color: green;
+            transition: clip-path .2s ease-in;
+        }
+
+        &.copy-failed::after {
+            // TODO Translate text for better UX
+            // labels: help wanted, enhancement
+            // assignees: alessandromagnaguagno, Eccel02, NannaPettene, paolosartori, ToldoDesign128
+            content: "Text was NOT copied :(";
+            clip-path: inset(0 0 round 4px);
+            color: red;
+            transition: clip-path .2s ease-in;
+        }
+
+        @content;
+    }
+}
