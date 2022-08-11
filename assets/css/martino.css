@@ -803,7 +803,7 @@
 .footer--wrapper {
   /* material-theme/sys/dark/primary-container */
   background: #004882;
-  color: #ffffff;
+  color: #fff;
   padding: 4rem 1.1878rem;
   font-family: "Titillium Web";
   font-style: normal;
@@ -831,7 +831,10 @@
     padding-inline: max(1rem, 3vw);
   }
   .footer--wrapper .container .footer > .footer--column input + label {
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid #fff;
+  }
+  .footer--wrapper .container .footer > .footer--column input + label:first-of-type {
+    margin-top: 1rem;
   }
   .footer--wrapper .container .footer > .footer--column input + label h2 {
     margin: 1rem 0 0 0;
@@ -850,7 +853,7 @@
     margin-left: 0;
   }
   .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
-    color: #ffffff;
+    color: #fff;
     float: right;
     position: relative;
     top: 45%;
@@ -877,7 +880,7 @@
     margin-left: 0;
   }
   .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
-    color: #ffffff;
+    color: #fff;
     float: right;
     position: relative;
     top: 45%;
@@ -891,7 +894,7 @@
 }
 .footer--wrapper .footer-link a,
 .footer--wrapper a {
-  color: #ffffff;
+  color: #fff;
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: underline;
@@ -902,48 +905,56 @@
 .footer--wrapper a:not(:focus-visible, :focus, :hover) {
   text-decoration: none;
 }
-.footer--wrapper .logo-footer {
+.footer--wrapper .footer--main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.footer--wrapper .footer--main-wrapper section > div {
+  margin-bottom: 1rem;
+}
+.footer--wrapper .footer--main-wrapper section .logo-footer {
   display: flex;
   align-items: center;
 }
-.footer--wrapper .logo-footer h1,
-.footer--wrapper .logo-footer .h1 {
+.footer--wrapper .footer--main-wrapper section .logo-footer h1,
+.footer--wrapper .footer--main-wrapper section .logo-footer .h1 {
   display: block;
   font-weight: 400;
   font-size: 1.313rem;
   line-height: 1.29;
   letter-spacing: 0;
   margin: 0 0 0 25px;
-  color: #ffffff;
+  color: #fff;
 }
 @media (max-width: 991.98px) {
-  .footer--wrapper .logo-footer h1,
-.footer--wrapper .logo-footer .h1 {
+  .footer--wrapper .footer--main-wrapper section .logo-footer h1,
+.footer--wrapper .footer--main-wrapper section .logo-footer .h1 {
     font-size: 10px;
     margin-left: 15px;
   }
 }
-.footer--wrapper .logo-footer h1 span,
-.footer--wrapper .logo-footer .h1 span {
+.footer--wrapper .footer--main-wrapper section .logo-footer h1 span,
+.footer--wrapper .footer--main-wrapper section .logo-footer .h1 span {
   display: block;
 }
-.footer--wrapper .logo-footer h1 span strong,
-.footer--wrapper .logo-footer .h1 span strong {
+.footer--wrapper .footer--main-wrapper section .logo-footer h1 span strong,
+.footer--wrapper .footer--main-wrapper section .logo-footer .h1 span strong {
   font-weight: 700;
 }
-.footer--wrapper .logo-footer::after {
+.footer--wrapper .footer--main-wrapper section .logo-footer::after {
   display: block;
   clear: both;
   content: "";
 }
-.footer--wrapper .logo-footer a {
+.footer--wrapper .footer--main-wrapper section .logo-footer a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-.footer--wrapper .logo-footer svg {
+.footer--wrapper .footer--main-wrapper section .logo-footer svg {
   width: 4rem;
   height: 4rem;
   display: block;
@@ -951,14 +962,80 @@
   background-color: currentColor;
 }
 @media (max-width: 991.98px) {
-  .footer--wrapper .logo-footer svg {
+  .footer--wrapper .footer--main-wrapper section .logo-footer svg {
     width: 45px;
     height: 45px;
   }
 }
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper {
+  width: 683px;
+  height: 183px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "b0 b1 b2" "grow grow grow";
+  gap: 1.25rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 1200px) {
+  .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper {
+    margin-inline: auto 0;
+  }
+}
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > * {
+  margin: 0;
+  background-color: #fff;
+  border-radius: 0.75rem;
+}
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *:last-of-type {
+  flex-grow: 1;
+  grid-area: grow;
+  width: 100%;
+}
+.footer--wrapper .footer--main-wrapper .footer-info > div > a {
+  font-size: 1.125rem;
+  font-weight: bold;
+  width: 100%;
+}
+@media (min-width: 508px) {
+  .footer--wrapper .footer--main-wrapper .footer-info > div > a {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+.footer--wrapper .footer--main-wrapper .footer-info > div > a[data-prefix]::before {
+  content: attr(data-prefix) " ";
+}
+.footer--wrapper .footer--main-wrapper .footer--social {
+  display: flex;
+  color: #fff;
+}
+.footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper a {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #004882;
+  background-color: #fff;
+}
+.footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper a svg {
+  width: 100%;
+  height: 100%;
+  fill: #004882;
+  display: block;
+}
+.footer--wrapper .footer--main-wrapper .footer--social span {
+  font-weight: 600;
+}
 .footer--wrapper h3,
 .footer--wrapper .h3 {
-  color: #ffffff;
+  color: #fff;
   font-weight: 700;
   line-height: 40px;
   font-size: clamp(1.5rem, 6vw, 1.75rem);
@@ -1018,50 +1095,51 @@
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: #fff;
   bottom: 0;
   left: 0;
   position: absolute;
   z-index: 1;
   opacity: 0.27;
 }
-.footer--wrapper .sub-footer {
-  display: flex;
+.footer--wrapper a[data-copy-text] {
+  position: relative;
 }
-@media (max-width: 991.98px) {
-  .footer--wrapper .sub-footer {
-    flex-direction: column;
-  }
+.footer--wrapper a[data-copy-text]::after {
+  content: "...............";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: white;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  opacity: 0.8;
+  -webkit-clip-path: inset(100% 50% 0 round 16px);
+          clip-path: inset(100% 50% 0 round 16px);
+  transform: translate(-50%, -100%);
+  transition: -webkit-clip-path 0.2s ease-in-out;
+  transition: clip-path 0.2s ease-in-out;
+  transition: clip-path 0.2s ease-in-out, -webkit-clip-path 0.2s ease-in-out;
 }
-.footer--wrapper .sub-footer .footer-social {
-  margin-left: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.footer--wrapper a[data-copy-text].copied::after {
+  content: "Text copied!";
+  -webkit-clip-path: inset(0 0 round 4px);
+          clip-path: inset(0 0 round 4px);
+  color: green;
+  transition: -webkit-clip-path 0.2s ease-in;
+  transition: clip-path 0.2s ease-in;
+  transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
 }
-@media (max-width: 991.98px) {
-  .footer--wrapper .sub-footer .footer-social {
-    margin-left: 0px;
-  }
-}
-.footer--wrapper .footer-social {
-  display: flex;
-  color: #ffffff;
-}
-.footer--wrapper .footer-social .footer-social-wrapper {
-  display: flex;
-  align-items: center;
-}
-.footer--wrapper .footer-social a {
-  color: #ffffff;
-  margin-left: 8px;
-}
-.footer--wrapper .footer-social a svg {
-  fill: #ffffff;
-  width: 18px;
-  height: 18px;
-  display: block;
-}
-.footer--wrapper .footer-social span {
-  font-weight: 600;
+.footer--wrapper a[data-copy-text].copy-failed::after {
+  content: "Text was NOT copied :(";
+  -webkit-clip-path: inset(0 0 round 4px);
+          clip-path: inset(0 0 round 4px);
+  color: red;
+  transition: -webkit-clip-path 0.2s ease-in;
+  transition: clip-path 0.2s ease-in;
+  transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
 }

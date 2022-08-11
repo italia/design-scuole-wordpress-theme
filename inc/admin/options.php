@@ -62,6 +62,16 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
+	$header_options->add_field( array(
+		'id' => $prefix . 'indirizzo_scuola',
+		'name'        => __( 'Indirizzo della Scuola', 'design_scuole_italia' ),
+		'desc' => __( 'Via, numero, CUP - Città' , 'design_scuole_italia' ),
+		'type' => 'text',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
     /**
      * Registers options page "Alerts".
      */
@@ -1296,16 +1306,64 @@ function dsi_register_main_options_metabox() {
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_options',
         'name'        => __( 'Footer', 'design_scuole_italia' ),
-        'desc' => __( 'Area di configurazione del testo da inserire nel footer delle scuole.' , 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del footer' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
-    $setup_options->add_field( array(
-        'id' => $prefix . 'footer_text',
-        'name' => 'Testo Footer',
-        'desc' => __( 'Inserisci nel footer l\'indirizzo, il codice meccanografico, il codice IPA, il codice Fiscale e il CUF ', 'design_scuole_italia' ),
-        'type' => 'textarea'
-    ) );
+	$setup_options->add_field( array(
+		'id' => $prefix . 'gmaps_scuola',
+        'default' => 'https://goo.gl/maps/jn3ThdNhg9YXo64M6',
+		'name'        => __( 'Link Google Maps', 'design_scuole_italia' ),
+		'desc' => __( 'https://goo.gl/maps/XXXXXXXXXXXXXXXXX' ),
+		'type' => 'text_url',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$setup_options->add_field( array(
+		'id' => $prefix . 'telefono_scuola',
+        'default' => '0461601122',
+		'name'        => __( 'Telefono', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$setup_options->add_field( array(
+		'id' => $prefix . 'fax_scuola',
+        'default' => '0461601470',
+		'name'        => __( 'FAX', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$setup_options->add_field( array(
+		'id' => $prefix . 'fiscale_scuola',
+        'default' => '80015240221',
+		'name'        => __( 'Codice fiscale', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$setup_options->add_field( array(
+		'id' => $prefix . 'iban_scuola',
+        'default' => 'IT49V0200835040000005843804',
+		'name'        => __( 'Codice IBAN', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
 
     $setup_options->add_field( array(
         'id' => $prefix . 'altro_istruzioni',
