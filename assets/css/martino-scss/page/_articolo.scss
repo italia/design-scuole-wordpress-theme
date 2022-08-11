@@ -78,9 +78,7 @@
 }
 
 #card_grandi {
-    flex: 0 0 28%;
-    max-width: 28%;
-    min-height: 400px;
+    max-height: 100%;
     margin-bottom: 80px;
     margin-right: 80px;
 }
@@ -423,4 +421,21 @@
 .badge-outline-black:not(:disabled):not(.disabled).active:focus,
 .show>.badge-outline-black.dropdown-toggle:focus {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+.form-check [type=radio]+label::before {
+    content: none;
+}
+
+
+/*filtro*/
+
+#no-round::before,
+#no-round::after {
+    content: none;
+    padding-left: 0rem;
+    color: white;
+    background-color: blue;
+    padding: 5px;
+    border-radius: 15px;
 }

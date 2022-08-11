@@ -9,6 +9,6 @@
     "license": "MIT",
     "repository": {},
     "dependencies": {
-      "bootstrap": "^4.6.1"
+        "bootstrap": "^4.6.1"
     }
-  }
+}
