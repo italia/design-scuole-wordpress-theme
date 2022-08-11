@@ -69,6 +69,28 @@
   width: auto !important;
 }
 
+#container-spazi {
+  margin: 100px;
+}
+#container-spazi h2 {
+  color: #1260A4;
+}
+
+#col-2-spazi {
+  background-color: red;
+}
+
+#row-2-spazi, #row-3-spazi, #row-4-spazi {
+  margin-top: 100px;
+}
+
+#primary {
+  margin: 100px;
+}
+#primary h2 {
+  color: #1260A4;
+}
+
 #hero {
   height: 300px;
   width: 100%;
@@ -422,4 +444,6 @@
   padding: 0.51rem 0.81rem;
   margin-bottom: 1.5rem;
   cursor: default;
-}/*# sourceMappingURL=martino.css.map */
+}
+
+/*# sourceMappingURL=martino.css.map */
