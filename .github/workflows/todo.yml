@@ -23,7 +23,7 @@ jobs:
       #   run: npm run build
       - name: Run watch
         run: |
-          bash -c "$(cat package.json | jq -r .scripts.watch | sed 's/--watch //')"
+          bash -c "$(cat package.json | jq -r .scripts.development)"
       - name: Add and Commit changes
         id: commit
         run: |
