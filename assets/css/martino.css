@@ -937,6 +937,8 @@
   content: "";
 }
 .footer--wrapper .logo-footer a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -995,7 +997,8 @@
   list-style: none;
   padding: 0;
   row-gap: 10px;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   /* li {
     padding-right: 30px;
   } */
@@ -1062,5 +1065,3 @@
 .footer--wrapper .footer-social span {
   font-weight: 600;
 }
-
-/*# sourceMappingURL=martino.css.map */
