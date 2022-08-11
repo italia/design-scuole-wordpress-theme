@@ -8,6 +8,40 @@ on: push
 #   id-token: "read"
 
 jobs:
+  sass:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@master"
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+      - name: Install SASS
+        run: npm install -g sass
+      - name: Install dependencies
+        run: npm install 
+      # - name: Run build
+      #   run: npm run build
+      - name: Run watch
+        run: |
+          bash -c "$(cat package.json | jq -r .scripts.watch | sed 's/--watch //')"
+      - name: Add and Commit changes
+        id: commit
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          if [[ -z $(git status -uno --porcelain) ]]; then 
+            echo "Nothing to update"
+          else 
+            git add assets/css/* 
+            git commit -m '`bot` Update compiled CSS files'
+            echo "::set-output name=commited::true" 
+          fi
+      - name: Push changes
+        if: ${{ steps.commit.outputs.commited == 'true' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_T0KEN }}
+
   todo:
     runs-on: "ubuntu-latest"
     steps:
