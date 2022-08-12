@@ -814,6 +814,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
 }
+@media (max-width: 507.98px) {
+  .footer--wrapper .container .footer {
+    gap: 0;
+  }
+}
 .footer--wrapper .container .footer > .footer--column label {
   margin-bottom: -0.6rem;
   padding-bottom: 1rem;
@@ -832,12 +837,11 @@
   }
   .footer--wrapper .container .footer > .footer--column input + label {
     border-top: 1px solid #fff;
-  }
-  .footer--wrapper .container .footer > .footer--column input + label:first-of-type {
-    margin-top: 1rem;
+    margin: 0;
+    padding: 0;
   }
   .footer--wrapper .container .footer > .footer--column input + label h2 {
-    margin: 1rem 0 0 0;
+    margin: 1.5rem 0;
   }
   .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
     display: inline-block;
