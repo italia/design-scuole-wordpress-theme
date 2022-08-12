@@ -22,8 +22,9 @@
 //variable
 @import "martino-scss/variable/color";
 @import "martino-scss/variable/spacer";
+@import "martino-scss/variable/footer";
 
-@import "martino-scss/variables";
+@import "martino-scss/mixins/copy-text";
 
 
 // footer

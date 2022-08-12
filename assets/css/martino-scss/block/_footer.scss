@@ -384,6 +384,5 @@ $background-color: #004882;
     //     }
     // }
 
-    @import "copy-text-mixin";
     @include copyText(a);
 }
