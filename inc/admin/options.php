@@ -97,9 +97,14 @@ function dsi_register_main_options_metabox() {
 		'name'        => __( 'Telefono', 'design_scuole_italia' ),
 		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
 		'type' => 'text',
-		// 'attributes'    => array(
-		// 	'required'    => 'required'
-		// ),
+        'attributes' => array(
+            'type' => 'tel',
+            'pattern' => '\d{10}',
+            'minlength' => 10,
+            'maxlength' => 10,
+            'data-validate' => 'digit',
+            // 'required'    => 'required'
+        ),
 	) );
 
 	$header_options->add_field( array(
@@ -108,9 +113,14 @@ function dsi_register_main_options_metabox() {
 		'name'        => __( 'FAX', 'design_scuole_italia' ),
 		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
 		'type' => 'text',
-		// 'attributes'    => array(
-		// 	'required'    => 'required'
-		// ),
+        'attributes' => array(
+            'type' => 'tel',
+            'pattern' => '\d{10}',
+            'minlength' => 10,
+            'maxlength' => 10,
+            'data-validate' => 'digit',
+			// 'required'    => 'required'
+        ),
 	) );
 
 	$header_options->add_field( array(
@@ -1467,6 +1477,32 @@ function dsi_options_display_with_tabs( $cmb_options ) {
             <div class="clear-form"></div>
         </div>
 	</div>
+    <script>
+        ((...inputs) => {
+            const patterns = {
+                letter: /[^\W\d_]/,
+                digit: /\d/,
+                noLineBreak: /.*/,
+                // You can add some more patterns
+                // ...
+            }
+            
+            const validate = (e, regex = /[0-9]|\./) => {
+                const key = String.fromCharCode(e.keyCode || e.which);
+
+                if( !key || regex.test(key) ) return;
+                e.returnValue = false;
+                e?.preventDefault();
+            }
+
+            for (const input of inputs) {
+                const val = input.dataset?.validate
+                const regex = patterns[val] || new RegExp(val)
+
+                input.addEventListener('keypress', e => validate(e, regex))                
+            }
+        })(...document.querySelectorAll('input[data-validate]'))
+    </script>
 	<?php
 }
 
