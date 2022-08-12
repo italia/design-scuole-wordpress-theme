@@ -1054,6 +1054,7 @@
 }
 .footer--wrapper .bottom ul {
   margin-block: 0.8rem;
+  margin-block: clamp(0.3625rem, 4.846875rem + -0.0875 * 100vw, 0.8rem);
 }
 .footer--wrapper .bottom ul li {
   margin-inline: auto;

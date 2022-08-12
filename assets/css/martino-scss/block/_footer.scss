@@ -303,6 +303,7 @@ $background-color: #004882;
 
         ul {
             margin-block: .8rem;
+            margin-block: s-clamp(820px, 740px, 0.3625rem, .8rem);
 
             li {
                 margin-inline: auto;

@@ -1,0 +1,42 @@
+@use "sass:math";
+
+@function px2rem($px) {
+    @return math.div($px, 16px) * 1rem;
+}
+
+@function rem2px($rem) {
+    @return math.div($rem, 1rem) * 16px;
+}
+
+// Arguments units must be compatible or (px, px, rem, rem)
+@function s-clamp(
+    $min-value,
+    $max-value,
+    $size-at-min-value,
+    $size-at-max-value,
+    $depends-on: 100vw
+) {
+    //! The following code block only works 
+    //! for 's-clamp(px, px, rem, rem)' function arguments units
+    //! You can add some more checks and conversions if you need
+    @if not math.compatible($size-at-max-value, $max-value) or not math.compatible($size-at-min-value, $min-value) {
+        @if unit($size-at-max-value) == "rem" {
+            @if unit($max-value) == "px" {
+                $max-value: px2rem($max-value);
+            }
+        }
+        @if unit($size-at-min-value) == "rem" {
+            @if unit($min-value) == "px" {
+                $min-value: px2rem($min-value);
+            }
+        }
+        @if not math.compatible($size-at-max-value, $max-value) {
+            @error "s-clamp: Values must have the same units"
+        }
+    }
+
+    $slope: math.div(($size-at-max-value - $size-at-min-value), ($max-value - $min-value));
+    $intersection: -1 * $min-value * $slope +$size-at-min-value;
+    $return-value: clamp(#{$size-at-min-value}, #{$intersection} + #{$slope} * #{$depends-on}, #{$size-at-max-value});
+    @return $return-value;
+}
