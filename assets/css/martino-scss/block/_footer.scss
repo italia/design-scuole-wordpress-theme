@@ -19,11 +19,12 @@ $background-color: #004882;
         grid-template-columns:
             repeat(auto-fill, minmax(25ch, 1fr));
 
-        
+
         @if $footer-use-tabs =='true' {
             @include media-breakpoint-down(xs, $breakpoints: (xs: 0, sm: 508px)) {
                 & {
                     gap: 0;
+                    grid-template-columns: 1fr;
                 }
             }
         }

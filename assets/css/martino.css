@@ -817,6 +817,7 @@
 @media (max-width: 507.98px) {
   .footer--wrapper .container .footer {
     gap: 0;
+    grid-template-columns: 1fr;
   }
 }
 .footer--wrapper .container .footer > .footer--column label {
