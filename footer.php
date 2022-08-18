@@ -133,6 +133,24 @@
                 a.setAttribute('title', 'Click to copy')
             })
     );
+
+    const footerTabsState = {
+        save: (e) => window.sessionStorage[e.target.id] = +e.target.checked || 0,
+        load: (e) => {
+            const state = window.sessionStorage[e.id];
+            if (!state) return e;
+            e.checked = !!+state;
+            return e;
+        }
+    };
+    window.addEventListener('DOMContentLoaded', 
+        document.querySelectorAll('.footer input[type=checkbox]')
+            .forEach(input => 
+                footerTabsState.load(input)
+                    .addEventListener('input', footerTabsState.save )
+            )
+    );
+    
 </script>
 <?php wp_footer(); ?>
 
