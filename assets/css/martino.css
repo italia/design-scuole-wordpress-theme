@@ -423,12 +423,6 @@
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
-#main-container #presentazione-scuola {
-  margin-top: 6rem;
-}
-#main-container #button-navigazione {
-  margin: 2rem 0;
-}
 #main-container #button-navigazione a {
   display: grid;
 }
@@ -444,11 +438,19 @@
 #main-container .wauto {
   width: auto !important;
 }
+#main-container .card {
+  padding: 0 0.5rem;
+}
+#main-container .card:first-child {
+  padding: 0 0.5rem 0 0;
+}
+#main-container .card:last-child {
+  padding: 0 0 0 0.5rem;
+}
 #main-container .card .card-bg {
   background-color: #F0F0F3;
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
-  padding: 0;
 }
 #main-container .card .card-body {
   padding: 0.75rem 1rem 0;
@@ -459,6 +461,19 @@
 #main-container .card .card-img img {
   -o-object-fit: cover;
      object-fit: cover;
+  height: 150px;
+  width: 100%;
+}
+#main-container #progetti-home article {
+  margin-top: 1rem;
+}
+#main-container #progetti-home article:first-child {
+  margin-top: 0;
+}
+#main-container #progetti-home article .row-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
   width: 100%;
 }
 
@@ -492,7 +507,7 @@
   border: 0;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-lg-default button:hover {
   background: #0073E6;
@@ -509,7 +524,7 @@
   border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-lg-default-outline button:hover {
   border-color: #0073E6;
@@ -527,7 +542,7 @@
   border: 0;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 #main-container #btn-lg-disabled-outline button {
@@ -537,7 +552,7 @@
   border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 #main-container a[id^=btn-] p {
@@ -554,7 +569,7 @@
   border: 0;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-md-default button:hover {
   background: #0073E6;
@@ -571,7 +586,7 @@
   border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-md-default-outline button:hover {
   border-color: #0073E6;
@@ -589,7 +604,7 @@
   border: 0;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 #main-container #btn-md-disabled-outline button {
@@ -599,7 +614,7 @@
   border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 
@@ -610,7 +625,7 @@
   border: 0;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-sm-default button:hover {
   background: #0073E6;
@@ -627,7 +642,7 @@
   border: 0.18rem #1260A4 solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-sm-default-outline button:hover {
   border-color: #0073E6;
@@ -645,7 +660,7 @@
   border: 0;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 #main-container #btn-sm-disabled-outline button {
@@ -655,7 +670,7 @@
   border: 0.18rem #C3C6CF solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 
@@ -666,7 +681,7 @@
   border: 0;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-lg-secondary button:hover {
   background: #FF4F79;
@@ -683,7 +698,7 @@
   border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.88rem 1.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-lg-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -702,7 +717,7 @@
   border: 0;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-md-secondary button:hover {
   background: #FF4F79;
@@ -719,7 +734,7 @@
   border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.75rem 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -738,7 +753,7 @@
   border: 0;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-sm-secondary button:hover {
   background: #FF4F79;
@@ -755,7 +770,7 @@
   border: 0.18rem #BD0043 solid;
   width: 100%;
   padding: 0.63rem 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -774,7 +789,7 @@
   border: 0;
   width: 100%;
   padding: 0.51rem 0.81rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-mini-default button:hover {
   background: #0073E6;
@@ -791,7 +806,7 @@
   border: 0.12rem #1260A4 solid;
   width: 100%;
   padding: 0.51rem 0.81rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 #main-container #btn-mini-default-outline button:hover {
   border-color: #0073E6;
@@ -809,7 +824,7 @@
   border: 0;
   width: 100%;
   padding: 0.51rem 0.81rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 #main-container #btn-mini-disabled-outline button {
@@ -819,7 +834,7 @@
   border: 0.12rem #C3C6CF solid;
   width: 100%;
   padding: 0.51rem 0.81rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: default;
 }
 

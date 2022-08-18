@@ -1,10 +1,6 @@
 #main-container{
-  #presentazione-scuola{
-    margin-top: $spazio-hero;
-  }
 
   #button-navigazione {
-    margin: 2rem 0;
 
     a {
       display: grid;
@@ -26,16 +22,22 @@
   .wauto{
     width: auto !important;
   }
-  // .card:not(:last-child){
-  //   padding-right: 1rem;
-  // }
+ 
   .card{
+    padding: 0 0.5rem;
+    
+    &:first-child{
+      padding: 0 0.5rem 0 0;
+    }
+
+    &:last-child{
+      padding: 0 0 0 0.5rem;
+    }
 
     .card-bg{
       background-color: $surface;
       border-radius: 0.25rem;
       margin-bottom: 1.5rem;
-      padding:0;
     }
     
     .card-body{
@@ -48,8 +50,22 @@
 
     .card-img img{
         object-fit: cover;
+        height: 150px;
         width: 100%;
     }
 
   }
+  #progetti-home article{
+    margin-top: 1rem;
+    
+    &:first-child{
+      margin-top: 0;
+    }
+    .row-img img{
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
+
