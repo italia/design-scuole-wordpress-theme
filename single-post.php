@@ -20,19 +20,39 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white py-5">
-            <div class="container" id="header_post">
+            <div class="container" id="page_container">
                 <div class="row d-flex">
+                    <div class="col-lg-8 col-md-8 col-12">
+                        <div class="" id="header_post">
+                            <?php while ( have_posts() ) :  the_post();
+                            set_views($post->ID);
+                            get_template_part("template-parts/single/header-post");
+                            ?>
+                        </div><!-- /header post -->
                 
-                    <div class="col-lg-9 order-lg-1">
-                        <?php while ( have_posts() ) :  the_post();
-                        set_views($post->ID);
-                        get_template_part("template-parts/single/header-post");
-                        ?>
-                    </div><!-- /header post -->
-                
+                        <div class="main-content">
+                            <?php if($user_can_view_post): ?>
+                            <div class="">
+                                <article class="article-wrapper pt-4">
+                                    <div class="wysiwig-text">
+                                        <?php
+                                        the_content();
+                                        ?>
+                                    </div><!-- /contenuto post -->
+                                </article><!-- /contenuto articolo -->
+                            </div><!-- /col-lg-8 contenuto articolo, luoghi e persone citati-->
 
-                
-                    <div class="col-lg-3 order-lg-2 order-3">
+                            <?php else: ?>
+                                <div class="p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                    <?php the_content(); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div><!-- /row--> 
+                    </div>
+
+
+
+                <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
                         <div class="col-12">
                         <?php get_template_part("template-parts/single/more-posts"); ?>
                         </div><!-- /news correlate -->
@@ -66,31 +86,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div><!-- /allegati -->
                     </div><!-- /sidebar-->
                 
-
-
-                    <div class="variable-gutters order-lg-3">
-                        <?php if($user_can_view_post): ?>
-                        <div class="main-content col-lg-9 col-md-8 col-12">
-                            <article class="article-wrapper pt-4">
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-11 col-12 wysiwig-text">
-                                        <?php
-                                        the_content();
-                                        ?>
-                                    </div><!-- /contenuto post -->
-                                </div><!-- /row -->
-                            
-                            </article><!-- /contenuto articolo -->
-
-                        </div><!-- /col-lg-8 contenuto articolo, luoghi e persone citati-->
-
-                        <?php else: ?>
-                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
-                                <?php the_content(); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div><!-- /row--> 
-                </div>  
                 
                 
             </div><!-- /container -->
