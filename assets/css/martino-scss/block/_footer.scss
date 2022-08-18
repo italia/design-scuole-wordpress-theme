@@ -19,6 +19,16 @@ $background-color: #004882;
         grid-template-columns:
             repeat(auto-fill, minmax(25ch, 1fr));
 
+
+        @if $footer-use-tabs =='true' {
+            @include media-breakpoint-down(xs, $breakpoints: (xs: 0, sm: 508px)) {
+                & {
+                    gap: 0;
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+
         &>.footer--column {
             label {
                 margin-bottom: -.6rem;
@@ -55,14 +65,12 @@ $background-color: #004882;
 
                         +label {
                             border-top: 1px solid $color;
-
-                            &:first-of-type {
-                                margin-top: 1rem;
-                            }
+                            margin: 0;
+                            padding: 0;
                         }
 
                         +label h2 {
-                            margin: 1rem 0 0 0;
+                            margin: 1.5rem 0;
                         }
 
                         &:checked+label {
@@ -296,6 +304,7 @@ $background-color: #004882;
 
         ul {
             margin-block: .8rem;
+            margin-block: s-clamp(820px, 740px, 0.3625rem, .8rem);
 
             li {
                 margin-inline: auto;
@@ -377,6 +386,5 @@ $background-color: #004882;
     //     }
     // }
 
-    @import "copy-text-mixin";
     @include copyText(a);
 }
