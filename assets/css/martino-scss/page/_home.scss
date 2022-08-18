@@ -26,32 +26,29 @@
   .wauto{
     width: auto !important;
   }
-  .card:not(:last-child){
-    padding-right: 1rem;
-  }
+  // .card:not(:last-child){
+  //   padding-right: 1rem;
+  // }
   .card{
-    // padding-inline: 1rem;
-    &> div{
+
+    .card-bg{
       background-color: $surface;
       border-radius: 0.25rem;
-      margin-bottom: 1.31rem;
+      margin-bottom: 1.5rem;
       padding:0;
-      overflow: hidden;
     }
     
-    // &:last-of-type {
-    //   padding-right: 0;
-    // }
-    // &:first-of-type {
-    //   padding-left: 0;
-    //  }
-    
-    & .card-body{
+    .card-body{
       padding: 0.75rem 1rem 0;
       
-      & .card-title{
+      .card-title{
         margin-bottom: 0.5rem;
       }
+    }
+
+    .card-img img{
+        object-fit: cover;
+        width: 100%;
     }
 
   }

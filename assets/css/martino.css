@@ -444,6 +444,23 @@
 #main-container .wauto {
   width: auto !important;
 }
+#main-container .card .card-bg {
+  background-color: #F0F0F3;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+#main-container .card .card-body {
+  padding: 0.75rem 1rem 0;
+}
+#main-container .card .card-body .card-title {
+  margin-bottom: 0.5rem;
+}
+#main-container .card .card-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
 
 #hero {
   height: 300px;
@@ -522,6 +539,12 @@
   padding: 0.88rem 1.75rem;
   margin-bottom: 1.5rem;
   cursor: default;
+}
+#main-container a[id^=btn-] p {
+  margin: 0;
+}
+#main-container a[id^=btn-] p + p {
+  margin-top: 0.62rem;
 }
 
 #main-container #btn-md-default button {
