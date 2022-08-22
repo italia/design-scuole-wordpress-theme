@@ -18,7 +18,7 @@ get_header();
       <div class="row">
         <div id="container-presentazione" class="col-12 col-lg-8">
           <div id="nostro-istituto">
-            <h4>Il nostro istituto</h4>
+            <h4 class="h4">Il nostro istituto</h4>
             <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
             Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
           </div><!--#nostro-istituto -->
@@ -58,22 +58,22 @@ get_header();
           <div class="row mt-4 mt-lg-0">
             <div class="col-6 col-md-3">
               <a id="btn-lg-default-outline" href="#" target="blank">
-                  <button><p>DIDATTICA</p> <span>Corso ITE serale</span></button>
+                  <button><span>DIDATTICA</span> <p>Corso ITE serale</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-default-outline" href="#" target="blank">
-                <button><p>DIDATTICA</p> <span>Offerta formativa</span></button>
+                <button><span>DIDATTICA</span> <p>Offerta formativa</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-secondary-outline" href="#" target="blank">
-                <button><p>SERVIZI</p> <span>Open day</span></button>
+                <button><span>SERVIZI</span> <p>Open days</p></button>
               </a>
             </div>
             <div class="col-6 col-md-3">
               <a id="btn-lg-secondary-outline" href="#" target="blank">
-                <button><p>SERVIZI</p> <span>ASL</span></button>
+                <button><span>SERVIZI</span> <p>ASL</p></button>
               </a>
             </div>
           </div><!--.row -->
@@ -85,7 +85,7 @@ get_header();
     <section id="loop-news-home" class="container"> 
 
       <div class="row mt-5 mt-lg-0">
-        <div class="col-lg-7 col-12">
+        <div class="col-lg-7 col-md-12">
           <h4>Ultime news </h4>
           <div class="row mt-3 mt-lg-0 justify-content-between
 ">
@@ -102,13 +102,13 @@ get_header();
             
               while ($loop -> have_posts()) : $loop -> the_post(); ?> 
 
-              <article class="col-lg-4 col-7 card"> 
+              <article class="col-lg-4 col-12 card"> 
                 <a href="<?php the_permalink();?>">
                   <div class="card-bg">
                     <div class="card-img-top card-img"> <?php the_post_thumbnail("news-thumb");?> </div>
                     <div class="card-body">
                       <p class="card-title text-sx"> <?php the_title(); ?> </p>
-                      <a href="#" id="btn-mini-default"> <button class="wauto"> Scopri </button> </a>
+                      <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
                     </div><!--.card-body -->
                   </div><!--.card-bg -->
                 </a>  
@@ -151,10 +151,8 @@ get_header();
                
                   <div class="col-lg-8 col-7">
                   <a href="<?php the_permalink();?>">
-                    <h5><?php the_title(); ?></h5>
-                  </a>
-                  <a href="<?php the_permalink();?>">
-                    <p><?php the_excerpt($length); ?></p>
+                    <p class="h5"><?php the_title(); ?></p>
+                    <?php the_excerpt($length); ?>
                   </a>
                   </div><!--.col-8 -->
                 </div><!--.row -->
@@ -166,7 +164,7 @@ get_header();
       </div> <!--.row -->
       
       <!-- BUTTONS -->
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-lg-7 p-0 d-none d-lg-block">
           <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
             <button>Vai alla sezione</button>
@@ -186,26 +184,26 @@ get_header();
     <section id="spazi-storia" class="container mt-5"> 
       <div class="row mb-5">
         <div id="gli-spazi-img" class="col-lg-6 col-12 mb-3 mb-lg-0">
-          <img id="w100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
+          <img class="w-100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#gli-spazi-img -->
 
         <div id="gli-spazi-txt" class="col-lg-6 col-12">
           <h4>Il nostro istituto</h4>
           <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
           Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
-          <a id="btn-lg-default-outline" href="#" target="blank"><button class="wauto">Scopri</button></a>
+          <a id="btn-lg-default-outline" href="#" target="blank"><button class="w-auto">Scopri</button></a>
         </div><!--#gli-spazi-txt -->
       </div><!--.row -->
       
       <div class="row">
         <div id="storia-img" class="col-lg-6 col-12 mb-3 mb-lg-0 order-lg-2">
-          <img id ="w100"src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
+          <img class="w-100"src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#storia-img --> 
         <div id="storia-txt" class="col-lg-6 col-12">
           <h4>La storia di Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. 
           Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-          <a id="btn-lg-default-outline" href="#" target="blank"><button class="wauto">Scopri</button></a>
+          <a id="btn-lg-default-outline" href="#" target="blank"><button class="w-auto">Scopri</button></a>
         </div><!--#storia-txt -->
       </div><!--.row -->
     </section><!--#spazi-storia .container -->

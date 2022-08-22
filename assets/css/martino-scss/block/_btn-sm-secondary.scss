@@ -8,6 +8,8 @@
       width: 100%;
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
+      @include text-sm;
+    
       
       &:hover{
         background: $secondary-hover;
@@ -28,7 +30,9 @@
       width: 100%;
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
-
+      @include text-sm;  
+          
+      
       &:hover{
         border-color: $secondary-hover;
         color: $secondary-hover;

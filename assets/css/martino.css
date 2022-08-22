@@ -1,3 +1,87 @@
+.h1, h1 {
+  font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
+  line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
+  letter-spacing: -2px;
+  font-weight: 700;
+}
+main .h1, main h1 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.h2, h2 {
+  font-size: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
+  line-height: clamp(40px, -20px + 0.1041666667 * 100vw, 60px);
+  letter-spacing: -1.3px;
+  font-weight: 700;
+}
+main .h2, main h2 {
+  color: #fff;
+}
+
+.h3, h3 {
+  font-size: clamp(28px, -8px + 0.0625 * 100vw, 40px);
+  line-height: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+main .h3, main h3 {
+  color: #000;
+}
+
+.h4, h4 {
+  font-size: clamp(24px, 0px + 0.0416666667 * 100vw, 32px);
+  line-height: clamp(28px, -8px + 0.0625 * 100vw, 40px);
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+main .h4, main h4 {
+  color: #1260A4;
+}
+
+.h5, h5 {
+  font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+  line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
+  letter-spacing: -0.2625px;
+  font-weight: 600;
+}
+main .h5, main h5 {
+  color: #1260A4;
+}
+
+.h6, h6 {
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+main .h6, main h6 {
+  color: #000;
+}
+
+.font-body, p {
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
+}
+main :not(button, a) > .font-body, main :not(button, a) > p {
+  color: #000;
+}
+
+.text-sm {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+}
+main .text-sm {
+  color: #000;
+}
+
+.text-xs {
+  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
+}
+main .text-xs {
+  color: #000;
+}
+
 #page_container {
   max-width: 90%;
   padding: 0px;
@@ -425,18 +509,13 @@
 
 #main-container #button-navigazione a {
   display: grid;
-}
-#main-container #w100 {
-  width: 100%;
+  height: 100%;
 }
 #main-container .rem5 {
   margin-bottom: 5rem;
 }
 #main-container #spazi-storia {
   margin-bottom: 3rem;
-}
-#main-container .wauto {
-  width: auto !important;
 }
 #main-container .card {
   padding: 0 0.5rem;
@@ -453,16 +532,22 @@
   margin-bottom: 1.5rem;
 }
 #main-container .card .card-body {
-  padding: 0.75rem 1rem 0;
+  padding: 1.5rem 1rem 0.5rem;
 }
 #main-container .card .card-body .card-title {
   margin-bottom: 0.5rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  color: #1260A4;
+  font-weight: 600;
 }
 #main-container .card .card-img img {
   -o-object-fit: cover;
      object-fit: cover;
-  height: 150px;
+  height: 200px;
   width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 #main-container #progetti-home article {
   margin-top: 1rem;
@@ -475,8 +560,27 @@
      object-fit: cover;
   height: 100%;
   width: 100%;
+  border-radius: 0.25rem;
+}
+#main-container #progetti-home article a {
+  color: #000;
+  text-decoration: none;
+}
+#main-container #progetti-home article a p:first-of-type {
+  color: #1260A4;
+}
+#main-container #progetti-home article a:hover p:first-of-type, #main-container #progetti-home article a:hover p:first-of-type:hover, #main-container #progetti-home article a:hover p:first-of-type:focus, #main-container #progetti-home article a:hover p:first-of-type:focus-within, #main-container #progetti-home article a:focus p:first-of-type, #main-container #progetti-home article a:focus p:first-of-type:hover, #main-container #progetti-home article a:focus p:first-of-type:focus, #main-container #progetti-home article a:focus p:first-of-type:focus-within, #main-container #progetti-home article a:focus-within p:first-of-type, #main-container #progetti-home article a:focus-within p:first-of-type:hover, #main-container #progetti-home article a:focus-within p:first-of-type:focus, #main-container #progetti-home article a:focus-within p:first-of-type:focus-within {
+  text-decoration: underline;
+}
+#main-container #progetti-home article a:hover p:hover, #main-container #progetti-home article a:hover p:focus, #main-container #progetti-home article a:hover p:focus-within, #main-container #progetti-home article a:focus p:hover, #main-container #progetti-home article a:focus p:focus, #main-container #progetti-home article a:focus p:focus-within, #main-container #progetti-home article a:focus-within p:hover, #main-container #progetti-home article a:focus-within p:focus, #main-container #progetti-home article a:focus-within p:focus-within {
+  color: #1260A4;
 }
 
+@media screen and (max-width: 782px) {
+  #main-container .card:first-child, #main-container .card:last-child {
+    padding: 0 0.5rem;
+  }
+}
 #hero {
   height: 300px;
   width: 100%;
@@ -508,6 +612,14 @@
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-default button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container #btn-lg-default button:hover {
   background: #0073E6;
@@ -525,6 +637,14 @@
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-default-outline button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container #btn-lg-default-outline button:hover {
   border-color: #0073E6;
@@ -544,6 +664,14 @@
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-disabled button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container #btn-lg-disabled-outline button {
   background: #fff;
@@ -554,6 +682,14 @@
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-disabled-outline button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container a[id^=btn-] p {
   margin: 0;
@@ -570,6 +706,8 @@
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container #btn-md-default button:hover {
   background: #0073E6;
@@ -587,6 +725,8 @@
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container #btn-md-default-outline button:hover {
   border-color: #0073E6;
@@ -606,6 +746,8 @@
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container #btn-md-disabled-outline button {
   background: #fff;
@@ -616,6 +758,8 @@
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
 #main-container #btn-sm-default button {
@@ -626,6 +770,8 @@
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container #btn-sm-default button:hover {
   background: #0073E6;
@@ -643,6 +789,8 @@
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container #btn-sm-default-outline button:hover {
   border-color: #0073E6;
@@ -662,6 +810,8 @@
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container #btn-sm-disabled-outline button {
   background: #fff;
@@ -672,6 +822,8 @@
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 
 #main-container #btn-lg-secondary button {
@@ -682,6 +834,14 @@
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-secondary button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container #btn-lg-secondary button:hover {
   background: #FF4F79;
@@ -699,6 +859,14 @@
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  font-weight: 600;
+}
+#main-container #btn-lg-secondary-outline button span {
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  font-weight: 400;
 }
 #main-container #btn-lg-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -718,6 +886,8 @@
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container #btn-md-secondary button:hover {
   background: #FF4F79;
@@ -735,6 +905,8 @@
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container #btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -754,6 +926,8 @@
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container #btn-sm-secondary button:hover {
   background: #FF4F79;
@@ -771,6 +945,8 @@
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container #btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
@@ -790,6 +966,8 @@
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container #btn-mini-default button:hover {
   background: #0073E6;
@@ -807,6 +985,8 @@
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
+  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container #btn-mini-default-outline button:hover {
   border-color: #0073E6;
@@ -826,6 +1006,8 @@
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container #btn-mini-disabled-outline button {
   background: #fff;
@@ -836,6 +1018,8 @@
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
   cursor: default;
+  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 
 .footer--wrapper {

@@ -8,7 +8,8 @@
       width: 100%;
       padding: 0.51rem 0.81rem;
       margin-bottom: 1rem;
-   
+      @include text-xs;
+
       &:hover{
         background: $primary-hover;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -28,6 +29,8 @@
       width: 100%;
       padding: 0.51rem 0.81rem;
       margin-bottom: 1rem;
+      @include text-xs;
+
 
       &:hover{
         border-color: $primary-hover;
@@ -51,6 +54,8 @@
       padding: 0.51rem 0.81rem;
       margin-bottom: 1rem;
       cursor: default;
+      @include text-xs;
+
     }
   }
   #btn-mini-disabled-outline{
@@ -63,6 +68,8 @@
       padding: 0.51rem 0.81rem;
       margin-bottom: 1rem;
       cursor: default;
+      @include text-xs;
+
     }
   }
 }

@@ -8,6 +8,8 @@
       width: 100%;
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
+      @include text-sm;
+
       
       &:hover{
         background: $primary-hover;
@@ -28,7 +30,9 @@
       width: 100%;
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
+      @include text-sm;
 
+      
       &:hover{
         border-color: $primary-hover;
         color: $primary-hover;
@@ -51,6 +55,9 @@
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
       cursor: default;
+      @include text-sm;
+  
+      
     }
   }
   #btn-sm-disabled-outline{
@@ -63,6 +70,9 @@
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
       cursor: default;
+      @include text-sm;
+  
+      
     }
   }
 }

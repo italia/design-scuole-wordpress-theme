@@ -6,14 +6,18 @@
 @import '../../node_modules/bootstrap/scss/mixins/breakpoints';
 @import '../../node_modules/bootstrap/scss/mixins/caret';
 
+// mixins
+@import "martino-scss/mixins/copy-text";
+@import "martino-scss/mixins/clamp";
+
 // variable
 @import "martino-scss/variable/color";
 @import "martino-scss/variable/spacer";
 @import "martino-scss/variable/footer";
+@import "martino-scss/variable/typography";
 
-// mixins
-@import "martino-scss/mixins/copy-text";
-@import "martino-scss/mixins/clamp";
+// global
+@import "martino-scss/global/typography";
 
 // page
 @import "martino-scss/page/articolo";
