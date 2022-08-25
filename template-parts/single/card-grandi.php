@@ -1,10 +1,14 @@
+
+<article class="col-lg-3">
 <?php
 global $post, $autore;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 
-?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded">
+?>
+
+<div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded">
 	<div class="row card-body" id="card_notizie">
 		<?php if($image_url) { ?>
 			<div class="card-thumb col-12" id="card_image">
@@ -20,4 +24,6 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
             <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" class="btn btn-primary">Approfondisci</a>
 		</div>
 	</div><!-- /card-body -->
-</div><!-- /card --><?php
+</div><!-- /card -->
+
+</article>

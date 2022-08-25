@@ -16,10 +16,6 @@
   padding: 0rem;
 }
 
-.single-post .article-title-author-container {
-  padding: 0rem;
-}
-
 #badge a {
   margin-bottom: 1rem;
 }
@@ -61,11 +57,6 @@
   gap: 5rem;
 }
 
-.page-template-notizie .container {
-  max-width: 90%;
-  padding: 0px;
-}
-
 #card_notizie img {
   height: 300px !important;
 }
@@ -75,13 +66,13 @@
 }
 
 #news {
-  justify-content: space-between;
   margin-bottom: 4rem;
 }
 
 #card_grandi {
-  flex: 0 0 28%;
-  max-width: 28%;
+  max-height: 100%;
+  margin-bottom: 80px;
+  margin-right: 80px;
 }
 
 #badge_news {
@@ -423,6 +414,21 @@
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
+.form-check [type=radio] + label::before {
+  content: none;
+}
+
+/*filtro*/
+#no-round::before,
+#no-round::after {
+  content: none;
+  padding-left: 0rem;
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  border-radius: 15px;
+}
+
 #main-container #presentazione-scuola {
   margin-top: 6rem;
 }
@@ -443,6 +449,40 @@
 }
 #main-container .wauto {
   width: auto !important;
+}
+
+.container {
+  max-width: 90%;
+  padding: 0px;
+}
+
+.article-title .container {
+  height: auto;
+  position: static;
+}
+
+#article-title {
+  position: static;
+  height: auto;
+  display: block;
+}
+
+#title-img img {
+  max-height: 400px;
+  width: 100%;
+}
+
+#related_projects {
+  list-style-type: none;
+  padding: 0rem;
+}
+
+#card-sidebar {
+  display: block;
+}
+
+#card-sidebar-width {
+  max-width: 23.2rem;
 }
 
 #hero {

@@ -25,9 +25,10 @@ get_header();
         <section class="section">
             <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col-lg-12 pt84">
+
 						<?php if ( have_posts() ) : ?> 
-                            <article class="col-lg-3">
+                            
+                            <div class="col-lg-3">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :
@@ -36,7 +37,8 @@ get_header();
 
 							endwhile;
 							?>
-                            </article>
+                            </div>
+                            
                             <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
 								<?php echo dsi_bootstrap_pagination(); ?>
                             </nav>
@@ -53,7 +55,7 @@ get_header();
                         <?php }else{ ?>
                             <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti degli scorsi anni", "design_scuole_italia"); ?></a></p>
                         <?php } ?>
-                    </div><!-- /col-lg-8 -->
+                    
                 </div><!-- /row -->
             </div><!-- /container -->
         </section>

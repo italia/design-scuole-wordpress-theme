@@ -2,7 +2,7 @@
 global $badgeclass;
 if(!isset($badgeclass))
 	$badgeclass = "badge-outline-purplelight";
-$argomenti = dsi_get_argomenti_of_post();
+$argomenti = dsi_get_tipologia_articolo_of_post();
 if(count($argomenti)) {
 	?>
 	<aside class="badges-wrapper badges-main my-4">
