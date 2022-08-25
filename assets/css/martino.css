@@ -531,23 +531,28 @@ main .text-xs {
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
 }
-#main-container .card .card-body {
-  padding: 1.5rem 1rem 0.5rem;
+#main-container .card .card-bg .card-img .posizione-badges {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
 }
-#main-container .card .card-body .card-title {
-  margin-bottom: 0.5rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
-  color: #1260A4;
-  font-weight: 600;
-}
-#main-container .card .card-img img {
+#main-container .card .card-bg .card-img img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 200px;
   width: 100%;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+}
+#main-container .card .card-bg .card-body {
+  padding: 1.5rem 1rem 0.5rem;
+}
+#main-container .card .card-bg .card-body .card-title {
+  margin-bottom: 0.5rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  color: #1260A4;
+  font-weight: 600;
 }
 #main-container #progetti-home article {
   margin-top: 1rem;

@@ -87,8 +87,7 @@ get_header();
       <div class="row mt-5 mt-lg-0">
         <div class="col-lg-7 col-md-12">
           <h4>Ultime news </h4>
-          <div class="row mt-3 mt-lg-0 justify-content-between
-">
+          <div class="row mt-3 mt-lg-0 justify-content-between">
           
         
             <?php
@@ -105,7 +104,12 @@ get_header();
               <article class="col-lg-4 col-12 card"> 
                 <a href="<?php the_permalink();?>">
                   <div class="card-bg">
-                    <div class="card-img-top card-img"> <?php the_post_thumbnail("news-thumb");?> </div>
+                    <div class="card-img-top card-img position-relative">
+                      <?php the_post_thumbnail("news-thumb");?> 
+                      <div class="posizione-badges"> 
+                         <?php get_template_part("template-parts/common/badges-argomenti"); ?> 
+                      </div>
+                    </div>
                     <div class="card-body">
                       <p class="card-title text-sx"> <?php the_title(); ?> </p>
                       <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>

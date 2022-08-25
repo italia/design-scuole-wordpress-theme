@@ -31,27 +31,34 @@
       background-color: $surface;
       border-radius: 0.25rem;
       margin-bottom: 1.5rem;
-    }
-    
-    .card-body{
-      padding: 1.5rem 1rem 0.5rem;
       
-      .card-title{
-        margin-bottom: 0.5rem;
-        @include text-sm;
-        color:$primary;
-        font-weight: 600;
+      .card-img{
+        .posizione-badges {
+          position: absolute;
+          top: 0;
+          right: 0.5rem;
+        }
+        
+        img{
+          object-fit: cover;
+          height: 200px;
+          width: 100%;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+        }
+      }
+
+      .card-body{
+        padding: 1.5rem 1rem 0.5rem;
+     
+        .card-title{
+          margin-bottom: 0.5rem;
+          @include text-sm;
+          color:$primary;
+          font-weight: 600;
+        }
       }
     }
-
-    .card-img img{
-        object-fit: cover;
-        height: 200px;
-        width: 100%;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-    }
-
   }
   #progetti-home article{
     margin-top: 1rem;
