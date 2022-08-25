@@ -581,7 +581,7 @@ main .text-xs {
   color: #1260A4;
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 991px) {
   #main-container .card:first-child, #main-container .card:last-child {
     padding: 0 0.5rem;
   }

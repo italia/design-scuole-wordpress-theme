@@ -87,7 +87,7 @@ get_header();
       <div class="row mt-5 mt-lg-0">
         <div class="col-lg-7 col-md-12">
           <h4>Ultime news </h4>
-          <div class="row mt-3 mt-lg-0 justify-content-between">
+          <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
           
         
             <?php
