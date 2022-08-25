@@ -1,18 +1,11 @@
 #main-container{
-  #presentazione-scuola{
-    margin-top: $spazio-hero;
-  }
 
   #button-navigazione {
-    margin: 2rem 0;
 
     a {
       display: grid;
+      height: 100%;
     }
-  }
-
-  #w100{
-    width: 100%;
   }
 
   .rem5{
@@ -23,7 +16,87 @@
     margin-bottom: $spazio-footer;
   }
 
-  .wauto{
-    width: auto !important;
+  .card{
+    padding: 0 0.5rem;
+    
+    &:first-child{
+      padding: 0 0.5rem 0 0;
+    }
+
+    &:last-child{
+      padding: 0 0 0 0.5rem;
+    }
+
+    .card-bg{
+      background-color: $surface;
+      border-radius: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-body{
+      padding: 1.5rem 1rem 0.5rem;
+      
+      .card-title{
+        margin-bottom: 0.5rem;
+        @include text-sm;
+        color:$primary;
+        font-weight: 600;
+      }
+    }
+
+    .card-img img{
+        object-fit: cover;
+        height: 200px;
+        width: 100%;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+  }
+  #progetti-home article{
+    margin-top: 1rem;
+    
+    &:first-child{
+      margin-top: 0;
+    }
+    .row-img img{
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 0.25rem;
+    
+    }
+
+    a {
+      color: $black;
+      text-decoration: none;
+      
+      p:first-of-type{
+        color: $primary;
+      }
+      
+      &:hover, &:focus, &:focus-within {
+        
+        p:first-of-type{
+          &, &:hover, &:focus, &:focus-within{
+            text-decoration: underline;
+            
+          }
+        }
+        
+        p{
+          &:hover, &:focus, &:focus-within{
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 782px) {
+  #main-container .card:first-child, #main-container .card:last-child {
+    padding: 0 0.5rem;
   }
 }
