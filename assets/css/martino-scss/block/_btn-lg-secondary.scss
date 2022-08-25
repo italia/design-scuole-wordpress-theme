@@ -7,7 +7,13 @@
       border: 0;
       width: 100%;
       padding: 0.88rem  1.75rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      @include h6;
+
+      span{
+        @include text-sm;
+        font-weight: 400;
+      }
 
       &:hover{
         background: $secondary-hover;
@@ -27,7 +33,13 @@
       border: 0.18rem $secondary solid;
       width: 100%;
       padding: 0.88rem  1.75rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      @include h6;
+
+      span{
+        @include text-sm;
+        font-weight: 400;
+      }
 
       &:hover{
         border-color: $secondary-hover;

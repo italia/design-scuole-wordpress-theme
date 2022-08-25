@@ -7,7 +7,9 @@
       border: 0;
       width: 100%;
       padding: 0.63rem  1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      @include text-sm;
+
       
       &:hover{
         background: $primary-hover;
@@ -27,8 +29,10 @@
       border: 0.18rem $primary solid;
       width: 100%;
       padding: 0.63rem  1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      @include text-sm;
 
+      
       &:hover{
         border-color: $primary-hover;
         color: $primary-hover;
@@ -49,8 +53,11 @@
       border: 0;
       width: 100%;
       padding: 0.63rem  1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       cursor: default;
+      @include text-sm;
+  
+      
     }
   }
   #btn-sm-disabled-outline{
@@ -61,8 +68,11 @@
       border: 0.18rem $on-surface solid;
       width: 100%;
       padding: 0.63rem  1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       cursor: default;
+      @include text-sm;
+  
+      
     }
   }
 }

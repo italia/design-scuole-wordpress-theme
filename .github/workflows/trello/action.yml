@@ -1,0 +1,66 @@
+name: Create Trello card
+
+inputs:
+  issue: 
+    type: string
+  issues:
+    type: string
+  TRELLO_ID_TODO: 
+    required: true
+  TRELLO_KEY: 
+    required: true
+  TRELLO_TOKEN: 
+    required: true
+      
+
+runs: 
+  using: "composite"
+  steps:
+    - name: curl
+      shell: bash
+      env:
+        ID: ${{ inputs.TRELLO_ID_TODO }}
+        API_KEY: ${{ inputs.TRELLO_KEY }}
+        API_TOKEN: ${{ inputs.TRELLO_TOKEN }}
+        ISSUE: ${{ inputs.issue }}
+        ISSUES: ${{ inputs.issues }}
+      run: |
+        [[ -z ${ISSUES} ]] && ISSUES=$(printf '[%s]' "${ISSUE}")
+        echo "${ISSUES::-1}"
+        
+        echo "${ISSUES}" | jq '.'
+        for row in $(echo "${ISSUES}" | jq -r '.[] | @base64'); do
+          _jq() {
+            echo ${row} | base64 --decode | jq -r ${1}
+          }
+          # TODO Refactoring of json
+          # make it cleaner
+          echo $(_jq '.name')
+          ISSUE_TITLE=$(_jq '.title')
+          ISSUE_BODY=$(_jq '.body')
+          [[ ${ISSUE_BODY} =~ ^issue\.[0-9]+\.md$ ]] && ISSUE_BODY=$(cat ${ISSUE_BODY})
+          ISSUE_URL=$(_jq '.url')
+
+          CARD=$(curl --request POST \
+              --url "https://api.trello.com/1/cards" \
+              -d "name=${ISSUE_TITLE}" \
+              -d "desc=${ISSUE_BODY}" \
+              -d "idList=${ID}" \
+              -d "key=${API_KEY}" \
+              -d "token=${API_TOKEN}" \
+              --header 'Accept: application/json')
+
+          CARD_ID=$(echo "${CARD}" | grep -oP '(?<={"id":")[0-9a-zA-Z]+(?=")')
+
+          echo "${CARD_ID}"
+          
+          ISSUE_URL=$(echo "${ISSUE_URL}" | sed -e 's/api\.//' -e 's/repos\///')
+
+          curl --request POST \
+            --url "https://api.trello.com/1/cards/${CARD_ID}/attachments" \
+            -d "url=${ISSUE_URL}" \
+            -d "key=${API_KEY}" \
+            -d "token=${API_TOKEN}" \
+            --header 'Accept: application/json'
+        done
+          
