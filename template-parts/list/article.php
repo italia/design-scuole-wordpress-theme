@@ -14,15 +14,10 @@ if(!$excerpt)
 
 ?>
 
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
+<a class="presentation-card-link col-lg-3" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
-    <div class="card-body">
+    <div class="card-body row">
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
-            <div class="date d-none">
-                <span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
-                <span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?></span>
-                <span class="month"><?php echo date_i18n("M", strtotime($post->post_date)); ?></span>
-            </div>
         </div>
         <div class="card-article-content">
             <h2 class="h3"><?php the_title(); ?></h2>

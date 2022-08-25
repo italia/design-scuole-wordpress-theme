@@ -31,7 +31,7 @@ get_header();
                     <div class="col-lg-3 bg-white bg-white-left">
                         <?php get_template_part("template-parts/search/filters", "evento"); ?>
                     </div>
-                    <div class="col-lg-7 offset-lg-1 pt84">
+                    <div class="pt84 row">
                         <?php
                         if ( have_posts() ) : ?>
                             <?php

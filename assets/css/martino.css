@@ -82,6 +82,39 @@ main .text-xs {
   color: #000;
 }
 
+.article-title .container {
+  height: auto;
+  position: static;
+}
+
+#article-title {
+  position: static;
+  height: auto;
+  display: block;
+}
+
+#title-img img {
+  max-height: 400px;
+  width: 100%;
+}
+
+#related_projects {
+  list-style-type: none;
+  padding: 0rem;
+}
+
+#card-sidebar {
+  display: block;
+}
+
+#card-sidebar-width {
+  max-width: 23.2rem;
+}
+
+#card_progetto {
+  gap: 4rem;
+}
+
 #page_container {
   max-width: 90%;
   padding: 0px;
@@ -498,7 +531,6 @@ main .text-xs {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
-<<<<<<< HEAD
 .form-check [type=radio] + label::before {
   content: none;
 }
@@ -514,14 +546,6 @@ main .text-xs {
   border-radius: 15px;
 }
 
-#main-container #presentazione-scuola {
-  margin-top: 6rem;
-}
-#main-container #button-navigazione {
-  margin: 2rem 0;
-}
-=======
->>>>>>> 35c5c3cc80f8c0a50f2c9398241d103374976264
 #main-container #button-navigazione a {
   display: grid;
   height: 100%;
@@ -591,48 +615,11 @@ main .text-xs {
   color: #1260A4;
 }
 
-<<<<<<< HEAD
-.container {
-  max-width: 90%;
-  padding: 0px;
-}
-
-.article-title .container {
-  height: auto;
-  position: static;
-}
-
-#article-title {
-  position: static;
-  height: auto;
-  display: block;
-}
-
-#title-img img {
-  max-height: 400px;
-  width: 100%;
-}
-
-#related_projects {
-  list-style-type: none;
-  padding: 0rem;
-}
-
-#card-sidebar {
-  display: block;
-}
-
-#card-sidebar-width {
-  max-width: 23.2rem;
-}
-
-=======
 @media screen and (max-width: 782px) {
   #main-container .card:first-child, #main-container .card:last-child {
     padding: 0 0.5rem;
   }
 }
->>>>>>> 35c5c3cc80f8c0a50f2c9398241d103374976264
 #hero {
   height: 300px;
   width: 100%;

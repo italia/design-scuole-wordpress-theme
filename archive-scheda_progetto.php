@@ -24,17 +24,16 @@ get_header();
 
         <section class="section">
             <div class="container">
-                <div class="row variable-gutters">
+                <div class="variable-gutters">
 
 						<?php if ( have_posts() ) : ?> 
                             
-                            <div class="col-lg-3">
+                            <div class="row">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :
 								the_post();
-								get_template_part( "template-parts/single/card", "grandi", get_post_type() );
-
+								get_template_part( 'template-parts/list/article-scheda_progetto', get_post_type() );
 							endwhile;
 							?>
                             </div>

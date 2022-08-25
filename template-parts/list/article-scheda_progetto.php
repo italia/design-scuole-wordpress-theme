@@ -14,9 +14,9 @@ if(!$excerpt)
 $argomenti = dsi_get_argomenti_of_post();
 
 ?>
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
+<a class="presentation-card-link col-lg-3" id="card_progetto" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
-    <div class="card-body">
+    <div class="card-body row">
         <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
