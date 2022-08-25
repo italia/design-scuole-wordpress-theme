@@ -262,7 +262,7 @@ main .text-xs {
 .badge-outline-purplelight:hover {
   color: #B21DD0;
   border-color: #B21DD0;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-purplelight:focus,
