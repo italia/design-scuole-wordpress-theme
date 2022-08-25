@@ -190,7 +190,7 @@ main .text-xs {
 .badge-outline-petrol:hover {
   color: #51758d;
   border-color: #51758d;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-petrol:focus,
@@ -201,7 +201,7 @@ main .text-xs {
 .badge-outline-petrol.disabled,
 .badge-outline-petrol:disabled {
   color: #51758d;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-petrol:not(:disabled):not(.disabled):active,
@@ -226,7 +226,7 @@ main .text-xs {
 .badge-outline-redbrown:hover {
   color: #D1344C;
   border-color: #D1344C;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-redbrown:focus,
@@ -237,7 +237,7 @@ main .text-xs {
 .badge-outline-redbrown.disabled,
 .badge-outline-redbrown:disabled {
   color: #D1344C;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-redbrown:not(:disabled):not(.disabled):active,
@@ -273,7 +273,7 @@ main .text-xs {
 .badge-outline-purplelight.disabled,
 .badge-outline-purplelight:disabled {
   color: #B21DD0;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-purplelight:not(:disabled):not(.disabled):active,
@@ -298,7 +298,7 @@ main .text-xs {
 .badge-outline-greendark:hover {
   color: #0E865C;
   border-color: #0E865C;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-greendark:focus,
@@ -309,7 +309,7 @@ main .text-xs {
 .badge-outline-greendark.disabled,
 .badge-outline-greendark:disabled {
   color: #0E865C;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-greendark:not(:disabled):not(.disabled):active,
@@ -334,7 +334,7 @@ main .text-xs {
 .badge-outline-bluelectric:hover {
   color: #0D00FF;
   border-color: #0D00FF;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-bluelectric:focus,
@@ -345,7 +345,7 @@ main .text-xs {
 .badge-outline-bluelectric.disabled,
 .badge-outline-bluelectric:disabled {
   color: #0D00FF;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-bluelectric:not(:disabled):not(.disabled):active,
@@ -370,7 +370,7 @@ main .text-xs {
 .badge-outline-gray100:hover {
   color: #e3e4e6;
   border-color: #e3e4e6;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-gray100:focus,
@@ -381,7 +381,7 @@ main .text-xs {
 .badge-outline-gray100.disabled,
 .badge-outline-gray100:disabled {
   color: #e3e4e6;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-gray100:not(:disabled):not(.disabled):active,
@@ -406,7 +406,7 @@ main .text-xs {
 .badge-outline-white:hover {
   color: white;
   border-color: white;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-white:focus,
@@ -417,7 +417,7 @@ main .text-xs {
 .badge-outline-white.disabled,
 .badge-outline-white:disabled {
   color: white;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-white:not(:disabled):not(.disabled):active,
@@ -442,7 +442,7 @@ main .text-xs {
 .badge-outline-gray-primary:hover {
   color: #455b71;
   border-color: #455b71;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-gray-primary:focus,
@@ -453,7 +453,7 @@ main .text-xs {
 .badge-outline-gray-primary.disabled,
 .badge-outline-gray-primary:disabled {
   color: #455b71;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-gray-primary:not(:disabled):not(.disabled):active,
@@ -480,7 +480,7 @@ main .text-xs {
 .badge-outline-black:hover {
   color: black;
   border-color: black;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-black:focus,
@@ -491,7 +491,7 @@ main .text-xs {
 .badge-outline-black.disabled,
 .badge-outline-black:disabled {
   color: black;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .badge-outline-black:not(:disabled):not(.disabled):active,
