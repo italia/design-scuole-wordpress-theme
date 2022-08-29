@@ -23,12 +23,12 @@ get_header();
         <?php get_template_part("template-parts/hero/hero_page", "archive"); ?>
 
         <section class="section">
-            <div class="container">
+            <div class="container mt-5">
                 <div class="variable-gutters">
 
 						<?php if ( have_posts() ) : ?> 
                             
-                            <div class="row">
+                            <div class="row" id="card_progetto">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :
@@ -50,9 +50,9 @@ get_header();
 						?>
 
                         <?php if(isset($_GET["archive"]) && ($_GET["archive"] == "true")){ ?>
-                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>" ><?php _e("Consulta i progetti dell'anno in corso", "design_scuole_italia"); ?></a></p>
+                            <p><a class="btn btn-block btn-secondary d-none" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>" ><?php _e("Consulta i progetti dell'anno in corso", "design_scuole_italia"); ?></a></p>
                         <?php }else{ ?>
-                            <p><a class="btn btn-block btn-secondary" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti degli scorsi anni", "design_scuole_italia"); ?></a></p>
+                            <p><a class="btn btn-block btn-secondary d-none" href="<?php echo get_post_type_archive_link("scheda_progetto"); ?>?archive=true" ><?php _e("Consulta i progetti degli scorsi anni", "design_scuole_italia"); ?></a></p>
                         <?php } ?>
                     
                 </div><!-- /row -->

@@ -29,7 +29,7 @@ $autore = get_user_by("ID", $post->post_author);
                         get_template_part("template-parts/common/badges-argomenti"); ?>
                     </div>
                     <div>
-                        <div id="title-img" class=""> 
+                        <div id="title-img"> 
                             <?php echo get_the_post_thumbnail($page->ID, 'full'); ?>
                         </div>
                         <?php get_template_part( "template-parts/single/bottom" ); ?>

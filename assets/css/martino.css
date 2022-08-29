@@ -115,6 +115,14 @@ main .text-xs {
   gap: 4rem;
 }
 
+.card.card-article.card-article-bluelectric:before {
+  color: none;
+}
+
+.card.card-article:before {
+  background-color: none;
+}
+
 #page_container {
   max-width: 90%;
   padding: 0px;

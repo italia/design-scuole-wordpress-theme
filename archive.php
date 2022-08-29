@@ -17,7 +17,7 @@ if(is_post_type_archive("scheda_didattica")){
 get_header();
 ?>
 
-    <main id="main-container" class="main-container <?php echo $class; ?>>">
+    <main class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white py-2 py-lg-3 py-xl-5">
@@ -54,26 +54,29 @@ get_header();
 						<?php get_template_part("template-parts/search/filters", "argomento"); ?>
                     </div>
                 </div>
-                <div class="pt84 row">
-                    <?php if ( have_posts() ) : ?>
-                        <?php
-                        /* Start the Loop */
-                        while ( have_posts() ) :
-                            the_post();
-                            get_template_part( 'template-parts/list/article', get_post_type() );
+                <div class="pt-84 row">
+                <?php if ( have_posts() ) : ?> 
+                            
+                            <div class="row" id="card_progetto">
+							<?php
+							/* Start the Loop */
+							while ( have_posts() ) :
+								the_post();
+								get_template_part( 'template-parts/list/article', get_post_type() );
+							endwhile;
+							?>
+                            </div>
+                            
+                            <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
+								<?php echo dsi_bootstrap_pagination(); ?>
+                            </nav>
+						<?php
+						else :
 
-                        endwhile;
-                        ?>
-                        <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
-                            <?php echo dsi_bootstrap_pagination(); ?>
-                        </nav>
-                    <?php
-                    else :
+							get_template_part( 'template-parts/content', 'none' );
 
-                        get_template_part( 'template-parts/content', 'none' );
-
-                    endif;
-                    ?>
+						endif;
+						?>
                 </div><!-- /col-lg-8 -->
                 
             </div><!-- /container -->

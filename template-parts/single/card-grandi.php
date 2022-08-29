@@ -13,7 +13,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 		<?php if($image_url) { ?>
 			<div class="card-thumb col-12" id="card_image">
                 <img src="<?php echo $image_url; ?>" alt="">
-				<div class="" id="badge_news">
+				<div id="badge_news">
 				<?php get_template_part("template-parts/common/badges-argomenti"); ?>
 				</div>
 			</div>

@@ -36,7 +36,7 @@ if($slug == "articoli")
 					<div class="bg-white bg-white-left">
 						<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 					</div>
-					<div class="pt84">
+					<div class="row my-5 mx-2 mx-lg-0 " id="card_progetto">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */

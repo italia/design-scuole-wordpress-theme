@@ -31,14 +31,21 @@
 }
 
 //archivio progetti
-#card_progetto {
-    gap: 4rem;
-}
-
-.card.card-article.card-article-bluelectric:before {
-    color: none;
+//card singole
+#card_article_content {
+    background-color: var($surface);
+    color: var($primary);
 }
 
 .card.card-article:before {
-    background-color: none;
+    content: transparent;
+}
+
+#card_article_badge {
+    position: relative;
+    top: -18rem;
+    right: -18.5rem;
+    .badge-wrapper {
+        margin: 0rm !important;
+    }
 }

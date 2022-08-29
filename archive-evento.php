@@ -38,7 +38,7 @@ get_header();
                             /* Start the Loop */
                             while ( have_posts() ) :
                                 the_post();
-                                get_template_part( 'template-parts/list/article', get_post_type() );
+                                get_template_part( 'template-parts/list/article_evento', get_post_type() );
                             endwhile;
                             ?>
                             <nav class="pagination-wrapper" aria-label="Navigazione della pagina">

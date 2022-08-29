@@ -14,16 +14,19 @@ if(!$excerpt)
 $argomenti = dsi_get_argomenti_of_post();
 
 ?>
-<a class="presentation-card-link col-lg-3" id="card_progetto" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
-<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
-    <div class="card-body row">
-        <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
-            <?php if(!$image_url){ ?>
-                <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
-            <?php } ?>
-        </div>
-        <div class="card-article-content">
-            <h2 class="h3"><?php the_title(); ?></h2>
+<div class="col-12 col-lg-3">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
+    <div class="card-body row p-0">
+        
+            <div class="card-thumb col-12 p-0">
+                <img src="<?php echo $image_url; ?>" alt="" class="col-12">
+				<div id="card_article_badge">
+                <?php get_template_part("template-parts/common/ badges-argomenti"); ?>
+				</div>
+			</div>
+        
+        <div class="card-article-content"  id="card_article_content">
+            <h2 class="h3"><a href="<?php echo get_permalink($post); ?>" aria-label="Apre <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h2>
 
             <?php
             // recupero l'anno scolastico di riferimento del progetto
@@ -34,7 +37,8 @@ $argomenti = dsi_get_argomenti_of_post();
             }
             ?>
             <p><?php echo $excerpt; ?></p>
+            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" class="btn btn-primary">Approfondisci</a>
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
-</a>
+</div>
