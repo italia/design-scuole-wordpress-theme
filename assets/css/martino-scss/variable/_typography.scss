@@ -1,67 +1,3 @@
-<<<<<<< HEAD
-
-h1  {
-    font-size: 56px;
-    line-height: 48px;
-    color: black;
-}
-    // da definire per pagine senza hero
-
-h2 {
-    font-size: 42px;
-    line-height: 48px;
-    color: $primary;
-    padding-bottom: 1.5rem;
-}
-
-h3 {
-    font-size: 32px;
-    line-height: 40px;
-    color: $primary;
-}
-h4 {
-    font-size: 28px;
-    line-height: 40px;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: $primary;
-    }
-h5{
-    font-size: 24px;
-    line-height: 28px;
-    font-weight: bold;
-    color: black;
-}
-h6 {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: bold;
-    color: $primary;
-}
-
-#quotes {
-    font-style: italic;
-    color: $primary;
-}
-
-#image-block {
-    a {
-        color: $primary;
-    }
-}
-
-#text-block {
-    a {
-            color: $primary;
-        }
-}
-
-#sidebar {
-    h5 {
-        color: $primary;
-    }
-}
-=======
 $font-max-query: 768px;
 $font-min-query: 576px;
 
@@ -86,4 +22,3 @@ $lh-h6: s-clamp($font-min-query, $font-max-query, 24px, 24px);
 $lh-font-body: s-clamp($font-min-query, $font-max-query, 24px, 28px);
 $lh-text-sm: s-clamp($font-min-query, $font-max-query, 20px, 21px);
 $lh-text-xs: s-clamp($font-min-query, $font-max-query, 20px, 18px);
->>>>>>> 8f4f2c1bed82da09caac44489e20e75c3fa453b3
