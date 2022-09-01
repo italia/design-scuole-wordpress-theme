@@ -1,5 +1,9 @@
 <?php
+
 /* Template Name: Cic
+=======
+/* Template Name: Presentazione
+>>>>>>> ff4f3d4db3d2957a0765e9b54f5d96fd75389c66
  *
  * didattica template file
  *
@@ -9,6 +13,9 @@
 get_header();
 
 
+
+
+$presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
 ?>
 
 <main id="main-container" class="main-container">
@@ -18,12 +25,21 @@ get_header();
 
 
     <section id="text-block" class="section bg-white">
+
         <div class="container-fluid container-border-top">
             <div class="row variable-gutters">
                 
                 <div class="main-content col-lg-8 col-xxl-6">
                     <div class="pt-5 px-3">    
                         <h2>Centro di Informazione e Consulenza</h2>
+
+        <div class="container container-border-top">
+            <div class="row variable-gutters">
+                
+                <div class="main-content col-lg-8">
+                    <div class="article-wrapper pt-4 px-3">    
+                        <H3>Centro di Informazione e Consulenza</H3>
+
                         <p>Il CIC (Centro di Informazione e Consulenza) è un servizio offerto a studenti, genitori e personale scolastico, curato e gestito dalla dott.ssa Francesca Fontana, psicologa e psicoterapeuta (Iscrizione all’Ordine della Provincia di Trento n. 349).
                         La consulenza psicologica si configura come uno spazio di ascolto e di confronto libero e gratuito in un luogo riservato e nel rispetto del segreto professionale.
                         L’accesso al servizio permetterà alla persona che richiederà il colloquio di trovare ascolto e riflettere con la psicologa su difficoltà e problematiche di varia natura (emotive, relazionali, scolastiche, familiari, ecc.) che possono creare disagio e malessere nella vita quotidiana sia a scuola sia nelle proprie relazioni. L’obiettivo è quello di aiutare a migliorare le proprie capacità di affrontare e risolvere le difficoltà.
@@ -31,6 +47,7 @@ get_header();
                         <?php the_content(); ?>
                     </div>
                 </div><!-- /col-lg-6 -->
+
 
                 <div id="sidebar" class="col-lg-3 offset-lg-1 col-xxl-4 offset-xxl-2 aside-border px-3 py-5">
                     <aside class="aside-main aside-sticky">
@@ -53,6 +70,17 @@ get_header();
                                     } 
                                     ?>
 
+
+                <div id="sidebar" class="col-lg-3 offset-lg-1 aside-border px-3 py-5">
+                    <aside class="aside-main aside-sticky">
+                        <div class="aside-title" id="program-legend">
+                            <H3>Prova di un titolo</H3>
+                            <a class="toggle-link-list">
+                                <span>
+                                    <!-- <?php _e("Indice del Programma", "design_scuole_italia"); ?> Qui ci deve andare il contenuto ma dobbiamo capire come gestirlo -->
+                                </span>
+                            </a>
+
                         </div>
                         <!-- <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region"
                             aria-labelledby="program-legend"> -->
@@ -64,6 +92,11 @@ get_header();
                     </aside>
                 </div>
                   
+
+                <!-- <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                    <?php the_content(); ?>
+                </div> -->
+
                 
             </div><!-- /row -->
         </div><!-- /container -->
