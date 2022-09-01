@@ -23,10 +23,10 @@ if(!$excerpt)
                 <?php get_template_part("template-parts/common/badges-argomenti"); ?>
             </div>
         </div>
-        <div class="card-article-content col-12">
+        <div class="card-article-content col-12" id="card_article_content">
             <h2 class="h3"><a href="<?php echo get_permalink($post); ?>" aria-label="Apre <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h2>
             <p><?php echo $excerpt; ?></p>
-            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" class="btn btn-primary">Approfondisci</a>
+            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" id="btn-mini-default"><button class="w-auto"><span>Approfondisci</span></button></a>
             <?php if(count($argomenti)) { ?>
                     <div class="badges">
                         <?php foreach ( $argomenti as $item ) { ?>

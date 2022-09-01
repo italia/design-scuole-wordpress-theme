@@ -14,7 +14,7 @@
 					<li>
                         <div class="form-check my-0">
 							<input type="radio" class="custom-control-input" name="tipologia-articolo" value="<?php echo $term->slug; ?>" id="check-<?php echo $term->slug; ?>" <?php if($term->slug == get_query_var("tipologia-articolo")) echo " checked "; ?> onChange="this.form.submit()">
-							<label class="mb-0 pl-0" id="no-round" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+							<label class="mb-0" id="no-round" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
 						</div>
 					</li>
 

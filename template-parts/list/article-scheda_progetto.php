@@ -30,7 +30,7 @@ $argomenti = dsi_get_argomenti_of_post();
 
             
             <p><?php echo $excerpt; ?></p>
-            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" class="btn btn-primary">Approfondisci</a>
+            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" id="btn-mini-default"><button class="w-auto"><span>Approfondisci</span></button></a>
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->

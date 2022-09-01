@@ -29,22 +29,3 @@
 #card-sidebar-width {
     max-width: 23.2rem;
 }
-
-//archivio progetti
-//card singole
-#card-article-content {
-    background-color: var($surface);
-    color: var($primary);
-}
-
-.card.card-article:before {
-    content: none;
-}
-
-.card.card-article {
-    border-radius: 4px;
-}
-
-#card_archive {
-    gap: 4rem;
-}

@@ -49,7 +49,7 @@ get_header();
         </section>
         <section class="section bg-gray-light">
             <div class="container">
-                <div class="row variable-gutters sticky-sidebar-container">
+                <div class="row variable-gutters sticky-sidebar-container mx-2 mx-lg-0">
                     <div class="col-lg-3 bg-white bg-white-left">
 						<?php get_template_part("template-parts/search/filters", "argomento"); ?>
                     </div>
