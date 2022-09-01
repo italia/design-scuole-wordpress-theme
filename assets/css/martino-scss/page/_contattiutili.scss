@@ -3,13 +3,14 @@
     h4{
         color: #1260A4;
     }
+    td, th {
+        border:1px solid #ddd;
+        padding:8px;
+    }
+    div{
+        margin-top: 24px;
+    }
 }
 
-table {
-    border-collapse:collapse
-}
-td, th {
-    border:1px solid #ddd;
-    padding:8px;
-}
+
     

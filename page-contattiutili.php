@@ -13,7 +13,6 @@ get_header();
 <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/hero/hero_page"); ?>
         <section id="container-contattiutili">
-            <div class="row">
                 <div class="col-12">
                     <h4> Articolazione degli uffici </h4>
                     <p>
@@ -21,10 +20,8 @@ get_header();
                     seguenti giorni (solo su appuntamento):
                     </p>
                 </div>
-            </div>
-            <div class="row">
-                <div clas="col-5">
-                    <table>
+                <div class="col-5">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                             <th scope="col"></th>
@@ -33,11 +30,59 @@ get_header();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>1</td><td>Lunedi</td><td>Giovedi</td></tr>
+                            <tr><td>Lunedì</td><td>7:30 - 13:30</td><td></td></tr>
+                            <tr><td>Martedì</td><td>7:30 - 13:30</td><td>14:00 - 16:30</td></tr>
+                            <tr><td>Mercoledì</td><td>7:30 - 13:30</td><td>14:00 - 16:30</td></tr>
+                            <tr><td>Giovedì</td><td>7:30 - 13:30</td><td>14:00 - 16:30</td></tr>
+                            <tr><td>Venerdì</td><td>7:30 - 13:30</td><td>14:00 - 16:30</td></tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <div class="col-12">
+                    <table class="table-secondary table table-bordered">
+                        <tbody>
+                            <tr><td>Lunedì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td>Martedì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td>Mercoledì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td>Giovedì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td>Venerdì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12">
+                    <h4> Collaboratori del dirigente scolastico e referenti/funzioni strumentali</h4>
+                </div>
+                <div class="col-12">
+                    <table class="table-secondary table table-bordered">
+                        <tbody>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
         </section>
     </main>
 

@@ -614,14 +614,12 @@ main .text-xs {
 #container-contattiutili h4 {
   color: #1260A4;
 }
-
-table {
-  border-collapse: collapse;
-}
-
-td, th {
+#container-contattiutili td, #container-contattiutili th {
   border: 1px solid #ddd;
   padding: 8px;
+}
+#container-contattiutili div {
+  margin-top: 24px;
 }
 
 #hero {
