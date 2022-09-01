@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 h1  {
     font-size: 56px;
@@ -60,3 +61,29 @@ h6 {
         color: $primary;
     }
 }
+=======
+$font-max-query: 768px;
+$font-min-query: 576px;
+
+// Font-size
+$h1: s-clamp($font-min-query, $font-max-query, 40px, 56px);
+$h2: s-clamp($font-min-query, $font-max-query, 32px, 48px);
+$h3: s-clamp($font-min-query, $font-max-query, 28px, 40px);
+$h4: s-clamp($font-min-query, $font-max-query, 24px, 32px);
+$h5: s-clamp($font-min-query, $font-max-query, 20px, 28px);
+$h6: s-clamp($font-min-query, $font-max-query, 16px, 24px);
+$font-body: s-clamp($font-min-query, $font-max-query, 16px, 18px);
+$text-sm: s-clamp($font-min-query, $font-max-query, 14px, 16px);
+$text-xs: s-clamp($font-min-query, $font-max-query, 14px, 14px);
+
+// Line-height
+$lh-h1: s-clamp($font-min-query, $font-max-query, 48px, 64px);
+$lh-h2: s-clamp($font-min-query, $font-max-query, 40px, 60px);
+$lh-h3: s-clamp($font-min-query, $font-max-query, 32px, 48px);
+$lh-h4: s-clamp($font-min-query, $font-max-query, 28px, 40px);
+$lh-h5: s-clamp($font-min-query, $font-max-query, 24px, 40px);
+$lh-h6: s-clamp($font-min-query, $font-max-query, 24px, 24px);
+$lh-font-body: s-clamp($font-min-query, $font-max-query, 24px, 28px);
+$lh-text-sm: s-clamp($font-min-query, $font-max-query, 20px, 21px);
+$lh-text-xs: s-clamp($font-min-query, $font-max-query, 20px, 18px);
+>>>>>>> 8f4f2c1bed82da09caac44489e20e75c3fa453b3

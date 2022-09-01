@@ -1,14 +1,120 @@
 name: "TODO to Issue"
-
 on: push
 
+# TODO Set permissions
+# permissions:
+#   checks: "read"
+#   issues: "write"
+#   id-token: "read"
+
 jobs:
+  sass:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@master"
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+      - name: Install SASS
+        run: npm install -g sass
+      - name: Install dependencies
+        run: npm ci
+      - name: Run build
+        run: npm run development
+      #   run: npm run build
+      # - name: Run watch
+      #   run: |
+      #     bash -c "$(cat package.json | jq -r .scripts.development)"
+      - name: Add and Commit changes
+        id: commit
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          if [[ -z $(git status -uno --porcelain) ]]; then 
+            echo "Nothing to update"
+          else 
+            git add assets/css/* 
+            git commit -m '`bot` Update compiled CSS files'
+            echo "::set-output name=commited::true" 
+          fi
+      - name: Push changes
+        if: ${{ steps.commit.outputs.commited == 'true' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   todo:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@master"
+
+      # TODO Fork of action `alstr/todo-to-issue-action` to make workflow more simple
       - name: "TODO to Issue"
         uses: "alstr/todo-to-issue-action@v4.6.7"
         id: "todo"
         with: 
-          IGNORE: "inc/vendor/*,assets/js/*"
+          IGNORE: "src/*"
+          AUTO_ASSIGN: true
+          ISSUE_TEMPLATE: "RUN_ID_${{ github.run_id }} {{ title }}\n\n{{ body }}\n\n{{ url }}\n\n{{ snippet }}"
+          
+      - name: Get issues if were created
+        id: "getissues"
+        uses: lee-dohm/select-matching-issues@v1
+        with:
+          format: list
+          query: 'label:todo is:open RUN_ID_${{ github.run_id }} in:body'
+          token: ${{ github.token }}
+          
+      - name: Prepare issues
+        id: list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEY: RUN_ID_${{ github.run_id }}
+        # TODO Add error handling
+        run: |
+          echo "Found issue(s): $(cat ${{ steps.getissues.outputs.path }} | wc -l)"
+          cat ${{ steps.getissues.outputs.path }}
+
+          json='['
+
+          shopt -s lastpipe
+          cat ${{ steps.getissues.outputs.path }} | while read -r p || [[ -n ${p} ]]; do
+            if [[ ${p} =~ \[(.*)\]\((.*\/([0-9]+))\) ]]; then
+
+              # TODO Bypass results to next action
+              ISSUE_NUM="$(echo ${BASH_REMATCH[3]})"
+              ISSUE_URL="$(echo ${BASH_REMATCH[2]})"
+              TITLE="$(echo ${BASH_REMATCH[1]})"
+
+              echo "::group::[#${ISSUE_NUM}] ${TITLE}"
+              echo "Found issue: [${TITLE}](${ISSUE_URL})"
+              
+              echo "$KEY"
+              BODY=$(gh issue view "${ISSUE_URL}" --json body --jq '.body' | sed -e "s/^$KEY\s//")
+              echo "$BODY" > issue.${ISSUE_NUM}.md
+
+              json+="{\"body\":\"issue.${ISSUE_NUM}.md\",\"url\":\"${ISSUE_URL}\",\"title\":\"${TITLE}\"},"
+
+              gh issue edit "${ISSUE_URL}" --body "${BODY}" 
+
+              echo "json:$json"
+              
+              echo "::endgroup::"
+            fi
+          done 
+
+          
+          # [ 11 -eq $(echo "${json}" | wc -c) ] && json='{"issue":[]}' || json="${json::-1}]}"
+          [ 2 -eq $(echo "${json}" | wc -c) ] && json="[]" || json="${json::-1}]"
+          echo "json:$json"
+          json=$(echo -n "$json" | jq -r -c '.')
+          echo "::set-output name=issues::$json"
+          
+      - name: Call trello action
+        uses: ./.github/workflows/trello
+        with:
+          issues: ${{ steps.list.outputs.issues }}
+          TRELLO_ID_TODO: ${{ secrets.TRELLO_ID_TODO }}
+          TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+          TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+
