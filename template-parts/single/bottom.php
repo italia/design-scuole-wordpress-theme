@@ -1,11 +1,11 @@
 <?php
-global $post, $licenza;
+global $post, $licenza, $nascondi_licenza;
 ?>
-<div class="article-footer">
-    <p data-element="metadata"><strong><?php _e("Pubblicato", "design_scuole_italia"); ?>:</strong> <?php
+<div id="article_data" class="article-footer">
+    <h5 data-element="metadata"><em><?php _e("", "design_scuole_italia"); ?> <?php
 		$date_publish = new DateTime($post->post_date);
-		echo $date_publish->format('d.m.Y');
-		?></p>
+		echo $date_publish->format('d.m.Y')
+		?></em></h5>
     <p class="d-none"><?php
         if(trim($licenza)!= "")
             echo $licenza;

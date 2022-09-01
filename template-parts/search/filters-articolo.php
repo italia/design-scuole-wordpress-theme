@@ -3,8 +3,7 @@
 ?>
 <aside class="aside-list sticky-sidebar search-results-filters pt-3">
 	<form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
-			<div class="h6 text-uppercase mt-4"><strong><?php _e("Tipologia", "design_scuole_italia"); ?></strong></div>
-			<ul>
+			<ul id="filtro_articolo">
 				<?php
 				$terms = get_terms( array(
 					'taxonomy' => 'tipologia-articolo',
@@ -23,6 +22,6 @@
 				}
 				?>
 			</ul>
-
 	</form>
 </aside>
+

@@ -1,0 +1,18 @@
+name: Create Trello card on opened issue
+
+on:
+  issues:
+    types: [opened]
+    
+jobs:
+  add-card: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Call trello action
+        uses: ./.github/workflows/trello
+        with:
+          issue: ${{ toJson(github.event.issue) }}
+          TRELLO_ID_TODO: ${{ secrets.TRELLO_ID_TODO }}
+          TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+          TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}

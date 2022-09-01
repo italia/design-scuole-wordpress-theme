@@ -8,26 +8,25 @@ if(!$related_type)
 $oldpost = $post;
 	
 if ( is_array( $posts_array ) && count( $posts_array ) ) { ?>
-	<section class="section bg-gray-gradient py-5" id="art-par-correlati">
+	<section class="section bg-gray-gradient" id="art-par-correlati">
 	<div class="container pt-3">
 
 		<div class="row variable-gutters">
-			<div class="col-lg-12">
+			<div class="col-12">
 
-				<h2 class="h3 text-left semi-bold text-gray-primary"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></h2>
+				<h2 class="h3 text-left semi-bold text-gray-primary"><?php _e("News correlate", "design_scuole_italia"); ?></h2>
 
-				<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide"
-                  data-bs-carousel-splide>
-                  <div class="splide__track ps-lg-3 pe-lg-3">
-                    <ul class="splide__list it-carousel-all">
+				<div>
+                  <div class="ps-lg-3 pe-lg-3 news_correlate">
+                    <div id="news_correlate">
 						<?php
 						foreach ( $posts_array as $post ) {
 							?>
-							<li class="splide__slide">
+							<div class="mb-4">
 								<?php get_template_part( "template-parts/single/".$related_type, $post->post_type ); ?>
-							</li><!-- /item -->
+						</div><!-- /item -->
 						<?php } ?>
-					</ul>
+						</div>
 				  </div><!-- /carousel-large -->
 				</div>
 			</div><!-- /col-lg-12 -->

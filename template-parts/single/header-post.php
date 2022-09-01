@@ -21,15 +21,17 @@ $autore = get_user_by("ID", $post->post_author);
         } ?>
         <div class="container">
             <div class="row variable-gutters">
-                <div class="col-<?php echo $colsize; ?> article-title-author-container">
+                <div class="col-<?php echo $colsize; ?> article-title-author-container justify-content-start">
                     <div class="title-content">
                         <h1><?php the_title(); ?></h1>
                         <?php
                         $badgeclass = "badge-outline-greendark";
                         get_template_part("template-parts/common/badges-argomenti"); ?>
-                        <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                    </div>
+                    <div>
+                        <div id="article_image" class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
                         <?php get_template_part( "template-parts/single/bottom" ); ?>
-                    </div><!-- /title-content -->
+                    </div>
                 </div><!-- /col-md-6 -->
             </div><!-- /row -->
         </div><!-- /container -->

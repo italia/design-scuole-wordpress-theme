@@ -19,7 +19,9 @@
 .carousel > input[type=radio] {
   grid-column-start: 1;
   margin: auto;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #C4C4C4;
   border-radius: 50%;
 }
@@ -60,5 +62,3 @@
     background-color: #E6285F;
   }
 }
-
-/*# sourceMappingURL=martino-carousel.css.map */
