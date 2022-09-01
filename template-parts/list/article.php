@@ -17,12 +17,12 @@ if(!$excerpt)
 <div class="col-12 col-lg-3">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
     <div class="card-body row p-0">
-    <div class="card-thumb col-12 p-0">
-                <img src="<?php echo $image_url; ?>" alt="" class="col-12 p-0">
-				<div id="card_article_badge">
-                <?php get_template_part("template-parts/common/ badges-argomenti"); ?>
-				</div>
-			</div>
+        <div class="card-thumb col-12 p-0 position-relative">
+            <img src="<?php echo $image_url; ?>" alt="" class="col-12 p-0">
+            <div class="position-absolute" id="card_article_badge"> 
+                <?php get_template_part("template-parts/common/badges-argomenti"); ?>
+            </div>
+        </div>
         <div class="card-article-content col-12">
             <h2 class="h3"><a href="<?php echo get_permalink($post); ?>" aria-label="Apre <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h2>
             <p><?php echo $excerpt; ?></p>

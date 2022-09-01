@@ -38,9 +38,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             <section class="section bg-white">
                 <div class="container">
                     <div class="row d-flex">
-                        <div class="col-lg-8 col-md-8" id="article-title">
+                        <div class="col-lg-8 col-md-8" id="article_title">
                             <div>
-                                <div class="title-content" id="title-content">
+                                <div class="title-content">
                                     <h1 class="h2"><?php the_title(); ?></h1>
                                     <?php
                                     global $badgeclass;
@@ -62,8 +62,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 </div><!-- /title-content -->
                                 <div class="" id="title-img">
                                     <?php echo get_the_post_thumbnail($page->ID, 'full'); ?>
-                                    <?php get_template_part("template-parts/single/bottom"); ?>
                                 </div>
+                                <?php get_template_part("template-parts/single/bottom"); ?>
                             </div><!-- /header -->
                         
 

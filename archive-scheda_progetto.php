@@ -20,7 +20,8 @@ get_header();
     <main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/hero_page", "archive"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero", "progetti"); ?>
+        <?php get_template_part("template-parts/search/filters-scheda-progetto"); ?>
 
         <section class="section">
             <div class="container mt-5">
@@ -28,7 +29,7 @@ get_header();
 
 						<?php if ( have_posts() ) : ?> 
                             
-                            <div class="row" id="card_progetto">
+                            <div class="row" id="card_archive">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :

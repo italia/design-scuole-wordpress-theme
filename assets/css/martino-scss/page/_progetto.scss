@@ -1,9 +1,9 @@
-.article-title .container {
+.article_title .container {
     height: auto;
     position: static;
 }
 
-#article-title {
+#article_title {
     position: static;
     height: auto;
     display: block;
@@ -32,20 +32,19 @@
 
 //archivio progetti
 //card singole
-#card_article_content {
+#card-article-content {
     background-color: var($surface);
     color: var($primary);
 }
 
 .card.card-article:before {
-    content: transparent;
+    content: none;
 }
 
-#card_article_badge {
-    position: relative;
-    top: -18rem;
-    right: -18.5rem;
-    .badge-wrapper {
-        margin: 0rm !important;
-    }
+.card.card-article {
+    border-radius: 4px;
+}
+
+#card_archive {
+    gap: 4rem;
 }

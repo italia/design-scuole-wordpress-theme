@@ -44,7 +44,7 @@ if(isset($_GET["post_terms"]))
                 <li>
                     <div class="form-check my-0">
                         <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
-                        <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
+                        <label class="mb-0 pl-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                     </div>
                 </li>
 
