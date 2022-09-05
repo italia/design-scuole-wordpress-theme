@@ -107,7 +107,7 @@ get_header();
                     <div class="card-img-top card-img position-relative">
                       <?php the_post_thumbnail("news-thumb");?> 
                       <div class="posizione-badges"> 
-                         <?php get_template_part("template-parts/common/badges-argomenti"); ?> 
+                         <?php get_template_part("template-parts/common/badge-tag.php"); ?> 
                       </div>
                     </div>
                     <div class="card-body">
