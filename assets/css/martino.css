@@ -625,15 +625,29 @@ main .text-xs {
   color: #1260A4;
 }
 
-#quotes {
-  font-style: italic;
-  color: #1260A4;
-}
-
 .img-mobile {
   max-width: 90vw;
 }
 
+#image-block {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+#image-block img {
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767.98px) {
+  #image-block {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  #image-block img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
 #hero {
   height: 400px;
   width: 100%;
@@ -664,6 +678,10 @@ main .text-xs {
   background-color: #DFE2EB;
 }
 #sidebar h3 {
+  color: #1260A4;
+}
+#sidebar #quotes {
+  font-style: italic;
   color: #1260A4;
 }
 

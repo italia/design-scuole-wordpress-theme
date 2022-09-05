@@ -21,10 +21,10 @@ get_header();
         <div class="container-fluid container-border-top">
                 <div class="row main-content variable-gutters">
 
-                    <div class="container col-lg-8 col-xxl-6">
+                    <div class="container col-lg-8 col-xxl-6 px-5">
 
                         <div class="row"> 
-                            <div class="pt-5 px-3">    
+                            <div class="pt-5">    
                                 <h2>ICDL full standard</h2>
                                 <p>lI 1° aprile 2014 ICDL Full Standard, che oggi si chiama ICDL Full Standard, è stata accreditata come schema di certificazione delle competenze informatiche da Accredia, unico ente italiano di accreditamento preposto a validare i processi di certificazione delle persone.
                                 </p>
@@ -45,7 +45,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5">
                             <div class="col-lg-4">
                                 <h4>ICDL Base</h4>
                             </div>
@@ -60,7 +60,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + elenco -->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5">
                             <div class="col-lg-4">
                                 <h4>ICDL Standard</h4>
                             </div>
@@ -96,7 +96,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + elenco -->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Full Standard</h4>
                             </div>
@@ -114,7 +114,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + elenco -->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Advanced Word Processing</h4>
                             </div>
@@ -123,7 +123,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Advanced Spreadsheets</h4>
                             </div>
@@ -132,7 +132,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                         <div class="row pt-5 px-3">
+                         <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Advanced Databases</h4>
                             </div>
@@ -141,7 +141,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Advanced Presentation</h4>
                             </div>
@@ -150,7 +150,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL Expert</h4>
                             </div>
@@ -159,7 +159,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL CAD 2D</h4>
                             </div>
@@ -168,7 +168,7 @@ get_header();
                             </div>
                         </div> <!-- scheda titoletto + paragrafo-->
 
-                        <div class="row pt-5 px-3">
+                        <div class="row mt-5 px-3">
                             <div class="col-lg-4">
                                 <h4>ICDL CAD 2D</h4>
                             </div>
@@ -182,7 +182,7 @@ get_header();
 
                         
                         <div class="row">
-                            <div class="pt-5 px-3">    
+                            <div class="mt-5 px-3">    
                                 <h3>Costi</h3>
                                 <p>Il costo per il rilascio da parte dell'AICA delle certificazioni ICDL è formato da 2 voci:</p>
                                     <ul>
@@ -197,7 +197,7 @@ get_header();
                         </div>
 
                         <div class="row">
-                            <div class="pt-5 px-3">    
+                            <div class="mt-5 px-3">    
                                 <h4>Esami IT Security “Io clicco sicuro” con la carta “IoStudio”</h4>
                                 <p>Iocliccosicuro è un’iniziativa di AICA e di ioStudio - la Carta dello Studente, che ti permette di sostenere gratuitamente il modulo IT-Security di ICDL 
                                 Se hai IoStudio - la Carta dello Studente, puoi sfruttare questa opportunità, dal sito 
@@ -218,7 +218,7 @@ get_header();
                         </div>
 
                         <div class="row">
-                            <div class="pt-5 px-3">    
+                            <div class="mt-5 px-3">    
                                 <h3>Informazioni e link utili</h3>
                                 <p>Possedendo una Skills Card Nuova ICDL, ci si può iscrivere ad una sessione di esami programmata da qualsivoglia Test Center. 
                                 Per iscriversi a un esame non è necessario stampare la Skills Card, essendo un documento digitale registrato nel sistema informatico di AICA, è sufficiente riportare il numero sul modulo di iscrizione.
@@ -239,7 +239,7 @@ get_header();
                             </div>
 
                         <div class="row">
-                            <div class="pt-5 px-3">    
+                            <div class="mt-5 px-3">    
                                 <h5>Link utili</h5>
                                 <p>
                                 <a href=""> www.ICDL.it </a> / <a href=""> www.aica.it </a> / <a href=""> www.micertificoICDL.it </a> / <a href=""> www.aula01.it</a> 	
@@ -260,7 +260,7 @@ get_header();
 
                     </div>  <!-- Main content of page -->
                     
-                    <div id="sidebar" class="col-lg-3 offset-lg-1 col-xxl-4 offset-xxl-2 px-3 py-5">
+                    <div id="sidebar" class="col-lg-3 offset-lg-1 col-xxl-4 offset-xxl-2 px-5 px-lg-3 py-5"">
                         <aside class="aside-main aside-sticky">
                             <div class="aside-title col-10 col-xl-8" id="program-legend">
                                 <h5>Contatti</h5>
