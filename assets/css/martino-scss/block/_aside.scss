@@ -1,0 +1,15 @@
+#sidebar {
+    background-color: $sidebar;
+
+    h3 {
+        color: $primary;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    #sidebar {
+        margin: 0;
+    }
+}
+
