@@ -24,7 +24,7 @@ if ( $page_id = get_option( 'page_for_posts' ) ) {
     <?php get_template_part("template-parts/hero/hero_page"); ?>
     <section id="primary" >
         
-        <div class="content" role="main" data-target="index" >
+        <div class="content mx-5 my-5" role="main" data-target="index" >
         <?php the_content(); ?>
         </div><!-- end content -->
     </section><!-- end primary -->

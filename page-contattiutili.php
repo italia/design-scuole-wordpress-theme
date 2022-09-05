@@ -13,20 +13,23 @@ get_header();
 <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/hero/hero_page"); ?>
         <section id="container-contattiutili">
-                <div class="col-12">
-                    <h4> Articolazione degli uffici </h4>
+            <div class="row">
+                <div class="col-12 mt-5 px-5">
+                    <h4>Articolazione degli uffici </h4>
                     <p>
                     Gli uffici della segreteria scolastica di via Perlasca 4 a Mezzolombardo sono aperti al pubblico nei 
                     seguenti giorni (solo su appuntamento):
                     </p>
                 </div>
-                <div class="col-5">
+            </div>  
+            <div class="row">
+                <div class="col-6 mt-3 px-5">
                     <table class="table table-bordered">
-                        <thead>
+                        <thead class="table-info">
                             <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Mattina</th>
-                            <th scope="col">Pomeriggio</th>
+                            <th ></th>
+                            <th >Mattina</th>
+                            <th>Pomeriggio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,14 +41,16 @@ get_header();
                         </tbody>
                     </table>
                 </div>
-                <div class="col-12">
-                    <table class="table-secondary table table-bordered">
+            </div>
+            <div class="row">
+                <div class="col-12  mt-5 px-5">
+                    <table class="table-info table table-bordered">
                         <tbody>
-                            <tr><td>Lunedì</td><td>7:30 - 13:30</td></tr>
-                            <tr><td>Martedì</td><td>7:30 - 13:30</td></tr>
-                            <tr><td>Mercoledì</td><td>7:30 - 13:30</td></tr>
-                            <tr><td>Giovedì</td><td>7:30 - 13:30</td></tr>
-                            <tr><td>Venerdì</td><td>7:30 - 13:30</td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
+                            <tr><td></td><td></td></tr>
                             <tr><td></td><td></td></tr>
                             <tr><td></td><td></td></tr>
                             <tr><td></td><td></td></tr>
@@ -59,11 +64,13 @@ get_header();
                         </tbody>
                     </table>
                 </div>
-                <div class="col-12">
+            </div>
+            <div class="row">
+                <div class="col-12 mt-5 px-5">
                     <h4> Collaboratori del dirigente scolastico e referenti/funzioni strumentali</h4>
                 </div>
-                <div class="col-12">
-                    <table class="table-secondary table table-bordered">
+                <div class="col-12 mb-5 px-5">
+                    <table class="table-info table table-bordered">
                         <tbody>
                             <tr><td></td><td></td></tr>
                             <tr><td></td><td></td></tr>
@@ -83,6 +90,7 @@ get_header();
                         </tbody>
                     </table>
                 </div>
+            </div>
         </section>
     </main>
 

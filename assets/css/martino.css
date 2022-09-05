@@ -586,40 +586,23 @@ main .text-xs {
     padding: 0 0.5rem;
   }
 }
-#container-spazi {
-  margin: 100px;
-}
 #container-spazi h2 {
   color: #1260A4;
 }
-
-#col-2-spazi {
-  background-color: red;
+#container-spazi img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 400px;
 }
 
-#row-2-spazi, #row-3-spazi, #row-4-spazi {
-  margin-top: 100px;
-}
-
-#primary {
-  margin: 24px;
-}
 #primary h2 {
   color: #1260A4;
 }
 
-#container-contattiutili {
-  margin: 24px;
-}
-#container-contattiutili h4 {
-  color: #1260A4;
-}
 #container-contattiutili td, #container-contattiutili th {
   border: 1px solid #ddd;
   padding: 8px;
-}
-#container-contattiutili div {
-  margin-top: 24px;
 }
 
 #hero {
