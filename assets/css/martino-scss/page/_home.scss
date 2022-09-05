@@ -102,8 +102,15 @@
 
 }
 
-@media screen and (max-width: 782px) {
+@media screen and (max-width: 991px) {
   #main-container .card:first-child, #main-container .card:last-child {
     padding: 0 0.5rem;
   }
+
+  .wauto{
+    @media (max-width: 575.98px) {
+        width: 100%!important;
+      }
+  } 
+  // Ho aggiunto questa classe a .wauto perchè su miscure piccole tornasse a occupare tutto lo spazio disponibile, se crea problemi lo sistemo. (alex)
 }

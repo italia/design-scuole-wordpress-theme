@@ -1,0 +1,24 @@
+#image-block {
+
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+
+    img {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    #image-block {
+
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+
+        img {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    }
+}

@@ -19,10 +19,10 @@ if($slug == "articoli")
 	<main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/notizie", "archive"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero", "notizie"); ?>
 
 
-		<section class="section bg-white border-top border-bottom d-block d-lg-none">
+		<section class="section bg-white border-top border-bottom d-block d-lg-none mx-3 mx-lg-0">
 			<div class="container d-flex justify-content-between align-items-center py-3">
 				<h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
 				<a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#" aria-label="filtri">
@@ -30,13 +30,17 @@ if($slug == "articoli")
 				</a>
 			</div>
 		</section>
-		<section class="section bg-gray-light">
+		<section class="section">
 			<div class="container">
-				<div class="variable-gutters sticky-sidebar-container">
-					<div class="bg-white bg-white-left">
+				<div class="variable-gutters sticky-sidebar-container pt-5 mx-3 mx-lg-0">
+					<div>
+					<?php get_template_part("template-parts/search/search-form"); ?>
 						<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 					</div>
-					<div class="pt84">
+				</div>
+			</div><!-- /container -->
+				<div class="container">
+					<div class="row my-5 mx-2 mx-lg-0 " id="card_archive">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */
@@ -56,9 +60,9 @@ if($slug == "articoli")
 
 						endif;
 						?>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
+					</div><!-- /row -->
+				</div><!-- /container -->
+			
 		</section>
 	</main>
 
