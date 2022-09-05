@@ -87,7 +87,7 @@ get_header();
       <div class="row mt-5 mt-lg-0">
         <div class="col-lg-7 col-md-12">
           <h4>Ultime news </h4>
-          <div class="row mt-3 mt-lg-0 justify-content-between">
+          <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
           
         
             <?php
@@ -107,7 +107,7 @@ get_header();
                     <div class="card-img-top card-img position-relative">
                       <?php the_post_thumbnail("news-thumb");?> 
                       <div class="posizione-badges"> 
-                         <?php get_template_part("template-parts/common/badges-argomenti"); ?> 
+                         <?php get_template_part("template-parts/common/badge-tag.php"); ?> 
                       </div>
                     </div>
                     <div class="card-body">

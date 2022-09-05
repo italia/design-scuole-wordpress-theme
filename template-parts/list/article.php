@@ -14,19 +14,19 @@ if(!$excerpt)
 
 ?>
 
-<a class="presentation-card-link" href="<?php the_permalink(); ?>" aria-label="Apre link: <?php the_title(); ?>">
-<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
-    <div class="card-body">
-        <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
-            <div class="date d-none">
-                <span class="year"><?php echo date_i18n("Y", strtotime($post->post_date)); ?></span>
-                <span class="day"><?php echo date_i18n("d", strtotime($post->post_date)); ?></span>
-                <span class="month"><?php echo date_i18n("M", strtotime($post->post_date)); ?></span>
+<div class="col-12 col-lg-3">
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
+    <div class="card-body row p-0">
+        <div class="card-thumb col-12 p-0 position-relative">
+            <img src="<?php echo $image_url; ?>" alt="" class="col-12 p-0">
+            <div class="position-absolute" id="card_article_badge"> 
+                <?php get_template_part("template-parts/common/badges-argomenti"); ?>
             </div>
         </div>
-        <div class="card-article-content">
-            <h2 class="h3"><?php the_title(); ?></h2>
+        <div class="card-article-content col-12" id="card_article_content">
+            <h2 class="h3"><a href="<?php echo get_permalink($post); ?>" aria-label="Apre <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h2>
             <p><?php echo $excerpt; ?></p>
+            <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" id="btn-mini-default"><button class="w-auto"><span>Approfondisci</span></button></a>
             <?php if(count($argomenti)) { ?>
                     <div class="badges">
                         <?php foreach ( $argomenti as $item ) { ?>
@@ -38,4 +38,4 @@ if(!$excerpt)
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
-</a>
+</div>

@@ -281,6 +281,23 @@ if(!function_exists("dsi_get_tipologia_luogo_of_post")) {
  * Wrapper function for agomenti taxonomy list
  * @return array arguomenti
  */
+if(!function_exists("dsi_get_tipologia_articolo_of_post")) {
+    function dsi_get_tipologia_articolo_of_post( $singular = false ) {
+        global $post;
+
+        if ( ! $singular) {
+            $singular = $post;
+        }
+
+        $argomenti_terms = wp_get_object_terms( $singular->ID, 'tipologia-articolo' );
+        return $argomenti_terms;
+    }
+}
+
+/**
+ * Wrapper function for agomenti taxonomy list
+ * @return array arguomenti
+ */
 if(!function_exists("dsi_get_argomenti_of_post")) {
 	function dsi_get_argomenti_of_post( $singular = false ) {
 		global $post;
