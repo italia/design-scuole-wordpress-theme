@@ -21,7 +21,7 @@ get_header();
         <div class="container-fluid container-border-top">
                 <div class="row main-content variable-gutters">
 
-                    <div class="container col-lg-8 col-xxl-6 px-5">
+                    <div class="container col-lg-8 px-5">
 
                         <div class="row"> 
                             <div class="pt-5">    
@@ -260,15 +260,14 @@ get_header();
 
                     </div>  <!-- Main content of page -->
                     
-                    <div id="sidebar" class="col-lg-3 offset-lg-1 col-xxl-4 offset-xxl-2 px-5 px-lg-3 py-5"">
+                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
-                            <div class="aside-title col-10 col-xl-8" id="program-legend">
+                            <div class="col-12 col-lg-9" id="program-legend">
                                 <h5>Contatti</h5>
                                 <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
                             </div>
                             <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-4">
                             <?php 
-    
                                         if(trim($procedura_esito) != ""){ 
                                             ?> 
                                             <h6 class="h6"><?php _e("email", "design_scuole_italia"); ?></h6> 
@@ -280,7 +279,6 @@ get_header();
                                             <?php 
                                         } 
                                         ?>
-
                             </div>
                             <div id="lista-paragrafi" class="link-list-wrapper" role="region"
                                 aria-labelledby="program-legend"> 
