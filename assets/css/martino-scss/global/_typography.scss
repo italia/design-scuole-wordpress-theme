@@ -33,7 +33,7 @@
 }
 @mixin h4 ($color: false, $size: true) {
   @if $color {
-    color:$black;
+    color:$primary;
   }
   @if $size {
     font-size: $h4;
@@ -125,4 +125,8 @@
 .text-xs {
   @include text-xs;
   main & {  @include text-xs($color: true, $size: false);  }
+}
+
+.fw-regular{
+  font-weight: 400;
 }
