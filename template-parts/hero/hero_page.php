@@ -9,9 +9,12 @@
                 <p class="h3 fw-regular"><?php 
                     get_the_title();
                 ?></p>
-                <a id="btn-lg-default" href="<?php 
+                <div class="text-center">
+                    <a id="btn-lg-default" class="" href="<?php 
                     the_permalink($hero_post_id); 
-                ?>" target="blank" class="col-12"><button>Scopri</button></a>
+                    ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
+                </div>
+                
             </div>
         </div>
     </div>
