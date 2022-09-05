@@ -11,4 +11,6 @@ mix
         }
     });
 
-if (process.env.MIX_NOTIFICATIONS == 'false') mix.disableNotifications();
+if (process.env.MIX_NOTIFICATIONS == 'false') {
+    mix.disableNotifications();
+}

@@ -203,10 +203,10 @@ main .text-xs {
   content: none;
 }
 
-<<<<<<< HEAD
 .card.card-article {
   border-radius: 4px;
-=======
+}
+
 .badge-outline-blue {
   color: white;
   background-color: #51758d;
@@ -531,7 +531,6 @@ main .text-xs {
 .badge-outline-black:not(:disabled):not(.disabled).active:focus,
 .show > .badge-outline-black.dropdown-toggle:focus {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
->>>>>>> e5a21d1ca9545f1fa8bf2dc197247e55622e718b
 }
 
 #main-container #button-navigazione a {
@@ -613,7 +612,7 @@ main .text-xs {
     padding: 0 0.5rem;
   }
 }
-@media screen and (max-width: 782px) and (max-width: 575.98px) {
+@media screen and (max-width: 991px) and (max-width: 575.98px) {
   .wauto {
     width: 100% !important;
   }
