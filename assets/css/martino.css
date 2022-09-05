@@ -36,7 +36,7 @@ main .h3, main h3 {
   font-weight: 700;
 }
 main .h4, main h4 {
-  color: #000;
+  color: #1260A4;
 }
 
 .h5, h5 {
@@ -80,6 +80,10 @@ main .text-sm {
 }
 main .text-xs {
   color: #000;
+}
+
+.fw-regular {
+  font-weight: 400;
 }
 
 .article_title .container {
@@ -639,31 +643,21 @@ main .text-xs {
   background-size: cover;
   padding: 0;
 }
-#hero h1 {
-  color: white;
-  font-size: 56px;
-  line-height: 48px;
-  margin: auto;
-  margin-bottom: 0.2rem;
-  text-align: center;
-}
-#hero p {
-  text-transform: uppercase;
-  font-size: 36px;
-  line-height: 40px;
-  letter-spacing: -0.1rem;
-  color: white;
-  margin: auto;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-#content {
+#hero #content {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   margin: 0;
+}
+#hero #content h1 {
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+#hero #content p {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
 }
 
 #sidebar {
