@@ -16,7 +16,7 @@ main .h1, main h1 {
   font-weight: 700;
 }
 main .h2, main h2 {
-  color: #fff;
+  color: #1260A4;
 }
 
 .h3, h3 {
@@ -26,7 +26,7 @@ main .h2, main h2 {
   font-weight: 700;
 }
 main .h3, main h3 {
-  color: #000;
+  color: #1260A4;
 }
 
 .h4, h4 {
@@ -36,7 +36,7 @@ main .h3, main h3 {
   font-weight: 700;
 }
 main .h4, main h4 {
-  color: #1260A4;
+  color: #000;
 }
 
 .h5, h5 {
@@ -653,15 +653,7 @@ main .text-xs {
   background-size: cover;
   padding: 0;
 }
-
-#content {
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-#content h1 {
+#hero h1 {
   color: white;
   font-size: 56px;
   line-height: 48px;
@@ -669,7 +661,7 @@ main .text-xs {
   margin-bottom: 0.2rem;
   text-align: center;
 }
-#content p {
+#hero p {
   text-transform: uppercase;
   font-size: 36px;
   line-height: 40px;
@@ -678,6 +670,14 @@ main .text-xs {
   margin: auto;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+#content {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 #sidebar {
