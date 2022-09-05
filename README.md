@@ -17,6 +17,10 @@ Per scaricare il tema hai le seguenti opzioni:
 + eseguire il **download**, cliccando prima sul pulsante "Code" e poi sulla voce "Download ZIP" dal menu a tendina 
 ![download-zip](https://user-images.githubusercontent.com/69706/188414872-9a0c33c5-19b1-461a-b577-29cb08723806.png)
 
+Se non conosci il comando `fork` puoi [leggere questa guida](https://docs.github.com/en/get-started/quickstart/fork-a-repo) (disponibile solo in inglese)
+
+_👉 **Nota bene**: se decidi di scaricare il tema tramite il `fork` non è necessario effettuare le _pull request_ sul repository originale_
+
 ### Come aggiornare il tema
 Se hai scaricato il tema tramite il comando **fork** e vuoi aggiornarla all'ultima versione, esegui il comando `git pull` da terminale.
 
@@ -120,7 +124,7 @@ Per importare documenti e circolari dal vecchio al nuovo sito, si può utilizzar
 Il tema tenterà una riconciliazione automatica delle tipologie di contenuto più frequentemente usate dalle scuole che utilizzano WordPress: come gli eventi, le circolari e i documenti di amministrazione trasparente.
 
 ### **Relazioni tra i contenuti**
-I siti WordPress presentano una serie di tipologie di contenuto (content type) che sono in relazione tra loro. Ogni tipologia di contenuto viene creata attraverso una “scheda” nel backend di WordPress, che presenta i vari campi dove aggiungere i contenuti per creare la pagina.
+I siti WordPress presentano una serie di tipologie di contenuto (_content type_) che sono in relazione tra loro. Ogni tipologia di contenuto viene creata attraverso una “scheda” nel backend di WordPress, che presenta i vari campi dove aggiungere i contenuti per creare la pagina.
 
 Questa impostazione permette di combinare i vari elementi per la creazione delle pagine, così che i contenuti vengano creati soltanto una volta e poi riutilizzati, se necessario, in varie parti del sito. Una volta comprese le relazioni tra le tipologie di contenuti, sarà facile creare le pagine del sito.
 
@@ -133,7 +137,7 @@ Alcune relazioni tra tipologie di contenuti, sono:
 
 Questo significa, ad esempio, che ogni pagina di una struttura organizzativa può presentare una relazione con contenuti come i luoghi e i servizi.
 
-🚨 **Attenzione**: Dal punto di vista pratico, è necessario che i contenuti che si vuole collegare vengano creati in un ordine preciso: prima i content type che fungono da contenuti di dettaglio e poi il content type contenitore (es. prima i servizi, i luoghi e le persone e solo dopo la struttura organizzativa che raggruppa servizi, luoghi, persone creati in precedenza).
+🚨 **Attenzione**: Dal punto di vista pratico, è necessario che i contenuti che si vuole collegare vengano creati in un ordine preciso: prima i _content type_ che fungono da contenuti di dettaglio e poi il _content type_ contenitore (es. prima i servizi, i luoghi e le persone e solo dopo la struttura organizzativa che raggruppa servizi, luoghi, persone creati in precedenza).
 
 Per collegare tra loro diverse tipologie di contenuto, quindi:
 1.	crea la scheda o le schede dei contenuti di dettaglio (ad esempio, il luogo “Palazzo Baldini” che verrà associato ad una struttura organizzativa);
@@ -144,11 +148,9 @@ Per associare nuovi contenuti di dettaglio ad altri già esistenti:
 1.	Crea la nuova scheda di contenuto di dettaglio (ad esempio, la scheda servizio “Pagamento mensa scolastica” da associare alla scheda del contenuto contenitore “Segreteria scolastica”).
 2.	Entra nella scheda del contenuto contenitore e, tramite l’apposito campo, associa la scheda del contenuto di dettaglio (la scheda servizio “Pagamento mensa scolastica” alla scheda “Segreteria scolastica”).
 
-
 Nella maggior parte dei casi questa correlazione è bidirezionale e automatica. Quando si crea, ad esempio, una relazione tra un luogo e una struttura, questa verrà mostrata sia nel dettaglio del luogo che in quello della struttura.
 
-
-### **I diversi *content type***
+### **I diversi _content type_**
 
 #### I luoghi
 
@@ -176,29 +178,29 @@ La sezione dei percorsi di studio è dedicata a illustrare l’offerta formativa
 #### I documenti
 
 La sezione documenti raccoglie tutti i documenti scolastici, dai file PDF ai documenti dell’albo online e della sezione amministrazione trasparente.
-I documenti in albo hanno una numerazione progressiva non modificabile e, una volta pubblicati, possono esere soltanto eliminati. I documenti possono esssere associati ai diversi *content type* del sito, quando necessario. Si consiglia di creare schede documenti piuttosto che caricare i file direttamente dentro i *content type*, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca.
+I documenti in albo hanno una numerazione progressiva non modificabile e, una volta pubblicati, possono esere soltanto eliminati. I documenti possono esssere associati ai diversi _content type_ del sito, quando necessario. Si consiglia di creare schede documenti piuttosto che caricare i file direttamente dentro i _content type_, così da renderli più facilmente ricercabili e indicizzabili dai motori di ricerca.
 
 #### I progetti 
 
-Il *content type* “progetto” presenta i progetti e le attività svolte insieme agli studenti nell’ambito della didattica tradizionale, progetti extracurriculari o delle uscite didattiche.
+Il _content type_ “progetto” presenta i progetti e le attività svolte insieme agli studenti nell’ambito della didattica tradizionale, progetti extracurriculari o delle uscite didattiche.
 
 #### Le schede didattiche
 
-Le schede didattiche permettono di descrivere un approfondimento tematico a cura di uno o più insegnanti. Il contenuto è rivolto agli studenti. Il *content type* “scheda didattica” può essere associato con con i luoghi, le strutture e i documenti della scuola.
+Le schede didattiche permettono di descrivere un approfondimento tematico a cura di uno o più insegnanti. Il contenuto è rivolto agli studenti. Il _content type_ “scheda didattica” può essere associato con con i luoghi, le strutture e i documenti della scuola.
 
 #### Le notizie
 
-Le notizie sono rappresentate dal *content type* nativo di WordPress “articolo” e sono di 2 tipi, news e articoli. Vengono raccolte in una pagina di presentazione generale e sono filtrabili per tipologia. È anche presente una pagina di archivio.
+Le notizie sono rappresentate dal _content type_ nativo di WordPress “articolo” e sono di 2 tipi, news e articoli. Vengono raccolte in una pagina di presentazione generale e sono filtrabili per tipologia. È anche presente una pagina di archivio.
 
 La tipologia news è pensata per raccontare le notizie e i comunicati ufficiali della scuola, mentre la tipologia articoli è pensata per articoli generici stile blog.
 
 #### Eventi e calendario eventi
 
-Il *content type* “evento” serve a creare eventi che hanno una data di inizio e fine, visualizzabili in un calendario scolastico (ad esempio, la chiusura delle attività nel periodo natalizio).
+Il _content type_ “evento” serve a creare eventi che hanno una data di inizio e fine, visualizzabili in un calendario scolastico (ad esempio, la chiusura delle attività nel periodo natalizio).
 
 #### Le circolari
 
-Il *content type* “circolare” crea una pagina di presentazione della circolare sul sito della scuola e permette di raccogliere commenti e feedback da parte degli utenti interessati.
+Il _content type_ “circolare” crea una pagina di presentazione della circolare sul sito della scuola e permette di raccogliere commenti e feedback da parte degli utenti interessati.
 
 Il flusso di vita tipico di una circolare all’interno di un istituto è solitamente il seguente:
 1.	l'insegnante crea una scheda circolare;
