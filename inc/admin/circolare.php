@@ -596,10 +596,10 @@ if(!function_exists('dsi_csv_generator')) {
                             $UtenteNotificato = "Notificata - Firmata";
                         }
                     }else{
-                        $UtenteNotificato = "Utente notificato - Ancora da Firmare";
+                        $UtenteNotificato = "Notificata - Ancora da Firmare";
                     }
                 }else{
-                    $UtenteNotificato="Malfunzionamento: Utente con lista circolari non vettoriale";
+                    $UtenteNotificato="NON Notificata a questo utente";
                 }                
 
                 // Scrivo la riga nel file .csv solo per gli utenti "notificati"
