@@ -142,8 +142,8 @@ class WP_AdminMenuSection {
                 global $submenu;
                 $found = false;
                 foreach($menu as $index => $section_array) {
-                    if ($section==$section_array[2] ||                      // Find by File/Slug
-                        $section==$section_array[0] ||                      // Find by Title
+                    if ((isset($section_array[2]) && $section==$section_array[2]) ||                      // Find by File/Slug
+                        (isset($section_array[0]) && $section==$section_array[0]) ||                      // Find by Title
                         @preg_match("#^{$section}$#",$section_array[0])) {  // Find by Title via RegEx
                         $found = $index;
                     } else {
@@ -256,7 +256,6 @@ class WP_AdminMenuSection {
         global $menu;
         if(isset($menu[$this->index])) {
             $temp = $menu[$this->index];
-            $menu[$this->index] = $menu[$with->index];
             $menu[$with->index] = $temp;
             $temp = $this->index;
             $this->index = $with->index;
@@ -318,7 +317,7 @@ class WP_AdminMenuSection {
         $GLOBALS['menu'][$this->index][1] = $new_capability;
     }
     function get_file() { // 'slug' & 'file' are synonyms for admin menu
-        return $GLOBALS['menu'][$this->index][2];
+        return isset($GLOBALS['menu'][$this->index][2]) ? $GLOBALS['menu'][$this->index][2] : '';
     }
     function set_file($new_file) {
         $GLOBALS['menu'][$this->index][2] = $new_file;
