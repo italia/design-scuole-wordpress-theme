@@ -114,6 +114,10 @@ Prima della pubblicazione del sito, è utile definire con chiarezza chi sarà re
 
 Le schede didattiche, ovvero gli approfondimenti su un argomento specifico, sono l’unico contenuto che può esser scritto liberamente dai docenti, dopo averli fatti iscrivere a WordPress.
 
+#### Editor Gutenberg
+🚨 **Attenzione!** Il tema non supporta l'editor dei blocchi Gutenberg. È quindi necessario verificare che il plugin **Disable Gutenberg** sia correttamente installato e attivo.
+Le schede didattiche, ovvero gli approfondimenti su un argomento specifico, sono l’unico contenuto che può esser scritto liberamente dai docenti, dopo averli fatti iscrivere a WordPress.
+
 ### **Riscrivere o importare i contenuti del vecchio sito**
 L’aggiornamento di un sito è un’ottima opportunità per riscrivere, riorganizzare ed aggiornare tutti i contenuti relativi ai luoghi, alle strutture, ai servizi, alle persone, agli indirizzi di studio e ai progetti della scuola.
 
