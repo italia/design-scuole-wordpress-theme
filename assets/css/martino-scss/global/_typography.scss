@@ -114,7 +114,7 @@
   @include h6;
   main & {  @include h6($color: true, $size: false);  }
 }
-.font-body, p {
+.font-body, p, ul, ol {
   @include font-body;
   main :not(button, a) > & {  @include font-body($color: true, $size: false);  }
 }

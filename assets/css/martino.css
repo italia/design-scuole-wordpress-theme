@@ -58,11 +58,11 @@ main .h6, main h6 {
   color: #000;
 }
 
-.font-body, p {
+.font-body, p, ul, ol {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-main :not(button, a) > .font-body, main :not(button, a) > p {
+main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a) > ul, main :not(button, a) > ol {
   color: #000;
 }
 
@@ -621,6 +621,18 @@ main .text-xs {
     width: 100% !important;
   }
 }
+#container-spazi img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 400px;
+}
+
+#container-contattiutili td, #container-contattiutili th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
 #text-block h3 {
   color: #1260A4;
 }

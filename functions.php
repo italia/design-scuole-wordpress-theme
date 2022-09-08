@@ -358,3 +358,11 @@ function wpdocs_custom_excerpt_length( $length ) {
 	return 10;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+/* Custom Post Type
+------------------------*/
+require dirname(__FILE__).'/functions-parts/cpt.php';
+
+/* Customize Back-end
+------------------------*/
+require dirname(__FILE__).'/functions-parts/custom-fields.php';
