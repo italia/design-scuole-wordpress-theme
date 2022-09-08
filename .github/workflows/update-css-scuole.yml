@@ -1,0 +1,28 @@
+name: scuole.css update
+
+on:
+  schedule:
+    - cron:  '30 18 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: scuole.css update
+        uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        run: npm install clean-css-cli - g
+        run: git clone https://github.com/italia/design-scuole-pagine-statiche
+        run: cleancss -o ./assets/css/scuole.css ./design-scuole-pagine-statiche/build/assets/css/scuole.css
+        run: git commit -a -m "chore(deps) update scuole.css"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "chore(deps) update scuole.css"
+          branch: feature/update-scuole-css
