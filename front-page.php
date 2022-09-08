@@ -24,7 +24,7 @@ get_header();
       
       
           <div id="mission-vision">
-            <h4>La scuola secondo noi</h4>
+            <h3>La scuola secondo noi</h3>
             <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla <strong>flessibilità,</strong> sull’<strong>innovazione</strong> e sulla <strong>personalizzazione.</strong>
               Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.
               L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
@@ -84,10 +84,9 @@ get_header();
     <section id="loop-news-home" class="container"> 
 
       <div class="row mt-5 mt-lg-0">
-        <div class="col-lg-7 col-md-12">
+        <div class="cards-container">
           <h4>Ultime news </h4>
-          <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
-          
+          <div>
         
             <?php
               $loop = new WP_Query( array( 
@@ -98,32 +97,38 @@ get_header();
                 'posts_per_page'    => 3,)
               );
             
-              while ($loop -> have_posts()) : $loop -> the_post(); ?> 
-
-              <article class="col-lg-4 col-12 card"> 
-                <a href="<?php the_permalink();?>">
-                  <div class="card-bg">
+              while ($loop -> have_posts()) : $loop -> the_post(); 
+            ?>
+              <article class="card">
+<!--                   <div class="card-bg"> -->
                     <div class="card-img-top card-img position-relative">
-                      <?php the_post_thumbnail("news-thumb");?> 
-                      <div class="posizione-badges"> 
-                         <?php get_template_part("template-parts/common/badge-tag.php"); ?> 
+                      <a class="img-loop" href="<?php the_permalink();?>">
+                        <?php the_post_thumbnail("news-thumb");?>
+                        <div></div>
+                      </a>
+                      <div class="position-absolute" id="card_article_badge"> 
+                        <?php get_template_part("template-parts/common/badges-argomenti"); ?>
                       </div>
                     </div>
                     <div class="card-body">
                       <p class="card-title text-sx"> <?php the_title(); ?> </p>
-                      <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
-                    </div><!--.card-body -->
-                  </div><!--.card-bg -->
-                </a>  
+                      <a href="#" id="btn-mini-default"> 
+                        <button class="w-auto">
+                          <span>Scopri</span>
+                        </button>
+                      </a>
+                    </div>
+                  <!-- </div> -->
               </article> <!--.card -->
             <?php endwhile; ?>
+            <div class="col-12 pr-0 d-block d-lg-none">
+              <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
+                <button>Vai alla sezione</button>
+              </a>
+            </div>
           </div><!--.row -->
           
-          <div class="col-12 pr-0 d-block d-lg-none">
-          <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
-            <button>Vai alla sezione</button>
-          </a>
-        </div>
+        
         
         </div><!--col-8-->
 
@@ -134,7 +139,7 @@ get_header();
 
           <?php
               $loop = new WP_Query( array( 
-                'post_type'         => 'post', 
+                'post_type'         => 'scheda_progetto',
                 'post_status'       => 'publish', 
                 'orderby'           => 'count', 
                 'order'             => 'DESC', 
@@ -147,15 +152,19 @@ get_header();
                 <div class="row">
                 
                 <div class="col-lg-4 col-4 row-img">
-                  <a href="<?php the_permalink();?>">
-                    <?php the_post_thumbnail("project-thumb");?> 
+                  <a class="img-loop" href="<?php the_permalink();?>">
+                    <?php 
+                    if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
+                          echo get_the_post_thumbnail($post->ID);
+                    }?> 
+                    <div></div> 
                   </a>
                 </div>
                
                   <div class="col-lg-8 col-7">
                   <a href="<?php the_permalink();?>">
-                    <p class="h5"><?php the_title(); ?></p>
-                    <?php the_excerpt($length); ?>
+                    <h5><?php the_title(); ?></h5>
+                    <p><?php echo dsi_get_meta("descrizione"); ?></p>
                   </a>
                   </div><!--.col-8 -->
                 </div><!--.row -->
@@ -168,7 +177,7 @@ get_header();
       
       <!-- BUTTONS -->
       <div class="row mt-3">
-        <div class="col-lg-7 p-0 d-none d-lg-block">
+        <div class="col-lg-6 p-0 d-none d-lg-block">
           <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
             <button>Vai alla sezione</button>
           </a>
@@ -176,7 +185,7 @@ get_header();
         <div class="col-lg-4 col-12 offset-lg-1">
           <div class="col-12 mt-4 mt-lg-0">
             <a id="btn-lg-default-outline" href="#" target="blank">
-              <button>Vedi tutte</button>
+              <button>Vedi tutti</button>
             </a>
           </div><!--.col-12 -->
         </div>

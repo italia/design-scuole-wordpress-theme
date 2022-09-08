@@ -1,0 +1,31 @@
+
+#progetti-home article{
+  margin-top: 1rem;
+  
+  &:first-child{
+    margin-top: 0;
+  }
+  .row-img img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.25rem;
+  
+  }
+
+  a {
+    color: $black;
+    word-break: break-word;
+    text-decoration: none;
+    
+    p, p:hover, p:focus, p:focus-within{
+      color:$black;
+    }
+    &:hover, &:focus, &:focus-within{
+      h5{ 
+        text-decoration: underline;
+        color: $primary;
+      }
+    }
+  }
+}

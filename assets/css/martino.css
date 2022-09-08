@@ -100,6 +100,8 @@ main .text-xs {
 #title-img img {
   max-height: 400px;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #related_projects {
@@ -537,6 +539,14 @@ main .text-xs {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
+#main-container .img-loop > div:only-child {
+  width: 100%;
+  height: 100%;
+  height: 12.4rem;
+  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-position: center;
+  background-size: cover;
+}
 #main-container #button-navigazione a {
   display: grid;
   height: 100%;
@@ -547,75 +557,7 @@ main .text-xs {
 #main-container #spazi-storia {
   margin-bottom: 3rem;
 }
-#main-container .card {
-  padding: 0 0.5rem;
-}
-#main-container .card:first-child {
-  padding: 0 0.5rem 0 0;
-}
-#main-container .card:last-child {
-  padding: 0 0 0 0.5rem;
-}
-#main-container .card .card-bg {
-  background-color: #F0F0F3;
-  border-radius: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-#main-container .card .card-bg .card-img .posizione-badges {
-  position: absolute;
-  top: 0;
-  right: 0.5rem;
-}
-#main-container .card .card-bg .card-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 200px;
-  width: 100%;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-#main-container .card .card-bg .card-body {
-  padding: 1.5rem 1rem 0.5rem;
-}
-#main-container .card .card-bg .card-body .card-title {
-  margin-bottom: 0.5rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
-  color: #1260A4;
-  font-weight: 600;
-}
-#main-container #progetti-home article {
-  margin-top: 1rem;
-}
-#main-container #progetti-home article:first-child {
-  margin-top: 0;
-}
-#main-container #progetti-home article .row-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
-  border-radius: 0.25rem;
-}
-#main-container #progetti-home article a {
-  color: #000;
-  text-decoration: none;
-}
-#main-container #progetti-home article a p:first-of-type {
-  color: #1260A4;
-}
-#main-container #progetti-home article a:hover p:first-of-type, #main-container #progetti-home article a:hover p:first-of-type:hover, #main-container #progetti-home article a:hover p:first-of-type:focus, #main-container #progetti-home article a:hover p:first-of-type:focus-within, #main-container #progetti-home article a:focus p:first-of-type, #main-container #progetti-home article a:focus p:first-of-type:hover, #main-container #progetti-home article a:focus p:first-of-type:focus, #main-container #progetti-home article a:focus p:first-of-type:focus-within, #main-container #progetti-home article a:focus-within p:first-of-type, #main-container #progetti-home article a:focus-within p:first-of-type:hover, #main-container #progetti-home article a:focus-within p:first-of-type:focus, #main-container #progetti-home article a:focus-within p:first-of-type:focus-within {
-  text-decoration: underline;
-}
-#main-container #progetti-home article a:hover p:hover, #main-container #progetti-home article a:hover p:focus, #main-container #progetti-home article a:hover p:focus-within, #main-container #progetti-home article a:focus p:hover, #main-container #progetti-home article a:focus p:focus, #main-container #progetti-home article a:focus p:focus-within, #main-container #progetti-home article a:focus-within p:hover, #main-container #progetti-home article a:focus-within p:focus, #main-container #progetti-home article a:focus-within p:focus-within {
-  color: #1260A4;
-}
 
-@media screen and (max-width: 991px) {
-  #main-container .card:first-child, #main-container .card:last-child {
-    padding: 0 0.5rem;
-  }
-}
 @media screen and (max-width: 991px) and (max-width: 575.98px) {
   .wauto {
     width: 100% !important;
@@ -692,6 +634,81 @@ main .text-xs {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
+}
+
+.cards-container {
+  margin-left: 6px;
+}
+.cards-container > div {
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .cards-container > div {
+    flex-wrap: wrap;
+  }
+}
+
+.card {
+  max-height: 20rem;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  background-color: #F0F0F3;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.card .card-img .posizione-badges {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+}
+.card .card-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+  width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.card .card-body {
+  padding: 1.5rem 1rem 0.5rem;
+  flex: initial;
+}
+.card .card-body .card-title {
+  margin-bottom: 0.5rem;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  color: #1260A4;
+  font-weight: 600;
+}
+
+#progetti-home article {
+  margin-top: 1rem;
+}
+#progetti-home article:first-child {
+  margin-top: 0;
+}
+#progetti-home article .row-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+#progetti-home article a {
+  color: #000;
+  word-break: break-word;
+  text-decoration: none;
+}
+#progetti-home article a p, #progetti-home article a p:hover, #progetti-home article a p:focus, #progetti-home article a p:focus-within {
+  color: #000;
+}
+#progetti-home article a:hover h5, #progetti-home article a:focus h5, #progetti-home article a:focus-within h5 {
+  text-decoration: underline;
+  color: #1260A4;
 }
 
 #sidebar {
