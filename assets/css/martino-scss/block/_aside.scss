@@ -1,14 +1,28 @@
 #sidebar {
     background-color: $sidebar;
 
-    h3 {
+    a {
         color: $primary;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .mailfield a{
+        text-transform: lowercase;
+    }
+    h6 {
+        font-size: $font-body;
     }
     
     #quotes {
     font-style: italic;
     color: $primary;
+    font-size: $text-sm;
 }
+
+    .aside-main {
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 767.98px) {

@@ -689,12 +689,24 @@ main .text-xs {
 #sidebar {
   background-color: #DFE2EB;
 }
-#sidebar h3 {
+#sidebar a {
   color: #1260A4;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+#sidebar .mailfield a {
+  text-transform: lowercase;
+}
+#sidebar h6 {
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
 }
 #sidebar #quotes {
   font-style: italic;
   color: #1260A4;
+  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+}
+#sidebar .aside-main {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 767.98px) {

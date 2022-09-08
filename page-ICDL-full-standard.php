@@ -253,43 +253,29 @@ get_header();
                             </div>
                         </div>
 
-
-                        
-                        
-
-
                     </div>  <!-- Main content of page -->
                     
-                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-lg-3 py-5">
+                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-3 py-5">
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
-                                <h5>Contatti</h5>
-                                <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
+                                <h5>Calendario sessioni d'esame</h5>
+                                <p id="quotes">In caso di un numero elevato di candidati, l’ora di convocazione - se diversa dalle 14.00 - vi sarà comunicata tramite mail.
+
+                                </p>
+                            </div>   
+                            <div class="col-12 col-lg-9 py-3 mailfield">
+                                <h6>Email</h6>
+                                <a>cic@martinomartini.eu </a> 
+                                <a>francescafontana777@gmail.com</a>
                             </div>
-                            <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-4">
-                            <?php 
-                                        if(trim($procedura_esito) != ""){ 
-                                            ?> 
-                                            <h6 class="h6"><?php _e("email", "design_scuole_italia"); ?></h6> 
-                                            <div class="row variable-gutters"> 
-                                                <div class="col-lg-9"> 
-                                                    <?php echo wpautop($procedura_esito); ?> 
-                                                </div><!-- /col-lg-9 --> 
-                                            </div><!-- /row --> 
-                                            <?php 
-                                        } 
-                                        ?>
-                            </div>
-                            <div id="lista-paragrafi" class="link-list-wrapper" role="region"
-                                aria-labelledby="program-legend"> 
-                                <ul class="link-list">
-                                    <h6>prova di un sottotitolo</h6>
-                                </ul>
+                            <div class="col-12 col-lg-9 py-3">
+                                <h5>Modulistica</h5>
+                                <a>CONSENSO INFORMATO</a> 
+                                <p>per la sessione di esami del 19/11/2021 va inviata a didattica@martinomartini.eu entro 12/11/2021 ore 12.00.</p>
+                                <a>INFORMAZIONI PAGAMENTO</a> 
                             </div>
                         </aside>
-                    </div>
-                    
-                    
+                    </div>  <!--/ sidebar -->
                 </div><!-- /row -->
         </div><!-- /container -->
     </section>
