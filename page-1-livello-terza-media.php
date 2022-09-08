@@ -21,6 +21,12 @@ get_header();
 
                     <div class="container col-lg-8">
                         <div class="pt-5 px-5">
+                            <p>Nel 2012 l’Istituto Martino Martini è diventato <strong>centro EDA. </strong><br><br>
+
+                                La sua offerta formativa include un corso finalizzato al conseguimento del diploma conclusivo del primo ciclo di istruzione, previo superamento dell’Esame di Stato finale <strong>(diploma di terza media)</strong>. <br><br>
+                                Si rivolge agli adulti (che hanno compiuto sedici anni), italiani e stranieri, che desiderano completare gli studi interrotti da ragazzi. <br><br>
+                                Il corso si svolge nel periodo ottobre-maggio.
+                            </p>
                             
                             <?php the_content(); ?>
                         </div>
