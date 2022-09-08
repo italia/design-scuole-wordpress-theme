@@ -535,15 +535,90 @@ if(!function_exists('dsi_csv_generator')) {
             // create a file pointer connected to the output stream
             $file = fopen('php://output', 'w');
 
-            // send the column headers
-            fputcsv($file, array('Firmatario'));
-            $notificato = get_post_meta($post->ID, "_dsi_notificato", "true");
-
-            // output each row of the data
-            foreach ($notificato as $row) {
-                fputcsv($file, $row);
+            // send the column headers          
+            $NumeroCircolare = get_post_meta($post->ID, "_dsi_circolare_numerazione_circolare", "true");
+            if(!$NumeroCircolare){
+                $NumeroCircolare = "****/****";
             }
+            fputcsv($file, array('Comunicazione n. '.$NumeroCircolare, 'Docente', "Notifica", "Feedback"));
+             
+            // Recupero l'elenco degli utenti e le informazioni necessarie
+            $query_args['fields'] = array( 'ID', 'user_nicename',  'display_name');
+            $users = get_users( $query_args );
 
+            if ( $users ) {
+/*
+            Per ogni utente:
+                1 - verifico se ha firmato la circolare
+                2 - verifico se gli è stata notificata la circolare
+                3 - scrivo la riga delle informazioni nel file .csv
+*/                
+                foreach ( $users as $user ) {
+
+                // Mi procuro il nickname dell'utente
+                    $nicknameUser = get_user_meta( $user->ID, 'nickname', true );
+
+                // Verifico se ha firmato la circolare    
+                    $RisFir = get_user_meta($user->ID, "_dsi_signed_".$post->ID, true);
+                    /*
+                        la funzione può restituire un valore booleano   (che tradurrò in firmato/non firmato)
+                        oppure il feedback (Sì/No/Presa Visione)        (che copierò tale e quale)
+                        oppure un valore vuoto oppure niente            
+                        se non c'è o non ha trovato record              (che tradurrò in stringa vuota)
+                    */
+
+                    if(is_bool($RisFir)){                
+                        if($RisFir){
+                            $RisultatoFirma = "Firmato";
+                        }else{
+                            $RisultatoFirma = "Non Firmato";
+                        }
+                    }elseif(is_null($RisFir)){
+                        $RisultatoFirma = "";
+                    }elseif(!$RisFir){
+                        $RisultatoFirma = "";                    
+                    }else{
+                        $RisultatoFirma = strtoupper(str_replace("_", " ", $RisFir));
+                    }
+
+                    // Controllo l'elenco delle circolari notificate all'utente ma non ancora firmate
+                    //
+                    // NB: tengo conto che nell'elenco compaiono solo le circolari ancora da firmare!
+                    //     non compare né se è stata già firmata
+                    //                 né se non è stata notificata
+                    // (Alcuni feedback non dovrebbero mai apparire se tutto va bene...)
+
+                    $lista_circolari = get_user_meta($user->ID, "_dsi_circolari", true);
+                    if(!$lista_circolari)
+                        $UtenteNotificato="Utente con lista circolari vuota";
+
+                    if(is_array($lista_circolari)){
+                        if(!in_array($post->ID, $lista_circolari)){
+                            if($RisultatoFirma == "NON Firmato"){
+                                $UtenteNotificato = "NON Notificata a questo utente";
+                            }elseif ($RisultatoFirma == "") {     
+                                $UtenteNotificato = "NON Notificata a questo utente";
+                            }else{
+                                $UtenteNotificato = "Notificata - Firmata";
+                            }
+                        }else{
+                            $UtenteNotificato = "Notificata - Ancora da Firmare";
+                        }
+                    }else{
+                        $UtenteNotificato="NON Notificata a questo utente";
+                    }                
+
+                    // Scrivo la riga nel file .csv solo per gli utenti "notificati"
+                    if($UtenteNotificato == "NON Notificata a questo utente"){
+                        // ... se si volesse un elenco di tutti gli utenti, non solo quelli notificati...
+                    }else{    
+                        fputcsv($file, array($user->ID, $nicknameUser, $UtenteNotificato, $RisultatoFirma));
+                        // $user->display_name - Contiene il ruolo se si volesse aggiungere
+                    }
+
+                } // foreach
+            } 
+            
             exit();
         }
     }
