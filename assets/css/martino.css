@@ -5,7 +5,7 @@
   font-weight: 700;
 }
 main .h1, main h1 {
-  color: #fff;
+  color: #1260A4;
   font-weight: 700;
 }
 
@@ -686,6 +686,7 @@ main .text-xs {
 #hero #content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
+  color: #fff;
 }
 #hero #content p {
   text-transform: uppercase;
