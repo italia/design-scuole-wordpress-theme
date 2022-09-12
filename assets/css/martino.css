@@ -563,18 +563,11 @@ main .text-xs {
     width: 100% !important;
   }
 }
-#container-spazi h2 {
-  color: #1260A4;
-}
 #container-spazi img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 400px;
-}
-
-#primary h2 {
-  color: #1260A4;
 }
 
 #container-contattiutili td, #container-contattiutili th {
