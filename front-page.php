@@ -133,9 +133,9 @@ get_header();
         </div><!--col-8-->
 
         <!--LOOP PROGETTI  -->
-        <div class="col-12 col-lg-4 offset-lg-1 mt-5 mt-lg-0" id="progetti-home">
+        <div class="col-12 col-lg-4 offset-lg-1 mt-5 mt-lg-0 pl-0" id="progetti-home">
           <h4>Alcuni dei nostri progetti </h4>
-          <div class="row mt-3 mt-lg-0">
+          <div class="container-progetti">
 
           <?php
               $loop = new WP_Query( array( 
@@ -143,33 +143,30 @@ get_header();
                 'post_status'       => 'publish', 
                 'orderby'           => 'count', 
                 'order'             => 'DESC', 
-                'posts_per_page'    => 2,)
+                'posts_per_page'    => 2, )
               );
             
               while ($loop -> have_posts()) : $loop -> the_post(); ?> 
 
-              <article class="col-12"> 
-                <div class="row">
-                
-                <div class="col-lg-4 col-4 row-img">
+              <article class="card-progetti"> 
+                <div class="row-img">
                   <a class="img-loop" href="<?php the_permalink();?>">
                     <?php 
                     if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
                           echo get_the_post_thumbnail($post->ID);
-                    }?> 
+                        }?> 
                     <div></div> 
                   </a>
-                </div>
-               
-                  <div class="col-lg-8 col-7">
-                  <a href="<?php the_permalink();?>">
-                    <h5><?php the_title(); ?></h5>
-                    <p><?php echo dsi_get_meta("descrizione"); ?></p>
-                  </a>
-                  </div><!--.col-8 -->
-                </div><!--.row -->
+                </div><!--.row-img -->
               
-              </article><!--.col-12 -->
+                  <div class="card--body">
+                    <a href="<?php the_permalink();?>">
+                      <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,);?></h5>
+                      <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 60);?>...</p>
+                    </a>
+                  </div>
+              
+              </article>
             <?php endwhile; ?>
           </div><!--.row -->
         </div><!--col-3 offset-1 -->
@@ -177,13 +174,13 @@ get_header();
       
       <!-- BUTTONS -->
       <div class="row mt-3">
-        <div class="col-lg-6 p-0 d-none d-lg-block">
+        <div class="col-lg-6 p-0 d-none d-lg-block cards-container">
           <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
             <button>Vai alla sezione</button>
           </a>
         </div>
-        <div class="col-lg-4 col-12 offset-lg-1">
-          <div class="col-12 mt-4 mt-lg-0">
+        <div class="col-lg-4 col-12 offset-lg-1 pl-0">
+          <div class="col-12 mt-4 mt-lg-0 pl-0">
             <a id="btn-lg-default-outline" href="#" target="blank">
               <button>Vedi tutti</button>
             </a>
@@ -218,7 +215,7 @@ get_header();
           <a id="btn-lg-default-outline" href="#" target="blank"><button class="w-auto">Scopri</button></a>
         </div><!--#storia-txt -->
       </div><!--.row -->
-    </section><!--#spazi-storia .container -->
+    </section><!--#spazi-storia .container --> 
   </main>
   <?php
 get_footer();

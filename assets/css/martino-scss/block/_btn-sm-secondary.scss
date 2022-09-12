@@ -31,7 +31,20 @@
       padding: 0.63rem  1.25rem;
       margin-bottom: 1rem;
       @include text-sm;  
-          
+      
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $secondary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $secondary-hover;
+      }
       
       &:hover{
         border-color: $secondary-hover;

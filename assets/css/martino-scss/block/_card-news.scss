@@ -1,5 +1,5 @@
 .cards-container {
-  margin-left: 6px;
+  margin-left: 0.38rem;
   &>div {
   
     height: 100%;
@@ -24,6 +24,14 @@
   margin-bottom: 1.5rem;
   
     .card-img{
+      height: 12.50rem;
+      a>div:only-child {
+        width: 100%;
+        height: 100%;
+        background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+        background-position: center;
+        background-size: cover;
+      }
       .posizione-badges {
         position: absolute;
         top: 0;
@@ -32,7 +40,7 @@
       
       img{
         object-fit: cover;
-        height: 200px;
+        height: 12.50rem;
         width: 100%;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;

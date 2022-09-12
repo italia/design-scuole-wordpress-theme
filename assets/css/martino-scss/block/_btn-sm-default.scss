@@ -32,6 +32,19 @@
       margin-bottom: 1rem;
       @include text-sm;
 
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $primary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $primary-hover;
+      }
       
       &:hover{
         border-color: $primary-hover;

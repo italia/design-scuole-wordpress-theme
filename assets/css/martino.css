@@ -86,6 +86,10 @@ main .text-xs {
   font-weight: 400;
 }
 
+.primary {
+  color: #1260A4 !important;
+}
+
 .article_title .container {
   height: auto;
   position: static;
@@ -539,13 +543,9 @@ main .text-xs {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
-#main-container .img-loop > div:only-child {
-  width: 100%;
+#main-container a.img-loop {
+  display: block;
   height: 100%;
-  height: 12.4rem;
-  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
-  background-position: center;
-  background-size: cover;
 }
 #main-container #button-navigazione a {
   display: grid;
@@ -630,7 +630,7 @@ main .text-xs {
 }
 
 .cards-container {
-  margin-left: 6px;
+  margin-left: 0.38rem;
 }
 .cards-container > div {
   height: 100%;
@@ -653,6 +653,16 @@ main .text-xs {
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
 }
+.card .card-img {
+  height: 12.5rem;
+}
+.card .card-img a > div:only-child {
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-position: center;
+  background-size: cover;
+}
 .card .card-img .posizione-badges {
   position: absolute;
   top: 0;
@@ -661,7 +671,7 @@ main .text-xs {
 .card .card-img img {
   -o-object-fit: cover;
      object-fit: cover;
-  height: 200px;
+  height: 12.5rem;
   width: 100%;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -678,28 +688,58 @@ main .text-xs {
   font-weight: 600;
 }
 
-#progetti-home article {
-  margin-top: 1rem;
+#progetti-home .container-progetti {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-#progetti-home article:first-child {
-  margin-top: 0;
+#progetti-home .container-progetti article.card-progetti {
+  height: 10rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  /*  &:first-child {
+    margin-top: 0;
+  } */
 }
-#progetti-home article .row-img img {
+#progetti-home .container-progetti article.card-progetti .row-img {
+  height: 100%;
+  width: 5.5rem;
+}
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop {
+  height: 100%;
+  width: 100%;
+}
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
   width: 100%;
   border-radius: 0.25rem;
 }
-#progetti-home article a {
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop > div:only-child {
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-position: center;
+  background-size: cover;
+}
+#progetti-home .container-progetti article.card-progetti .card--body {
+  margin: 0 1rem;
+  flex: 1;
+}
+#progetti-home .container-progetti article.card-progetti .card--body a {
   color: #000;
   word-break: break-word;
   text-decoration: none;
 }
-#progetti-home article a p, #progetti-home article a p:hover, #progetti-home article a p:focus, #progetti-home article a p:focus-within {
+#progetti-home .container-progetti article.card-progetti .card--body a p,
+#progetti-home .container-progetti article.card-progetti .card--body a p:hover,
+#progetti-home .container-progetti article.card-progetti .card--body a p:focus,
+#progetti-home .container-progetti article.card-progetti .card--body a p:focus-within {
   color: #000;
 }
-#progetti-home article a:hover h5, #progetti-home article a:focus h5, #progetti-home article a:focus-within h5 {
+#progetti-home .container-progetti article.card-progetti .card--body a:hover h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus-within h5 {
   text-decoration: underline;
   color: #1260A4;
 }
@@ -757,6 +797,19 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
+#main-container #btn-lg-default-outline button {
+  position: relative;
+}
+#main-container #btn-lg-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-lg-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
+}
 #main-container #btn-lg-default-outline button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
@@ -765,7 +818,7 @@ main .text-xs {
 #main-container #btn-lg-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
 }
 #main-container #btn-lg-default-outline:hover {
   text-decoration: none;
@@ -844,6 +897,19 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
+#main-container #btn-md-default-outline button {
+  position: relative;
+}
+#main-container #btn-md-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-md-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
+}
 #main-container #btn-md-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
@@ -907,6 +973,19 @@ main .text-xs {
   margin-bottom: 1rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+}
+#main-container #btn-sm-default-outline button {
+  position: relative;
+}
+#main-container #btn-sm-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-sm-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
 }
 #main-container #btn-sm-default-outline button:hover {
   border-color: #0073E6;
@@ -979,6 +1058,19 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
+#main-container #btn-lg-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-lg-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-lg-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-lg-secondary-outline button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
@@ -1024,6 +1116,19 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
+#main-container #btn-md-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-md-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-md-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
@@ -1064,6 +1169,19 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
+#main-container #btn-sm-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-sm-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-sm-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
@@ -1103,6 +1221,19 @@ main .text-xs {
   margin-bottom: 1rem;
   font-size: clamp(14px, 14px + 0 * 100vw, 14px);
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
+}
+#main-container #btn-mini-default-outline button {
+  position: relative;
+}
+#main-container #btn-mini-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-mini-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
 }
 #main-container #btn-mini-default-outline button:hover {
   border-color: #0073E6;
