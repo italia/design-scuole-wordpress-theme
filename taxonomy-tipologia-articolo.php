@@ -32,15 +32,15 @@ if($slug == "articoli")
 		</section>
 		<section class="section">
 			<div class="container">
-				<div class="variable-gutters sticky-sidebar-container pt-5 mx-3 mx-lg-0">
+				<div class="variable-gutters sticky-sidebar-container pt-lg-5 pt-4 mx-3 mx-lg-0">
 					<div>
 					<?php get_template_part("template-parts/search/search-form"); ?>
 						<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 					</div>
 				</div>
 			</div><!-- /container -->
-				<div class="container">
-					<div class="row my-5 mx-2 mx-lg-0 " id="card_archive">
+				<div class="container p-lg-0 px-2">
+					<div class="row my-lg-5 my-4 mx-2">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */

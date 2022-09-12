@@ -1,11 +1,11 @@
 <?php
 global $badgeclass;
 if(!isset($badgeclass))
-	$badgeclass = "badge-outline-purplelight";
+	$badgeclass = "badge-outline-greendark";
 $argomenti = dsi_get_tipologia_articolo_of_post();
 if(count($argomenti)) {
 	?>
-	<aside class="badges-wrapper badges-main my-4">
+	<aside class="badges-wrapper badges-main my-lg-4 mt-3 pl-0">
 	<div class="badges" id="badge">
 		<?php foreach ( $argomenti as $item ) { ?>
 			<a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" aria-label="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"

@@ -14,7 +14,7 @@ if(!$excerpt)
 $argomenti = dsi_get_argomenti_of_post();
 
 ?>
-<div class="col-12 col-lg-3">
+<div class="col-12 col-lg-4 px-lg-4 pb-3" id="card_article">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
     <div class="card-body row p-0">
         
