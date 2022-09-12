@@ -631,6 +631,8 @@ main .text-xs {
 
 .cards-container {
   margin-left: 0.38rem;
+  display: flex;
+  flex-direction: column;
 }
 .cards-container > div {
   height: 100%;
@@ -688,6 +690,10 @@ main .text-xs {
   font-weight: 600;
 }
 
+#progetti-home {
+  display: flex;
+  flex-direction: column;
+}
 #progetti-home .container-progetti {
   display: flex;
   flex-direction: column;

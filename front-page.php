@@ -82,11 +82,10 @@ get_header();
    
     <!--LOOP NEWS  -->
     <section id="loop-news-home" class="container"> 
-
       <div class="row mt-5 mt-lg-0">
         <div class="cards-container">
           <h4>Ultime news </h4>
-          <div>
+          <div class="container-news">
         
             <?php
               $loop = new WP_Query( array( 
@@ -100,7 +99,7 @@ get_header();
               while ($loop -> have_posts()) : $loop -> the_post(); 
             ?>
               <article class="card">
-<!--                   <div class="card-bg"> -->
+                <!--<div class="card-bg"> -->
                     <div class="card-img-top card-img position-relative">
                       <a class="img-loop" href="<?php the_permalink();?>">
                         <?php the_post_thumbnail("news-thumb");?>
@@ -121,30 +120,29 @@ get_header();
                   <!-- </div> -->
               </article> <!--.card -->
             <?php endwhile; ?>
-            <div class="col-12 pr-0 d-block d-lg-none">
-              <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
-                <button>Vai alla sezione</button>
-              </a>
-            </div>
-          </div><!--.row -->
+          </div><!--.container-news -->
           
-        
-        
-        </div><!--col-8-->
+          <div class="button-container w-100 mt-4 mt-lg-0">
+            <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
+              <button>Vai alla sezione</button>
+            </a>
+          </div>
+          
+        </div><!-- .cards-container-->
 
         <!--LOOP PROGETTI  -->
         <div class="col-12 col-lg-4 offset-lg-1 mt-5 mt-lg-0 pl-0" id="progetti-home">
           <h4>Alcuni dei nostri progetti </h4>
           <div class="container-progetti">
 
-          <?php
-              $loop = new WP_Query( array( 
-                'post_type'         => 'scheda_progetto',
-                'post_status'       => 'publish', 
-                'orderby'           => 'count', 
-                'order'             => 'DESC', 
-                'posts_per_page'    => 2, )
-              );
+            <?php
+                $loop = new WP_Query( array( 
+                  'post_type'         => 'scheda_progetto',
+                  'post_status'       => 'publish', 
+                  'orderby'           => 'count', 
+                  'order'             => 'DESC', 
+                  'posts_per_page'    => 2, )
+                );
             
               while ($loop -> have_posts()) : $loop -> the_post(); ?> 
 
@@ -168,25 +166,14 @@ get_header();
               
               </article>
             <?php endwhile; ?>
-          </div><!--.row -->
-        </div><!--col-3 offset-1 -->
-      </div> <!--.row -->
-      
-      <!-- BUTTONS -->
-      <div class="row mt-3">
-        <div class="col-lg-6 p-0 d-none d-lg-block cards-container">
-          <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
-            <button>Vai alla sezione</button>
+          </div><!--.container-progetti -->
+
+        <div class="mt-4 mt-lg-0 pl-0 pr-0 w-100">
+          <a id="btn-lg-default-outline" href="#" target="blank">
+            <button>Vedi tutti</button>
           </a>
-        </div>
-        <div class="col-lg-4 col-12 offset-lg-1 pl-0">
-          <div class="col-12 mt-4 mt-lg-0 pl-0">
-            <a id="btn-lg-default-outline" href="#" target="blank">
-              <button>Vedi tutti</button>
-            </a>
-          </div><!--.col-12 -->
-        </div>
-      </div><!--.row -->
+        </div><!--.col-12 -->
+      </div> <!--.row -->
     </section><!--#loop-news-home .container -->
     
     <!--SPAZI E STORIA  -->

@@ -1,5 +1,7 @@
 .cards-container {
   margin-left: 0.38rem;
+  display: flex;
+  flex-direction: column;
   &>div {
   
     height: 100%;
