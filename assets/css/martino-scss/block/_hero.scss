@@ -8,32 +8,23 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
-}
-
-
-#content{
-    height: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    height: 100%;
-    width: 100%;
-    margin: 0;
-
-    h1{
-        color: white;
-        font-size: 56px;
-        line-height: 48px;
-        margin: auto;
-        margin-bottom: 0.2rem;
-        text-align: center;
-    }
-    p {
-        text-transform: uppercase;
-            font-size: 36px;
-            line-height: 40px;
-            letter-spacing: -0.1rem;
-            color: white;
-            margin: auto;
-            margin-bottom: 1rem;
+    
+    #content{
+        height: 100%;
+        background-color: rgba($color: $black, $alpha: 0.5);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        
+        h1{
+            margin-bottom: 0.2rem;
             text-align: center;
+        }
+        
+        p {
+            text-transform: uppercase;
+                color: $white;
+                text-align: center;
+        }
     }
 }

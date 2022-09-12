@@ -1,85 +1,68 @@
-.h1,
-h1 {
+.h1, h1 {
   font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
   line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
   letter-spacing: -2px;
   font-weight: 700;
 }
-main .h1,
-main h1 {
+main .h1, main h1 {
   color: #fff;
   font-weight: 700;
 }
 
-.h2,
-h2 {
+.h2, h2 {
   font-size: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
   line-height: clamp(40px, -20px + 0.1041666667 * 100vw, 60px);
   letter-spacing: -1.3px;
   font-weight: 700;
 }
-main .h2,
-main h2 {
-  color: #fff;
+main .h2, main h2 {
+  color: #1260A4;
 }
 
-.h3,
-h3 {
+.h3, h3 {
   font-size: clamp(28px, -8px + 0.0625 * 100vw, 40px);
   line-height: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
   letter-spacing: -1px;
   font-weight: 700;
 }
-main .h3,
-main h3 {
-  color: #000;
+main .h3, main h3 {
+  color: #1260A4;
 }
 
-.h4,
-h4 {
+.h4, h4 {
   font-size: clamp(24px, 0px + 0.0416666667 * 100vw, 32px);
   line-height: clamp(28px, -8px + 0.0625 * 100vw, 40px);
   letter-spacing: -0.3px;
   font-weight: 700;
 }
-main .h4,
-main h4 {
+main .h4, main h4 {
   color: #1260A4;
 }
 
-.h5,
-h5 {
+.h5, h5 {
   font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
   line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
   letter-spacing: -0.2625px;
   font-weight: 600;
 }
-main .h5,
-main h5 {
+main .h5, main h5 {
   color: #1260A4;
 }
 
-.h6,
-h6 {
+.h6, h6 {
   font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-main .h6,
-main h6 {
+main .h6, main h6 {
   color: #000;
 }
 
-.font-body,
-p,
-.article-wrapper p {
+.font-body, p, ul, ol {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
-  font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
 }
-main :not(button, a) > .font-body,
-main :not(button, a) > p,
-main :not(button, a) > .article-wrapper p {
+main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a) > ul, main :not(button, a) > ol {
   color: #000;
 }
 
@@ -99,21 +82,24 @@ main .text-xs {
   color: #000;
 }
 
+.fw-regular {
+  font-weight: 400;
+}
+
 .article_title .container {
   height: auto;
   position: static;
 }
 
-#title-img {
-  width: 100%;
-  height: 370px;
+#article_title {
+  position: static;
+  height: auto;
+  display: block;
 }
 
 #title-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-height: 400px;
   width: 100%;
-  height: 100%;
 }
 
 #related_projects {
@@ -121,17 +107,16 @@ main .text-xs {
   padding: 0rem;
 }
 
-#sidebar_projects {
-  margin-top: 6.5rem;
+#card-sidebar {
+  display: block;
 }
 
-.text-black {
-  color: black;
+#card-sidebar-width {
+  max-width: 23.2rem;
 }
 
-#article_data h5 {
+#article_data {
   border-top: none;
-  font-weight: 300;
 }
 
 #article_image {
@@ -139,25 +124,27 @@ main .text-xs {
   width: 100%;
 }
 
+#header_post {
+  padding: 0rem;
+}
+
 #badge a {
   margin-bottom: 1rem;
 }
 
-#sidebar_news {
-  margin-top: 8.8rem;
+#card_news {
+  max-height: 100px;
+}
+#card_news .card-content {
+  padding: 10px 10px 10px 10px;
 }
 
-.card.card-icon .icon {
-  width: 60px;
-  height: 60px;
+#news_correlate {
+  margin-top: 15px;
 }
 
-.card.card-icon svg {
-  fill: #1260A4 !important;
-}
-
-.card-icon-content a {
-  color: #1260A4;
+#card-documento {
+  display: block;
 }
 
 #search_field {
@@ -168,7 +155,9 @@ main .text-xs {
 }
 
 #filtro_articolo {
-  gap: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
 }
 
 #no-round::before,
@@ -188,11 +177,8 @@ main .text-xs {
   content: none;
 }
 
-#card_article:first {
-  padding-left: 0px !important;
-}
-#card_article:last-child {
-  padding-right: 0px !important;
+#card_archive {
+  gap: 4rem;
 }
 
 #card_notizie img {
@@ -209,16 +195,12 @@ main .text-xs {
 }
 
 #card_article_content {
-  background-color: #F0F0F3;
+  background-color: var(#F0F0F3);
 }
 
 #card_article_content a,
 #card_article_content p {
-  color: #1260A4;
-}
-
-#card_article_content a:hover {
-  text-decoration: underline;
+  color: var #1260A4;
 }
 
 .card.card-article:before {
@@ -555,18 +537,6 @@ main .text-xs {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
-.color-dicono-di-noi {
-  background-color: #1260A4;
-}
-
-.color-news {
-  background-color: #D33D36;
-}
-
-.color-eventi {
-  background-color: #982262;
-}
-
 #main-container #button-navigazione a {
   display: grid;
   height: 100%;
@@ -651,12 +621,19 @@ main .text-xs {
     width: 100% !important;
   }
 }
-#text-block h3 {
-  color: #1260A4;
+#container-spazi img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 400px;
 }
 
-#quotes {
-  font-style: italic;
+#container-contattiutili td, #container-contattiutili th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#text-block h3 {
   color: #1260A4;
 }
 
@@ -664,6 +641,25 @@ main .text-xs {
   max-width: 90vw;
 }
 
+#image-block {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+#image-block img {
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767.98px) {
+  #image-block {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  #image-block img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
 #hero {
   height: 400px;
   width: 100%;
@@ -673,30 +669,20 @@ main .text-xs {
   background-size: cover;
   padding: 0;
 }
-
-#content {
+#hero #content {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   margin: 0;
 }
-#content h1 {
-  color: white;
-  font-size: 56px;
-  line-height: 48px;
-  margin: auto;
+#hero #content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
 }
-#content p {
+#hero #content p {
   text-transform: uppercase;
-  font-size: 36px;
-  line-height: 40px;
-  letter-spacing: -0.1rem;
-  color: white;
-  margin: auto;
-  margin-bottom: 1rem;
+  color: #fff;
   text-align: center;
 }
 
@@ -704,6 +690,10 @@ main .text-xs {
   background-color: #DFE2EB;
 }
 #sidebar h3 {
+  color: #1260A4;
+}
+#sidebar #quotes {
+  font-style: italic;
   color: #1260A4;
 }
 

@@ -6,9 +6,8 @@ get_header();
   
   <!-- HERO -->  
   <section id="hero"> 
-
       <?php
-      get_template_part("template-parts/hero/hero-page")
+      get_template_part("template-parts/hero/hero_page")
       ?>
       
     </section><!--#hero -->
@@ -18,7 +17,7 @@ get_header();
       <div class="row">
         <div id="container-presentazione" class="col-12 col-lg-8">
           <div id="nostro-istituto">
-            <h4 class="h4">Il nostro istituto</h4>
+            <h2>Il nostro istituto</h2>
             <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
             Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
           </div><!--#nostro-istituto -->
