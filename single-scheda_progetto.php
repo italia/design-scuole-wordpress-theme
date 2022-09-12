@@ -57,7 +57,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php
                                     }
                                     ?>
-                                    <!-- <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p>-->
+                                    <!-- <p class="mb-0"><?php echo dsi_get_meta("descrizione"); ?></p> -->
                                     
                                 </div><!-- /title-content -->
                                 <div class="" id="title-img">

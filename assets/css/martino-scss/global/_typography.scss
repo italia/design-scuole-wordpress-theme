@@ -1,6 +1,6 @@
 @mixin h1 ($color: false, $size: true) {
   @if $color {
-    color:$white;
+    color:$primary;
   }
   @if $size {
     font-size: $h1; 
@@ -129,4 +129,8 @@
 
 .fw-regular{
   font-weight: 400;
+}
+
+.primary{
+  color: $primary !important;
 }

@@ -36,6 +36,20 @@
       margin-bottom: 1rem;
       @include h6;
 
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $secondary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $secondary-hover;
+      }
+
       span{
         @include text-sm;
         font-weight: 400;

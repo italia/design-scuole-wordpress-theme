@@ -6,7 +6,7 @@ $class = dsi_get_post_types_color_class($post->post_type);
 $icon = dsi_get_post_types_icon_class($post->post_type);
 
 
-$excerpt =  dsi_get_meta("descrizione", "", $post->ID);
+$excerpt =  dsi_get_meta("descrizione", "$lenght", $post->ID);
 $anno_scolastico =  dsi_get_meta("anno_scolastico", "", $post->ID);
 if(!$excerpt)
     $excerpt = get_the_excerpt($post);
