@@ -42,7 +42,7 @@ function dsi_custom_admin_menu() {
     //rename_admin_menu_item("Articoli", "Tag", "Argomenti");
     swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
     swap_admin_menu_sections('Media','Documenti');
-    swap_admin_menu_sections('Strutture','Articoli');
+//    swap_admin_menu_sections('Strutture','Articoli');
 
 
 
