@@ -24,7 +24,7 @@
 
 // sidebar_news correlate
 #sidebar_news {
-    margin-top: 8.8rem;
+    margin-top: 8.8rem !important;
 }
 
 // file sidebar
@@ -73,13 +73,17 @@
 }
 
 //archive
-// article
-#card_article:first-child {
-    padding-left: 0px !important;
+#container_archive {
+    row-gap: 1rem;
+    column-gap: 4rem;
 }
 
-&:last-child {
-    padding-right: 0px !important;
+// article
+@media (min-width: 992px) {
+    .col-lg-3_5 {
+        flex: 0 0 29%;
+        max-width: 29%;
+    }
 }
 
 #card_notizie {
@@ -455,4 +459,13 @@
 
 .color-eventi {
     background-color: #982262;
+}
+
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+    #sidebar_news {
+        margin-top: 2.5rem !important;
+    }
 }

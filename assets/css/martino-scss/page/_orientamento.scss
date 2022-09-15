@@ -1,0 +1,34 @@
+/* GENERALI */
+
+.bg-primary_container {
+    background-color: $primary-container;
+}
+
+.text-blue {
+    color: $on-primary-container !important;
+}
+
+@media (min-width: 992px) {
+    .col-lg-2_5 {
+        flex: 0 0 19%;
+        max-width: 19%;
+    }
+}
+
+
+/* the_content */
+
+.iscriviti p {
+    font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+    line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
+    letter-spacing: -0.2625px;
+    font-weight: 600;
+    color: $on-primary-container !important;
+}
+
+
+/* loop */
+
+#loop_orientamento .card-img img {
+    height: 150px !important;
+}

@@ -39,8 +39,8 @@ if($slug == "articoli")
 					</div>
 				</div>
 			</div><!-- /container -->
-				<div class="container p-lg-0 px-2">
-					<div class="row my-lg-5 my-4 mx-2">
+				<div class="container p-lg-0 px-lg-2">
+					<div class="row my-lg-5 my-4 mx-lg-2" id="container_archive">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */

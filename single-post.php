@@ -78,7 +78,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <div class="col-lg-8 col-7">
                                             <a href="<?php the_permalink();?>">
                                                 <p class="h6"><?php the_title(); ?></p>
-                                                <?php the_excerpt($length); ?>
+                                                <div id="related_text"><?php the_excerpt($length); ?></div>
                                             </a>
                                         </div><!--.col-8 -->
                                     </div><!--.row -->
@@ -86,7 +86,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php endwhile; ?>
                             </div>
                         </div><!--.row -->
-                        <div class="mt-4">
+                        <div class="mt-4 mb-4">
                             <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
                                 <h2 class="mb-4 h4 text-black"><?php _e("Allegati", "design_scuole_italia"); ?></h2>
                                     <div class="">

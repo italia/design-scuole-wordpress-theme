@@ -111,7 +111,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         <div class="col-12 col-lg-4 pl-lg-5 pl-0" id="progetti-home">
                             <div id="sidebar_projects">
                                 <h4 class="text-black mb-4">Progetti correlati</h4>
-                            <div class="row mt-3 mt-lg-0">
+                                <div class="row mt-3 mt-lg-0">
 
                                 <?php
                                 $loop = new WP_Query( array( 
@@ -136,7 +136,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <div class="col-lg-8 col-7">
                                             <a href="<?php the_permalink();?>">
                                                 <p class="h6"><?php the_title(); ?></p>
-                                                <?php the_excerpt($length); ?>
+                                                <div id="related_text"><?php the_excerpt($length); ?></div>
                                             </a>
                                         </div><!--.col-8 -->
                                     </div><!--.row -->
