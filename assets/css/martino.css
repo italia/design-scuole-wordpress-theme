@@ -637,7 +637,7 @@ main .text-xs {
 .cards-container > div {
   height: 100%;
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   width: 100%;
 }
 @media (max-width: 991.98px) {
@@ -654,6 +654,11 @@ main .text-xs {
   background-color: #F0F0F3;
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
+}
+@media (min-width: 992px) {
+  .card {
+    margin-right: 0;
+  }
 }
 .card .card-img {
   height: 12.5rem;
@@ -686,7 +691,6 @@ main .text-xs {
   margin-bottom: 0.5rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
-  color: #1260A4;
   font-weight: 600;
 }
 

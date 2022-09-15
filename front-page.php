@@ -61,7 +61,7 @@ get_header();
               </a>
             </div>
             <div class="col-6 col-md-3">
-              <a id="btn-lg-default-outline" href="#" target="blank">
+              <a id="btn-lg-default-outline" href="https://martinomartini.local/didattica-2/offerta-formativa/" target="blank">
                 <button><span>DIDATTICA</span> <p>Offerta formativa</p></button>
               </a>
             </div>
@@ -110,8 +110,8 @@ get_header();
                       </div>
                     </div>
                     <div class="card-body">
-                      <p class="card-title text-sx"> <?php the_title(); ?> </p>
-                      <a href="#" id="btn-mini-default"> 
+                      <p class="card-title primary"> <?php the_title(); ?> </p>
+                      <a href="<?php the_permalink();?>" id="btn-mini-default"> 
                         <button class="w-auto">
                           <span>Scopri</span>
                         </button>
@@ -121,9 +121,8 @@ get_header();
               </article> <!--.card -->
             <?php endwhile; ?>
           </div><!--.container-news -->
-          
           <div class="button-container w-100 mt-4 mt-lg-0">
-            <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
+            <a id="btn-lg-default-outline" href="<?php get_page_by_path('novità')?>" class="col-12 p-0">
               <button>Vai alla sezione</button>
             </a>
           </div>
@@ -169,7 +168,7 @@ get_header();
           </div><!--.container-progetti -->
 
         <div class="mt-4 mt-lg-0 pl-0 pr-0 w-100">
-          <a id="btn-lg-default-outline" href="#" target="blank">
+          <a id="btn-lg-default-outline" href="">
             <button>Vedi tutti</button>
           </a>
         </div><!--.col-12 -->
@@ -184,10 +183,9 @@ get_header();
         </div><!--#gli-spazi-img -->
 
         <div id="gli-spazi-txt" class="col-lg-6 col-12">
-          <h4>Il nostro istituto</h4>
-          <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
-          Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
-          <a id="btn-lg-default-outline" href="#" target="blank"><button class="w-auto">Scopri</button></a>
+          <h4>Gli spazi</h4>
+          <p>La scuola si compone di due sedi: la sede di via Perlasca e la sede di via Filzi. L’edificio di via Perlasca , costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, ospita gli studenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, un auditorium e ampi spazi verdi all’esterno. L’edificio di via Filzi, sede scolastica storica di Mezzolombardo, è stato di recente rinnovato per ospitare classi e laboratori dell’istituto in crescita negli ultimi anni scolastici. </p>
+          <a id="btn-lg-default-outline" href="https://martinomartini.local/luogo/"><button class="w-auto">Scopri</button></a>
         </div><!--#gli-spazi-txt -->
       </div><!--.row -->
       
@@ -199,7 +197,7 @@ get_header();
           <h4>La storia di Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. 
           Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-          <a id="btn-lg-default-outline" href="#" target="blank"><button class="w-auto">Scopri</button></a>
+          <a id="btn-lg-default-outline" href="https://martinomartini.local/la-scuola-2/presentazione/"><button class="w-auto">Scopri</button></a>
         </div><!--#storia-txt -->
       </div><!--.row -->
     </section><!--#spazi-storia .container --> 
