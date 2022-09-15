@@ -708,6 +708,14 @@ main .text-xs {
 #sidebar .aside-main {
   margin-bottom: 1rem;
 }
+#sidebar ul {
+  list-style: none;
+}
+#sidebar ul,
+#sidebar li {
+  margin: 0;
+  padding: 0;
+}
 
 @media (max-width: 767.98px) {
   #sidebar {

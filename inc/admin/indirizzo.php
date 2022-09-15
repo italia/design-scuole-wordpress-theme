@@ -169,9 +169,9 @@ function dsi_add_indirizzo_metaboxes() {
 
 
     $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'esito',
-        'name'        => __( 'A cosa serve', 'design_scuole_italia' ),
-        'desc' => __( 'Indicare uno o più output prodotti. Ad es.: " Questo percorso di studio ti permette di accedere a..."<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
+        'id' => $prefix . 'carriera',
+        'name'        => __( 'Carriera e opportunità successive', 'design_scuole_italia' ),
+        'desc' => __( 'Descrivere le opportunità di carriera nello studio e nel lavoro successive al diploma. Ad es.: " Questo percorso di studio ti permette di accedere a..."<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
@@ -184,8 +184,8 @@ function dsi_add_indirizzo_metaboxes() {
 
 
     $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'come_si_fa',
-        'name'        => __( 'Come si accede ', 'design_scuole_italia' ),
+        'id' => $prefix . 'iscrizione_selezioni',
+        'name'        => __( 'Iscrizione e selezioni', 'design_scuole_italia' ),
         'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del percorso.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
         'type' => 'wysiwyg',
         'options' => array(
