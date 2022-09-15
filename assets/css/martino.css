@@ -575,6 +575,11 @@ main .text-xs {
   padding: 8px;
 }
 
+::marker {
+  color: gray;
+  font-size: 0.5em;
+}
+
 #text-block h3 {
   color: #1260A4;
 }
