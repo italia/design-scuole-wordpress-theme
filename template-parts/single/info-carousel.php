@@ -20,10 +20,10 @@ echo count($args['labels']);
         if (!isset($args['labels'][$key])) continue;
         ?>
         <!-- <?php echo $key; ?> -->
-        <input type="radio" id="<?php echo $args['id']; ?>-<?php echo $index; ?>" name="crsl" <?php 
+        <input type="radio" id="crsl-<?php echo $args['id']; ?>-<?php echo $index; ?>" name="crsl-<?php echo $args['id']; ?>" <?php 
             if (!$index) echo 'checked'; 
         ?>>
-        <label for="<?php echo $args['id']; ?>-<?php echo $index; ?>">
+        <label for="crsl-<?php echo $args['id']; ?>-<?php echo $index; ?>">
             <?php echo $args['labels'][$key]; ?>
         </label> 
         <article>
