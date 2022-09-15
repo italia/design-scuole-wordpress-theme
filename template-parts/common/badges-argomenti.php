@@ -15,3 +15,4 @@ if(count($argomenti)) {
 	</aside><!-- /badges-wrapper -->
 	<?php
 }
+?>

@@ -477,3 +477,5 @@ function dsi_progetto_admin_script() {
     if( 'scheda_progetto' == $post_type )
         wp_enqueue_script( 'progetto-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/progetto.js' );
 }
+
+function my_excerpt_length($length){ return 30; } add_filter('excerpt_length', 'my_excerpt_length');

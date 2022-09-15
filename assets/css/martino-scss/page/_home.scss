@@ -1,4 +1,8 @@
 #main-container {
+    a.img-loop {
+        display: block;
+        height: 100%;
+    }
     #button-navigazione {
         a {
             display: grid;
@@ -11,88 +15,9 @@
     #spazi-storia {
         margin-bottom: $spazio-footer;
     }
-    .card {
-        padding: 0 0.5rem;
-        &:first-child {
-            padding: 0 0.5rem 0 0;
-        }
-        &:last-child {
-            padding: 0 0 0 0.5rem;
-        }
-        .card-bg {
-            background-color: $surface;
-            border-radius: 0.25rem;
-            margin-bottom: 1.5rem;
-            .card-img {
-                .posizione-badges {
-                    position: absolute;
-                    top: 0;
-                    right: 0.5rem;
-                }
-                img {
-                    object-fit: cover;
-                    height: 200px;
-                    width: 100%;
-                    border-top-left-radius: 0.25rem;
-                    border-top-right-radius: 0.25rem;
-                }
-            }
-            .card-body {
-                padding: 1.5rem 1rem 0.5rem;
-                .card-title {
-                    margin-bottom: 0.5rem;
-                    @include text-sm;
-                    color: $primary;
-                    font-weight: 600;
-                }
-            }
-        }
-    }
-    #progetti-home article {
-        margin-top: 1rem;
-        &:first-child {
-            margin-top: 0;
-        }
-        .row-img img {
-            object-fit: cover;
-            height: 100% !important;
-            width: 100%;
-            border-radius: 0.25rem;
-        }
-        a {
-            color: $black;
-            text-decoration: none;
-            p:first-of-type {
-                color: $primary;
-            }
-            &:hover,
-            &:focus,
-            &:focus-within {
-                p:first-of-type {
-                    &,
-                    &:hover,
-                    &:focus,
-                    &:focus-within {
-                        text-decoration: underline;
-                    }
-                }
-                p {
-                    &:hover,
-                    &:focus,
-                    &:focus-within {
-                        color: $primary;
-                    }
-                }
-            }
-        }
-    }
 }
 
 @media screen and (max-width: 991px) {
-    #main-container .card:first-child,
-    #main-container .card:last-child {
-        padding: 0 0.5rem;
-    }
     .wauto {
         @media (max-width: 575.98px) {
             width: 100%!important;
