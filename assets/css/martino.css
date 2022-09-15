@@ -1,4 +1,4 @@
-    .h1,
+.h1,
 h1 {
     font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
     line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
@@ -783,9 +783,7 @@ main .text-xs {
         display: flex;
         gap: 1rem;
         width: 100%;
-        /*  &:first-child {
-    margin-top: 0;
-  } */
+        /*  &:first-child {margin-top: 0;} */
     }
     #progetti-home .container-progetti article.card-progetti .row-img {
         height: 100%;
@@ -1630,8 +1628,8 @@ main .text-xs {
         -moz-column-gap: 30px;
         column-gap: 30px;
         /* li {
-    padding-right: 30px;
-  } */
+padding-right: 30px;
+} */
     }
     .footer--wrapper .footer-text {
         font-size: 0.875rem;
@@ -1697,3 +1695,4 @@ main .text-xs {
         transition: clip-path 0.2s ease-in;
         transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
     }
+}

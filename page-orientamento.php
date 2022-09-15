@@ -7,13 +7,6 @@
  * @package Design_Scuole_Italia
  */
 
-$attributes = shortcode_atts( array(
-    'title' => false,
-    'limit' => 4,
-    'sections' => $sections,
-    'labels' => $labels,
-), $atts );
-
 
 if(is_post_type_archive("scheda_didattica")){
     $class = "bluelectric";
@@ -24,6 +17,27 @@ if(is_post_type_archive("scheda_didattica")){
 
 get_header();
 ?>
+
+<?php
+$attributes=array(
+    'title' => false,
+    'limit' => 4,
+    'labels' => array(
+        'Title 0',
+        'Title 1',
+        'Title 2',
+        'Title 3',
+    ),
+    'sections' => array(
+        'Content 0',
+        'Content 1',
+        'Content 2',
+        'Content 3',
+    ),
+)
+
+?>
+
 
 <main id="main-container" class="main-container">
     <section>
@@ -57,7 +71,30 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
     </section>
        
     <section class="container bg-white py-5">
-        <?php get_template_part("template-parts/single/info-carousel, null, $attributes"); ?>
+        <?php $attributes = array(
+        'title' => false,
+        'limit' => 4,
+        'labels' => array(),
+        'sections' => array(),
+        );
+
+        $posts = query_posts(array(
+            'post_type' => 'istituti', 
+            'posts_per_page' => '4',
+        ));
+
+        while ( $posts->have_posts() ) : $posts->the_post(); 
+            $attributes["labels"][] = the_title(); 
+            $attributes["sections"][] = the_excerpt(); 
+        endwhile;
+
+        wp_reset_postdata();
+
+        get_template_part( 'template-parts/single/info-carousel', null, $attributes) ?>
+                
+        <?php
+        wp_enqueue_style( 'info-carousel', get_template_directory_uri() . '/assets/css/martino-carousel.css');
+        ?>
     </section>
 
     <section class="section bg-primary_container py-5">
