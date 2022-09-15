@@ -23,7 +23,7 @@ $autore = get_user_by("ID", $post->post_author);
             <div class="row variable-gutters">
                 <div class="col-<?php echo $colsize; ?>">
                     <div class="title-content">
-                        <h1><?php the_title(); ?></h1>
+                        <h1 class="h2 text-black"><?php the_title(); ?></h1>
                         <?php
                         $badgeclass = "badge-outline-greendark";
                         get_template_part("template-parts/common/badges-argomenti"); ?>
@@ -32,7 +32,17 @@ $autore = get_user_by("ID", $post->post_author);
                         <div id="title-img"> 
                             <?php echo get_the_post_thumbnail($page->ID, 'full'); ?>
                         </div>
-                        <?php get_template_part( "template-parts/single/bottom" ); ?>
+
+                        <?php
+                        global $post, $licenza, $nascondi_licenza;
+                        ?>
+                        <div id="" class="border-0 pt-4">
+                            <h5 data-element="metadata" class="text-black font-weight-normal h6"><em><?php _e("", "design_scuole_italia"); ?> <?php
+                                $date_publish = new DateTime($post->post_date);
+                                echo $date_publish->format('d.m.Y')
+                                ?></em></h5>
+                            
+                        </div><!-- /article-footer -->
                     </div>
                 </div><!-- /col-md-6 -->
             </div><!-- /row -->

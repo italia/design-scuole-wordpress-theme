@@ -14,7 +14,7 @@ if(!$excerpt)
 
 ?>
 
-<div class="col-12 col-lg-3">
+<div class="col-12 col-lg-3_5 px-0 pb-3" id="card_article">
 <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
     <div class="card-body row p-0">
         <div class="card-thumb col-12 p-0 position-relative">
@@ -27,14 +27,6 @@ if(!$excerpt)
             <h2 class="h3"><a href="<?php echo get_permalink($post); ?>" aria-label="Apre <?php echo get_the_title($post); ?>"><?php echo get_the_title($post); ?></a></h2>
             <p><?php echo $excerpt; ?></p>
             <a href="<?php echo get_permalink($post); ?>"aria-label="Apre" id="btn-mini-default"><button class="w-auto"><span>Approfondisci</span></button></a>
-            <?php if(count($argomenti)) { ?>
-                    <div class="badges">
-                        <?php foreach ( $argomenti as $item ) { ?>
-                            <a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
-                               class="badge badge-sm badge-pill badge-outline-<?php echo $class; ?>"><?php echo $item->name; ?></a>
-                        <?php } ?>
-                    </div><!-- /badges -->
-                <?php } ?>
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
