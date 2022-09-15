@@ -612,9 +612,47 @@ main .text-xs {
   padding: 8px;
 }
 
-::marker {
+details summary {
+  list-style-type: none;
+}
+details summary::marker {
+  display: none;
+}
+details > summary::before {
+  content: "";
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  margin-right: 10px;
   color: gray;
-  font-size: 0.5em;
+}
+details:not([open]) > summary::before {
+  border-top: 0;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.3em solid;
+  border-left: 0.3em solid transparent;
+}
+details[open] > summary::before {
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+#btnControl {
+  display: none;
+}
+
+#btnControl2 {
+  visibility: hidden;
+}
+
+#btnControl:checked + label {
+  visibility: hidden;
+}
+
+#btnControl2:checked + label {
+  display: none;
 }
 
 #text-block h3 {
@@ -671,6 +709,20 @@ main .text-xs {
 /* loop */
 #loop_orientamento .card-img img {
   height: 150px !important;
+}
+
+::marker::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.3em solid;
+  border-left: 0.3em solid transparent;
+}
+::marker:empty::after {
+  margin-left: 0;
 }
 
 #hero {

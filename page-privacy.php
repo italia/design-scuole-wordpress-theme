@@ -13,23 +13,22 @@ get_header();
     <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/hero/hero_page"); ?>
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <section id="container-spazi">
+        <section id="container-privacy">
             <details class="row align-items-center my-5 mx-5">
-                <summary class="h4 col-12">Sicurezza della scuola</summary>
+                <summary class="h4 col-12">Archivio privacy</summary>
                 <?php 
 
-                    $sicurezza = get_term_by("id", "file_sicurezza");
-                    $covid = get_term_by("id", "file_covid"); 
+                    $privacy = get_term_by("id", "file_privacy");
 
                     $loop = new WP_Query( array(
-                        'post_type'         => 'sicurezza',
+                        'post_type'         => 'privacy',
                         'post_status'       => 'publish',
                         'orderby'           => 'count',
                         'order'             => 'DESC',
                         'posts_per_page'    => 999 ,
                     )); 
                     
-                    while ($loop -> have_posts()) : $loop -> the_post( $sicurezza ); ?>
+                    while ($loop -> have_posts()) : $loop -> the_post( $privacy ); ?>
 
                         <article>
                             <div class="row mt-3">
@@ -46,8 +45,8 @@ get_header();
 
                 <?php endwhile; ?>
             </details>
-            </section>
-        </main>
+        </section>
+    </main>
 
-    <?php
-    get_footer();
+<?php
+get_footer();

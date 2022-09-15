@@ -1,5 +1,43 @@
-::marker{
-        color: gray;
-        font-size: 0.5em;
-    }
+//#container-sicurezza {
 
+    details{
+        summary {
+            list-style-type: none;
+            &::marker{
+                //color: gray;
+                //font-size: 0.5em;
+                display: none;
+                
+            }
+        }
+        & > summary::before{
+            content: "";
+            display: inline-block;
+            margin-left: $caret-spacing;
+            vertical-align: $caret-vertical-align;
+            margin-right: 10px;
+            color: gray;
+        }
+        &:not([open]) > summary::before{
+            @include caret-up();
+        }
+        &[open] > summary::before{
+            @include caret-down();
+        }
+
+    }
+    #btnControl{
+        display: none;
+    }
+    #btnControl2{
+        visibility: hidden;
+    }
+    #btnControl:checked + label {
+        visibility: hidden;
+    }
+    #btnControl2:checked + label {
+        display: none;
+    }
+//}
+    
+    
