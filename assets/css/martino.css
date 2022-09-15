@@ -612,13 +612,13 @@ main .text-xs {
   padding: 8px;
 }
 
-details summary {
+#main-container details summary {
   list-style-type: none;
 }
-details summary::marker {
+#main-container details summary::marker {
   display: none;
 }
-details > summary::before {
+#main-container details > summary::before {
   content: "";
   display: inline-block;
   margin-left: 0.255em;
@@ -626,32 +626,28 @@ details > summary::before {
   margin-right: 10px;
   color: gray;
 }
-details:not([open]) > summary::before {
+#main-container details:not([open]) > summary::before {
   border-top: 0;
   border-right: 0.3em solid transparent;
   border-bottom: 0.3em solid;
   border-left: 0.3em solid transparent;
 }
-details[open] > summary::before {
+#main-container details[open] > summary::before {
   border-top: 0.3em solid;
   border-right: 0.3em solid transparent;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
-
-#btnControl {
+#main-container #btnControl {
   display: none;
 }
-
-#btnControl2 {
+#main-container #btnControl2 {
   visibility: hidden;
 }
-
-#btnControl:checked + label {
+#main-container #btnControl:checked + label {
   visibility: hidden;
 }
-
-#btnControl2:checked + label {
+#main-container #btnControl2:checked + label {
   display: none;
 }
 
@@ -709,20 +705,6 @@ details[open] > summary::before {
 /* loop */
 #loop_orientamento .card-img img {
   height: 150px !important;
-}
-
-::marker::after {
-  display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
-  content: "";
-  border-top: 0;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0.3em solid;
-  border-left: 0.3em solid transparent;
-}
-::marker:empty::after {
-  margin-left: 0;
 }
 
 #hero {
