@@ -3,6 +3,16 @@
 @use "sass:meta";
 @use "sass:string";
 
+@mixin font-clamp ($param, $min, $max) {
+  // Fallback value
+  #{$param}: $min;
+  #{$param}: px2rem($min);
+  
+  @if $min != $max {
+    #{$param}: s-clamp($font-min-query, $font-max-query, $min, $max);
+  }
+}
+
 @function color-2-placeholder ($color) {
   $num-char: string.index(#{$color}, "#");
   @if $num-char {
@@ -17,7 +27,20 @@ $tmp-color-list: ();
   %mixtend-placeholder-#{$type} {
     @each $key, $value in $params {
       @if $key != "color" {  
-        #{$key}: $value;      
+        @if type-of($value) == map {
+          @each $f-key, $f-value in $value {
+            @if function-exists($f-key) {
+              #{$key}: meta.call($f-key, $f-value...);
+
+            // Dynamic mixin invocation is not supported:
+            // https://github.com/sass/sass/issues/626
+            } @else if $f-key == "font-clamp" {
+              @include font-clamp($key, $f-value...);
+            }
+          }
+        } @else {
+          #{$key}: $value;      
+        }     
       }
     }
   }

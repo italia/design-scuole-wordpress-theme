@@ -1,87 +1,100 @@
 $font-max-query: 768px;
 $font-min-query: 576px;
 
-// Font-size
-$h1: s-clamp($font-min-query, $font-max-query, 40px, 56px);
-$h2: s-clamp($font-min-query, $font-max-query, 32px, 48px);
-$h3: s-clamp($font-min-query, $font-max-query, 28px, 40px);
-$h4: s-clamp($font-min-query, $font-max-query, 24px, 32px);
-$h5: s-clamp($font-min-query, $font-max-query, 20px, 28px);
-$h6: s-clamp($font-min-query, $font-max-query, 16px, 24px);
-$font-body: s-clamp($font-min-query, $font-max-query, 16px, 18px);
-$text-sm: s-clamp($font-min-query, $font-max-query, 14px, 16px);
-$text-xs: s-clamp($font-min-query, $font-max-query, 14px, 14px);
-
-// Line-height
-$lh-h1: s-clamp($font-min-query, $font-max-query, 48px, 64px);
-$lh-h2: s-clamp($font-min-query, $font-max-query, 40px, 60px);
-$lh-h3: s-clamp($font-min-query, $font-max-query, 32px, 48px);
-$lh-h4: s-clamp($font-min-query, $font-max-query, 28px, 40px);
-$lh-h5: s-clamp($font-min-query, $font-max-query, 24px, 40px);
-$lh-h6: s-clamp($font-min-query, $font-max-query, 24px, 24px);
-$lh-font-body: s-clamp($font-min-query, $font-max-query, 24px, 28px);
-$lh-text-sm: s-clamp($font-min-query, $font-max-query, 20px, 21px);
-$lh-text-xs: s-clamp($font-min-query, $font-max-query, 20px, 18px);
-
 $mm-typo: (
   h1: (
     color: $white,  
-    font-size: $h1, 
+    font-size: (
+      font-clamp: (40px, 56px)
+    ), 
     font-weight: 700,
-    line-height: $lh-h1,
+    line-height: (
+      font-clamp: (48px, 64px)
+    ), 
     letter-spacing: -2px,
   ),
   h2: (
     color: $primary,  
-    font-size: $h2,
+    font-size: (
+      font-clamp: (32px, 48px)
+    ), 
     font-weight: 700,
-    line-height: $lh-h2,
+    line-height: (
+      font-clamp: (40px, 60px)
+    ), 
     letter-spacing: -1.3px,
   ),
   h3: (
     color: $primary,  
-    font-size: $h3,
+    font-size: (
+      font-clamp: (28px, 40px)
+    ), 
     font-weight: 700,
-    line-height: $lh-h3,
+    line-height: (
+      font-clamp: (32px, 48px)
+    ), 
     letter-spacing: -1px,
   ),
   h4: (
     color: $primary,  
-    font-size: $h4,
+    font-size: (
+      font-clamp: (24px, 32px)
+    ), 
     font-weight: 700,
-    line-height: $lh-h4,
+    line-height: (
+      font-clamp: (28px, 40px)
+    ), 
     letter-spacing: -0.3px,
   ),
   h5: (
     color: $primary,  
-    font-size: $h5,
+    font-size: (
+      font-clamp: (20px, 28px)
+    ), 
     font-weight: 600,
-    line-height: $lh-h5,
+    line-height: (
+      font-clamp: (24px, 40px)
+    ), 
     letter-spacing: -0.2625px,
   ),
   h6: (
     color: $black,  
-    font-size: $h6,
+    font-size: (
+      font-clamp: (16px, 24px)
+    ), 
     font-weight: 600,
-    line-height: $lh-h6,
+    line-height: (
+      font-clamp: (24px, 24px)
+    ), 
   ),
   font-body: (
     color: $black,  
-    font-size: $font-body,
-    line-height: $lh-font-body,
+    font-size: (
+      font-clamp: (16px, 18px)
+    ), 
+    line-height: (
+      font-clamp: (24px, 28px)
+    ), 
   ),
   text-sm: (
     color: $black,  
-    font-size: $text-sm,
-    line-height: $lh-text-sm,
+    font-size: (
+      font-clamp: (14px, 16px)
+    ), 
+    line-height: (
+      font-clamp: (20px, 21px)
+    ), 
   ),
   text-xs: (
     color: $black,  
-    font-size: $text-xs,
-    line-height: $lh-text-xs,
+    font-size: (
+      font-clamp: (14px, 14px)
+    ), 
+    line-height: (
+      font-clamp: (20px, 18px)
+    ), 
   ),
   fw-regular: (
     font-weight: 400,
   ),
 );
-

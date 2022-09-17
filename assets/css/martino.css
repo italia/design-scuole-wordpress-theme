@@ -1,6 +1,10 @@
 .h1, h1 {
+  font-size: 40px;
+  font-size: 2.5rem;
   font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
   font-weight: 700;
+  line-height: 48px;
+  line-height: 3rem;
   line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
   letter-spacing: -2px;
 }
@@ -10,8 +14,12 @@ main .h1, main h1 {
 }
 
 .h2, h2 {
+  font-size: 32px;
+  font-size: 2rem;
   font-size: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
   font-weight: 700;
+  line-height: 40px;
+  line-height: 2.5rem;
   line-height: clamp(40px, -20px + 0.1041666667 * 100vw, 60px);
   letter-spacing: -1.3px;
 }
@@ -21,30 +29,45 @@ main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
 }
 
 .h3, h3 {
+  font-size: 28px;
+  font-size: 1.75rem;
   font-size: clamp(28px, -8px + 0.0625 * 100vw, 40px);
   font-weight: 700;
+  line-height: 32px;
+  line-height: 2rem;
   line-height: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
   letter-spacing: -1px;
 }
 
 .h4, h4 {
+  font-size: 24px;
+  font-size: 1.5rem;
   font-size: clamp(24px, 0px + 0.0416666667 * 100vw, 32px);
   font-weight: 700;
+  line-height: 28px;
+  line-height: 1.75rem;
   line-height: clamp(28px, -8px + 0.0625 * 100vw, 40px);
   letter-spacing: -0.3px;
 }
 
 .h5, h5 {
+  font-size: 20px;
+  font-size: 1.25rem;
   font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
   font-weight: 600;
+  line-height: 24px;
+  line-height: 1.5rem;
   line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
   letter-spacing: -0.2625px;
 }
 
 #main-container #btn-lg-secondary-outline button, #main-container #btn-lg-secondary button, #main-container #btn-lg-disabled-outline button, #main-container #btn-lg-disabled button, #main-container #btn-lg-default-outline button, #main-container #btn-lg-default button, .h6, h6 {
+  font-size: 16px;
+  font-size: 1rem;
   font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
   font-weight: 600;
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
+  line-height: 24px;
+  line-height: 1.5rem;
 }
 
 main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a) > ul, main :not(button, a) > ol, main .text-xs, main .text-sm, main .font-body, main .h6, main h6 {
@@ -52,17 +75,28 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #main-container #btn-md-secondary-outline button, #main-container #btn-md-secondary button, #main-container #btn-md-disabled-outline button, #main-container #btn-md-disabled button, #main-container #btn-md-default-outline button, #main-container #btn-md-default button, p, ul, ol, .font-body {
+  font-size: 16px;
+  font-size: 1rem;
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: 24px;
+  line-height: 1.5rem;
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
 #main-container #btn-sm-secondary-outline button, #main-container #btn-sm-secondary button, #main-container #btn-lg-secondary-outline button span, #main-container #btn-lg-secondary button span, #main-container #btn-sm-disabled-outline button, #main-container #btn-sm-disabled button, #main-container #btn-sm-default-outline button, #main-container #btn-sm-default button, #main-container #btn-lg-disabled-outline button span, #main-container #btn-lg-disabled button span, #main-container #btn-lg-default-outline button span, #main-container #btn-lg-default button span, #main-container .card .card-bg .card-body .card-title, .text-sm {
+  font-size: 14px;
+  font-size: 0.875rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: 20px;
+  line-height: 1.25rem;
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 
 #main-container #btn-mini-disabled-outline button, #main-container #btn-mini-disabled button, #main-container #btn-mini-default-outline button, #main-container #btn-mini-default button, .text-xs {
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 
