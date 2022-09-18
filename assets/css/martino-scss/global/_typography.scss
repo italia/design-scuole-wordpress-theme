@@ -13,6 +13,32 @@
   }
 }
 
+@mixin font-size($params) {
+  @each $key, $value in $params {
+    @if $key != "color" {  
+      @if type-of($value) == map {
+        @each $f-key, $f-value in $value {
+          @if function-exists($f-key) {
+            #{$key}: meta.call($f-key, $f-value...);
+
+          // Dynamic mixin invocation is not supported:
+          // https://github.com/sass/sass/issues/626
+          } @else if $f-key == "font-clamp" {
+            @include font-clamp($key, $f-value...);
+          }
+        }
+      } @else {
+        #{$key}: $value;      
+      }     
+    }
+  }
+}
+
+@mixin font-color ($params) {
+  $color: map.get($params, "color");
+      color: $color;
+}
+
 @function color-2-placeholder ($color) {
   $num-char: string.index(#{$color}, "#");
   @if $num-char {
@@ -25,31 +51,14 @@
 $tmp-color-list: ();
 @each $type, $params in $mm-typo {
   %mixtend-placeholder-#{$type} {
-    @each $key, $value in $params {
-      @if $key != "color" {  
-        @if type-of($value) == map {
-          @each $f-key, $f-value in $value {
-            @if function-exists($f-key) {
-              #{$key}: meta.call($f-key, $f-value...);
-
-            // Dynamic mixin invocation is not supported:
-            // https://github.com/sass/sass/issues/626
-            } @else if $f-key == "font-clamp" {
-              @include font-clamp($key, $f-value...);
-            }
-          }
-        } @else {
-          #{$key}: $value;      
-        }     
-      }
-    }
+    @include font-size($params);
   }
   @if map.has-key($params, "color") {  
     $color: map.get($params, "color");
     @if not list.index($tmp-color-list, $color) {
       $tmp-color-list: list.append($tmp-color-list, $color);
       %mixtend-placeholder-#{color-2-placeholder($color)}-color {
-        color: $color;
+        @include font-color($params);
       }
     }
   }
@@ -62,12 +71,20 @@ $tmp-color-list: ();
   @return ".#{$sel}";
 } 
 
-@mixin extend-type ($type, $color: false, $size: true) {
+@mixin extend-type ($type, $color: false, $size: true, $extend: true) {
   @if $color {
-    @extend %mixtend-placeholder-#{color-2-placeholder(map.get($mm-typo, $type, "color"))}-color !optional;
+    @if $extend {
+      @extend %mixtend-placeholder-#{color-2-placeholder(map.get($mm-typo, $type, "color"))}-color !optional;
+    } @else {
+      @include font-color(map.get($mm-typo, $type));
+    }
   }
   @if $size {
-    @extend %mixtend-placeholder-#{$type} !optional;
+    @if $extend {
+      @extend %mixtend-placeholder-#{$type} !optional;
+    } @else {
+      @include font-size(map.get($mm-typo, $type));
+    }
   }
 }
 
@@ -79,35 +96,35 @@ $tmp-color-list: ();
 
 // 
 
-@mixin h1 ($color: false, $size: true) {
-  @include extend-type(h1, $color, $size)
+@mixin h1 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h1, $color, $size, $extend)
 }
-@mixin h2 ($color: false, $size: true) {
-  @include extend-type(h2, $color, $size)
+@mixin h2 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h2, $color, $size, $extend)
 }
-@mixin h3 ($color: false, $size: true) {
-  @include extend-type(h3, $color, $size)
+@mixin h3 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h3, $color, $size, $extend)
 }
-@mixin h4 ($color: false, $size: true) {
-  @include extend-type(h4, $color, $size)
+@mixin h4 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h4, $color, $size, $extend)
 }
-@mixin h5 ($color: false, $size: true) {
-  @include extend-type(h5, $color, $size)
+@mixin h5 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h5, $color, $size, $extend)
 }
-@mixin h6 ($color: false, $size: true) {
-  @include extend-type(h6, $color, $size)
+@mixin h6 ($color: false, $size: true, $extend: true) {
+  @include extend-type(h6, $color, $size, $extend)
 }
-@mixin font-body ($color: false, $size: true) {
-  @include extend-type(font-body, $color, $size)
+@mixin font-body ($color: false, $size: true, $extend: true) {
+  @include extend-type(font-body, $color, $size, $extend)
 }
-@mixin text-sm ($color: false, $size: true) {
-  @include extend-type(text-sm, $color, $size)
+@mixin text-sm ($color: false, $size: true, $extend: true) {
+  @include extend-type(text-sm, $color, $size, $extend)
 }
-@mixin text-xs ($color: false, $size: true) {
-  @include extend-type(text-xs, $color, $size)
+@mixin text-xs ($color: false, $size: true, $extend: true) {
+  @include extend-type(text-xs, $color, $size, $extend)
 }
-@mixin fw-regular ($color: false, $size: true) {
-  @include extend-type(fw-regular, $color, $size)
+@mixin fw-regular ($color: false, $size: true, $extend: true) {
+  @include extend-type(fw-regular, $color, $size, $extend)
 }
 
 // 
