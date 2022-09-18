@@ -36,15 +36,21 @@
 
 @mixin font-color ($params) {
   $color: map.get($params, "color");
-      color: $color;
+  color: $color;
 }
 
 @function color-2-placeholder ($color) {
-  $num-char: string.index(#{$color}, "#");
-  @if $num-char {
-    @return string.slice(#{$color}, calc($num-char + 1));
+  $result: #{$color};  
+  @each $char in "#" " " "(" ")" "%" "," "." {
+    $index: string.index($result, $char);
+    @while $index {
+      $result: 
+        string.slice($result, 1, $index - 1) + 
+        string.slice($result, $index + 1);
+      $index: string.index($result, $char);
+    }
   }
-  @return #{$color};
+  @return $result;
 };
 
 // Generate placeholder selectors
