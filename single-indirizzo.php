@@ -33,6 +33,15 @@ get_header();
             $programma = dsi_get_meta("programma");
             $descrizione = dsi_get_meta("descrizione");
             $iscrizione_selezioni = dsi_get_meta("iscrizione_selezioni");
+
+            $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
+            $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+
+            $programma_discipline_sportive = dsi_get_meta("programma_discipline_sportive");
+            $programma_primo_biennio = dsi_get_meta("programma_primo_biennio");
+            $programma_secondo_biennio = dsi_get_meta("programma_secondo_biennio");
+            $programma_quinto_anno = dsi_get_meta("programma_quinto_anno");
+
             
             
 
@@ -40,20 +49,19 @@ get_header();
 
             
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
-            $casi_particolari = dsi_get_meta("casi_particolari");
-            $link_schede_documenti = dsi_get_meta("link_schede_documenti");
-            $file_documenti = dsi_get_meta("file_documenti");
-            $altre_info = dsi_get_meta("altre_info");
+            
 
-            $struttura_responsabile = dsi_get_meta("struttura_responsabile");
+            
             $luoghi = dsi_get_meta("luoghi");
 
 
-            $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
-            $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+            
             $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
             $libri_testo_file = dsi_get_meta("libri_testo_file");
-            $consigli_di_classe = dsi_get_meta("consigli_di_classe");
+
+            $link_schede_documenti = dsi_get_meta("link_schede_documenti");
+            $file_documenti = dsi_get_meta("file_documenti");
+            $altre_info = dsi_get_meta("altre_info");
 
 
             
@@ -74,10 +82,11 @@ get_header();
                         <!-- Main content of the page -->
                     <div class="container col-lg-8">
                         <?php get_template_part("template-parts/common/breadcrumb"); ?>
-                        <div class="article-wrapper pt-5 px-3">
+                        <div class="article-wrapper pt-5 px-3 px-md-5">
                         
-                            <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
-                            <div class="row variable-gutters">
+                            
+                            <div class="row">
+                                <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
                                 <div class="col-12">
                                     <div class="article-description wysiwig-text">
                                         <?php the_content(); ?>
@@ -90,71 +99,13 @@ get_header();
                             do_action("dsi_indirizzo_content_after_description");
                             ?>
                             
-
-                            <?php
                             
+                             <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
+                                <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
 
-                            
-                            if(is_array($link_struttura_didattica) && count($link_struttura_didattica) > 0){
-                                global $struttura;
-                                echo "<h5 class='h6'>".__("Struttura responsabile dell'indirizzo di studio", "design_scuole_italia")."</h5>";
-                                ?>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            foreach ($link_struttura_didattica as $idstruttura) {
-                                                $struttura = get_post($idstruttura);
-                                                ?>
-                                                <?php get_template_part("template-parts/struttura/card"); ?>
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-
-                            }
-                            ?>
-                            <?php
-
-                            if(is_array($luoghi) && count($luoghi) > 0){
-                                global $luogo;
-                                ?>
-                                <div class="row variable-gutters">
+                                <div class="row variable-gutters pt-5">
                                     <div class="col-lg-12">
-                                        <h5 class="h6"><?php _e("Luoghi in cui viene erogato l'indirizzo di studio", "design_scuole_italia"); ?></h5>
-                                        <?php
-                                        $c=0;
-                                        foreach ($luoghi as $idluogo){
-                                            $c++;
-                                            $luogo = get_post($idluogo);
-                                            get_template_part( "template-parts/luogo/card" , "nophone");
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-
-                            
-                            ?>
-
-                            <?php if($programma){ ?>
-                                <h4 id="art-par-programma" class="mt-4"><?php _e("Programma di studio", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9 wysiwig-text">
-                                        <?php echo apply_filters("the_content",$programma); ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                            <?php } ?>
-
-                            <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
-                                <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <div class="col-lg-12  px-0 wysiwig-text">
+                                        <div class="col-lg-12 px-0 wysiwig-text">
                                             <?php echo wpautop($calendario_classi_descrizione); ?>
                                         </div>
                                         <div class="card-deck card-deck-spaced">
@@ -171,164 +122,154 @@ get_header();
                                 </div><!-- /row -->
                             <?php } ?>
 
-                            <?php if(($libri_testo_file || $libri_testo_descrizione)){ ?>
-                                <h4 id="art-par-libri"  class="mt-4"><?php _e("Libri di testo", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <div class="col-lg-12  px-0 wysiwig-text">
-                                            <?php echo wpautop($libri_testo_descrizione); ?>
-                                        </div>
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php global $idfile, $nomefile;
-                                            if (is_array($libri_testo_file) && count($libri_testo_file) > 0) {
 
-                                                foreach ($libri_testo_file as $idfile => $nomefile) {
-                                                    get_template_part("template-parts/documento/file");
+                            <!-- Programma discipline sportive -->
+                            <div class="pt-5">
+                                <?php if($programma_primo_biennio){ ?>
+                                    <h4 id="art-par-programma" class="mt-4"><?php _e("Discipline sportive", "design_scuole_italia"); ?></h4>
+                                <?php } ?>    
+
+                                <div id="sportfield" class="row variable-gutters pt-3">
+                                    <?php if($programma_primo_biennio){ ?>
+                                            <div class="col-lg-4 wysiwig-text">
+                                                <h6>Primo biennio</h6>
+                                                <?php echo apply_filters("the_content",$programma_primo_biennio); ?>
+                                            </div><!-- /col-lg-3 -->
+                                    <?php } ?>
+
+                                    <?php if($programma_secondo_biennio){ ?>
+                                            <div class="col-lg-4 wysiwig-text">
+                                                <h6>Secondo biennio</h6>
+                                                <?php echo apply_filters("the_content",$programma_secondo_biennio); ?>
+                                            </div><!-- /col-lg-3 -->
+                                    <?php } ?>
+
+                                    <?php if($programma_quinto_anno){ ?>
+                                            <div class="col-lg-4 wysiwig-text">
+                                                <h6>Quinto anno</h6>
+                                                <?php echo apply_filters("the_content",$programma_quinto_anno); ?>
+                                            </div><!-- /col-lg-3 -->
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+                            <div class="pt-5">
+                                <?php if(($libri_testo_file || $libri_testo_descrizione)){ ?>
+                                    <h4 id="art-par-libri"  class="mt-4"><?php _e("Libri di testo", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-12">
+                                            <div class="col-lg-12 px-0 wysiwig-text">
+                                                <?php echo wpautop($libri_testo_descrizione); ?>
+                                            </div>
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php global $idfile, $nomefile;
+                                                if (is_array($libri_testo_file) && count($libri_testo_file) > 0) {
+
+                                                    foreach ($libri_testo_file as $idfile => $nomefile) {
+                                                        get_template_part("template-parts/documento/file");
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                            <?php } ?>
-
-                            <?php if($consigli_di_classe) { ?>
-                                <h4 class="mb-4" id="art-par-documenti"><?php _e("Consigli di classe", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            if (is_array($consigli_di_classe) && count($consigli_di_classe) > 0) {
-                                                global $documento;
-                                                foreach ($consigli_di_classe as $link_scheda_documento) {
-                                                    $documento = get_post($link_scheda_documento);
-                                                    get_template_part("template-parts/documento/card");
-                                                }
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-
-                                <?php
-                            }
-                            // print_r($fasi_scadenze);
-                            if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
-                                ?>
-                                <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <div class="calendar-vertical mb-5">
-                                            <?php
-                                            foreach ($fasi_scadenze as $fase){
-                                                $arrdata =  explode("-", $fase["data_fase"]);
-                                                $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
-
                                                 ?>
-                                                <div class="calendar-date">
-                                                    <div class="calendar-date-day">
-                                                        <small><?php echo $arrdata[2]; ?></small>
-                                                        <p><?php echo $arrdata[0]; ?></p>
-                                                        <small><b><?php echo $monthName; ?></b></small>
-                                                    </div><!-- /calendar-date-day -->
-                                                    <div class="calendar-date-description rounded">
-                                                        <div class="calendar-date-description-content">
-                                                            <?php echo wpautop($fase["desc_fase"]); ?>
-                                                        </div><!-- /calendar-date-description-content -->
-                                                    </div><!-- /calendar-date-description -->
-                                                </div><!-- /calendar-date -->
-                                                <?php
-                                            }
-                                            ?>
-                                        </div><!-- /calendar-vertical -->
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                                <?php
-                            }
-
-                            if(trim($casi_particolari) != ""){
-                                ?>
-                                <h4 id="art-par-casi-particolari"><?php _e("Casi particolari", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9 wysiwig-text">
-                                        <?php echo wpautop($casi_particolari); ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                                <?php
-                            }
-                            // check for anchor
-
-
-                            if(trim($altre_info) != ""){
-                                ?>
-                                <h4 id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9 wysiwig-text">
-                                        <?php echo wpautop($altre_info); ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                                <?php
-                            }
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                <?php } ?>
+                            </div>
 
                             
+                            <div class="pt-5">
+                                    <?php         
+                                // print_r($fasi_scadenze);
+                                if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
+                                    ?>
+                                    <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <div class="calendar-vertical mb-5">
+                                                <?php
+                                                foreach ($fasi_scadenze as $fase){
+                                                    $arrdata =  explode("-", $fase["data_fase"]);
+                                                    $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
 
-
-                            if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
-                                ?>
-                                <h5 class="h6  mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h5>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php
-                                            if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                                                global $documento;
-                                                foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                    $documento = get_post( $link_scheda_documento );
-                                                    get_template_part( "template-parts/documento/card" );
+                                                    ?>
+                                                    <div class="calendar-date">
+                                                        <div class="calendar-date-day">
+                                                            <small><?php echo $arrdata[2]; ?></small>
+                                                            <p><?php echo $arrdata[0]; ?></p>
+                                                            <small><b><?php echo $monthName; ?></b></small>
+                                                        </div><!-- /calendar-date-day -->
+                                                        <div class="calendar-date-description rounded">
+                                                            <div class="calendar-date-description-content">
+                                                                <?php echo wpautop($fase["desc_fase"]); ?>
+                                                            </div><!-- /calendar-date-description-content -->
+                                                        </div><!-- /calendar-date-description -->
+                                                    </div><!-- /calendar-date -->
+                                                    <?php
                                                 }
-                                            }
+                                                ?>
+                                            </div><!-- /calendar-vertical -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }?>
+                            </div>
+                            
+                            <div class="pt-5">
+                                    <?php
+                                if(trim($altre_info) != ""){
+                                    ?>
+                                    <h4 id="art-par-altre-info"><?php _e("Altre informazioni", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9 wysiwig-text">
+                                            <?php echo wpautop($altre_info); ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }?>
+                            </div>
 
-                                            global $idfile, $nomefile;
-                                            if(is_array($file_documenti) && count($file_documenti)>0) {
-
-                                                foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                    get_template_part( "template-parts/documento/file" );
+                            
+                            <div class="pt-5">
+                                <?php
+                                if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)){
+                                    ?>
+                                    <h5 class="h6  mb-4" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h5>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php
+                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+                                                    global $documento;
+                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
+                                                        $documento = get_post( $link_scheda_documento );
+                                                        get_template_part( "template-parts/documento/card" );
+                                                    }
                                                 }
-                                            }
 
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-                                <?php
-                            }
+                                                global $idfile, $nomefile;
+                                                if(is_array($file_documenti) && count($file_documenti)>0) {
 
-                            if(isset($arrstrutture) && is_array($arrstrutture) && count($arrstrutture) > 0){
-                                ?>
-                                <h6><?php _e("Per saperne di più", "design_scuole_italia"); ?></h6>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-9">
-                                        <ul>
-                                            <?php
-                                            foreach ($arrstrutture as $snome => $slink){
-                                                echo "<li><a href='".$slink."' >".$snome."</a></li>";
-                                            }
-                                            ?>
-                                        </ul>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                                
-                                <?php
-                            }
-                                ?>
+                                                    foreach ( $file_documenti as $idfile => $nomefile ) {
+                                                        get_template_part( "template-parts/documento/file" );
+                                                    }
+                                                }
+
+                                                ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                    ?>
+                            </div>
             
 
                         </div>
 
                         <!--LOOP NEWS  -->
-                        <section id="loop-news-home" class="container"> 
+                        <section id="loop-news-home" class="container px-3 px-md-5"> 
                             <div class="row mt-5 mt-lg-0">
-                                <div class="col-lg-7 col-md-12">
+                                <div class="col-lg-9 col-md-12">
                                     <h4>Ultime news </h4>
                                     <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
                             
@@ -374,7 +315,7 @@ get_header();
 
                             <!-- BUTTONS -->
                             <div class="row mt-3">
-                                <div class="col-lg-7 p-0 d-none d-lg-block">
+                                <div class="col-lg-9 p-0 d-none d-lg-block">
                                     <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
                                         <button>Vai alla selezione</button>
                                     </a>
@@ -388,7 +329,7 @@ get_header();
 
 
                     <?php else: ?>
-                    <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
+                    <div class="">
                         <?php the_content(); ?>
                     </div>
                     <?php endif; ?>
@@ -453,6 +394,30 @@ get_header();
                                 }
                                 ?>
 
+                                <?php
+                                if(is_array($luoghi) && count($luoghi) > 0){
+                                    global $luogo;
+                                ?>
+                                <div class="row variable-gutters mb-4" >
+                                    <div class="col-12">
+                                        <h5><?php _e("Sede dell'indirizzo", "design_scuole_italia"); ?></h5>
+                                            <div class="col-12 mailfield p-0">
+                                                <ul>
+                                                            <?php
+                                                    $c=0;
+                                                    foreach ($luoghi as $idluogo){
+                                                        $c++;
+                                                        $luogo = get_post($idluogo);
+                                                        get_template_part( "template-parts/luogo/card-ico");
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
 
                             
