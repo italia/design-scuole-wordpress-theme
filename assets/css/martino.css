@@ -61,7 +61,7 @@ main .primary, main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2
   letter-spacing: -0.2625px;
 }
 
-#main-container .btn-lg-secondary-outline button, #main-container .btn-lg-secondary button, #main-container .btn-lg-disabled-outline button, #main-container .btn-lg-disabled button, #main-container .btn-lg-default-outline button, #main-container .btn-lg-default button, .h6, h6 {
+#main-container .btn-lg-disabled-outline button, #main-container .btn-lg-secondary-outline button, #main-container .btn-lg-secondary button, #main-container .btn-lg-disabled button, #main-container .btn-lg-default-outline button, #main-container .btn-lg-default button, .h6, h6 {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
@@ -83,7 +83,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
-#main-container .btn-sm-secondary-outline button, #main-container .btn-sm-secondary button, #main-container .btn-lg-secondary-outline button span, #main-container .btn-lg-secondary button span, #main-container .btn-sm-disabled-outline button, #main-container .btn-sm-disabled button, #main-container .btn-sm-default-outline button, #main-container .btn-sm-default button, #main-container .btn-lg-disabled-outline button span, #main-container .btn-lg-disabled button span, #main-container .btn-lg-default-outline button span, #main-container .btn-lg-default button span, .card .card-body .card-title, .text-sm {
+#main-container .btn-sm-secondary-outline button, #main-container .btn-sm-secondary button, #main-container .btn-sm-disabled-outline button, #main-container .btn-sm-disabled button, #main-container .btn-sm-default-outline button, #main-container .btn-sm-default button, #main-container .btn-lg-disabled-outline button span, #main-container .btn-lg-secondary-outline button span, #main-container .btn-lg-secondary button span, #main-container .btn-lg-disabled button span, #main-container .btn-lg-default-outline button span, #main-container .btn-lg-default button span, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
@@ -920,6 +920,73 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #main-container .btn-lg-disabled button span {
   font-weight: 400;
 }
+#main-container .btn-lg-secondary button {
+  background: #BD0043;
+  border-radius: 0.25rem;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1rem;
+}
+#main-container .btn-lg-secondary button span {
+  font-weight: 400;
+}
+#main-container .btn-lg-secondary button:hover {
+  background: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+#main-container .btn-lg-secondary:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container .btn-lg-secondary-outline button {
+  background: #fff;
+  border-radius: 0.25rem;
+  color: #BD0043;
+  border: 0.18rem #BD0043 solid;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1rem;
+}
+#main-container .btn-lg-secondary-outline button {
+  position: relative;
+}
+#main-container .btn-lg-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container .btn-lg-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
+#main-container .btn-lg-secondary-outline button span {
+  font-weight: 400;
+}
+#main-container .btn-lg-secondary-outline button:hover {
+  border-color: #FF4F79;
+  color: #FF4F79;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
+}
+#main-container .btn-lg-secondary-outline:hover {
+  text-decoration: none;
+  cursor: default;
+}
+#main-container .btn-lg-disabled button {
+  background: #F0F0F3;
+  border-radius: 0.25rem;
+  color: #C3C6CF;
+  border: 0;
+  width: 100%;
+  padding: 0.88rem 1.75rem;
+  margin-bottom: 1rem;
+  cursor: default;
+}
+#main-container .btn-lg-disabled button span {
+  font-weight: 400;
+}
 #main-container .btn-lg-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
@@ -1075,61 +1142,6 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
-  cursor: default;
-}
-
-#main-container .btn-lg-secondary button {
-  background: #BD0043;
-  border-radius: 0.25rem;
-  color: #fff;
-  border: 0;
-  width: 100%;
-  padding: 0.88rem 1.75rem;
-  margin-bottom: 1rem;
-}
-#main-container .btn-lg-secondary button span {
-  font-weight: 400;
-}
-#main-container .btn-lg-secondary button:hover {
-  background: #FF4F79;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-#main-container .btn-lg-secondary:hover {
-  text-decoration: none;
-  cursor: default;
-}
-#main-container .btn-lg-secondary-outline button {
-  background: #fff;
-  border-radius: 0.25rem;
-  color: #BD0043;
-  border: 0.18rem #BD0043 solid;
-  width: 100%;
-  padding: 0.88rem 1.75rem;
-  margin-bottom: 1rem;
-}
-#main-container .btn-lg-secondary-outline button {
-  position: relative;
-}
-#main-container .btn-lg-secondary-outline button::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border: 0rem solid #BD0043;
-  transition: border 0.15s ease-in-out;
-}
-#main-container .btn-lg-secondary-outline button:hover::after {
-  border: 0.19rem solid #FF4F79;
-}
-#main-container .btn-lg-secondary-outline button span {
-  font-weight: 400;
-}
-#main-container .btn-lg-secondary-outline button:hover {
-  border-color: #FF4F79;
-  color: #FF4F79;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-#main-container .btn-lg-secondary-outline:hover {
-  text-decoration: none;
   cursor: default;
 }
 
