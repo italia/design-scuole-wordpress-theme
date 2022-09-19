@@ -1,5 +1,5 @@
 #main-container{
-  #btn-lg-secondary{
+  .btn-lg-secondary{
     button{
       background: $secondary;
       border-radius: 0.25rem;
@@ -25,7 +25,7 @@
       cursor: default;
     }
   }
-  #btn-lg-secondary-outline{
+  .btn-lg-secondary-outline{
     button{
       background: $on-secondary;
       border-radius: 0.25rem;

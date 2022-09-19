@@ -23,10 +23,14 @@ echo count($args['labels']);
             if (!$index) echo 'checked'; 
         ?>>
         <label for="crsl<?php echo $index; ?>">
-            <?php echo $args['labels'][$key]; ?>
+            <div>
+                <?php echo $args['labels'][$key]; ?>
+            </div>
         </label> 
         <article>
-            <?php echo $value; ?>
+            <div>
+                <?php echo $value; ?>
+            <div>
         </article>
         <?php
         $index++;

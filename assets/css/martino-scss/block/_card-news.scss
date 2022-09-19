@@ -1,61 +1,69 @@
 .cards-container {
   margin-left: 0.38rem;
+  display: flex;
+  flex-direction: column;
+
   &>div {
-  
+
     height: 100%;
     display: flex;
-    gap:20px;
+    gap: px2rem(20px);
     width: 100%;
+
     @include media-breakpoint-down(md) {
       flex-wrap: wrap;
     }
   }
 }
 
-.card{
+.card {
   max-height: 20rem;
   // padding: 0 0.5rem;
   height: 100%;
   position: relative;
   justify-content: space-between;
-  
   background-color: $surface;
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
-  
-    .card-img{
-      height: 12.50rem;
-      a>div:only-child {
-        width: 100%;
-        height: 100%;
-        background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
-        background-position: center;
-        background-size: cover;
-      }
-      .posizione-badges {
-        position: absolute;
-        top: 0;
-        right: 0.5rem;
-      }
-      
-      img{
-        object-fit: cover;
-        height: 12.50rem;
-        width: 100%;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-      }
+
+  @include media-breakpoint-up(lg) {
+    margin-right: 0;
+  }
+
+  .card-img {
+    height: 12.50rem;
+
+    a>div:only-child {
+      width: 100%;
+      height: 100%;
+      background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+      background-position: center;
+      background-size: cover;
     }
 
-    .card-body{
-      padding: 1.5rem 1rem 0.5rem;
-      flex: initial;
-      
-      .card-title{
-        margin-bottom: 0.5rem;
-        @include text-sm;
-        color:$primary;
-        font-weight: 600;
-      }
+    .posizione-badges {
+      position: absolute;
+      top: 0;
+      right: 0.5rem;
     }
+
+    img {
+      object-fit: cover;
+      height: 12.50rem;
+      width: 100%;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+  }
+
+  .card-body {
+    padding: 1.5rem 1rem 0.5rem;
+    flex: initial;
+
+    .card-title {
+      margin-bottom: 0.5rem;
+      @include text-sm;
+      font-weight: 600;
+    }
+  }
 }
