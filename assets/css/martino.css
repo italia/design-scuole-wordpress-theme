@@ -1107,18 +1107,36 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   display: none;
 }
 @media (max-width: 507.98px) {
-  .footer--wrapper .container .footer > .footer--column input ~ .footer-list {
+  .footer--wrapper .container .footer > .footer--column {
+    height: auto !important;
+    position: relative;
+  }
+  .footer--wrapper .container .footer > .footer--column input[type=radio], .footer--wrapper .container .footer > .footer--column input[type=checkbox] {
+    display: none;
+  }
+  .footer--wrapper .container .footer > .footer--column input ~ article,
+.footer--wrapper .container .footer > .footer--column input ~ div {
+    overflow: hidden;
+    transition: max-height 0.6s -0.2s ease;
+    max-height: 0;
     padding-inline: max(1rem, 3vw);
+  }
+  .footer--wrapper .container .footer > .footer--column input ~ article > div,
+.footer--wrapper .container .footer > .footer--column input ~ div > div {
+    transition: transform 0.4s ease;
+    transform: translateY(-100%);
   }
   .footer--wrapper .container .footer > .footer--column input + label {
     border-top: 1px solid #fff;
     margin: 0;
     padding: 0;
+    width: 100%;
+    position: relative;
   }
-  .footer--wrapper .container .footer > .footer--column input + label h2 {
+  .footer--wrapper .container .footer > .footer--column input + label > * {
     margin: 1.5rem 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *::after {
     display: inline-block;
     margin-left: 0.255em;
     vertical-align: 0.255em;
@@ -1128,10 +1146,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
     border-bottom: 0.3em solid;
     border-left: 0.3em solid transparent;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2:empty::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *:empty::after {
     margin-left: 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *::after {
     color: #fff;
     float: right;
     position: relative;
@@ -1140,12 +1158,21 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
     margin-right: 0;
     margin-block: 1rem;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label + .footer-list a {
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div {
+    max-height: 500px;
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article > div,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div > div {
+    transform: translateY(0);
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article a,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div a {
     display: inline-block;
     width: 100%;
     padding-block: clamp(0.2rem, 3rem - 8vw, 0.8rem);
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *::after {
     display: inline-block;
     margin-left: 0.255em;
     vertical-align: 0.255em;
@@ -1155,10 +1182,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
     border-bottom: 0;
     border-left: 0.3em solid transparent;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2:empty::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *:empty::after {
     margin-left: 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *::after {
     color: #fff;
     float: right;
     position: relative;
@@ -1167,8 +1194,9 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
     margin-right: 0;
     margin-block: 1rem;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label + .footer-list {
-    display: none;
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label + article,
+.footer--wrapper .container .footer > .footer--column input:not(:checked) + label + div {
+    display: block;
   }
 }
 .footer--wrapper .footer-link a,
