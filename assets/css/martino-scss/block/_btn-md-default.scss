@@ -1,5 +1,5 @@
 #main-container{
-  #btn-md-default{
+  .btn-md-default{
     button{
       background: $primary;
       border-radius: 0.25rem;
@@ -20,7 +20,7 @@
       cursor: default;
     }
   }
-  #btn-md-default-outline{
+  .btn-md-default-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;
@@ -58,7 +58,7 @@
     }
   }  
   // BUTTON DISABILITATI
-  #btn-md-disabled{
+  .btn-md-disabled{
     button{
       background: $surface;
       border-radius: 0.25rem;
@@ -72,7 +72,7 @@
 
     }
   }
-  #btn-md-disabled-outline{
+  .btn-md-disabled-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;

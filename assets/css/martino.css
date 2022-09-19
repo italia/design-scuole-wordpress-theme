@@ -770,7 +770,7 @@ main .text-xs {
     margin: 0;
   }
 }
-#main-container #btn-lg-default button {
+#main-container .btn-lg-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -782,20 +782,20 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-default button span {
+#main-container .btn-lg-default button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
-#main-container #btn-lg-default button:hover {
+#main-container .btn-lg-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-lg-default:hover {
+#main-container .btn-lg-default:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-lg-default-outline button {
+#main-container .btn-lg-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
@@ -807,34 +807,34 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-default-outline button {
+#main-container .btn-lg-default-outline button {
   position: relative;
 }
-#main-container #btn-lg-default-outline button::after {
+#main-container .btn-lg-default-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #1260A4;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-lg-default-outline button:hover::after {
+#main-container .btn-lg-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
-#main-container #btn-lg-default-outline button span {
+#main-container .btn-lg-default-outline button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
-#main-container #btn-lg-default-outline button:hover {
+#main-container .btn-lg-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
 }
-#main-container #btn-lg-default-outline:hover {
+#main-container .btn-lg-default-outline:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-lg-disabled button {
+#main-container .btn-lg-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -847,12 +847,12 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-disabled button span {
+#main-container .btn-lg-disabled button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
-#main-container #btn-lg-disabled-outline button {
+#main-container .btn-lg-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -865,7 +865,7 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-disabled-outline button span {
+#main-container .btn-lg-disabled-outline button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
@@ -877,7 +877,7 @@ main .text-xs {
   margin-top: 0.62rem;
 }
 
-#main-container #btn-md-default button {
+#main-container .btn-md-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -888,15 +888,15 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-#main-container #btn-md-default button:hover {
+#main-container .btn-md-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-md-default:hover {
+#main-container .btn-md-default:hover {
   text-decoration: none !important;
   cursor: default;
 }
-#main-container #btn-md-default-outline button {
+#main-container .btn-md-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
@@ -907,29 +907,29 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-#main-container #btn-md-default-outline button {
+#main-container .btn-md-default-outline button {
   position: relative;
 }
-#main-container #btn-md-default-outline button::after {
+#main-container .btn-md-default-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #1260A4;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-md-default-outline button:hover::after {
+#main-container .btn-md-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
-#main-container #btn-md-default-outline button:hover {
+#main-container .btn-md-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-md-default-outline:hover {
+#main-container .btn-md-default-outline:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-md-disabled button {
+#main-container .btn-md-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -941,7 +941,7 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-#main-container #btn-md-disabled-outline button {
+#main-container .btn-md-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -954,7 +954,7 @@ main .text-xs {
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
-#main-container #btn-sm-default button {
+#main-container .btn-sm-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -965,15 +965,15 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-#main-container #btn-sm-default button:hover {
+#main-container .btn-sm-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-sm-default:hover {
+#main-container .btn-sm-default:hover {
   text-decoration: none !important;
   cursor: default;
 }
-#main-container #btn-sm-default-outline button {
+#main-container .btn-sm-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
@@ -984,29 +984,29 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-#main-container #btn-sm-default-outline button {
+#main-container .btn-sm-default-outline button {
   position: relative;
 }
-#main-container #btn-sm-default-outline button::after {
+#main-container .btn-sm-default-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #1260A4;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-sm-default-outline button:hover::after {
+#main-container .btn-sm-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
-#main-container #btn-sm-default-outline button:hover {
+#main-container .btn-sm-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-sm-default-outline:hover {
+#main-container .btn-sm-default-outline:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-sm-disabled button {
+#main-container .btn-sm-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -1018,7 +1018,7 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-#main-container #btn-sm-disabled-outline button {
+#main-container .btn-sm-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -1031,7 +1031,7 @@ main .text-xs {
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 
-#main-container #btn-lg-secondary button {
+#main-container .btn-lg-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -1043,20 +1043,20 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-secondary button span {
+#main-container .btn-lg-secondary button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
-#main-container #btn-lg-secondary button:hover {
+#main-container .btn-lg-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-lg-secondary:hover {
+#main-container .btn-lg-secondary:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-lg-secondary-outline button {
+#main-container .btn-lg-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
@@ -1068,35 +1068,35 @@ main .text-xs {
   line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
 }
-#main-container #btn-lg-secondary-outline button {
+#main-container .btn-lg-secondary-outline button {
   position: relative;
 }
-#main-container #btn-lg-secondary-outline button::after {
+#main-container .btn-lg-secondary-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #BD0043;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-lg-secondary-outline button:hover::after {
+#main-container .btn-lg-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
-#main-container #btn-lg-secondary-outline button span {
+#main-container .btn-lg-secondary-outline button span {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
-#main-container #btn-lg-secondary-outline button:hover {
+#main-container .btn-lg-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-lg-secondary-outline:hover {
+#main-container .btn-lg-secondary-outline:hover {
   text-decoration: none;
   cursor: default;
 }
 
-#main-container #btn-md-secondary button {
+#main-container .btn-md-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -1107,15 +1107,15 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-#main-container #btn-md-secondary button:hover {
+#main-container .btn-md-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-md-secondary:hover {
+#main-container .btn-md-secondary:hover {
   text-decoration: none !important;
   cursor: default;
 }
-#main-container #btn-md-secondary-outline button {
+#main-container .btn-md-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
@@ -1126,30 +1126,30 @@ main .text-xs {
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-#main-container #btn-md-secondary-outline button {
+#main-container .btn-md-secondary-outline button {
   position: relative;
 }
-#main-container #btn-md-secondary-outline button::after {
+#main-container .btn-md-secondary-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #BD0043;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-md-secondary-outline button:hover::after {
+#main-container .btn-md-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
-#main-container #btn-md-secondary-outline button:hover {
+#main-container .btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-md-secondary-outline:hover {
+#main-container .btn-md-secondary-outline:hover {
   text-decoration: none;
   cursor: default;
 }
 
-#main-container #btn-sm-secondary button {
+#main-container .btn-sm-secondary button {
   background: #BD0043;
   border-radius: 0.25rem;
   color: #fff;
@@ -1160,15 +1160,15 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-#main-container #btn-sm-secondary button:hover {
+#main-container .btn-sm-secondary button:hover {
   background: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-sm-secondary:hover {
+#main-container .btn-sm-secondary:hover {
   text-decoration: none !important;
   cursor: default;
 }
-#main-container #btn-sm-secondary-outline button {
+#main-container .btn-sm-secondary-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #BD0043;
@@ -1179,30 +1179,30 @@ main .text-xs {
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-#main-container #btn-sm-secondary-outline button {
+#main-container .btn-sm-secondary-outline button {
   position: relative;
 }
-#main-container #btn-sm-secondary-outline button::after {
+#main-container .btn-sm-secondary-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #BD0043;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-sm-secondary-outline button:hover::after {
+#main-container .btn-sm-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
-#main-container #btn-sm-secondary-outline button:hover {
+#main-container .btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-sm-secondary-outline:hover {
+#main-container .btn-sm-secondary-outline:hover {
   text-decoration: none;
   cursor: default;
 }
 
-#main-container #btn-mini-default button {
+#main-container .btn-mini-default button {
   background: #1260A4;
   border-radius: 0.25rem;
   color: #fff;
@@ -1213,15 +1213,15 @@ main .text-xs {
   font-size: clamp(14px, 14px + 0 * 100vw, 14px);
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
-#main-container #btn-mini-default button:hover {
+#main-container .btn-mini-default button:hover {
   background: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-mini-default:hover {
+#main-container .btn-mini-default:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-mini-default-outline button {
+#main-container .btn-mini-default-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #1260A4;
@@ -1232,29 +1232,29 @@ main .text-xs {
   font-size: clamp(14px, 14px + 0 * 100vw, 14px);
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
-#main-container #btn-mini-default-outline button {
+#main-container .btn-mini-default-outline button {
   position: relative;
 }
-#main-container #btn-mini-default-outline button::after {
+#main-container .btn-mini-default-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   border: 0rem solid #1260A4;
   transition: border 0.15s ease-in-out;
 }
-#main-container #btn-mini-default-outline button:hover::after {
+#main-container .btn-mini-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
-#main-container #btn-mini-default-outline button:hover {
+#main-container .btn-mini-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
-#main-container #btn-mini-default-outline:hover {
+#main-container .btn-mini-default-outline:hover {
   text-decoration: none;
   cursor: default;
 }
-#main-container #btn-mini-disabled button {
+#main-container .btn-mini-disabled button {
   background: #F0F0F3;
   border-radius: 0.25rem;
   color: #C3C6CF;
@@ -1266,7 +1266,7 @@ main .text-xs {
   font-size: clamp(14px, 14px + 0 * 100vw, 14px);
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
-#main-container #btn-mini-disabled-outline button {
+#main-container .btn-mini-disabled-outline button {
   background: #fff;
   border-radius: 0.25rem;
   color: #C3C6CF;

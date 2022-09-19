@@ -1,5 +1,5 @@
 #main-container {
-  #btn-lg-default {
+  .btn-lg-default {
     button {
       background: $primary;
       border-radius: 0.25rem;
@@ -27,7 +27,7 @@
     }
   }
 
-  #btn-lg-default-outline {
+  .btn-lg-default-outline {
 
     button {
       background: $on-primary;
@@ -72,7 +72,7 @@
   }
 
   // BUTTON DISABILITATI
-  #btn-lg-disabled {
+  .btn-lg-disabled {
     button {
       background: $surface;
       border-radius: 0.25rem;
@@ -92,7 +92,7 @@
     }
   }
 
-  #btn-lg-disabled-outline {
+  .btn-lg-disabled-outline {
     button {
       background: $on-primary;
       border-radius: 0.25rem;
