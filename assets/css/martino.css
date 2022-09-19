@@ -638,18 +638,6 @@ main .text-xs {
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
-#main-container #btnControl {
-  display: none;
-}
-#main-container #btnControl2 {
-  visibility: hidden;
-}
-#main-container #btnControl:checked + label {
-  visibility: hidden;
-}
-#main-container #btnControl2:checked + label {
-  display: none;
-}
 
 #text-block h3 {
   color: #1260A4;

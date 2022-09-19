@@ -40,18 +40,6 @@
         }
 
     }
-    #btnControl{
-        display: none;
-    }
-    #btnControl2{
-        visibility: hidden;
-    }
-    #btnControl:checked + label {
-        visibility: hidden;
-    }
-    #btnControl2:checked + label {
-        display: none;
-    }
 }
     
     
