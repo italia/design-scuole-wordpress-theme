@@ -1,93 +1,107 @@
 .h1, h1 {
+  font-size: 40px;
+  font-size: 2.5rem;
   font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
+  font-weight: 700;
+  line-height: 48px;
+  line-height: 3rem;
   line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
   letter-spacing: -2px;
-  font-weight: 700;
 }
+
 main .h1, main h1 {
-  color: #1260A4;
-  font-weight: 700;
+  color: #fff;
 }
 
 .h2, h2 {
+  font-size: 32px;
+  font-size: 2rem;
   font-size: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
+  font-weight: 700;
+  line-height: 40px;
+  line-height: 2.5rem;
   line-height: clamp(40px, -20px + 0.1041666667 * 100vw, 60px);
   letter-spacing: -1.3px;
-  font-weight: 700;
 }
-main .h2, main h2 {
+
+main .primary, main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
   color: #1260A4;
 }
 
 .h3, h3 {
+  font-size: 28px;
+  font-size: 1.75rem;
   font-size: clamp(28px, -8px + 0.0625 * 100vw, 40px);
+  font-weight: 700;
+  line-height: 32px;
+  line-height: 2rem;
   line-height: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
   letter-spacing: -1px;
-  font-weight: 700;
-}
-main .h3, main h3 {
-  color: #1260A4;
 }
 
 .h4, h4 {
+  font-size: 24px;
+  font-size: 1.5rem;
   font-size: clamp(24px, 0px + 0.0416666667 * 100vw, 32px);
+  font-weight: 700;
+  line-height: 28px;
+  line-height: 1.75rem;
   line-height: clamp(28px, -8px + 0.0625 * 100vw, 40px);
   letter-spacing: -0.3px;
-  font-weight: 700;
-}
-main .h4, main h4 {
-  color: #1260A4;
 }
 
 .h5, h5 {
+  font-size: 20px;
+  font-size: 1.25rem;
   font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+  font-weight: 600;
+  line-height: 24px;
+  line-height: 1.5rem;
   line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
   letter-spacing: -0.2625px;
-  font-weight: 600;
-}
-main .h5, main h5 {
-  color: #1260A4;
 }
 
-.h6, h6 {
+#main-container .btn-lg-secondary-outline button, #main-container .btn-lg-secondary button, #main-container .btn-lg-disabled-outline button, #main-container .btn-lg-disabled button, #main-container .btn-lg-default-outline button, #main-container .btn-lg-default button, .h6, h6 {
+  font-size: 16px;
+  font-size: 1rem;
   font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
   font-weight: 600;
+  line-height: 24px;
+  line-height: 1.5rem;
 }
-main .h6, main h6 {
+
+main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a) > ul, main :not(button, a) > ol, main .text-xs, main .text-sm, main .font-body, main .h6, main h6 {
   color: #000;
 }
 
-.font-body, p, ul, ol {
+#main-container .btn-md-secondary-outline button, #main-container .btn-md-secondary button, #main-container .btn-md-disabled-outline button, #main-container .btn-md-disabled button, #main-container .btn-md-default-outline button, #main-container .btn-md-default button, p, ul, ol, .font-body {
+  font-size: 16px;
+  font-size: 1rem;
   font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: 24px;
+  line-height: 1.5rem;
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
-main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a) > ul, main :not(button, a) > ol {
-  color: #000;
-}
 
-.text-sm {
+#main-container .btn-sm-secondary-outline button, #main-container .btn-sm-secondary button, #main-container .btn-lg-secondary-outline button span, #main-container .btn-lg-secondary button span, #main-container .btn-sm-disabled-outline button, #main-container .btn-sm-disabled button, #main-container .btn-sm-default-outline button, #main-container .btn-sm-default button, #main-container .btn-lg-disabled-outline button span, #main-container .btn-lg-disabled button span, #main-container .btn-lg-default-outline button span, #main-container .btn-lg-default button span, .card .card-body .card-title, .text-sm {
+  font-size: 14px;
+  font-size: 0.875rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  line-height: 20px;
+  line-height: 1.25rem;
   line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
-main .text-sm {
-  color: #000;
-}
 
-.text-xs {
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
+#main-container .btn-mini-disabled-outline button, #main-container .btn-mini-disabled button, #main-container .btn-mini-default-outline button, #main-container .btn-mini-default button, .text-xs {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
   line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
-}
-main .text-xs {
-  color: #000;
 }
 
 .fw-regular {
   font-weight: 400;
-}
-
-.primary {
-  color: #1260A4 !important;
 }
 
 .article_title .container {
@@ -760,8 +774,6 @@ main .text-xs {
 }
 .card .card-body .card-title {
   margin-bottom: 0.5rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 600;
 }
 
@@ -849,13 +861,8 @@ main .text-xs {
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-default button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container .btn-lg-default button:hover {
@@ -874,9 +881,6 @@ main .text-xs {
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-default-outline button {
   position: relative;
@@ -892,8 +896,6 @@ main .text-xs {
   border: 0.19rem solid #0073E6;
 }
 #main-container .btn-lg-default-outline button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container .btn-lg-default-outline button:hover {
@@ -914,13 +916,8 @@ main .text-xs {
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-disabled button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container .btn-lg-disabled-outline button {
@@ -932,13 +929,8 @@ main .text-xs {
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-disabled-outline button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container a[id^=btn-] p {
@@ -956,8 +948,6 @@ main .text-xs {
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container .btn-md-default button:hover {
   background: #0073E6;
@@ -975,8 +965,6 @@ main .text-xs {
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container .btn-md-default-outline button {
   position: relative;
@@ -1009,8 +997,6 @@ main .text-xs {
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container .btn-md-disabled-outline button {
   background: #fff;
@@ -1021,8 +1007,6 @@ main .text-xs {
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
 #main-container .btn-sm-default button {
@@ -1033,8 +1017,6 @@ main .text-xs {
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container .btn-sm-default button:hover {
   background: #0073E6;
@@ -1052,8 +1034,6 @@ main .text-xs {
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container .btn-sm-default-outline button {
   position: relative;
@@ -1086,8 +1066,6 @@ main .text-xs {
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container .btn-sm-disabled-outline button {
   background: #fff;
@@ -1098,8 +1076,6 @@ main .text-xs {
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 
 #main-container .btn-lg-secondary button {
@@ -1110,13 +1086,8 @@ main .text-xs {
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-secondary button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container .btn-lg-secondary button:hover {
@@ -1135,9 +1106,6 @@ main .text-xs {
   width: 100%;
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
-  line-height: clamp(24px, 24px + 0 * 100vw, 24px);
-  font-weight: 600;
 }
 #main-container .btn-lg-secondary-outline button {
   position: relative;
@@ -1153,8 +1121,6 @@ main .text-xs {
   border: 0.19rem solid #FF4F79;
 }
 #main-container .btn-lg-secondary-outline button span {
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
   font-weight: 400;
 }
 #main-container .btn-lg-secondary-outline button:hover {
@@ -1175,8 +1141,6 @@ main .text-xs {
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container .btn-md-secondary button:hover {
   background: #FF4F79;
@@ -1194,8 +1158,6 @@ main .text-xs {
   width: 100%;
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 #main-container .btn-md-secondary-outline button {
   position: relative;
@@ -1228,8 +1190,6 @@ main .text-xs {
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container .btn-sm-secondary button:hover {
   background: #FF4F79;
@@ -1247,8 +1207,6 @@ main .text-xs {
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
 }
 #main-container .btn-sm-secondary-outline button {
   position: relative;
@@ -1281,8 +1239,6 @@ main .text-xs {
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
-  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container .btn-mini-default button:hover {
   background: #0073E6;
@@ -1300,8 +1256,6 @@ main .text-xs {
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
-  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container .btn-mini-default-outline button {
   position: relative;
@@ -1334,8 +1288,6 @@ main .text-xs {
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
-  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 #main-container .btn-mini-disabled-outline button {
   background: #fff;
@@ -1346,8 +1298,6 @@ main .text-xs {
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
   cursor: default;
-  font-size: clamp(14px, 14px + 0 * 100vw, 14px);
-  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
 }
 
 .footer--wrapper {
@@ -1383,18 +1333,36 @@ main .text-xs {
   display: none;
 }
 @media (max-width: 507.98px) {
-  .footer--wrapper .container .footer > .footer--column input ~ .footer-list {
+  .footer--wrapper .container .footer > .footer--column {
+    height: auto !important;
+    position: relative;
+  }
+  .footer--wrapper .container .footer > .footer--column input[type=radio], .footer--wrapper .container .footer > .footer--column input[type=checkbox] {
+    display: none;
+  }
+  .footer--wrapper .container .footer > .footer--column input ~ article,
+.footer--wrapper .container .footer > .footer--column input ~ div {
+    overflow: hidden;
+    transition: max-height 0.6s -0.2s ease;
+    max-height: 0;
     padding-inline: max(1rem, 3vw);
+  }
+  .footer--wrapper .container .footer > .footer--column input ~ article > div,
+.footer--wrapper .container .footer > .footer--column input ~ div > div {
+    transition: transform 0.4s ease;
+    transform: translateY(-100%);
   }
   .footer--wrapper .container .footer > .footer--column input + label {
     border-top: 1px solid #fff;
     margin: 0;
     padding: 0;
+    width: 100%;
+    position: relative;
   }
-  .footer--wrapper .container .footer > .footer--column input + label h2 {
+  .footer--wrapper .container .footer > .footer--column input + label > * {
     margin: 1.5rem 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *::after {
     display: inline-block;
     margin-left: 0.255em;
     vertical-align: 0.255em;
@@ -1404,10 +1372,10 @@ main .text-xs {
     border-bottom: 0.3em solid;
     border-left: 0.3em solid transparent;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2:empty::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *:empty::after {
     margin-left: 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label h2::after {
+  .footer--wrapper .container .footer > .footer--column input:checked + label > *::after {
     color: #fff;
     float: right;
     position: relative;
@@ -1416,12 +1384,21 @@ main .text-xs {
     margin-right: 0;
     margin-block: 1rem;
   }
-  .footer--wrapper .container .footer > .footer--column input:checked + label + .footer-list a {
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div {
+    max-height: 500px;
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article > div,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div > div {
+    transform: translateY(0);
+  }
+  .footer--wrapper .container .footer > .footer--column input:checked + label + article a,
+.footer--wrapper .container .footer > .footer--column input:checked + label + div a {
     display: inline-block;
     width: 100%;
     padding-block: clamp(0.2rem, 3rem - 8vw, 0.8rem);
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *::after {
     display: inline-block;
     margin-left: 0.255em;
     vertical-align: 0.255em;
@@ -1431,10 +1408,10 @@ main .text-xs {
     border-bottom: 0;
     border-left: 0.3em solid transparent;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2:empty::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *:empty::after {
     margin-left: 0;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > h2::after {
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label > *::after {
     color: #fff;
     float: right;
     position: relative;
@@ -1443,8 +1420,9 @@ main .text-xs {
     margin-right: 0;
     margin-block: 1rem;
   }
-  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label + .footer-list {
-    display: none;
+  .footer--wrapper .container .footer > .footer--column input:not(:checked) + label + article,
+.footer--wrapper .container .footer > .footer--column input:not(:checked) + label + div {
+    display: block;
   }
 }
 .footer--wrapper .footer-link a,
