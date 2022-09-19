@@ -29,7 +29,7 @@ get_header();
 
 						<?php if ( have_posts() ) : ?> 
                             
-                            <div class="row" id="card_archive">
+                            <div class="row" id="container_archive">
 							<?php
 							/* Start the Loop */
 							while ( have_posts() ) :

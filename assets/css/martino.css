@@ -24,7 +24,7 @@ main .h1, main h1 {
   letter-spacing: -1.3px;
 }
 
-main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
+main .primary, main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
   color: #1260A4;
 }
 
@@ -83,7 +83,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
 }
 
-#main-container #btn-sm-secondary-outline button, #main-container #btn-sm-secondary button, #main-container #btn-lg-secondary-outline button span, #main-container #btn-lg-secondary button span, #main-container #btn-sm-disabled-outline button, #main-container #btn-sm-disabled button, #main-container #btn-sm-default-outline button, #main-container #btn-sm-default button, #main-container #btn-lg-disabled-outline button span, #main-container #btn-lg-disabled button span, #main-container #btn-lg-default-outline button span, #main-container #btn-lg-default button span, #main-container .card .card-bg .card-body .card-title, .text-sm {
+#main-container #btn-sm-secondary-outline button, #main-container #btn-sm-secondary button, #main-container #btn-lg-secondary-outline button span, #main-container #btn-lg-secondary button span, #main-container #btn-sm-disabled-outline button, #main-container #btn-sm-disabled button, #main-container #btn-sm-default-outline button, #main-container #btn-sm-default button, #main-container #btn-lg-disabled-outline button span, #main-container #btn-lg-disabled button span, #main-container #btn-lg-default-outline button span, #main-container #btn-lg-default button span, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
   font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
@@ -109,15 +109,16 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   position: static;
 }
 
-#article_title {
-  position: static;
-  height: auto;
-  display: block;
+#title-img {
+  width: 100%;
+  height: 370px;
 }
 
 #title-img img {
   max-height: 400px;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #related_projects {
@@ -125,16 +126,28 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0rem;
 }
 
-#card-sidebar {
-  display: block;
+#sidebar_projects {
+  margin-top: 6.5rem;
 }
 
-#card-sidebar-width {
-  max-width: 23.2rem;
+#related_text p {
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 0.3rem;
 }
 
-#article_data {
+@media (max-width: 768px) {
+  #sidebar_projects {
+    margin-top: 0.5rem !important;
+  }
+}
+.text-black {
+  color: black;
+}
+
+#article_data h5 {
   border-top: none;
+  font-weight: 300;
 }
 
 #article_image {
@@ -142,27 +155,25 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   width: 100%;
 }
 
-#header_post {
-  padding: 0rem;
-}
-
 #badge a {
   margin-bottom: 1rem;
 }
 
-#card_news {
-  max-height: 100px;
-}
-#card_news .card-content {
-  padding: 10px 10px 10px 10px;
+#sidebar_news {
+  margin-top: 8.8rem !important;
 }
 
-#news_correlate {
-  margin-top: 15px;
+.card.card-icon .icon {
+  width: 60px;
+  height: 60px;
 }
 
-#card-documento {
-  display: block;
+.card.card-icon svg {
+  fill: #1260A4 !important;
+}
+
+.card-icon-content a {
+  color: #1260A4;
 }
 
 #search_field {
@@ -173,9 +184,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #filtro_articolo {
-  display: flex;
-  justify-content: flex-start;
-  gap: 5rem;
+  gap: 2rem;
 }
 
 #no-round::before,
@@ -195,10 +204,18 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   content: none;
 }
 
-#card_archive {
-  gap: 4rem;
+#container_archive {
+  row-gap: 1rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
 }
 
+@media (min-width: 992px) {
+  .col-lg-3_5 {
+    flex: 0 0 29%;
+    max-width: 29%;
+  }
+}
 #card_notizie img {
   height: 300px !important;
 }
@@ -213,12 +230,16 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #card_article_content {
-  background-color: var(#F0F0F3);
+  background-color: #F0F0F3;
 }
 
 #card_article_content a,
 #card_article_content p {
-  color: var #1260A4;
+  color: #1260A4;
+}
+
+#card_article_content a:hover {
+  text-decoration: underline;
 }
 
 .card.card-article:before {
@@ -555,6 +576,28 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 
+.color-dicono-di-noi {
+  background-color: #1260A4;
+}
+
+.color-news {
+  background-color: #D33D36;
+}
+
+.color-eventi {
+  background-color: #982262;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+  #sidebar_news {
+    margin-top: 2.5rem !important;
+  }
+}
+#main-container a.img-loop {
+  display: block;
+  height: 100%;
+}
 #main-container #button-navigazione a {
   display: grid;
   height: 100%;
@@ -565,73 +608,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #main-container #spazi-storia {
   margin-bottom: 3rem;
 }
-#main-container .card {
-  padding: 0 0.5rem;
-}
-#main-container .card:first-child {
-  padding: 0 0.5rem 0 0;
-}
-#main-container .card:last-child {
-  padding: 0 0 0 0.5rem;
-}
-#main-container .card .card-bg {
-  background-color: #F0F0F3;
-  border-radius: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-#main-container .card .card-bg .card-img .posizione-badges {
-  position: absolute;
-  top: 0;
-  right: 0.5rem;
-}
-#main-container .card .card-bg .card-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 200px;
-  width: 100%;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-#main-container .card .card-bg .card-body {
-  padding: 1.5rem 1rem 0.5rem;
-}
-#main-container .card .card-bg .card-body .card-title {
-  margin-bottom: 0.5rem;
-  color: #1260A4;
-  font-weight: 600;
-}
-#main-container #progetti-home article {
-  margin-top: 1rem;
-}
-#main-container #progetti-home article:first-child {
-  margin-top: 0;
-}
-#main-container #progetti-home article .row-img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
-  border-radius: 0.25rem;
-}
-#main-container #progetti-home article a {
-  color: #000;
-  text-decoration: none;
-}
-#main-container #progetti-home article a p:first-of-type {
-  color: #1260A4;
-}
-#main-container #progetti-home article a:hover p:first-of-type, #main-container #progetti-home article a:hover p:first-of-type:hover, #main-container #progetti-home article a:hover p:first-of-type:focus, #main-container #progetti-home article a:hover p:first-of-type:focus-within, #main-container #progetti-home article a:focus p:first-of-type, #main-container #progetti-home article a:focus p:first-of-type:hover, #main-container #progetti-home article a:focus p:first-of-type:focus, #main-container #progetti-home article a:focus p:first-of-type:focus-within, #main-container #progetti-home article a:focus-within p:first-of-type, #main-container #progetti-home article a:focus-within p:first-of-type:hover, #main-container #progetti-home article a:focus-within p:first-of-type:focus, #main-container #progetti-home article a:focus-within p:first-of-type:focus-within {
-  text-decoration: underline;
-}
-#main-container #progetti-home article a:hover p:hover, #main-container #progetti-home article a:hover p:focus, #main-container #progetti-home article a:hover p:focus-within, #main-container #progetti-home article a:focus p:hover, #main-container #progetti-home article a:focus p:focus, #main-container #progetti-home article a:focus p:focus-within, #main-container #progetti-home article a:focus-within p:hover, #main-container #progetti-home article a:focus-within p:focus, #main-container #progetti-home article a:focus-within p:focus-within {
-  color: #1260A4;
-}
 
-@media screen and (max-width: 991px) {
-  #main-container .card:first-child, #main-container .card:last-child {
-    padding: 0 0.5rem;
-  }
-}
 @media screen and (max-width: 991px) and (max-width: 575.98px) {
   .wauto {
     width: 100% !important;
@@ -647,6 +624,11 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #container-contattiutili td, #container-contattiutili th {
   border: 1px solid #ddd;
   padding: 8px;
+}
+
+::marker {
+  color: gray;
+  font-size: 0.5em;
 }
 
 #text-block h3 {
@@ -676,6 +658,35 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
     margin-top: 20px;
   }
 }
+/* GENERALI */
+.bg-primary_container {
+  background-color: #D2E4FF;
+}
+
+.text-blue {
+  color: #001C39 !important;
+}
+
+@media (min-width: 992px) {
+  .col-lg-2_5 {
+    flex: 0 0 19%;
+    max-width: 19%;
+  }
+}
+/* the_content */
+.iscriviti p {
+  font-size: clamp(20px, -4px + 4.16666667vw, 28px);
+  line-height: clamp(24px, -24px + 8.33333333vw, 40px);
+  letter-spacing: -0.2625px;
+  font-weight: 600;
+  color: #001C39 !important;
+}
+
+/* loop */
+#loop_orientamento .card-img img {
+  height: 150px !important;
+}
+
 #hero {
   height: 400px;
   width: 100%;
@@ -695,11 +706,125 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #hero #content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
+  color: #fff;
 }
 #hero #content p {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
+}
+
+.cards-container {
+  margin-left: 0.38rem;
+}
+.cards-container > div {
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .cards-container > div {
+    flex-wrap: wrap;
+  }
+}
+
+.card {
+  max-height: 20rem;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  background-color: #F0F0F3;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.card .card-img {
+  height: 12.5rem;
+}
+.card .card-img a > div:only-child {
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-position: center;
+  background-size: cover;
+}
+.card .card-img .posizione-badges {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+}
+.card .card-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 12.5rem;
+  width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.card .card-body {
+  padding: 1.5rem 1rem 0.5rem;
+  flex: initial;
+}
+.card .card-body .card-title {
+  margin-bottom: 0.5rem;
+  color: #1260A4;
+  font-weight: 600;
+}
+
+#progetti-home .container-progetti {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#progetti-home .container-progetti article.card-progetti {
+  height: 10rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  /*  &:first-child {
+    margin-top: 0;
+  } */
+}
+#progetti-home .container-progetti article.card-progetti .row-img {
+  height: 100%;
+  width: 5.5rem;
+}
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop {
+  height: 100%;
+  width: 100%;
+}
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+#progetti-home .container-progetti article.card-progetti .row-img a.img-loop > div:only-child {
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-position: center;
+  background-size: cover;
+}
+#progetti-home .container-progetti article.card-progetti .card--body {
+  margin: 0 1rem;
+  flex: 1;
+}
+#progetti-home .container-progetti article.card-progetti .card--body a {
+  color: #000;
+  word-break: break-word;
+  text-decoration: none;
+}
+#progetti-home .container-progetti article.card-progetti .card--body a p,
+#progetti-home .container-progetti article.card-progetti .card--body a p:hover,
+#progetti-home .container-progetti article.card-progetti .card--body a p:focus,
+#progetti-home .container-progetti article.card-progetti .card--body a p:focus-within {
+  color: #000;
+}
+#progetti-home .container-progetti article.card-progetti .card--body a:hover h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus-within h5 {
+  text-decoration: underline;
+  color: #1260A4;
 }
 
 #sidebar {
@@ -747,13 +872,26 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
 }
+#main-container #btn-lg-default-outline button {
+  position: relative;
+}
+#main-container #btn-lg-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-lg-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
+}
 #main-container #btn-lg-default-outline button span {
   font-weight: 400;
 }
 #main-container #btn-lg-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
 }
 #main-container #btn-lg-default-outline:hover {
   text-decoration: none;
@@ -818,6 +956,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
 }
+#main-container #btn-md-default-outline button {
+  position: relative;
+}
+#main-container #btn-md-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-md-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
+}
 #main-container #btn-md-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
@@ -873,6 +1024,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   width: 100%;
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
+}
+#main-container #btn-sm-default-outline button {
+  position: relative;
+}
+#main-container #btn-sm-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-sm-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
 }
 #main-container #btn-sm-default-outline button:hover {
   border-color: #0073E6;
@@ -933,6 +1097,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0.88rem 1.75rem;
   margin-bottom: 1rem;
 }
+#main-container #btn-lg-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-lg-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-lg-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-lg-secondary-outline button span {
   font-weight: 400;
 }
@@ -972,6 +1149,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0.75rem 1.5rem;
   margin-bottom: 1rem;
 }
+#main-container #btn-md-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-md-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-md-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
@@ -1008,6 +1198,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   padding: 0.63rem 1.25rem;
   margin-bottom: 1rem;
 }
+#main-container #btn-sm-secondary-outline button {
+  position: relative;
+}
+#main-container #btn-sm-secondary-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #BD0043;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-sm-secondary-outline button:hover::after {
+  border: 0.19rem solid #FF4F79;
+}
 #main-container #btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
@@ -1043,6 +1246,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   width: 100%;
   padding: 0.51rem 0.81rem;
   margin-bottom: 1rem;
+}
+#main-container #btn-mini-default-outline button {
+  position: relative;
+}
+#main-container #btn-mini-default-outline button::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0rem solid #1260A4;
+  transition: border 0.15s ease-in-out;
+}
+#main-container #btn-mini-default-outline button:hover::after {
+  border: 0.19rem solid #0073E6;
 }
 #main-container #btn-mini-default-outline button:hover {
   border-color: #0073E6;

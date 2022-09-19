@@ -394,7 +394,10 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 /* Custom Post Type
 ------------------------*/
-require dirname(__FILE__).'/functions-parts/cpt.php';
+require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
+require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
+require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
+require dirname(__FILE__).'/functions-parts/cpt-orari-docenti.php';
 
 /* Customize Back-end
 ------------------------*/

@@ -24,7 +24,7 @@ main .h1, main h1 {
   letter-spacing: -1.3px;
 }
 
-main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
+main .primary, main .h5, main h5, main .h4, main h4, main .h3, main h3, main .h2, main h2 {
   color: #007bff;
 }
 
