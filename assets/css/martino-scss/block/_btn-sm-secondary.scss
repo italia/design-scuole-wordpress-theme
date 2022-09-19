@@ -1,5 +1,5 @@
 #main-container{
-  #btn-sm-secondary{
+  .btn-sm-secondary{
     button{
       background: $secondary;
       border-radius: 0.25rem;
@@ -21,7 +21,7 @@
       cursor: default;
     }
   }
-  #btn-sm-secondary-outline{
+  .btn-sm-secondary-outline{
     button{
       background: $on-secondary;
       border-radius: 0.25rem;

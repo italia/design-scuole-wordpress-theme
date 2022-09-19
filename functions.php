@@ -354,6 +354,39 @@ add_action('wp_head', function () {
     }
 });
 
+function create_page_if_null($page_name) {
+	console_log($page_name);
+    if( get_page_by_path($page_name) == NULL ) {
+        global $user_ID;
+
+		$createPage = array(
+			'post_author'   => $user_ID,
+			'post_title'    => ucwords(str_replace('-', ' ', $page_name)),
+			'post_name'     => $page_name,
+			'post_date' 	=> date('Y-m-d H:i:s'),
+			'post_content'  => 'Starter content',
+			'post_status'   => 'publish',
+			// 'post_status'   => 'draft',
+			'post_type'     => 'page',
+		);
+
+		// Insert the post into the database
+		wp_insert_post( $createPage );
+    }
+}
+
+function check_static_pages_created(){
+	$pages_to_check = glob(get_template_directory() . '/page-*.php');
+	// $pages_to_exclude = [];
+	// $pages_to_check = array_diff($pages_to_check, $pages_to_exclude);
+
+	foreach (array_unique($pages_to_check) as $page_filepath) {
+		create_page_if_null(preg_replace('/^.*\/page-(.*)\.php$/', '${1}', $page_filepath));
+	}
+}
+add_action('after_switch_theme','check_static_pages_created');
+// add_action('init','check_static_pages_created');
+
 function wpdocs_custom_excerpt_length( $length ) {
 	return 10;
 }

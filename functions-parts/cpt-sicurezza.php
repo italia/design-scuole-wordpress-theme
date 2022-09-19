@@ -47,30 +47,23 @@ function martini_add_sicurezza_metaboxes() {
     'priority'     => 'high',
     ) );
 
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Categoria di file',
+        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'sicurezza' => __( 'Sicurezza', 'cmb2' ),
+            'covid'   => __( 'Covid', 'cmb2' ),
+        ),
+    ) );
+
     // box per caricare file di sicurezza sulle scuole
 
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'file_sicurezza',
         'name'    => __( 'Carica file', 'martino_martini' ),
         'desc' => __( 'Archivio file di sicurezza della scuola' , 'martino_martini' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
-        ),
-    ) );
-
-    
-    // box per caricare file divsicurezza
-
-    $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_covid',
-        'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file di sicurezza Covid-19' , 'martino_martini' ),
         'type' => 'file_list',
         // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
         // 'query_args' => array( 'type' => 'image' ), // Only images attachment

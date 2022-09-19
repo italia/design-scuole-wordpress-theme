@@ -1,0 +1,94 @@
+@mixin accordion ($color: $white, $borders: true, $animate: true) {
+    height: auto !important;
+    position: relative;
+    input {
+        &[type=radio],
+        &[type=checkbox] {
+            display: none;
+        }
+
+        ~article,
+        ~div {
+            @if $animate {
+                overflow: hidden;
+                transition: max-height .6s -.2s ease;
+                max-height: 0;
+                
+                >div{
+                    transition: transform .4s ease;
+                    transform: translateY(-100%);
+                }
+            }
+            padding-inline: max(1rem, 3vw);
+        }
+
+        +label {
+            @if $borders {
+                border-top: 1px solid $color;
+            }
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative;
+            > * {
+                margin: 1.5rem 0;
+            }
+        }
+
+        &:checked+label {
+            &>* {
+                @include caret(up);
+
+                &::after {
+                    color: $color;
+                    float: right;
+                    position: relative;
+                    top: 45%;
+                    margin-left: auto;
+                    margin-right: 0;
+                    margin-block: 1rem;
+                }
+            }
+
+            +article,
+            +div {
+                @if $animate {
+                    max-height: 500px;
+                    >div{
+                        transform: translateY(0);
+                    }
+                }
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    padding-block: clamp(0.2rem, 3rem - 8vw, .8rem);
+                }
+            }
+        }
+
+        &:not(:checked)+label {
+            &>* {
+                @include caret(down);
+
+                &::after {
+                    color: $color;
+                    float: right;
+                    position: relative;
+                    top: 45%;
+                    margin-left: auto;
+                    margin-right: 0;
+                    margin-block: 1rem;
+                }
+            }
+
+            +article,
+            +div {
+                @if $animate {
+                    display: block;
+                } @else {
+                    display: none;
+                }
+            }
+        }
+    }
+}

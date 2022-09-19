@@ -1,5 +1,5 @@
 #main-container{
-  #btn-sm-default{
+  .btn-sm-default{
     button{
       background: $primary;
       border-radius: 0.25rem;
@@ -21,7 +21,7 @@
       cursor: default;
     }
   }
-  #btn-sm-default-outline{
+  .btn-sm-default-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;
@@ -58,7 +58,7 @@
     }
   }  
   // BUTTON DISABILITATI
-  #btn-sm-disabled{
+  .btn-sm-disabled{
     button{
       background: $surface;
       border-radius: 0.25rem;
@@ -73,7 +73,7 @@
       
     }
   }
-  #btn-sm-disabled-outline{
+  .btn-sm-disabled-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;

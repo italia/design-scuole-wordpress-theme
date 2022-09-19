@@ -40,87 +40,16 @@ $background-color: #004882;
                     position: relative;
                 }
             }
-
-            input {
-                &[type=checkbox] {
-                    display: none;
-                }
-
-                // &:checked+label {
-                //     &::after {
-                //         color: $color;
-                //     }
-                //     +.footer-list {
-
-                //     }
-                // }
-                @if $footer-use-tabs =='true' {
-
-                    @include media-breakpoint-down(xs, $breakpoints: (xs: 0,
-                            sm: 508px,
-                        )) {
-                        ~.footer-list {
-                            padding-inline: max(1rem, 3vw);
-                        }
-
-                        +label {
-                            border-top: 1px solid $color;
-                            margin: 0;
-                            padding: 0;
-                        }
-
-                        +label h2 {
-                            margin: 1.5rem 0;
-                        }
-
-                        &:checked+label {
-                            h2 {
-                                @include caret(up);
-
-                                &::after {
-                                    color: $color;
-                                    float: right;
-                                    position: relative;
-                                    top: 45%;
-                                    margin-left: auto;
-                                    margin-right: 0;
-                                    margin-block: 1rem;
-                                }
-                            }
-
-                            +.footer-list a {
-                                display: inline-block;
-                                width: 100%;
-                                padding-block: clamp(0.2rem, 3rem - 8vw, .8rem);
-                            }
-                        }
-
-                        &:not(:checked)+label {
-                            &>h2 {
-                                @include caret(down);
-
-                                &::after {
-                                    color: $color;
-                                    float: right;
-                                    position: relative;
-                                    top: 45%;
-                                    margin-left: auto;
-                                    margin-right: 0;
-                                    margin-block: 1rem;
-                                }
-                            }
-
-                            +.footer-list {
-                                display: none;
-                            }
-                        }
-                    }
+            input[type=checkbox] {
+                display: none;
+            }
+            @if $footer-use-tabs =='true' {
+                @include media-breakpoint-down(xs, $breakpoints: (xs: 0,
+                    sm: 508px,
+                )) {
+                    @include accordion();
                 }
             }
-
-            //     &:last-of-type {
-
-            //     }
         }
     }
 
