@@ -1,5 +1,5 @@
 #main-container{
-  #btn-md-secondary{
+  .btn-md-secondary{
     button{
       background: $secondary;
       border-radius: 0.25rem;
@@ -9,18 +9,20 @@
       padding: 0.75rem 1.50rem;
       margin-bottom: 1rem;
       @include font-body;
-     
+
+      
       &:hover{
         background: $secondary-hover;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
       }
+
     } 
     &:hover {
       text-decoration: none !important;
       cursor: default;
     }
   }
-  #btn-md-secondary-outline{
+  .btn-md-secondary-outline{
     button{
       background: $on-secondary;
       border-radius: 0.25rem;
@@ -30,6 +32,20 @@
       padding: 0.75rem 1.50rem;
       margin-bottom: 1rem;
       @include font-body;
+
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $secondary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $secondary-hover;
+      }
 
       &:hover{
         border-color: $secondary-hover;

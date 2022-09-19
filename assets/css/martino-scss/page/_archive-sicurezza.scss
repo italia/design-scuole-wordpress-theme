@@ -1,0 +1,45 @@
+#main-container{
+
+    details{
+        summary {
+            list-style-type: none;
+            &::marker{
+                //color: gray;
+                //font-size: 0.5em;
+                display: none;
+                
+            }
+        }
+        $summary-left: true;
+        @if $summary-left == true {
+
+            & > summary::before{
+                content: "";
+                display: inline-block;
+                margin-left: $caret-spacing;
+                vertical-align: $caret-vertical-align;
+                margin-right: 10px;
+                color: gray;
+            }
+            &:not([open]) > summary::before{
+                @include caret-up();
+            }
+            &[open] > summary::before{
+                @include caret-down();
+            }
+        } @else {
+            & > summary::after{
+                color: gray;
+            }
+            &:not([open]) > summary{
+                @include caret(up);
+            }
+            &[open] > summary{
+                @include caret(down);
+            }
+        }
+
+    }
+}
+    
+    

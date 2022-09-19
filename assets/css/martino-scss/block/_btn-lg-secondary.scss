@@ -1,5 +1,5 @@
 #main-container{
-  #btn-lg-secondary{
+  .btn-lg-secondary{
     button{
       background: $secondary;
       border-radius: 0.25rem;
@@ -25,7 +25,7 @@
       cursor: default;
     }
   }
-  #btn-lg-secondary-outline{
+  .btn-lg-secondary-outline{
     button{
       background: $on-secondary;
       border-radius: 0.25rem;
@@ -35,6 +35,20 @@
       padding: 0.88rem  1.75rem;
       margin-bottom: 1rem;
       @include h6;
+
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $secondary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $secondary-hover;
+      }
 
       span{
         @include text-sm;

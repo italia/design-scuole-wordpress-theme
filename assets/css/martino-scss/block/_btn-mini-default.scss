@@ -1,5 +1,5 @@
 #main-container{
-  #btn-mini-default{
+  .btn-mini-default{
     button{
       background: $primary;
       border-radius: 0.25rem;
@@ -20,7 +20,7 @@
       cursor: default;
     }
   }
-  #btn-mini-default-outline{
+  .btn-mini-default-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;
@@ -31,6 +31,19 @@
       margin-bottom: 1rem;
       @include text-xs;
 
+      & {
+        position: relative;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 0rem solid $primary;
+        transition: border 0.15s ease-in-out;
+      }
+      &:hover::after{
+        border: 0.19rem solid $primary-hover;
+      }
 
       &:hover{
         border-color: $primary-hover;
@@ -44,7 +57,7 @@
     }
   }    
   // BUTTON DISABILITATI
-  #btn-mini-disabled{
+  .btn-mini-disabled{
     button{
       background: $surface;
       border-radius: 0.25rem;
@@ -58,7 +71,7 @@
 
     }
   }
-  #btn-mini-disabled-outline{
+  .btn-mini-disabled-outline{
     button{
       background: $on-primary;
       border-radius: 0.25rem;

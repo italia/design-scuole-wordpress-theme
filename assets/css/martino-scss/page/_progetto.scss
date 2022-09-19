@@ -3,16 +3,16 @@
     position: static;
 }
 
-#article_title {
-    position: static;
-    height: auto;
-    display: block;
+#title-img {
+    width: 100%;
+    height: 370px;
 }
 
 #title-img {
     img {
         max-height: 400px;
         width: 100%;
+        object-fit: cover;
     }
 }
 
@@ -22,10 +22,18 @@
     padding: 0rem;
 }
 
-#card-sidebar {
-    display: block;
+#sidebar_projects {
+    margin-top: 6.5rem;
 }
 
-#card-sidebar-width {
-    max-width: 23.2rem;
+#related_text p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    #sidebar_projects {
+        margin-top: 0.5rem !important;
+    }
 }
