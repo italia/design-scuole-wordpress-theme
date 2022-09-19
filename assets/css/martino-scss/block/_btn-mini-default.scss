@@ -1,49 +1,51 @@
 @use "sass:map";
 
-$btn-lg-names: default ;
+$btn-lg-names: default;
 
 $btn-lg-colors: (
-  default: $primary, 
-  on-default: $on-primary,   
-  default-hover: $primary-hover, 
+  default: $primary,
+  on-default: $on-primary,
+  default-hover: $primary-hover,
 
   secondary: $secondary,
-  on-secondary: $on-secondary,  
+  on-secondary: $on-secondary,
   secondary-hover: $secondary-hover,
 );
 
 #main-container {
   @each $name in $btn-lg-names {
-    $color:       map.get($btn-lg-colors, "#{$name}");
-    $on-color:    map.get($btn-lg-colors, "on-#{$name}");
+    $color: map.get($btn-lg-colors, "#{$name}");
+    $on-color: map.get($btn-lg-colors, "on-#{$name}");
     $color-hover: map.get($btn-lg-colors, "#{$name}-hover");
-      
-    .btn-mini-#{$name}{
-      button{
+
+    .btn-mini-#{$name} {
+      button {
         background: $color;
         border-radius: 0.25rem;
-        color:$on-color;
+        color: $on-color;
         border: 0;
         width: 100%;
         padding: 0.51rem 0.81rem;
         margin-bottom: 1rem;
         @include text-xs;
 
-        &:hover{
+        &:hover {
           background: $color-hover;
           transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
-      } 
+      }
+
       &:hover {
         text-decoration: none;
         cursor: default;
       }
     }
-    .btn-mini-#{$name}-outline{
-      button{
+
+    .btn-mini-#{$name}-outline {
+      button {
         background: $on-color;
         border-radius: 0.25rem;
-        color:$color;
+        color: $color;
         border: 0.12rem $color solid;
         width: 100%;
         padding: 0.51rem 0.81rem;
@@ -53,6 +55,7 @@ $btn-lg-colors: (
         & {
           position: relative;
         }
+
         &::after {
           content: "";
           position: absolute;
@@ -60,28 +63,31 @@ $btn-lg-colors: (
           border: 0rem solid $color;
           transition: border 0.15s ease-in-out;
         }
-        &:hover::after{
+
+        &:hover::after {
           border: 0.19rem solid $color-hover;
         }
 
-        &:hover{
+        &:hover {
           border-color: $color-hover;
           color: $color-hover;
           transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
         }
       }
-      &:hover{
+
+      &:hover {
         text-decoration: none;
         cursor: default;
       }
-    }    
+    }
   }
+
   // BUTTON DISABILITATI
-  .btn-mini-disabled{
-    button{
+  .btn-mini-disabled {
+    button {
       background: $surface;
       border-radius: 0.25rem;
-      color:$on-surface;
+      color: $on-surface;
       border: 0;
       width: 100%;
       padding: 0.51rem 0.81rem;
@@ -91,11 +97,12 @@ $btn-lg-colors: (
 
     }
   }
-  .btn-mini-disabled-outline{
-    button{
+
+  .btn-mini-disabled-outline {
+    button {
       background: $on-primary;
       border-radius: 0.25rem;
-      color:$on-surface;
+      color: $on-surface;
       border: 0.12rem $on-surface solid;
       width: 100%;
       padding: 0.51rem 0.81rem;
