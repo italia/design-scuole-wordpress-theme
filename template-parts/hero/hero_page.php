@@ -10,7 +10,7 @@
                     echo get_the_title($hero_post_id);
                 ?></p>
                 <div class="text-center">
-                    <a id="btn-md-default" class="" href="<?php 
+                    <a class="btn-md-default" class="" href="<?php 
                     echo get_the_permalink($hero_post_id); 
                     ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
                 </div>

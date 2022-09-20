@@ -53,7 +53,7 @@
       width: 14px;
     }
 
-    article {
+    article>div {
       padding: 1rem 2rem;
     }
 
@@ -65,7 +65,7 @@
           font-weight: bold;
         }
       }
-
+    
       &:not(:checked)+label+article {
         display: none;
       }
@@ -75,7 +75,12 @@
   // TODO info-carousel mobile styles
   // Create accordion-like styles for mobile  
   @include media-breakpoint-down(sm) {
-    background-color: #E6285F;
+    // background-color: #E6285F;
+    @include accordion($color: grey, $borders: false);
+    display: block;
+    label > * {
+      @include h5($extend: false);
+    }
   }
 
 
