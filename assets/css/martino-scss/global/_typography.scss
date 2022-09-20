@@ -139,11 +139,6 @@ main {
   @each $type, $args in $mm-typo {
     #{prefix-sel($type)} {
       @include extend-type($type, $color: true, $size: false);
-      &.primary {
-        @if $type != "primary" {
-          @include extend-type("primary", $color: true, $size: false);
-        }
-      }
     }
   }
 }
@@ -154,4 +149,3 @@ main {
     @include extend-type("font-body", $color: true, $size: false);
   }
 }
-
