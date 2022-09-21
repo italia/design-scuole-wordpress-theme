@@ -1,91 +1,118 @@
-#main-container{
-  .btn-sm-default{
-    button{
-      background: $primary;
-      border-radius: 0.25rem;
-      color:$on-primary;
-      border: 0;
-      width: 100%;
-      padding: 0.63rem  1.25rem;
-      margin-bottom: 1rem;
-      @include text-sm;
+@use "sass:map";
 
-      
-      &:hover{
-        background: $primary-hover;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+$btn-lg-names: default secondary;
+
+$btn-lg-colors: (
+  default: $primary,
+  on-default: $on-primary,
+  default-hover: $primary-hover,
+
+  secondary: $secondary,
+  on-secondary: $on-secondary,
+  secondary-hover: $secondary-hover,
+);
+
+#main-container {
+  @each $name in $btn-lg-names {
+    $color: map.get($btn-lg-colors, "#{$name}");
+    $on-color: map.get($btn-lg-colors, "on-#{$name}");
+    $color-hover: map.get($btn-lg-colors, "#{$name}-hover");
+
+    .btn-sm-#{$name} {
+      button {
+        background: $color;
+        border-radius: 0.25rem;
+        color: $on-color;
+        border: 0;
+        width: 100%;
+        padding: 0.63rem 1.25rem;
+        margin-bottom: 1rem;
+        @include text-sm;
+
+
+        &:hover {
+          background: $color-hover;
+          transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
       }
-    } 
-    &:hover {
-      text-decoration: none !important;
-      cursor: default;
+
+      &:hover {
+        text-decoration: none !important;
+        cursor: default;
+      }
+    }
+
+    .btn-sm-#{$name}-outline {
+      button {
+        background: $on-color;
+        border-radius: 0.25rem;
+        color: $color;
+        border: 0.18rem $color solid;
+        width: 100%;
+        padding: 0.63rem 1.25rem;
+        margin-bottom: 1rem;
+        @include text-sm;
+
+        & {
+          position: relative;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: -1px;
+          border: 0rem solid $color;
+          transition: border 0.15s ease-in-out;
+        }
+
+        &:hover::after {
+          border: 0.19rem solid $color-hover;
+        }
+
+        &:hover {
+          border-color: $color-hover;
+          color: $color-hover;
+          transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+        cursor: default;
+      }
     }
   }
-  .btn-sm-default-outline{
-    button{
-      background: $on-primary;
-      border-radius: 0.25rem;
-      color:$primary;
-      border: 0.18rem $primary solid;
-      width: 100%;
-      padding: 0.63rem  1.25rem;
-      margin-bottom: 1rem;
-      @include text-sm;
 
-      & {
-        position: relative;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        inset: -1px;
-        border: 0rem solid $primary;
-        transition: border 0.15s ease-in-out;
-      }
-      &:hover::after{
-        border: 0.19rem solid $primary-hover;
-      }
-      
-      &:hover{
-        border-color: $primary-hover;
-        color: $primary-hover;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-      }
-    }
-    &:hover{
-      text-decoration: none;
-      cursor: default;
-    }
-  }  
   // BUTTON DISABILITATI
-  .btn-sm-disabled{
-    button{
+  .btn-sm-disabled {
+    button {
       background: $surface;
       border-radius: 0.25rem;
-      color:$on-surface;
+      color: $on-surface;
       border: 0;
       width: 100%;
-      padding: 0.63rem  1.25rem;
+      padding: 0.63rem 1.25rem;
       margin-bottom: 1rem;
       cursor: default;
       @include text-sm;
-  
-      
+
+
     }
   }
-  .btn-sm-disabled-outline{
-    button{
+
+  .btn-sm-disabled-outline {
+    button {
       background: $on-primary;
       border-radius: 0.25rem;
-      color:$on-surface;
+      color: $on-surface;
       border: 0.18rem $on-surface solid;
       width: 100%;
-      padding: 0.63rem  1.25rem;
+      padding: 0.63rem 1.25rem;
       margin-bottom: 1rem;
       cursor: default;
       @include text-sm;
-  
-      
+
+
     }
   }
 }
