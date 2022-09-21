@@ -28,6 +28,7 @@
 
               <a class="img-loop" href="<?php the_permalink();?>">
 
+                <div></div>
                 <?php the_post_thumbnail("news-thumb");?>
 
               </a>

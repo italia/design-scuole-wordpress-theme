@@ -24,9 +24,10 @@
         <article class="card-progetti"> 
 
           <div class="row-img">
-            
-            <a class="img-loop" href="<?php the_permalink();?>">
 
+            <a class="img-loop" href="<?php the_permalink();?>">
+              
+              <div></div>
               <?php 
                 if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
                   echo get_the_post_thumbnail($post->ID);
