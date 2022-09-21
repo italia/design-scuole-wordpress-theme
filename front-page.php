@@ -1,97 +1,127 @@
 <?php
-
 get_header();
 ?>
   <main id="main-container" class="main-container petrol">
-  
-  <!-- HERO -->  
-  <section id="hero"> 
-      <?php
-      get_template_part("template-parts/hero/hero_page")
-      ?>
-      
-    </section><!--#hero -->
     
+    <!-- HERO -->  
+    <section id="hero"> 
+
+        <?php
+        get_template_part("template-parts/hero/hero_page");
+        ?>
+        
+    </section><!--#hero -->
+      
     <!-- PRESENTAZIONE SCUOLA -->
     <section id="presentazione-scuola" class="container mt-5"> 
-      <div class="row">
+
+      <div class="row justify-content-between">
+
         <div id="container-presentazione" class="col-12 col-lg-8">
+
           <div id="nostro-istituto">
+
             <h2>Il nostro istituto</h2>
             <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
             Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico.</p>
+
           </div><!--#nostro-istituto -->
       
       
           <div id="mission-vision">
+
             <h3>La scuola secondo noi</h3>
             <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla <strong>flessibilità,</strong> sull’<strong>innovazione</strong> e sulla <strong>personalizzazione.</strong>
               Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.
               L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
               </p>
+
           </div><!--#mission-vision -->
+
         </div><!--#container-presentazione -->
     
 
-        <div id="sidebar-presentazione" class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0">
-          <h4 class="d-lg-none">Area Docenti</h4>
-            <div class="row mt-4 mt-lg-0">
-              <a class="btn-lg-default w-100" href="#" target="blank" class="col-12">
-                <button>Registro elettronico</button>
-              </a>
-              <a class="btn-lg-default-outline w-100" href="#" target="blank" class="col-12">
-                <button>Orari docenti</button>
-              </a>
-              <a class="btn-lg-default-outline w-100" href="#" target="blank" class="col-12">
-                <button>GestOre</button>
-              </a>
-            </div><!--.row -->
+        <div class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0 m-0 row">
+
+          <h4 class="col-12">Area docenti</h4>
+
+          <div class="row mt-4 mt-lg-0">
+
+            <a class="btn-lg-default w-100 col-12" href="#" target="blank">
+              <button>Registro elettronico</button>
+            </a>
+
+            <a class="btn-lg-default-outline w-100 col-12" href="#" target="blank">
+              <button>Orari docenti</button>
+            </a>
+
+            <a class="btn-lg-default-outline w-100 col-12" href="#" target="blank">
+              <button>GestOre</button>
+            </a>
+
             <!-- Calendar -->
             <iframe class="col-12" src="https://calendar.google.com/calendar/embed?height=260&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FRome&showTitle=0&showNav=0&showCalendars=0&mode=AGENDA&showPrint=0&showTabs=0&showTz=0&showDate=1&src=bWFydGlub21hcnRpbmkuZXVfcG9lanF0cXVhaWprczkzMGgybWxtcGtpbmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=bWFydGlub21hcnRpbmkuZXVfdGFjZ3ViOTE1NDJlYmxhNHBibHFsamQxcGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y2FsZW5kYXJAbWFydGlub21hcnRpbmkuZXU&src=aW5mb3JtYXRpY2FAbWFydGlub21hcnRpbmkuZXU&color=%23795548&color=%234285F4&color=%234285F4&color=%23A79B8E" style="border-width:0" width="260" height="260" frameborder="0" scrolling="no"></iframe>
+
+          </div><!--.row -->          
+      
         </div><!--#sidebar-presentazione -->
         
         <div id="button-navigazione" class="col-12 my-4"> 
-        <h4 class="d-lg-none">Scopri di più</h4>
+
           <div class="row mt-4 mt-lg-0">
+
             <div class="col-6 col-md-3">
               <a class="btn-lg-default-outline" href="#" target="blank">
                   <button><span>DIDATTICA</span> <p class="mb-0">Corso ITE serale</p></button>
               </a>
             </div>
+
             <div class="col-6 col-md-3">
               <a class="btn-lg-default-outline" href="https://martinomartini.local/didattica-2/offerta-formativa/" target="blank">
                 <button><span>DIDATTICA</span> <p class="mb-0">Offerta formativa</p></button>
               </a>
             </div>
+
             <div class="col-6 col-md-3">
               <a class="btn-lg-secondary-outline" href="#" target="blank">
                 <button><span>SERVIZI</span> <p class="mb-0">Open days</p></button>
               </a>
             </div>
+
             <div class="col-6 col-md-3">
               <a class="btn-lg-secondary-outline" href="#" target="blank">
                 <button><span>SERVIZI</span> <p class="mb-0">ASL</p></button>
               </a>
             </div>
+
           </div><!--.row -->
+
         </div><!--#button-navigazione -->
+
       </div><!--.row -->
+
     </section><!--#presentazione-scuola .container-->
-   
+    
     <!-- LOOP -->
     <section id="loop-news-home" class="container"> 
+
       <div class="row mt-5 mt-lg-0 mr-0 ml-0">
+
         <!--LOOP NEWS  -->
         <?php get_template_part ("martini-template-parts/loop/loop-news-home")?>
 
         <!--LOOP PROGETTI  -->
         <?php get_template_part ("martini-template-parts/loop/loop-progetti-home")?>
+
       </div> <!--.row -->
+
     </section><!--#loop-news-home .container -->
-    
-    <!--SPAZI E STORIA  -->
+      
+      <!--SPAZI E STORIA  -->
     <section id="spazi-storia" class="container mt-5"> 
+
       <div class="row mb-5">
+
         <div id="gli-spazi-img" class="col-lg-6 col-12 mb-3 mb-lg-0">
           <img class="w-100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#gli-spazi-img -->
@@ -101,20 +131,27 @@ get_header();
           <p>La scuola si compone di due sedi: la sede di via Perlasca e la sede di via Filzi. L’edificio di via Perlasca , costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, ospita gli studenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, un auditorium e ampi spazi verdi all’esterno. L’edificio di via Filzi, sede scolastica storica di Mezzolombardo, è stato di recente rinnovato per ospitare classi e laboratori dell’istituto in crescita negli ultimi anni scolastici. </p>
           <a class="btn-lg-default-outline" href="https://martinomartini.local/luogo/"><button class="w-auto">Scopri</button></a>
         </div><!--#gli-spazi-txt -->
+
       </div><!--.row -->
       
       <div class="row">
+
         <div id="storia-img" class="col-lg-6 col-12 mb-3 mb-lg-0 order-lg-2">
           <img class="w-100"src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
         </div><!--#storia-img --> 
+
         <div id="storia-txt" class="col-lg-6 col-12">
           <h4>La storia di Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. 
           Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
           <a class="btn-lg-default-outline" href="https://martinomartini.local/la-scuola-2/presentazione/"><button class="w-auto">Scopri</button></a>
         </div><!--#storia-txt -->
+
       </div><!--.row -->
+      
     </section><!--#spazi-storia .container --> 
   </main>
-  <?php
+
+<?php
 get_footer();
+?>
