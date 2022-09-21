@@ -47,7 +47,8 @@ get_header();
               </a>
             </div><!--.row -->
             <!-- Calendar -->
-            <iframe class="col-12" src="https://calendar.google.com/calendar/embed?height=260&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FRome&showTitle=0&showNav=0&showCalendars=0&mode=AGENDA&showPrint=0&showTabs=0&showTz=0&showDate=1&src=bWFydGlub21hcnRpbmkuZXVfcG9lanF0cXVhaWprczkzMGgybWxtcGtpbmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=bWFydGlub21hcnRpbmkuZXVfdGFjZ3ViOTE1NDJlYmxhNHBibHFsamQxcGtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y2FsZW5kYXJAbWFydGlub21hcnRpbmkuZXU&src=aW5mb3JtYXRpY2FAbWFydGlub21hcnRpbmkuZXU&color=%23795548&color=%234285F4&color=%234285F4&color=%23A79B8E" style="border-width:0" width="260" height="260" frameborder="0" scrolling="no"></iframe>
+            <?php echo do_shortcode ('[calendar id="512"]');?>
+            
         </div><!--#sidebar-presentazione -->
         
         <div id="button-navigazione" class="col-12 my-4"> 
