@@ -80,6 +80,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         <?php
         
         $attributes = array(
+            'id' => 'crsl-0',
             'title' => false,
             'limit' => 4,
             'labels' => array(),
@@ -108,7 +109,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         <?php 
         $attributes["sections"][] = ob_get_clean();
         endwhile;
-        var_dump($attributes);
+        // var_dump($attributes);
 
         wp_reset_postdata();
 
@@ -136,6 +137,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         <?php
         
         $attributes = array(
+            'id' => 'crsl-1',
             'title' => false,
             'limit' => 4,
             'labels' => array(),
@@ -164,7 +166,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         <?php 
         $attributes["sections"][] = ob_get_clean();
         endwhile;
-        var_dump($attributes);
+        // var_dump($attributes);
 
         wp_reset_postdata();
 
