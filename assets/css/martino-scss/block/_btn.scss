@@ -1,0 +1,233 @@
+@use "sass:map";
+
+$btn-sizes: (
+  lg: (
+    padding: 0.88rem 1.75rem,
+    include-font: h6,
+  ),
+  md: (
+    padding: 0.75rem 1.50rem,
+    include-font: font-body,
+  ),
+  sm: (
+    padding: 0.63rem 1.25rem,
+    include-font: text-sm,
+  ),
+  mini: (
+    padding: 0.51rem 0.81rem,
+    include-font: text-xs,
+  ),
+);
+
+$btn-names: default secondary;
+
+$btn-colors: (
+  default: $primary,
+  on-default: $on-primary,
+  default-hover: $primary-hover,
+
+  secondary: $secondary,
+  on-secondary: $on-secondary,
+  secondary-hover: $secondary-hover,
+);
+
+// 
+// Equal styles for all buttons variants
+// 
+
+%btn-placeholder {
+  button {
+    border-radius: 0.25rem;
+    border: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &:hover {
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+%btn-placeholder-outline {
+  button {
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    & {
+      position: relative;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      transition: border 0.15s ease-in-out;
+    }
+
+    &:hover {
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    cursor: default;
+  }
+}
+
+// BUTTON DISABILITATI
+%btn-placeholder-disabled {
+  button {
+    background: $surface;
+    border-radius: 0.25rem;
+    color: $on-surface;
+    border: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: default;
+    @include h6;
+  }
+}
+
+%btn-placeholder-disabled-outline {
+  button {
+    background: $on-primary;
+    border-radius: 0.25rem;
+    color: $on-surface;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: default;
+  }
+}
+
+
+// 
+// Loop for generating button variants differences
+// 
+
+#main-container {
+  @each $size, $params in $btn-sizes {
+    $padding: map.get($params, "padding");
+    $include-font: map.get($params, "include-font");
+    
+    $border-size: 0.18rem;
+    @if $size =="mini" {
+      $border-size: 0.12rem;
+    }
+
+    @each $name in $btn-names {
+      $color: map.get($btn-colors, "#{$name}");
+      $on-color: map.get($btn-colors, "on-#{$name}");
+      $color-hover: map.get($btn-colors, "#{$name}-hover");
+
+      .btn-#{$size}-#{$name} {
+        @extend %btn-placeholder;
+
+        button {
+          background: $color;
+          color: $on-color;
+          padding: $padding;
+          @include extend-type($include-font);
+
+          @if $size =="lg" {
+            span {
+              @include text-sm;
+              font-weight: 400;
+            }
+          }
+
+          &:hover {
+            background: $color-hover;
+          }
+        }
+      }
+
+      .btn-#{$size}-#{$name}-outline {
+        @extend %btn-placeholder-outline;
+
+        button {
+          background: $on-color;
+          color: $color;
+          border: $border-size $color solid;
+          padding: $padding;
+          @include extend-type($include-font);
+
+          &::after {
+            border: 0rem solid $color;
+          }
+
+          &:hover::after {
+            border: 0.19rem solid $color-hover;
+          }
+
+          @if $size =="lg" {
+            span {
+              @include text-sm;
+              font-weight: 400;
+            }
+          }
+
+          &:hover {
+            border-color: $color-hover;
+            color: $color-hover;
+          }
+        }
+      }
+
+      // BUTTON DISABILITATI
+      .btn-#{$size}-disabled {
+        @extend %btn-placeholder-disabled;
+
+        button {
+          background: $surface;
+          color: $on-surface;
+          padding: $padding;
+          @include extend-type($include-font);
+
+          @if $size =="lg" {
+            span {
+              @include text-sm;
+              font-weight: 400;
+            }
+          }
+
+        }
+      }
+
+    }
+
+    .btn-#{$size}-disabled-outline {
+      @extend %btn-placeholder-disabled-outline;
+
+      button {
+        background: $on-primary;
+        color: $on-surface;
+        border: $border-size $on-surface solid;
+        padding: $padding;
+        @include extend-type($include-font);
+
+        @if $size =="lg" {
+          span {
+            @include text-sm;
+            font-weight: 400;
+          }
+        }
+
+      }
+    }
+  }
+
+  a[id^="btn-"] p {
+    margin: 0;
+  }
+
+  a[id^="btn-"] p+p {
+    margin-top: 0.62rem;
+  }
+}
