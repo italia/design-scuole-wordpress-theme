@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="main-container" class="main-container petrol">
+<main id="main-container" class="main-container">
 
   <!-- HERO -->
   <section id="hero">
@@ -144,7 +144,9 @@
     <div class="row mt-5 mt-lg-0 mr-0 ml-0">
 
       <!--LOOP NEWS  -->
-      <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
+      <div class="col-12 col-lg-7">
+        <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
+      </div>
 
       <!--LOOP PROGETTI  -->
       <?php get_template_part("martini-template-parts/loop/loop-progetti-home") ?>

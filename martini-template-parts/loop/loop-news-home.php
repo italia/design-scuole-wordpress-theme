@@ -1,4 +1,4 @@
-<div class="cards-container col-12 col-lg-7 m-0 p-0">
+<div class="cards-container m-0 p-0">
 
   <div class="container m-0 p 0">
 
