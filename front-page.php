@@ -62,8 +62,8 @@
             <?php echo do_shortcode('[calendar id="512"]'); ?>
           </div>
 
-          <a class="btn-lg-default-outline" href="https://martinomartini.local/la-scuola-2/presentazione/">
-            <button class="w-auto">Scopri</button>
+          <a class="btn-lg-default-outline w-100" href=#"">
+            <button>Vedi il calendario completo</button>
           </a>
 
         </div>
