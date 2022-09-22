@@ -5,11 +5,12 @@
 @import '../../node_modules/bootstrap/scss/mixins/_breakpoints';
 @import '../../node_modules/bootstrap/scss/mixins/caret';
 
-@import "martino-scss/mixins/clamp";
-@import "martino-scss/mixins/accordion";
-
+@import "martino-scss/variable/color";
 @import "martino-scss/variable/typography";
-@import "martino-scss/global/typography";
+
+@import "martino-scss/mixins/clamp";
+@import "martino-scss/mixins/typography";
+@import "martino-scss/mixins/accordion";
 
 
 @import "martino-scss/info-carousel/desktop";
