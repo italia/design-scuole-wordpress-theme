@@ -11,14 +11,15 @@
 
         <div class="col-6 mt-4">
 
-          <input type="text" name="s" id="search-input-orario" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="Cerca l'orario dei docenti" value="" data-focus-mouse="false">
+          <input type="text" name="s" id="search-input-orario" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="Cerca l'orario dei docenti" value="" data-focus-mouse="false" list=fruits>
 
-          <ul class="list-group" id="myList">
-            <li class="list-group-item">First item</li>
-            <li class="list-group-item">Second item</li>
-            <li class="list-group-item">Third item</li>
-            <li class="list-group-item">Fourth</li>
-          </ul>
+          <datalist id="fruits">
+            <option>Apple</option>
+            <option>Banana</option>
+            <option>Orange</option>
+            <option>Pineapple</option>
+            <option>Kiwi</option>
+          </datalist>
 
         </div><!-- col-12 -->
 
@@ -38,16 +39,5 @@
   </section><!-- container -->
 
 </main>
-
-<script>
-  $(document).ready(function() {
-    $("#search-input-orario").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#myList li").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-</script>
 
 <?php get_footer(); ?>
