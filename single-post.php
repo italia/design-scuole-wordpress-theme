@@ -85,38 +85,36 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 </article><!--.col-12 -->
                                 <?php endwhile; ?>
                             </div>
-                        </div><!--.row -->
-                        <div class="mt-4 mb-4">
-                            <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
+                            <div class="mt-4 mb-4">
+                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
                                 <h2 class="mb-4 h4 text-black"><?php _e("Allegati", "design_scuole_italia"); ?></h2>
-                                    <div class="">
-                                        <?php
-                                        if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                                            global $documento;
-                                            foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                $documento = get_post( $link_scheda_documento );
-                                                get_template_part( "template-parts/documento/card" );
-                                            }
+
+                                <div class="">
+                                    <?php
+                                    if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+                                        global $documento;
+                                        foreach ( $link_schede_documenti as $link_scheda_documento ) {
+                                            $documento = get_post( $link_scheda_documento );
+                                            get_template_part( "template-parts/documento/card" );
                                         }
+                                    }
 
-                                        global $idfile, $nomefile;
-                                        if(is_array($file_documenti) && count($file_documenti)>0) {
+                                    global $idfile, $nomefile;
+                                    if(is_array($file_documenti) && count($file_documenti)>0) {
 
-                                            foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                get_template_part( "template-parts/documento/file" );
-                                            }
+                                        foreach ( $file_documenti as $idfile => $nomefile ) {
+                                            get_template_part( "template-parts/documento/file" );
                                         }
-
-                                        ?>
-                                    </div><!-- /card documento-->
-                            <?php
-                        }
-                            ?>
-                    </div><!-- /allegati -->
+                                    }
+                                    ?>
+                                </div><!-- /card documento-->
+                                <?php
+                                }
+                                ?>
+                            </div><!-- /allegati -->
+                        </div><!--.sidebar -->
                     </div><!--col-3 offset-1 -->
                 </div>
-                
-                
             </div><!-- /container -->
         </section>
 

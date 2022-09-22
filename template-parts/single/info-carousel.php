@@ -11,7 +11,7 @@ echo count($args['labels']);
     <?php
 
     if (!is_bool($args['title']) ) 
-    echo  '<h2>'.$args['title'].'</h2>';
+    echo  '<h3>'.$args['title'].'</h3>';
 
     echo '<div></div>';
 
