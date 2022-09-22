@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4 offset-lg-1 p-0" id="progetti-home">
+<div class="p-0" id="progetti-home">
 
   <div class="container m-0 p 0">
 

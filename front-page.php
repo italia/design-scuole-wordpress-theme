@@ -143,14 +143,16 @@
 
     <div class="row mt-5 mt-lg-0 mr-0 ml-0">
 
-      <!--LOOP NEWS  -->
-      <div class="col-12 col-lg-7">
-        <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
-      </div>
-
-      <!--LOOP PROGETTI  -->
-      <?php get_template_part("martini-template-parts/loop/loop-progetti-home") ?>
-
+        <!--LOOP NEWS  -->
+        <div class="col-12 col-lg-7">
+          <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
+        </div><!-- col-12 col-lg-7 -->
+        
+        <!--LOOP PROGETTI  -->
+        <div class="col-12 col-lg-4 offset-lg-1">
+          <?php get_template_part("martini-template-parts/loop/loop-progetti-home") ?>
+        </div><!-- col-12 col-lg-4 offset-lg-1 -->
+        
     </div>
     <!--.row -->
 
@@ -163,6 +165,8 @@
     <div class="row mb-5">
 
       <div id="gli-spazi-img" class="col-lg-6 col-12 mb-3 mb-lg-0">
+      
+        <img class="w-100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
 
 
       </div>
@@ -185,7 +189,8 @@
     <div class="row">
 
       <div id="storia-img" class="col-lg-6 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-1">
-
+        
+        <img class="w-100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
 
       </div>
       <!--#storia-img -->
