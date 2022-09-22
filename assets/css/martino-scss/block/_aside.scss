@@ -11,13 +11,16 @@
         text-transform: lowercase;
     }
     h6 {
-        font-size: $font-body;
+        @include font-body;
     }
-    
+    .card{
+        background-color: transparent;
+    }
+
     #quotes {
     font-style: italic;
     color: $primary;
-    font-size: $text-sm;
+    @include text-sm;
 }
 
     .aside-main {

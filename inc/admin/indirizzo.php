@@ -11,13 +11,13 @@ function dsi_register_indirizzo_post_type() {
         'name'                  => _x( 'Indirizzo di Studio', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name'         => _x( 'Indirizzo di Studio', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'add_new_item'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'featured_image' => __( 'Logo Identificativo dell\'indirizzo', 'design_scuole_italia' ),
-        'edit_item'      => _x( 'Modifica l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'view_item'      => _x( 'Visualizza l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
-        'set_featured_image' => __( 'Seleziona Logo' ),
+        'add_new_item'          => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'featured_image'        => __( 'Logo Identificativo', 'design_scuole_italia' ),
+        'edit_item'             => _x( 'Modifica l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'view_item'             => _x( 'Visualizza l\'indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
+        'set_featured_image'    => __( 'Seleziona Logo' ),
         'remove_featured_image' => __( 'Rimuovi Logo' , 'design_scuole_italia' ),
-        'use_featured_image' => __( 'Usa come Logo' , 'design_scuole_italia' ),
+        'use_featured_image'    => __( 'Usa come Logo' , 'design_scuole_italia' ),
     );
     $args = array(
         'label'                 => __( 'Indirizzo di studio', 'design_scuole_italia' ),
@@ -135,28 +135,39 @@ function dsi_add_indirizzo_metaboxes() {
 
     ) );
 
+    // $cmb_sottotitolo->add_field( array(
+    //     'id' => $prefix . 'link_struttura_didattica',
+    //     'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
+    //     'desc' => __( 'Seleziona la struttura (scuola o istituto) che eroga il percorso di studio' , 'design_scuole_italia' ),
+    //     'type'    => 'pw_multiselect',
+    //     'options' => dsi_get_strutture_scuole_options(),
+
+    // ) );
+
+
+
+    // $cmb_sottotitolo->add_field( array(
+    //     'id' => $prefix . 'descrizione',
+    //     'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
+    //     'desc' => __( 'Indicare una sintetica descrizione dell\'indirizzo di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
+    //     'type' => 'textarea',
+    //     'attributes'    => array(
+    //         'maxlength'  => '160',
+    //         'required'    => 'required'
+    //     ),
+    // ) );
+
+
     $cmb_sottotitolo->add_field( array(
-        'id' => $prefix . 'link_struttura_didattica',
-        'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona la struttura (scuola o istituto) che eroga il percorso di studio' , 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dsi_get_strutture_scuole_options(),
-
-    ) );
-
-
-
-    $cmb_sottotitolo->add_field( array(
-        'id' => $prefix . 'descrizione',
-        'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
-        'desc' => __( 'Indicare una sintetica descrizione dell\'indirizzo di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
+        'id' => $prefix . 'corso_di_studio',
+        'name'        => __( 'Corso di studio *', 'design_scuole_italia' ),
+        'desc' => __( 'Indicare l\'opzione del corso di studio all\'interno dell\'indirizzo. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
         'type' => 'textarea',
         'attributes'    => array(
             'maxlength'  => '160',
             'required'    => 'required'
         ),
     ) );
-
 
 
     $cmb_undercontent = new_cmb2_box( array(
@@ -167,33 +178,6 @@ function dsi_add_indirizzo_metaboxes() {
         'priority'     => 'high',
     ) );
 
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'carriera',
-        'name'        => __( 'Carriera e opportunità successive', 'design_scuole_italia' ),
-        'desc' => __( 'Descrivere le opportunità di carriera nello studio e nel lavoro successive al diploma. Ad es.: " Questo percorso di studio ti permette di accedere a..."<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
-        ),
-
-    ) );
-
-
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'iscrizione_selezioni',
-        'name'        => __( 'Iscrizione e selezioni', 'design_scuole_italia' ),
-        'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del percorso.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
-        'type' => 'wysiwyg',
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
-        ),
-    ) );
 
 
     // $cmb_undercontent->add_field( array(
@@ -277,21 +261,35 @@ function dsi_add_indirizzo_metaboxes() {
 	// 		),
 	// 	) );
 
-    $cmb_undercontent->add_field( array(
-        'id'         => $prefix . 'servizi_correlati',
-        'name'       => __( 'Servizi correlati', 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' =>  dsi_get_servizi_options(),
-    ) );
+    // $cmb_undercontent->add_field( array(
+    //     'id'         => $prefix . 'servizi_correlati',
+    //     'name'       => __( 'Servizi correlati', 'design_scuole_italia' ),
+    //     'type'    => 'pw_multiselect',
+    //     'options' =>  dsi_get_servizi_options(),
+    // ) );
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'luoghi',
-        'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui viene erogato', 'design_scuole_italia' ),
-        'desc' => __( 'In caso l\'indirizzo di studio sia erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dsi_get_luoghi_options(),
-    ) );
 
+        
+        $cmb_undercontent->add_field( array(
+            'id' => $prefix . 'calendario_classi_descrizione',
+            'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
+            'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+            'type' => 'wysiwyg',
+    
+        ) );
+        $cmb_undercontent->add_field( array(
+            'id' => $prefix . 'calendario_classi_file',
+            'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
+            'type' => 'file_list',
+            // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+            // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+            // Optional, override default text strings
+            'text' => array(
+                'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
+                'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
+                'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
+            ),
+        ) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'programma_discipline_sportive',
@@ -349,26 +347,6 @@ function dsi_add_indirizzo_metaboxes() {
     ) );
 
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_descrizione',
-        'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
-        'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'wysiwyg',
-
-    ) );
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'calendario_classi_file',
-        'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
-        ),
-    ) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'libri_testo_descrizione',
@@ -391,21 +369,21 @@ function dsi_add_indirizzo_metaboxes() {
     ) );
 
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'consigli_di_classe',
-        'name'    => __( 'Consigli di classe', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci qui i documenti dei consigli di classe. ' , 'design_scuole_italia' ),
-        'type'    => 'custom_attached_posts',
-        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-        'options' => array(
-            'show_thumbnails' => false, // Show thumbnails on the left
-            'filter_boxes'    => true, // Show a text box for filtering the results
-            'query_args'      => array(
-                'posts_per_page' => 10,
-                'post_type'      => 'documento',
-            ), // override the get_posts args
-        ),
-    ) );
+    // $cmb_undercontent->add_field( array(
+    //     'id' => $prefix . 'consigli_di_classe',
+    //     'name'    => __( 'Consigli di classe', 'design_scuole_italia' ),
+    //     'desc' => __( 'Inserisci qui i documenti dei consigli di classe. ' , 'design_scuole_italia' ),
+    //     'type'    => 'custom_attached_posts',
+    //     'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+    //     'options' => array(
+    //         'show_thumbnails' => false, // Show thumbnails on the left
+    //         'filter_boxes'    => true, // Show a text box for filtering the results
+    //         'query_args'      => array(
+    //             'posts_per_page' => 10,
+    //             'post_type'      => 'documento',
+    //         ), // override the get_posts args
+    //     ),
+    // ) );
 
 
 
@@ -484,6 +462,44 @@ function dsi_add_indirizzo_metaboxes() {
         ),
 
     ) );
+    
+        // Contenuti inseriti nella sidebar
+
+    $cmb_undercontent = new_cmb2_box( array(
+        'id'           => $prefix . 'box_sidebar',
+        'title'         => __( 'Elementi nella sidebar', 'design_scuole_italia' ),
+        'object_types' => array( 'indirizzo' ),
+        'context'      => 'normal',
+        'priority'     => 'high',
+    ) );
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'carriera',
+        'name'        => __( 'Carriera e opportunità successive', 'design_scuole_italia' ),
+        'desc' => __( 'Descrivere le opportunità di carriera nello studio e nel lavoro successive al diploma. Ad es.: " Questo percorso di studio ti permette di accedere a..."<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
+
+    ) );
+
+
+
+    $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'iscrizione_selezioni',
+        'name'        => __( 'Iscrizione e selezioni', 'design_scuole_italia' ),
+        'desc' => __( 'Indica la procedura - on line e/o attraverso una delle sedi indicate - da seguire per usufruire del percorso.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
+    ) );
 
 
     $cmb_undercontent->add_field( array(
@@ -511,38 +527,16 @@ function dsi_add_indirizzo_metaboxes() {
         */
     ) );
 
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'link_schede_documenti',
-        'name'    => __( 'Documenti', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci qui tutti i documenti che ritieni utili per attivare il servizio: moduli da compilare, riferimenti di legge e altre informazioni. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
-        'type'    => 'custom_attached_posts',
-        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-        'options' => array(
-            'show_thumbnails' => false, // Show thumbnails on the left
-            'filter_boxes'    => true, // Show a text box for filtering the results
-            'query_args'      => array(
-                'posts_per_page' => 10,
-                'post_type'      => 'documento',
-            ), // override the get_posts args
-        ),
-    ) );
+        $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'luoghi',
+        'name'    => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> in cui viene erogato', 'design_scuole_italia' ),
+        'desc' => __( 'In caso l\'indirizzo di studio sia erogato in più luoghi, crea una sede per ogni luogo. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_luoghi_options(),
+        ) );
 
 
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'file_documenti',
-        'name'    => __( 'Carica documenti', 'design_scuole_italia' ),
-        'desc' => __( 'Se l\'allegato non è descritto da una scheda documento, link all\'allegato (es. link a una locandina). ' , 'design_scuole_italia' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo Documento', 'design_scuole_italia' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi Documento', 'design_scuole_italia' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
-        ),
-    ) );
+
 
     $cmb_ipa = new_cmb2_box( array(
         'id'           => $prefix . 'box_ipa',

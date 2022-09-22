@@ -27,11 +27,12 @@ get_header();
             // print_r($percorsi);
             //$sottotitolo = dsi_get_meta("sottotitolo");
 
-            $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
+            // $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
 
             $carriera = dsi_get_meta("carriera");
             $programma = dsi_get_meta("programma");
             $descrizione = dsi_get_meta("descrizione");
+            $corso_di_studio = dsi_get_meta("corso_di_studio");
             $iscrizione_selezioni = dsi_get_meta("iscrizione_selezioni");
 
             $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
@@ -42,20 +43,12 @@ get_header();
             $programma_secondo_biennio = dsi_get_meta("programma_secondo_biennio");
             $programma_quinto_anno = dsi_get_meta("programma_quinto_anno");
 
-            
-            
-
             //$sedi = dsi_get_meta("sedi");
-
-            
+         
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             
-
-            
             $luoghi = dsi_get_meta("luoghi");
-
-
-            
+           
             $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
             $libri_testo_file = dsi_get_meta("libri_testo_file");
 
@@ -63,8 +56,7 @@ get_header();
             $file_documenti = dsi_get_meta("file_documenti");
             $altre_info = dsi_get_meta("altre_info");
 
-
-            
+       
             $mail = dsi_get_meta("mail");
             $telefono = dsi_get_meta("telefono");
             ?>
@@ -99,7 +91,7 @@ get_header();
                             do_action("dsi_indirizzo_content_after_description");
                             ?>
                             
-                            
+                            <!-- TABELLA ORARIO SETTIMANALE -->
                              <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
                                 <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
 
@@ -221,9 +213,11 @@ get_header();
                                     <h4 id="art-par-altre-info"><?php _e("Altre informazioni", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
+                                            
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
+                                    
                                     <?php
                                 }?>
                             </div>
@@ -253,7 +247,6 @@ get_header();
                                                         get_template_part( "template-parts/documento/file" );
                                                     }
                                                 }
-
                                                 ?>
                                             </div><!-- /card-deck card-deck-spaced -->
                                         </div><!-- /col-lg-12 -->
@@ -267,62 +260,10 @@ get_header();
                         </div>
 
                         <!--LOOP NEWS  -->
-                        <section id="loop-news-home" class="container px-3 px-md-5"> 
-                            <div class="row mt-5 mt-lg-0">
-                                <div class="col-lg-9 col-md-12">
-                                    <h4>Ultime news </h4>
-                                    <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
-                            
-                            
-                                        <?php
-                                        $loop = new WP_Query( array( 
-                                            'post_type'         => 'post', 
-                                            'post_status'       => 'publish', 
-                                            'orderby'           => 'count', 
-                                            'order'             => 'DESC', 
-                                            'posts_per_page'    => 3,)
-                                        );
-                                        
-                                        while ($loop -> have_posts()) : $loop -> the_post(); ?> 
-
-                                        <article class="col-lg-4 col-12 card"> 
-                                            <a href="<?php the_permalink();?>">
-                                                <div class="card-bg">
-                                                    <div class="card-img-top card-img position-relative">
-                                                        <?php the_post_thumbnail("news-thumb");?> 
-                                                        <div class="posizione-badges"> 
-                                                            <?php get_template_part("template-parts/common/badge-tag.php"); ?> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <p class="card-title text-sx"> <?php the_title(); ?> </p>
-                                                        <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
-                                                    </div><!--.card-body -->
-                                                </div><!--.card-bg -->
-                                    
-                                        </article> <!--.card -->
-                                        <?php endwhile; ?>
-                                    </div><!--.row -->
-                                
-                                    <div class="col-12 pr-0 d-block d-lg-none">
-                                        <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
-                                        <button>Vai alla sezione</button>
-                                        </a>
-                                    </div>
-                                </div><!--col-8-->
-                            </div> <!--.row -->
-                            
-
-                            <!-- BUTTONS -->
-                            <div class="row mt-3">
-                                <div class="col-lg-9 p-0 d-none d-lg-block">
-                                    <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
-                                        <button>Vai alla selezione</button>
-                                    </a>
-                                </div>
-                            </div><!--.row -->
-
-                        </section>
+                        <div class="container ol-lg-9 px-lg-5">
+                            <?php get_template_part('martini-template-parts/loop/loop-news-home') ?>
+                        </div>
+                        
                         
                     </div><!-- /col-lg-8 -->
                         <!-- /Main content of the page -->
@@ -334,8 +275,9 @@ get_header();
                     </div>
                     <?php endif; ?>
 
-                    <!-- SIDEBAR -->
 
+
+                    <!-- SIDEBAR -->
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-3 py-5">
                         <aside class="aside-main aside-sticky">
                             
@@ -401,7 +343,7 @@ get_header();
                                 <div class="row variable-gutters mb-4" >
                                     <div class="col-12">
                                         <h5><?php _e("Sede dell'indirizzo", "design_scuole_italia"); ?></h5>
-                                            <div class="col-12 mailfield p-0">
+                                            <div class="col-12 mailfield p-0 card-nobg">
                                                 <ul>
                                                             <?php
                                                     $c=0;
@@ -429,10 +371,12 @@ get_header();
                 </div><!-- /row -->
             </div><!-- /container -->
         </section>
-            <?php get_template_part("template-parts/single/related"); ?>
+            
         <?php
         endwhile; // End of the loop.
         ?>
+
+
     </main>
 
 <?php

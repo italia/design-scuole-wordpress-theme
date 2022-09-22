@@ -598,6 +598,66 @@ get_header();
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
+
+
+            <section id="loop-news-home" class="container px-3 px-md-5"> 
+                            <div class="row mt-5 mt-lg-0">
+                                <div class="col-lg-9 col-md-12">
+                                    <h4>Ultime news </h4>
+                                    <div class="row mt-3 mt-lg-0 ml-md-0 mr-md-0 justify-content-between">
+                            
+                            
+                                        <?php
+                                        $loop = new WP_Query( array( 
+                                            'post_type'         => 'post', 
+                                            'post_status'       => 'publish', 
+                                            'orderby'           => 'count', 
+                                            'order'             => 'DESC', 
+                                            'posts_per_page'    => 3,)
+                                        );
+                                        
+                                        while ($loop -> have_posts()) : $loop -> the_post(); ?> 
+
+                                        <article class="col-lg-4 col-12 card"> 
+                                            <a href="<?php the_permalink();?>">
+                                                <div class="card-bg">
+                                                    <div class="card-img-top card-img position-relative">
+                                                        <?php the_post_thumbnail("news-thumb");?> 
+                                                        <div class="posizione-badges"> 
+                                                            <?php get_template_part("template-parts/common/badge-tag.php"); ?> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p class="card-title text-sx"> <?php the_title(); ?> </p>
+                                                        <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
+                                                    </div><!--.card-body -->
+                                                </div><!--.card-bg -->
+                                    
+                                        </article> <!--.card -->
+                                        <?php endwhile; ?>
+                                    </div><!--.row -->
+                                
+                                    <div class="col-12 pr-0 d-block d-lg-none">
+                                        <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
+                                        <button>Vai alla sezione</button>
+                                        </a>
+                                    </div>
+                                </div><!--col-8-->
+                            </div> <!--.row -->
+                            
+
+                            <!-- BUTTONS -->
+                            <div class="row mt-3">
+                                <div class="col-lg-9 p-0 d-none d-lg-block">
+                                    <a id="btn-lg-default-outline" href="#" target="blank" class="col-12 p-0">
+                                        <button>Vai alla selezione</button>
+                                    </a>
+                                </div>
+                            </div><!--.row -->
+
+                        </section>
+
+                        
             <?php get_template_part("template-parts/single/related"); ?>
         <?php
         endwhile; // End of the loop.
