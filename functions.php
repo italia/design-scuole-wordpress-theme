@@ -398,7 +398,7 @@ require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
 require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
 require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
 require dirname(__FILE__).'/functions-parts/cpt-orari-docenti.php';
-require dirname(__FILE__).'/functions-parts/cpt-orari-classi.php';
+require dirname(__FILE__).'/functions-parts/cpt-orario-classi.php';
 /* Customize Back-end
 ------------------------*/
 require dirname(__FILE__).'/functions-parts/custom-fields.php';

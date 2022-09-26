@@ -7,32 +7,15 @@
  * @package Design_Scuole_Italia
  */
 
+
 get_header();
 ?>
-
-
-<?php
-$loop = new WP_Query( array(
-    'post_type'         => 'orario-classi',
-    'post_status'       => 'publish',
-    'orderby'           => 'count',
-    'order'             => 'DESC',
-    'posts_per_page'    => 999 ,
-));
-
-$scientifico_scienze_applicate = get_term_by("id", "scientifico scienze applicate");
-$scienze_applicate_in_4anni = get_term_by("id", "scienze applicate in 4anni");
-$scientifico_sportivo = get_term_by("id", "scientifico sportivo");
-$scienze_umane = get_term_by("id", "scienze umane"); 
-  
-?>
-
 
 <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <section class="container">
 
-        <h1 class="h2">ORARIO CLASSI</h1>
+        <h1>ORARIO CLASSI</h1>
             <header role="banner">
                 <nav class="nav" role="navigation" id="accordion_orari">
                     <ul class="nav__list p-0">
@@ -44,9 +27,9 @@ $scienze_umane = get_term_by("id", "scienze umane");
                             <input id="sub-group-1" type="checkbox" hidden />
                             <label for="sub-group-1" class="p-0"><span class="fa fa-angle-right"></span> Scientifico Scienze Applicate</label>
                             <ul class="sub-group-list p-0">
-                                <?php query_posts(); ?>
-                                <?php while ($loop -> have_posts()) : $loop -> the_post( $scienze_applicate_in_4anni); ?>
-                                <li><a href="#"><?php the_title();?></a></li>
+                                <li><a href="#">2nd level nav item</a></li>
+                                <li><a href="#">2nd level nav item</a></li>
+                                <li><a href="#">2nd level nav item</a></li>
                             </ul>
                         </li>
                         <li>
