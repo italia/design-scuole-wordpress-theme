@@ -11,25 +11,23 @@
 
         <div class="col-6 mt-4">
 
-          <input type="text" name="s" id="search-input-orario" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="Cerca l'orario dei docenti" value="" data-focus-mouse="false" list=fruits>
+          <input type="text" name="orario professori" id="search-input-orario" class="form-control" placeholder="Cerca l'orario dei docenti" data-element="search-modal-input" aria-describedby="search-form" value="" data-focus-mouse="false" type="text">
 
-          <datalist id="fruits">
-            <option>Apple</option>
-            <option>Banana</option>
-            <option>Orange</option>
-            <option>Pineapple</option>
-            <option>Kiwi</option>
-          </datalist>
+          <?php get_search_form(); ?>
+
 
         </div><!-- col-12 -->
 
       </div><!-- col-12 -->
-      <div class="col-2 mt-4">
+      <div class="col-12">
+        
+      </div>
+      <div class="col-lg-2 col-6 mt-4">
 
         <a class="btn-md-default-outline" href="#" target="blank">
           <button>
             Orario Classi
-          </button>
+          </button> 
         </a>
 
       </div><!-- col-6  -->

@@ -1,0 +1,6 @@
+#main-container{
+
+  .form-control::-webkit-calendar-picker-indicator {
+    display:none !important;
+  }
+}
