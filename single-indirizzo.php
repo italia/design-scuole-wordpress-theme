@@ -260,7 +260,7 @@ get_header();
                         </div>
 
                         <!--LOOP NEWS  -->
-                        <div class="container ol-lg-9 px-lg-5">
+                        <div class="container col-12 px-lg-5">
                             <?php get_template_part('martini-template-parts/loop/loop-news-home') ?>
                         </div>
                         
