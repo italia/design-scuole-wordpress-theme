@@ -162,8 +162,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #sidebar_news {
   margin-top: 8.8rem !important;
 }
-
-.card.card-icon .icon {
+#sidebar_news .card.card-icon .icon {
   width: 60px;
   height: 60px;
 }
@@ -741,63 +740,6 @@ label > span {
 
 .nav__list input[type=checkbox]:checked + label > span {
   transform: rotate(90deg);
-}
-
-.arrow {
-  margin: 25px;
-  display: inline-block;
-  height: 12px;
-  position: relative;
-  width: 12px;
-}
-.arrow::after {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  content: "";
-  display: inline-block;
-  height: 12px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 12px;
-}
-.arrow.is-triangle::after {
-  border-style: solid;
-  border-width: 0 0 12px 12px;
-  height: 0;
-  width: 0;
-}
-.arrow.is-check::after {
-  width: 6px;
-}
-.arrow.arrow-bar::before {
-  bottom: 1px;
-  content: "";
-  height: 20px;
-  position: absolute;
-  right: 0;
-  transform-origin: bottom;
-  width: 2px;
-  transform: rotate(-45deg);
-}
-.arrow.is-top {
-  transform: rotate(225deg);
-}
-.arrow.is-bottom {
-  transform: rotate(45deg);
-}
-.arrow::after,
-.arrow .arrow::after {
-  border-color: red;
-}
-.arrow.is-triangle::after,
-.arrow .arrow.is-triangle::after {
-  border-color: transparent;
-  border-bottom-color: red;
-}
-.arrow::before,
-.arrow .arrow::before {
-  background-color: red;
 }
 
 #text-block h3 {

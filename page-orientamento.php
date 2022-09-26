@@ -52,11 +52,11 @@ $attributes=array(
 
     <section class="container my-5">
         <div class="row">
-            <div class="col-3">
+            <div class="col-12 col-lg-3">
                 <img src="" alt="">
             </div>
-            <div class="col-8 offset-1">
-                <h4 class="mb-3 text-black">Incontriamoci!</h4>
+            <div class="col-12 col-lg-8 offset-lg-1">
+                <h2 class="mb-3 text-black">Incontriamoci!</h2>
                 <p>L’Istituto apre le porte alle famiglie per guidarvi nella scelta della Scuola. <br>
 Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi, assistere a una presentazione della proposta formativa della scuola e essere guidati in alcune piccole esperienze di laboratorio.</p>
                 <a href="#" id="btn-md-default"> <button class="w-auto">Scopri di più</button> </a>
@@ -67,7 +67,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
     <section class="section bg-primary_container py-5">
         <div class="container">
             <div class="">
-                <h3 class="mb-4 text-blue">Parliamone a tu per tu</h3>
+                <h2 class="mb-4 text-blue">Parliamone a tu per tu</h2>
                 <p class="h5 mb-4 text-blue">Uno spazio dedicato per aiutarti a scegliere il percorso più adatto a te</p>
                 <a id="btn-lg-default" href="#" target="blank">
                     <button class="w-auto">Prenota un appuntamento</button>
@@ -76,12 +76,12 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         </div>
     </section>
        
-    <section class="container bg-white py-5">
+    <section class="container bg-white pt-5 pb-3">
         <?php
         
         $attributes = array(
             'id' => 'crsl-0',
-            'title' => false,
+            'title' => 'LICEI',
             'limit' => 4,
             'labels' => array(),
             'sections' => array(),
@@ -100,7 +100,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
 
         ob_start(); 
         ?>
-        <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
+        <div class="card-article-img mt-3 mb-4"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             <?php } ?>
@@ -119,18 +119,6 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
     
         wp_enqueue_style( 'info-carousel', get_template_directory_uri() . '/assets/css/martino-carousel.css');
         ?>
-    </section>
-
-    <section class="section bg-primary_container py-5">
-        <div class="container">
-            <div class="">
-                <h3 class="mb-4 text-blue">Non resta che iscriversi</h3>
-                <div class="iscriviti mb-4"><?php the_content(); ?></div>
-                <a id="btn-lg-default" href="#" target="blank">
-                    <button class="w-auto">Iscriviti</button>
-                </a>
-            </div>
-        </div>
     </section>
 
     <section class="container bg-white py-5">
@@ -138,7 +126,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
         
         $attributes = array(
             'id' => 'crsl-1',
-            'title' => false,
+            'title' => 'ISTITUTI TECNICI',
             'limit' => 4,
             'labels' => array(),
             'sections' => array(),
@@ -157,7 +145,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
 
         ob_start(); 
         ?>
-        <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
+        <div class="card-article-img mt-3 mb-4"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             <?php } ?>
@@ -181,7 +169,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
     <section class="section bg-primary_container py-5">
         <div class="container">
             <div class="">
-                <h3 class="mb-4 text-blue">Non resta che iscriversi</h3>
+                <h2 class="mb-4 text-blue">Non resta che iscriversi</h2>
                 <div class="iscriviti mb-4"><?php the_content(); ?></div>
                 <a id="btn-lg-default" href="#" target="blank">
                     <button class="w-auto">Iscriviti</button>

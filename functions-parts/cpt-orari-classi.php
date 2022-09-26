@@ -47,6 +47,32 @@ function martini_add_orari_classi_metaboxes() {
     'priority'     => 'high',
     ) );
 
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Licei',
+        'id'               => $prefix . 'wiki_test_radio_licei', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'scientifico scienze applicate' => __( 'Scientifico Scienze Applicate', 'cmb2' ),
+            'scienze applicate in 4anni'   => __( 'Scienze Applicate in 4anni', 'cmb2' ),
+            'scientifico sportivo'   => __( 'Scientifico Sportivo', 'cmb2' ),
+            'scienze umane'   => __( 'Scienze Umane', 'cmb2' ),
+        ),
+    ) );
+
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Istituti tecnici',
+        'id'               => $prefix . 'wiki_test_radio_istituti', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'AFM' => __( 'AFM', 'cmb2' ),
+            'trasporti e logistica'   => __( 'Trasporti e Logistica', 'cmb2' ),
+            'economico sportivo' => __( 'Economico Sportivo', 'cmb2' ),
+            'conduzione mezzo aereo'   => __( 'Conduzione Mezzo Aereo', 'cmb2' ),
+        ),
+    ) );
+
     // box per caricare file del corso informatica sulle scuole
 
     $cmb_aftercontent->add_field( array(
