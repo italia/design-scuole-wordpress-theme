@@ -1,26 +1,18 @@
-
-
-<!-- FINE DEL MIO TEMPLATE -->
-
-
-
 <?php
 
-$titolo_pagina = get_post_meta( get_the_ID(), 'corso_di_studio', true );
-$testo_didattica = dsi_get_option("testo_didattica", "didattica");
-$corso_di_studio = dsi_get_meta("corso_di_studio");
+$titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', true );
 
 
 // LOS4
 if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-purple">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -29,7 +21,8 @@ if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>
                 </div>
             </div>
         </div>
-    </section><?php
+    </section>
+    <?php
     }
 
 else;
@@ -38,13 +31,13 @@ else;
 // LOS5
 if( $titolo_pagina == 'opzione scienze applicate in 5 anni (LOS5)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-red">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-pink">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -62,13 +55,13 @@ else;
 // LIS
 if( $titolo_pagina == 'sportivo (LIS)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-green">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-green">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -85,14 +78,14 @@ else;
 
 // LES
 if( $titolo_pagina == 'opzione economico sociale (LES)') { ?>
-    <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+   <section>
+        <div id="hero-indirizzi" class="container-fluid bg-martini-red">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -110,13 +103,13 @@ else;
 // AFM-ALI
 if( $titolo_pagina == 'Amministrazione finanza e marketing (AFM-ALI)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-orange">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -134,13 +127,13 @@ else;
 // indirizzo sportivo
 if( $titolo_pagina == 'Amministrazione finanza e marketing (indirizzo sportivo)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-yellow">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -159,13 +152,13 @@ else;
 // TL
 if( $titolo_pagina == 'Trasporti e logistica (TL)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-lightblue">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -183,13 +176,13 @@ else;
 // CM
 if( $titolo_pagina == 'Conduzione del mezzo (CM)') { ?>
     <section>
-        <div id="hero-indirizzi" class="container-fluid bg-purple">
+        <div id="hero-indirizzi" class="container-fluid bg-martini-blue">
             <div id="content" class="row align-items-center">
-                <div class="col-8">
-                    <h1> <?php the_title(); ?> </h1>
-                    <h2 class="font-weight-normal"><?php echo wpautop($corso_di_studio);?></h2>
+                <div class="col-lg-4 offset-lg-4">
+                    <h1> <?php the_title(); ?> </h1>          
+                    <p> <?php echo $titolo_pagina; ?> </p>
                 </div>
-                <div class="col-4">
+                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>

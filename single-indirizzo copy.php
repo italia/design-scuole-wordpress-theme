@@ -9,13 +9,11 @@
 
 get_header();
 
-$titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', true );
-
 ?>
 
     <main id="main-container" class="main-container">
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>      
+        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?> 
 
         
         <?php
