@@ -71,7 +71,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         
                                         <div class="col-lg-4 col-4 row-img">
                                             <a href="<?php the_permalink();?>">
-                                                <?php the_post_thumbnail("project-thumb, h-75");?> 
+                                                <?php the_post_thumbnail("project-thumb");?> 
                                             </a>
                                         </div>
                                     
