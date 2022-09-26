@@ -1,4 +1,4 @@
-<div class="cards-container col-12 col-lg-7 m-0 p-0">
+<div class="cards-container m-0 p-0">
 
   <div class="container m-0 p 0">
 
@@ -28,6 +28,7 @@
 
               <a class="img-loop" href="<?php the_permalink();?>">
 
+                <div></div>
                 <?php the_post_thumbnail("news-thumb");?>
 
               </a>
