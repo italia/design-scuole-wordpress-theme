@@ -85,6 +85,8 @@ Inizia guardando gli esempi di istituti scolastici che hanno già adottato il mo
 
 [L’Istituto Comprensivo Bosisio Parini di Lecco](https://comprensivobosisio.la-scuola.it/)
 
+[L'Istituto Tecnico Euclide-Caracciolo di Bari](https://www.euclide-caracciolo.edu.it)
+
 Consigliamo di cominciare a creare i diversi contenuti in questo ordine:
 - luoghi;
 - strutture organizzative;
