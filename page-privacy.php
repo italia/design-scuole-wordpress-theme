@@ -31,9 +31,6 @@ get_header();
                     $privacy = get_post_meta( get_the_ID(), '_martini_privacy_file_privacy', true );
                     
                     ?>
-
-                    
-
                         <article>
                             <div class="row mt-3 ml-4 align-items-center">
                                     <a href="<?php echo array_values($privacy)[0];?>">

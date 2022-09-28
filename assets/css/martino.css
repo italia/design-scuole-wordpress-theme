@@ -773,7 +773,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 .card .card-img a > div:only-child {
   width: 100%;
   height: 100%;
-  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-image: url(/images/logo-custom.png?3d4c2bb8f6e6b0b3fa2ee0f8c359aaf0);
   background-position: center;
   background-size: cover;
 }
@@ -1590,9 +1590,4 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   transition: -webkit-clip-path 0.2s ease-in;
   transition: clip-path 0.2s ease-in;
   transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
-}
-
-
-iframe .calendar-container{
-  background-color: red;
 }

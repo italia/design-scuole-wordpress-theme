@@ -47,64 +47,25 @@ function martini_add_informatica_metaboxes() {
     'priority'     => 'high',
     ) );
 
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Tipologia di corso',
+        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'informatica' => __( 'Informatica', 'cmb2' ),
+            'inglese'   => __( 'Inglese', 'cmb2' ),
+            'italiano'   => __( 'Italiano', 'cmb2' ),
+            'tedesco'   => __( 'Tedesco', 'cmb2' ),
+        ),
+    ) );
+
     // box per caricare file del corso informatica sulle scuole
 
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'file_informatica',
         'name'    => __( 'Carica file', 'martino_martini' ),
         'desc' => __( 'Archivio file del corso informatica della scuola' , 'martino_martini' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
-        ),
-    ) );
-
-
-    // box per caricare file del corso inglese sulle scuole
-
-    $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_inglese',
-        'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file del corso inglese della scuola' , 'martino_martini' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
-        ),
-    ) );
-
-    // box per caricare file del corso italiano sulle scuole
-
-    $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_italiano',
-        'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file del corso italiano della scuola' , 'martino_martini' ),
-        'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
-        'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
-        ),
-    ) );
-
-    // box per caricare file del corso tedesco sulle scuole
-
-    $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_tedesco',
-        'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file del corso tedesco della scuola' , 'martino_martini' ),
         'type' => 'file_list',
         // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
         // 'query_args' => array( 'type' => 'image' ), // Only images attachment
