@@ -47,6 +47,28 @@ function martini_add_orari_docenti_metaboxes() {
     'priority'     => 'high',
     ) );
 
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Categoria di file',
+        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'licei' => __( 'Licei', 'cmb2' ),
+            'istituto-tecnico'   => __( 'Istituto tecnico', 'cmb2' ),
+        ),
+    ) );
+
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Categoria di file',
+        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'sicurezza' => __( 'Sicurezza', 'cmb2' ),
+            'covid'   => __( 'Covid', 'cmb2' ),
+        ),
+    ) );
+
     // box per caricare file del corso informatica sulle scuole
 
     $cmb_aftercontent->add_field( array(
