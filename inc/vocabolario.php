@@ -6,8 +6,8 @@ if(!function_exists("dsi_didattica_array")){
     function dsi_didattica_array() {
 
         $didarr = [
-            // "Scuola dell'Infanzia",
-            // "Scuola Primaria",
+            "Scuola dell'Infanzia",
+            "Scuola Primaria",
             "Scuola Secondaria di primo grado" => [
                 "Standard", "Indirizzo Musicale"
             ],
