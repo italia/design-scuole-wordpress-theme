@@ -75,12 +75,17 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                         <!-- Main content of the page -->
                     <div class="container px-3 px-md-5 col-lg-8">
-                        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+
+                        <div class="pt-3 px-3 px-md-5">
+                            <a href=""><p>< Torna all'offerta formativa</p></a>
+                        </div>
+                       
 
                         
 
                         <div class="article-wrapper pt-3 px-3 px-md-5">
-                            <div class="section-title">
+                            
+                            <div class="">
                                 <?php if(is_array($percorsi)){
                                     echo "<small class=\"text-primary\">";
                                     $c=0;
