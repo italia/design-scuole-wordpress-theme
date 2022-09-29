@@ -43,4 +43,10 @@
     display: block;
     padding-top: 8vh;
   }
+  
+  mark.highlight {
+    padding: 0;
+    font-weight: bold;
+    background-color: transparent;
+  }
 }
