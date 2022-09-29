@@ -160,7 +160,7 @@
   <!--#loop-news-home .container -->
 
   <!--SPAZI E STORIA  -->
-  <section id="spazi-storia" class="container mt-5">
+  <section id="spazi-storia" class="container mt-5 mb-5">
 
     <div class="row mb-5">
 

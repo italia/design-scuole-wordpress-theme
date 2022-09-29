@@ -2,7 +2,7 @@
 
 <main id="main-container" class="main-container">
 
-  <section class="container mt-5">
+  <section class="container mt-5 mb-5">
 
     <div class="row">
 
