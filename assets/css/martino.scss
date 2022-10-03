@@ -22,7 +22,13 @@
 @import "martino-scss/page/home";
 @import "martino-scss/page/spazi";
 @import "martino-scss/page/contattiutili";
+<<<<<<< HEAD
 @import "martino-scss/page/archive-sicurezza";
+@import "martino-scss/page/archive-orario_classi";
+=======
+@import "martino-scss/page/indirizzi";
+@import "martino-scss/page/sicurezza";
+>>>>>>> f6910d75b29d4a629346ccc886ae1661d3d15778
 @import "martino-scss/page/presentazione";
 @import "martino-scss/page/cic";
 @import "martino-scss/page/icdl-full-standard";
@@ -36,3 +42,4 @@
 @import "martino-scss/block/aside";
 @import "martino-scss/block/btn";
 @import "martino-scss/block/footer";
+@import "martino-scss/block/sidebar_news";

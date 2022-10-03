@@ -1,14 +1,44 @@
 #sidebar {
     background-color: $sidebar;
 
-    h3 {
+    a {
         color: $primary;
+        text-decoration: underline;
+        text-transform: uppercase;
     }
-    
+
+    .mailfield a{
+        text-transform: lowercase;
+    }
+    h6 {
+        @include font-body;
+    }
+    .card{
+        background-color: transparent;
+    }
+    .mailfield svg {
+            max-height: 24px;
+    }
+
     #quotes {
     font-style: italic;
     color: $primary;
+    @include text-sm;
 }
+
+    .aside-main {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+    }
+    
+    ul,
+    li {
+            margin: 0;
+            padding: 0;
+        }
 }
 
 @media (max-width: 767.98px) {

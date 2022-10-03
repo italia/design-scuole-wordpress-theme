@@ -2,12 +2,7 @@
 global $post, $autore, $luogo, $c, $badgeclass;
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
-$luoghi = dsi_get_meta("luoghi");
-$persone = dsi_get_meta("persone");
-$numerazione_circolare = dsi_get_meta("numerazione_circolare");
 
-$image_url = get_the_post_thumbnail_url($post, "item-gallery");
-$autore = get_user_by("ID", $post->post_author);
 ?>
 <?php if(has_post_thumbnail($post)){ ?>
 <section class="section bg-white">
@@ -32,19 +27,9 @@ $autore = get_user_by("ID", $post->post_author);
                         <div id="title-img"> 
                             <?php echo get_the_post_thumbnail($post->ID, 'full'); ?>
                         </div>
-
-                        <?php
-                        global $post, $licenza, $nascondi_licenza;
-                        ?>
-                        <div id="" class="border-0 pt-4">
-                            <h5 data-element="metadata" class="text-black font-weight-normal h6"><em><?php _e("", "design_scuole_italia"); ?> <?php
-                                $date_publish = new DateTime($post->post_date);
-                                echo $date_publish->format('d.m.Y')
-                                ?></em></h5>
-                            
-                        </div><!-- /article-footer -->
                     </div>
                 </div><!-- /col-md-6 -->
             </div><!-- /row -->
         </div><!-- /container -->
     </section>
+</section>

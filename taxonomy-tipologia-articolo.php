@@ -16,10 +16,9 @@ if($slug == "articoli")
     $class = "redbrown";
 }*/
 ?>
-	<main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+	<main id="main-container" class="main-container <?php echo $class; ?>">
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero", "notizie"); ?>
+	<?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
 
 
 		<section class="section bg-white border-top border-bottom d-block d-lg-none mx-3 mx-lg-0">
