@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4 pl-lg-5 pl-md-5 pl-0">
+<div>
     <div id="sidebar_news" class="mt-xs-0 mt-sm-0">
         <h4 class="text-black mb-4">News correlate</h4>
         <div class="row mt-3 mt-lg-0">
@@ -14,16 +14,15 @@
             
             while ($loop -> have_posts()) : $loop -> the_post(); ?> 
 
-            <article class="col-12 img_sidebar_news"> 
-                <div class="row justify-content-between">
-                    
-                    <div class="col-lg-4 col-4 row-img">
+            <article class="col-12 mt-3 mb-3"> 
+                <div class="row justify-content-between" id="card_image_sidebar">
+                    <div class="col-lg-3 col-3 row-img">
                         <a href="<?php the_permalink();?>">
                             <?php the_post_thumbnail("project-thumb");?> 
                         </a>
                     </div>
                 
-                    <div class="col-lg-8 col-7">
+                    <div class="col-lg-8 col-7 pl-2">
                         <a href="<?php the_permalink();?>">
                             <p class="h6"><?php the_title(); ?></p>
                             <div id="related_text"><?php the_excerpt($length); ?></div>

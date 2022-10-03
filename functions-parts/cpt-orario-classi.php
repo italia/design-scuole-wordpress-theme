@@ -55,8 +55,8 @@ function martini_add_orario_classi_metaboxes() {
         'options'          => array(
             'scientifico-scienze-applicate' => __( 'Scientifico Scienze Applicate', 'cmb2' ),
             'scienze-applicate-in-4anni'   => __( 'Scienze Applicate in 4anni', 'cmb2' ),
-            'scientifico sportivo'   => __( 'Scientifico Sportivo', 'cmb2' ),
-            'scienze umane'   => __( 'Scienze Umane', 'cmb2' ),
+            'scientifico-sportivo'   => __( 'Scientifico Sportivo', 'cmb2' ),
+            'scienze-umane'   => __( 'Scienze Umane', 'cmb2' ),
         ),
     ) );
 
@@ -67,9 +67,9 @@ function martini_add_orario_classi_metaboxes() {
         'show_option_none' => false,
         'options'          => array(
             'AFM' => __( 'AFM', 'cmb2' ),
-            'trasporti e logistica'   => __( 'Trasporti e Logistica', 'cmb2' ),
-            'economico sportivo' => __( 'Economico Sportivo', 'cmb2' ),
-            'conduzione mezzo aereo'   => __( 'Conduzione Mezzo Aereo', 'cmb2' ),
+            'trasporti-e-logistica'   => __( 'Trasporti e Logistica', 'cmb2' ),
+            'economico-sportivo' => __( 'Economico Sportivo', 'cmb2' ),
+            'conduzione-mezzo-aereo'   => __( 'Conduzione Mezzo Aereo', 'cmb2' ),
         ),
     ) );
 
@@ -80,7 +80,7 @@ function martini_add_orario_classi_metaboxes() {
         'name'    => __( 'Carica file', 'martino_martini' ),
         'desc' => __( 'File orario classi' , 'martino_martini' ),
         'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        'preview_size' => array( 100, 100 ),
         // 'query_args' => array( 'type' => 'image' ), // Only images attachment
         // Optional, override default text strings
         'text' => array(

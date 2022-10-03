@@ -87,10 +87,19 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
             'sections' => array(),
         );
 
-        // $posts = query_posts(array(
+        
         $posts = new WP_Query( array(
-            'post_type' => 'indirizzo', 
-            'posts_per_page' => '4',
+            "post_type" => "indirizzo",
+            "posts_per_page" => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'percorsi-di-studio',
+                    'field' => 'slug',
+                    'terms' => 'licei'
+                )
+            ),
+            'orderby' => "title",
+            'order' => "ASC"
         ));
 
         
@@ -132,12 +141,19 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
             'sections' => array(),
         );
 
-        // $posts = query_posts(array(
         $posts = new WP_Query( array(
-            'post_type' => 'indirizzo', 
-            'posts_per_page' => '4',
+            "post_type" => "indirizzo",
+            "posts_per_page" => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'percorsi-di-studio',
+                    'field' => 'slug',
+                    'terms' => 'istituti-tecnici'
+                )
+            ),
+            'orderby' => "title",
+            'order' => "ASC"
         ));
-
         
         while ( $posts->have_posts() ) : $posts->the_post(); 
         $attributes["labels"][] = get_the_title(); 
