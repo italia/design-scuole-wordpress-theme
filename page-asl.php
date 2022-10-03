@@ -21,7 +21,7 @@ get_header();
         <div class="container-fluid container-border-top">
             <div class="row variable-gutters">
                 
-                <div class="main-content col-lg-8 col-xxl-6">
+                <div class="main-content col-lg-8">
                     <div class="pt-5 px-3">    
                         <h2>Alternanza scuola-lavoro</h2>
                         <p>L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
@@ -44,9 +44,9 @@ get_header();
                         </p>
                     </div>
 
-                    <div class="pt-5 px-3">    
-                        <h2>Le finalità dell’ASL</h2>
-                        <ul>
+                    <div class="py-5 px-3">    
+                        <h3>Le finalità dell’ASL</h3>
+                        <ul class="text-body">
                             <li>Arricchire la formazione acquisita nei percorsi scolastici con l'acquisizione di competenze  osservabili «sul campo»</li> 
                             <li>Favorire l'orientamento dei giovani per valorizzarne le vocazioni personali, gli interessi e gli stili di apprendimento individuali</li>
                             <li>Acquisire competenze spendibili nel mondo del lavoro</li>
@@ -58,13 +58,12 @@ get_header();
 
                 </div><!-- /col-lg-6 -->
 
-                <div id="sidebar" class="col-lg-3 offset-lg-1 col-xxl-4 offset-xxl-2 aside-border px-3 py-5">
-                    <aside class="aside-main aside-sticky">
-                        <div class="aside-title col-10 col-xl-8" id="program-legend">
-                            <h5>Contatti</h5>
-                            <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
+                <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-lg-3 py-5">
+                        <aside class="aside-main aside-sticky">
+                            <div class="col-12 col-lg-9 col-xl-6" id="program-legend">
+                            <h5>Modulistica</h5>
                         </div>
-                        <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 aside-border px-3 py-4">
+                        <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 px-3 py-4">
                         <?php 
  
                                     if(trim($procedura_esito) != ""){ 
@@ -80,13 +79,7 @@ get_header();
                                     ?>
 
                         </div>
-                        <!-- <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region"
-                            aria-labelledby="program-legend"> -->
-                            <ul class="link-list">
-                                <h6>prova di un sottotitolo</h6>
-    
-                            </ul>
-                        </div>
+                        
                     </aside>
                 </div>
                   

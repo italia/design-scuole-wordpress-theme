@@ -29,3 +29,63 @@
         }
     }
 }
+
+#hero-indirizzi {
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+
+    #content {
+        height: 100%;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+
+        h1 {
+            margin-bottom: 0.2rem;
+            text-align: center;
+            color: $white;
+        }
+
+        p {
+            text-transform: uppercase;
+            color: $white;
+            text-align: center;
+        }
+    }
+}
+
+.bg-martini-purple {
+    background-color: #982262;
+}
+.bg-martini-pink {
+    background-color: #E6285F;
+}
+.bg-martini-green {
+    background-color: #5AB347;
+}
+.bg-martini-red {
+    background-color: #D33D36;
+}
+.bg-martini-orange {
+    background-color: #DC5C3C;
+}
+.bg-martini-yellow {
+    background-color: #F0AE2C;
+}
+.bg-martini-lightblue {
+    background-color: #36B6E9;
+}
+.bg-martini-blue {
+    background-color: #1260A4;
+}
+
+#icona-indirizzo {
+    img {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}

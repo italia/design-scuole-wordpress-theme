@@ -13,6 +13,7 @@
     "license": "MIT",
     "repository": {},
     "dependencies": {
+        "autoprefixer": "10.4.5",
         "bootstrap": "^4.6.1"
     },
     "devDependencies": {

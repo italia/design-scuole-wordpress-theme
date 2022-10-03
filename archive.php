@@ -7,8 +7,6 @@
  * @package Design_Scuole_Italia
  */
 
-$class = "petrol";
-
 if(is_post_type_archive("scheda_didattica")){
     $class = "bluelectric";
 } else if(is_post_type_archive("scheda_progetto")){
@@ -17,9 +15,8 @@ if(is_post_type_archive("scheda_didattica")){
 get_header();
 ?>
 
-    <main class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
-
+    <main class="main-container <?php echo $class; ?>">
+    <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
         <section class="section bg-white py-2 py-lg-3 py-xl-5">
             <div class="container">
                 <div class="row variable-gutters">

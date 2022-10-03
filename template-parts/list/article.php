@@ -15,7 +15,7 @@ if(!$excerpt)
 ?>
 
 <div class="col-12 col-lg-3_5 px-0 pb-3" id="card_article">
-<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0" >
+<article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand p-0 m-0" >
     <div class="card-body row p-0">
         <div class="card-thumb col-12 p-0 position-relative">
             <img src="<?php echo $image_url; ?>" alt="" class="col-12 p-0">
