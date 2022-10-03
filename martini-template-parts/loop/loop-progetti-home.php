@@ -6,7 +6,7 @@
         
       <h4 class="col-12">Alcuni dei nostri progetti </h4>
 
-      <div class="container-progetti col-12">
+      <div class="container-progetti col-12 mb-4">
         
         <?php
           $loop = new WP_Query( array( 

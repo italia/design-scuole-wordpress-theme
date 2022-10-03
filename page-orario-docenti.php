@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main-container" class="main-container">
+<main id="main-container-orari-docenti" class="main-container">
 
   <section class="container mt-5 mb-5">
 
@@ -21,13 +21,7 @@
 
         <div class="col-6 mt-4 min-h">
 
-          <input 
-            type="search" 
-            id="myInput" 
-            onkeyup="filtro_Docenti(!true)" 
-            placeholder="Cerca orari docenti"
-            autocomplete="off"
-          >
+          <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orari docenti" autocomplete="off">
 
           <ul id="myUL">
             <?php
@@ -56,11 +50,8 @@
 
                 $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
               ?>
-              
-                <img id="orari-<?php echo get_the_ID(); ?>" 
-                src="<?php echo array_values($file)[0]; ?>" 
-                alt="<?php the_title(); ?>"
-                loading="lazy">
+
+                <img id="orari-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" alt="<?php the_title(); ?>" loading="lazy">
 
               <?php
               endwhile;
@@ -74,19 +65,21 @@
 
       <div class="col-lg-2 col-6 mt-4">
 
-        <a class="btn-md-default-outline" href="#" target="blank">
+        <a class="btn-md-default-outline" href="<?php the_permalink(); ?>" target="blank">
           <button>
             Orario Classi
           </button>
         </a>
-
+        
       </div><!-- col-6  -->
 
     </div> <!-- row -->
 
   </section><!-- container -->
   <script>
-    function filtro_Docenti({doHighlight}) {
+    function filtro_Docenti({
+      doHighlight
+    }) {
       // Declare variables
       var input, filter, ul, li, a, i, re, txtValue;
       input = document.getElementById('myInput');
@@ -104,10 +97,10 @@
           li[i].style.display = "";
           // if (!doHighlight) continue;
           text = a.innerHTML.replace(/(<mark class="highlight">|<\/mark>)/gim, '')
-          a.innerHTML = filter.length 
-            ? text.replace(re, '<mark class="highlight">$&</mark>')
-            : text;
-    
+          a.innerHTML = filter.length ?
+            text.replace(re, '<mark class="highlight">$&</mark>') :
+            text;
+
         } else {
           li[i].style.display = "none";
         }
