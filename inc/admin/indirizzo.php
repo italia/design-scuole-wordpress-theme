@@ -538,19 +538,19 @@ function dsi_add_indirizzo_metaboxes() {
 
 
 
-    $cmb_ipa = new_cmb2_box( array(
-        'id'           => $prefix . 'box_ipa',
-        'title'        => __( 'Codice dell’Ente Erogatore (ipa)', 'design_scuole_italia' ),
-        'object_types' => array( 'indirizzo' ),
-        'context'      => 'side',
-        'priority'     => 'low',
-    ) );
+    // $cmb_ipa = new_cmb2_box( array(
+    //     'id'           => $prefix . 'box_ipa',
+    //     'title'        => __( 'Codice dell’Ente Erogatore (ipa)', 'design_scuole_italia' ),
+    //     'object_types' => array( 'indirizzo' ),
+    //     'context'      => 'side',
+    //     'priority'     => 'low',
+    // ) );
 
-    $cmb_ipa->add_field( array(
-        'id' => $prefix . 'ipa',
-        'desc' => __( 'Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo.', 'design_scuole_italia' ),
-        'type' => 'text'
-    ) );
+    // $cmb_ipa->add_field( array(
+    //     'id' => $prefix . 'ipa',
+    //     'desc' => __( 'Specificare il nome dell’organizzazione, come indicato nell’Indice della Pubblica Amministrazione (IPA), che esercita uno specifico ruolo.', 'design_scuole_italia' ),
+    //     'type' => 'text'
+    // ) );
 
 
 
