@@ -76,5 +76,4 @@ function martini_add_informatica_metaboxes() {
             'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
         ),
     ) );
-
 }
