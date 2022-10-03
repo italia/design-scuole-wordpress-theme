@@ -1,0 +1,19 @@
+// Calendar 
+
+.calendar-vertical 
+    .calendar-date
+    .calendar-date-description
+    .calendar-date-description-content:before {
+    
+    background-color: $primary;
+}
+
+.calendar-vertical .calendar-date .calendar-date-day p {
+    font-family: "Roboto Mono", monospace;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0 0 5px 0;
+    text-align: center;
+    padding-right: 34px;
+    display: block;
+}

@@ -116,7 +116,7 @@ if(is_search() || is_archive())
                                 }
                                 ?>
                                 <?php
-                                // check if notizie has menu
+                                // check if notizie has menu ------------> In questa sezione non farei il dropdown ma il link diretto
                                 $theme_location = "menu-notizie";
                                 $option_location = "item_menu_notizie";
                                 unset($menu_obj);

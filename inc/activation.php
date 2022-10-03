@@ -510,7 +510,9 @@ function dsi_create_pages_on_theme_activation() {
     */
     wp_insert_term( 'Notizie', 'tipologia-articolo' );
     wp_insert_term( 'Articoli', 'tipologia-articolo' );
-    wp_insert_term( 'Rassegna Stampa', 'tipologia-articolo' );
+    wp_insert_term( 'Dicono di noi', 'tipologia-articolo' );
+    wp_insert_term( 'Eventi', 'tipologia-articolo' );
+    wp_insert_term( 'Circolari', 'tipologia-articolo' );
 
 
     wp_insert_term( 'Documento Generico', 'tipologia-documento' );
