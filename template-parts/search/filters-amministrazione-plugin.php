@@ -38,7 +38,6 @@ $post_type = get_query_var("post_type");
 
                     $atreturn_body .= '<li>';
                     $term = get_term_by('name', $value, 'tipologie');
-//            $atreturn .= '<a href="' . get_term_link( get_term_by('name', $value, 'tipologie'), 'tipologie' ) . '" title="' . $value . '">' . $value . '</a>';
                     $atreturn_body .= '<div class="form-check my-0">';
                     $atreturn_body .= '<input type="radio" class="custom-control-input" name="tipologie" value="';
                     $atreturn_body .= $term->slug.'" id="check-'.$term->slug.'"';
