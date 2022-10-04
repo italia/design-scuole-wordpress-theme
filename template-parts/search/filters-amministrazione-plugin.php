@@ -18,8 +18,8 @@ $post_type = get_query_var("post_type");
         <?php
         $atcontatore =0;
         // ricalco l'organizzazione di amministrazione trasparente
-        if(function_exists("dsi_amministrazione_trasparente_array")){
-            foreach (dsi_amministrazione_trasparente_array() as $inner) {
+        if(function_exists("amministrazionetrasparente_getarray")){
+            foreach (amministrazionetrasparente_getarray() as $inner) {
                 $atcontatore++;
                 $sez_l = strtolower(preg_replace('/[^a-zA-Z]+/', '', $inner[0]));
 
