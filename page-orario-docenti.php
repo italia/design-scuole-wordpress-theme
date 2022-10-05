@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main-container" class="main-container">
+<main id="main-container-orari-docenti" class="main-container">
 
   <section class="container mt-5 mb-5">
 
@@ -19,17 +19,13 @@
 
         </div><!-- col-12 -->
 
-        <div class="col-6 mt-4 min-h">
+        <div class="col-12 z-index-1">
+        <!-- <div class="col-6 mt-4 min-h"> -->
 
-          <input 
-            type="search" 
-            id="myInput" 
-            onkeyup="filtro_Docenti(!true)" 
-            placeholder="Cerca orari docenti"
-            autocomplete="off"
-          >
+          <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orari docenti" autocomplete="off">
 
-          <ul id="myUL">
+          <!-- <ul id="myUL" class="row-cols-4 row"> -->
+          <ul id="myUL" class="">
             <?php
             $loop = new WP_Query(array(
 
@@ -40,41 +36,43 @@
               'order' => "ASC",
 
             ));
-
-            while ($loop->have_posts()) : $loop->the_post();
+            {
+              # code...
+              while ($loop->have_posts()) : $loop->the_post();
             ?>
 
-              <li><a href="#orari-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="#orari-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
 
             <?php
-            endwhile;
-            ?>
-            <div class="col-6">
-
-              <?php
-              while ($loop->have_posts()) : $loop->the_post();
-
-                $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
-              ?>
-              
-                <img id="orari-<?php echo get_the_ID(); ?>" 
-                src="<?php echo array_values($file)[0]; ?>" 
-                alt="<?php the_title(); ?>"
-                loading="lazy">
-
-              <?php
               endwhile;
-              ?>
-            </div><!-- col-6 -->
+            }
+            ?>
 
           </ul>
         </div>
+        <div class="col-12 z-index-0">
+
+        <span id="ancoraggio"></span>
+
+          <?php
+          while ($loop->have_posts()) : $loop->the_post();
+
+            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
+          ?>
+              <img id="orari-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" loading="lazy" alt="<?php the_title(); ?>" loading="lazy">
+          <?php
+          endwhile;
+          ?>
+        </div><!-- col-12 -->
 
       </div><!-- col-12 -->
 
       <div class="col-lg-2 col-6 mt-4">
+        <?php
+        $post = get_page_by_path('orario-classi');
+        ?>
 
-        <a class="btn-md-default-outline" href="#" target="blank">
+        <a class="btn-md-default-outline" href="<?php echo get_permalink(); ?>">
           <button>
             Orario Classi
           </button>
@@ -86,7 +84,9 @@
 
   </section><!-- container -->
   <script>
-    function filtro_Docenti({doHighlight}) {
+    function filtro_Docenti({
+      doHighlight
+    }) {
       // Declare variables
       var input, filter, ul, li, a, i, re, txtValue;
       input = document.getElementById('myInput');
@@ -104,10 +104,10 @@
           li[i].style.display = "";
           // if (!doHighlight) continue;
           text = a.innerHTML.replace(/(<mark class="highlight">|<\/mark>)/gim, '')
-          a.innerHTML = filter.length 
-            ? text.replace(re, '<mark class="highlight">$&</mark>')
-            : text;
-    
+          a.innerHTML = filter.length ?
+            text.replace(re, '<mark class="highlight">$&</mark>') :
+            text;
+
         } else {
           li[i].style.display = "none";
         }

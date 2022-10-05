@@ -1,12 +1,12 @@
 <div class="cards-container m-0 p-0">
 
-  <div class="container m-0 p 0">
+  <div class="container m-0 p-0">
 
     <div class="row">
 
       <h4 class="col-12">Ultime news </h4>
 
-      <div class="container-news col-12 row">
+      <div class="container-news col-12 row mb-4">
         
         <?php
           $loop = new WP_Query( array( 
@@ -28,8 +28,9 @@
 
               <a class="img-loop" href="<?php the_permalink();?>">
 
-                <div></div>
-                <?php the_post_thumbnail("news-thumb");?>
+                <div>
+                  <?php the_post_thumbnail("news-thumb");?>
+                </div>
 
               </a>
 

@@ -30,11 +30,11 @@ $locations[$id][] = [
     'permalink' => get_permalink($luogo)
 ];
 ?>
-<div class="card card-bg card-icon rounded mb-3">
+<div class="card card-icon rounded mb-3 p-0">
     <a href="<?php echo get_permalink($luogo); ?>" aria-label="<?php echo 'Vedi scheda dell\'edificio ' .$tipologia_luogo->name . ' ' . $luogo->post_title .'' ?>">
-        <div class="card-body">
+        <div class="card-body p-0 pt-2">
             <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
-            <div class="card-icon-content">
+            <div class="card-icon-content p-0">
                 <p><strong><?php echo $card_title; ?></strong></p>
                 <small><?php echo $indirizzo; ?></small>
             </div><!-- /card-icon-content -->

@@ -16,12 +16,12 @@ $persone = dsi_get_meta("persone");
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
-    <main id="main-container" class="main-container greendark">
+    <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <section class="section bg-white py-lg-5 py-3">
+        <section class="py-lg-5 py-3">
             <div class="container">
-                <div class="row d-flex">
+                <div class="row">
                     <div class="col-lg-8 col-md-8 col-12">
                         <div class="p-0">
                             <?php while ( have_posts() ) :  the_post();
@@ -30,17 +30,19 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             ?>
                         </div><!-- /header post -->
                 
-                        <div class="main-content ">
+                        <div class="main-content">
                             <?php if($user_can_view_post): ?>
-                            <div class="">
-                                <article class="article-wrapper pt-lg-3 p-0">
-                                    <div class="wysiwig-text text-black">
-                                        <?php
-                                        the_content();
-                                        ?>
-                                    </div><!-- /contenuto post -->
-                                </article><!-- /contenuto articolo -->
-                            </div><!-- /col-lg-8 contenuto articolo, luoghi e persone citati-->
+                            <article class="article-wrapper pt-lg-3 p-0">
+                                <div class="wysiwig-text text-black">
+                                    <h5 data-element="metadata" class="text-black font-weight-normal h6"><em><?php _e("", "design_scuole_italia"); ?> <?php
+                                    $date_publish = new DateTime($post->post_date);
+                                    echo $date_publish->format('d.m.Y')
+                                    ?></em></h5>
+                                    <?php
+                                    the_content();
+                                    ?>
+                                </div><!-- /contenuto post -->
+                            </article><!-- /contenuto articolo -->
 
                             <?php else: ?>
                                 <div class="p-5 m-5 text-center font-weight-bold wysiwig-text">
@@ -49,6 +51,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <?php endif; ?>
                         </div><!-- /row--> 
                     </div>
+<<<<<<< HEAD
+                    
+                    <div class="col-12 col-lg-4 pl-lg-4 pl-md-4 pl-0">
+                        <?php get_template_part("martini-template-parts/loop/sidebar_news"); ?>
+                    </div>
+=======
 
                     <div class="col-12 col-lg-4 pl-lg-5 pl-md-5 pl-0" id="progetti-home">
                         <div id="sidebar_news" class="mt-xs-0 mt-sm-0">
@@ -71,7 +79,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         
                                         <div class="col-lg-4 col-4 row-img">
                                             <a href="<?php the_permalink();?>">
-                                                <?php the_post_thumbnail("project-thumb, h-75");?> 
+                                                <?php the_post_thumbnail("project-thumb");?> 
                                             </a>
                                         </div>
                                     
@@ -114,9 +122,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             ?>
                     </div><!-- /allegati -->
                     </div><!--col-3 offset-1 -->
+>>>>>>> f6910d75b29d4a629346ccc886ae1661d3d15778
                 </div>
-                
-                
             </div><!-- /container -->
         </section>
 
