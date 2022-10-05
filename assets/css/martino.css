@@ -814,7 +814,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 .card .card-img a > div:only-child {
   width: 100%;
   height: 100%;
-  background-image: url(/images/logo-custom.png?3d4c2bb8f6e6b0b3fa2ee0f8c359aaf0);
+  background-image: url("/wp-content/themes/design-scuole-wordpress-theme/assets/css/martino-scss/block/logo-custom.png");
   background-position: center;
   background-size: cover;
 }
@@ -876,7 +876,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop > div:only-child {
   width: 100%;
   height: 100%;
-  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-image: url("/wp-content/themes/design-scuole-wordpress-theme/assets/css/martino-scss/block/logo-custom.png");
   background-position: center;
   background-size: cover;
 }
