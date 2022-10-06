@@ -33,16 +33,16 @@ add_action('admin_menu','dsi_custom_admin_menu');
 function dsi_custom_admin_menu() {
    // swap_admin_menu_sections('Pagine','Articoli');              // Swap location of Posts Section with Pages Section
    // rename_admin_menu_section('Media','Photos & Video');    // Rename Media Section to "Photos & Video"
-    remove_admin_menu_section("WP<b>Gov</b>.it");
+//    remove_admin_menu_section("WP<b>Gov</b>.it");
    // remove_admin_menu_item("Articoli", "Tipologia");
 
     //rename_admin_menu_section("Bacheca", "Bacheca Scuola");
 
-    rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");
+//    rename_admin_menu_section("Easy Appointments", "Gestione Prenotazioni");
     //rename_admin_menu_item("Articoli", "Tag", "Argomenti");
-    swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
-    swap_admin_menu_sections('Media','Documenti');
-    swap_admin_menu_sections('Strutture','Articoli');
+//    swap_admin_menu_sections('Pagine','Gestione Prenotazioni');
+//    swap_admin_menu_sections('Media','Documenti');
+//    swap_admin_menu_sections('Strutture','Articoli');
 
 
 
