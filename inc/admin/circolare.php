@@ -294,7 +294,15 @@ function dsi_feedback_circolare( $post_id, $post )
         $gruppi_circolari = dsi_get_meta("gruppi_circolari", '', $post->ID);
         $users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
     }
-
+//aggiunta per notifica circolari a destinatari selezionati per ruolo //
+ if(is_array($users) && count($users)){
+        foreach ($users as $user){
+            dsi_notify_circolare_to_user($user->ID, $post);
+        }
+        update_post_meta($post->ID, "_dsi_notificato", "true");
+    }
+}
+//end modifica//
     if(is_array($users) && count($users)){
         foreach ($users as $user){
             // in caso di destinatari di tipo "gruppo" get_objects_in_term restituisce un array di interi, negli altri casi l'array contiene oggetti WP_User
