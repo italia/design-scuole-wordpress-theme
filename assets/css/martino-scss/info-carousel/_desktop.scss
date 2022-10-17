@@ -13,7 +13,7 @@
   height: 100%;
 
   > {
-    h2 {
+    h3 {
       grid-area: title;
       margin: 1rem 0;
       text-transform: uppercase;
@@ -38,6 +38,7 @@
     label {
       grid-column-start: 2;
       margin: auto 0;
+      @include h6($color: true);
     }
 
     article {
@@ -54,6 +55,9 @@
     }
 
     article>div {
+      height: 8rem;
+      width: 8rem;
+      background-size: contain;
       padding: 1rem 2rem;
     }
 
@@ -62,7 +66,7 @@
         font-weight: bold;
 
         +article {
-          font-weight: bold;
+          @include font-body;
         }
       }
     

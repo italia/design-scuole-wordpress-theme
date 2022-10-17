@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-4 offset-lg-1 p-0" id="progetti-home">
+<div class="p-0" id="progetti-home">
 
   <div class="container m-0 p 0">
 
@@ -6,7 +6,7 @@
         
       <h4 class="col-12">Alcuni dei nostri progetti </h4>
 
-      <div class="container-progetti col-12">
+      <div class="container-progetti col-12 mb-4">
         
         <?php
           $loop = new WP_Query( array( 

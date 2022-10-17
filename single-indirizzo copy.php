@@ -9,13 +9,11 @@
 
 get_header();
 
-$titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', true );
-
 ?>
 
     <main id="main-container" class="main-container">
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>      
+        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?> 
 
         
         <?php
@@ -75,17 +73,12 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                         <!-- Main content of the page -->
                     <div class="container px-3 px-md-5 col-lg-8">
-
-                        <div class="pt-3 px-3 px-md-5">
-                            <a href=""><p>< Torna all'offerta formativa</p></a>
-                        </div>
-                       
+                        <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
                         
 
                         <div class="article-wrapper pt-3 px-3 px-md-5">
-                            
-                            <div class="">
+                            <div class="section-title">
                                 <?php if(is_array($percorsi)){
                                     echo "<small class=\"text-primary\">";
                                     $c=0;
