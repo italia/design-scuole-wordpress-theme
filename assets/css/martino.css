@@ -849,6 +849,14 @@ label > span {
   background-color: transparent;
 }
 
+#open-day .open-post-title {
+  display: none;
+  text-align: center;
+}
+#open-day .open-day-foto:hover + .open-post-title {
+  display: block;
+}
+
 #hero {
   height: 400px;
   width: 100%;
