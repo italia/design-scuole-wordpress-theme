@@ -73,6 +73,9 @@ function martini_add_sicurezza_metaboxes() {
             'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
             'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
         ),
+        'attributes' => array(
+            'data-validation' => 'required',
+        ),
     ) );
 
 }

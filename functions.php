@@ -402,3 +402,4 @@ require dirname(__FILE__).'/functions-parts/cpt-orario-classi.php';
 /* Customize Back-end
 ------------------------*/
 require dirname(__FILE__).'/functions-parts/custom-fields.php';
+require dirname(__FILE__).'/functions-parts/cmb2-js-validation-required.php';

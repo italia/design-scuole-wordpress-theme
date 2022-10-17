@@ -29,8 +29,6 @@ get_header();
                 while ($loop -> have_posts()) : $loop -> the_post( 'privacy' ); 
 
                 $privacy = get_post_meta( get_the_ID(), '_martini_privacy_file_privacy', true );
-                // DONE Controllare errore loop
-                // Controllare nel loop se il file esiste.
                 ?>
                 <article>
                     <div class="row mt-3 ml-4 align-items-center">
