@@ -54,14 +54,15 @@ function register_privacy_post_type() {
             'name'    => __( 'Carica file', 'martino_martini' ),
             'desc' => __( 'Archivio dei file privacy' , 'martino_martini' ),
             'type' => 'file_list',
-            // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-            // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-            // Optional, override default text strings
             'text' => array(
                 'add_upload_files_text' => __('Aggiungi un nuovo file', 'martino_martini' ), // default: "Add or Upload Files"
                 'remove_image_text' => __('Rimuovi file', 'martino_martini' ), // default: "Remove Image"
                 'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
             ),
+            'attributes' => array(
+                'data-validation' => 'required',
+            ),
+        
         ) );
     
     }
