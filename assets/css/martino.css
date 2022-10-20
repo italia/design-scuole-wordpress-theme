@@ -859,6 +859,19 @@ label > span {
   z-index: 0;
 }
 
+#main-container section#input-lavora-con-noi-docenti {
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+#main-container section#input-lavora-con-noi-docenti input::-webkit-outer-spin-button,
+#main-container section#input-lavora-con-noi-docenti input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#main-container section#input-lavora-con-noi-docenti input[type=number] {
+  -moz-appearance: textfield;
+}
+
 #open-day .open-post-title {
   display: none;
   text-align: center;
