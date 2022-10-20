@@ -17,11 +17,8 @@ if(is_post_type_archive("scheda_didattica")){
 get_header();
 ?>
 
-    <main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
     <main id="main-container" class="main-container <?php echo $class; ?>">
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero", "progetti"); ?>
     <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
         <?php get_template_part("template-parts/search/filters-scheda-progetto"); ?>
 
