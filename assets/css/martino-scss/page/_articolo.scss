@@ -25,13 +25,17 @@
 // sidebar_news correlate
 #sidebar_news {
     margin-top: 8.8rem !important;
+    .card.card-icon .icon {
+        width: 60px;
+        height: 60px;
+    }
+    .img_sidebar_news img {
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 // file sidebar
-.card.card-icon .icon {
-    width: 60px;
-    height: 60px;
-}
 
 .card.card-icon svg {
     fill: $primary !important;

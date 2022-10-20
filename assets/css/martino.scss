@@ -22,6 +22,7 @@
 @import "martino-scss/page/home";
 @import "martino-scss/page/spazi";
 @import "martino-scss/page/contattiutili";
+@import "martino-scss/page/archive-orario_classi";
 @import "martino-scss/page/indirizzi";
 @import "martino-scss/page/sicurezza";
 @import "martino-scss/page/presentazione";
@@ -29,6 +30,9 @@
 @import "martino-scss/page/icdl-full-standard";
 @import "martino-scss/page/mensa";
 @import "martino-scss/page/orientamento";
+@import "martino-scss/page/orario_docenti";
+@import "martino-scss/page/lavora-con-noi";
+@import "martino-scss/page/open-day";
 // block
 @import "martino-scss/block/hero";
 @import "martino-scss/block/card-news";
@@ -36,3 +40,4 @@
 @import "martino-scss/block/aside";
 @import "martino-scss/block/btn";
 @import "martino-scss/block/footer";
+@import "martino-scss/block/sidebar_news";

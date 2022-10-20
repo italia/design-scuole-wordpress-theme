@@ -1,3 +1,25 @@
+.carousel > label {
+  font-size: 16px;
+  font-size: 1rem;
+  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  font-weight: 600;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+.carousel > label {
+  color: #000;
+}
+
+.carousel > input:checked + label + article {
+  font-size: 16px;
+  font-size: 1rem;
+  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  line-height: 24px;
+  line-height: 1.5rem;
+  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
+}
+
 .carousel {
   display: grid;
   grid-auto-flow: row dense;
@@ -11,7 +33,7 @@
   width: 100%;
   height: 100%;
 }
-.carousel > h2 {
+.carousel > h3 {
   grid-area: title;
   margin: 1rem 0;
   text-transform: uppercase;
@@ -46,12 +68,12 @@
   width: 14px;
 }
 .carousel > article > div {
+  height: 8rem;
+  width: 8rem;
+  background-size: contain;
   padding: 1rem 2rem;
 }
 .carousel > input:checked + label {
-  font-weight: bold;
-}
-.carousel > input:checked + label + article {
   font-weight: bold;
 }
 .carousel > input:not(:checked) + label + article {
