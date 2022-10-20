@@ -28,8 +28,8 @@
 
               <a class="img-loop" href="<?php the_permalink();?>">
 
+                <?php the_post_thumbnail("news-thumb");?>
                 <div>
-                  <?php the_post_thumbnail("news-thumb");?>
                 </div>
 
               </a>
