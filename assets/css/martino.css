@@ -859,16 +859,9 @@ label > span {
   z-index: 0;
 }
 
-#main-container section#input-lavora-con-noi-docenti {
-  /* Chrome, Safari, Edge, Opera */
-  /* Firefox */
-}
-#main-container section#input-lavora-con-noi-docenti input::-webkit-outer-spin-button,
-#main-container section#input-lavora-con-noi-docenti input::-webkit-inner-spin-button {
+#main-container section#input-lavora-con-noi-docenti .no-spin {
   -webkit-appearance: none;
   margin: 0;
-}
-#main-container section#input-lavora-con-noi-docenti input[type=number] {
   -moz-appearance: textfield;
 }
 

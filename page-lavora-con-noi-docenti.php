@@ -8,172 +8,55 @@
  * @package Design_Scuole_Italia
  */
 
-get_header();
+get_header()
 ?>
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_page"); ?>
+    <?php get_template_part("template-parts/hero/hero_page") ?>
 
     <section id="input-lavora-con-noi-docenti" class="container mt-5">
         <div class="row">
-
-            <!-- NOME -->
-            <div class="col-lg-5 col-12">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Il/La sottoscritto/a*" aria-label="Nome">
-                </div>
+            <div class="col-12">
+                <?php echo do_shortcode('[contact-form-7 id="126" title="Lavora con noi - Docenti"]') ?>
             </div>
-
-            <!-- RESIDENZA -->
-            <div class="col-lg-5 col-12 offset-lg-1">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Residenza a* (inserire il domicilio, se diverso dalla residenza)" aria-label="Residenza">
-                </div>
-            </div>
-
-            <!-- NATO A -->
-            <div class="col-lg-5 col-12">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Nato/a a*" aria-label="Luogo di nascita">
-                </div>
-            </div>
-
-            <!-- NATO IL -->
-            <div class="col-lg-5 col-12 offset-lg-1">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">il*</span>
-                    <input type="date" class="form-control" placeholder="Nato/a a*" aria-label="Luogo di nascita">
-                </div>
-            </div>
-
-            <!-- EMAIL -->
-            <div class="col-lg-5 col-12">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">@</span>
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-                </div>
-            </div>
-
-            <!-- NUMERO DI CELLULARE -->
-            <div class="col-lg-5 col-12 offset-lg-1">
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control no-spin" placeholder="Numero di cellulare" aria-label="Telefono">
-                </div>
-            </div>
-
-            <!-- TITOLO -->
-            <div class="col-lg-5 col-12 mt-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Titolo di accesso alla/e classe/i di concorso richiesta/e*" aria-label="Titolo di accesso alla/e classe/i di concorso richiesta/e*">
-                </div>
-            </div>
-
-            <!-- CLASSE DI CONCORSO -->
-            <div class="col-lg-5 col-12 mt-3 offset-lg-1">
-                <div class="input-group mb-3">
-                    <label for="Classe/i di concorso richiesta/e per l'insegnamento*">Classe/i di concorso richiesta/e per l'insegnamento*</label>
-                    <input type="search" placeholder="Cerca..." name="" id="">
-                    <div class="container">
-                        <!-- LOOP -->
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="checkbox" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="checkbox" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="checkbox" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="checkbox" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="checkbox" name="IDDAINSERIRE" id="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ABILITAZIONE ALL'INSEGNAMENTO -->
-            <div class="col-lg-5 col-12 mt-3">
-                <div class="input-group mb-3">
-                    <label for="Classe/i di concorso richiesta/e per l'insegnamento*">Abilitazione all'insegnamento*</label>
-                    <input type="search" placeholder="Cerca..." name="" id="">
-                    <div class="container">
-                        <!-- LOOP -->
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CERTIFICAZIONI LINGUISTICHE -->
-            <div class="col-lg-5 col-12 mt-3 offset-lg-1">
-                <div class="input-group mb-3">
-                    <label for="Possiede certificazioni linguistiche*">Possiede certificazioni linguistiche*</label>
-                    <input type="search" placeholder="Cerca..." name="" id="">
-                    <div class="container">
-                        <!-- LOOP -->
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                        <div class="row">
-                            <label for="IDDAINSERIRE">FDFFDFDFD</label>
-                            <input type="radio" name="IDDAINSERIRE" id="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-
-            <!-- CARICA CV-->
-            <div class="col-lg-5 col-12 mt-4">
-                <label for=" Carica cv in formato europeo in formato pdf"> Carica cv in formato europeo in formato pdf</label>
-                <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Carica</label>
-                </div>
-            </div>
-
-        </div><!-- Row -->
+        </div>
     </section>
-
 </main>
 
 <?php
-get_footer();
+get_footer()
+
+?>
+A011 - Discipline letterarie e latino
+A012 - Discipline letterarie negli istituti di istruzione secondaria di II grado
+A017 - Disegno e storia dell’arte negli istituti  di istruzione secondaria di II grado
+A018 - Filosofia e Scienze umane
+A019 - Filosofia e Storia
+A020 - Fisica
+A026 - Matematica
+A027 - Matematica e Fisica
+A033 - Scienze e tecnologie aeronautiche
+A034 - Scienze e tecnologie chimiche
+A037 - Scienze e tecnologie delle costruzioni, tecnologie e tecniche di rappresentazione grafica
+A040 - Scienze e tecnologie elettriche ed elettroniche
+A041 - Scienze e tecnologie informatiche
+A042 - Scienze e tecnologie meccaniche
+A045 - Scienze economico-aziendali
+A046 - Scienze giuridico-economiche
+A047 - Scienze matematiche applicate
+A048 - Scienze motorie e sportive negli istituti di istruzione secondaria di II grado
+A050 - Scienze naturali, chimiche e biologiche
+AB24 - Lingue e culture straniere negli istituti di istruzione secondaria di II grado (INGLESE)
+AD24 - Lingue e culture straniere negli istituti di istruzione secondaria di II grado (TEDESCO)
+B03 - Laboratori di Fisica
+B09 - Laboratori di scienze e tecnologie aeronautiche
+B012 - Laboratori di scienze e tecnologie chimiche e microbiologiche
+B015 - Laboratori di scienze e tecnologie elettriche ed elettroniche
+B017 - Laboratori di scienze e tecnologie meccaniche
+IRC - Insegnamento Religione Cattolica
+ADSS -  Sostegno Scuola Superiore
+Lettorato inglese
+Lettorato tedesco
+Italiano centro EDA - SSPG
+Matematica centro EDA - SSPG
+Inglese centro EDA - SSPG
+Altra
