@@ -6,7 +6,7 @@
 
       <h4 class="col-12">Progetti correlati </h4>
 
-      <div class="container-news col-12 row mb-4">
+      <div class="container-news col-12 row mb-4 my-3">
         
         <?php
           $loop = new WP_Query( array( 
