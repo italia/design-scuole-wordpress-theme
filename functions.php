@@ -403,3 +403,24 @@ require dirname(__FILE__).'/functions-parts/cpt-orario-classi.php';
 ------------------------*/
 require dirname(__FILE__).'/functions-parts/custom-fields.php';
 require dirname(__FILE__).'/functions-parts/cmb2-js-validation-required.php';
+
+function get_file_from_zip($zipfile, $filename)
+{
+	// TODO: Add error handling
+	$file = '';
+	$tmpfile = get_temp_dir().'/tmp_file.zip';
+
+	if (!copy($zipfile, $tmpfile)) {
+		// echo "\nfailed to copy <$zipfile> ...\n";
+		return $file;
+	}
+
+	$zip = new ZipArchive;
+	if ($zip->open($tmpfile) === TRUE) {
+		$file = $zip->getFromName($filename);
+		$zip->close();
+		if ($file != false) return $file;
+	} 
+	// echo 'failed';
+	return $file;
+}
