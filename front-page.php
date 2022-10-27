@@ -15,14 +15,12 @@
 
     <div class="row justify-content-between">
 
-      <div id="container-presentazione" class="col-12 col-lg-8">
+      <div id="container-presentazione" class="col-12 col-lg-6">
 
         <div id="nostro-istituto">
 
           <h2>Il nostro istituto</h2>
-          <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto.
-          Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono quelli del liceo scientifico opzione <strong>scienze applicate,</strong> del liceo <strong>scientifico sportivo,</strong> del liceo <strong>scientifico internazionale quadriennale</strong> e del liceo delle <strong>scienze umane</strong> opzione socio-economica. Gli indirizzi tecnici sono quelli dell'istituto economico opzione <strong>amministrazione finanza e marketing,</strong> dell’istituto economico internazionale sportivo, dell’istituto tecnologico opzione <strong>trasporti e logistica</strong> e dell’istituto tecnologico <strong>conduzione del mezzo aereo.</strong><br>
-          Per tutti gli indirizzi l’orario delle lezioni è articolato su cinque giorni (dal lunedì al venerdì) con possibilità di accesso al servizio mensa in caso di prolungamento pomeridiano delle lezioni.. Le aule e i numerosi laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi.
+          <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto. Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono quelli del liceo scientifico opzione <strong>scienze applicate,</strong> del liceo <strong>scientifico sportivo,</strong> del liceo <strong>scientifico internazionale quadriennale</strong> e del liceo delle <strong>scienze umane</strong> opzione socio-economica. Gli indirizzi tecnici sono quelli dell'istituto economico opzione <strong>amministrazione finanza e marketing,</strong> dell’istituto economico internazionale sportivo, dell’istituto tecnologico opzione <strong>trasporti e logistica</strong> e dell’istituto tecnologico <strong>conduzione del mezzo aereo.</strong><br>Per tutti gli indirizzi l’orario delle lezioni è articolato su cinque giorni (dal lunedì al venerdì) con possibilità di accesso al servizio mensa in caso di prolungamento pomeridiano delle lezioni.. Le aule e i numerosi laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi.
 
           </p>
 
@@ -32,9 +30,7 @@
         <div id="mission-vision">
 
           <h3>La scuola secondo noi</h3>
-          <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla flessibilità, sull’innovazione e sulla personalizzazione. 
-          Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.
-          L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
+          <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla flessibilità, sull’innovazione e sulla personalizzazione. Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
 
           </p>
 
@@ -45,7 +41,7 @@
       <!--#container-presentazione -->
 
 
-      <div class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0 m-0 row">
+      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0 row">
 
         <h4>Area Docenti</h4>
 

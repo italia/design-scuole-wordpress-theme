@@ -12,6 +12,31 @@
     .rem5 {
         margin-bottom: 5rem;
     }
+
+    ul.simcal-events{
+        max-height: 400px;
+        overflow: auto;
+        &li{
+            display: block !important;
+        }
+        .simcal-event-details p{
+                margin: 0 0 0.5em;
+
+            a{
+                color: $primary;
+                font-weight: 400;
+            }
+        }
+    }
+
+    button.simcal-events-toggle{
+        display: none;
+    }
+
+    .simcal-default-calendar-list ul.simcal-events li.simcal-event{
+        margin-bottom: 25px;
+    }
+
   }
 @media screen and (max-width: 991px) {
     .wauto {
