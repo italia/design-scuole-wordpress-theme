@@ -15,7 +15,7 @@
 
     <div class="row justify-content-between">
 
-      <div id="container-presentazione" class="col-12 col-lg-8">
+      <div id="container-presentazione" class="col-12 col-lg-6">
 
         <div id="nostro-istituto">
 
@@ -41,7 +41,7 @@
       <!--#container-presentazione -->
 
 
-      <div class="offset-lg-1 col-12 col-lg-3 order-1 order-lg-0 m-0 row">
+      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0 row">
 
         <h4>Area Docenti</h4>
 

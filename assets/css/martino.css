@@ -609,6 +609,26 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #main-container .rem5 {
   margin-bottom: 5rem;
 }
+#main-container ul.simcal-events {
+  max-height: 400px;
+  overflow: auto;
+}
+#main-container ul.simcal-eventsli {
+  display: block !important;
+}
+#main-container ul.simcal-events .simcal-event-details p {
+  margin: 0 0 0.5em;
+}
+#main-container ul.simcal-events .simcal-event-details p a {
+  color: #1260A4;
+  font-weight: 400;
+}
+#main-container button.simcal-events-toggle {
+  display: none;
+}
+#main-container .simcal-default-calendar-list ul.simcal-events li.simcal-event {
+  margin-bottom: 25px;
+}
 
 @media screen and (max-width: 991px) and (max-width: 575.98px) {
   .wauto {
