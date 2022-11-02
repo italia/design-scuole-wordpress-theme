@@ -894,6 +894,10 @@ label > span {
   display: block;
 }
 
+#main-container-asl .list {
+  list-style-type: disc;
+}
+
 #hero {
   height: 400px;
   width: 100%;
@@ -1112,10 +1116,12 @@ label > span {
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
-  text-transform: uppercase;
 }
 #sidebar .mailfield a {
   text-transform: lowercase;
+}
+#sidebar h6 {
+  margin: 2rem 0;
 }
 #sidebar .card {
   background-color: transparent;

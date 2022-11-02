@@ -20,7 +20,7 @@ function cmb2_sample_metaboxes() {
 
     // Regular text field
     $cmb->add_field( array(
-        'name'       => __( 'Titolo di test', 'cmb2' ),
+        'name'       => __( 'Titolo', 'cmb2' ),
         'desc'       => __( 'In questo campo bisogna inserire il titolo', 'cmb2' ),
         'id'         => 'martini_titolo',
         'type'       => 'text',
@@ -29,7 +29,7 @@ function cmb2_sample_metaboxes() {
 
     // URL text field
     $cmb->add_field( array(
-        'name' => __( 'Website URL test', 'cmb2' ),
+        'name' => __( 'Website URL', 'cmb2' ),
         'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
         'id'   => 'martini_url',
         'type' => 'text_url',
@@ -39,56 +39,51 @@ function cmb2_sample_metaboxes() {
 
     // Email text field
     $cmb->add_field( array(
-        'name' => __( 'Email test', 'cmb2' ),
+        'name' => __( 'Email', 'cmb2' ),
         'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
         'id'   => 'martini_email',
         'type' => 'text_email',
         // 'repeatable' => true,
     ) );
 
-    $group_field_id = $cmb->add_field( array(
-        'id'          => 'martini_sidebar_group',
-        'type'        => 'group',
-        'description' => __( 'Questo gruppo di fields serve per le informazioni che verranno riportate nella sidebar', 'cmb2' ),
-        'repeatable'  => false,
-        
-        'options'     => array(
-            'group_title'       => __( 'Sidebar', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
-            'add_button'        => __( 'Aggiungi un nuovo gruppo ', 'cmb2' ),
-            'remove_button'     => __( 'Rimuovi', 'cmb2' ),
-            'sortable'          => true,
-            // 'closed'         => true, // true to have the groups closed by default
-            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+     // File field
+    $cmb->add_field( array(
+        'name' => 'Test File List',
+        'desc' => '',
+        'id'   => 'wiki_test_file_list',
+        'type' => 'file_list',
+        'text' => array(
+            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'remove_image_text' => 'Replacement', // default: "Remove Image"
+            'file_text' => 'Replacement', // default: "File:"
+            'file_download_text' => 'Replacement', // default: "Download"
+            'remove_text' => 'Replacement', // default: "Remove"
         ),
-    ) );
-    
-    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => 'Titolo',
-        'id'   => 'side_martini_title',
-        'type' => 'text',
-        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
-    ) );
-    
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => 'Descrizione',
-        'description' => 'Scrivi una breve descrizione',
-        'id'   => 'side_martini_description',
-        'type' => 'textarea_small',
-    ) );
-    
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => 'Immagine',
-        'id'   => 'side_martini_image',
-        'type' => 'file',
-    ) );
-    
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => 'Didascalia immagine',
-        'id'   => 'side_martini_image_caption',
-        'type' => 'text',
-    ) );
+    ) );   
 
+}
+
+/**
+ * Sample template tag function for outputting a cmb2 file_list
+ *
+ * @param  string  $file_list_meta_id The field meta id. ('wiki_test_file_list')
+ * @param  string  $img_size           Size of image to show
+ */
+
+
+function cmb2_output_file_list( $file_list_meta_id, $img_size = 'medium' ) {
+
+    // Get the list of files
+    $files = get_post_meta( get_the_ID(), $file_list_meta_id, 1 );
+
+    echo '<div class="file-list-wrap">';
+    // Loop through them and output an image
+    foreach ( (array) $files as $attachment_id => $attachment_url ) {
+        echo '<div class="file-list-image">';
+        echo wp_get_attachment_image( $attachment_id, $img_size );
+        echo '</div>';
+    }
+    echo '</div>';
 }
 
 ?>
