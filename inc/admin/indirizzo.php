@@ -635,3 +635,18 @@ if(!function_exists('dsi_save_percorsi_di_studio_custom_meta')) {
 }
 add_action( 'edited_percorsi-di-studio', 'dsi_save_percorsi_di_studio_custom_meta', 10, 2 );
 add_action( 'create_percorsi-di-studio', 'dsi_save_percorsi_di_studio_custom_meta', 10, 2 );
+
+add_action( 'save_post_indirizzo', 'dsi_update_percorsi_di_studio', 10, 3 );
+if(!function_exists('dsi_update_percorsi_di_studio')) {
+    function dsi_update_percorsi_di_studio( $post_id, $post, $update ) {
+        global $post;
+        $pattern = trim(get_shortcode_regex(array('table_from_sheets')), '"');
+        
+        if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+        && array_key_exists( 2, $matches )
+        && in_array( 'table_from_sheets', $matches[2] )
+        ) {
+            table_from_sheets(shortcode_parse_atts($matches[0][0]), null, true);
+        }
+    }
+}
