@@ -20,7 +20,7 @@ get_header();
                 <div class="row main-content variable-gutters">
 
                     <div class="container col-lg-8">
-                        <div class="pt-5 px-3">
+                        <div class="py-5 px-3">
                             <p>Nel 2012 l’Istituto Martino Martini è diventato <strong>centro EDA. </strong><br><br>
 
                                 La sua offerta formativa include un corso finalizzato al conseguimento del diploma conclusivo del primo ciclo di istruzione, previo superamento dell’Esame di Stato finale <strong>(diploma di terza media)</strong>. <br><br>

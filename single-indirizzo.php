@@ -88,7 +88,6 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                             <div class="">
                                 <?php if(is_array($percorsi)){
                                     echo "<small class=\"text-primary\">";
-                                    $c=0;
                                     foreach ($percorsi as $percorso){
 
                                         if($c) echo ", ";

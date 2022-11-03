@@ -19,15 +19,15 @@ get_header();
             <div class="container-fluid container-border-top">
                 <div class="row main-content variable-gutters">
 
-                    <div class="container col-lg-8">
-                        <div class="row pt-5 px-3">
+                    <div class="container col-lg-8 px-3 py-5">
+                        <div class="row">
                             <p>Il corso serale presente all’Istituto Martino Martini è il Tecnico Economico, indirizzo Amministrazione, Finanza e Marketing, articolazione AFM.
                             </p>
                         </div>
                         <div id="image-block" class="row col-sm-10 offset-sm-1">
                             <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
                         </div>
-                        <div class="row pt-5 px-3">
+                        <div class="row pt-5">
                             <p>Le lezioni si svolgono da lunedì a venerdì dalle ore 19.00 alle ore 23.20. Da lunedì a giovedì in presenza nella sede di via Perlasca n. 4 a Mezzolombardo, il venerdì a distanza tramite Meet. <br>
                             All'atto dell'iscrizione ogni studente sarà dotato di un account di tipo nome.cognome@martinomartini.eu che permetterà di accedere a Google Workspace, risorsa chiave per il corso serale, dove condivisione e collaborazione sono elementi imprescindibili per il successo formativo dei frequentanti. <br>
                             <br>

@@ -860,9 +860,18 @@ label > span {
 }
 
 #open-day .open-post-title {
-  display: none;
+  border-radius: 100%;
+  height: 100%;
+  min-height: 100%;
   text-align: center;
-  transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  padding: 5% 20%;
+  display: none;
+}
+#open-day .open-day-foto {
+  display: block;
+}
+#open-day .open-day-foto:hover {
+  display: none;
 }
 #open-day .open-day-foto:hover + .open-post-title {
   display: block;
