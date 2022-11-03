@@ -406,6 +406,9 @@ require dirname(__FILE__).'/functions-parts/cpt-orario-laboratori.php';
 require dirname(__FILE__).'/functions-parts/cpt-orario-palestra.php';
 require dirname(__FILE__).'/functions-parts/cpt-orario-serali.php';
 
+require dirname(__FILE__).'/functions-parts/cpt-pon.php';
+require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
+
 /* Customize Back-end
 ------------------------*/
 require dirname(__FILE__).'/functions-parts/custom-fields.php';

@@ -17,8 +17,8 @@ get_header();
        <?php get_template_part("template-parts/hero/hero_page"); ?> 
 
 
-    <section id="text-block" class="section bg-white">
-        <div class="container-fluid container-border-top">
+    <section id="text-block" class="section bg-white my-5">
+        <div class="container">
             <div class="row variable-gutters">
                 
                 <div class="main-content col-lg-8 col-xxl-6">
@@ -29,7 +29,7 @@ get_header();
 
                     <div class="pt-3 px-3">    
                         <h3>Certifizazioni linguistiche</h3>
-                        <ul>
+                        <ul class="list">
                            <li>Certificazioni d’inglese livelli B1, B2 e C1</li> 
                            <li>Certificazioni di tedesco DSD livelli A2 e B1</li> 
                         </ul>
@@ -37,7 +37,7 @@ get_header();
 
                     <div class="pt-3 px-3">    
                         <h3>Settimane linguistiche</h3>
-                        <ul>
+                        <ul class="list">
                            <li>Soggiorni linguisticipresso la Northwest Academy di Derry e a Galway</li> 
                            <li>Tirocini formativi in zone anglofone</li> 
                            <li>Stage estivi a Colonia</li> 
@@ -46,7 +46,7 @@ get_header();
 
                     <div class="pt-3 px-3">    
                         <h3>Gemellaggi</h3>
-                        <ul>
+                        <ul class="list">
                            <li>Gemellaggio con il Gymnasium ”A.Einstein“ di Schwalbach (Frankfurt am Main) e con l’IGS „Lichtenberg“ di Göttingen</li>  
                         </ul>
                     </div>
