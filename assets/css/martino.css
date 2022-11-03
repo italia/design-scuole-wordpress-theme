@@ -104,6 +104,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   font-weight: 400;
 }
 
+.list {
+  list-style-type: disc;
+}
+
 .article_title .container {
   height: auto;
   position: static;
@@ -892,10 +896,6 @@ label > span {
 }
 #open-day .open-day-foto:hover + .open-post-title {
   display: block;
-}
-
-#main-container-asl .list {
-  list-style-type: disc;
 }
 
 #hero {
