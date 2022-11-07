@@ -49,7 +49,7 @@
           <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
             <button>Registro elettronico</button>
           </a>
-          <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
+          <a class="btn-lg-default-outline w-100 col-12" href="orari-docenti">
             <button>Orari docenti</button>
           </a>
           <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
@@ -75,7 +75,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="2-livello-ITE-serale" target="blank">
+            <a class="btn-lg-default-outline" href="2-livello-ITE-serale" >
 
               <button>
                 <span>DIDATTICA</span>
@@ -88,7 +88,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="offerta-formativa" target="blank">
+            <a class="btn-lg-default-outline" href="offerta-formativa">
 
               <button>
                 <span>DIDATTICA</span>
@@ -101,7 +101,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="open-days" target="blank">
+            <a class="btn-lg-secondary-outline" href="open-days">
 
               <button>
                 <span>SERVIZI</span>
@@ -114,7 +114,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="ASL" target="blank">
+            <a class="btn-lg-secondary-outline" href="ASL">
 
               <button>
                 <span>SERVIZI</span>
