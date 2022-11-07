@@ -64,7 +64,7 @@
 
         <div class="button-container col-12 mt-4 mt-lg-0 pr-3">
 
-          <a class="btn-lg-default-outline w-100" href="<?php get_page_by_path('novità')?>" class="col-12 p-0">
+          <a class="btn-lg-default-outline w-100" href="novità" class="col-12 p-0">
 
             <button>Vai alla sezione</button>
 
