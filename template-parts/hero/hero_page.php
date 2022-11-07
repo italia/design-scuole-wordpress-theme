@@ -1,9 +1,9 @@
 <?php 
     $hero_post_id = 134;
 ?>
-<section class="container">
+<section class="hero-container">
     <div id="hero-splide" >
-        <div id="content" class="row align-items-center splide__track">
+        <div id="hero-content" class="row align-items-center splide__track">
             <ul class="splide__list ">
 
                 <?php 
@@ -23,6 +23,7 @@
                         echo get_the_permalink($hero_post_id); 
                         ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
                     </div>
+                    <div class="splide__slide__img" style="background-image: url( https://source.unsplash.com/random?<?php echo $i; ?> );"></div>
                 </li>
 
                 <?php } ?>
@@ -31,10 +32,17 @@
     </div>
 </section>
 <script>
+    /**
+     *  @see {@link https://splidejs.com/v3/guides/getting-started/ } 
+     */
     document.addEventListener( 'DOMContentLoaded', () =>
         (!!Splide) && (new Splide( '#hero-splide', {
             type: 'loop',
             pagination: true,
             start: 0,
+            classes: {
+                arrows: 'splide__arrows container',
+                pagination: 'splide__pagination container',
+            },
         })).mount() && (document.querySelector('#hero-splide .splide__list').style = ''));
 </script>

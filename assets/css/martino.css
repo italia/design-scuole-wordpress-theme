@@ -901,10 +901,6 @@ label > span {
 #hero {
   height: 400px;
   width: 100%;
-  background-image: url(https://source.unsplash.com/random);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   padding: 0;
 }
@@ -924,10 +920,27 @@ label > span {
   padding: 0;
 }
 #hero > section > #hero-splide .splide__slide {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+#hero > section > #hero-splide .splide__slide__img {
+  inset: 0;
+  position: absolute;
+  z-index: -10;
+  background-image: url(https://source.unsplash.com/random);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.5);
 }
 #hero > section > #hero-splide .splide__list {
   width: 100%;
+}
+#hero > section > #hero-splide .splide__arrows {
+  position: relative;
+  height: 100%;
 }
 #hero > section > #hero-splide .splide__arrow {
   background-color: transparent;
@@ -935,21 +948,39 @@ label > span {
 #hero > section > #hero-splide .splide__arrow svg {
   fill: white;
 }
-#hero #content {
+#hero > section > #hero-splide .splide__pagination {
+  gap: 1.1875rem;
+  margin: auto;
+  margin-bottom: 2.125rem;
+}
+#hero > section > #hero-splide .splide__pagination__page {
+  background-color: #D2E4FF;
+}
+#hero > section > #hero-splide .splide__pagination__page.is-active {
+  background-color: #9fc9ff;
+}
+#hero > section > #hero-splide .splide__pagination__page, #hero > section > #hero-splide .splide__pagination__page.is-active {
+  transform: none;
+  width: 1rem;
+  height: 1rem;
+}
+#hero #hero-content {
   height: 100%;
   height: 100%;
   width: 100%;
   margin: 0;
+  bottom: 0;
+  position: absolute;
 }
-#hero #content h1 {
+#hero #hero-content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
   color: #fff;
 }
-#hero #content p {
+#hero #hero-content p {
   text-transform: uppercase;
-  color: #fff;
   text-align: center;
+  color: #fff;
 }
 
 #hero-indirizzi {
