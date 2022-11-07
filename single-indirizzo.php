@@ -12,10 +12,10 @@ get_header();
 $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', true );
 
 ?>
+<?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>      
 
     <main id="main-container" class="main-container  container">
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>      
 
         
         <?php
@@ -74,16 +74,16 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                     <?php if($user_can_view_post): ?>
 
                         <!-- Main content of the page -->
-                    <div class="container px-3 px-md-5 col-lg-8">
+                    <div class="container col-lg-8">
 
-                        <div class="pt-3 px-3 px-md-5">
+                        <div class="pt-3">
                             <a href="../"><p>< Torna all'offerta formativa</p></a>
                         </div>
                        
 
                         
 
-                        <div class="article-wrapper pt-3 px-3 px-md-5">
+                        <div class="article-wrapper pt-3">
                             
                             <div class="">
                                 <?php if(is_array($percorsi)){
@@ -284,7 +284,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                         <!-- TO DO: da verificare le categorie -->
 
                         <!--LOOP NEWS  -->
-                        <div class="container col-12 px-lg-5">
+                        <div class="container col-12">
                             <?php get_template_part('martini-template-parts/loop/loop-progetti-generale') ?>
                         </div>
                         
@@ -302,7 +302,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
 
                     <!-- SIDEBAR -->
-                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-3 py-5">
+                    <div id="sidebar" class="col-lg-3 px-3 py-5">
                         <aside class="aside-main aside-sticky">
                             
                         <div class="col-12 col-lg-10" id="program-legend">
