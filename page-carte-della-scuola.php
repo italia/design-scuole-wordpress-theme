@@ -11,17 +11,6 @@
 get_header();
 
 ?>
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-    <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
-        <section id="container-spazi">
-            <div class="row my-5">
-                <div class="col-12">
-                    <h3>Privacy</h3>
-=======
->>>>>>> Stashed changes
 <main id="main-container" class="main-container">
     <?php get_template_part("template-parts/hero/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
@@ -43,11 +32,7 @@ get_header();
             <h4 class="">Privacy</h4>
         </div>
         <div class="col-12 col-md-6 align-items-start text-md-right">
-<<<<<<< Updated upstream
-            <a class="btn-sm-default">
-=======
             <a class="btn-sm-default" href="privacy">
->>>>>>> Stashed changes
                 <button class="w-auto">Visita la pagina</button>
             </a>
         </div>
@@ -75,10 +60,6 @@ get_header();
                         </svg>
                         <?php the_title(); ?>
                     </a>
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
                 </div>
             <?php endwhile; ?>
         </div>
@@ -96,14 +77,8 @@ get_header();
                     <button class="w-auto">Visita la pagina</button>
                 </a>
             </div>
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-        </section>
-    </main>
-=======
->>>>>>> Stashed changes
         </div>
+    </section>
 
     </section>
     <section class="row bg-light px-5" id="container-sicurezza">
@@ -111,21 +86,13 @@ get_header();
             <h4 class="">Sicurezza</h4>
         </div>
         <div class="col-12 col-md-6 align-items-start text-md-right">
-<<<<<<< Updated upstream
-            <a class="btn-sm-default">
-=======
             <a class="btn-sm-default"  href="sicurezza">
->>>>>>> Stashed changes
                 <button class="w-auto">Visita la pagina</button>
             </a>
         </div>
         <div class="align-items-center row col-12 m-0">
 
             <?php
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
             $loop = new WP_Query(array(
                 'post_type'         => 'sicurezza',
