@@ -1,3 +1,4 @@
+
 <div class="p-0" id="progetti-home">
 
   <div class="container m-0 p 0">
@@ -55,7 +56,7 @@
           
       <div class="col-12 mt-4 mt-lg-0 pl-0 pr-0 w-100">
 
-        <a class="btn-lg-default-outline" href="">
+        <a class="btn-lg-default-outline" href="i-progetti-della-classe">
           <button>Vedi tutti</button>
         </a>
 
