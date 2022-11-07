@@ -8,6 +8,14 @@
         rgba(255, 85, 85, 0.5) 0px 0px 0px 12px, 
         rgba(252, 255, 85, 0.5) 0px 0px 0px 15px !important;
     }
+    
+    $bad-chars: à á ò è é ì;
+    $bad-hrefs: '';
+    @each $char in $bad-chars {
+        $bad-hrefs: $bad-hrefs + '[href*="' + $char + '"], ';
+    }
+    #{$bad-hrefs}
+    [href*=" "],
     [href=""],
     [href=\#] {
         box-shadow: 
