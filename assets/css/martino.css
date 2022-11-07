@@ -905,11 +905,38 @@ label > span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   padding: 0;
+}
+#hero::before {
+  content: "";
+  inset: 0;
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#hero > section {
+  height: 100%;
+  position: relative;
+}
+#hero > section > #hero-splide {
+  height: 100%;
+  padding: 0;
+}
+#hero > section > #hero-splide .splide__slide {
+  margin: auto;
+}
+#hero > section > #hero-splide .splide__list {
+  width: 100%;
+}
+#hero > section > #hero-splide .splide__arrow {
+  background-color: transparent;
+}
+#hero > section > #hero-splide .splide__arrow svg {
+  fill: white;
 }
 #hero #content {
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   margin: 0;
