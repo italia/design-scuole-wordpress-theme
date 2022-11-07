@@ -397,9 +397,40 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
 require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
 require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
-require dirname(__FILE__).'/functions-parts/cpt-orari-docenti.php';
+
+require dirname(__FILE__).'/functions-parts/cpt-documenti.php';
+
 require dirname(__FILE__).'/functions-parts/cpt-orario-classi.php';
+require dirname(__FILE__).'/functions-parts/cpt-orario-docenti.php';
+require dirname(__FILE__).'/functions-parts/cpt-orario-laboratori.php';
+require dirname(__FILE__).'/functions-parts/cpt-orario-palestra.php';
+require dirname(__FILE__).'/functions-parts/cpt-orario-serali.php';
+
+require dirname(__FILE__).'/functions-parts/cpt-pon.php';
+require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
+
 /* Customize Back-end
 ------------------------*/
 require dirname(__FILE__).'/functions-parts/custom-fields.php';
 require dirname(__FILE__).'/functions-parts/cmb2-js-validation-required.php';
+
+function get_file_from_zip($zipfile, $filename)
+{
+	// TODO: Add error handling
+	$file = '';
+	$tmpfile = get_temp_dir().'/tmp_file.zip';
+
+	if (!copy($zipfile, $tmpfile)) {
+		// echo "\nfailed to copy <$zipfile> ...\n";
+		return $file;
+	}
+
+	$zip = new ZipArchive;
+	if ($zip->open($tmpfile) === TRUE) {
+		$file = $zip->getFromName($filename);
+		$zip->close();
+		if ($file != false) return $file;
+	} 
+	// echo 'failed';
+	return $file;
+}

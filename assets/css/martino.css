@@ -104,6 +104,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   font-weight: 400;
 }
 
+.list {
+  list-style-type: disc;
+}
+
 .article_title .container {
   height: auto;
   position: static;
@@ -609,6 +613,26 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #main-container .rem5 {
   margin-bottom: 5rem;
 }
+#main-container ul.simcal-events {
+  max-height: 400px;
+  overflow: auto;
+}
+#main-container ul.simcal-eventsli {
+  display: block !important;
+}
+#main-container ul.simcal-events .simcal-event-details p {
+  margin: 0 0 0.5em;
+}
+#main-container ul.simcal-events .simcal-event-details p a {
+  color: #1260A4;
+  font-weight: 400;
+}
+#main-container button.simcal-events-toggle {
+  display: none;
+}
+#main-container .simcal-default-calendar-list ul.simcal-events li.simcal-event {
+  margin-bottom: 25px;
+}
 
 @media screen and (max-width: 991px) and (max-width: 575.98px) {
   .wauto {
@@ -823,6 +847,8 @@ label > span {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 #main-container-orari-docenti #myUL li a {
   border: 1px solid #DFE2EB; /* Add a border to all links */
@@ -832,6 +858,7 @@ label > span {
   text-decoration: none; /* Remove default text underline */
   color: #000; /* Add a black text color */
   display: block; /* Make it into a block element to fill the whole list */
+  height: 100%;
 }
 #main-container-orari-docenti #myUL li a:hover:not(.header) {
   background-color: #DFE2EB; /* Add a hover effect to all links, except for headers */
@@ -841,12 +868,34 @@ label > span {
 }
 #main-container-orari-docenti img:target {
   display: block;
-  padding-top: 8vh;
+  padding-top: 25vh;
+  margin-top: -10vh;
 }
 #main-container-orari-docenti mark.highlight {
   padding: 0;
   font-weight: bold;
   background-color: transparent;
+}
+#main-container-orari-docenti .z-index-1 {
+  z-index: 1;
+}
+#main-container-orari-docenti .z-index-0 {
+  z-index: 0;
+}
+
+#main-container section#input-lavora-con-noi-docenti .no-spin {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+#open-day .open-post-title {
+  display: none;
+  text-align: center;
+  transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+#open-day .open-day-foto:hover + .open-post-title {
+  display: block;
 }
 
 #hero {
@@ -975,7 +1024,7 @@ label > span {
 .card .card-img a > div:only-child {
   width: 100%;
   height: 100%;
-  background-image: url(/images/logo-custom.png?3d4c2bb8f6e6b0b3fa2ee0f8c359aaf0);
+  background-image: url("/wp-content/themes/design-scuole-wordpress-theme/assets/images_martini/logo-custom.png");
   background-position: center;
   background-size: cover;
 }
@@ -1037,7 +1086,7 @@ label > span {
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop > div:only-child {
   width: 100%;
   height: 100%;
-  background-image: url(/wp-content/uploads/2022/07/LOGO-MARTINI.png);
+  background-image: url("/wp-content/themes/design-scuole-wordpress-theme/assets/images_martini/logo-custom.png");
   background-position: center;
   background-size: cover;
 }
@@ -1067,10 +1116,12 @@ label > span {
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
-  text-transform: uppercase;
 }
 #sidebar .mailfield a {
   text-transform: lowercase;
+}
+#sidebar h6 {
+  margin: 2rem 0;
 }
 #sidebar .card {
   background-color: transparent;

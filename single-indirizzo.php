@@ -282,9 +282,11 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                         </div>
 
+                        <!-- TO DO: da verificare le categorie -->
+
                         <!--LOOP NEWS  -->
                         <div class="container col-12 px-lg-5">
-                            <?php get_template_part('martini-template-parts/loop/loop-news-home') ?>
+                            <?php get_template_part('martini-template-parts/loop/loop-progetti-generale') ?>
                         </div>
                         
                         

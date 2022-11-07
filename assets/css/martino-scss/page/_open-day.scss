@@ -1,0 +1,18 @@
+#open-day{
+
+    .open-post-title{
+        display: none;
+        text-align: center;
+        transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+
+    .open-day-foto{
+
+        &:hover + .open-post-title{
+            display: block;
+        }
+
+
+    }
+
+}

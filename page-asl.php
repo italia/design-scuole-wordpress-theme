@@ -11,20 +11,20 @@ get_header();
 
 ?>
 
-<main id="main-container" class="main-container">
+<main id="main-container-asl" class="main-container">
        
       
        <?php get_template_part("template-parts/hero/hero_page"); ?> 
 
 
     <section id="text-block" class="section bg-white">
-        <div class="container-fluid container-border-top">
+        <div class="container">
             <div class="row variable-gutters">
                 
-                <div class="main-content col-lg-8">
-                    <div class="pt-5 px-3">    
+                <div class="py-5 px-3 col-lg-8">
+                    <div class="py-2">    
                         <h2>Alternanza scuola-lavoro</h2>
-                        <p>L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
+                        <p class="pt-2">L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
                         <br>
                         <br>
                         L’Alternanza scuola-lavoro, obbligatoria per tutte le studentesse e gli studenti degli ultimi tre anni delle scuole superiori, licei compresi, è una delle innovazioni più significative della legge 107 del 2015 (La Buona Scuola) in linea con il principio della scuola aperta.
@@ -44,9 +44,9 @@ get_header();
                         </p>
                     </div>
 
-                    <div class="py-5 px-3">    
+                    <div class="py-2">    
                         <h3>Le finalità dell’ASL</h3>
-                        <ul class="text-body">
+                        <ul class="list px-4 pt-2">
                             <li>Arricchire la formazione acquisita nei percorsi scolastici con l'acquisizione di competenze  osservabili «sul campo»</li> 
                             <li>Favorire l'orientamento dei giovani per valorizzarne le vocazioni personali, gli interessi e gli stili di apprendimento individuali</li>
                             <li>Acquisire competenze spendibili nel mondo del lavoro</li>
@@ -57,31 +57,23 @@ get_header();
                     </div>
 
                 </div><!-- /col-lg-6 -->
-
-                <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-lg-3 py-5">
+                <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
-                            <div class="col-12 col-lg-9 col-xl-6" id="program-legend">
-                            <h5>Modulistica</h5>
-                        </div>
-                        <div class="col-lg-3 offset-lg-1 col-xl-4 offset-xl-2 px-3 py-4">
-                        <?php 
- 
-                                    if(trim($procedura_esito) != ""){ 
-                                        ?> 
-                                        <h6 class="h6"><?php _e("email", "design_scuole_italia"); ?></h6> 
-                                        <div class="row variable-gutters"> 
-                                            <div class="col-lg-9"> 
-                                                <?php echo wpautop($procedura_esito); ?> 
-                                            </div><!-- /col-lg-9 --> 
-                                        </div><!-- /row --> 
-                                        <?php 
-                                    } 
-                                    ?>
+                            <div class="col-12 col-lg-9" id="program-legend">
+                                <h5>Modulistica</h5>                                
+                                <ul class="link-list">
+                                    <li> <h6> <?php echo get_post_meta( get_the_ID(), 'martini_titolo', true );?> </h6> </li>
+                                    <li> <a href="<?php echo get_post_meta( get_the_ID(), 'martini_url', true );?>"> <?php the_title();?> </a> </li>
+                                    <li> <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'martini_email', true );?>" target=blank> <?php echo get_post_meta( get_the_ID(), 'martini_email', true );?> </a> </li>
 
-                        </div>
-                        
-                    </aside>
-                </div>
+                                    <li> <a href=""> 
+                                        <!-- Qui ci deve andare il documento  -->
+                                    </a> </li>
+                                
+                                </ul>
+                            </div>
+                        </aside>
+                    </div> <!--/ sidebar -->
                   
                 
             </div><!-- /row -->

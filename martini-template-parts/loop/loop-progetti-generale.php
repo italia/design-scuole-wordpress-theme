@@ -4,18 +4,19 @@
 
     <div class="row">
 
-      <h4 class="col-12">Ultime news </h4>
+      <h4 class="col-12">Progetti correlati </h4>
 
-      <div class="container-news col-12 row mb-4">
+      <div class="container-news col-12 row mb-4 my-3">
         
         <?php
           $loop = new WP_Query( array( 
-            'post_type'         => 'post', 
+            'post_type'         => 'scheda_progetto', 
             'post_status'       => 'publish', 
             'orderby'           => 'count', 
             'order'             => 'DESC', 
             'posts_per_page'    => 3,)
           );
+
 
           while ($loop -> have_posts()) : $loop -> the_post(); 
 
@@ -28,7 +29,11 @@
 
               <a class="img-loop" href="<?php the_permalink();?>">
 
-                <?php the_post_thumbnail("news-thumb");?>
+                <?php 
+                if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
+                  echo get_the_post_thumbnail($post->ID);
+                }
+              ?>
                 <div>
                 </div>
 
@@ -64,7 +69,7 @@
 
         <div class="button-container col-12 mt-4 mt-lg-0 pr-3">
 
-          <a class="btn-lg-default-outline w-100" href="<?php get_page_by_path('novità')?>" class="col-12 p-0">
+          <a class="btn-lg-default-outline w-100" href="<?php get_page_by_path('progetti')?>" class="col-12 p-0">
 
             <button>Vai alla sezione</button>
 

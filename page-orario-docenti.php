@@ -19,11 +19,13 @@
 
         </div><!-- col-12 -->
 
-        <div class="col-6 mt-4 min-h">
+        <div class="col-12 z-index-1">
+        <!-- <div class="col-6 mt-4 min-h"> -->
 
           <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orari docenti" autocomplete="off">
 
-          <ul id="myUL">
+          <!-- <ul id="myUL" class="row-cols-4 row"> -->
+          <ul id="myUL" class="">
             <?php
             $loop = new WP_Query(array(
 
@@ -34,43 +36,48 @@
               'order' => "ASC",
 
             ));
-
-            while ($loop->have_posts()) : $loop->the_post();
+            {
+              # code...
+              while ($loop->have_posts()) : $loop->the_post();
             ?>
 
-              <li><a href="#orari-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="#orari-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
 
             <?php
-            endwhile;
-            ?>
-            <div class="col-6">
-
-              <?php
-              while ($loop->have_posts()) : $loop->the_post();
-
-                $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
-              ?>
-
-                <img id="orari-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" alt="<?php the_title(); ?>" loading="lazy">
-
-              <?php
               endwhile;
-              ?>
-            </div><!-- col-6 -->
+            }
+            ?>
 
           </ul>
         </div>
+        <div class="col-12 z-index-0">
+
+        <span id="ancoraggio"></span>
+
+          <?php
+          while ($loop->have_posts()) : $loop->the_post();
+
+            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
+          ?>
+              <img id="orari-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" loading="lazy" alt="<?php the_title(); ?>" loading="lazy">
+          <?php
+          endwhile;
+          ?>
+        </div><!-- col-12 -->
 
       </div><!-- col-12 -->
 
       <div class="col-lg-2 col-6 mt-4">
+        <?php
+        $post = get_page_by_path('orario-classi');
+        ?>
 
-        <a class="btn-md-default-outline" href="<?php the_permalink(); ?>" target="blank">
+        <a class="btn-md-default-outline" href="<?php echo get_permalink(); ?>">
           <button>
             Orario Classi
           </button>
         </a>
-        
+
       </div><!-- col-6  -->
 
     </div> <!-- row -->
