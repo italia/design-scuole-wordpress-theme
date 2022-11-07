@@ -1,11 +1,11 @@
 .h1, h1 {
   font-size: 40px;
   font-size: 2.5rem;
-  font-size: clamp(40px, -8px + 0.0833333333 * 100vw, 56px);
+  font-size: clamp(40px, -8px + 8.33333333vw, 56px);
   font-weight: 700;
   line-height: 48px;
   line-height: 3rem;
-  line-height: clamp(48px, 0px + 0.0833333333 * 100vw, 64px);
+  line-height: clamp(48px, 0px + 8.33333333vw, 64px);
   letter-spacing: -2px;
 }
 
@@ -16,11 +16,11 @@ main .h1, main h1 {
 .h2, h2 {
   font-size: 32px;
   font-size: 2rem;
-  font-size: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
+  font-size: clamp(32px, -16px + 8.33333333vw, 48px);
   font-weight: 700;
   line-height: 40px;
   line-height: 2.5rem;
-  line-height: clamp(40px, -20px + 0.1041666667 * 100vw, 60px);
+  line-height: clamp(40px, -20px + 10.41666667vw, 60px);
   letter-spacing: -1.3px;
 }
 
@@ -31,40 +31,40 @@ main .primary, main .fw-regular.primary, main .text-xs.primary, main .text-sm.pr
 .h3, h3 {
   font-size: 28px;
   font-size: 1.75rem;
-  font-size: clamp(28px, -8px + 0.0625 * 100vw, 40px);
+  font-size: clamp(28px, -8px + 6.25vw, 40px);
   font-weight: 700;
   line-height: 32px;
   line-height: 2rem;
-  line-height: clamp(32px, -16px + 0.0833333333 * 100vw, 48px);
+  line-height: clamp(32px, -16px + 8.33333333vw, 48px);
   letter-spacing: -1px;
 }
 
 .h4, h4 {
   font-size: 24px;
   font-size: 1.5rem;
-  font-size: clamp(24px, 0px + 0.0416666667 * 100vw, 32px);
+  font-size: clamp(24px, 0px + 4.16666667vw, 32px);
   font-weight: 700;
   line-height: 28px;
   line-height: 1.75rem;
-  line-height: clamp(28px, -8px + 0.0625 * 100vw, 40px);
+  line-height: clamp(28px, -8px + 6.25vw, 40px);
   letter-spacing: -0.3px;
 }
 
 .h5, h5 {
   font-size: 20px;
   font-size: 1.25rem;
-  font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+  font-size: clamp(20px, -4px + 4.16666667vw, 28px);
   font-weight: 600;
   line-height: 24px;
   line-height: 1.5rem;
-  line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
+  line-height: clamp(24px, -24px + 8.33333333vw, 40px);
   letter-spacing: -0.2625px;
 }
 
 .main-container .btn-lg-disabled-outline button, .main-container .btn-lg-secondary-outline button, .main-container .btn-lg-secondary button, .main-container .btn-lg-default-outline button, .main-container .btn-lg-default button, .main-container .btn-mini-disabled button, .main-container .btn-sm-disabled button, .main-container .btn-md-disabled button, .main-container .btn-lg-disabled button, .h6, h6 {
   font-size: 16px;
   font-size: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  font-size: clamp(16px, -8px + 4.16666667vw, 24px);
   font-weight: 600;
   line-height: 24px;
   line-height: 1.5rem;
@@ -77,19 +77,19 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  font-size: clamp(16px, 10px + 1.04166667vw, 18px);
   line-height: 24px;
   line-height: 1.5rem;
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
+  line-height: clamp(24px, 12px + 2.08333333vw, 28px);
 }
 
 .main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
-  font-size: clamp(14px, 8px + 0.0104166667 * 100vw, 16px);
+  font-size: clamp(14px, 8px + 1.04166667vw, 16px);
   line-height: 20px;
   line-height: 1.25rem;
-  line-height: clamp(20px, 17px + 0.0052083333 * 100vw, 21px);
+  line-height: clamp(20px, 17px + 0.52083333vw, 21px);
 }
 
 .main-container .btn-mini-disabled-outline button, .main-container .btn-mini-secondary-outline button, .main-container .btn-mini-secondary button, .main-container .btn-mini-disabled button, .main-container .btn-mini-default-outline button, .main-container .btn-mini-default button, .text-xs {
@@ -97,7 +97,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   font-size: 0.875rem;
   line-height: 20px;
   line-height: 1.25rem;
-  line-height: clamp(20px, 26px + -0.0104166667 * 100vw, 18px);
+  line-height: clamp(20px, 26px - 1.04166667vw, 18px);
 }
 
 .fw-regular {
@@ -166,10 +166,12 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #sidebar_news {
   margin-top: 8.8rem !important;
 }
+
 #sidebar_news .card.card-icon .icon {
   width: 60px;
   height: 60px;
 }
+
 #sidebar_news .img_sidebar_news img {
   height: 100%;
   -o-object-fit: cover;
@@ -227,6 +229,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 #card_notizie img {
   height: 300px !important;
 }
+
 #card_notizie .card_content {
   padding: 1.3rem;
   min-height: 125px !important;
@@ -606,30 +609,38 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   display: block;
   height: 100%;
 }
+
 #main-container #button-navigazione a {
   display: grid;
   height: 100%;
 }
+
 #main-container .rem5 {
   margin-bottom: 5rem;
 }
+
 #main-container ul.simcal-events {
   max-height: 400px;
   overflow: auto;
 }
+
 #main-container ul.simcal-eventsli {
   display: block !important;
 }
+
 #main-container ul.simcal-events .simcal-event-details p {
   margin: 0 0 0.5em;
 }
+
 #main-container ul.simcal-events .simcal-event-details p a {
   color: #1260A4;
   font-weight: 400;
 }
+
 #main-container button.simcal-events-toggle {
   display: none;
 }
+
 #main-container .simcal-default-calendar-list ul.simcal-events li.simcal-event {
   margin-bottom: 25px;
 }
@@ -749,9 +760,11 @@ label > span {
 #main-container details summary {
   list-style-type: none;
 }
+
 #main-container details summary::marker {
   display: none;
 }
+
 #main-container details > summary::before {
   content: "";
   display: inline-block;
@@ -760,12 +773,14 @@ label > span {
   margin-right: 10px;
   color: gray;
 }
+
 #main-container details:not([open]) > summary::before {
   border-top: 0;
   border-right: 0.3em solid transparent;
   border-bottom: 0.3em solid;
   border-left: 0.3em solid transparent;
 }
+
 #main-container details[open] > summary::before {
   border-top: 0.3em solid;
   border-right: 0.3em solid transparent;
@@ -785,6 +800,7 @@ label > span {
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
+
 #image-block img {
   max-width: 100%;
   margin-bottom: 30px;
@@ -832,6 +848,7 @@ label > span {
 #main-container-orari-docenti .min-h {
   min-height: 18.75rem;
 }
+
 #main-container-orari-docenti #myInput {
   background-image: url("/css/searchicon.png"); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -842,6 +859,7 @@ label > span {
   margin-bottom: 12px; /* Add some space below the input */
   border-radius: 0.75rem;
 }
+
 #main-container-orari-docenti #myUL {
   /* Remove default list styling */
   list-style-type: none;
@@ -850,6 +868,7 @@ label > span {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
+
 #main-container-orari-docenti #myUL li a {
   border: 1px solid #DFE2EB; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
@@ -860,25 +879,31 @@ label > span {
   display: block; /* Make it into a block element to fill the whole list */
   height: 100%;
 }
+
 #main-container-orari-docenti #myUL li a:hover:not(.header) {
   background-color: #DFE2EB; /* Add a hover effect to all links, except for headers */
 }
+
 #main-container-orari-docenti img:not(:target) {
   display: none;
 }
+
 #main-container-orari-docenti img:target {
   display: block;
   padding-top: 25vh;
   margin-top: -10vh;
 }
+
 #main-container-orari-docenti mark.highlight {
   padding: 0;
   font-weight: bold;
   background-color: transparent;
 }
+
 #main-container-orari-docenti .z-index-1 {
   z-index: 1;
 }
+
 #main-container-orari-docenti .z-index-0 {
   z-index: 0;
 }
@@ -894,6 +919,7 @@ label > span {
   text-align: center;
   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
+
 #open-day .open-day-foto:hover + .open-post-title {
   display: block;
 }
@@ -904,6 +930,7 @@ label > span {
   position: relative;
   padding: 0;
 }
+
 #hero::before {
   content: "";
   inset: 0;
@@ -911,20 +938,24 @@ label > span {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 #hero > section {
   height: 100%;
   position: relative;
 }
+
 #hero > section > #hero-splide {
   height: 100%;
   padding: 0;
 }
+
 #hero > section > #hero-splide .splide__slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
+
 #hero > section > #hero-splide .splide__slide__img {
   inset: 0;
   position: absolute;
@@ -935,35 +966,44 @@ label > span {
   background-size: cover;
   filter: brightness(0.5);
 }
+
 #hero > section > #hero-splide .splide__list {
   width: 100%;
 }
+
 #hero > section > #hero-splide .splide__arrows {
   position: relative;
   height: 100%;
 }
+
 #hero > section > #hero-splide .splide__arrow {
   background-color: transparent;
 }
+
 #hero > section > #hero-splide .splide__arrow svg {
   fill: white;
 }
+
 #hero > section > #hero-splide .splide__pagination {
   gap: 1.1875rem;
   margin: auto;
   margin-bottom: 2.125rem;
 }
+
 #hero > section > #hero-splide .splide__pagination__page {
   background-color: #D2E4FF;
 }
+
 #hero > section > #hero-splide .splide__pagination__page.is-active {
   background-color: #9fc9ff;
 }
+
 #hero > section > #hero-splide .splide__pagination__page, #hero > section > #hero-splide .splide__pagination__page.is-active {
   transform: none;
   width: 1rem;
   height: 1rem;
 }
+
 #hero #hero-content {
   height: 100%;
   height: 100%;
@@ -972,11 +1012,13 @@ label > span {
   bottom: 0;
   position: absolute;
 }
+
 #hero #hero-content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
   color: #fff;
 }
+
 #hero #hero-content p {
   text-transform: uppercase;
   text-align: center;
@@ -991,17 +1033,20 @@ label > span {
   background-size: cover;
   padding: 0;
 }
+
 #hero-indirizzi #content {
   height: 100%;
   height: 100%;
   width: 100%;
   margin: 0;
 }
+
 #hero-indirizzi #content h1 {
   margin-bottom: 0.2rem;
   text-align: center;
   color: #fff;
 }
+
 #hero-indirizzi #content p {
   text-transform: uppercase;
   color: #fff;
@@ -1050,18 +1095,19 @@ label > span {
   display: flex;
   flex-direction: column;
 }
+
 .cards-container > div {
   height: 100%;
   display: flex;
   gap: 1.25rem;
   width: 100%;
 }
+
 @media (max-width: 991.98px) {
   .cards-container > div {
     flex-wrap: wrap;
   }
 }
-
 .card {
   max-height: 20rem;
   height: 100%;
@@ -1071,6 +1117,7 @@ label > span {
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
 }
+
 @media (min-width: 992px) {
   .card {
     margin-right: 0;
@@ -1079,6 +1126,7 @@ label > span {
 .card .card-img {
   height: 12.5rem;
 }
+
 .card .card-img a > div:only-child {
   width: 100%;
   height: 100%;
@@ -1086,11 +1134,13 @@ label > span {
   background-position: center;
   background-size: cover;
 }
+
 .card .card-img .posizione-badges {
   position: absolute;
   top: 0;
   right: 0.5rem;
 }
+
 .card .card-img img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1099,10 +1149,12 @@ label > span {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
+
 .card .card-body {
   padding: 1.5rem 1rem 0.5rem;
   flex: initial;
 }
+
 .card .card-body .card-title {
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -1112,11 +1164,13 @@ label > span {
   display: flex;
   flex-direction: column;
 }
+
 #progetti-home .container-progetti {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 #progetti-home .container-progetti article.card-progetti {
   height: 10rem;
   display: flex;
@@ -1126,14 +1180,17 @@ label > span {
     margin-top: 0;
   } */
 }
+
 #progetti-home .container-progetti article.card-progetti .row-img {
   height: 100%;
   width: 5.5rem;
 }
+
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop {
   height: 100%;
   width: 100%;
 }
+
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1141,6 +1198,7 @@ label > span {
   width: 100%;
   border-radius: 0.25rem;
 }
+
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop > div:only-child {
   width: 100%;
   height: 100%;
@@ -1148,21 +1206,25 @@ label > span {
   background-position: center;
   background-size: cover;
 }
+
 #progetti-home .container-progetti article.card-progetti .card--body {
   margin: 0px 0 0 0.4rem;
   flex: 1;
 }
+
 #progetti-home .container-progetti article.card-progetti .card--body a {
   color: #000;
   word-break: break-word;
   text-decoration: none;
 }
+
 #progetti-home .container-progetti article.card-progetti .card--body a p,
 #progetti-home .container-progetti article.card-progetti .card--body a p:hover,
 #progetti-home .container-progetti article.card-progetti .card--body a p:focus,
 #progetti-home .container-progetti article.card-progetti .card--body a p:focus-within {
   color: #000;
 }
+
 #progetti-home .container-progetti article.card-progetti .card--body a:hover h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus h5, #progetti-home .container-progetti article.card-progetti .card--body a:focus-within h5 {
   text-decoration: underline;
   color: #1260A4;
@@ -1171,32 +1233,41 @@ label > span {
 #sidebar {
   background-color: #DFE2EB;
 }
+
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
 }
+
 #sidebar .mailfield a {
   text-transform: lowercase;
 }
+
 #sidebar h6 {
   margin: 2rem 0;
 }
+
 #sidebar .card {
   background-color: transparent;
 }
+
 #sidebar .mailfield svg {
   max-height: 24px;
 }
+
 #sidebar #quotes {
   font-style: italic;
   color: #1260A4;
 }
+
 #sidebar .aside-main {
   margin-bottom: 1rem;
 }
+
 #sidebar ul {
   list-style: none;
 }
+
 #sidebar ul,
 #sidebar li {
   margin: 0;
@@ -1214,9 +1285,11 @@ label > span {
   width: 100%;
   margin-bottom: 1rem;
 }
+
 .main-container .btn-mini-secondary button:hover, .main-container .btn-mini-default button:hover, .main-container .btn-sm-secondary button:hover, .main-container .btn-sm-default button:hover, .main-container .btn-md-secondary button:hover, .main-container .btn-md-default button:hover, .main-container .btn-lg-secondary button:hover, .main-container .btn-lg-default button:hover {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+
 .main-container .btn-mini-secondary:hover, .main-container .btn-mini-default:hover, .main-container .btn-sm-secondary:hover, .main-container .btn-sm-default:hover, .main-container .btn-md-secondary:hover, .main-container .btn-md-default:hover, .main-container .btn-lg-secondary:hover, .main-container .btn-lg-default:hover {
   text-decoration: none;
   cursor: default;
@@ -1227,18 +1300,22 @@ label > span {
   width: 100%;
   margin-bottom: 1rem;
 }
+
 .main-container .btn-mini-secondary-outline button, .main-container .btn-mini-default-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-default-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-default-outline button, .main-container .btn-lg-secondary-outline button, .main-container .btn-lg-default-outline button {
   position: relative;
 }
+
 .main-container .btn-mini-secondary-outline button::after, .main-container .btn-mini-default-outline button::after, .main-container .btn-sm-secondary-outline button::after, .main-container .btn-sm-default-outline button::after, .main-container .btn-md-secondary-outline button::after, .main-container .btn-md-default-outline button::after, .main-container .btn-lg-secondary-outline button::after, .main-container .btn-lg-default-outline button::after {
   content: "";
   position: absolute;
   inset: -1px;
   transition: border 0.15s ease-in-out;
 }
+
 .main-container .btn-mini-secondary-outline button:hover, .main-container .btn-mini-default-outline button:hover, .main-container .btn-sm-secondary-outline button:hover, .main-container .btn-sm-default-outline button:hover, .main-container .btn-md-secondary-outline button:hover, .main-container .btn-md-default-outline button:hover, .main-container .btn-lg-secondary-outline button:hover, .main-container .btn-lg-default-outline button:hover {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s;
 }
+
 .main-container .btn-mini-secondary-outline:hover, .main-container .btn-mini-default-outline:hover, .main-container .btn-sm-secondary-outline:hover, .main-container .btn-sm-default-outline:hover, .main-container .btn-md-secondary-outline:hover, .main-container .btn-md-default-outline:hover, .main-container .btn-lg-secondary-outline:hover, .main-container .btn-lg-default-outline:hover {
   text-decoration: none;
   cursor: default;
@@ -1268,281 +1345,349 @@ label > span {
   color: #fff;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-default button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-default button:hover {
   background: #0073E6;
 }
+
 .main-container .btn-lg-default-outline button {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-default-outline button::after {
   border: 0rem solid #1260A4;
 }
+
 .main-container .btn-lg-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
+
 .main-container .btn-lg-default-outline button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
+
 .main-container .btn-lg-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-disabled button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-secondary button {
   background: #BD0043;
   color: #fff;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-secondary button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-secondary button:hover {
   background: #FF4F79;
 }
+
 .main-container .btn-lg-secondary-outline button {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-secondary-outline button::after {
   border: 0rem solid #BD0043;
 }
+
 .main-container .btn-lg-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
+
 .main-container .btn-lg-secondary-outline button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
+
 .main-container .btn-lg-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-disabled button span {
   font-weight: 400;
 }
+
 .main-container .btn-lg-disabled-outline button {
   background: #fff;
   color: #C3C6CF;
   border: 0.18rem #C3C6CF solid;
   padding: 0.88rem 1.75rem;
 }
+
 .main-container .btn-lg-disabled-outline button span {
   font-weight: 400;
 }
+
 .main-container .btn-md-default button {
   background: #1260A4;
   color: #fff;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-default button:hover {
   background: #0073E6;
 }
+
 .main-container .btn-md-default-outline button {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-default-outline button::after {
   border: 0rem solid #1260A4;
 }
+
 .main-container .btn-md-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
+
 .main-container .btn-md-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
+
 .main-container .btn-md-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-secondary button {
   background: #BD0043;
   color: #fff;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-secondary button:hover {
   background: #FF4F79;
 }
+
 .main-container .btn-md-secondary-outline button {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-secondary-outline button::after {
   border: 0rem solid #BD0043;
 }
+
 .main-container .btn-md-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
+
 .main-container .btn-md-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
+
 .main-container .btn-md-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-md-disabled-outline button {
   background: #fff;
   color: #C3C6CF;
   border: 0.18rem #C3C6CF solid;
   padding: 0.75rem 1.5rem;
 }
+
 .main-container .btn-sm-default button {
   background: #1260A4;
   color: #fff;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-default button:hover {
   background: #0073E6;
 }
+
 .main-container .btn-sm-default-outline button {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-default-outline button::after {
   border: 0rem solid #1260A4;
 }
+
 .main-container .btn-sm-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
+
 .main-container .btn-sm-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
+
 .main-container .btn-sm-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-secondary button {
   background: #BD0043;
   color: #fff;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-secondary button:hover {
   background: #FF4F79;
 }
+
 .main-container .btn-sm-secondary-outline button {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-secondary-outline button::after {
   border: 0rem solid #BD0043;
 }
+
 .main-container .btn-sm-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
+
 .main-container .btn-sm-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
+
 .main-container .btn-sm-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-sm-disabled-outline button {
   background: #fff;
   color: #C3C6CF;
   border: 0.18rem #C3C6CF solid;
   padding: 0.63rem 1.25rem;
 }
+
 .main-container .btn-mini-default button {
   background: #1260A4;
   color: #fff;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-default button:hover {
   background: #0073E6;
 }
+
 .main-container .btn-mini-default-outline button {
   background: #fff;
   color: #1260A4;
   border: 0.12rem #1260A4 solid;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-default-outline button::after {
   border: 0rem solid #1260A4;
 }
+
 .main-container .btn-mini-default-outline button:hover::after {
   border: 0.19rem solid #0073E6;
 }
+
 .main-container .btn-mini-default-outline button:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
+
 .main-container .btn-mini-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-secondary button {
   background: #BD0043;
   color: #fff;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-secondary button:hover {
   background: #FF4F79;
 }
+
 .main-container .btn-mini-secondary-outline button {
   background: #fff;
   color: #BD0043;
   border: 0.12rem #BD0043 solid;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-secondary-outline button::after {
   border: 0rem solid #BD0043;
 }
+
 .main-container .btn-mini-secondary-outline button:hover::after {
   border: 0.19rem solid #FF4F79;
 }
+
 .main-container .btn-mini-secondary-outline button:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
+
 .main-container .btn-mini-disabled button {
   background: #F0F0F3;
   color: #C3C6CF;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container .btn-mini-disabled-outline button {
   background: #fff;
   color: #C3C6CF;
   border: 0.12rem #C3C6CF solid;
   padding: 0.51rem 0.81rem;
 }
+
 .main-container a[id^=btn-] p {
   margin: 0;
 }
+
 .main-container a[id^=btn-] p + p {
   margin-top: 0.62rem;
 }
@@ -1556,11 +1701,13 @@ label > span {
   font-style: normal;
   position: relative;
 }
+
 .footer--wrapper .container .footer {
   gap: 0.7rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
 }
+
 @media (max-width: 507.98px) {
   .footer--wrapper .container .footer {
     gap: 0;
@@ -1573,12 +1720,15 @@ label > span {
   z-index: 10;
   width: 100%;
 }
+
 .footer--wrapper .container .footer > .footer--column label h2 {
   position: relative;
 }
+
 .footer--wrapper .container .footer > .footer--column input[type=checkbox] {
   display: none;
 }
+
 @media (max-width: 507.98px) {
   .footer--wrapper .container .footer > .footer--column {
     height: auto !important;
@@ -1681,22 +1831,27 @@ label > span {
   display: inline-block;
   width: 100%;
 }
+
 .footer--wrapper .footer-link a:not(:focus-visible, :focus, :hover),
 .footer--wrapper a:not(:focus-visible, :focus, :hover) {
   text-decoration: none;
 }
+
 .footer--wrapper .footer--main-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
 }
+
 .footer--wrapper .footer--main-wrapper section > div {
   margin-bottom: 1rem;
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer {
   display: flex;
   align-items: center;
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer h1,
 .footer--wrapper .footer--main-wrapper section .logo-footer .h1 {
   display: block;
@@ -1707,6 +1862,7 @@ label > span {
   margin: 0 0 0 25px;
   color: #fff;
 }
+
 @media (max-width: 991.98px) {
   .footer--wrapper .footer--main-wrapper section .logo-footer h1,
 .footer--wrapper .footer--main-wrapper section .logo-footer .h1 {
@@ -1718,15 +1874,18 @@ label > span {
 .footer--wrapper .footer--main-wrapper section .logo-footer .h1 span {
   display: block;
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer h1 span strong,
 .footer--wrapper .footer--main-wrapper section .logo-footer .h1 span strong {
   font-weight: 700;
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer::after {
   display: block;
   clear: both;
   content: "";
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1734,6 +1893,7 @@ label > span {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
+
 .footer--wrapper .footer--main-wrapper section .logo-footer svg {
   width: 4rem;
   height: 4rem;
@@ -1741,6 +1901,7 @@ label > span {
   border-radius: 50%;
   background-color: currentColor;
 }
+
 @media (max-width: 991.98px) {
   .footer--wrapper .footer--main-wrapper section .logo-footer svg {
     width: 45px;
@@ -1757,6 +1918,7 @@ label > span {
   justify-content: center;
   margin-bottom: 1.25rem;
 }
+
 @media (min-width: 1200px) {
   .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper {
     margin-inline: auto 0;
@@ -1767,16 +1929,19 @@ label > span {
   background-color: #fff;
   border-radius: 0.75rem;
 }
+
 .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *:last-of-type {
   flex-grow: 1;
   grid-area: grow;
   width: 100%;
 }
+
 .footer--wrapper .footer--main-wrapper .footer-info > div > a {
   font-size: 1.125rem;
   font-weight: bold;
   width: 100%;
 }
+
 @media (min-width: 508px) {
   .footer--wrapper .footer--main-wrapper .footer-info > div > a {
     width: -webkit-max-content;
@@ -1787,15 +1952,18 @@ label > span {
 .footer--wrapper .footer--main-wrapper .footer-info > div > a[data-prefix]::before {
   content: attr(data-prefix) " ";
 }
+
 .footer--wrapper .footer--main-wrapper .footer--social {
   display: flex;
   color: #fff;
 }
+
 .footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
+
 .footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper a {
   width: 2.5rem;
   height: 2.5rem;
@@ -1804,15 +1972,18 @@ label > span {
   color: #004882;
   background-color: #fff;
 }
+
 .footer--wrapper .footer--main-wrapper .footer--social .footer--social-wrapper a svg {
   width: 100%;
   height: 100%;
   fill: #004882;
   display: block;
 }
+
 .footer--wrapper .footer--main-wrapper .footer--social span {
   font-weight: 600;
 }
+
 .footer--wrapper h3,
 .footer--wrapper .h3 {
   color: #fff;
@@ -1820,6 +1991,7 @@ label > span {
   line-height: 40px;
   font-size: clamp(1.5rem, 6vw, 1.75rem);
 }
+
 .footer--wrapper .bottom {
   position: absolute;
   left: 0;
@@ -1828,25 +2000,31 @@ label > span {
   text-align: center;
   background-color: #fff;
 }
+
 .footer--wrapper .bottom ul {
   margin-block: 0.8rem;
-  margin-block: clamp(0.3625rem, 4.846875rem + -0.0875 * 100vw, 0.8rem);
+  margin-block: clamp(0.3625rem, 4.846875rem - 8.75vw, 0.8rem);
 }
+
 .footer--wrapper .bottom ul li {
   margin-inline: auto;
 }
+
 .footer--wrapper .bottom ul li a {
   font-size: 1.125rem;
   font-weight: normal;
   color: #000;
 }
+
 .footer--wrapper .footer-list ul {
   padding: 0;
   list-style: none;
 }
+
 .footer--wrapper .footer-list ul li {
   margin: 0 0 0 0;
 }
+
 .footer--wrapper .footer-inline-menu {
   display: flex;
   flex-direction: row;
@@ -1861,6 +2039,7 @@ label > span {
     padding-right: 30px;
   } */
 }
+
 .footer--wrapper .footer-text {
   font-size: 0.875rem;
   position: relative;
@@ -1868,9 +2047,11 @@ label > span {
   padding: 20px 0;
   margin: 20px 0 0 0;
 }
+
 .footer--wrapper .footer-text p {
   margin: 0;
 }
+
 .footer--wrapper .footer-text::before, .footer--wrapper .footer-text::after {
   display: block;
   content: "";
@@ -1883,9 +2064,11 @@ label > span {
   z-index: 1;
   opacity: 0.27;
 }
+
 .footer--wrapper a[data-copy-text] {
   position: relative;
 }
+
 .footer--wrapper a[data-copy-text]::after {
   content: "...............";
   display: inline-block;
@@ -1906,6 +2089,7 @@ label > span {
   transition: clip-path 0.2s ease-in-out;
   transition: clip-path 0.2s ease-in-out, -webkit-clip-path 0.2s ease-in-out;
 }
+
 .footer--wrapper a[data-copy-text].copied::after {
   content: "Text copied!";
   -webkit-clip-path: inset(0 0 round 4px);
@@ -1915,6 +2099,7 @@ label > span {
   transition: clip-path 0.2s ease-in;
   transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
 }
+
 .footer--wrapper a[data-copy-text].copy-failed::after {
   content: "Text was NOT copied :(";
   -webkit-clip-path: inset(0 0 round 4px);
@@ -1928,6 +2113,7 @@ label > span {
 #card_image_sidebar {
   height: 7rem;
 }
+
 #card_image_sidebar img {
   width: 100%;
   -o-object-fit: cover;
