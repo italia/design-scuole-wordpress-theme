@@ -13,7 +13,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
 ?>
 
-    <main id="main-container" class="main-container">
+    <main id="main-container" class="main-container  container">
 
         <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>      
 
@@ -77,7 +77,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                     <div class="container px-3 px-md-5 col-lg-8">
 
                         <div class="pt-3 px-3 px-md-5">
-                            <a href=""><p>< Torna all'offerta formativa</p></a>
+                            <a href="../"><p>< Torna all'offerta formativa</p></a>
                         </div>
                        
 

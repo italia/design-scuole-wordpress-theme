@@ -1080,7 +1080,21 @@ label > span {
   color: #1260A4;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 #sidebar {
+  background-color: #DFE2EB;
+}
+#sidebar::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 10000px;
+  height: 100%;
+  float: right;
+  top: 0;
   background-color: #DFE2EB;
 }
 #sidebar a {
@@ -1116,6 +1130,9 @@ label > span {
 @media (max-width: 767.98px) {
   #sidebar {
     margin: 0;
+  }
+  #sidebar::before {
+    content: none;
   }
 }
 .main-container .btn-mini-secondary button, .main-container .btn-mini-default button, .main-container .btn-sm-secondary button, .main-container .btn-sm-default button, .main-container .btn-md-secondary button, .main-container .btn-md-default button, .main-container .btn-lg-secondary button, .main-container .btn-lg-default button {
