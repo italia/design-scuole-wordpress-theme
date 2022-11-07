@@ -6,11 +6,11 @@
         <div id="content" class="row align-items-center splide__track">
             <ul class="splide__list ">
 
-                <!-- 
-                    TODO: Change loop in `hero` slider
-                    labels: enhancement, help wanted
-                    assignees: maxmorozoff, ToldoDesign128, paolosartori
-                -->
+                <?php 
+                // TODO: Change loop in `hero` slider
+                // labels: enhancement, help wanted
+                // assignees: maxmorozoff, ToldoDesign128, paolosartori
+                ?>
                 <?php for ($i=0; $i < 5; $i++) { ?>
 
                 <li class="splide__slide">
