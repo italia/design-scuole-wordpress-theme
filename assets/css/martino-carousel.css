@@ -1,7 +1,7 @@
 .carousel > label {
   font-size: 16px;
   font-size: 1rem;
-  font-size: clamp(16px, -8px + 0.0416666667 * 100vw, 24px);
+  font-size: clamp(16px, -8px + 4.16666667vw, 24px);
   font-weight: 600;
   line-height: 24px;
   line-height: 1.5rem;
@@ -14,10 +14,10 @@
 .carousel > input:checked + label + article {
   font-size: 16px;
   font-size: 1rem;
-  font-size: clamp(16px, 10px + 0.0104166667 * 100vw, 18px);
+  font-size: clamp(16px, 10px + 1.04166667vw, 18px);
   line-height: 24px;
   line-height: 1.5rem;
-  line-height: clamp(24px, 12px + 0.0208333333 * 100vw, 28px);
+  line-height: clamp(24px, 12px + 2.08333333vw, 28px);
 }
 
 .carousel {
@@ -33,11 +33,13 @@
   width: 100%;
   height: 100%;
 }
+
 .carousel > h3 {
   grid-area: title;
   margin: 1rem 0;
   text-transform: uppercase;
 }
+
 .carousel > input[type=radio] {
   grid-column-start: 1;
   margin: auto;
@@ -47,38 +49,48 @@
   background-color: #C4C4C4;
   border-radius: 50%;
 }
+
 .carousel > input[type=radio]:not(:checked) {
   background-color: #C4C4C4;
 }
+
 .carousel > input[type=radio]:checked {
   background-color: #E6285F;
 }
+
 .carousel > label {
   grid-column-start: 2;
   margin: auto 0;
 }
+
 .carousel > article {
   grid-area: 1/3/last-line/-1;
 }
+
 .carousel > * {
   align-self: stretch;
 }
+
 .carousel > input {
   height: 14px;
   width: 14px;
 }
+
 .carousel > article > div {
   height: 8rem;
   width: 8rem;
   background-size: contain;
   padding: 1rem 2rem;
 }
+
 .carousel > input:checked + label {
   font-weight: bold;
 }
+
 .carousel > input:not(:checked) + label + article {
   display: none;
 }
+
 @media (max-width: 767.98px) {
   .carousel {
     height: auto !important;
@@ -174,11 +186,11 @@
   .carousel label > * {
     font-size: 20px;
     font-size: 1.25rem;
-    font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+    font-size: clamp(20px, -4px + 4.16666667vw, 28px);
     font-weight: 600;
     line-height: 24px;
     line-height: 1.5rem;
-    line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
+    line-height: clamp(24px, -24px + 8.33333333vw, 40px);
     letter-spacing: -0.2625px;
   }
 }

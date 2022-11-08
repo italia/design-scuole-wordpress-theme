@@ -1,0 +1,35 @@
+@use "sass:meta";
+@if $debug-links and $env == "development" {
+    button a,
+    a button {
+        box-shadow: 
+        rgba(255, 167, 85, 0.5) 0px 0px 0px 3px, 
+        rgba(179, 27, 193, 0.5) 0px 0px 0px 6px, 
+        rgba(255, 217,  19, .5) 0px 0px 0px 9px, 
+        rgba(255, 85, 85, 0.5) 0px 0px 0px 12px, 
+        rgba(252, 255, 85, 0.5) 0px 0px 0px 15px !important;
+    }
+
+    $bad-chars: à á ò è é ì;
+    $bad-hrefs: '';
+    @each $char in $bad-chars {
+        $bad-hrefs: $bad-hrefs + '[href*="' + $char + '"], ';
+    }
+    #{$bad-hrefs}
+    [href*=" "],
+    [href=""],
+    [href=\#] {
+        box-shadow: 
+        rgba( 85,  91, 255, .5) 0px 0px 0px 3px, 
+        rgba( 31, 193,  27, .5) 0px 0px 0px 6px, 
+        rgba(255, 217,  19, .5) 0px 0px 0px 11px, 
+        rgba(255, 156,  85, .5) 0px 0px 0px 15px, 
+        rgba(255,  85,  85, .5) 0px 0px 0px 25px !important;
+    }
+}
+
+@if false {
+    *, *::after, *::before {
+        outline: 1px solid tomato;
+    }
+}
