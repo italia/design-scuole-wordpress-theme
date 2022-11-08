@@ -60,7 +60,7 @@ get_header();
 	                        <?php get_template_part("template-parts/single/actions"); ?>
 	                        <?php get_template_part("template-parts/common/badges-argomenti"); ?>
                         </div>
-                        <div class="main-content col-lg-9 col-md-8">
+                        <div class="col-lg-9 col-md-8">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
                                     <div class="col-lg-8 ">
