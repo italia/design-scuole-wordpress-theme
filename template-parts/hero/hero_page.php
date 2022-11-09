@@ -46,3 +46,29 @@
             },
         })).mount() && (document.querySelector('#hero-splide .splide__list').style = ''));
 </script>
+<!-- <section id="image-carousel" class="splide hero container-fluid" aria-label="Beautiful Images">
+  <div class="splide__track">
+		<ul class="splide__list">
+            <?php 
+            // $loop = new WP_Query( array(
+            //     'post_type'         => 'slider',
+            //     'post_status'       => 'publish',
+            //     'orderby'           => 'count',
+            //     'order'             => 'DESC',
+            //     'posts_per_page'    => 999 ,
+            // ));
+            // while ($loop -> have_posts()) : $loop -> the_post();
+             
+            // ?>
+
+			// <li class="splide__slide">
+            //     <h1><?php the_title(); ?></h1>   
+			// 	<?php the_post_thumbnail();?>
+			// </li>
+            
+            // <?php
+                endwhile;
+            ?>
+		</ul>
+  </div>
+</section> -->
