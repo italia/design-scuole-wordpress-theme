@@ -22,7 +22,7 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		$custom_data = '';
 		if ( $item->post_name == 'privacy-policy' || stripos( $item->title, 'privacy' ) !== false ) {
 			$custom_data = 'data-element="privacy-policy-link"';
-		} else if ( $item->post_name == 'dichiarazione-di-accessibilita' || stripos( $item->title, 'accessibilit' ) !== false ) { 
+		} else if ( $item->post_name == 'dichiarazione-di-accessibilita' || stripos( $item->title, 'accessibilità' ) !== false ) { 
 			$custom_data = 'data-element="accessibility-link"';
 		}
 		if ($item->url) {
