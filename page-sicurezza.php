@@ -16,7 +16,11 @@ get_header();
 <main id="main-container" class="main-container">
     <?php get_template_part("template-parts/hero/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
-    <section id="container-spazi">
+<<<<<<< HEAD
+    <section id="container-sicurezza">
+=======
+    <section id="container-spazi" class="container my-5">
+>>>>>>> origin/develop
 
         <?php 
             $loop = new WP_Query( array(
@@ -29,7 +33,7 @@ get_header();
             
             
             <!-- loop sicurezza -->
-            <details class="row align-items-center my-5 mx-5">
+            <details class="row align-items-center my-5 mx-3">
                 <summary class="h4 col-12 pl-0 ml-lg-n2">Sicurezza della scuola</summary>
 
                 <?php 
@@ -54,7 +58,7 @@ get_header();
             </details>
             
 
-            <details class="row align-items-center my-5 mx-5">
+            <details class="row align-items-center my-5 mx-3">
                 <summary class="h4 col-12 pl-0 ml-lg-n2">Disposizioni COVID-19</summary>
 
                 <?php

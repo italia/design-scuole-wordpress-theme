@@ -1,48 +1,48 @@
 <?php
 
 /**
- * Definisce post type per gli orari delle classi
+ * Definisce post type per gli orari delle palestra
  */
 
-add_action( 'init', 'register_orario_classi_post_type' );
-function register_orario_classi_post_type() {
+add_action( 'init', 'register_orario_palestra_post_type' );
+function register_orario_palestra_post_type() {
 
-	/** Orari classi **/
+	/** Orari palestra **/
 	$labels = array(
-		'name'          => _x( 'Orari Classi', 'Post Type General Name', 'martino_martini' ),
-		'singular_name' => _x( 'Orario Classi', 'Post Type Singular Name', 'martino_martini' ),
+		'name'          => _x( 'Orari Palestra', 'Post Type General Name', 'martino_martini' ),
+		'singular_name' => _x( 'Orario Palestra', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new'       => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new_item'  => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'edit_item'      => _x( 'Modifica il File', 'Post Type Singular Name', 'martino_martini' ),
 		'view_item'      => _x( 'Visualizza il File', 'Post Type Singular Name', 'martino_martini' ),
 	);
 	$args   = array(
-		'label'         => __( 'Orari Classi', 'martino_martini' ),
+		'label'         => __( 'Orari Palestra', 'martino_martini' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 12,
+		'menu_position' => 15,
 		'menu_icon'     => 'dashicons-clock',
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'orario-classi', $args );
+	register_post_type( 'orario-palestra', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action( 'cmb2_init', 'martini_add_orario_classi_metaboxes' );
-function martini_add_orario_classi_metaboxes() {
+add_action( 'cmb2_init', 'martini_add_orario_palestra_metaboxes' );
+function martini_add_orario_palestra_metaboxes() {
 
-    $prefix = '_martini_orario_classi_';
+    $prefix = '_martini_orario_palestra_';
     
     $cmb_aftercontent = new_cmb2_box( array(
     'id'           => $prefix . 'box_elementi_dati',
-    'title'        => __( 'Orario Classi', 'martino_martini' ),
-    'object_types' => array( 'orario-classi' ),
+    'title'        => __( 'Orario palestra', 'martino_martini' ),
+    'object_types' => array( 'orario-palestra' ),
     'context'      => 'normal',
     'priority'     => 'high',
     ) );
@@ -76,9 +76,9 @@ function martini_add_orario_classi_metaboxes() {
     // box per caricare file del corso informatica sulle scuole
 
     $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_orario_classi',
+        'id' => $prefix . 'file_orario_palestra',
         'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'File orario classi' , 'martino_martini' ),
+        'desc' => __( 'File orario palestra' , 'martino_martini' ),
         'type' => 'file_list',
         'preview_size' => array( 100, 100 ),
         // 'query_args' => array( 'type' => 'image' ), // Only images attachment

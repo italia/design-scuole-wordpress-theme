@@ -4,7 +4,6 @@
     a {
         color: $primary;
         text-decoration: underline;
-        text-transform: uppercase;
     }
 
     .mailfield a{
@@ -12,6 +11,7 @@
     }
     h6 {
         @include font-body;
+        margin: 2rem 0;
     }
     .card{
         background-color: transparent;
