@@ -26,7 +26,7 @@ $use_slider = -1;
                     ?>
                         <li class="splide__slide">
                             <h1><?php the_title(); ?></h1>
-                            <p class="h3 fw-regular"><?php the_excerpt(); ?></p>
+                            <p class="h3 fw-regular"><?php echo get_the_excerpt(); ?></p>
                             <div class="text-center ">
                                 <a class="btn-md-default" href="<?php 
                                     echo get_post_meta(get_the_ID(), "_martini_hero_slider_url")[0] ?? "#"; ?>">
