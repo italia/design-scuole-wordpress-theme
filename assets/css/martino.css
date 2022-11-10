@@ -1,16 +1,3 @@
-@charset "UTF-8";
-button a,
-a button {
-  box-shadow: rgba(255, 167, 85, 0.5) 0px 0px 0px 3px, rgba(179, 27, 193, 0.5) 0px 0px 0px 6px, rgba(255, 217, 19, 0.5) 0px 0px 0px 9px, rgba(255, 85, 85, 0.5) 0px 0px 0px 12px, rgba(252, 255, 85, 0.5) 0px 0px 0px 15px !important;
-}
-
-[href*=à], [href*=á], [href*=ò], [href*=è], [href*=é], [href*=ì],
-[href*=" "],
-[href=""],
-[href=\#] {
-  box-shadow: rgba(85, 91, 255, 0.5) 0px 0px 0px 3px, rgba(31, 193, 27, 0.5) 0px 0px 0px 6px, rgba(255, 217, 19, 0.5) 0px 0px 0px 11px, rgba(255, 156, 85, 0.5) 0px 0px 0px 15px, rgba(255, 85, 85, 0.5) 0px 0px 0px 25px !important;
-}
-
 .h1, h1 {
   font-size: 40px;
   font-size: 2.5rem;
