@@ -14,7 +14,7 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/luoghi"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
 
         <?php
         if($mappa_primo_piano) {

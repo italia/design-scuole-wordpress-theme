@@ -15,7 +15,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
 
 <main id="main-container" class="main-container">
        
-    <?php get_template_part("template-parts/hero/hero_page"); ?> 
+    <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?> 
     <div class="container">
         <section id="image-block">
             <div class="row">

@@ -10,7 +10,7 @@
 get_header();
 ?>
     <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
         <section class="container mt-5 mb-5">
             <div class="col">
                 <h2> La struttura </h2>
