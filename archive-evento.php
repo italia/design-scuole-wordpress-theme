@@ -13,7 +13,7 @@ get_header();
     <main id="main-container" class="main-container petrol">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
 
 

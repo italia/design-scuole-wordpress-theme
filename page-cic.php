@@ -13,7 +13,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
 
     <main id="main-container" class="main-container">
 
-        <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
         <section id="text-block" class="section bg-white">
             <div class="container-fluid container-border-top">

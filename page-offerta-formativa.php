@@ -32,7 +32,7 @@ $attributes=array(
 
 <main id="main-container" class="main-container">
     <section>
-        <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     </section>
 
     <section class="container bg-white pt-5 pb-3">
