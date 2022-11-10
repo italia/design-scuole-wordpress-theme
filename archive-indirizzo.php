@@ -20,7 +20,7 @@ get_header();
     <main id="main-container" class="main-container <?php echo $class; ?>>">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/hero_martini/hero_indirizzi"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_indirizzi"); ?>
 
 
 

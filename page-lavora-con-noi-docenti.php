@@ -11,7 +11,7 @@
 get_header()
 ?>
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_martini/hero_page") ?>
+    <?php get_template_part("martini-template-parts/hero/hero_title") ?>
 
     <section id="input-lavora-con-noi-docenti" class="container mt-5">
         <div class="row">
