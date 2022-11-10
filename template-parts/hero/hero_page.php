@@ -13,25 +13,28 @@ $hero_post_id = 134;
                 ?>
                 <?php
                 $loop = new WP_Query(array(
-                    'post_type'         => 'slider',
+                    'post_type'         => 'hero_slider',
                     'post_status'       => 'publish',
-                    'orderby'           => 'count',
-                    'order'             => 'DESC',
-                    'posts_per_page'    => 999,
+                    'orderby'           => 'menu_order', 
+                    'order'             => 'ASC',
+                    'posts_per_page'    => 5,
                 ));
                 while ($loop->have_posts()) : $loop->the_post();
 
                 ?>
-                
-                        <li class="splide__slide">
-                            <h1> <?php the_title(); ?> </h1>
-                            <p class="h3 fw-regular"><?php echo get_the_title(); ?></p>
-                            <div class="text-center ">
-                                <a class="btn-md-default" class="" href="<?php echo get_the_permalink(); ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
-                            </div>
-                            <div class="splide__slide__img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
-                        </li>
-
+                    <li class="splide__slide">
+                        <h1><?php the_title(); ?></h1>
+                        <p class="h3 fw-regular"><?php the_excerpt(); ?></p>
+                        <div class="text-center ">
+                            <a class="btn-md-default" href="<?php 
+                                echo get_post_meta(get_the_ID(), "_martini_hero_slider_url")[0] ?? "#"; ?>">
+                                <button class="w-auto"><?php 
+                                    echo get_post_meta(get_the_ID(), "_martini_hero_slider_cta_label")[0] ?? "Scopri"; 
+                                ?></button>
+                            </a>
+                        </div>
+                        <div class="splide__slide__img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
+                    </li>
                 <?php
                 endwhile;
                 ?>
@@ -47,7 +50,7 @@ $hero_post_id = 134;
         (!!Splide) && (new Splide('#hero-splide', {
             type: 'loop',
             pagination: true,
-            start: 0,
+            // start: 0,
             classes: {
                 arrows: 'splide__arrows container',
                 pagination: 'splide__pagination container',
