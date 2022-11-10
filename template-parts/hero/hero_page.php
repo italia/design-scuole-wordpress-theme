@@ -1,5 +1,6 @@
 <?php
 $hero_post_id = 134;
+$use_slider = -1;
 ?>
 <section class="hero-container">
     <div id="hero-splide">
@@ -20,7 +21,7 @@ $hero_post_id = 134;
                     'posts_per_page'    => 5,
                 ));
                 while ($loop->have_posts()) : $loop->the_post();
-
+                $use_slider++;
                 ?>
                     <li class="splide__slide">
                         <h1><?php the_title(); ?></h1>
@@ -42,6 +43,7 @@ $hero_post_id = 134;
         </div>
     </div>
 </section>
+<?php if ($use_slider > 0) { ?>
 <script>
     /**
      *  @see {@link https://splidejs.com/v3/guides/getting-started/ } 
@@ -57,3 +59,4 @@ $hero_post_id = 134;
             },
         })).mount() && (document.querySelector('#hero-splide .splide__list').style = ''));
 </script>
+<?php } ?>
