@@ -410,6 +410,7 @@ require dirname(__FILE__).'/functions-parts/cpt-pon.php';
 require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
 
 require dirname(__FILE__).'/functions-parts/cpt-slider.php';
+require dirname(__FILE__).'/functions-parts/cpt-openday.php';
 
 /* Customize Back-end
 ------------------------*/
