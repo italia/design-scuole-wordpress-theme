@@ -963,6 +963,7 @@ label > span {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  margin: auto;
 }
 
 #hero > section > #hero-splide .splide__slide__img {
