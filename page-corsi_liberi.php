@@ -14,13 +14,9 @@ get_header();
 
 
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_page"); ?>
+    <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
-<<<<<<< HEAD:page-corsi_liberi.php
-    <section id="container-corsi-liberi">
-=======
-    <section id="container-spazi" class="container">
->>>>>>> origin/develop:page-corsi-liberi.php
+    <section id="container-corsi-liberi" class="container-fluid px-5">
 
         <?php 
             $loop = new WP_Query( array(

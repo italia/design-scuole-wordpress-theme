@@ -51,12 +51,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <?php endif; ?>
                         </div><!-- /row--> 
                     </div>
-<<<<<<< HEAD
-                    
-                    <div class="col-12 col-lg-4 pl-lg-4 pl-md-4 pl-0">
-                        <?php get_template_part("martini-template-parts/loop/sidebar_news"); ?>
-                    </div>
-=======
 
                     <div class="col-12 col-lg-4 pl-lg-5 pl-md-5 pl-0" id="progetti-home">
                         <div id="sidebar_news" class="mt-xs-0 mt-sm-0">
@@ -122,7 +116,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             ?>
                     </div><!-- /allegati -->
                     </div><!--col-3 offset-1 -->
->>>>>>> f6910d75b29d4a629346ccc886ae1661d3d15778
                 </div>
             </div><!-- /container -->
         </section>
