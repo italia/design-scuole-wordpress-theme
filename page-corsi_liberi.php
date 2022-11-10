@@ -13,10 +13,10 @@ get_header();
 ?>
 
 
-<main id="main-container" class="main-container">
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+<main id="main-container" class="container main-container">
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
-    <section id="container-corsi-liberi" class="container-fluid px-5">
+    <section id="container-corsi-liberi" class="container">
 
         <?php 
             $loop = new WP_Query( array(

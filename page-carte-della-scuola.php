@@ -10,11 +10,11 @@
 get_header();
 
 ?>
+<?php get_template_part("template-parts/hero/hero_page"); ?>
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
-    <section id="container-carte-della-scuola" class="px-5 p-4">
-        <div class="row">
+    <section id="container-fluid" class="px-5 p-4">
+        <div class="row container-martini">
             <div class="col-12 col-md-6">
                 <h4>Amministrazione trasparente</h4>
             </div>
@@ -27,21 +27,23 @@ get_header();
 
     </section>
     <section class="row bg-light px-5 p-4">
-        <div class="col-12 col-md-6">
-            <h4 class="">Privacy</h4>
-        </div>
-        <div class="col-12 col-md-6 align-item-start text-md-right">
-            <a class="btn-sm-default" href="privacy">
-                <button class="w-auto">Visita la pagina</button>
-            </a>
+        <div class="col-12 row container-martini p-0">
+            <div class="col-12 col-md-6">
+                <h4 class="">Privacy</h4>
+            </div>
+            <div class="col-12 col-md-6 align-item-start text-md-right">
+                <a class="btn-sm-default" href="privacy">
+                    <button class="w-auto">Visita la pagina</button>
+                </a>
+            </div>
         </div>
         
     </section>
 
 
 
-    <section id="container-carte-della-scuola" class="px-5 p-4">
-        <div class="row">
+    <section id="container-fluid" class="px-5 p-4">
+        <div class="row container-martini">
             <div class="col-12 col-md-6">
                 <h4>Albo</h4>
             </div>
@@ -54,14 +56,16 @@ get_header();
     </section>
 
     </section>
-    <section class="row bg-light px-5 p-4" id="container-sicurezza">
-        <div class="col-12 col-md-6">
-            <h4 class="">Sicurezza</h4>
-        </div>
-        <div class="col-12 col-md-6 align-items-start text-md-right">
-            <a class="btn-sm-default"  href="sicurezza">
-                <button class="w-auto">Visita la pagina</button>
-            </a>
+    <section class="row bg-light px-5 p-4">
+        <div class="col-12 row container-martini p-0">
+            <div class="col-12 col-md-6">
+                <h4 class="">Sicurezza</h4>
+            </div>
+            <div class="col-12 col-md-6 align-items-start text-md-right">
+                <a class="btn-sm-default"  href="sicurezza">
+                    <button class="w-auto">Visita la pagina</button>
+                </a>
+            </div>
         </div>
     </section>
 </main>

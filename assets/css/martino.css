@@ -1,3 +1,8 @@
+.container-martini {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .h1, h1 {
   font-size: 40px;
   font-size: 2.5rem;
@@ -913,6 +918,7 @@ label > span {
   margin: 0;
   -moz-appearance: textfield;
 }
+
 #main-container section#input-lavora-con-noi-docenti label span {
   float: none;
 }
@@ -2129,6 +2135,7 @@ label > span {
   position: relative;
   z-index: 1;
 }
+
 .hero div ul li h1 {
   position: absolute;
   top: 30;
