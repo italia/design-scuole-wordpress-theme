@@ -2,10 +2,10 @@
 $hero_post_id = 134;
 $use_slider = -1;
 ?>
-<section id="hero">
+<section id="hero" class="hero-page">
     <section class="hero-container">
         <div id="hero-splide">
-            <div id="hero-content" class="row align-items-center splide__track">
+            <div id="hero-content" class="p-2 row align-items-center splide__track">
                 <ul class="splide__list ">
 
                     <?php

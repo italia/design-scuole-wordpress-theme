@@ -961,17 +961,6 @@ label > span {
   margin: auto;
 }
 
-#hero > section > #hero-splide .splide__slide__img {
-  inset: 0;
-  position: absolute;
-  z-index: -10;
-  background-image: url(https://source.unsplash.com/random);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: brightness(0.5);
-}
-
 #hero > section > #hero-splide .splide__list {
   width: 100%;
 }
@@ -1028,6 +1017,17 @@ label > span {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
+}
+
+#hero #hero-content .hero-img, #hero > section > #hero-splide #hero-content .splide__slide__img {
+  inset: 0;
+  position: absolute;
+  z-index: -10;
+  background-image: url(https://source.unsplash.com/random);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.5);
 }
 
 #hero-indirizzi {
