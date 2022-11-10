@@ -11,7 +11,7 @@ get_header();
 
 ?>
     <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
         <section id="container-spazi">
             <div class="row  justify-content-around my-5">
                 <div class="col-12 col-md-5">

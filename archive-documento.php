@@ -13,7 +13,7 @@ global $documento;
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/documenti"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
 
         <?php
         // recupero la lista delle tipologie

@@ -16,7 +16,7 @@ get_header();
 
     <main id="main-container" class="main-container">
 
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
+        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
 
         <section id="text-block" class="section bg-white">
             <div class="container-fluid container-border-top">

@@ -6,7 +6,7 @@ get_header();
 
 <main id="open-day" class="main-container">
        
-    <?php get_template_part("template-parts/hero/hero_page"); ?> 
+    <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?> 
     
     <div class="container">
 
