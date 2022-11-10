@@ -13,7 +13,7 @@ get_header();
 
     <main id="main-container" class="main-container">
 
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
         <section id="text-block" class="section bg-white">
             <div class="container">

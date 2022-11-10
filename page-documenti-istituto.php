@@ -11,7 +11,7 @@ get_header();
 
 ?>
     <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <section id="container-privacy" class="container mt-3 mb-5">
             <div class="row mx-2">

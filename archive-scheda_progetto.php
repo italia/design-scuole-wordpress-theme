@@ -19,7 +19,7 @@ get_header();
 
     <main id="main-container" class="main-container <?php echo $class; ?>">
 
-    <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
+    <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
         <?php get_template_part("template-parts/search/filters-scheda-progetto"); ?>
 
         <section class="section">
