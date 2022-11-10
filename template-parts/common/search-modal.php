@@ -7,12 +7,16 @@
 					<div class="container">
 						<div class="row variable-gutters">
 							<div class="col">
-								<div class="h2" id="searchModal" >
-									<?php _e("Cerca","design_scuole_italia"); ?>
-									<button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
-										<svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
-									</button>
-								</div>
+                                <div class="row row align-items-center">
+                                    <div class="col-1"><?php get_template_part("template-parts/common/logo"); ?></div>
+                                    <div class="col-11 h2 pl-2" id="searchModal" >
+                                        <?php _e("Cerca","design_scuole_italia"); ?>
+                                        <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Chiudi">
+                                            <svg class="svg-cancel-large"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use></svg>
+                                        </button>
+                                    </div>
+                                </div>
+
 								<div class="form-group search-form">
 									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?></label>
 									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" aria-describedby="search-form" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">

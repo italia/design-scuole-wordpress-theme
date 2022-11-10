@@ -501,6 +501,22 @@ function dsi_add_indirizzo_metaboxes() {
         ),
     ) );
 
+    $cmb_undercontent->add_field( array(
+        'name' => 'Data Open day ',
+        'id'   => $prefix . 'wiki_test_textdate_timestamp',
+        'type' => 'text_date',
+        // 'timezone_meta_key' => 'wiki_test_timezone',
+        // 'date_format' => 'l jS \of F Y',
+    ) );
+
+    $cmb_undercontent->add_field( array(
+        'name' => 'Data Open day 2',
+        'id'   => $prefix . 'wiki_test_textdate_timestamp_2',
+        'type' => 'text_date',
+        // 'timezone_meta_key' => 'wiki_test_timezone',
+        // 'date_format' => 'l jS \of F Y',
+    ) );
+
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
