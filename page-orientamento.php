@@ -57,8 +57,7 @@ $attributes=array(
             </div>
             <div class="col-12 col-lg-8 offset-lg-1">
                 <h2 class="mb-3 text-black">Incontriamoci!</h2>
-                <p>L’Istituto apre le porte alle famiglie per guidarvi nella scelta della Scuola. <br>
-Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi, assistere a una presentazione della proposta formativa della scuola e essere guidati in alcune piccole esperienze di laboratorio.</p>
+                <p>L’Istituto apre le porte alle famiglie per guidarvi nella scelta della Scuola. <br> Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi, assistere a una presentazione della proposta formativa della scuola e essere guidati in alcune piccole esperienze di laboratorio.</p>
                 <a href="#" id="btn-md-default"> <button class="w-auto">Scopri di più</button> </a>
             </div>
         </div><!--incontriamoci -->
@@ -187,7 +186,7 @@ Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi
             <div class="">
                 <h2 class="mb-4 text-blue">Non resta che iscriversi</h2>
                 <div class="iscriviti mb-4"><?php the_content(); ?></div>
-                <a id="btn-lg-default" href="#" target="blank">
+                <a class="btn-lg-default" href="#" target="blank">
                     <button class="w-auto">Iscriviti</button>
                 </a>
             </div>

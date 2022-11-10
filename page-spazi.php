@@ -55,6 +55,13 @@ get_header();
                 </div>
             </div>
         </section>
+
+        <section class="container">            
+            <div class="row mb-5 mt-5">
+                <?php the_content();?>
+            </div>
+        </section>
+
     </main>
 
 <?php
