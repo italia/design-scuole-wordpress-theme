@@ -13,7 +13,7 @@ get_header();
     <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/hero/hero_page"); ?>
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <section id="container-privacy" class="container">
+        <section id="container-privacy" class="container-fluid px-5">
             <details class="row align-items-center my-5 mx-3">
                 <summary class="h4 col-12 pl-0 ml-lg-n2">Archivio privacy</summary>
                 <?php 
