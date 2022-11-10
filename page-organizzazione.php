@@ -21,7 +21,7 @@ if ( $page_id = get_option( 'page_for_posts' ) ) {
 ?>
 
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_page"); ?>
+    <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
     <section id="primary" >
         
         <div class="content mx-5 my-5" role="main" data-target="index" >

@@ -12,7 +12,7 @@ get_header();
 
 ?>
 <main id="main-container" class="main-container">
-    <?php get_template_part("template-parts/hero/hero_page"); ?>
+    <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
     <section id="container-educazione-per-adulti" class="px-5 mt-3">
         <div class="row">

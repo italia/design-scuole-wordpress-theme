@@ -47,7 +47,7 @@ $attributes=array(
 
 <main id="main-container" class="main-container">
     <section>
-        <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
+        <?php get_template_part("martini-template-parts/hero/hero_page"); ?>
     </section>
 
     <section class="container my-5">

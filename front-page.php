@@ -4,7 +4,7 @@
   <!-- HERO -->
   <section id="hero">
     <?php
-    get_template_part("template-parts/hero/hero_page")
+    get_template_part("martini-template-parts/hero/hero_page")
     ?>
 
   </section>
