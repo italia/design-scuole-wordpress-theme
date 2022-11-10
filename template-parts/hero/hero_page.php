@@ -11,22 +11,30 @@ $hero_post_id = 134;
                 // labels: enhancement, help wanted
                 // assignees: maxmorozoff, ToldoDesign128, paolosartori
                 ?>
-                <?php for ($i = 0; $i < 5; $i++) { ?>
+                <?php
+                $loop = new WP_Query(array(
+                    'post_type'         => 'slider',
+                    'post_status'       => 'publish',
+                    'orderby'           => 'count',
+                    'order'             => 'DESC',
+                    'posts_per_page'    => 999,
+                ));
+                while ($loop->have_posts()) : $loop->the_post();
 
-                    <li class="splide__slide">
-                        <h1> <?php the_title(); ?> </h1>
-                        <p class="h3 fw-regular"><?php
-                                                    echo get_the_title($hero_post_id);
-                                                    ?></p>
-                        <div class="text-center ">
-                            <a class="btn-md-default" class="" href="<?php
-                                                                        echo get_the_permalink($hero_post_id);
-                                                                        ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
-                        </div>
-                        <div class="splide__slide__img" style="background-image: url( https://source.unsplash.com/random?<?php echo $i; ?> );"></div>
-                    </li>
+                ?>
+                
+                        <li class="splide__slide">
+                            <h1> <?php the_title(); ?> </h1>
+                            <p class="h3 fw-regular"><?php echo get_the_title(); ?></p>
+                            <div class="text-center ">
+                                <a class="btn-md-default" class="" href="<?php echo get_the_permalink(); ?>" target="blank" class="col-12"><button class="w-auto">Scopri</button></a>
+                            </div>
+                            <div class="splide__slide__img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
+                        </li>
 
-                <?php } ?>
+                <?php
+                endwhile;
+                ?>
             </ul>
         </div>
     </div>
