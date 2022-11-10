@@ -4,7 +4,13 @@
         .no-spin {
             -webkit-appearance: none;
             margin: 0;
-            -moz-appearance:textfield;
+            -moz-appearance: textfield;
+        }
+
+        label {
+            span {
+                float: none;
+            }
         }
     }
 }

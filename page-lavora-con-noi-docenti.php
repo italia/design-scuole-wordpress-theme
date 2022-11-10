@@ -28,7 +28,7 @@ get_footer()
 ?>
 A011 - Discipline letterarie e latino
 A012 - Discipline letterarie negli istituti di istruzione secondaria di II grado
-A017 - Disegno e storia dell’arte negli istituti  di istruzione secondaria di II grado
+A017 - Disegno e storia dell’arte negli istituti di istruzione secondaria di II grado
 A018 - Filosofia e Scienze umane
 A019 - Filosofia e Storia
 A020 - Fisica
@@ -53,7 +53,7 @@ B012 - Laboratori di scienze e tecnologie chimiche e microbiologiche
 B015 - Laboratori di scienze e tecnologie elettriche ed elettroniche
 B017 - Laboratori di scienze e tecnologie meccaniche
 IRC - Insegnamento Religione Cattolica
-ADSS -  Sostegno Scuola Superiore
+ADSS - Sostegno Scuola Superiore
 Lettorato inglese
 Lettorato tedesco
 Italiano centro EDA - SSPG

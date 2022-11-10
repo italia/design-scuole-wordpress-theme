@@ -1,0 +1,26 @@
+//hero page
+
+.hero{
+
+    div{
+
+        ul{
+            li{
+                img{
+                    max-height: 400px;
+                    position: relative;
+                    z-index: 1;
+                }
+                h1{
+                    position: absolute;
+                    top: 30;
+                    left: 30;
+                    z-index: 10;
+                }
+            }
+        }
+    }
+
+
+    
+}

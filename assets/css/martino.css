@@ -913,6 +913,9 @@ label > span {
   margin: 0;
   -moz-appearance: textfield;
 }
+#main-container section#input-lavora-con-noi-docenti label span {
+  float: none;
+}
 
 #open-day .open-post-title {
   display: none;
@@ -2119,4 +2122,16 @@ label > span {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
+}
+
+.hero div ul li img {
+  max-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+.hero div ul li h1 {
+  position: absolute;
+  top: 30;
+  left: 30;
+  z-index: 10;
 }
