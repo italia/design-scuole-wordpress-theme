@@ -46,13 +46,13 @@
         <h4>Area Docenti</h4>
 
         <div class="row mt-4 mt-lg-0">
-          <a class="btn-lg-default w-100 col-12" href="#" target="blank">
+          <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
             <button>Registro elettronico</button>
           </a>
-          <a class="btn-lg-default-outline w-100 col-12" href="#" target="blank">
+          <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
             <button>Orari docenti</button>
           </a>
-          <a class="btn-lg-default-outline w-100 col-12" href="#" target="blank">
+          <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
             <button>GestOre</button>
           </a>
 
@@ -61,7 +61,7 @@
             <?php echo do_shortcode('[calendar id="512"]'); ?>
           </div>
 
-          <a class="btn-lg-default-outline w-100" href=#"">
+          <a class="btn-lg-default-outline w-100" href="calendario">
             <button>Vedi il calendario completo</button>
           </a>
 
@@ -75,7 +75,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="#" target="blank">
+            <a class="btn-lg-default-outline" href="2-livello-ITE-serale" target="blank">
 
               <button>
                 <span>DIDATTICA</span>
@@ -88,7 +88,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="https://martinomartini.local/didattica-2/offerta-formativa/" target="blank">
+            <a class="btn-lg-default-outline" href="offerta-formativa" target="blank">
 
               <button>
                 <span>DIDATTICA</span>
@@ -101,7 +101,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="#" target="blank">
+            <a class="btn-lg-secondary-outline" href="open-days" target="blank">
 
               <button>
                 <span>SERVIZI</span>
@@ -114,7 +114,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="#" target="blank">
+            <a class="btn-lg-secondary-outline" href="ASL" target="blank">
 
               <button>
                 <span>SERVIZI</span>
@@ -175,7 +175,7 @@
 
         <h4>Gli spazi</h4>
         <p>La scuola si compone di due sedi: la sede di via Perlasca e la sede di via Filzi. L’edificio di via Perlasca , costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, ospita gli studenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, un auditorium e ampi spazi verdi all’esterno. L’edificio di via Filzi, sede scolastica storica di Mezzolombardo, è stato di recente rinnovato per ospitare classi e laboratori dell’istituto in crescita negli ultimi anni scolastici. </p>
-        <a class="btn-lg-default-outline" href="https://martinomartini.local/luogo/">
+        <a class="btn-lg-default-outline" href="luogo">
           <button class="w-auto">Scopri</button>
         </a>
 
@@ -199,7 +199,7 @@
         <h4>Martino Martini</h4>
         <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. Notevole fu il suo contributo alla conoscenza dell’impero cinese e della sua cultura, che rese accessibile all’occidente anche grazie alla redazione della prima grammatica della lingua cinese.
         Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-        <a class="btn-lg-default-outline" href="https://martinomartini.local/la-scuola-2/presentazione/">
+        <a class="btn-lg-default-outline" href="presentazione/">
           <button class="w-auto">Scopri</button>
         </a>
 

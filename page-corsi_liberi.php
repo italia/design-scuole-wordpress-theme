@@ -16,7 +16,7 @@ get_header();
 <main id="main-container" class="main-container">
     <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
-    <section id="container-spazi" class="container">
+    <section id="container-corsi-liberi" class="container-fluid px-5">
 
         <?php 
             $loop = new WP_Query( array(
