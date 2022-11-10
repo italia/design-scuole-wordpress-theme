@@ -1,9 +1,11 @@
-<section>
-    <div id="hero" class="container-fluid">
-        <div id="content" class="row align-items-center">
-            <div class="col-12">
+<section id="hero" class="hero-title">
+    <section class="hero-container">
+        <div class="row h-100 align-items-center">
+            <div id="hero-content" class="p-2 d-flex flex-column justify-content-center">
                 <h1> <?php the_title(); ?> </h1>
+                <p class="h3 fw-regular"><?php echo get_the_excerpt(); ?></p>
+                <div class="hero-img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
             </div>
         </div>
-    </div>
+    </section>
 </section>
