@@ -2,7 +2,7 @@
 <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="false">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content perfect-scrollbar">
-			<div class="modal-body">
+			<div class="modal-body pt-5">
                 <form role="search" id="search-form" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<div class="container">
 						<div class="row variable-gutters">
