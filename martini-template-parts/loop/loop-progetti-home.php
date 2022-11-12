@@ -42,8 +42,8 @@
 
             <a href="<?php the_permalink();?>">
             
-              <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,);?></h5>
-              <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 60);?>...</p>
+              <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,'...');?></h5>
+              <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 72,);?>...</p>
 
             </a>
 

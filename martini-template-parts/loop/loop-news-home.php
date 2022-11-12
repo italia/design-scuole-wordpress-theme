@@ -6,7 +6,7 @@
 
       <h4 class="col-12">Ultime news </h4>
 
-      <div class="container-news col-12 row mb-4">
+      <div class="container-news col-12 row mb-lg-4">
         
         <?php
           $loop = new WP_Query( array( 
@@ -44,7 +44,7 @@
 
             <div class="card-body">
 
-              <p class="card-title primary"> <?php the_title(); ?> </p>
+              <p class="card-title primary"><?php echo mb_strimwidth(get_the_title(), 0, 22,'...');?></p>
 
               <a href="<?php the_permalink();?>" class="btn-mini-default"> 
 
@@ -62,7 +62,7 @@
 
         </div><!--.container-news -->
 
-        <div class="button-container col-12 mt-4 mt-lg-0 pr-3">
+        <div class="button-container col-12 mb-4 mb-lg-0 mt-lg-0 pr-3">
 
           <a class="btn-lg-default-outline w-100" href="news" class="col-12 p-0">
 

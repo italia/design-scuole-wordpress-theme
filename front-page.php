@@ -38,21 +38,23 @@
       <!--#container-presentazione -->
 
 
-      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0 row">
+      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0">
 
         <h4>Area Docenti</h4>
 
         <div class="row mt-4 mt-lg-0">
-          <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
-            <button>Registro elettronico</button>
-          </a>
-          <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
-            <button>Orari docenti</button>
-          </a>
-          <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
-            <button>GestOre</button>
-          </a>
-
+          <div class="col-12 mt-lg-4">
+            <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
+              <button>Registro elettronico</button>
+            </a>
+            <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
+              <button>Orari docenti</button>
+            </a>
+            <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
+              <button>GestOre</button>
+            </a>
+          </div>
+            
           <!-- Calendar -->
           <div class="col-12">
             <?php echo do_shortcode('[calendar id="512"]'); ?>
@@ -72,7 +74,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="2-livello-ITE-serale" target="blank">
+            <a class="btn-lg-default-outline" href="2-livello-ITE-serale" >
 
               <button>
                 <span>DIDATTICA</span>
@@ -85,7 +87,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="offerta-formativa" target="blank">
+            <a class="btn-lg-default-outline" href="offerta-formativa">
 
               <button>
                 <span>DIDATTICA</span>
@@ -98,7 +100,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="open-days" target="blank">
+            <a class="btn-lg-secondary-outline" href="open-days">
 
               <button>
                 <span>SERVIZI</span>
@@ -111,7 +113,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="ASL" target="blank">
+            <a class="btn-lg-secondary-outline" href="ASL">
 
               <button>
                 <span>SERVIZI</span>

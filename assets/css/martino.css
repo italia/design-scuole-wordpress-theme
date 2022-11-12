@@ -933,6 +933,14 @@ label > span {
   display: block;
 }
 
+.simcal-event-details {
+  color: #000;
+}
+
+.simcal-event-details a {
+  color: #1260A4;
+}
+
 #hero {
   height: 400px;
   width: 100%;
