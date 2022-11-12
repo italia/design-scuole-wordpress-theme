@@ -44,7 +44,7 @@
 
             <div class="card-body">
 
-              <p class="card-title primary"> <?php the_title(); ?> </p>
+              <p class="card-title primary"><?php echo mb_strimwidth(get_the_title(), 0, 22,'...');?></p>
 
               <a href="<?php the_permalink();?>" class="btn-mini-default"> 
 

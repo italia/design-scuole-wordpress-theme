@@ -46,7 +46,7 @@
         <h4>Area Docenti</h4>
 
         <div class="row mt-4 mt-lg-0">
-          <div class="col-12">
+          <div class="col-12 mt-lg-4">
             <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro elettronico</button>
             </a>
