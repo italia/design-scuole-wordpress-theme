@@ -41,11 +41,12 @@
       <!--#container-presentazione -->
 
 
-      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0 row">
+      <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0">
 
         <h4>Area Docenti</h4>
 
         <div class="row mt-4 mt-lg-0">
+<<<<<<< Updated upstream
           <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
             <button>Registro elettronico</button>
           </a>
@@ -56,6 +57,20 @@
             <button>GestOre</button>
           </a>
 
+=======
+          <div class="col-12">
+            <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
+              <button>Registro elettronico</button>
+            </a>
+            <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
+              <button>Orari docenti</button>
+            </a>
+            <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
+              <button>GestOre</button>
+            </a>
+          </div>
+            
+>>>>>>> Stashed changes
           <!-- Calendar -->
           <div class="col-12">
             <?php echo do_shortcode('[calendar id="512"]'); ?>
