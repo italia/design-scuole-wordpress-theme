@@ -8,17 +8,26 @@
 
 get_header();
 
-$presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
 ?>
+
+    
 
     <main id="main-container" class="main-container">
 
         <?php get_template_part("template-parts/hero/hero_page"); ?>
 
+        <?php
+        while ( have_posts() ) :
+            the_post();
+            set_views($post->ID);
+            
+
+            $mail = get_post_meta("martini_email");
+        ?>
+
         <section id="text-block" class="section bg-white">
             <div class="container-fluid container-border-top">
                 <div class="row main-content variable-gutters">
-
                     <div class="container col-lg-8">
                         <div class="pt-5 px-3">
                             <h2>Centro di Informazione e Consulenza</h2>
@@ -36,11 +45,11 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                                 <h5>Contatti</h5>
                                 <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
                             </div>   
-                            <div class="col-12 col-lg-9 py-3 mailfield">
-                                <h6>Email</h6>
-                                <a>cic@martinomartini.eu </a> 
-                                <a>francescafontana777@gmail.com</a>
-                            </div>
+                                <div class="col-12 col-lg-9 py-3 mailfield">
+                                    <h6>Email</h6>
+                                    
+                                    <?php if($mail){ ?> <a href="mailto:$mail"><?php echo $mail;  ?></a><?php } ?>
+                                </div>
                             <div class="col-12 col-lg-9 py-3">
                                 <h5>Modulistica</h5>
                                 <a>CONSENSO INFORMATO</a> 
@@ -52,8 +61,10 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         </section>
 
 
+
     </main>
 
 
 <?php
+endwhile;
 get_footer();

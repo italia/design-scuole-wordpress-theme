@@ -16,7 +16,7 @@ get_header();
         <?php get_template_part("template-parts/hero/hero_page"); ?>
 
         <section id="text-block" class="section bg-white">
-            <div class="container-fluid container-border-top">
+            <div class="container-fluid">
                 <div class="row main-content variable-gutters">
 
                     <div class="container col-lg-8 px-3 py-5">
@@ -48,13 +48,18 @@ get_header();
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
                                 <h5>Modulistica</h5>
+                                <a href=""></a>
                                 
                             </div>
                             
                             <ul class="link-list">
-                                <h6>prova di un sottotitolo</h6>
 
                             </ul>
+                            <div class="col-12 col-lg-9" id="" class="mailfield">
+                                <h5>Contatti</h5>
+                                <p id="quotes">Chiunque desideri maggiori informazioni o chiarimenti può contattare il coordinatore del serale, scrivendo a:</p>
+                                <a href="serali@martinomartini.eu.">serali@martinomartini.eu.</a>
+                            </div>   
                         </aside>
                     </div> <!--/ sidebar -->
                 </div><!-- /row -->
