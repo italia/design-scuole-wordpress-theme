@@ -10,8 +10,8 @@
 get_header();
 ?>
     <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
-        <section id="container">
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+        <section class="container mt-5 mb-5">
             <div class="col">
                 <h2> La struttura </h2>
                 <p>
@@ -33,6 +33,12 @@ get_header();
                 nonché a valorizzare le risorse alternative con attività volte a promuovere la sostenibilità e l’efficienza 
                 energetica.
                 </p>
+            </div>
+
+            <div class="gallery mt-5">
+                <div class="items">
+                    <?php the_content();?>
+                </div>
             </div>
         </section>
     </main>

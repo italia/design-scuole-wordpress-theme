@@ -11,10 +11,10 @@ get_header();
 ?>
 
 <main id="main-container" class="main-container">
-        <?php get_template_part("template-parts/hero/hero_page"); ?>
-        <section id="container-contattiutili">
+        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+        <section id="container-contattiutili" class="container">
             <div class="row">
-                <div class="col-12 mt-5 px-5">
+                <div class="col-12 mt-5 px-3">
                     <h4>Articolazione degli uffici </h4>
                     <p>
                     Gli uffici della segreteria scolastica di via Perlasca 4 a Mezzolombardo sono aperti al pubblico nei 
@@ -23,7 +23,7 @@ get_header();
                 </div>
             </div>  
             <div class="row">
-                <div class="col-6 mt-3 px-5">
+                <div class="col-12 col-md-6 mt-3 px-3">
                     <table class="table table-bordered">
                         <thead class="table-info">
                             <tr>
@@ -43,7 +43,7 @@ get_header();
                 </div>
             </div>
             <div class="row">
-                <div class="col-12  mt-5 px-5">
+                <div class="col-12  mt-5 px-3">
                     <table class="table-info table table-bordered">
                         <tbody>
                             <tr><td></td><td></td></tr>
@@ -66,10 +66,10 @@ get_header();
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 mt-5 px-5">
+                <div class="col-12 mt-5 px-3">
                     <h4> Collaboratori del dirigente scolastico e referenti/funzioni strumentali</h4>
                 </div>
-                <div class="col-12 mb-5 px-5">
+                <div class="col-12 mb-5 px-3">
                     <table class="table-info table table-bordered">
                         <tbody>
                             <tr><td></td><td></td></tr>

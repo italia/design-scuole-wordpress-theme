@@ -22,7 +22,7 @@ function register_corsi_liberi_post_type() {
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 12,
+		'menu_position' => 10,
 		'menu_icon'     => 'dashicons-book',
 		'has_archive'   => true,
         'map_meta_cap'    => true,

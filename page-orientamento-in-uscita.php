@@ -14,27 +14,27 @@ get_header();
 <main id="main-container" class="main-container">
        
       
-       <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?> 
+       <?php get_template_part("martini-template-parts/hero/hero_title"); ?> 
 
 
-    <section id="image-block" class="section bg-white">
+    <section id="image-block" class="section bg-white my-5">
         <div class="container">
             <div class="row variable-gutters">
                 
-                <div class="main-content col-lg-6 col-xxl-6">
+                <div class="col-lg-6">
                     <div class="row variable-gutters mb-3">
                         <div class="px-3">    
-                            <h2>Orientamento in uscita</h2>
+                            <h4 class="mb-4">Orientamento in uscita</h4>
                             <p>L’Orientamento in uscita vuole aiutare gli studenti a maturare una scelta consapevole dopo il conseguimento del diploma, in ambito universitario o lavorativo. Di fronte alla vastità delle opzioni e ai mutamenti continui che investono il mondo della formazione e il mondo del lavoro è fondamentale sapersi orientare. Un lavoro efficace in tal senso permette più facilmente ai giovani di conoscere, cercare, trovare e sfruttare le opportunità offerte dal panorama italiano e non solo.
                             </p>
                         </div>
                     </div><!-- row -->
                     <div class="row d-md-inline mt-5">
-                        <a id="btn-lg-default" href="#" target="blank" class="col-12 col-md-6">
-                            <button class="wauto">Orienta UNITN</button>
+                        <a href="#" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
+                            <button class="w-auto">Orienta UNITN</button>
                         </a>
-                        <a id="btn-lg-default" href="#" target="blank" class="col-12 col-md-6">
-                            <button class="wauto">Il portale dell'orientamento</button>
+                        <a href="#" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
+                            <button class="w-auto">Il portale dell'orientamento</button>
                         </a>
                     </div><!--.row -->
                 </div><!-- content -->

@@ -22,7 +22,7 @@ function register_privacy_post_type() {
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 11,
+		'menu_position' => 18,
 		'menu_icon'     => 'dashicons-lock',
 		'has_archive'   => true,
         'map_meta_cap'    => true,

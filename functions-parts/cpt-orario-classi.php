@@ -22,7 +22,7 @@ function register_orario_classi_post_type() {
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 13,
+		'menu_position' => 12,
 		'menu_icon'     => 'dashicons-clock',
 		'has_archive'   => true,
         'map_meta_cap'    => true,

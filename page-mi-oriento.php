@@ -14,19 +14,18 @@ get_header();
 <main id="main-container" class="main-container">
        
       
-       <?php get_template_part("template-parts/hero/hero_martini/hero_page"); ?> 
+       <?php get_template_part("martini-template-parts/hero/hero_title"); ?> 
 
 
-    <section id="image-block" class="section bg-white">
+    <section id="image-block" class="section bg-white my-5">
         <div class="container">
             <div class="row variable-gutters">
                 
                 <div class="main-content col-lg-6 col-xxl-6">
                     <div class="row variable-gutters mb-3">
                         <div class="px-3">    
-                            <h2>Il nuovo servizio di School Counseling del Martino Martini</h2>
-                            <p>Sei in difficoltà con il tuo percorso scolastico e non sai se hai fatto la scelta giusta? Hai bisogno di aiuto nella scelta del percorso di Alternanza Scuola Lavoro? Vuoi orientarti meglio rispetto alle scelte post-diploma? Hai desideri e talenti ma non sai come realizzarli? Hai bisogno di aiuto nella compilazione del tuo CV o nella redazione del tuo portfolio? 
-                            </p>
+                            <h4 class="mb-4">Il nuovo servizio di School Counseling del Martino Martini</h4>
+                            <p>Sei in difficoltà con il tuo percorso scolastico e non sai se hai fatto la scelta giusta? Hai bisogno di aiuto nella scelta del percorso di Alternanza Scuola Lavoro? Vuoi orientarti meglio rispetto alle scelte post-diploma? Hai desideri e talenti ma non sai come realizzarli? Hai bisogno di aiuto nella compilazione del tuo CV o nella redazione del tuo portfolio?</p>
                             <p>Scrivi a <a href="mailto:mioriento@martinomartini.eu">mioriento@martinomartini.eu</a> e prendi appuntamento.</p>
                         </div>
                     </div><!-- row -->

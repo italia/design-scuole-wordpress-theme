@@ -734,3 +734,70 @@ function info_carousel( $atts, $content = "" ) {
     return ob_get_clean();
 }
 add_shortcode( 'info_carousel', 'info_carousel' );
+
+
+
+function table_from_sheets( $atts, $content = null, $do_update = false) {
+    $atts = shortcode_atts( array(
+        'url' => '',
+		'name' => '',
+        'expire' => 12 * HOUR_IN_SECONDS,
+        'table_class' => 'table table-striped table-bordered',
+        'container_class' => 'table-responsive',
+        'replace_classes' => 's0=text-center+bg-primary+text-white',// url encoded map of [sheet class] => [custom classes]
+                                // 's0=text-center+bg-primary+text-white&' . 
+                                // 's2=font-weight-bold&' . 
+                                // 's4=font-italic&' .
+	), $atts, 'table_from_sheets' );
+    
+    // TODO: Add attributes check
+    if (!preg_match('/(?<=https:\/\/docs.google.com\/spreadsheets\/d\/)[a-zA-Z0-9_-]+/s', $atts['url'], $matches)){
+        _e('ERROR: Bad sheets url format.');
+        return '';
+    }
+    $sheet_id = $matches[0];
+    
+    
+    $transient_id = substr($sheet_id . '?' . $atts['name'], 0, 172); //! handle if length > 172
+    // var_dump($transient_id, $sheet_id);
+    if ($do_update === true || false === ( $output = get_transient( $transient_id ) ) ) {
+        $output = get_file_from_zip(
+            sprintf('https://docs.google.com/spreadsheets/d/%s/export?format=zip', $sheet_id), //$atts['url']
+            $atts['name'] . '.html'
+        );
+
+        $output = preg_replace(array(
+            '/<script.*?\/script>/s',
+            '/<style.*?\/style>/s',
+            '/<meta.*?>/s',
+            '/<link.*?>/s',
+        ), "", $output) ?? $output;
+
+        parse_str($atts["replace_classes"],$replaces);
+        $atts["table_class"] = str_replace('+', ' ', $atts["table_class"]);
+        // var_dump($replaces);
+        
+        if ($atts['table_class']) 
+            $output = preg_replace('/(?<=<table class=").*?(?=")/s', $atts['table_class'], $output) ?? $output;
+        if ($atts['container_class']) 
+            $output = preg_replace('/(?<=<div class=")ritz grid-container(?=")/s', $atts['container_class'], $output) ?? $output;
+        if (!empty($replaces)) 
+            $output = preg_replace_callback('/(?<=class=").*?(?=")/s', function($m) use ($replaces){
+                if(isset($replaces[$m[0]])){ // If it exists in our array
+                    return $replaces[$m[0]]; // Then replace it from our array
+                } else {
+                    return $m[0]; // Otherwise return the whole match (basically we won't change it)
+                }
+            }, $output);
+            
+        ob_start();
+        echo $output;
+        set_transient( $transient_id, ob_get_clean(), $atts['expire'] );
+    }
+
+    ob_start();
+    ?><style>th.row-headers-background, thead {display: none !important;}</style><?php
+    echo $output;
+    return ob_get_clean();
+}
+add_shortcode( 'table_from_sheets', 'table_from_sheets' );

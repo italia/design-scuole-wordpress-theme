@@ -1,3 +1,4 @@
+
 <div class="p-0" id="progetti-home">
 
   <div class="container m-0 p 0">
@@ -41,8 +42,8 @@
 
             <a href="<?php the_permalink();?>">
             
-              <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,);?></h5>
-              <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 60);?>...</p>
+              <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,'...');?></h5>
+              <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 72,);?>...</p>
 
             </a>
 
@@ -55,7 +56,7 @@
           
       <div class="col-12 mt-4 mt-lg-0 pl-0 pr-0 w-100">
 
-        <a class="btn-lg-default-outline" href="">
+        <a class="btn-lg-default-outline" href="i-progetti-della-classe">
           <button>Vedi tutti</button>
         </a>
 

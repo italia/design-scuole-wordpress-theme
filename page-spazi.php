@@ -12,9 +12,9 @@ get_header();
 ?>
     <main id="main-container" class="main-container">
         <?php get_template_part("template-parts/hero/hero_page"); ?>
-        <section id="container-spazi">
-            <div class="row  justify-content-around my-5">
-                <div class="col-12 col-md-5">
+        <section id="container-spazi" class="container px-4 mb-5">
+            <div class="row my-5">
+                <div class="col-12 col-md-6">
                     <h2> La struttura </h2>
                     <p>
                     L’edificio, costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, 
@@ -25,11 +25,11 @@ get_header();
                     energetica.
                     </p>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-5 offset-md-1">
                     <img src="https://source.unsplash.com/random">
                 </div>
             </div>
-            <div class="row mt-5 mx-5">
+            <div class="row my-5">
                 <div class="col-12">
                     <h2> Dove siamo </h2>
                     <p id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760.6432560458743!2d11.091425415561254!3d46.217551290879264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47827cb02fff368d%3A0x1cf5704527b68a6d!2sIstituto%20di%20Istruzione%20Martino%20Martini!5e0!3m2!1sit!2sit!4v1658760735666!5m2!1sit!2sit" 
@@ -38,8 +38,8 @@ get_header();
                     </p>
                 </div>
             </div>
-            <div class="row justify-content-around mb-5 mt-5">
-                <div class="col-12 col-md-5">
+            <div class="row my-5">
+                <div class="col-12 col-md-6">
                     <h2> Certificazione Leed </h2>
                     <p>
                     L'istituto si sviluppa su un volume di 63.000 metri cubi, una superficie coperta di 4,532 metri 
@@ -50,10 +50,15 @@ get_header();
                     ottenuto la certificazione Leed Gold.
                     </p>
                 </div>
-                <div class="col-12 col-md-5 " >
+                <div class="col-12 col-md-5 offset-md-1" >
                     <img src="https://source.unsplash.com/random">
                 </div>
             </div>
+
+            <!-- <div class="row"> 
+                QUI CI VA LA GALLERIA 
+            </div> -->
+
         </section>
     </main>
 
