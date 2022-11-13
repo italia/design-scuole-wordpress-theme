@@ -8,7 +8,6 @@
 
 get_header();
 
-$presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
 ?>
 
 
@@ -16,7 +15,7 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
 <main id="main-container" class="main-container">
        
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?> 
-    <div class="container">
+    <div class="container my-5">
         <section id="image-block">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
