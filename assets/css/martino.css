@@ -931,9 +931,11 @@ label > span {
   padding: 5% 20%;
   display: none;
 }
+
 #open-day .open-day-foto {
   display: block;
 }
+
 #open-day .open-day-foto:hover {
   display: none;
 }
@@ -1264,6 +1266,7 @@ body {
 #sidebar {
   background-color: #DFE2EB;
 }
+
 #sidebar::before {
   content: "";
   position: absolute;
@@ -1274,6 +1277,7 @@ body {
   top: 0;
   background-color: #DFE2EB;
 }
+
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
