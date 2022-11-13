@@ -1,0 +1,48 @@
+#main-header{
+    .header-search {
+
+        button.d-flex {
+            width: 8.5rem;
+            border-radius: .875rem;
+            background-color: #D2E4FF;
+            height: 2rem;
+            padding: 0 .5rem;
+        }
+        
+        .header-search svg {
+            width: .875rem;
+            height: .875rem;
+            display: block;
+            fill: #455b71;
+        }
+    }
+
+    #sub-nav {
+        ul.nav-list {
+            >li {
+                min-width: 10ch;
+                >a {
+                    &[href="#"] {
+                        color: $black;
+                        @include font-body;
+                        @include fw-regular;
+                        &:hover {
+                            font-weight: 600;
+                        }
+                        position: relative;
+                        padding-right: 17px + 12px;
+                        &::after {
+                            @include caret-icon(down);
+                            float: right;
+                            position: absolute;
+                            top: 50%;
+                            right: 12px;
+                            transform: translateY(-50% + 20%);
+                        }
+                        
+                    }
+                }
+            } 
+        } 
+    }
+}
