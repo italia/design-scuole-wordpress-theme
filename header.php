@@ -52,7 +52,7 @@ if(is_search() || is_archive())
             <div class="row variable-gutters">
                 <div class="d-flex align-items-center">
                     <!-- Left menu element-->
-                    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left perfect-scrollbar">
+                    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right perfect-scrollbar">
                         <div class="logo-header">
                             <?php get_template_part("template-parts/common/logo"); ?>
                             <div class="h1">
@@ -170,7 +170,7 @@ if(is_search() || is_archive())
 
                 </div><!-- /col -->
                 <div class="d-flex container align-items-center justify-content-between">
-                    <button class="hamburger hamburger--spin-r toggle-menu menu-left push-body d-md-none" type="button" aria-label="menu di navigazione">
+                    <button class="hamburger hamburger--spin-r toggle-menu menu-right push-body d-md-none" type="button" aria-label="menu di navigazione">
                         <span class="hamburger-box">
                           <span class="hamburger-inner"></span>
                         </span>
