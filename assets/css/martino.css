@@ -79,7 +79,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, p, ul, ol, .font-body {
+.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -105,8 +105,20 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(20px, 26px - 1.04166667vw, 18px);
 }
 
-.fw-regular {
+#main-header ul.nav-list > li > a, #main-header .header-social span, .fw-regular {
   font-weight: 400;
+}
+
+#main-header ul.nav-list > li > a[href="#"]::after {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;'%3E%3Cg id='group-check'%3E%3Crect id='Rectangle-path' x='0' y='0.035' width='32' height='32' style='fill:none;'/%3E%3Cpath d='M30.001,6.819c1.727,0.238 2.625,2.423 1.501,3.804c-4.48,4.798 -9.281,9.288 -13.923,13.93c-0.879,0.822 -2.215,0.861 -3.14,0.108c-4.799,-4.481 -9.288,-9.281 -13.93,-13.923c-1.603,-1.715 0.882,-5.473 3.256,-3.256l12.186,12.187l12.302,-12.295c0.491,-0.398 0.749,-0.621 1.748,-0.555Z' style='fill-rule:nonzero;'/%3E%3C/g%3E%3C/svg%3E");
+  content: "";
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto;
 }
 
 .list {
@@ -931,9 +943,11 @@ label > span {
   padding: 5% 20%;
   display: none;
 }
+
 #open-day .open-day-foto {
   display: block;
 }
+
 #open-day .open-day-foto:hover {
   display: none;
 }
@@ -948,6 +962,139 @@ label > span {
 
 .simcal-event-details a {
   color: #1260A4;
+}
+
+.form-check [type=checkbox] + label,
+.form-check [type=radio] + label {
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  line-height: 32px;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: left;
+}
+
+.form-check [type=checkbox] + label::after,
+.form-check [type=checkbox] + label::before {
+  content: "";
+  left: 0;
+  position: initial;
+  transition: 0.2s ease-out;
+  z-index: 1;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.form-check [type=checkbox] + label::before {
+  top: 0;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #e6e9f2;
+  border-radius: 1px;
+  margin: 2px 5px;
+  transform: rotateZ(37deg);
+  transform-origin: 100% 100%;
+  position: absolute;
+}
+
+#main-header {
+  color: #000;
+}
+
+#main-header.is-sticky {
+  z-index: 999999;
+}
+
+#main-header svg {
+  fill: #1260A4;
+}
+
+#main-header .hamburger--spin-r.is-active .hamburger-inner::after {
+  transform: rotate(90deg) translateX(-9px);
+  transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#main-header .hamburger.is-active {
+  left: unset;
+  position: static;
+  top: unset;
+  z-index: 999;
+}
+
+#main-header .hamburger-inner::before {
+  top: -9px;
+}
+
+#main-header .hamburger-inner::after {
+  bottom: -9px;
+}
+
+#main-header .hamburger-inner, #main-header .hamburger-inner::before, #main-header .hamburger-inner::after {
+  height: 4px;
+  width: 30px;
+}
+
+@media (min-width: 576px) {
+  #main-header .header-search button.d-flex {
+    width: 8.5rem;
+    border-radius: 0.875rem;
+    background-color: #D2E4FF;
+    height: 2rem;
+    padding: 0 0.5rem;
+  }
+  #main-header .header-search svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    display: block;
+  }
+}
+#main-header .header-search svg {
+  fill: #1260A4;
+  margin: 0;
+}
+
+#main-header ul.nav-list > li > a {
+  color: #000;
+}
+
+#main-header ul.nav-list > li > a:hover {
+  text-shadow: 0 0 0.01px black, 0 0 0.01px black, 0 0 0.01px black, 0 0 0.01px black;
+}
+
+#main-header ul.nav-list > li > a[href="#"] {
+  position: relative;
+  padding-right: 29px;
+}
+
+#main-header ul.nav-list > li > a[href="#"]::after {
+  float: right;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-30%);
+}
+
+#main-header ul.nav-list > li > a:not([href="#"]):hover {
+  text-decoration: underline;
+}
+
+#main-header div:not(.nav-list-mobile) > .dl-menu .menu-dropdown {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#main-header .menu-open {
+  z-index: 999999;
+}
+
+.cbp-spmenu {
+  z-index: unset;
 }
 
 #hero {
@@ -1004,6 +1151,7 @@ label > span {
   gap: 1.1875rem;
   margin: auto;
   margin-bottom: 2.125rem;
+  z-index: unset;
 }
 
 #hero > section > #hero-splide .splide__pagination__page {
@@ -1018,6 +1166,7 @@ label > span {
   transform: none;
   width: 1rem;
   height: 1rem;
+  z-index: unset;
 }
 
 #hero #hero-content {
@@ -1039,6 +1188,12 @@ label > span {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 #hero #hero-content .hero-img, #hero > section > #hero-splide #hero-content .splide__slide__img {
@@ -1264,6 +1419,7 @@ body {
 #sidebar {
   background-color: #DFE2EB;
 }
+
 #sidebar::before {
   content: "";
   position: absolute;
@@ -1274,6 +1430,7 @@ body {
   top: 0;
   background-color: #DFE2EB;
 }
+
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
