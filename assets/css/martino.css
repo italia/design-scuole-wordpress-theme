@@ -964,6 +964,46 @@ label > span {
   color: #1260A4;
 }
 
+.form-check [type=checkbox] + label,
+.form-check [type=radio] + label {
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  line-height: 32px;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: left;
+}
+
+.form-check [type=checkbox] + label::after,
+.form-check [type=checkbox] + label::before {
+  content: "";
+  left: 0;
+  position: initial;
+  transition: 0.2s ease-out;
+  z-index: 1;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.form-check [type=checkbox] + label::before {
+  top: 0;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #e6e9f2;
+  border-radius: 1px;
+  margin: 2px 5px;
+  transform: rotateZ(37deg);
+  transform-origin: 100% 100%;
+  position: absolute;
+}
+
 #main-header {
   color: #000;
 }
