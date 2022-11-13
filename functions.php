@@ -415,6 +415,8 @@ require dirname(__FILE__).'/functions-parts/cpt-openday.php';
 require dirname(__FILE__).'/functions-parts/custom-fields.php';
 require dirname(__FILE__).'/functions-parts/cmb2-js-validation-required.php';
 
+require dirname(__FILE__).'/functions-parts/back-end-custom.php';
+
 function get_file_from_zip($zipfile, $filename)
 {
 	// TODO: Add error handling

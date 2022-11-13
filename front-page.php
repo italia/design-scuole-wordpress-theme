@@ -87,7 +87,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="offerta-formativa">
+            <a class="btn-lg-default-outline" href="didattica-2/offerta-formativa">
 
               <button>
                 <span>DIDATTICA</span>

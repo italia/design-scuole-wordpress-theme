@@ -56,7 +56,7 @@
           
       <div class="col-12 mt-4 mt-lg-0 pl-0 pr-0 w-100">
 
-        <a class="btn-lg-default-outline" href="i-progetti-della-classe">
+        <a class="btn-lg-default-outline" href="scheda-progetto">
           <button>Vedi tutti</button>
         </a>
 
