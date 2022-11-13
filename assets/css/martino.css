@@ -1355,6 +1355,7 @@ label > span {
 
 #progetti-home .container-progetti article.card-progetti {
   height: 10rem;
+  height: 5.5rem;
   display: flex;
   gap: 1rem;
   width: 100%;
@@ -1366,6 +1367,7 @@ label > span {
 #progetti-home .container-progetti article.card-progetti .row-img {
   height: 100%;
   width: 5.5rem;
+  height: 5.5rem;
 }
 
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop {
