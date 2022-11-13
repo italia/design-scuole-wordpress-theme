@@ -9,6 +9,7 @@
     article.card-progetti {
       //margin-top: 1rem;
       height: px2rem(320px/2);
+        height: px2rem(88px);
       display: flex;
       gap: 1rem;
       width: 100%;
@@ -20,6 +21,7 @@
       .row-img {
         height: 100%;
         width: px2rem(88px);
+        height: px2rem(88px);
         
         a.img-loop {
           height: 100%;

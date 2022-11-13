@@ -4,16 +4,13 @@ $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 
 ?>
-<?php if(has_post_thumbnail($post)){ ?>
 <section class="section bg-white">
-    <?php
-    $colsize = 12;
-    }else{
-    ?>
-    <section class="section bg-white article-title article-title-small article-title-author">
-        <?php
+    <?php if(has_post_thumbnail($post)){ 
         $colsize = 12;
-        } ?>
+    }else{
+        $colsize = 12;
+    } ?>
+    <section class="section bg-white article-title article-title-small article-title-author">
         <div class="">
             <div class="row variable-gutters">
                 <div class="col-<?php echo $colsize; ?>">
