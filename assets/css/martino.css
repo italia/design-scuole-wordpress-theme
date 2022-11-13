@@ -79,7 +79,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header #sub-nav ul.nav-list > li > a[href="#"], p, ul, ol, .font-body {
+.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a[href="#"], #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -105,18 +105,17 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(20px, 26px - 1.04166667vw, 18px);
 }
 
-#main-header #sub-nav ul.nav-list > li > a[href="#"], .fw-regular {
+#main-header ul.nav-list > li > a[href="#"], #main-header .header-social span, .fw-regular {
   font-weight: 400;
 }
 
-#main-header #sub-nav ul.nav-list > li > a[href="#"]::after {
+#main-header ul.nav-list > li > a[href="#"]::after {
   display: block;
   width: 12px;
   height: 12px;
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;'%3E%3Cg id='group-check'%3E%3Crect id='Rectangle-path' x='0' y='0.035' width='32' height='32' style='fill:none;'/%3E%3Cpath d='M30.001,6.819c1.727,0.238 2.625,2.423 1.501,3.804c-4.48,4.798 -9.281,9.288 -13.923,13.93c-0.879,0.822 -2.215,0.861 -3.14,0.108c-4.799,-4.481 -9.288,-9.281 -13.93,-13.923c-1.603,-1.715 0.882,-5.473 3.256,-3.256l12.186,12.187l12.302,-12.295c0.491,-0.398 0.749,-0.621 1.748,-0.555Z' style='fill-rule:nonzero;'/%3E%3C/g%3E%3C/svg%3E");
   content: "";
   background-size: 12px 12px;
-  opacity: 0.5;
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto;
@@ -965,41 +964,77 @@ label > span {
   color: #1260A4;
 }
 
-#main-header .header-search button.d-flex {
-  width: 8.5rem;
-  border-radius: 0.875rem;
-  background-color: #D2E4FF;
-  height: 2rem;
-  padding: 0 0.5rem;
+#main-header {
+  color: #000;
 }
 
+#main-header.is-sticky {
+  z-index: 999999;
+}
+
+#main-header svg {
+  fill: #1260A4;
+}
+
+#main-header .hamburger-inner::before {
+  top: -9px;
+}
+
+#main-header .hamburger-inner::after {
+  bottom: -9px;
+}
+
+#main-header .hamburger-inner, #main-header .hamburger-inner::before, #main-header .hamburger-inner::after {
+  height: 4px;
+  width: 30px;
+}
+
+@media (min-width: 576px) {
+  #main-header .header-search button.d-flex {
+    width: 8.5rem;
+    border-radius: 0.875rem;
+    background-color: #D2E4FF;
+    height: 2rem;
+    padding: 0 0.5rem;
+  }
+  #main-header .header-search .header-search svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    display: block;
+  }
+}
 #main-header .header-search .header-search svg {
-  width: 0.875rem;
-  height: 0.875rem;
-  display: block;
-  fill: #455b71;
+  fill: #1260A4;
 }
 
-#main-header #sub-nav ul.nav-list > li {
+#main-header ul.nav-list > li {
   min-width: 10ch;
 }
 
-#main-header #sub-nav ul.nav-list > li > a[href="#"] {
+#main-header ul.nav-list > li > a[href="#"] {
   color: #000;
   position: relative;
   padding-right: 29px;
 }
 
-#main-header #sub-nav ul.nav-list > li > a[href="#"]:hover {
+#main-header ul.nav-list > li > a[href="#"]:hover {
   font-weight: 600;
 }
 
-#main-header #sub-nav ul.nav-list > li > a[href="#"]::after {
+#main-header ul.nav-list > li > a[href="#"]::after {
   float: right;
   position: absolute;
   top: 50%;
   right: 12px;
   transform: translateY(-30%);
+}
+
+#main-header ul.nav-list > li > .menu-dropdown {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#main-header .menu-open {
+  z-index: 99999;
 }
 
 #hero {
