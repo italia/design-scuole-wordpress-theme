@@ -3,6 +3,8 @@
     --------------------------------*/
     
     //custom wp backend back = 17x17px
+if(current_user_can('editor')) {
+
     function WWS_custom_back() {
         echo '<style type="text/css">
             #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
@@ -63,6 +65,18 @@
 			#menu-settings {display:none !important;}
 
 			#toplevel_page_cfdb7-list {display:none !important;}
+
+            #wp-admin-bar-design-scuole-conf {display:none !important;}
+
+            #wp-admin-bar-comments {display:none !important;}
+
+            #wp-admin-bar-new-content {display:none !important;}
+
+            #wp-admin-bar-manuale {display:none !important;}
+
+            #menu-dashboard {display:none !important;}
+
+            #menu-posts-calendar {display:none !important;}
         </style>';
-    }
+    }}
     add_action('wp_before_admin_bar_render', 'WWS_custom_back');
