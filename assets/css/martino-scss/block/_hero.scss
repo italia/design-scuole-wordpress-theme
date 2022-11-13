@@ -48,6 +48,7 @@
                     gap: px2rem(19px);
                     margin: auto;
                     margin-bottom: px2rem(34px);
+                    z-index: unset;
                     &__page {
                         background-color: $primary-container;
                         &.is-active{
@@ -57,6 +58,7 @@
                             transform: none;
                             width: 1rem;
                             height: 1rem;
+                            z-index: unset;
                         }
                     }
                 }
