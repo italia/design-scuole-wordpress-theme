@@ -125,9 +125,8 @@ if(is_search() || is_archive())
                                         $items_wrap = '<ul role="menu" aria-labelledby="mainNavDropdown3" id="%1$s" class="%2$s">%3$s</ul>';
 
                                     ?>
-                                    <li class="text-greendark menu-dropdown-simple-wrapper">
-                                        <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'news' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
-                                        <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
+                                    <li class="menu-dropdown-simple-wrapper">
+                                        <a class="nav-link dropdown-toggle" href="<?php echo $menu_obj->slug; ?>" aria-label="Vai alla pagina Notizie" data-focus-mouse="false">Notizie</a>
                                     </li>
                                     <?php
                                 }
@@ -255,13 +254,9 @@ if(is_search() || is_archive())
 			                        $items_wrap = '<ul class="%2$s">%3$s</ul>';
 
 		                        ?>
-                                <li class="text-greendark menu-dropdown-simple-wrapper">
-                                    <a class="nav-link dropdown-toggle <?php echo $active_page == 'news' ? 'active' : ''?>" data-toggle="dropdown"  role="button" href="#" aria-expanded="false" id="mainNavDropdown3"><?php _e("Novità","design_scuole_italia"); ?></a>
-                                    <div class="dropdown-menu menu-dropdown dl-submenu menu-dropdown-simple" role="menu" aria-labelledby="mainNavDropdown3">
-                                        <div class="link-list-wrapper">
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap,"depth" => 1, "menu_class" => "link-list", "container" => "", "link_class" => "list-item", "walker" => new Header_Menu_Walker())) ?>
-                                        </div>
-                                    </div>
+
+                                <li class="menu-dropdown-simple-wrapper">
+                                    <a class="nav-link dropdown-toggle" href="<?php echo $menu_obj->slug; ?>" aria-label="Vai alla pagina Notizie" data-focus-mouse="false">Notizie</a>
                                 </li>
 		                        <?php
 	                        }

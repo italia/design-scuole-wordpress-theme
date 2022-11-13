@@ -79,7 +79,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a[href="#"], #main-header .header-social span, p, ul, ol, .font-body {
+.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -105,7 +105,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(20px, 26px - 1.04166667vw, 18px);
 }
 
-#main-header ul.nav-list > li > a[href="#"], #main-header .header-social span, .fw-regular {
+#main-header ul.nav-list > li > a, #main-header .header-social span, .fw-regular {
   font-weight: 400;
 }
 
@@ -1019,18 +1019,17 @@ label > span {
   fill: #1260A4;
 }
 
-#main-header ul.nav-list > li {
-  min-width: 10ch;
+#main-header ul.nav-list > li > a {
+  color: #000;
+}
+
+#main-header ul.nav-list > li > a:hover {
+  text-shadow: 0 0 0.01px black, 0 0 0.01px black, 0 0 0.01px black, 0 0 0.01px black;
 }
 
 #main-header ul.nav-list > li > a[href="#"] {
-  color: #000;
   position: relative;
   padding-right: 29px;
-}
-
-#main-header ul.nav-list > li > a[href="#"]:hover {
-  font-weight: 600;
 }
 
 #main-header ul.nav-list > li > a[href="#"]::after {
@@ -1039,6 +1038,10 @@ label > span {
   top: 50%;
   right: 12px;
   transform: translateY(-30%);
+}
+
+#main-header ul.nav-list > li > a:not([href="#"]):hover {
+  text-decoration: underline;
 }
 
 #main-header div:not(.nav-list-mobile) > .dl-menu .menu-dropdown {

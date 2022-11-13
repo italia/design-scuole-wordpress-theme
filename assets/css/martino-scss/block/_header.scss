@@ -60,15 +60,16 @@
     // #sub-nav {
         ul.nav-list {
             >li {
-                min-width: 10ch;
+                // min-width: 10ch;
                 >a {
+                    color: $black;
+                    @include font-body;
+                    @include fw-regular;
+                    &:hover {
+                        // font-weight: 600;
+                        text-shadow: 0 0 .01px black, 0 0 .01px black, 0 0 .01px black, 0 0 .01px black;
+                    }
                     &[href="#"] {
-                        color: $black;
-                        @include font-body;
-                        @include fw-regular;
-                        &:hover {
-                            font-weight: 600;
-                        }
                         position: relative;
                         padding-right: 17px + 12px;
                         &::after {
@@ -80,6 +81,11 @@
                             transform: translateY(-50% + 20%);
                         }
                         
+                    }
+                    &:not([href="#"]) {
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             } 
