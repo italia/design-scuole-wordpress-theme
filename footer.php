@@ -52,10 +52,14 @@
                 <?php endif ?>
             </section>
             <section class="footer--banners-wrapper">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <?php
+                    $img_dir = get_stylesheet_directory_uri() . '/assets/images_martini/footer' ;
+                    // TODO Add links to footer's white areas
+                ?>
+                <a href="#"><img src="<?php echo $img_dir . '/footer-img-pub.jpg'; ?>" alt="" ><span class="d-none d-md-block">Pubblicità<br>legale</span></a>
+                <a href="#"><img src="<?php echo $img_dir . '/footer-img-lav.jpg'; ?>" alt="" ><span class="d-none d-md-block">Lavora con<br>la scuola</span></a>
+                <a href="#"><img src="<?php echo $img_dir . '/footer-img-amm.jpg'; ?>" alt="" ><span class="d-none d-md-block">Amministrazione trasparente</span></a>
+                <a href="#"><img src="<?php echo $img_dir . '/footer-img-3.jpg';   ?>" alt="" width="619" height="68"  ></a>
             </section>
         </div><!-- /row -->
         <div class="row variable-gutters">

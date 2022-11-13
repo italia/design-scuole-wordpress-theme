@@ -154,11 +154,37 @@ $background-color: #004882;
                     // width: 10.375rem;
                     // height: 4.625rem;
                     border-radius: .75rem;
+                    overflow: auto;
+                    display: flex;
+                    color: $black;
+                    // @include h6;
+                    @include font-body;
+                    font-weight: 900;
+
+                    img {
+                        // height: 100%;
+                        width: s-clamp(200px,760px, 24px,64px);
+                        height: fit-content;
+                        margin: auto;
+                    }
+                    span {
+                        // width: 100%;
+                        height: fit-content;
+                        margin: auto;
+                        margin-left: 0;
+                    }
+                    
 
                     &:last-of-type {
                         flex-grow: 1;
                         grid-area: grow;
                         width: 100%;
+                        img {
+                            width: 100%;
+                            height: fit-content;
+                            margin: auto;
+                        }
+
                     }
                 }
             }
