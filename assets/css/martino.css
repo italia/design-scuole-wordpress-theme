@@ -931,9 +931,11 @@ label > span {
   padding: 5% 20%;
   display: none;
 }
+
 #open-day .open-day-foto {
   display: block;
 }
+
 #open-day .open-day-foto:hover {
   display: none;
 }
@@ -1039,6 +1041,12 @@ label > span {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 #hero #hero-content .hero-img, #hero > section > #hero-splide #hero-content .splide__slide__img {
@@ -1264,6 +1272,7 @@ body {
 #sidebar {
   background-color: #DFE2EB;
 }
+
 #sidebar::before {
   content: "";
   position: absolute;
@@ -1274,6 +1283,7 @@ body {
   top: 0;
   background-color: #DFE2EB;
 }
+
 #sidebar a {
   color: #1260A4;
   text-decoration: underline;
