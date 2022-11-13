@@ -47,7 +47,7 @@
             <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro elettronico</button>
             </a>
-            <a class="btn-lg-default-outline w-100 col-12" href="orario-docenti" target="blank">
+            <a class="btn-lg-default-outline w-100 col-12" href="orari-docenti">
               <button>Orari docenti</button>
             </a>
             <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
@@ -57,13 +57,15 @@
             
           <!-- Calendar -->
           <div class="col-12">
-            <?php echo do_shortcode('[calendar id="512"]'); ?>
+            <div class="col-12">
+              <?php echo do_shortcode('[calendar id="512"]'); ?>
+            </div>
+            
+            <a class="btn-lg-default-outline col-12 w-100" href="calendario">
+              <button>Vedi il calendario completo</button>
+            </a>
           </div>
-
-          <a class="btn-lg-default-outline w-100" href="calendario">
-            <button>Vedi il calendario completo</button>
-          </a>
-
+            
         </div>
         <!--.row -->
       </div>
@@ -87,7 +89,7 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-default-outline" href="offerta-formativa">
+            <a class="btn-lg-default-outline" href="didattica-2/offerta-formativa">
 
               <button>
                 <span>DIDATTICA</span>
