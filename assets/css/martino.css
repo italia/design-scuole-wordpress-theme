@@ -1009,14 +1009,15 @@ label > span {
     height: 2rem;
     padding: 0 0.5rem;
   }
-  #main-header .header-search .header-search svg {
+  #main-header .header-search svg {
     width: 0.875rem;
     height: 0.875rem;
     display: block;
   }
 }
-#main-header .header-search .header-search svg {
+#main-header .header-search svg {
   fill: #1260A4;
+  margin: 0;
 }
 
 #main-header ul.nav-list > li > a {
