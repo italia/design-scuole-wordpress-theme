@@ -185,7 +185,7 @@ if(is_search() || is_archive())
                         </div>
                     </div><!-- /logo-header -->
                     <div class="d-none d-md-block ">
-                        <ul class="dl-menu nav-list nav-list-primary d-flex m-0 " data-element="menu">
+                        <ul class="dl-menu nav-list nav-list-primary d-flex m-0 mr-4" data-element="menu">
 	                        <?php
 	                        // check if scuola has menu
 	                        $theme_location = "menu-scuola";
