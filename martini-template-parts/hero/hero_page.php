@@ -5,14 +5,8 @@ $use_slider = -1;
 <section id="hero" class="hero-page">
     <section class="hero-container">
         <div id="hero-splide">
-            <div id="hero-content" class="p-2 row align-items-center splide__track">
+            <div id="hero-content" class="align-items-center splide__track">
                 <ul class="splide__list ">
-
-                    <?php
-                    // TODO: Change loop in `hero` slider
-                    // labels: enhancement, help wanted
-                    // assignees: maxmorozoff, ToldoDesign128, paolosartori
-                    ?>
                     <?php
                     $loop = new WP_Query(array(
                         'post_type'         => 'hero_slider',
@@ -24,7 +18,7 @@ $use_slider = -1;
                     while ($loop->have_posts()) : $loop->the_post();
                     $use_slider++;
                     ?>
-                        <li class="splide__slide">
+                        <li class="splide__slide p-2 w-100">
                             <h1><?php the_title(); ?></h1>
                             <p class="h3 fw-regular"><?php echo get_the_excerpt(); ?></p>
                             <div class="text-center ">
@@ -45,20 +39,19 @@ $use_slider = -1;
         </div>
     </section>
 </section>
-<?php if ($use_slider > 0) { ?>
+<?php if ($use_slider > 0) { 
+/**
+ *  @see {@link https://splidejs.com/v3/guides/getting-started/ } 
+ */?>
 <script>
-    /**
-     *  @see {@link https://splidejs.com/v3/guides/getting-started/ } 
-     */
     document.addEventListener('DOMContentLoaded', () =>
         (!!Splide) && (new Splide('#hero-splide', {
             type: 'loop',
             pagination: true,
-            // start: 0,
             classes: {
                 arrows: 'splide__arrows container',
                 pagination: 'splide__pagination container',
             },
-        })).mount() && (document.querySelector('#hero-splide .splide__list').style = ''));
+        })).mount() );
 </script>
 <?php } ?>

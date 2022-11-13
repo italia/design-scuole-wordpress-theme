@@ -30,10 +30,10 @@ get_header();
                         </div>
                     </div><!-- row -->
                     <div class="row d-md-inline mt-5">
-                        <a href="#" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
+                        <a href="https://orienta.unitn.it/" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
                             <button class="w-auto">Orienta UNITN</button>
                         </a>
-                        <a href="#" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
+                        <a href="https://www.offertaformativa.vivoscuola.it/" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
                             <button class="w-auto">Il portale dell'orientamento</button>
                         </a>
                     </div><!--.row -->
