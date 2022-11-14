@@ -8,8 +8,7 @@
     gap: 1rem;
     article.card-progetti {
       //margin-top: 1rem;
-      height: px2rem(320px/2);
-        height: px2rem(88px);
+      height: px2rem(320px/2) !important;
       display: flex;
       gap: 1rem;
       width: 100%;
