@@ -20,7 +20,6 @@ if(current_user_can('editor')) {
             /*hide dashboard*/
             .wp-admin #adminmenuwrap #menu-dashboard {display:none !important;}
             /*hide pages*/
-            .wp-admin #adminmenuwrap #menu-pages {display:none !important;}
             /*hide customizer*/
             .wp-admin #adminmenuwrap #adminmenu .wp-submenu li.hide-if-no-customize {display:none !important;}
             /*hide theme editor*/
