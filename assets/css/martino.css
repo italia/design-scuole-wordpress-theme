@@ -1354,7 +1354,7 @@ label > span {
 }
 
 #progetti-home .container-progetti article.card-progetti {
-  height: 10rem;
+  height: 10rem !important;
   height: 5.5rem;
   display: flex;
   gap: 1rem;
