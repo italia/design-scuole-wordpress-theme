@@ -114,7 +114,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                         </div>
 
-                        <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
 
                             <article class="article-wrapper pt-4 px-3">
 
@@ -157,11 +157,10 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 }
                                             } else if ( $nome_luogo_custom != "" ) {
                                                 get_template_part( "template-parts/luogo/card", "custom" );
-
-                                            }
-                                        } ?>
+                                            } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
+                                    <?php } ?>
                                 <?php if(is_array($link_strutture)) {
                                     ?>
                                     <h4><?php _e("Responsabile", "design_scuole_italia"); ?></h4>

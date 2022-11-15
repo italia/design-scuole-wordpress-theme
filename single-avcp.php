@@ -30,7 +30,7 @@ get_header();
             </section>
             <section class="section bg-white">
                 <div class="container">
-                    <div class="main-content row variable-gutters">
+                    <div class="row variable-gutters">
                         <div class="col-lg-12">
                             <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">

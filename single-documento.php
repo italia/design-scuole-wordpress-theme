@@ -135,7 +135,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             </aside>
 
                         </div>
-                        <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
                                 <h2 class="h4" id="art-par-descrizione"><?php _e( "Descrizione", "design_scuole_italia" ); ?></h2>
                                 <div class="row variable-gutters">

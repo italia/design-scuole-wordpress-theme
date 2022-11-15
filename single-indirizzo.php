@@ -205,7 +205,7 @@ get_header();
                             </aside>
 
                         </div>
-                        <div class="main-content col-lg-8 col-md-8 offset-lg-1 pt84">
+                        <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
                                 <h4 id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters">
