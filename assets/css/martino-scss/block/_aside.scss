@@ -37,7 +37,10 @@ body {
     font-style: italic;
     color: $primary;
     @include text-sm;
-}
+    }
+    h5 {
+        margin-top: 1rem;
+    }
 
     .aside-main {
         margin-bottom: 1rem;

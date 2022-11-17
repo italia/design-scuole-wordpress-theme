@@ -23,6 +23,7 @@ get_header();
             
 
             $mail = get_post_meta("martini_email");
+            $documenti = get_post_meta("documents_download");
 
         ?>
 
@@ -70,21 +71,48 @@ get_header();
                 <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
-                                <h5>Modulistica</h5> 
-                                <a>CONSENSO INFORMATO</a> 
-                                <p>per la sessione di esami del 19/11/2021 va inviata a didattica@martinomartini.eu entro 12/11/2021 ore 12.00.</p>
-                                <a>INFORMAZIONI PAGAMENTO</a> 
-                                                               
-                                <ul class="link-list">
+                                <!-- <h5>Modulistica</h5> 
                                 
-                                    
-                                    <li> <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'martini_email', true );?>" target=blank> <?php echo get_post_meta( get_the_ID(), 'martini_email', true );?> </a> </li>
+                                <p></p>
+                                <a>INFORMAZIONI PAGAMENTO</a>  -->
 
-                                    <li> <a href=""> 
-                                        <!-- Qui ci deve andare il documento  -->
-                                    </a> </li>
-                                
+                                <!-- Campo modulistica -->
+                                <?php 
+                                $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
+                                if(is_array ($multidocuments_download) && !empty($multidocuments_download)){ ?>
+                                <h5>Modulistica</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $multidocuments_download as $docID => $documenti){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $documenti;?>" target=blank> <?php echo get_the_title($docID);?> </a> 
+                                    </li>
+                                    <?php }?>
+                                    
                                 </ul>
+                                <?php } ?>
+                                <!--/Campo modulistica -->
+                                
+                                <!-- Campo email -->
+                                <?php 
+                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
+                                
+                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
+                                <h5>Contatti</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $emails as $email){?>
+                                    
+                                    <li>
+                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo email -->
+
                             </div>
                         </aside>
                     </div> <!--/ sidebar -->

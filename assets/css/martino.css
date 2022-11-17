@@ -1457,6 +1457,10 @@ body {
   color: #1260A4;
 }
 
+#sidebar h5 {
+  margin-top: 1rem;
+}
+
 #sidebar .aside-main {
   margin-bottom: 1rem;
 }

@@ -43,21 +43,36 @@ function cmb2_sample_metaboxes() {
         'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
         'id'   => 'martini_email',
         'type' => 'text_email',
-        // 'repeatable' => true,
+        'repeatable' => true,
     ) );
 
-     // File field
+    //  // File field
+    // $cmb->add_field( array(
+    //     'name' => 'Test File List',
+    //     'desc' => '',
+    //     'id'   => 'wiki_test_file_list',
+    //     'type' => 'file_list',
+    //     'text' => array(
+    //         'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+    //         'remove_image_text' => 'Replacement', // default: "Remove Image"
+    //         'file_text' => 'Replacement', // default: "File:"
+    //         'file_download_text' => 'Replacement', // default: "Download"
+    //         'remove_text' => 'Replacement', // default: "Remove"
+    //     ),
+    // ) );   
+
+    // Documents download
     $cmb->add_field( array(
-        'name' => 'Test File List',
-        'desc' => '',
-        'id'   => 'wiki_test_file_list',
+        'name' => 'Modulistica',
+        'desc' => 'Documenti da scaricare',
+        'id'   => 'documents_download',
         'type' => 'file_list',
         'text' => array(
-            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'add_upload_files_text' => 'Aggiungi documento', // default: "Add or Upload Files"
             'remove_image_text' => 'Replacement', // default: "Remove Image"
-            'file_text' => 'Replacement', // default: "File:"
-            'file_download_text' => 'Replacement', // default: "Download"
-            'remove_text' => 'Replacement', // default: "Remove"
+            'file_text' => 'Nome file', // default: "File:"
+            'file_download_text' => 'Download', // default: "Download"
+            'remove_text' => 'Elimina', // default: "Remove"
         ),
     ) );   
 
