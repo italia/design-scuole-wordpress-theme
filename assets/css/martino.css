@@ -1354,9 +1354,7 @@ label > span {
 }
 
 #progetti-home .container-progetti article.card-progetti {
-  height: 10rem !important;
   display: flex;
-  gap: 1rem;
   width: 100%;
   /*  &:first-child {
     margin-top: 0;

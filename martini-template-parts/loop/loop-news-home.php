@@ -64,7 +64,7 @@
 
         <div class="button-container col-12 mb-4 mb-lg-0 mt-lg-0 pr-3">
 
-          <a class="btn-lg-default-outline w-100" href="novita" class="col-12 p-0">
+          <a class="btn-lg-default-outline w-100" href="tipologia-articolo/notizie/" class="col-12 p-0">
 
             <button>Vai alla sezione</button>
 
