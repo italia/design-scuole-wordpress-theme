@@ -20,10 +20,10 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "<li>";
 
 		$custom_data = '';
-		if ($item->post_name == 'privacy-policy' || $item->post_name == 'dichiarazione-di-accessibilita') { 
-			$custom_data = $item->post_name == 'privacy-policy' 
-			? 'data-element="privacy-policy-link"' 
-			: 'data-element="accessibility-link"';
+		if ( $item->post_name == 'privacy-policy' || stripos( $item->title, 'privacy' ) !== false ) {
+			$custom_data = 'data-element="privacy-policy-link"';
+		} else if ( $item->post_name == 'dichiarazione-di-accessibilita' || stripos( $item->title, 'accessibilità' ) !== false ) { 
+			$custom_data = 'data-element="accessibility-link"';
 		}
 		if ($item->url) {
 			$output .= '<a class="text-underline-hover" href="' . $item->url . '" '.$custom_data.'>';
