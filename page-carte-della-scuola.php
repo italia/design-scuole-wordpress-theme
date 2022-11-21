@@ -22,7 +22,7 @@ get_header();
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default" href="https://aprilascuola.provincia.tn.it/sei/#/soggetto/0221179501/scuola/amministrazione-trasparente">
-                    <button class="w-auto mb-0">Visita la pagina</button>
+                    <button class="w-auto mt-3 mt-md-0 mb-0">Visita la pagina</button>
                 </a>
             </div>
         </div>
@@ -37,7 +37,7 @@ get_header();
             </div>
             <div class="col-12 col-md-6 align-item-start text-md-right">
                 <a class="btn-sm-default" href="privacy">
-                    <button class="w-auto mb-0">Visita la pagina</button>
+                    <button class="w-auto mt-3 mt-md-0 mb-0">Visita la pagina</button>
                 </a>
             </div>
         </div>
@@ -55,7 +55,7 @@ get_header();
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default" href="albo">
-                    <button class="w-auto mb-0">Visita la pagina</button>
+                    <button class="w-auto mt-3 mt-md-0 mb-0">Visita la pagina</button>
                 </a>
             </div>
         </div>
@@ -71,7 +71,7 @@ get_header();
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default"  href="sicurezza">
-                    <button class="w-auto mb-0">Visita la pagina</button>
+                    <button class="w-auto mt-3 mt-md-0 mb-0">Visita la pagina</button>
                 </a>
             </div>
         </div>
