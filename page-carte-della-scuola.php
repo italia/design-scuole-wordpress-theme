@@ -45,7 +45,7 @@ get_header();
     <section id="container-fluid" class="px-5 p-4">
         <div class="row container-martini">
             <div class="col-12 col-md-6">
-                <h4>Albo</h4>
+                <h4>Pubblicità Legale</h4>
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default">

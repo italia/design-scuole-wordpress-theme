@@ -17,7 +17,7 @@ get_header();
     <section id="container-fluid" class="p-4">
         <div class="row container-martini">
             <div class="col-12 col-md-6">
-                <h4>2 Livello Ite</h4>
+                <h4>1 Livello 3°media</h4>
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default">
@@ -30,10 +30,10 @@ get_header();
     <section class="row bg-light p-4">
         <div class="col-12 row container-martini p-0">
             <div class="col-12 col-md-6">
-                <h4 class="">Corsi liberi</h4>
+                <h4 class="">2 Livello Ite</h4>
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
-                <a class="btn-sm-default" href="corsi_liberi">
+                <a class="btn-sm-default">
                     <button class="w-auto">Visita la pagina</button>
                 </a>
             </div>
@@ -42,10 +42,10 @@ get_header();
     <section id="container-fluid" class="p-4">
         <div class="row container-martini">
             <div class="col-12 col-md-6">
-                <h4>1 Livello 3°media</h4>
+                <h4>Corsi liberi</h4>
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
-                <a class="btn-sm-default">
+                <a class="btn-sm-default" href="corsi_liberi">
                     <button class="w-auto">Visita la pagina</button>
                 </a>
             </div>
