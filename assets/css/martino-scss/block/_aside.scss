@@ -1,6 +1,19 @@
+body {
+    overflow-x: hidden;
+}
 #sidebar {
     background-color: $sidebar;
 
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 10000px;
+        height: 100%;
+        float: right;
+        top: 0;
+        background-color: $sidebar;
+    }
     a {
         color: $primary;
         text-decoration: underline;
@@ -11,7 +24,7 @@
     }
     h6 {
         @include font-body;
-        margin: 2rem 0;
+        margin: 1rem 0;
     }
     .card{
         background-color: transparent;
@@ -45,6 +58,9 @@
 
     #sidebar {
         margin: 0;
+        &::before {
+            content: none;
+        }
     }
 }
 

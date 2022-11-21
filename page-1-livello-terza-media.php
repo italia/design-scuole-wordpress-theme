@@ -15,6 +15,16 @@ get_header();
 
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
+        <?php
+        while ( have_posts() ) :
+            the_post();
+            set_views($post->ID);
+            
+
+            $mail = get_post_meta("martini_email");
+
+        ?>
+
         <section id="text-block" class="section bg-white">
             <div class="container">
                 <div class="row main-content variable-gutters">
@@ -34,7 +44,7 @@ get_header();
 
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
-                            <div class="col-12 col-lg-9" id="program-legend">
+                            <div class="col-12" id="program-legend">
                                 <h5>Modulistica</h5>                                
                                 <ul class="link-list">
                                     <li> <h6> <?php echo get_post_meta( get_the_ID(), 'martini_titolo', true );?> </h6> </li>
@@ -58,4 +68,5 @@ get_header();
 
 
 <?php
+endwhile;
 get_footer();

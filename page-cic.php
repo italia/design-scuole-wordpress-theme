@@ -8,19 +8,28 @@
 
 get_header();
 
-$presentazione_landing_url = dsi_get_template_page_url("page-templates/presentazione.php");
 ?>
+
+    
 
     <main id="main-container" class="main-container">
 
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
-        <section id="text-block" class="section bg-white">
-            <div class="container-fluid container-border-top">
-                <div class="row main-content variable-gutters">
+        <?php
+        while ( have_posts() ) :
+            the_post();
+            set_views($post->ID);
+            
 
-                    <div class="container col-lg-8">
-                        <div class="pt-5 px-3">
+            $mail = get_post_meta("martini_email");
+        ?>
+
+        <section id="text-block" class="section bg-white">
+            <div class="container">
+                <div class="row main-content variable-gutters">
+                    <div class="py-5 px-3 col-lg-8">
+                        <div class="py-2">
                             <h2>Centro di Informazione e Consulenza</h2>
                             <p>Il CIC (Centro di Informazione e Consulenza) è un servizio offerto a studenti, genitori e personale scolastico, curato e gestito dalla <strong>dott.ssa Francesca Fontana, psicologa e psicoterapeuta</strong> (Iscrizione all’Ordine della Provincia di Trento n. 349). <br>
                                 La consulenza psicologica si configura come uno <strong>spazio di ascolto</strong> e di <strong>confronto libero e gratuito</strong> in un <strong>luogo riservato</strong> e nel rispetto del <strong>segreto professionale.</strong> <br>
@@ -30,17 +39,17 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
                         </div>
                     </div><!-- /col-lg-6 -->
 
-                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-3 py-5">
+                    <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
                                 <h5>Contatti</h5>
                                 <p id="quotes">È necessario contattare la dottoressa Fontana tramite email o telefono per concordare data e orario dell’appuntamento. In caso di necessità particolari, è possibile concordare l’appuntamento in altre date e orari. </p>
                             </div>   
-                            <div class="col-12 col-lg-9 py-3 mailfield">
-                                <h6>Email</h6>
-                                <a>cic@martinomartini.eu </a> 
-                                <a>francescafontana777@gmail.com</a>
-                            </div>
+                                <div class="col-12 col-lg-9 py-3 mailfield">
+                                    <h6>Email</h6>
+                                    
+                                    <?php if($mail){ ?> <a href="mailto:$mail"><?php echo $mail;  ?></a><?php } ?>
+                                </div>
                             <div class="col-12 col-lg-9 py-3">
                                 <h5>Modulistica</h5>
                                 <a>CONSENSO INFORMATO</a> 
@@ -52,8 +61,10 @@ $presentazione_landing_url = dsi_get_template_page_url("page-templates/presentaz
         </section>
 
 
+
     </main>
 
 
 <?php
+endwhile;
 get_footer();

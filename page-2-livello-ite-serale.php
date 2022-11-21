@@ -58,6 +58,15 @@ get_header();
                                 
                                 </ul>
                             </div>
+                            
+                            <ul class="link-list">
+
+                            </ul>
+                            <div class="col-12 col-lg-9" id="" class="mailfield">
+                                <h5>Contatti</h5>
+                                <p id="quotes">Chiunque desideri maggiori informazioni o chiarimenti può contattare il coordinatore del serale, scrivendo a:</p>
+                                <a href="serali@martinomartini.eu.">serali@martinomartini.eu.</a>
+                            </div>   
                         </aside>
                     </div> <!--/ sidebar -->
                 </div><!-- /row -->

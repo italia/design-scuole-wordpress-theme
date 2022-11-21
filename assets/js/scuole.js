@@ -82,7 +82,7 @@ $(document).ready(function () {
       }
     } else {
       $("#main-header").addClass("zoom");
-      $(".cbp-spmenu-vertical.cbp-spmenu-left").addClass("zoom");
+      $(".cbp-spmenu-vertical.cbp-spmenu-right").addClass("zoom");
     }
   }
   $(function () {
@@ -94,10 +94,10 @@ $(document).ready(function () {
 jQuery(window).resize(function () {
   if (getZoomBrowser() >= 3) {
     $("#main-header").addClass("zoom");
-    $(".cbp-spmenu-vertical.cbp-spmenu-left").addClass("zoom");
+    $(".cbp-spmenu-vertical.cbp-spmenu-right").addClass("zoom");
   } else {
     $("#main-header").removeClass("zoom");
-    $(".cbp-spmenu-vertical.cbp-spmenu-left").removeClass("zoom");
+    $(".cbp-spmenu-vertical.cbp-spmenu-right").removeClass("zoom");
   }
 });
 /* End Sticky Header */
@@ -487,9 +487,9 @@ $(document).ready(function () {
   });
 
   function tabIndexHmburger() {
-    var nav = document.querySelector(".cbp-spmenu-vertical.cbp-spmenu-left");
+    var nav = document.querySelector(".cbp-spmenu-vertical.cbp-spmenu-right");
     var linkList = document.querySelectorAll(
-      ".cbp-spmenu-vertical.cbp-spmenu-left a"
+      ".cbp-spmenu-vertical.cbp-spmenu-right a"
     );
 
     // Options for the observer (which mutations to observe)

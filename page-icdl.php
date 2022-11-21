@@ -1,5 +1,5 @@
 <?php
-/* Template Name: ICDL full standard
+/* Template Name: ICDL
  *
  * didattica template file
  *
@@ -16,12 +16,22 @@ get_header();
       
        <?php get_template_part("martini-template-parts/hero/hero_title"); ?> 
 
+       <?php
+        while ( have_posts() ) :
+            the_post();
+            set_views($post->ID);
+            
+
+            $mail = get_post_meta("martini_email");
+
+        ?>
+
 
     <section id="text-block" class="section bg-white">
-        <div class="container-fluid container-border-top">
+        <div class="container container-border-top">
                 <div class="row main-content variable-gutters">
 
-                    <div class="container col-lg-8 px-5">
+                    <div class="container col-lg-8 px-5 pb-5">
 
                         <div class="row"> 
                             <div class="pt-5">    
@@ -260,15 +270,13 @@ get_header();
                             <div class="col-12 col-lg-9" id="program-legend">
                                 <h5>Calendario sessioni d'esame</h5>
                                 <p id="quotes">In caso di un numero elevato di candidati, l’ora di convocazione - se diversa dalle 14.00 - vi sarà comunicata tramite mail.
-
                                 </p>
                             </div>   
-                            <div class="col-12 col-lg-9 py-3 mailfield">
+                            <div class="col-12 col-lg-9 mailfield">
                                 <h6>Email</h6>
-                                <a>cic@martinomartini.eu </a> 
-                                <a>francescafontana777@gmail.com</a>
+                                 <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'martini_email', true );?>" target=blank> <?php echo get_post_meta( get_the_ID(), 'martini_email', true );?> </a> 
                             </div>
-                            <div class="col-12 col-lg-9 py-3">
+                            <div class="col-12 col-lg-9 pt-3">
                                 <h5>Modulistica</h5>
                                 <a>CONSENSO INFORMATO</a> 
                                 <p>per la sessione di esami del 19/11/2021 va inviata a didattica@martinomartini.eu entro 12/11/2021 ore 12.00.</p>
@@ -287,4 +295,5 @@ get_header();
 
 
 <?php
+endwhile;
 get_footer();

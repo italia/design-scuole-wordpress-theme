@@ -30,7 +30,8 @@ get_header();
                 'posts_per_page'    => 999 ,
             )); 
             
-            while ($loop -> have_posts()) : $loop -> the_post('indirizzo');?>
+            while ($loop -> have_posts()) : $loop -> the_post('indirizzo');
+            $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', true );?>
                 <article class="col-lg-3 mt-5">
 
                     <div class="text-center row">
@@ -39,9 +40,89 @@ get_header();
                         <? the_post_thumbnail('news-thumb');?>
                         </div>
 
-                        <div class="col-12 open-post-title">
-                        <? the_title();?>
-                        </div>
+                        <?php
+
+                            // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS5
+                            if( $titolo_pagina == 'opzione scienze applicate in 5 anni (LOS5)') { ?> 
+                                    <div class="col-12 open-post-title bg-martini-pink">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                             // LOS4
+                            if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>  
+                                    <div class="col-12 open-post-title bg-martini-purple">
+                                        <? the_title();?>
+                                    </div>
+                                <?php
+                                }
+
+                            else;
+
+                        ?> 
 
                     </div>  
 
