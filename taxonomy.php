@@ -13,5 +13,7 @@ else if($obj->taxonomy == "tipologia-luogo")
 	get_template_part("archive-luogo");
 else if($obj->taxonomy == "tipologia-progetto")
     get_template_part("archive-scheda_progetto");
+else if($obj->taxonomy == "tipologie")
+    get_template_part("archive-amm-trasparente");
 else
 	get_template_part("archive");
