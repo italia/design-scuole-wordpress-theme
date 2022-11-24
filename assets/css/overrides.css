@@ -9,7 +9,13 @@
 #footer-wrapper .footer-link a {
   text-decoration: underline;
 }
+#footer-wrapper .footer-list a {
+  text-decoration: underline;
+}
 
 #footer-wrapper .footer-link a:hover {
+  text-decoration: none;
+}
+#footer-wrapper .footer-list a:hover {
   text-decoration: none;
 }
