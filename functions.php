@@ -217,16 +217,17 @@ function dsi_scripts() {
     //wp_deregister_script('jquery');
 
 	wp_enqueue_style( 'dsi-wp-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'dsi-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css');
-	wp_enqueue_style( 'dsi-boostrap-italia', get_stylesheet_directory_uri() . '/assets/css/bootstrap-italia.css');
-	wp_enqueue_style( 'dsi-scuole', get_stylesheet_directory_uri() . '/assets/css/scuole.css');
-	wp_enqueue_style( 'dsi-overrides', get_stylesheet_directory_uri() . '/assets/css/overrides.css');
-	wp_enqueue_style( 'dsi-carousel-style', get_stylesheet_directory_uri() . '/assets/css/carousel-style-double.css');
-	wp_enqueue_style( 'dsi-splide-min', get_stylesheet_directory_uri() . '/assets/css/splide.min.css');
+	wp_enqueue_style( 'dsi-font', get_template_directory_uri() . '/assets/css/fonts.css');
+	wp_enqueue_style( 'dsi-boostrap-italia', get_template_directory_uri() . '/assets/css/bootstrap-italia.css');
+	wp_enqueue_style( 'dsi-scuole', get_template_directory_uri() . '/assets/css/scuole.css');
+	wp_enqueue_style( 'dsi-overrides', get_template_directory_uri() . '/assets/css/overrides.css');
+	wp_enqueue_style( 'dsi-carousel-style', get_template_directory_uri() . '/assets/css/carousel-style-double.css');
+	wp_enqueue_style( 'dsi-splide-min', get_template_directory_uri() . '/assets/css/splide.min.css');
 
 	wp_enqueue_script( 'dsi-modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js');
+	
 	// print css
-    wp_enqueue_style('dsi-print-style',get_stylesheet_directory_uri() . '/print.css', array(),'20190912','print' );
+    	wp_enqueue_style('dsi-print-style', get_template_directory_uri() . '/print.css', array(),'20190912','print' );
 
 	// footer
 	wp_enqueue_script( 'dsi-boostrap-italia-js', get_template_directory_uri() . '/assets/js/bootstrap-italia.js', array(), false, true);
@@ -250,7 +251,7 @@ function dsi_scripts() {
     }
 /*
 	if(is_singular()){
-        wp_enqueue_style( 'basictable-css', get_stylesheet_directory_uri() . '/assets/components/basictable/basictable.css');
+        wp_enqueue_style( 'basictable-css', get_template_directory_uri() . '/assets/components/basictable/basictable.css');
         wp_enqueue_script( 'basictable-js', get_template_directory_uri() . '/assets/components/basictable/jquery.basictable.js');
 
     }*/
