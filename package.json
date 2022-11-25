@@ -1,0 +1,31 @@
+{
+  "name": "design-scuole-wordpress-theme",
+  "version": "2.0.3",
+  "description": "Tema Wordpress delle Scuole Italiane",
+  "main": "index.js",
+  "scripts": {
+    "build": "./copy_assets.sh && npm run minify:css && npm run minify:js",
+    "version": "node scripts/config-sync && git add style.css && git add README.md",
+    "postversion": "echo \"You can now publish your tag with 'git push --follow-tags'\"",
+    "minify:css": "node scripts/minify-css.js",
+    "minify:js": "node scripts/minify-js.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italia/design-scuole-wordpress-theme.git"
+  },
+  "author": "Presidenza del Consiglio dei Ministri",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/italia/design-scuole-wordpress-theme/issues"
+  },
+  "homepage": "https://github.com/italia/design-scuole-wordpress-theme#readme",
+  "dependencies": {
+    "bootstrap-italia": "^2.0.9"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.1",
+    "replace-in-file": "^6.3.5",
+    "uglify-js": "^3.17.4"
+  }
+}
