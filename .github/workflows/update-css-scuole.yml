@@ -1,4 +1,4 @@
-name: scuole.css update
+name: Assets update
 
 on:
   schedule:
@@ -19,14 +19,15 @@ jobs:
           node-version: 16
       - name: Setup Git
         uses: fregante/setup-git-user@v1
-      - name: Run scuole.css update
+      - name: Run assets update
         run: | 
-          npm install clean-css-cli -g
           git clone https://github.com/italia/design-scuole-pagine-statiche
-          cleancss -o ./assets/css/scuole.css ./design-scuole-pagine-statiche/build/assets/css/scuole.css
+          cd design-scuole-pagine-statiche && npm i && npm run build && cd ..
+          cp ./design-scuole-pagine-statiche/dist/assets/css/scuole.css ./assets/css/scuole.css
+          cp ./design-scuole-pagine-statiche/dist/assets/js/scuole.js ./assets/js/scuole.js
           rm -rf design-scuole-pagine-statiche
-          git add ./assets/css/scuole.css
-          git commit -m "chore(deps) update scuole.css"
+          git add assets/css/scuole.css assets/js/scuole.js
+          git commit -m "chore(deps): update assets"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
