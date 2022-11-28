@@ -79,7 +79,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -1354,9 +1354,7 @@ label > span {
 }
 
 #progetti-home .container-progetti article.card-progetti {
-  height: 10rem;
   display: flex;
-  gap: 1rem;
   width: 100%;
   /*  &:first-child {
     margin-top: 0;
@@ -1366,6 +1364,7 @@ label > span {
 #progetti-home .container-progetti article.card-progetti .row-img {
   height: 100%;
   width: 5.5rem;
+  height: 5.5rem;
 }
 
 #progetti-home .container-progetti article.card-progetti .row-img a.img-loop {
@@ -2132,12 +2131,40 @@ body {
   margin: 0;
   background-color: #fff;
   border-radius: 0.75rem;
+  overflow: auto;
+  display: flex;
+  color: #000;
+  font-weight: 900;
+}
+
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > * img {
+  width: clamp(24px, 9.7142857143px + 7.14285714vw, 64px);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > * span {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  margin-left: 0;
 }
 
 .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *:last-of-type {
   flex-grow: 1;
   grid-area: grow;
   width: 100%;
+}
+
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *:last-of-type img {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
 }
 
 .footer--wrapper .footer--main-wrapper .footer-info > div > a {

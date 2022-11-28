@@ -15,7 +15,7 @@
             'post_status'       => 'publish', 
             'orderby'           => 'count', 
             'order'             => 'DESC', 
-            'posts_per_page'    => 2, )
+            'posts_per_page'    => 3, )
           );
           
           while ($loop -> have_posts()) : $loop -> the_post(); 

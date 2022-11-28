@@ -46,7 +46,7 @@ class Footer_Privacy_Walker extends Walker_Nav_Menu {
 		$custom_data = 'data-element="privacy-policy-link"';
 		// $title = $item->title;
 		$title = 'Cookie Policy e Privacy Policy';
-		$output .= '<a class="text-underline-hover" href="#" aria-label="Vai alla pagina ' 
+		$output .= '<a class="text-underline-hover" href="/privacy-policy" aria-label="Vai alla pagina ' 
 			. $title . '" '.$custom_data.'>';
 		$output .= $title;
         
