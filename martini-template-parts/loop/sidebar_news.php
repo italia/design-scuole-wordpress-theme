@@ -1,63 +1,41 @@
-<div>
-    <div id="sidebar_news" class="mt-xs-0 mt-sm-0">
-        <h4 class="text-black mb-4">News correlate</h4>
-        <div class="row mt-3 mt-lg-0">
-
-            <?php
-            $loop = new WP_Query( array( 
-                'post_type'         => 'post', 
-                'post_status'       => 'publish', 
-                'orderby'           => 'count', 
-                'order'             => 'DESC', 
-                'posts_per_page'    => 2,)
-            );
-            
-            while ($loop -> have_posts()) : $loop -> the_post(); ?> 
-
-            <article class="col-12 mt-3 mb-3"> 
-                <div class="row justify-content-between" id="card_image_sidebar">
-                    <div class="col-lg-3 col-3 row-img">
-                        <a href="<?php the_permalink();?>">
-                            <?php the_post_thumbnail("project-thumb");?> 
-                        </a>
-                    </div>
-                
-                    <div class="col-lg-8 col-7 pl-2">
-                        <a href="<?php the_permalink();?>">
-                            <p class="h6"><?php the_title(); ?></p>
-                            <div id="related_text"><?php the_excerpt($length); ?></div>
-                        </a>
-                    </div><!--.col-8 -->
-                </div><!--.row -->
-            </article><!--.col-12 -->
-            <?php endwhile; ?>
-        </div>
-        <div class="mt-4 mb-4">
-            <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
-            <h2 class="mb-4 h4 text-black"><?php _e("Allegati", "design_scuole_italia"); ?></h2>
-
-            <div class="">
-                <?php
-                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                    global $documento;
-                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                        $documento = get_post( $link_scheda_documento );
-                        get_template_part( "template-parts/documento/card" );
-                    }
-                }
-
-                global $idfile, $nomefile;
-                if(is_array($file_documenti) && count($file_documenti)>0) {
-
-                    foreach ( $file_documenti as $idfile => $nomefile ) {
-                        get_template_part( "template-parts/documento/file" );
-                    }
+<section class="related-news">
+    <h4 class="text-black mb-4">News correlate</h4>
+    <div class="container-progetti col-12 mb-4">
+        <?php
+        $loop = new WP_Query( array( 
+            'post_type'         => 'post',
+            'post_status'       => 'publish', 
+            'orderby'           => 'count', 
+            'order'             => 'DESC', 
+            'posts_per_page'    => 3, )
+        );
+        while ($loop -> have_posts()) : $loop -> the_post(); 
+        ?> 
+        <article class="card-progetti">
+            <div class="row-img">
+            <a class="img-loop" href="<?php the_permalink();?>">
+                <?php 
+                if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
+                    echo get_the_post_thumbnail($post->ID);
                 }
                 ?>
-            </div><!-- /card documento-->
-            <?php
-            }
-            ?>
-        </div><!-- /allegati -->
-    </div><!--.sidebar -->
-</div><!--col-3 offset-1 -->
+            </a>
+            </div><!--.row-img -->
+            <div class="card--body">
+                <a href="<?php the_permalink();?>">          
+                    <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,'...');?></h5>
+                    <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 72,);?>...</p>
+                </a>
+            </div>
+        </article>
+        <?php endwhile; ?>
+    </div><!--.container-progetti -->
+    <div class="col-12 mt-4 mt-lg-0 pl-0 pr-0 w-100">
+      <a class="btn-lg-default-outline" href="i-progetti-della-classe">
+        <button>Vedi tutte</button>
+      </a>
+    </div><!--.col-12 -->
+
+  </div><!-- row -->
+
+</section>

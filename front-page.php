@@ -40,32 +40,33 @@
 
       <div class="offset-lg-1 col-12 col-lg-4 order-1 order-lg-0 m-0">
 
-        <h4>Area Docenti</h4>
+        <h4>Utilità</h4>
 
         <div class="row mt-4 mt-lg-0">
           <div class="col-12 mt-lg-4">
-            <a class="btn-lg-default w-100 col-12" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
-              <button>Registro elettronico</button>
+            <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
+              <button>Registro</button>
             </a>
-            <a class="btn-lg-default-outline w-100 col-12" href="orari-docenti">
-              <button>Orari docenti</button>
+            <a class="btn-lg-default-outline w-100" href="orario-docenti">
+              <button>Orario docenti</button>
             </a>
-            <a class="btn-lg-default-outline w-100 col-12" href="https://www.martinomartini.eu/GestOre/" target="blank">
+            <a class="btn-lg-default-outline w-100" href="orari-classi">
+              <button>Orari classi</button>
+            </a>
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
           </div>
             
           <!-- Calendar -->
           <div class="col-12">
-            <div class="col-12">
-              <?php echo do_shortcode('[calendar id="512"]'); ?>
-            </div>
+            <?php echo do_shortcode('[calendar id="512"]'); ?>
             
-            <a class="btn-lg-default-outline col-12 w-100" href="calendario">
+            <a class="btn-lg-default-outline w-100" href="calendario">
               <button>Vedi il calendario completo</button>
             </a>
           </div>
-            
+
         </div>
         <!--.row -->
       </div>
