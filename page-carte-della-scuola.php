@@ -49,13 +49,7 @@ get_header();
     <section id="container-fluid" class="px-5 p-4">
         <div class="row container-martini px-4">
             <div class="col-12 col-md-6">
-<<<<<<< HEAD
                 <h4>Pubblicità Legale</h4>
-=======
-                <a href="albo">
-                    <h4>Albo</h4>
-                </a>
->>>>>>> origin/develop
             </div>
             <div class="col-12 col-md-6 align-items-start text-md-right">
                 <a class="btn-sm-default" href="albo">
