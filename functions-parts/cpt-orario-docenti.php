@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Definisce post type per gli orari dei docenti
+ * Definisce post type per gli orario dei docenti
  */
 
-add_action( 'init', 'register_orari_docenti_post_type' );
-function register_orari_docenti_post_type() {
+add_action( 'init', 'register_orario_docenti_post_type' );
+function register_orario_docenti_post_type() {
 
-	/** Orari docenti **/
+	/** Orario docenti **/
 	$labels = array(
-		'name'          => _x( 'Orari Docenti', 'Post Type General Name', 'martino_martini' ),
-		'singular_name' => _x( 'Orari Docenti', 'Post Type Singular Name', 'martino_martini' ),
+		'name'          => _x( 'Orario Docenti', 'Post Type General Name', 'martino_martini' ),
+		'singular_name' => _x( 'Orario Docenti', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new'       => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new_item'  => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'edit_item'      => _x( 'Modifica il File', 'Post Type Singular Name', 'martino_martini' ),
 		'view_item'      => _x( 'Visualizza il File', 'Post Type Singular Name', 'martino_martini' ),
 	);
 	$args   = array(
-		'label'         => __( 'Orari Docenti', 'martino_martini' ),
+		'label'         => __( 'Orario Docenti', 'martino_martini' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
@@ -27,52 +27,30 @@ function register_orari_docenti_post_type() {
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'orari-docenti', $args );
+	register_post_type( 'orario-docenti', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action( 'cmb2_init', 'martini_add_orari_docenti_metaboxes' );
-function martini_add_orari_docenti_metaboxes() {
+add_action( 'cmb2_init', 'martini_add_orario_docenti_metaboxes' );
+function martini_add_orario_docenti_metaboxes() {
 
     $prefix = '_martini_orario_docenti_';
     
     $cmb_aftercontent = new_cmb2_box( array(
     'id'           => $prefix . 'box_elementi_dati',
     'title'        => __( 'Orario Docenti', 'martino_martini' ),
-    'object_types' => array( 'orari-docenti' ),
+    'object_types' => array( 'orario-docenti' ),
     'context'      => 'normal',
     'priority'     => 'high',
     ) );
-
-    $cmb_aftercontent->add_field( array(
-        'name'             => 'Categoria di file',
-        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
-        'type'             => 'radio',
-        'show_option_none' => false,
-        'options'          => array(
-            'licei' => __( 'Licei', 'cmb2' ),
-            'istituto-tecnico'   => __( 'Istituto tecnico', 'cmb2' ),
-        ),
-    ) );
-
-    $cmb_aftercontent->add_field( array(
-        'name'             => 'Categoria di file',
-        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
-        'type'             => 'radio',
-        'show_option_none' => false,
-        'options'          => array(
-            'sicurezza' => __( 'Sicurezza', 'cmb2' ),
-            'covid'   => __( 'Covid', 'cmb2' ),
-        ),
-    ) );
-
+    
     // box per caricare file del corso informatica sulle scuole
 
     $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_orari_docenti',
+        'id' => $prefix . 'file_orario_docenti',
         'name'    => __( 'Carica file', 'martino_martini' ),
         'desc' => __( 'File orario docente' , 'martino_martini' ),
         'type' => 'file_list',
