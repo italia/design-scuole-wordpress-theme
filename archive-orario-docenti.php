@@ -1,4 +1,13 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+
+ */
+
+get_header();
+?>
 
 <main id="main-container-orario-docenti" class="main-container">
 
