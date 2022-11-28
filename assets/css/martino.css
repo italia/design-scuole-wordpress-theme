@@ -66,7 +66,7 @@ main .primary, main .fw-regular.primary, main .text-xs.primary, main .text-sm.pr
   letter-spacing: -0.2625px;
 }
 
-.main-container .btn-lg-disabled-outline button, .main-container .btn-lg-secondary-outline button, .main-container .btn-lg-secondary button, .main-container .btn-lg-default-outline button, .main-container .btn-lg-default button, .main-container .btn-mini-disabled button, .main-container .btn-sm-disabled button, .main-container .btn-md-disabled button, .main-container .btn-lg-disabled button, .h6, h6 {
+.main-container .btn-lg-disabled-outline button, .main-container .btn-lg-secondary-outline button, .main-container .btn-lg-secondary-outline input, .main-container .btn-lg-secondary button, .main-container .btn-lg-secondary input, .main-container .btn-lg-default-outline button, .main-container .btn-lg-default-outline input, .main-container .btn-lg-default button, .main-container .btn-lg-default input, .main-container .btn-mini-disabled button, .main-container .btn-sm-disabled button, .main-container .btn-md-disabled button, .main-container .btn-lg-disabled button, .h6, h6 {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, -8px + 4.16666667vw, 24px);
@@ -79,7 +79,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
+.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary-outline input, .main-container .btn-md-secondary button, .main-container .btn-md-secondary input, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default-outline input, .main-container .btn-md-default button, .main-container .btn-md-default input, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -88,7 +88,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(24px, 12px + 2.08333333vw, 28px);
 }
 
-.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes, .card .card-body .card-title, .text-sm {
+.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary-outline input, .main-container .btn-sm-secondary button, .main-container .btn-sm-secondary input, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default-outline input, .main-container .btn-sm-default button, .main-container .btn-sm-default input, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary-outline input span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-secondary input span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default-outline input span, .main-container .btn-lg-default button span, .main-container .btn-lg-default input span, #sidebar #quotes, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
   font-size: clamp(14px, 8px + 1.04166667vw, 16px);
@@ -97,7 +97,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(20px, 17px + 0.52083333vw, 21px);
 }
 
-.main-container .btn-mini-disabled-outline button, .main-container .btn-mini-secondary-outline button, .main-container .btn-mini-secondary button, .main-container .btn-mini-disabled button, .main-container .btn-mini-default-outline button, .main-container .btn-mini-default button, .text-xs {
+.main-container .btn-mini-disabled-outline button, .main-container .btn-mini-secondary-outline button, .main-container .btn-mini-secondary-outline input, .main-container .btn-mini-secondary button, .main-container .btn-mini-secondary input, .main-container .btn-mini-disabled button, .main-container .btn-mini-default-outline button, .main-container .btn-mini-default-outline input, .main-container .btn-mini-default button, .main-container .btn-mini-default input, .text-xs {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 20px;
@@ -776,14 +776,33 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   min-height: 18.75rem;
 }
 
+#main-container-orario-docenti .contenitore-img img {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  #main-container-orario-docenti .contenitore-img {
+    overflow: scroll;
+  }
+  #main-container-orario-docenti .contenitore-img img {
+    width: auto;
+  }
+}
 #main-container-orario-docenti #myInput {
-  background-image: url("/css/searchicon.png"); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #DFE2EB; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
+  background-image: url("/css/searchicon.png");
+  /* Add a search icon to input */
+  background-position: 10px 12px;
+  /* Position the search icon */
+  background-repeat: no-repeat;
+  /* Do not repeat the icon image */
+  width: 100%;
+  /* Full-width */
+  padding: 12px 20px 12px 40px;
+  /* Add some padding */
+  border: 1px solid #DFE2EB;
+  /* Add a grey border */
+  margin-bottom: 12px;
+  /* Add some space below the input */
   border-radius: 0.75rem;
 }
 
@@ -797,18 +816,26 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #main-container-orario-docenti #myUL li a {
-  border: 1px solid #DFE2EB; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #F0F0F3; /* Grey background color */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  color: #000; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
+  border: 1px solid #DFE2EB;
+  /* Add a border to all links */
+  margin-top: -1px;
+  /* Prevent double borders */
+  background-color: #F0F0F3;
+  /* Grey background color */
+  padding: 12px;
+  /* Add some padding */
+  text-decoration: none;
+  /* Remove default text underline */
+  color: #000;
+  /* Add a black text color */
+  display: block;
+  /* Make it into a block element to fill the whole list */
   height: 100%;
 }
 
 #main-container-orario-docenti #myUL li a:hover:not(.header) {
-  background-color: #DFE2EB; /* Add a hover effect to all links, except for headers */
+  background-color: #DFE2EB;
+  /* Add a hover effect to all links, except for headers */
 }
 
 #main-container-orario-docenti img:not(:target) {
@@ -1539,40 +1566,40 @@ body {
   cursor: default;
 }
 
-.main-container .btn-lg-default button {
+.main-container .btn-lg-default button, .main-container .btn-lg-default input {
   background: #1260A4;
   color: #fff;
   padding: 0.88rem 1.75rem;
 }
 
-.main-container .btn-lg-default button span {
+.main-container .btn-lg-default button span, .main-container .btn-lg-default input span {
   font-weight: 400;
 }
 
-.main-container .btn-lg-default button:hover {
+.main-container .btn-lg-default button:hover, .main-container .btn-lg-default input:hover {
   background: #0073E6;
 }
 
-.main-container .btn-lg-default-outline button {
+.main-container .btn-lg-default-outline button, .main-container .btn-lg-default-outline input {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.88rem 1.75rem;
 }
 
-.main-container .btn-lg-default-outline button::after {
+.main-container .btn-lg-default-outline button::after, .main-container .btn-lg-default-outline input::after {
   border: 0rem solid #1260A4;
 }
 
-.main-container .btn-lg-default-outline button:hover::after {
+.main-container .btn-lg-default-outline button:hover::after, .main-container .btn-lg-default-outline input:hover::after {
   border: 0.19rem solid #0073E6;
 }
 
-.main-container .btn-lg-default-outline button span {
+.main-container .btn-lg-default-outline button span, .main-container .btn-lg-default-outline input span {
   font-weight: 400;
 }
 
-.main-container .btn-lg-default-outline button:hover {
+.main-container .btn-lg-default-outline button:hover, .main-container .btn-lg-default-outline input:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
@@ -1587,40 +1614,40 @@ body {
   font-weight: 400;
 }
 
-.main-container .btn-lg-secondary button {
+.main-container .btn-lg-secondary button, .main-container .btn-lg-secondary input {
   background: #BD0043;
   color: #fff;
   padding: 0.88rem 1.75rem;
 }
 
-.main-container .btn-lg-secondary button span {
+.main-container .btn-lg-secondary button span, .main-container .btn-lg-secondary input span {
   font-weight: 400;
 }
 
-.main-container .btn-lg-secondary button:hover {
+.main-container .btn-lg-secondary button:hover, .main-container .btn-lg-secondary input:hover {
   background: #FF4F79;
 }
 
-.main-container .btn-lg-secondary-outline button {
+.main-container .btn-lg-secondary-outline button, .main-container .btn-lg-secondary-outline input {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.88rem 1.75rem;
 }
 
-.main-container .btn-lg-secondary-outline button::after {
+.main-container .btn-lg-secondary-outline button::after, .main-container .btn-lg-secondary-outline input::after {
   border: 0rem solid #BD0043;
 }
 
-.main-container .btn-lg-secondary-outline button:hover::after {
+.main-container .btn-lg-secondary-outline button:hover::after, .main-container .btn-lg-secondary-outline input:hover::after {
   border: 0.19rem solid #FF4F79;
 }
 
-.main-container .btn-lg-secondary-outline button span {
+.main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary-outline input span {
   font-weight: 400;
 }
 
-.main-container .btn-lg-secondary-outline button:hover {
+.main-container .btn-lg-secondary-outline button:hover, .main-container .btn-lg-secondary-outline input:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
@@ -1646,32 +1673,32 @@ body {
   font-weight: 400;
 }
 
-.main-container .btn-md-default button {
+.main-container .btn-md-default button, .main-container .btn-md-default input {
   background: #1260A4;
   color: #fff;
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-md-default button:hover {
+.main-container .btn-md-default button:hover, .main-container .btn-md-default input:hover {
   background: #0073E6;
 }
 
-.main-container .btn-md-default-outline button {
+.main-container .btn-md-default-outline button, .main-container .btn-md-default-outline input {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-md-default-outline button::after {
+.main-container .btn-md-default-outline button::after, .main-container .btn-md-default-outline input::after {
   border: 0rem solid #1260A4;
 }
 
-.main-container .btn-md-default-outline button:hover::after {
+.main-container .btn-md-default-outline button:hover::after, .main-container .btn-md-default-outline input:hover::after {
   border: 0.19rem solid #0073E6;
 }
 
-.main-container .btn-md-default-outline button:hover {
+.main-container .btn-md-default-outline button:hover, .main-container .btn-md-default-outline input:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
@@ -1682,32 +1709,32 @@ body {
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-md-secondary button {
+.main-container .btn-md-secondary button, .main-container .btn-md-secondary input {
   background: #BD0043;
   color: #fff;
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-md-secondary button:hover {
+.main-container .btn-md-secondary button:hover, .main-container .btn-md-secondary input:hover {
   background: #FF4F79;
 }
 
-.main-container .btn-md-secondary-outline button {
+.main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary-outline input {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-md-secondary-outline button::after {
+.main-container .btn-md-secondary-outline button::after, .main-container .btn-md-secondary-outline input::after {
   border: 0rem solid #BD0043;
 }
 
-.main-container .btn-md-secondary-outline button:hover::after {
+.main-container .btn-md-secondary-outline button:hover::after, .main-container .btn-md-secondary-outline input:hover::after {
   border: 0.19rem solid #FF4F79;
 }
 
-.main-container .btn-md-secondary-outline button:hover {
+.main-container .btn-md-secondary-outline button:hover, .main-container .btn-md-secondary-outline input:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
@@ -1725,32 +1752,32 @@ body {
   padding: 0.75rem 1.5rem;
 }
 
-.main-container .btn-sm-default button {
+.main-container .btn-sm-default button, .main-container .btn-sm-default input {
   background: #1260A4;
   color: #fff;
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-sm-default button:hover {
+.main-container .btn-sm-default button:hover, .main-container .btn-sm-default input:hover {
   background: #0073E6;
 }
 
-.main-container .btn-sm-default-outline button {
+.main-container .btn-sm-default-outline button, .main-container .btn-sm-default-outline input {
   background: #fff;
   color: #1260A4;
   border: 0.18rem #1260A4 solid;
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-sm-default-outline button::after {
+.main-container .btn-sm-default-outline button::after, .main-container .btn-sm-default-outline input::after {
   border: 0rem solid #1260A4;
 }
 
-.main-container .btn-sm-default-outline button:hover::after {
+.main-container .btn-sm-default-outline button:hover::after, .main-container .btn-sm-default-outline input:hover::after {
   border: 0.19rem solid #0073E6;
 }
 
-.main-container .btn-sm-default-outline button:hover {
+.main-container .btn-sm-default-outline button:hover, .main-container .btn-sm-default-outline input:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
@@ -1761,32 +1788,32 @@ body {
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-sm-secondary button {
+.main-container .btn-sm-secondary button, .main-container .btn-sm-secondary input {
   background: #BD0043;
   color: #fff;
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-sm-secondary button:hover {
+.main-container .btn-sm-secondary button:hover, .main-container .btn-sm-secondary input:hover {
   background: #FF4F79;
 }
 
-.main-container .btn-sm-secondary-outline button {
+.main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary-outline input {
   background: #fff;
   color: #BD0043;
   border: 0.18rem #BD0043 solid;
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-sm-secondary-outline button::after {
+.main-container .btn-sm-secondary-outline button::after, .main-container .btn-sm-secondary-outline input::after {
   border: 0rem solid #BD0043;
 }
 
-.main-container .btn-sm-secondary-outline button:hover::after {
+.main-container .btn-sm-secondary-outline button:hover::after, .main-container .btn-sm-secondary-outline input:hover::after {
   border: 0.19rem solid #FF4F79;
 }
 
-.main-container .btn-sm-secondary-outline button:hover {
+.main-container .btn-sm-secondary-outline button:hover, .main-container .btn-sm-secondary-outline input:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }
@@ -1804,32 +1831,32 @@ body {
   padding: 0.63rem 1.25rem;
 }
 
-.main-container .btn-mini-default button {
+.main-container .btn-mini-default button, .main-container .btn-mini-default input {
   background: #1260A4;
   color: #fff;
   padding: 0.51rem 0.81rem;
 }
 
-.main-container .btn-mini-default button:hover {
+.main-container .btn-mini-default button:hover, .main-container .btn-mini-default input:hover {
   background: #0073E6;
 }
 
-.main-container .btn-mini-default-outline button {
+.main-container .btn-mini-default-outline button, .main-container .btn-mini-default-outline input {
   background: #fff;
   color: #1260A4;
   border: 0.12rem #1260A4 solid;
   padding: 0.51rem 0.81rem;
 }
 
-.main-container .btn-mini-default-outline button::after {
+.main-container .btn-mini-default-outline button::after, .main-container .btn-mini-default-outline input::after {
   border: 0rem solid #1260A4;
 }
 
-.main-container .btn-mini-default-outline button:hover::after {
+.main-container .btn-mini-default-outline button:hover::after, .main-container .btn-mini-default-outline input:hover::after {
   border: 0.19rem solid #0073E6;
 }
 
-.main-container .btn-mini-default-outline button:hover {
+.main-container .btn-mini-default-outline button:hover, .main-container .btn-mini-default-outline input:hover {
   border-color: #0073E6;
   color: #0073E6;
 }
@@ -1840,32 +1867,32 @@ body {
   padding: 0.51rem 0.81rem;
 }
 
-.main-container .btn-mini-secondary button {
+.main-container .btn-mini-secondary button, .main-container .btn-mini-secondary input {
   background: #BD0043;
   color: #fff;
   padding: 0.51rem 0.81rem;
 }
 
-.main-container .btn-mini-secondary button:hover {
+.main-container .btn-mini-secondary button:hover, .main-container .btn-mini-secondary input:hover {
   background: #FF4F79;
 }
 
-.main-container .btn-mini-secondary-outline button {
+.main-container .btn-mini-secondary-outline button, .main-container .btn-mini-secondary-outline input {
   background: #fff;
   color: #BD0043;
   border: 0.12rem #BD0043 solid;
   padding: 0.51rem 0.81rem;
 }
 
-.main-container .btn-mini-secondary-outline button::after {
+.main-container .btn-mini-secondary-outline button::after, .main-container .btn-mini-secondary-outline input::after {
   border: 0rem solid #BD0043;
 }
 
-.main-container .btn-mini-secondary-outline button:hover::after {
+.main-container .btn-mini-secondary-outline button:hover::after, .main-container .btn-mini-secondary-outline input:hover::after {
   border: 0.19rem solid #FF4F79;
 }
 
-.main-container .btn-mini-secondary-outline button:hover {
+.main-container .btn-mini-secondary-outline button:hover, .main-container .btn-mini-secondary-outline input:hover {
   border-color: #FF4F79;
   color: #FF4F79;
 }

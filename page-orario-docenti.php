@@ -52,16 +52,16 @@ get_header();
 
           </ul>
         </div>
-        <div class="col-12 z-index-0">
+        <div class="col-12 z-index-0 contenitore-img">
 
         <span id="ancoraggio"></span>
 
           <?php
           while ($loop->have_posts()) : $loop->the_post();
 
-            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
+            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orario_docenti', true);
           ?>
-              <img id="orario-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" alt="<?php the_title(); ?>" loading="lazy">
+            <img id="orario-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" alt="<?php the_title(); ?>" loading="lazy">
           <?php
           endwhile;
           ?>
