@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main-container-orari-docenti" class="main-container">
+<main id="main-container-orario-docenti" class="main-container">
 
   <section class="container mt-5 mb-5">
 

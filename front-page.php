@@ -47,8 +47,8 @@
             <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="orari-docenti">
-              <button>Orari docenti</button>
+            <a class="btn-lg-default-outline w-100" href="orario-docenti">
+              <button>Orario docenti</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="orari-classi">
               <button>Orari classi</button>
