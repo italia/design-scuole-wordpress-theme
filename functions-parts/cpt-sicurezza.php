@@ -47,17 +47,6 @@ function martini_add_sicurezza_metaboxes() {
     'priority'     => 'high',
     ) );
 
-    $cmb_aftercontent->add_field( array(
-        'name'             => 'Categoria di file',
-        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
-        'type'             => 'radio',
-        'show_option_none' => false,
-        'options'          => array(
-            'sicurezza' => __( 'Sicurezza', 'cmb2' ),
-            'covid'   => __( 'Covid', 'cmb2' ),
-        ),
-    ) );
-
     // box per caricare file di sicurezza sulle scuole
 
     $cmb_aftercontent->add_field( array(
