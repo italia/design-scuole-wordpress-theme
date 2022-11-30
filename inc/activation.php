@@ -598,7 +598,7 @@ function dsi_create_pages_on_theme_activation() {
 //        $persone_landing_url = dsi_get_template_page_url("page-templates/persone.php");
         $persone_id = dsi_get_template_page_id("page-templates/persone.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Persone', "design_scuole_italia"),
+            'menu-item-title' => __('Le persone', "design_scuole_italia"),
             'menu-item-object-id' => $persone_id,
             'menu-item-object' => 'page',
             'menu-item-status' => 'publish',
@@ -651,7 +651,7 @@ function dsi_create_pages_on_theme_activation() {
 
         $term = get_term_by("name", "Personale Scolastico", "tipologia-servizio");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Servizi per il personale scolastico', "design_scuole_italia"),
+            'menu-item-title' => __('Personale scolastico', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-type' => 'taxonomy',
             'menu-item-object' => 'tipologia-servizio',
@@ -662,7 +662,7 @@ function dsi_create_pages_on_theme_activation() {
 
         $term = get_term_by("name", "Famiglie e Studenti", "tipologia-servizio");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Servizi per famiglie e studenti', "design_scuole_italia"),
+            'menu-item-title' => __('Famiglie e studenti', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-type' => 'taxonomy',
             'menu-item-object' => 'tipologia-servizio',
