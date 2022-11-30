@@ -598,7 +598,7 @@ function dsi_create_pages_on_theme_activation() {
 //        $persone_landing_url = dsi_get_template_page_url("page-templates/persone.php");
         $persone_id = dsi_get_template_page_id("page-templates/persone.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Persone', "design_scuole_italia"),
+            'menu-item-title' => __('Le persone', "design_scuole_italia"),
             'menu-item-object-id' => $persone_id,
             'menu-item-object' => 'page',
             'menu-item-status' => 'publish',
