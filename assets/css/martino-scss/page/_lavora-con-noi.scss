@@ -15,5 +15,15 @@
                 float: none;
             }
         }
+        select{
+            &, &:focus, &:focus-visible, &:focus-within{
+                border:1px solid $on-surface;
+                border-radius: 4px;
+            }
+        }
+        a{
+            color: $primary;
+            font-weight: bold;
+        }
     }
 }
