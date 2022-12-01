@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Didattica
+/* Template Name: Lista
  *
  * didattica template file
  *
@@ -7,34 +7,33 @@
  */
 global $post, $tipologia_notizia, $ct;
 get_header();
-
 ?>
-    <main id="main-container" class="main-container bluelectric">
-        <?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <?php
-        while ( have_posts() ) :
-            the_post();
 
-            // get_template_part("template-parts/hero/didattica");
+<?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+<main id="main-container" class="main-container">
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+        <!-- loop per le pagine -->
+        <div class="container mb-5 martini-list">        
+            <div>
+            <?php   
+                $args = array(
+                'posts_per_page' => -1,
+                'post_parent' => $post->ID,
+                'post_type' => 'page',
+                'post_status' => '',
+                'orderby' => 'title',
+                'order' => 'ASC',);
 
-      //      get_template_part("template-parts/home/didattica", "orari");
-            $visualizzazione_didattica = dsi_get_option("visualizzazione_didattica", "didattica");
-            if($visualizzazione_didattica == "scuole")
-                get_template_part("template-parts/home/didattica", "cicli");
-            else if($visualizzazione_didattica == "indirizzi")
-                get_template_part("template-parts/home/didattica", "cicli-indirizzi");
-
-
-            get_template_part("template-parts/home/didattica", "risorse");
-            get_template_part("template-parts/home/didattica", "progetti");
-            get_template_part("template-parts/home/didattica", "schede");
-
-        endwhile; // End of the loop.
-        ?>
-    </main>
-
+                query_posts($args);
+                
+                if(have_posts()) {
+                    while (have_posts()) : the_post(); 
+                        get_template_part("template-parts/list/page-list"); 
+                    endwhile; 
+                } 
+            ?>
+            </div>
+        </div>
+</main>
 <?php
 get_footer();
-
-
-
