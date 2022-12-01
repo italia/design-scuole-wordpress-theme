@@ -20,7 +20,7 @@ class Mobile_Header_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "<li>";
 		$custom_data = '';
 
-		if ($item->post_name == "servizi-per-il-personale-scolastico" || $item->post_name == "servizi-per-famiglie-e-studenti") {
+		if ( stripos( $item->post_name, 'personale-scolastico' ) !== false || stripos( $item->post_name, 'famiglie-e-studenti' ) !== false ) {
 			$custom_data = 'data-element="service-type"';
 		}
 
