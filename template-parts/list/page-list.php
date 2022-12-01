@@ -4,7 +4,7 @@ global $post;
 // if(have_posts()) : while (have_posts()) : the_post(); ?>
 
 <section id="postID-<?php echo $post->ID;?>" class="martini-list--item px-0 py-4 align-items-center">
-    <div class="row container-martini px-0 px-md-4 align-items-center">
+    <div class="row container-martini px-0 px-2 align-items-center">
         <div class="col-12 col-md-6">
             <a href="<?php the_permalink();?>"> <!-- href temporaneo -->
                 <h4 class="mb-0"><?php the_title();?></h4>
