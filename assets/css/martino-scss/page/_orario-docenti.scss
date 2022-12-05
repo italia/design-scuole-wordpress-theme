@@ -1,0 +1,95 @@
+#main-container-orario-docenti {
+
+  .min-h {
+    min-height: px2rem(300px);
+  }
+
+  .contenitore-img img{
+    width: 100%;
+  }
+
+  @media (max-width: 1200px) {
+    .contenitore-img {
+      overflow: scroll;
+      
+      img{
+        width: auto;
+      }
+    }
+  }
+
+  #myInput {
+    background-image: url('/css/searchicon.png');
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 100%;
+    /* Full-width */
+    padding: 12px 20px 12px 40px;
+    /* Add some padding */
+    border: 1px solid $surface-variant;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    border-radius: 0.75rem;
+  }
+
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  #myUL li a {
+    border: 1px solid $surface-variant;
+    /* Add a border to all links */
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: $surface;
+    /* Grey background color */
+    padding: 12px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove default text underline */
+    color: $black;
+    /* Add a black text color */
+    display: block;
+    /* Make it into a block element to fill the whole list */
+    height: 100%;
+  }
+
+  #myUL li a:hover:not(.header) {
+    background-color: $surface-variant;
+    /* Add a hover effect to all links, except for headers */
+  }
+
+  img:not(:target) {
+    display: none;
+  }
+
+  img:target {
+    display: block;
+    padding-top: 25vh;
+    margin-top: -10vh;
+  }
+
+  mark.highlight {
+    padding: 0;
+    font-weight: bold;
+    background-color: transparent;
+  }
+
+  .z-index-1 {
+    z-index: 1;
+  }
+
+  .z-index-0 {
+    z-index: 0;
+
+  }
+}

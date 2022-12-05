@@ -22,9 +22,9 @@ if ( $page_id = get_option( 'page_for_posts' ) ) {
 
 <main id="main-container" class="main-container">
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
-    <section id="primary" >
+    <section id="primary" class="container">
         
-        <div class="content mx-5 my-5" role="main" data-target="index" >
+        <div class="content my-5" role="main" data-target="index" >
         <?php the_content(); ?>
         </div><!-- end content -->
     </section><!-- end primary -->

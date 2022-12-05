@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+get_header();
+?>
 
 <main id="main-container-orario-docenti" class="main-container">
 
@@ -22,14 +24,14 @@
         <div class="col-12 z-index-1">
         <!-- <div class="col-6 mt-4 min-h"> -->
 
-          <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orari docenti" autocomplete="off">
+          <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orario docenti" autocomplete="off">
 
           <!-- <ul id="myUL" class="row-cols-4 row"> -->
           <ul id="myUL" class="">
             <?php
             $loop = new WP_Query(array(
 
-              'post_type' => "orari-docenti",
+              'post_type' => "orario-docenti",
               'post_status' => "publish",
               'post_per_page' => "99",
               'orderby' => "title",
@@ -41,7 +43,7 @@
               while ($loop->have_posts()) : $loop->the_post();
             ?>
 
-                <li><a href="#orari-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="#orario-<?php echo get_the_ID(); ?>"><?php the_title(); ?></a></li>
 
             <?php
               endwhile;
@@ -50,16 +52,16 @@
 
           </ul>
         </div>
-        <div class="col-12 z-index-0">
+        <div class="col-12 z-index-0 contenitore-img">
 
         <span id="ancoraggio"></span>
 
           <?php
           while ($loop->have_posts()) : $loop->the_post();
 
-            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orari_docenti', true);
+            $file = get_post_meta(get_the_ID(), '_martini_orario_docenti_file_orario_docenti', true);
           ?>
-              <img id="orari-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" loading="lazy" alt="<?php the_title(); ?>" loading="lazy">
+            <img id="orario-<?php echo get_the_ID(); ?>" src="<?php echo array_values($file)[0]; ?>" alt="<?php the_title(); ?>" loading="lazy">
           <?php
           endwhile;
           ?>
