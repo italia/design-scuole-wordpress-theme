@@ -88,7 +88,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(24px, 12px + 2.08333333vw, 28px);
 }
 
-.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes, .card .card-body .card-title, .text-sm {
+.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes p, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
   font-size: clamp(14px, 8px + 1.04166667vw, 16px);
@@ -1492,9 +1492,13 @@ body {
   max-height: 24px;
 }
 
-#sidebar #quotes {
+#sidebar #quotes p {
   font-style: italic;
   color: #1260A4;
+}
+
+#sidebar h5 {
+  margin-top: 2rem;
 }
 
 #sidebar .aside-main {
@@ -1519,6 +1523,10 @@ body {
     content: none;
   }
 }
+.uppercase_text {
+  text-transform: uppercase;
+}
+
 .main-container .btn-mini-secondary button, .main-container .btn-mini-default button, .main-container .btn-sm-secondary button, .main-container .btn-sm-default button, .main-container .btn-md-secondary button, .main-container .btn-md-default button, .main-container .btn-lg-secondary button, .main-container .btn-lg-default button {
   border-radius: 0.25rem;
   border: 0;

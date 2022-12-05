@@ -33,11 +33,15 @@ body {
             max-height: 24px;
     }
 
-    #quotes {
+    #quotes p {
     font-style: italic;
     color: $primary;
     @include text-sm;
-}
+    }
+
+    h5 {
+        margin-top: 2rem;
+    }
 
     .aside-main {
         margin-bottom: 1rem;
@@ -63,4 +67,6 @@ body {
         }
     }
 }
-
+.uppercase_text {
+    text-transform: uppercase;
+}

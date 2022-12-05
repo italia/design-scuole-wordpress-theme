@@ -20,13 +20,13 @@ get_header();
                 <div class="row main-content variable-gutters">
 
                     <div class="col-lg-8 my-5">
-                        <div class="row pt-5 px-1">
+                        <div class="row pt-5">
                             <p>Il corso serale presente all’Istituto Martino Martini è il Tecnico Economico, indirizzo Amministrazione, Finanza e Marketing, articolazione AFM.</p>
                         </div>
-                        <div id="image-block" class="row col-12">
+                        <div id="image-block" class="row col-10 offset-1">
                             <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
                         </div>
-                        <div class="row pt-2 px-1">
+                        <div class="row pt-2">
                             <p>Le lezioni si svolgono da lunedì a venerdì dalle ore 19.00 alle ore 23.20. Da lunedì a giovedì in presenza nella sede di via Perlasca n. 4 a Mezzolombardo, il venerdì a distanza tramite Meet. <br>
                             All'atto dell'iscrizione ogni studente sarà dotato di un account di tipo nome.cognome@martinomartini.eu che permetterà di accedere a Google Workspace, risorsa chiave per il corso serale, dove condivisione e collaborazione sono elementi imprescindibili per il successo formativo dei frequentanti. <br>
                             <br>
@@ -46,27 +46,128 @@ get_header();
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
-                                <h5>Modulistica</h5>                                
-                                <ul class="link-list">
-                                    <li> <h6> <?php echo get_post_meta( get_the_ID(), 'martini_titolo', true );?> </h6> </li>
-                                    <li> <a href="<?php echo get_post_meta( get_the_ID(), 'martini_url', true );?>"> <?php the_title();?> </a> </li>
-                                    <li> <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'martini_email', true );?>" target=blank> <?php echo get_post_meta( get_the_ID(), 'martini_email', true );?> </a> </li>
-
-                                    <li> <a href=""> 
-                                        <!-- Qui ci deve andare il documento  -->
-                                    </a> </li>
                                 
-                                </ul>
-                            </div>
-                            
-                            <ul class="link-list">
 
-                            </ul>
-                            <div class="col-12 col-lg-9" id="" class="mailfield">
-                                <h5>Contatti</h5>
-                                <p id="quotes">Chiunque desideri maggiori informazioni o chiarimenti può contattare il coordinatore del serale, scrivendo a:</p>
-                                <a href="serali@martinomartini.eu.">serali@martinomartini.eu.</a>
-                            </div>   
+                                <!-- Altre informazioni -->
+                                 <?php
+                                $ulteriori_informazioni = get_post_meta( get_the_ID(), 'martini_info', true );
+                                if(trim($ulteriori_informazioni) != ""){
+                                    ?>
+                                    <h5>Altre informazioni</h5> 
+                                    <div class="row variable-gutters">
+                                        <div id="quotes" class="col-12 wysiwig-text">
+                                            <?php echo wpautop($ulteriori_informazioni); ?>
+                                        </div>
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Altre informazioni -->
+
+                                <!-- Info variabili - titolo -->
+                                 <?php
+                                $info_variabili_titolo = get_post_meta( get_the_ID(), 'martini_titolo', true );
+                                if(trim($info_variabili_titolo) != ""){
+                                    ?>
+                                    <h5><?php echo wpautop($info_variabili_titolo); ?></h5> 
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Info variabili - titolo -->
+
+                                <!-- Info variabili -->
+                                 <?php
+                                $info_variabili = get_post_meta( get_the_ID(), 'martini_info_variable', true );
+                                if(trim($info_variabili) != ""){
+                                    ?>
+                                    <div class="row variable-gutters">
+                                        <div class="col-12 wysiwig-text">
+                                            <?php echo wpautop($info_variabili); ?>
+                                        </div>
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Info variabili -->
+
+                                
+
+                                <!-- Campo contatti -->
+                                <?php 
+                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
+                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+
+                                
+                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
+                                <h5>Contatti</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $emails as $email){?>
+                                    
+                                    <li>
+                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+                                <?php } ?>
+
+                                <?php
+                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
+                                <h6>Telefono</h6>
+                                <ul class="">
+                                    
+                                    <?php foreach ( $phone as $phone){?>
+                                    
+                                    <li>
+                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+
+                                <?php } ?>
+
+
+                                <!--/Campo contatti -->
+                                
+                                <!-- Campo modulistica -->
+                                <?php 
+                                $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
+                                if(is_array ($multidocuments_download) && !empty($multidocuments_download)){ ?>
+                                <h5>Modulistica</h5> 
+                                <ul class="link-list uppercase_text">
+                                    
+                                    <?php foreach ( $multidocuments_download as $docID => $documenti){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $documenti;?>" target=blank> <?php echo get_the_title($docID);?> </a> 
+                                    </li>
+                                    <?php }?>
+                                    
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo modulistica -->
+
+                                <!-- Campo link -->
+                                <?php 
+                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
+                                
+                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
+                                <h5>Link utili</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $link_url as $link_url){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo link -->
+                            </div>  
                         </aside>
                     </div> <!--/ sidebar -->
                 </div><!-- /row -->
