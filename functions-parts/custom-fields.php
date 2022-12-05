@@ -18,13 +18,41 @@ function cmb2_sample_metaboxes() {
         'show_names'    => true,
     ) );
 
-    // Regular text field
+    // Pinned text field
+    $cmb->add_field( array(
+        'name'       => __( 'Informazioni aggiuntive', 'cmb2' ),
+        'desc'       => __( 'In questo campo inserire le informazioni importanti per questa pagina ', 'cmb2' ),
+        'id'         => 'martini_info',
+        'type'       => 'wysiwyg',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
+    ) );
+
+    // Regular title field
     $cmb->add_field( array(
         'name'       => __( 'Titolo', 'cmb2' ),
-        'desc'       => __( 'In questo campo bisogna inserire il titolo', 'cmb2' ),
+        'desc'       => __( 'In questo campo bisogna inserire il titolo per altre informazioni come sessioni di esame o scadenze (es. "Calendario sessioni di esame")', 'cmb2' ),
         'id'         => 'martini_titolo',
         'type'       => 'text',
         'show_on_cb' => 'cmb2_hide_if_no_cats',
+    ) );
+
+    // Regular text field
+    $cmb->add_field( array(
+        'name'       => __( 'Informazioni variabili', 'cmb2' ),
+        'desc'       => __( 'In questo campo inserire le date di esame o le eventuali scadenze, o altre informazioni variabili da pagina a pagina', 'cmb2' ),
+        'id'         => 'martini_info_variable',
+        'type'       => 'wysiwyg',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
     ) );
 
     // URL text field
@@ -33,8 +61,8 @@ function cmb2_sample_metaboxes() {
         'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
         'id'   => 'martini_url',
         'type' => 'text_url',
-        // 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-        // 'repeatable' => true,
+        'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
+        'repeatable' => true,
     ) );
 
     // Email text field
@@ -43,6 +71,15 @@ function cmb2_sample_metaboxes() {
         'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
         'id'   => 'martini_email',
         'type' => 'text_email',
+        'repeatable' => true,
+    ) );
+
+    // Telefono text field
+    $cmb->add_field( array(
+        'name' => __( 'Telefono', 'cmb2' ),
+        'desc' => __( 'In questo campo bisogna inserire un contatto telefonico', 'cmb2' ),
+        'id'   => 'martini_phone',
+        'type' => 'text',
         'repeatable' => true,
     ) );
 
