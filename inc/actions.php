@@ -163,7 +163,7 @@ function dsi_eventi_filters( $query ) {
             ));
         }else{
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
-            $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
+            $query->set('orderby', array('meta_value' => 'ASC', 'date' => 'ASC'));
             $query->set( 'meta_query', array(
                 array(
                     'key' => '_dsi_evento_timestamp_inizio'
