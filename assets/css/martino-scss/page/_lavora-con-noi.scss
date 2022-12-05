@@ -1,6 +1,9 @@
 #main-container {
     section#input-lavora-con-noi-docenti {
 
+        input[type=date], input[type=datetime-local], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea{
+            font-weight: 400;
+        }
         .no-spin {
             -webkit-appearance: none;
             margin: 0;
@@ -11,6 +14,16 @@
             span {
                 float: none;
             }
+        }
+        select{
+            &, &:focus, &:focus-visible, &:focus-within{
+                border:1px solid $on-surface;
+                border-radius: 4px;
+            }
+        }
+        a{
+            color: $primary;
+            font-weight: bold;
         }
     }
 }
