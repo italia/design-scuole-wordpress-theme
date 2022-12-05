@@ -34,7 +34,7 @@ function cmb2_sample_metaboxes() {
 
     // Regular title field
     $cmb->add_field( array(
-        'name'       => __( 'Titolo', 'cmb2' ),
+        'name'       => __( 'Titolo libero', 'cmb2' ),
         'desc'       => __( 'In questo campo bisogna inserire il titolo per altre informazioni come sessioni di esame o scadenze (es. "Calendario sessioni di esame")', 'cmb2' ),
         'id'         => 'martini_titolo',
         'type'       => 'text',
@@ -55,16 +55,6 @@ function cmb2_sample_metaboxes() {
         ),
     ) );
 
-    // URL text field
-    $cmb->add_field( array(
-        'name' => __( 'Website URL', 'cmb2' ),
-        'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
-        'id'   => 'martini_url',
-        'type' => 'text_url',
-        'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-        'repeatable' => true,
-    ) );
-
     // Email text field
     $cmb->add_field( array(
         'name' => __( 'Email', 'cmb2' ),
@@ -82,6 +72,17 @@ function cmb2_sample_metaboxes() {
         'type' => 'text',
         'repeatable' => true,
     ) );
+
+    // URL text field
+    $cmb->add_field( array(
+        'name' => __( 'Website URL', 'cmb2' ),
+        'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
+        'id'   => 'martini_url',
+        'type' => 'text_url',
+        'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
+        'repeatable' => true,
+    ) );
+    
 
     //  // File field
     // $cmb->add_field( array(

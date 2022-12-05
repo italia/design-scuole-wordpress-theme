@@ -39,7 +39,7 @@ get_header();
         <div class="container">
             <div class="row variable-gutters">
                 
-                <div class="py-3 px-3 col-lg-8">
+                <div class="py-5 px-3 col-lg-8">
                     <div class="">    
                         <h2>Alternanza scuola-lavoro</h2>
                         <p class="pt-2">L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
@@ -71,6 +71,8 @@ get_header();
                             <li>Realizzare un organico collegamento delle istituzioni scolastiche e formative con il mondo del  lavoro e la società civile</li>
                             <li>Correlare l'offerta formativa allo sviluppo culturale, sociale ed economico del territorio</li>
                         </ul>
+
+                         <?php the_content(); ?>
                        
                     </div>
 
@@ -105,7 +107,7 @@ get_header();
                                     <?php
                                 }
                                 ?>
-                                <!-- //Altre informazioni -->
+                                <!-- //Info variabili - titolo -->
 
                                 <!-- Info variabili -->
                                  <?php
@@ -186,7 +188,7 @@ get_header();
                                 $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
                                 
                                 if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
-                                <h5>Collegamenti esterni</h5> 
+                                <h5>Link utili</h5> 
                                 <ul class="link-list">
                                     
                                     <?php foreach ( $link_url as $link_url){?>

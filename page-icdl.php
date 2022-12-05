@@ -23,6 +23,12 @@ get_header();
             
 
             $mail = get_post_meta("martini_email");
+            $phone = get_post_meta("martini_phone");
+            $documenti = get_post_meta("documents_download");
+            $link_url = get_post_meta("martini_url");
+            $ulteriori_informazioni = get_post_meta("martini_info");
+            $info_variabili_titolo = get_post_meta("martini_titolo");
+            $info_variabili = get_post_meta("martini_info_variable");
 
         ?>
 
@@ -209,21 +215,22 @@ get_header();
                         <div class="row">
                             <div class="mt-5 px-3">    
                                 <h4>Esami IT Security “Io clicco sicuro” con la carta “IoStudio”</h4>
-                                <p>Iocliccosicuro è un’iniziativa di AICA e di ioStudio - la Carta dello Studente, che ti permette di sostenere gratuitamente il modulo IT-Security di ICDL 
+                                <p>Iocliccosicuro è un’iniziativa di AICA e di ioStudio - la Carta dello Studente, che ti permette di sostenere gratuitamente il modulo IT-Security di ICDL <br>
                                 Se hai IoStudio - la Carta dello Studente, puoi sfruttare questa opportunità, dal sito 
-                                <a href="blank">IoStudio la carta dello studente.</a>
+                                <a href="https://iostudio.pubblica.istruzione.it/web/guest/home" target="blank">IoStudio la carta dello studente.</a>
                                 </p>
-                                <p>Per iscriverti segui questi passaggi:
-                                    Se non l’hai già fatto, ricordati di attivare il tuo account sul Portale dello Studente cliccando su “PRIMO ACCESSO” 
+                                <p>Per iscriverti segui questi passaggi: <br>
+                                    Se non l’hai già fatto, ricordati di attivare il tuo account sul Portale dello Studente cliccando su “PRIMO ACCESSO” <br>
                                     Fai login con la tua Utenza e Password e seleziona tra le offerte la categoria “Corsi di Informatica”. 
                                 </p>
                                 <p>Scegli il progetto “iocliccosicuro - con ICDL puoi”.
-                                Clicca sul pulsante VAI. Compila il form e segui le istruzioni per prepararti su micertificoICDL.it
-                                Preparati sulla piattaforma di formazione online <a href="">www.micertificoICDL.it</a> Da quando ti registri qui, hai 12 mesi per studiare e, quando ti sentirai pronto, sostenere l’esame. 
+                                Clicca sul pulsante VAI. <br>
+                                Compila il form e segui le istruzioni per prepararti su micertificoICDL.it <br>
+                                 Da quando ti registri qui, hai 12 mesi per studiare e, quando ti sentirai pronto, sostenere l’esame. 
                                 </p>
                                 <h6>Link per la nuova procedura di attivazione del progetto </h6>
                                 <p>Per ulteriori informazioni 
-                                <a href="">https://www.aicanet.it/iocliccosicuro</a> </p>
+                                <a href="https://www.aicanet.it/iocliccosicuro" target="blank">https://www.aicanet.it/iocliccosicuro</a> </p>
                             </div>
                         </div>
 
@@ -252,35 +259,147 @@ get_header();
                             <div class="mt-5 px-3">    
                                 <h5>Link utili</h5>
                                 <p>
-                                <a href=""> www.ICDL.it </a> / <a href=""> www.aica.it </a> / <a href=""> www.micertificoICDL.it </a> / <a href=""> www.aula01.it</a> 	
+                                     N.B.: Alcune sezioni dei siti riportati qui di seguito sono consultabili solo previa registrazione alla piattaforma e ottenimento di credenziali da parte del gestore (gratuitamente o a pagamento). 
+                                     <br>
+                                     <br>
+                                <a href="www.ICDL.it" target="blank"> www.ICDL.it </a> / <a href="www.aica.it" target="blank"> www.aica.it </a> / <a href="www.micertificoICDL.it" target="blank"> www.micertificoICDL.it </a> / <a href="www.aula01.it" target="blank"> www.aula01.it</a> 	
                                 <br>  		   
                                 <br>
-                                    N.B.: Alcune sezioni dei siti riportati qui di seguito sono consultabili solo previa registrazione alla piattaforma e ottenimento di credenziali da parte del gestore (gratuitamente o a pagamento). 
-                                    <br>
-                                    <br>
-                                    <a href="">Introduzione Syllabus 6.0 </a>
+                                   
+                                    
                                 </p>
                             </div>
                         </div>
+
+                        <?php the_content(); ?>
 
                     </div>  <!-- Main content of page -->
                     
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-3 py-5">
                         <aside class="aside-main aside-sticky">
                             <div class="col-12 col-lg-9" id="program-legend">
-                                <h5>Calendario sessioni d'esame</h5>
-                                <p id="quotes">In caso di un numero elevato di candidati, l’ora di convocazione - se diversa dalle 14.00 - vi sarà comunicata tramite mail.
-                                </p>
-                            </div>   
-                            <div class="col-12 col-lg-9 mailfield">
-                                <h6>Email</h6>
-                                 <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'martini_email', true );?>" target=blank> <?php echo get_post_meta( get_the_ID(), 'martini_email', true );?> </a> 
-                            </div>
-                            <div class="col-12 col-lg-9 pt-3">
-                                <h5>Modulistica</h5>
-                                <a>CONSENSO INFORMATO</a> 
-                                <p>per la sessione di esami del 19/11/2021 va inviata a didattica@martinomartini.eu entro 12/11/2021 ore 12.00.</p>
-                                <a>INFORMAZIONI PAGAMENTO</a> 
+                                
+
+                                <!-- Altre informazioni -->
+                                 <?php
+                                $ulteriori_informazioni = get_post_meta( get_the_ID(), 'martini_info', true );
+                                if(trim($ulteriori_informazioni) != ""){
+                                    ?>
+                                    <h5>Altre informazioni</h5> 
+                                    <div class="row variable-gutters">
+                                        <div id="quotes" class="col-12 wysiwig-text">
+                                            <?php echo wpautop($ulteriori_informazioni); ?>
+                                        </div>
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Altre informazioni -->
+
+                                <!-- Info variabili - titolo -->
+                                 <?php
+                                $info_variabili_titolo = get_post_meta( get_the_ID(), 'martini_titolo', true );
+                                if(trim($info_variabili_titolo) != ""){
+                                    ?>
+                                    <h5><?php echo wpautop($info_variabili_titolo); ?></h5> 
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Info variabili - titolo -->
+
+                                <!-- Info variabili -->
+                                 <?php
+                                $info_variabili = get_post_meta( get_the_ID(), 'martini_info_variable', true );
+                                if(trim($info_variabili) != ""){
+                                    ?>
+                                    <div class="row variable-gutters">
+                                        <div class="col-12 wysiwig-text">
+                                            <?php echo wpautop($info_variabili); ?>
+                                        </div>
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                ?>
+                                <!-- //Info variabili -->
+
+                                
+
+                                <!-- Campo contatti -->
+                                <?php 
+                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
+                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+
+                                
+                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
+                                <h5>Contatti</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $emails as $email){?>
+                                    
+                                    <li>
+                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+                                <?php } ?>
+
+                                <?php
+                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
+                                <h6>Telefono</h6>
+                                <ul class="">
+                                    
+                                    <?php foreach ( $phone as $phone){?>
+                                    
+                                    <li>
+                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+
+                                <?php } ?>
+
+
+                                <!--/Campo contatti -->
+                                
+                                <!-- Campo modulistica -->
+                                <?php 
+                                $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
+                                if(is_array ($multidocuments_download) && !empty($multidocuments_download)){ ?>
+                                <h5>Modulistica</h5> 
+                                <ul class="link-list uppercase_text">
+                                    
+                                    <?php foreach ( $multidocuments_download as $docID => $documenti){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $documenti;?>" target=blank> <?php echo get_the_title($docID);?> </a> 
+                                    </li>
+                                    <?php }?>
+                                    
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo modulistica -->
+
+                                <!-- Campo link -->
+                                <?php 
+                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
+                                
+                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
+                                <h5>Link utili</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $link_url as $link_url){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
+                                    </li>
+                                    <?php }?>
+                                   
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo link -->
+
                             </div>
                         </aside>
                     </div>  <!--/ sidebar -->
