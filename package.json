@@ -4,7 +4,7 @@
   "description": "Tema Wordpress delle Scuole Italiane",
   "main": "index.js",
   "scripts": {
-    "build": "./copy_assets.sh && npm run minify:css && npm run minify:js",
+    "build": "npm run minify:css && npm run minify:js",
     "version": "node scripts/config-sync && git add style.css && git add README.md",
     "postversion": "echo \"You can now publish your tag with 'git push --follow-tags'\"",
     "minify:css": "node scripts/minify-css.js",

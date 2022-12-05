@@ -1,14 +1,1 @@
-export function get(element) {
-  return getComputedStyle(element);
-}
-
-export function set(element, obj) {
-  for (const key in obj) {
-    let val = obj[key];
-    if (typeof val === 'number') {
-      val = `${val}px`;
-    }
-    element.style[key] = val;
-  }
-  return element;
-}
+function get(t){return getComputedStyle(t)}function set(e,n){for(const o in n){let t=n[o];"number"==typeof t&&(t+="px"),e.style[o]=t}return e}export{get,set};
