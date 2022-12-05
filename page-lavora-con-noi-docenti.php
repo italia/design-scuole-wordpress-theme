@@ -1,13 +1,4 @@
 <?php
-
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Design_Scuole_Italia
- */
-
 get_header()
 ?>
 <main id="main-container" class="main-container">
