@@ -163,7 +163,7 @@ function dsi_eventi_filters( $query ) {
             ));
         }else{
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
-            $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
+            $query->set('orderby', array('meta_value' => 'ASC', 'date' => 'ASC'));
             $query->set( 'meta_query', array(
                 array(
                     'key' => '_dsi_evento_timestamp_inizio'
@@ -255,7 +255,7 @@ add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
  */
 function dsi_circolari_filters( $query ) {
 
-    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("circolari") || is_archive("tipologia-circolare") )) {
+    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("circolari") )) {
         if(!is_user_logged_in()){
             $query->set( 'meta_query', array(
                 'relation' => 'OR',
