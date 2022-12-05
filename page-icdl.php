@@ -37,7 +37,7 @@ get_header();
         <div class="container container-border-top">
                 <div class="row main-content variable-gutters">
 
-                    <div class="container col-lg-8 px-5 pb-5">
+                    <div class="container col-lg-8 mb-5">
 
                         <div class="row"> 
                             <div class="pt-5">    

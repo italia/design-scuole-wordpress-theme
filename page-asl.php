@@ -39,10 +39,10 @@ get_header();
         <div class="container">
             <div class="row variable-gutters">
                 
-                <div class="py-5 px-3 col-lg-8">
+                <div class="mb-5 px-3 col-lg-8">
                     <div class="">    
                         <h2>Alternanza scuola-lavoro</h2>
-                        <p class="pt-2">L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
+                        <p>L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.
                         <br>
                         <br>
                         L’Alternanza scuola-lavoro, obbligatoria per tutte le studentesse e gli studenti degli ultimi tre anni delle scuole superiori, licei compresi, è una delle innovazioni più significative della legge 107 del 2015 (La Buona Scuola) in linea con il principio della scuola aperta.

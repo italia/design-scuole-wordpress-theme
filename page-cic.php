@@ -35,14 +35,14 @@ get_header();
         <section id="text-block" class="section bg-white">
             <div class="container">
                 <div class="row main-content variable-gutters">
-                    <div class="py-5 px-3 col-lg-8">
+                    <div class="my-5 px-3 col-lg-8">
                         <div class="py-2">
                             <h2>Centro di Informazione e Consulenza</h2>
                             <p>Il CIC (Centro di Informazione e Consulenza) è un servizio offerto a studenti, genitori e personale scolastico, curato e gestito dalla <strong>dott.ssa Francesca Fontana, psicologa e psicoterapeuta</strong> (Iscrizione all’Ordine della Provincia di Trento n. 349). <br>
                                 La consulenza psicologica si configura come uno <strong>spazio di ascolto</strong> e di <strong>confronto libero e gratuito</strong> in un <strong>luogo riservato</strong> e nel rispetto del <strong>segreto professionale.</strong> <br>
                                 L’accesso al servizio permetterà alla persona che richiederà il colloquio di trovare ascolto e riflettere con la psicologa su difficoltà e problematiche di varia natura (emotive, relazionali, scolastiche, familiari, ecc.) che possono creare disagio e malessere nella vita quotidiana sia a scuola sia nelle proprie relazioni. L’obiettivo è quello di aiutare a migliorare le proprie capacità di affrontare e risolvere le difficoltà.
                             </p>
-                            
+
                             <?php the_content(); ?>
                         </div>
                     </div><!-- /col-lg-6 -->
