@@ -128,3 +128,5 @@ $scienze_umane = get_term_by("id", "scienze umane");
             </div>
         </section>
     </main>
+<?php
+get_footer();
