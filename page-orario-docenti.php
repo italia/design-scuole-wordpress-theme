@@ -74,7 +74,7 @@ get_header();
         $post = get_page_by_path('orario-classi');
         ?>
 
-        <a class="btn-md-default-outline" href="<?php echo get_permalink(); ?>">
+        <a class="btn-md-default-outline" href="orario-classi">
           <button>
             Orario Classi
           </button>
