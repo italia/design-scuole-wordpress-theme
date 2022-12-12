@@ -92,7 +92,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                         'key' => '_dsi_evento_timestamp_inizio'
                     ),
                     array(
-                        'key' => '_dsi_evento_timestamp_fine',
+                        'key' => '_dsi_evento_timestamp_inizio',
                         'value' => time(),
                         'compare' => '>=',
                         'type' => 'numeric'
