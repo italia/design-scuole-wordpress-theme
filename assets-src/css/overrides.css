@@ -16,3 +16,10 @@
 #footer-wrapper .footer-list a:hover {
     text-decoration: none;
 }
+.article-wrapper a {
+    text-decoration: underline;
+}
+.article-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
