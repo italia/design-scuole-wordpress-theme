@@ -58,7 +58,7 @@ $attributes=array(
             <div class="col-12 col-lg-8 offset-lg-1">
                 <h2 class="mb-3 text-black">Incontriamoci!</h2>
                 <p>L’Istituto apre le porte alle famiglie per guidarvi nella scelta della Scuola. <br> Partecipando potrete vedere i locali, parlare con gli insegnanti e con i ragazzi, assistere a una presentazione della proposta formativa della scuola e essere guidati in alcune piccole esperienze di laboratorio.</p>
-                <a href="#" id="btn-md-default"> <button class="w-auto">Scopri di più</button> </a>
+                <a href="#" class="btn-md-default"> <button class="w-auto">Scopri di più</button> </a>
             </div>
         </div><!--incontriamoci -->
     </section>
@@ -68,7 +68,7 @@ $attributes=array(
             <div class="">
                 <h2 class="mb-4 text-blue">Parliamone a tu per tu</h2>
                 <p class="h5 mb-4 text-blue">Uno spazio dedicato per aiutarti a scegliere il percorso più adatto a te</p>
-                <a id="btn-lg-default" href="#" target="blank">
+                <a class="btn-lg-default" href="#" target="blank">
                     <button class="w-auto">Prenota un appuntamento</button>
                 </a>
             </div>
@@ -221,7 +221,7 @@ $attributes=array(
                         </div>
                         <div class="card-body">
                         <p class="card-title text-sx"> <?php the_title(); ?> </p>
-                        <a href="#" id="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
+                        <a href="#" class="btn-mini-default"> <button class="w-auto"><span>Scopri </span></button> </a>
                         </div><!--.card-body -->
                     </div><!--.card-bg -->
                     </a>  
