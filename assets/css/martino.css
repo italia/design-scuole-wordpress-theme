@@ -844,8 +844,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 
 #main-container-orario-docenti img:target {
   display: block;
-  padding-top: 25vh;
-  margin-top: -10vh;
+  padding-top: 50px;
 }
 
 #main-container-orario-docenti mark.highlight {
