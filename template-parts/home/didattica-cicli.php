@@ -53,7 +53,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         if($indirizzi){
                                             foreach ($indirizzi as $idindirizzo){
                                                 $indirizzo = get_post($idindirizzo);
-                                                if($indirizzo) {
+                                                if($indirizzo && 'trash' !== get_post_status($idindirizzo)) {
                                                     $descrizione = dsi_get_meta("descrizione", "", $indirizzo->ID);
                                                     $sottotitolo = dsi_get_meta("sottotitolo", "", $indirizzo->ID);
                                                     ?>

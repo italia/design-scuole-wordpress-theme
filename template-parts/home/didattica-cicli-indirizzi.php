@@ -28,7 +28,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                             <?php
                             foreach ($indirizzi_didattica as $slugindirizzo){
                                 $indirizzo = get_term_by("slug", $slugindirizzo,"percorsi-di-studio");
-                                if($indirizzo) {
+                                if($indirizzo && 'trash' !== get_post_status($idindirizzo)) {
                                     ?>
                                     <li>
                                         <a href="#tab-<?php echo $slugindirizzo; ?>"><?php echo $indirizzo->name; ?></a>
