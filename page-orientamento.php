@@ -20,30 +20,8 @@ if(is_post_type_archive("scheda_didattica")){
     $class = "bluelectric";
 }
 
-
 get_header();
 ?>
-
-<?php
-$attributes=array(
-    'title' => false,
-    'limit' => 4,
-    'labels' => array(
-        'Title 0',
-        'Title 1',
-        'Title 2',
-        'Title 3',
-    ),
-    'sections' => array(
-        'Content 0',
-        'Content 1',
-        'Content 2',
-        'Content 3',
-    ),
-)
-
-?>
-
 
 <main id="main-container" class="main-container">
     <section>
@@ -91,11 +69,9 @@ $attributes=array(
             "post_type" => "indirizzo",
             "posts_per_page" => -1,
             'tax_query' => array(
-                array(
-                    'taxonomy' => 'percorsi-di-studio',
-                    'field' => 'slug',
-                    'terms' => 'licei'
-                )
+                'taxonomy' => 'percorsi-di-studio',
+                'field' => 'slug',
+                'terms' => 'licei'
             ),
             'orderby' => "title",
             'order' => "ASC"
@@ -144,11 +120,9 @@ $attributes=array(
             "post_type" => "indirizzo",
             "posts_per_page" => -1,
             'tax_query' => array(
-                array(
-                    'taxonomy' => 'percorsi-di-studio',
-                    'field' => 'slug',
-                    'terms' => 'istituti-tecnici'
-                )
+                'taxonomy' => 'percorsi-di-studio',
+                'field' => 'slug',
+                'terms' => 'istituti-tecnici'
             ),
             'orderby' => "title",
             'order' => "ASC"
