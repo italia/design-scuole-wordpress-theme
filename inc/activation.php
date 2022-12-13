@@ -547,7 +547,7 @@ function dsi_create_pages_on_theme_activation() {
     /**
      * creo il menu Scuola
      */
-    $name = __('La Scuola', "design_scuole_italia");
+   $name = __('La Scuola', "design_scuole_italia");
 
     wp_delete_nav_menu($name);
     $menu_object = wp_get_nav_menu_object( $name );
@@ -573,30 +573,14 @@ function dsi_create_pages_on_theme_activation() {
         ));
 
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('I luoghi della scuola', "design_scuole_italia"),
+            'menu-item-title' => __('I luoghi', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-object' => 'luogo',
             'menu-item-type' => 'post_type_archive',
             'menu-item-classes' => 'footer-link',
         ));
-
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Le carte della scuola', "design_scuole_italia"),
-            'menu-item-status' => 'publish',
-            'menu-item-object' => 'documento',
-            'menu-item-type' => 'post_type_archive',
-            'menu-item-classes' => 'footer-link',
-        ));
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Organizzazione', "design_scuole_italia"),
-            'menu-item-status' => 'publish',
-            'menu-item-object' => 'struttura',
-            'menu-item-type' => 'post_type_archive',
-            'menu-item-classes' => 'footer-link',
-        ));
-
-//        $persone_landing_url = dsi_get_template_page_url("page-templates/persone.php");
-        $persone_id = dsi_get_template_page_id("page-templates/persone.php");
+      
+		$persone_id = dsi_get_template_page_id("page-templates/persone.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('Le persone', "design_scuole_italia"),
             'menu-item-object-id' => $persone_id,
@@ -606,7 +590,6 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
-//        $numeri_landing_url = dsi_get_template_page_url("page-templates/numeri.php");
         $numeri_id = dsi_get_template_page_id("page-templates/numeri.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
             'menu-item-title' => __('I numeri della scuola', "design_scuole_italia"),
@@ -617,6 +600,21 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Le carte della scuola', "design_scuole_italia"),
+            'menu-item-status' => 'publish',
+            'menu-item-object' => 'documento',
+            'menu-item-type' => 'post_type_archive',
+            'menu-item-classes' => 'footer-link',
+        ));
+
+		wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Organizzazione', "design_scuole_italia"),
+            'menu-item-status' => 'publish',
+            'menu-item-object' => 'struttura',
+            'menu-item-type' => 'post_type_archive',
+            'menu-item-classes' => 'footer-link',
+        ));
 
         $storia_id = dsi_get_template_page_id("page-templates/storia.php");
         wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -633,7 +631,8 @@ function dsi_create_pages_on_theme_activation() {
         set_theme_mod('nav_menu_locations', $locations_primary_arr);
         update_option('menu_check', true);
     }
-    /**
+	
+ /**
      * creo il menu Servizi
      */
     $name = __('Servizi', "design_scuole_italia");
