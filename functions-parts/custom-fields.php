@@ -18,23 +18,41 @@ function cmb2_sample_metaboxes() {
         'show_names'    => true,
     ) );
 
-    // Regular text field
+    // Pinned text field
     $cmb->add_field( array(
-        'name'       => __( 'Titolo', 'cmb2' ),
-        'desc'       => __( 'In questo campo bisogna inserire il titolo', 'cmb2' ),
+        'name'       => __( 'Informazioni aggiuntive', 'cmb2' ),
+        'desc'       => __( 'In questo campo inserire le informazioni importanti per questa pagina ', 'cmb2' ),
+        'id'         => 'martini_info',
+        'type'       => 'wysiwyg',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
+    ) );
+
+    // Regular title field
+    $cmb->add_field( array(
+        'name'       => __( 'Titolo libero', 'cmb2' ),
+        'desc'       => __( 'In questo campo bisogna inserire il titolo per altre informazioni come sessioni di esame o scadenze (es. "Calendario sessioni di esame")', 'cmb2' ),
         'id'         => 'martini_titolo',
         'type'       => 'text',
         'show_on_cb' => 'cmb2_hide_if_no_cats',
     ) );
 
-    // URL text field
+    // Regular text field
     $cmb->add_field( array(
-        'name' => __( 'Website URL', 'cmb2' ),
-        'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
-        'id'   => 'martini_url',
-        'type' => 'text_url',
-        // 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-        // 'repeatable' => true,
+        'name'       => __( 'Informazioni variabili', 'cmb2' ),
+        'desc'       => __( 'In questo campo inserire le date di esame o le eventuali scadenze, o altre informazioni variabili da pagina a pagina', 'cmb2' ),
+        'id'         => 'martini_info_variable',
+        'type'       => 'wysiwyg',
+        'show_on_cb' => 'cmb2_hide_if_no_cats',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => false, // output the minimal editor config used in Press This
+        ),
     ) );
 
     // Email text field
@@ -43,21 +61,56 @@ function cmb2_sample_metaboxes() {
         'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
         'id'   => 'martini_email',
         'type' => 'text_email',
-        // 'repeatable' => true,
+        'repeatable' => true,
     ) );
 
-     // File field
+    // Telefono text field
     $cmb->add_field( array(
-        'name' => 'Test File List',
-        'desc' => '',
-        'id'   => 'wiki_test_file_list',
+        'name' => __( 'Telefono', 'cmb2' ),
+        'desc' => __( 'In questo campo bisogna inserire un contatto telefonico', 'cmb2' ),
+        'id'   => 'martini_phone',
+        'type' => 'text',
+        'repeatable' => true,
+    ) );
+
+    // URL text field
+    $cmb->add_field( array(
+        'name' => __( 'Website URL', 'cmb2' ),
+        'desc' => __( 'In questo campo bisogna inserire un URL di un sito internet', 'cmb2' ),
+        'id'   => 'martini_url',
+        'type' => 'text_url',
+        'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
+        'repeatable' => true,
+    ) );
+    
+
+    //  // File field
+    // $cmb->add_field( array(
+    //     'name' => 'Test File List',
+    //     'desc' => '',
+    //     'id'   => 'wiki_test_file_list',
+    //     'type' => 'file_list',
+    //     'text' => array(
+    //         'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+    //         'remove_image_text' => 'Replacement', // default: "Remove Image"
+    //         'file_text' => 'Replacement', // default: "File:"
+    //         'file_download_text' => 'Replacement', // default: "Download"
+    //         'remove_text' => 'Replacement', // default: "Remove"
+    //     ),
+    // ) );   
+
+    // Documents download
+    $cmb->add_field( array(
+        'name' => 'Modulistica',
+        'desc' => 'Documenti da scaricare',
+        'id'   => 'documents_download',
         'type' => 'file_list',
         'text' => array(
-            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'add_upload_files_text' => 'Aggiungi documento', // default: "Add or Upload Files"
             'remove_image_text' => 'Replacement', // default: "Remove Image"
-            'file_text' => 'Replacement', // default: "File:"
-            'file_download_text' => 'Replacement', // default: "Download"
-            'remove_text' => 'Replacement', // default: "Remove"
+            'file_text' => 'Nome file', // default: "File:"
+            'file_download_text' => 'Download', // default: "Download"
+            'remove_text' => 'Elimina', // default: "Remove"
         ),
     ) );   
 

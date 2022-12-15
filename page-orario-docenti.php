@@ -21,7 +21,7 @@ get_header();
 
         </div><!-- col-12 -->
 
-        <div class="col-12 z-index-1">
+        <div class="col-12">
         <!-- <div class="col-6 mt-4 min-h"> -->
 
           <input type="search" id="myInput" onkeyup="filtro_Docenti(!true)" placeholder="Cerca orario docenti" autocomplete="off">
@@ -52,7 +52,7 @@ get_header();
 
           </ul>
         </div>
-        <div class="col-12 z-index-0 contenitore-img">
+        <div class="col-12 contenitore-img">
 
         <span id="ancoraggio"></span>
 
@@ -74,7 +74,7 @@ get_header();
         $post = get_page_by_path('orario-classi');
         ?>
 
-        <a class="btn-md-default-outline" href="<?php echo get_permalink(); ?>">
+        <a class="btn-md-default-outline" href="/didattica/orario-classi/">
           <button>
             Orario Classi
           </button>

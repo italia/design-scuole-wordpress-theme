@@ -88,7 +88,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   line-height: clamp(24px, 12px + 2.08333333vw, 28px);
 }
 
-.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes, .card .card-body .card-title, .text-sm {
+.main-container .btn-sm-disabled-outline button, .main-container .btn-sm-secondary-outline button, .main-container .btn-sm-secondary button, .main-container .btn-sm-disabled button, .main-container .btn-sm-default-outline button, .main-container .btn-sm-default button, .main-container .btn-lg-disabled-outline button span, .main-container .btn-lg-secondary-outline button span, .main-container .btn-lg-secondary button span, .main-container .btn-lg-disabled button span, .main-container .btn-lg-default-outline button span, .main-container .btn-lg-default button span, #sidebar #quotes p, .card .card-body .card-title, .text-sm {
   font-size: 14px;
   font-size: 0.875rem;
   font-size: clamp(14px, 8px + 1.04166667vw, 16px);
@@ -927,8 +927,7 @@ body {
 
 #main-container-orario-docenti img:target {
   display: block;
-  padding-top: 25vh;
-  margin-top: -10vh;
+  padding-top: 50px;
 }
 
 #main-container-orario-docenti mark.highlight {
@@ -1035,14 +1034,28 @@ label > span {
   transform: rotate(90deg);
 }
 
-#main-container section#input-lavora-con-noi-docenti .no-spin {
+#main-container section#input-lavora-con-noi-docenti input[type=date], #main-container section#input-lavora-con-noi-docenti input[type=datetime-local], #main-container section#input-lavora-con-noi-docenti input[type=email], #main-container section#input-lavora-con-noi-docenti input[type=number], #main-container section#input-lavora-con-noi-docenti input[type=password], #main-container section#input-lavora-con-noi-docenti input[type=search], #main-container section#input-lavora-con-noi-docenti input[type=tel], #main-container section#input-lavora-con-noi-docenti input[type=text], #main-container section#input-lavora-con-noi-docenti input[type=time], #main-container section#input-lavora-con-noi-docenti input[type=url], #main-container section#input-lavora-con-noi-docenti textarea, #main-container section#input-lavora-con-noi-ata input[type=date], #main-container section#input-lavora-con-noi-ata input[type=datetime-local], #main-container section#input-lavora-con-noi-ata input[type=email], #main-container section#input-lavora-con-noi-ata input[type=number], #main-container section#input-lavora-con-noi-ata input[type=password], #main-container section#input-lavora-con-noi-ata input[type=search], #main-container section#input-lavora-con-noi-ata input[type=tel], #main-container section#input-lavora-con-noi-ata input[type=text], #main-container section#input-lavora-con-noi-ata input[type=time], #main-container section#input-lavora-con-noi-ata input[type=url], #main-container section#input-lavora-con-noi-ata textarea {
+  font-weight: 400;
+}
+
+#main-container section#input-lavora-con-noi-docenti .no-spin, #main-container section#input-lavora-con-noi-ata .no-spin {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance: textfield;
 }
 
-#main-container section#input-lavora-con-noi-docenti label span {
+#main-container section#input-lavora-con-noi-docenti label span, #main-container section#input-lavora-con-noi-ata label span {
   float: none;
+}
+
+#main-container section#input-lavora-con-noi-docenti select, #main-container section#input-lavora-con-noi-docenti select:focus, #main-container section#input-lavora-con-noi-docenti select:focus-visible, #main-container section#input-lavora-con-noi-docenti select:focus-within, #main-container section#input-lavora-con-noi-ata select, #main-container section#input-lavora-con-noi-ata select:focus, #main-container section#input-lavora-con-noi-ata select:focus-visible, #main-container section#input-lavora-con-noi-ata select:focus-within {
+  border: 1px solid #C3C6CF;
+  border-radius: 4px;
+}
+
+#main-container section#input-lavora-con-noi-docenti a, #main-container section#input-lavora-con-noi-ata a {
+  color: #1260A4;
+  font-weight: bold;
 }
 
 #open-day .open-post-title {
@@ -1561,9 +1574,13 @@ body {
   max-height: 24px;
 }
 
-#sidebar #quotes {
+#sidebar #quotes p {
   font-style: italic;
   color: #1260A4;
+}
+
+#sidebar h5 {
+  margin-top: 2rem;
 }
 
 #sidebar .aside-main {
@@ -1588,6 +1605,10 @@ body {
     content: none;
   }
 }
+.uppercase_text {
+  text-transform: uppercase;
+}
+
 .main-container .btn-mini-secondary button, .main-container .btn-mini-default button, .main-container .btn-sm-secondary button, .main-container .btn-sm-default button, .main-container .btn-md-secondary button, .main-container .btn-md-default button, .main-container .btn-lg-secondary button, .main-container .btn-lg-default button {
   border-radius: 0.25rem;
   border: 0;
@@ -2469,4 +2490,18 @@ body {
   top: 30;
   left: 30;
   z-index: 10;
+}
+
+.martini-list--item {
+  position: relative;
+}
+
+.martini-list--item:nth-child(even)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -50vw;
+  width: 200vw;
+  background-color: #DFE2EB;
 }
