@@ -20,7 +20,7 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "<li>";
 		$custom_data = '';
 
-		if ( stripos( $item->post_name, 'personale-scolastico' ) !== false || stripos( $item->post_name, 'famiglie-e-studenti' ) !== false ) {
+		if( stripos( $item->post_type, 'nav_menu_item' ) !== false && stripos( get_post_meta( $item->ID, '_menu_item_object', true ), 'tipologia-servizio' ) !== false ) {
 			$custom_data = 'data-element="service-type"';
 		}
 
