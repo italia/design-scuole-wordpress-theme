@@ -573,7 +573,7 @@ function dsi_create_pages_on_theme_activation() {
         ));
 
         wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('I luoghi della scuola', "design_scuole_italia"),
+            'menu-item-title' => __('I luoghi', "design_scuole_italia"),
             'menu-item-status' => 'publish',
             'menu-item-object' => 'luogo',
             'menu-item-type' => 'post_type_archive',
