@@ -248,7 +248,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note">
-													<svg class="svg-filters" width="68" height="34" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
+													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
 													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
@@ -266,8 +266,8 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note cns">
-													<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>" alt="logo cns">
-													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="#" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
+													<img class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>" alt="logo cns">
+													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="https://sistemats1.sanita.finanze.it/portale/modalita-di-accesso-con-ts_cns" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
 										<?php }									
