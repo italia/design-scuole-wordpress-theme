@@ -50,7 +50,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <small class="h6 text-redbrown"><?php echo $numerazione_albo; ?></small>
                                 <?php } ?>
                                 <h1 class="h2 mb-3"><?php the_title(); ?></h1>
-                                <p><?php echo dsi_get_meta( "descrizione" ); ?></p>
+                                <p><?php if(!post_password_required()) echo dsi_get_meta( "descrizione" ); ?></p>
                             </div><!-- /title-section -->
                             <!--   <div class="article-description-mobile">
 
@@ -74,6 +74,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                 <div class="container container-border-top">
                     <div class="row variable-gutters">
                         <?php if($user_can_view_post): ?>
+                        <?php if(!post_password_required()) { ?>
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title">
@@ -92,25 +93,25 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <a class="list-item scroll-anchor-offset" href="#art-par-descrizione"
                                                title="Vai al paragrafo <?php _e( "Descrizione", "design_scuole_italia" ); ?>"><?php _e( "Descrizione", "design_scuole_italia" ); ?></a>
                                         </li>
-                                        <?php if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
+                                        <?php if (!post_password_required() && is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-documento"
                                                title="Vai al paragrafo <?php _e( "Il Documento", "design_scuole_italia" ); ?>"><?php echo _n( 'Il Documento', 'I Documenti', count( $file_documenti ), 'design_scuole_italia' ); ?></a>
                                         </li>
                                         <?php }
-                                        if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
+                                        if ( !post_password_required() && is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-servizio"
                                                    title="Vai al paragrafo <?php _e( "Servizi collegati", "design_scuole_italia" ); ?>"><?php _e( "Servizi collegati", "design_scuole_italia" ); ?></a>
                                             </li>
                                         <?php }
-                                        if ( is_array( $timeline ) && count( $timeline ) > 0 ) { ?>
+                                        if ( !post_password_required() && is_array( $timeline ) && count( $timeline ) > 0 ) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-tempi"
                                                    title="Vai al paragrafo <?php _e( "Tempi e scadenze", "design_scuole_italia" ); ?>"><?php _e( "Tempi e scadenze", "design_scuole_italia" ); ?></a>
                                             </li>
                                         <?php }
-                                        if ( is_array( $ufficio ) && count( $ufficio ) > 0 ) { ?>
+                                        if ( !post_password_required() && is_array( $ufficio ) && count( $ufficio ) > 0 ) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-contatti"
                                                    title="Vai al paragrafo <?php _e( "Contatti", "design_scuole_italia" ); ?>"><?php _e( "Contatti", "design_scuole_italia" ); ?></a>
@@ -123,7 +124,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             </li>
                                         <?php } ?>
 
-                                        <?php if (is_array($posts_array) && count( $posts_array ) )  {   ?>
+                                        <?php if (!post_password_required() && is_array($posts_array) && count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
                                                    title="Vai al paragrafo <?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?>"><?php _e("Circolari, notizie, eventi correlati", "design_scuole_italia"); ?></a>
@@ -135,6 +136,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             </aside>
 
                         </div>
+                        <?php } ?>
                         <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
                             <article class="article-wrapper">
                                 <h2 class="h4" id="art-par-descrizione"><?php _e( "Descrizione", "design_scuole_italia" ); ?></h2>
@@ -148,7 +150,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-12">
-                                        <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
+                                        <?php if ( !post_password_required() &&  is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
                                             <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
                                                 <div class="splide__track">
                                                     <ul class="splide__list">
@@ -158,7 +160,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             </div>
                                         <?php }
                                         $autori = dsi_get_meta( "autori" );
-                                        if ( is_array( $autori ) && count( $autori ) > 0 ) {
+                                        if ( !post_password_required() && is_array( $autori ) && count( $autori ) > 0 ) {
                                             ?>
                                             <h3 class="h6"><?php _e( "Autori", "design_scuole_italia" ); ?></h3>
                                             <div class="card-deck card-deck-spaced mb-2">
@@ -182,7 +184,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <?php if ( is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
+                                <?php if ( !post_password_required() && is_array( $file_documenti ) && count( $file_documenti ) > 0 ) { ?>
                                     <h3 class="h6" id="art-par-documento"><?php _e("Allegati", "design_scuole_italia"); ?></h3>
                                     <?php
                                     if (dsi_is_albo($post) && $post->post_status == "annullato") {
@@ -212,7 +214,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php
                                     }
                                 }
-                                        if ( is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
+                                if ( !post_password_required() && is_array( $servizi_collegati ) && count($servizi_collegati) > 0 ) { ?>
                                     <h2 class="h4" id="art-par-servizio"><?php _e( "Servizi collegati", "design_scuole_italia" ); ?></h2>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-12">
@@ -226,7 +228,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /row -->
                                     <?php
                                 }
-                                if ( is_array( $timeline ) && count( $timeline ) > 0 ) {
+                                if ( !post_password_required() && is_array( $timeline ) && count( $timeline ) > 0 ) {
                                     ?>
                                     <h2 class="h4" id="art-par-tempi"><?php _e( "Tempi e scadenze", "design_scuole_italia" ); ?></h2>
                                     <div class="row variable-gutters">
@@ -253,7 +255,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /row -->
                                     <?php
                                 }
-                                if ( is_array( $ufficio ) && count( $ufficio ) > 0 ) { ?>
+                                if ( !post_password_required() && is_array( $ufficio ) && count( $ufficio ) > 0 ) { ?>
 
                                     <h2 class="h4" id="art-par-contatti"><?php _e( "Contatti", "design_scuole_italia" ); ?></h2>
                                     <div class="h6"><?php _e( "Ufficio responsabile del documento", "design_scuole_italia" ); ?></div>
@@ -275,7 +277,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
 
-                                if(($altre_info != "") || ($protocollo != "")  || ($riferimenti_normativi != "")) {
+                                if(!post_password_required() && (($altre_info != "") || ($protocollo != "")  || ($riferimenti_normativi != ""))) {
 
                                     ?>
                                     <h2 class="h4" id="art-par-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
