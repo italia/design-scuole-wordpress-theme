@@ -21,10 +21,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
     <main id="main-container" class="main-container greendark">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php while ( have_posts() ) :  the_post();
-        set_views($post->ID);
-
-
+        <?php while ( have_posts() ) :  
+                the_post();
+                set_views($post->ID);
                 get_template_part("template-parts/single/header-post");
             ?>
 
@@ -73,7 +72,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 ?>
                                 <?php
 
-                                if(is_array($luoghi) && count($luoghi)>0){
+                                if(is_array($luoghi) && count($luoghi)>0 && (!post_password_required())) {
                                     ?>
                                     <h2 class="mb-4 h4"><?php _e("Luoghi", "design_scuole_italia"); ?></h2>
                                     <?php
@@ -105,10 +104,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         <div class="col-lg-3 col-md-4 order-lg-0">
                             <?php get_template_part("template-parts/single/actions"); ?>
                             <?php
-                            $badgeclass = "badge-outline-greendark";
-                            get_template_part("template-parts/common/badges-argomenti"); ?>
+                                $badgeclass = "badge-outline-greendark";
+                                if ((!post_password_required()))
+                                    get_template_part("template-parts/common/badges-argomenti"); ?>
                             <?php
-                            if(is_array($persone) && count($persone)>0){
+                            if(is_array($persone) && count($persone)>0 && (!post_password_required())){
                                 ?>
                                 <div class="cards-aside mt-4">
                                     <h2 class="h4"><?php _e("Persone", "design_scuole_italia"); ?></h2>
