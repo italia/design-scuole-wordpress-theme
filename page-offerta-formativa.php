@@ -65,7 +65,13 @@ $attributes=array(
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             <?php } ?>
         </div>
-        <p><?php echo dsi_get_meta("descrizione"); ?></p>
+        <p><?php 
+            // echo dsi_get_meta("descrizione"); 
+            echo get_the_content(); 
+        ?></p>
+        <a href="<?php echo get_permalink();?>" class="btn-md-default"> 
+            <button class="w-auto">Scopri di più</button> 
+        </a>
         <?php 
         $attributes["sections"][] = ob_get_clean();
         endwhile;
@@ -110,7 +116,13 @@ $attributes=array(
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             <?php } ?>
         </div>
-        <p><?php echo dsi_get_meta("descrizione"); ?></p>
+        <p><?php 
+            // echo dsi_get_meta("descrizione"); 
+            echo get_the_content(); 
+        ?></p>
+        <a href="<?php echo get_permalink();?>" class="btn-md-default"> 
+            <button class="w-auto">Scopri di più</button> 
+        </a>
         <?php 
         $attributes["sections"][] = ob_get_clean();
         endwhile;

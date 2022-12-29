@@ -77,5 +77,6 @@ if(current_user_can('editor')) {
 
             #menu-posts-calendar {display:none !important;}
         </style>';
-    }}
+    }
     add_action('wp_before_admin_bar_render', 'WWS_custom_back');
+}

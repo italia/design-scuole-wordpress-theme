@@ -43,6 +43,16 @@
 
     article {
       grid-area: 1 / 3 / last-line / -1;
+
+      p {
+        // https://stackoverflow.com/a/13924997
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3; 
+        -webkit-box-orient: vertical;
+      }
     }
 
     * {
