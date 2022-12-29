@@ -50,8 +50,24 @@ get_header();
         </section>
 
         <div class="col-sm-12 col-md-3">
-            <?php echo get_included_files() ?>
-            <h5>MENU SETTIMANALE</h5>
+            <!-- Campo modulistica -->
+            <?php 
+            $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
+            if(is_array ($multidocuments_download) && !empty($multidocuments_download)){ ?>
+            
+            <ul class="link-list uppercase_text">
+                
+                <?php foreach ( $multidocuments_download as $docID => $documenti){?>
+                
+                <li>
+                    <a href="<?php echo $documenti;?>" target=blank>
+                    <h5>MENU SETTIMANALE</h5> 
+                </a> 
+                </li>
+                <?php }?>
+                
+            </ul>
+            <?php } ?>
         </div>
 
     </div>
