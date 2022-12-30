@@ -121,11 +121,34 @@ $args = array(
 $schede_progetto = get_posts($args);
 
 $args = array(
-    'author' =>  $author_id,
+    'posts_per_page' => -1,
+    'post_type' => 'struttura'
+);
+$strutture = get_posts($args);
+
+function filter_my_structures($structure) {
+    return in_array(
+        (string)$GLOBALS['author_id'],
+        get_post_meta( $structure->ID, "_dsi_struttura_persone", true )
+    );
+}
+
+$strutture = array_filter($strutture, "filter_my_structures");
+
+$args = array(
     'posts_per_page' => -1,
     'post_type' => 'documento'
 );
 $documenti = get_posts($args);
+
+function filter_my_documents($document) {
+    return in_array(
+        (string)$GLOBALS['author_id'],
+        get_post_meta( $document->ID, "_dsi_documento_autori", true )
+    );
+}
+
+$documenti = array_filter($documenti, "filter_my_documents");
 
 $args = array(
     'author' =>  $author_id,
@@ -296,6 +319,32 @@ $posts = get_posts($args);
                                                         <div class="card-icon-content">
                                                             <p>
                                                                 <strong><a href="<?php echo get_permalink($doc); ?>" ><?php echo $doc->post_title; ?></a></strong>
+                                                            </p>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                            <?php } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
+                            <?php }
+
+                            if (is_array($strutture) && count($strutture) > 0) {
+                                ?>
+                                <h4 id="art-par-documenti"  class="mb-4"><?php _e("Strutture", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($strutture as $struttura) { ?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon it-pdf-document">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="#svg-school"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($struttura); ?>" ><?php echo $struttura->post_title; ?></a></strong>
                                                             </p>
                                                         </div><!-- /card-icon-content -->
                                                     </div><!-- /card-body -->
