@@ -4,10 +4,12 @@ if (!isset($args['sections']) ) return;
 if (!isset($args['labels']) ) return;
 if (!isset($args['id']) ) $args['id'] = 'crsl';
 if (!isset($args['limit']) ) $args['limit'] = 4;
+$length = count($args['labels']);
+if ($length > $args['limit']) $length = $args['limit'];
 ?>
 
 <section class="carousel" style="height: 20rem; --grid-rows-num:<?php 
-echo count($args['labels']); 
+echo $length; 
 ?>;">
     <?php
 
