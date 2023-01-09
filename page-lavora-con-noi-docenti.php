@@ -9,7 +9,7 @@ get_header()
             <div class="col-12">
                 <?php echo do_shortcode('[contact-form-7 id="126" title="Lavora con noi - Docenti"]') ?>
 
-                <p class="disclaimer mt-4 text-xs bold">Attenzione: per inviare più candidature è necessario compilare più volte il modulo</p>
+                <p class="disclaimer mt-4 text-sm bold primary">Attenzione: per inviare più candidature è necessario compilare più volte il modulo</p>
             </div>
         </div>
     </section>
