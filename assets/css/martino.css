@@ -125,6 +125,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   list-style-type: disc;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 .article_title .container {
   height: auto;
   position: static;
