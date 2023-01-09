@@ -47,14 +47,17 @@
             <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro</button>
             </a>
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
+              <button>GestOre</button>
+            </a>
             <a class="btn-lg-default-outline w-100" href="orario-docenti">
               <button>Orario docenti</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="orari-classi">
               <button>Orari classi</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
-              <button>GestOre</button>
+            <a class="btn-lg-default-outline w-100" href="https://docs.google.com/spreadsheets/d/1VHINpeHLCE1BzyHgD-GEQVTaRM91HiF9GzLCqdZGqEA/edit?usp=sharing" target="blank">
+              <button>Dislocazione aule</button>
             </a>
           </div>
             
@@ -103,10 +106,10 @@
 
           <div class="col-6 col-md-3">
 
-            <a class="btn-lg-secondary-outline" href="open-day">
+            <a class="btn-lg-default-outline" href="open-day">
 
               <button>
-                <span>SERVIZI</span>
+                <span>DIDATTICA</span>
                 <p class="mb-0">Open days</p>
               </button>
 

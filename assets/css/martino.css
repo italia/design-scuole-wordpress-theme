@@ -674,7 +674,15 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   height: 400px;
 }
 
-table {
+.container-contatti-utili {
+  /* general styling */
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container-contatti-utili table {
   border: 1px solid #ccc;
   border-collapse: collapse;
   margin: 0;
@@ -683,45 +691,45 @@ table {
   table-layout: fixed;
 }
 
-table td a {
+.container-contatti-utili table td a {
   font-size: 14px;
 }
 
-table caption {
+.container-contatti-utili table caption {
   font-size: 1.5em;
   margin: 0.5em 0 0.75em;
 }
 
-table tr {
+.container-contatti-utili table tr {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   padding: 0.35em;
 }
 
-table th,
-table td {
+.container-contatti-utili table th,
+.container-contatti-utili table td {
   padding: 0.625em;
   text-align: center;
 }
 
-table th {
+.container-contatti-utili table th {
   font-size: 0.85em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-table td, table th {
+.container-contatti-utili table td, .container-contatti-utili table th {
   vertical-align: middle !important;
 }
 
 @media screen and (max-width: 600px) {
-  table {
+  .container-contatti-utili table {
     border: 0;
   }
-  table caption {
+  .container-contatti-utili table caption {
     font-size: 1.3em;
   }
-  table thead {
+  .container-contatti-utili table thead {
     border: none;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -731,18 +739,18 @@ table td, table th {
     position: absolute;
     width: 1px;
   }
-  table tr {
+  .container-contatti-utili table tr {
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: 0.625em;
   }
-  table td {
+  .container-contatti-utili table td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: 0.8em;
     text-align: right;
   }
-  table td::before {
+  .container-contatti-utili table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
@@ -752,10 +760,19 @@ table td, table th {
     font-weight: bold;
     text-transform: uppercase;
   }
-  table td:last-child {
+  .container-contatti-utili table td:last-child {
     border-bottom: 0;
   }
 }
+.container-contatti-utili body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+table td:last-child {
+  border-bottom: 0;
+}
+
 /* general styling */
 body {
   font-family: "Open Sans", sans-serif;
@@ -1085,6 +1102,10 @@ label > span {
 
 .simcal-event-details a {
   color: #1260A4;
+}
+
+.simcal-default-calendar-grid .simcal-events {
+  font-size: 0.8em !important;
 }
 
 .form-check [type=checkbox] + label,
