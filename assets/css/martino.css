@@ -1085,10 +1085,6 @@ label > span {
   display: none;
 }
 
-#open-day .open-day-foto:hover + .open-post-title {
-  display: block;
-}
-
 .simcal-event-details {
   color: #000;
 }
