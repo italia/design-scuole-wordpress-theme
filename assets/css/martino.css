@@ -675,10 +675,13 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #container-contattiutili td, #container-contattiutili th {
   border: 1px solid #ddd;
   padding: 8px;
 =======
+=======
+>>>>>>> Stashed changes
 .container-contatti-utili {
   /* general styling */
 }
