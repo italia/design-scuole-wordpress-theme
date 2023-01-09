@@ -678,6 +678,10 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   height: 400px;
 }
 
+#container-spazi .i4ewOd-pzNkMb-haAclf.QUIbkc {
+  display: none;
+}
+
 .container-contatti-utili {
   /* general styling */
 }
