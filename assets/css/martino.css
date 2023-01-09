@@ -680,10 +680,6 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 
 .container-contatti-utili {
   /* general styling */
-  content: attr(data-label);
-  float: left;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 .container-contatti-utili table {
