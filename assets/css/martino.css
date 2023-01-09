@@ -765,18 +765,11 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   }
 }
 .container-contatti-utili body {
-  font-family: "Open Sans", sans-serif;
   line-height: 1.25;
 }
 
 table td:last-child {
   border-bottom: 0;
-}
-
-/* general styling */
-body {
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.25;
 }
 
 #sportfield ul {
