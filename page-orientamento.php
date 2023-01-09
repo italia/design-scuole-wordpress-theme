@@ -1,26 +1,4 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Design_Scuole_Italia
- */
-
-
-
-$excerpt =  dsi_get_meta("descrizione", "", $post->ID);
-if(!$excerpt)
-    $excerpt = get_the_excerpt($post);
-
-
-if(is_post_type_archive("scheda_didattica")){
-    $class = "bluelectric";
-} else if(is_post_type_archive("scheda_progetto")){
-    $class = "bluelectric";
-}
-
-get_header();
+<?php get_header();
 ?>
 
 <main id="main-container" class="main-container">
@@ -67,11 +45,11 @@ get_header();
         $posts = new WP_Query( array(
             "post_type" => "indirizzo",
             "posts_per_page" => -1,
-            'tax_query' => array(
+            'tax_query' => array( array(
                 'taxonomy' => 'percorsi-di-studio',
                 'field' => 'slug',
                 'terms' => 'licei'
-            ),
+            )),
             'orderby' => "title",
             'order' => "ASC"
         ));
@@ -122,11 +100,11 @@ get_header();
         $posts = new WP_Query( array(
             "post_type" => "indirizzo",
             "posts_per_page" => -1,
-            'tax_query' => array(
+            'tax_query' => array( array(
                 'taxonomy' => 'percorsi-di-studio',
                 'field' => 'slug',
                 'terms' => 'istituti-tecnici'
-            ),
+            )),
             'orderby' => "title",
             'order' => "ASC"
         ));
