@@ -62,6 +62,8 @@ body {
 
     #sidebar {
         margin: 0;
+        margin-inline: -15px;
+        width: calc(100% + 30px);
         &::before {
             content: none;
         }
