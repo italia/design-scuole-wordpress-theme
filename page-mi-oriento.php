@@ -27,7 +27,7 @@ get_header();
                         <p>Sei in difficoltà con il tuo percorso scolastico e non sai se hai fatto la scelta giusta? Hai bisogno di aiuto nella scelta del percorso di Alternanza Scuola Lavoro? Vuoi orientarti meglio rispetto alle scelte post-diploma? Hai desideri e talenti ma non sai come realizzarli? Hai bisogno di aiuto nella compilazione del tuo CV o nella redazione del tuo portfolio?</p>
                         <p>Scrivi a <a href="mailto:mioriento@martinomartini.eu">mioriento@martinomartini.eu</a> e prendi appuntamento.</p>
                     </div>
-                    <div class="col-sm-10 offset-sm-1 mt-5 mb-3">
+                    <div class="col-12 mt-5 mb-3">
                             <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
                     </div> 
                 </div><!-- content -->

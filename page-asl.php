@@ -37,9 +37,9 @@ get_header();
 
     <section id="text-block" class="section bg-white">
         <div class="container">
-            <div class="row variable-gutters">
+            <div class="row main-content variable-gutters">
                 
-                <div class="mb-5 px-3 col-lg-8">
+                <div class="mb-5 pt-5 px-3 col-lg-8">
                     <div class="">    
                         <h2>Alternanza scuola-lavoro</h2>
                         <p>L’Alternanza scuola-lavoro è una modalità didattica innovativa, che attraverso l’esperienza pratica aiuta a consolidare le conoscenze acquisite a scuola e testare sul campo le attitudini di studentesse e studenti, ad arricchirne la formazione e a orientarne il percorso di studio e, in futuro di lavoro, grazie a progetti in linea con il loro piano di studi.

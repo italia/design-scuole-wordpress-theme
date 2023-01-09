@@ -262,7 +262,7 @@ get_header();
                                      N.B.: Alcune sezioni dei siti riportati qui di seguito sono consultabili solo previa registrazione alla piattaforma e ottenimento di credenziali da parte del gestore (gratuitamente o a pagamento). 
                                      <br>
                                      <br>
-                                <a href="www.ICDL.it" target="blank"> www.ICDL.it </a> / <a href="www.aica.it" target="blank"> www.aica.it </a> / <a href="www.micertificoICDL.it" target="blank"> www.micertificoICDL.it </a> / <a href="www.aula01.it" target="blank"> www.aula01.it</a> 	
+                                <a href="https://www.ICDL.it" target="blank"> www.ICDL.it </a> / <a href="https://www.aica.it" target="blank"> www.aica.it </a> / <a href="https://www.micertificoICDL.it" target="blank"> www.micertificoICDL.it </a> / <a href="https://www.aula01.it" target="blank"> www.aula01.it</a> 	
                                 <br>  		   
                                 <br>
                                    
