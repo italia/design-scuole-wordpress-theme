@@ -674,16 +674,12 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   height: 400px;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-#container-contattiutili td, #container-contattiutili th {
-  border: 1px solid #ddd;
-  padding: 8px;
-=======
-=======
->>>>>>> Stashed changes
 .container-contatti-utili {
   /* general styling */
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .container-contatti-utili table {
@@ -771,7 +767,16 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 .container-contatti-utili body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.25;
->>>>>>> Stashed changes
+}
+
+table td:last-child {
+  border-bottom: 0;
+}
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
 }
 
 #sportfield ul {

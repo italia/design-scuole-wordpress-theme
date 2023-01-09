@@ -12,15 +12,8 @@ get_header();
 
 <main id="main-container" class="main-container">
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <section id="container-contattiutili" class="container">
-=======
+
         <section class="container container-contatti-utili">
->>>>>>> Stashed changes
-=======
-        <section class="container container-contatti-utili">
->>>>>>> Stashed changes
             <div class="row">
                 <div class="col-12 mt-5 px-3">
                     <h4>Articolazione degli uffici </h4>

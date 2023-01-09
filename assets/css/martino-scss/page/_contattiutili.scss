@@ -1,19 +1,4 @@
-<<<<<<< Updated upstream
-#container-contattiutili{
-    td, th {
-        border:1px solid #ddd;
-        padding:8px;
-    }
-}
-
-
-    
-=======
-
 .container-contatti-utili{
-
-.container-contatti-utili{
-
   table {
     border: 1px solid #ccc;
     border-collapse: collapse;
@@ -111,10 +96,18 @@
     font-family: "Open Sans", sans-serif;
     line-height: 1.25;
   }
-  
-<<<<<<< Updated upstream
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
 }
->>>>>>> Stashed changes
-=======
+
+table td:last-child {
+  border-bottom: 0;
 }
->>>>>>> Stashed changes
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
