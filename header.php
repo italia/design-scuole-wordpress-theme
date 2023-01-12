@@ -87,7 +87,7 @@ if(is_search() || is_archive())
 
                                         ?>
                                         <li class="text-redbrown menu-dropdown-simple-wrapper">
-                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'school' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown1" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
+                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'school' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdownMobile1" title="Vai alla pagina: <?php _e("Scuola","design_scuole_italia"); ?>"><?php _e("Scuola","design_scuole_italia"); ?></a>
                                             <?php wp_nav_menu(array(
                                                 "menu" => $menu_obj, 
                                                 "items_wrap" => $items_wrap,
@@ -116,7 +116,7 @@ if(is_search() || is_archive())
 
                                         ?>
                                         <li class="text-purplelight menu-dropdown-simple-wrapper">
-                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'service' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown2" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
+                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'service' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdownMobile2" title="Vai alla pagina: <?php _e("Servizi","design_scuole_italia"); ?>"><?php _e("Servizi","design_scuole_italia"); ?></a>
                                             <?php wp_nav_menu(array(
                                                 "menu" => $menu_obj, 
                                                 "items_wrap" => $items_wrap,
@@ -146,7 +146,7 @@ if(is_search() || is_archive())
 
                                         ?>
                                         <li class="text-greendark menu-dropdown-simple-wrapper">
-                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'news' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
+                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'news' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdownMobile3" title="Vai alla pagina: <?php _e("Novità","design_scuole_italia"); ?>"><?php _e("Novità","design_scuole_italia"); ?></a>
                                             <?php wp_nav_menu(array(
                                                 "menu" => $menu_obj, 
                                                 "items_wrap" => $items_wrap,
@@ -175,7 +175,7 @@ if(is_search() || is_archive())
 
                                         ?>
                                         <li class="text-bluelectric menu-dropdown-simple-wrapper">
-                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'education' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown4" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
+                                            <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'education' ? 'active' : ''?>" role="button" href="#" aria-expanded="false" id="mainNavDropdownMobile4" title="Vai alla pagina: <?php _e("Didattica","design_scuole_italia"); ?>"><?php _e("Didattica","design_scuole_italia"); ?></a>
                                             <?php wp_nav_menu(array(
                                                 "menu" => $menu_obj, 
                                                 "items_wrap" => $items_wrap,
@@ -419,4 +419,3 @@ if(is_search() || is_archive())
     if(!is_user_logged_in())
         get_template_part("template-parts/common/access-modal");
     ?>
-
