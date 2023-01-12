@@ -127,10 +127,14 @@ $args = array(
 $strutture = get_posts($args);
 
 function filter_my_structures($structure) {
-    return in_array(
-        (string)$GLOBALS['author_id'],
-        get_post_meta( $structure->ID, "_dsi_struttura_persone", true )
-    );
+    if ( !empty( get_post_meta( $document->ID, "_dsi_documento_autori", true ) ) ) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta( $structure->ID, "_dsi_struttura_persone", true )
+        );
+    }
+    
+    return false;
 }
 
 $strutture = array_filter($strutture, "filter_my_structures");
