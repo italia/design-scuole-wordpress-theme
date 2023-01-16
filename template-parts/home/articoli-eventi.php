@@ -120,7 +120,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         <div class="col-lg-4">
 
             <div class="title-section pb-4">
-                <div class="h2"><?php _e("Circolari", "design_scuole_italia"); ?></div>
+                <h2><?php _e("Circolari", "design_scuole_italia"); ?></h2>
             </div><!-- /title-section -->
             <?php
             $args = array('post_type' => 'circolare',

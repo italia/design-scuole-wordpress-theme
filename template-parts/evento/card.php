@@ -8,7 +8,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 <div class="card card-bg card-event bg-white card-thumb-rounded">
 	<div class="card-body">
 		<div class="card-content">
-			<h4 class="h5"><a href="<?php echo get_permalink($post);     ?>"><?php echo get_the_title($post); ?></a></h4>
+			<h3 class="h5"><a href="<?php echo get_permalink($post);     ?>"><?php echo get_the_title($post); ?></a></h3>
 			<p><?php echo dsi_get_meta("descrizione", "", $post->ID) ?  dsi_get_meta("descrizione", "", $post->ID) :  get_the_excerpt($post); ?></p>
 		</div>
 	</div><!-- /card-body -->
