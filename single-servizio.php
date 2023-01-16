@@ -494,7 +494,7 @@ get_header();
                                 }
 
                                 if($link_schede_progetti){ ?>
-                                    <h3 class="h6"><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h3>
+                                    <h2 class="h6"><?php _e("Progetti collegati al servizio", "design_scuole_italia"); ?></h2>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_progetti as $idprogetto){
