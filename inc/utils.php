@@ -1085,3 +1085,20 @@ if(!function_exists("dsi_get_current_group")) {
         return null;
     }
 }
+
+// Returns an img tag with appropriate attributes
+if(!function_exists("dsi_get_img")) {
+    function dsi_get_img( $url, $classes = '', $hide_title = false) {
+        $img_post = get_post( attachment_url_to_postid($url) );
+        $image_alt = get_post_meta( $img_post->ID, '_wp_attachment_image_alt', true);
+        $image_title = get_the_title( $img_post->ID );
+
+        $img = '<img src="'.$url.'" ';        
+        if ($classes) $img .= 'class="'.$classes.'" ';
+        if ($image_alt) $img .= 'alt="'.$image_alt.'" ';
+        if ($image_title && !$hide_title) $img .= 'title="'.$image_title.'" ';
+        $img .= '/>';
+
+        echo $img;
+    }
+}

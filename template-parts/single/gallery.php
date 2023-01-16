@@ -12,12 +12,12 @@ global $gallery;
 					<div class="it-single-slide-wrapper gallery-item h-100">
 							<figure>
 								<a href="<?php echo $urlg; ?>" aria-label="Visualizza foto: <?php echo $attach->post_title; ?>">
-									<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">	
+									<?php dsi_get_img($imageatt[0], '', true); ?>
 								</a>
 								<?php
-								if (!empty($attach->post_title)) {
+								if (!empty($attach->post_excerpt)) {
 								?>
-									<figcaption><?php echo $attach->post_title; ?></figcaption>
+									<figcaption><?php echo $attach->post_excerpt; ?></figcaption>
 									<?php
 								}
 								?>
