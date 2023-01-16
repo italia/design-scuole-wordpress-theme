@@ -21,11 +21,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
 		<?php while ( have_posts() ) :  the_post();
-        set_views($post->ID);
-			if(has_post_thumbnail($post))
-				$image_url = get_the_post_thumbnail_url($post, "item-thumb");
-			else
-				$image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+            set_views($post->ID);
+            $image_id= get_post_thumbnail_id($post);
+            if(has_post_thumbnail($post))
+                $image_url = get_the_post_thumbnail_url($post, "item-thumb");
+            else
+                $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
 			$autore = get_user_by("ID", $post->post_author);
 			?>
 
@@ -34,7 +35,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     <div class="row variable-gutters">
                         <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">
                             <div class="section-thumb mx-3">
-                                <img src="<?php echo $image_url; ?>">
+                                <?php dsi_get_img_from_id_url( $image_id, $image_url ); ?>
                             </div><!-- /section-thumb -->
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">

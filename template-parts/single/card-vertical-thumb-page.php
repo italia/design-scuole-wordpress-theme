@@ -2,6 +2,7 @@
 global $post, $autore;
 $autore = get_user_by("ID", $post->post_author);
 
+$image_id= get_post_thumbnail_id($post);
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 
 ?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded">
@@ -12,7 +13,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 		</div>
 		<?php if($image_url) { ?>
 			<div class="card-thumb">
-				<img src="<?php echo $image_url; ?>" alt="<?php echo esc_attr(get_the_title($post)); ?>">
+            	<?php dsi_get_img_from_id_url( $image_id, $image_url ); ?>
 			</div>
 		<?php  } ?>
 	</div><!-- /card-body -->

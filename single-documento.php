@@ -40,7 +40,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     the_post_thumbnail("item-thumb");
                                 }else{
                                 ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholders/logo-service.png" alt="">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholders/logo-service.png" alt="logo della Repubblica italiana">
                                  <?php } ?>
                             </div><!-- /section-thumb -->
                         </div><!-- /col-lg-2 -->
