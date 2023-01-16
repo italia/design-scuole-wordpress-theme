@@ -286,10 +286,10 @@ function dsi_feedback_circolare( $post_id, $post )
     $users = array();
 
     if($destinatari_circolari == "all"){
-        $users = get_users( array( 'fields' => array( 'ID' ) ) );
+        $users = get_users( array( 'fields' => 'ID' ) );
     }else if($destinatari_circolari == "ruolo"){
         $ruoli_circolari = dsi_get_meta("ruoli_circolari", '', $post->ID);
-        $users = get_users( array( 'role__in' => $ruoli_circolari, 'fields' => array( 'ID' ) ) );
+        $users = get_users( array( 'role__in' => $ruoli_circolari, 'fields' => 'ID' ) );
     }else if($destinatari_circolari == "gruppo"){
         $gruppi_circolari = dsi_get_meta("gruppi_circolari", '', $post->ID);
         $users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
