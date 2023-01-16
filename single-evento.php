@@ -219,19 +219,18 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                             ?>
                                             <div class="calendar-date">
-                                                <div class="calendar-date-day">
-                                                    <?php if ($old_data != date_i18n("dMY", $data["data"])) { ?>
-                                                        <small><?php echo date_i18n("Y", $data["data"]); ?></small>
-                                                        <p><?php echo date_i18n("d", $data["data"]); ?></p>
-                                                        <small><b><?php echo date_i18n("M", $data["data"]); ?></b></small>
-
-                                                    <?php } ?>
-                                                </div><!-- /calendar-date-day -->
                                                 <div class="calendar-date-description rounded">
                                                     <div class="calendar-date-description-content">
                                                         <p><?php echo date_i18n("H:i", $data["data"]); ?><?php if (isset($data["descrizione"])) echo " - " . $data["descrizione"]; ?></p>
                                                     </div><!-- /calendar-date-description-content -->
                                                 </div><!-- /calendar-date-description -->
+                                                <h4 class="calendar-date-day">
+                                                    <?php if ($old_data != date_i18n("dMY", $data["data"])) { ?>
+                                                        <p><?php echo date_i18n("d", $data["data"]); ?></p>
+                                                        <small><b><?php echo date_i18n("M", $data["data"]); ?></b></small>
+
+                                                    <?php } ?>
+                                                </h4><!-- /calendar-date-day -->
                                             </div><!-- /calendar-date -->
                                             <?php
                                             $old_data = date_i18n("dMY", $data["data"]);

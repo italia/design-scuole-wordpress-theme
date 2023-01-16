@@ -357,11 +357,6 @@ get_header();
 
                                                     ?>
                                                     <div class="calendar-date">
-                                                        <div class="calendar-date-day">
-                                                            <small><?php echo $arrdata[2]; ?></small>
-                                                            <p><?php echo $arrdata[0]; ?></p>
-                                                            <small><b><?php echo $monthName; ?></b></small>
-                                                        </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
                                                                 <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
@@ -371,6 +366,10 @@ get_header();
                                                                 echo wpautop($fase["desc_fase"]); ?>
                                                             </div><!-- /calendar-date-description-content -->
                                                         </div><!-- /calendar-date-description -->
+                                                        <h4 class="calendar-date-day">
+                                                            <p><?php echo $arrdata[0]; ?></p>
+                                                            <small><b><?php echo $monthName; ?></b></small>
+                                                        </h4><!-- /calendar-date-day -->
                                                     </div><!-- /calendar-date -->
                                                     <?php
                                                 }

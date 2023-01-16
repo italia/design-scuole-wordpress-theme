@@ -238,16 +238,15 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 foreach ( $timeline as $item ) {
                                                     ?>
                                                     <div class="calendar-date">
-                                                        <div class="calendar-date-day">
-                                                            <small><?php echo date_i18n( "Y", strtotime( $item["data_timeline"] ) ); ?></small>
-                                                            <p><?php echo date_i18n( "d", strtotime( $item["data_timeline"] ) ); ?></p>
-                                                            <small><b><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></b></small>
-                                                        </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
                                                                 <p><?php echo $item["titolo_timeline"] ?></p>
                                                             </div><!-- /calendar-date-description-content -->
                                                         </div><!-- /calendar-date-description -->
+                                                        <h4 class="calendar-date-day">
+                                                            <p><?php echo date_i18n( "d", strtotime( $item["data_timeline"] ) ); ?></p>
+                                                            <small><b><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></b></small>
+                                                        </h4><!-- /calendar-date-day -->
                                                     </div><!-- /calendar-date -->
                                                 <?php } ?>
                                             </div><!-- /calendar-vertical -->
