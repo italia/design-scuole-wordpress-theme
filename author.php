@@ -127,14 +127,17 @@ $args = array(
 $strutture = get_posts($args);
 
 function filter_my_structures($structure) {
-    if ( !empty( get_post_meta( $document->ID, "_dsi_documento_autori", true ) ) ) {
+	if( 
+        is_array( get_post_meta( $structure->ID, "_dsi_struttura_persone", true ) ) 
+        && !empty( get_post_meta( $structure->ID, "_dsi_struttura_persone", true ) ) 
+    ) {
         return in_array(
             (string)$GLOBALS['author_id'],
             get_post_meta( $structure->ID, "_dsi_struttura_persone", true )
         );
-    }
-    
-    return false;
+	}
+
+	return false;
 }
 
 $strutture = array_filter($strutture, "filter_my_structures");
@@ -146,10 +149,17 @@ $args = array(
 $documenti = get_posts($args);
 
 function filter_my_documents($document) {
-    return in_array(
-        (string)$GLOBALS['author_id'],
-        get_post_meta( $document->ID, "_dsi_documento_autori", true )
-    );
+	if( 
+        is_array( get_post_meta( $document->ID, "_dsi_documento_autori", true ) ) 
+        && !empty( get_post_meta( $document->ID, "_dsi_documento_autori", true ) ) 
+    ) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta( $document->ID, "_dsi_documento_autori", true )
+        );
+	}
+    
+	return false;
 }
 
 $documenti = array_filter($documenti, "filter_my_documents");
