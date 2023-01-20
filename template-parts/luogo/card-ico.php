@@ -21,15 +21,16 @@ if($luogo->post_parent == 0){
     'indirizzo' => $indirizzo,
     'permalink' => get_permalink($luogo)
 ];*/
+if (is_array($posizione_gps) && isset($posizione_gps['lat']) && isset($posizione_gps['lng'])) {
 
-$locations[$id][] = [
-    'title' => $card_title,
-    'lat' => $posizione_gps['lat'],
-    'lng' => $posizione_gps['lng'],
-    'indirizzo' => $indirizzo,
-    'permalink' => get_permalink($luogo)
-];
-?>
+    $locations[$id][] = [
+        'title' => $card_title,
+        'lat' => $posizione_gps['lat'],
+        'lng' => $posizione_gps['lng'],
+        'indirizzo' => $indirizzo,
+        'permalink' => get_permalink($luogo)
+    ];
+    ?>
 <div class="card card-icon rounded mb-3 p-0">
     <a href="<?php echo get_permalink($luogo); ?>" aria-label="<?php echo 'Vedi scheda dell\'edificio ' .$tipologia_luogo->name . ' ' . $luogo->post_title .'' ?>">
         <div class="card-body p-0 pt-2">
@@ -41,3 +42,6 @@ $locations[$id][] = [
         </div><!-- /card-body -->
     </a>
 </div>
+<?php 
+}
+?>
