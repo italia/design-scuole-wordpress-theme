@@ -730,7 +730,7 @@ function info_carousel( $atts, $content = "" ) {
     ), $atts );
 
     ob_start();
-    get_template_part( 'template-parts/single/info-carousel', null, $attributes );
+    get_template_part( 'martini-template-parts/carousel/info-carousel', null, $attributes );
     return ob_get_clean();
 }
 add_shortcode( 'info_carousel', 'info_carousel' );

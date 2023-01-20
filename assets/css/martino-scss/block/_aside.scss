@@ -58,7 +58,7 @@ body {
         }
 }
 
-@media (max-width: 767.98px) {
+@include media-breakpoint-down(sm) {
 
     #sidebar {
         margin: 0;
