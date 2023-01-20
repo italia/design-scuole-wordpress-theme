@@ -1,6 +1,7 @@
 <?php
 global $nomefile, $idfile;
 
+
 $icon = "svg-documents";
 if(substr($nomefile, -3) == "pdf")
 	$icon = "it-pdf-document";
@@ -42,4 +43,5 @@ if(trim($ptitle) == ""){
 		</div><!-- /card-icon-content -->
 	</div><!-- /card card-bg card-icon rounded -->
 <?php
+
 

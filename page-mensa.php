@@ -20,7 +20,7 @@ get_header();
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h2>La mensa</h2>
-                    <p>La mensa del Martini è gestita dalla <a href="">Comunità Rotaliana-Königsberg</a>. 
+                    <p>La mensa del Martini è gestita dalla <a href="https://www.comunitarotaliana.tn.it/">Comunità Rotaliana-Königsberg</a>. 
                     L’accesso al servizio mensa è consentito agli studenti solo nelle giornate in cui hanno un rientro pomeridiano obbligatorio.  Agli studenti iscritti alle attività <strong>facoltative</strong> pomeridiane è data la possibilità di usufruire del servizio mensa utilizzando i buoni cartacei al costo unitario di € 7,18.
                     Non sarà possibile acquistare un singolo buono cartaceo, ma solo un minimo di 5 buoni al costo di € 35,90, facendo un bonifico bancario intestato all’Istituto Martino Martini, utilizzando il seguente IBAN:  <strong>I T 4 9 V 0 2 0 0 8 3 5 0 4 0 0 0 0 0 0 5 8 4 3 8 0 4</strong> indicando la seguente causale: <strong>buoni mensa cartacei - Cognome e nome (dello studente)</strong> ritirando i buoni acquistati presso la segreteria didattica in orario aperto al pubblico (signora Rita Cristan) dietro presentazione della contabile del bonifico effettuato. </p>
                 </div>

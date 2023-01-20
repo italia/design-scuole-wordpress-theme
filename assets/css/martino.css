@@ -796,6 +796,7 @@ table td:last-child {
   vertical-align: 0.255em;
   margin-right: 10px;
   color: gray;
+  transform: rotate(180deg);
 }
 
 #main-container details:not([open]) > summary::before {
