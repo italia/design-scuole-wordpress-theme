@@ -3,6 +3,7 @@ global $post, $autore;
 $autore = get_user_by("ID", $post->post_author);
 $tempo_apprendimento = dsi_get_meta("tempo_apprendimento", "_dsi_scheda_didattica_", $post->ID);
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
+$image_id = get_post_thumbnail_id($post);
 if(!$image_url)
     $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
 
@@ -10,7 +11,9 @@ if(!$image_url)
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
-            <a href="<?php echo get_permalink($post); ?>"><img src="<?php echo $image_url; ?>" alt=""></a>
+            <a href="<?php echo get_permalink($post); ?>">
+                <?php dsi_get_img_from_id_url( $image_id, $image_url ); ?>
+            </a>
             <?php } ?>
         </div><!-- /card-thumb -->
 

@@ -16,12 +16,16 @@ if($visualizza_banner == "si") {
                                 <?php
                                 foreach ($banner_group as $banner){
                                     $image_url = wp_get_attachment_image_url($banner["banner_id"], 'banner' );
+                                    $image_alt = get_post_meta( $banner["banner_id"], '_wp_attachment_image_alt', true);
                                     ?>
                                     <li class="splide__slide">
                                         <div class="banner">
                                             <?php if($banner["url"] != "") echo '<a href="'.$banner["url"].'">'; ?>
                                                 <figure class="text-center px-2">
-                                                    <img src="<?php echo $image_url; ?>" style="max-width: 100%;" alt="banner" />
+                                                    <img 
+                                                    src="<?php echo $image_url; ?>" 
+                                                    style="max-width: 100%;" 
+                                                    alt="<?php echo $image_alt; ?>" />
                                                 </figure>
                                             <?php if($banner["url"] != "") echo '</a>'; ?>
                                         </div><!-- /item -->
