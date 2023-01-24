@@ -128,7 +128,6 @@ function filter_my_structures($structure)
             get_post_meta($structure->ID, "_dsi_struttura_persone", true)
         );
     }
-
     return false;
 }
 
@@ -142,16 +141,12 @@ $documenti = get_posts($args);
 
 function filter_my_documents($document)
 {
-    if (
-        is_array(get_post_meta($document->ID, "_dsi_documento_autori", true))
-        && !empty(get_post_meta($document->ID, "_dsi_documento_autori", true))
-    ) {
+    if (is_array(get_post_meta($document->ID, "_dsi_documento_autori", true)) && !empty(get_post_meta($document->ID, "_dsi_documento_autori", true))) {
         return in_array(
             (string)$GLOBALS['author_id'],
             get_post_meta($document->ID, "_dsi_documento_autori", true)
         );
     }
-
     return false;
 }
 
