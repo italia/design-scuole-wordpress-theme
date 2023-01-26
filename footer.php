@@ -30,11 +30,32 @@
                     </h2>
                 </div><!-- /logo-footer -->
                 <div class="footer-info">
-                    <div><a data-prefix="" href="<?php echo dsi_get_option("gmaps_scuola"); ?>" target="_blank"><?php echo dsi_get_option("indirizzo_scuola"); ?></a></div>
-                    <div><a data-prefix="Tel.:" href="tel:<?php echo dsi_get_option("telefono_scuola"); ?>"><?php echo dsi_get_option("telefono_scuola"); ?></a></div>
-                    <div><a data-prefix="Fax:" href="fax:<?php echo dsi_get_option("fax_scuola"); ?>"><?php echo dsi_get_option("fax_scuola"); ?></a></div>
-                    <div><a data-prefix="Cod. Fisc.:" href="#" data-copy-text="<?php echo dsi_get_option("fiscale_scuola"); ?>"><?php echo dsi_get_option("fiscale_scuola"); ?></a></div>
-                    <div><a data-prefix="Cod. IBAN:" href="#" data-copy-text="<?php echo dsi_get_option("iban_scuola"); ?>"><?php echo dsi_get_option("iban_scuola"); ?></a></div>
+                    <?php
+                        $gmaps_scuola = dsi_get_option("gmaps_scuola");
+                        $telefono_scuola = dsi_get_option("telefono_scuola");
+                        $fax_scuola = dsi_get_option("fax_scuola");
+                        $fiscale_scuola = dsi_get_option("fiscale_scuola");
+                        $iban_scuola = dsi_get_option("iban_scuola");
+                        $codice_ministeriale = dsi_get_option("codice_ministeriale");
+
+                        if (is_string($gmaps_scuola)) { ?>
+                            <div><a data-prefix="" href="<?php echo $gmaps_scuola; ?>" target="_blank"><?php echo $indirizzo_scuola; ?></a></div>
+                        <?php } 
+                        if (is_string($telefono_scuola)) { ?>
+                            <div><a data-prefix="Tel.:" href="tel:<?php echo $telefono_scuola; ?>"><?php echo $telefono_scuola; ?></a></div>
+                        <?php } 
+                        if (is_string($fax_scuola)) { ?>
+                            <div><a data-prefix="Fax:" href="fax:<?php echo $fax_scuola; ?>"><?php echo $fax_scuola; ?></a></div>
+                        <?php } 
+                        if (is_string($fiscale_scuola)) { ?>
+                            <div><a data-prefix="Cod. Fisc.:" href="#" data-copy-text="<?php echo $fiscale_scuola; ?>"><?php echo $fiscale_scuola; ?></a></div>
+                        <?php } 
+                        if (is_string($iban_scuola)) { ?>
+                            <div><a data-prefix="Cod. IBAN:" href="#" data-copy-text="<?php echo $iban_scuola; ?>"><?php echo $iban_scuola; ?></a></div>
+                        <?php } 
+                        if (is_string($codice_ministeriale)) { ?>
+                            <div><a data-prefix="Cod. Ministeriale:" href="#" data-copy-text="<?php echo $codice_ministeriale; ?>"><?php echo $codice_ministeriale; ?></a></div>
+                        <?php } ?>
                 </div>
                 <?php
                 $show_socials = dsi_get_option( "show_socials", "socials" );
@@ -56,10 +77,18 @@
                     $img_dir = get_stylesheet_directory_uri() . '/assets/images_martini/footer' ;
                     // TODO Add links to footer's white areas
                 ?>
-                <a href="#"><img src="<?php echo $img_dir . '/footer-img-pub.jpg'; ?>" alt="" ><span class="d-none d-md-block">Pubblicità<br>legale</span></a>
-                <a href="#"><img src="<?php echo $img_dir . '/footer-img-lav.jpg'; ?>" alt="" ><span class="d-none d-md-block">Lavora con<br>la scuola</span></a>
-                <a href="#"><img src="<?php echo $img_dir . '/footer-img-amm.jpg'; ?>" alt="" ><span class="d-none d-md-block">Amministrazione trasparente</span></a>
-                <a href="#"><img src="<?php echo $img_dir . '/footer-img-3.jpg';   ?>" alt="" width="619" height="68"  ></a>
+                <a href="https://www.martinomartini.eu/alboonline/visualizza_albo.php">
+                    <img src="<?php echo $img_dir . '/footer-img-pub.jpg'; ?>" alt="" ><span class="d-none d-md-block">Pubblicità<br>legale</span>
+                </a>
+                <a href="https://aprilascuola.provincia.tn.it/sei/#/soggetto/0221179501/scuola/lavora-con-la-scuola">
+                    <img src="<?php echo $img_dir . '/footer-img-lav.jpg'; ?>" alt="" ><span class="d-none d-md-block">Lavora con<br>la scuola</span>
+                </a>
+                <a href="https://aprilascuola.provincia.tn.it/sei/#/soggetto/0221179501/scuola/amministrazione-trasparente">
+                    <img src="<?php echo $img_dir . '/footer-img-amm.jpg'; ?>" alt="" ><span class="d-none d-md-block">Amministrazione trasparente</span>
+                </a>
+                <a href="#">
+                    <img src="<?php echo $img_dir . '/footer-img-3.jpg';   ?>" alt="" width="619" height="68"  >
+                </a>
             </section>
         </div><!-- /row -->
         <div class="row variable-gutters">

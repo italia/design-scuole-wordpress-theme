@@ -145,6 +145,17 @@ function dsi_register_main_options_metabox() {
 		// ),
 	) );
 
+	$header_options->add_field( array(
+		'id' => $prefix . 'codice_ministeriale',
+        'default' => 'TNIS00300A',
+		'name'        => __( 'Codice Ministeriale ', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
     /**
      * Registers options page "Alerts".
      */
