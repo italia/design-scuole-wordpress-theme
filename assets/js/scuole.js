@@ -467,7 +467,7 @@ $(document).ready(function () {
       });
       if (window_top > div_top) {
         $(".header-utils-wrapper").addClass("utils-moved");
-        if (!navListPrimaryTop) {
+        if (!navListPrimaryTop && navListPrimaryBottom instanceof Element) {
           containerDsk.insertAdjacentElement(
             "afterbegin",
             navListPrimaryBottom
@@ -475,7 +475,7 @@ $(document).ready(function () {
         }
       } else {
         $(".header-utils-wrapper").removeClass("utils-moved");
-        if (!navListPrimaryBottom) {
+        if (!navListPrimaryBottom && navListPrimaryTop instanceof Element) {
           navContainer?.insertAdjacentElement("afterbegin", navListPrimaryTop);
         }
       }
