@@ -236,9 +236,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #container_archive {
-  row-gap: 1rem;
-  -moz-column-gap: 4rem;
-       column-gap: 4rem;
+  margin-block: 7rem;
 }
 
 @media (min-width: 992px) {
@@ -796,7 +794,6 @@ table td:last-child {
   vertical-align: 0.255em;
   margin-right: 10px;
   color: gray;
-  transform: rotate(180deg);
 }
 
 #main-container details:not([open]) > summary::before {
