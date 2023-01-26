@@ -242,7 +242,7 @@ if(is_search() || is_archive())
                     $show_socials = dsi_get_option( "show_socials", "socials" );
                     if($show_socials == "true") : ?>
                     <div class="header-social">
-                        <span>Seguici su:</span>
+                        <span><?php _e("Seguici su:","design_scuole_italia"); ?></span>
                         <div class="header-social-wrapper">
                         <?php if($facebook = dsi_get_option( "facebook", "socials" )) :?><a href="<?php echo $facebook; ?>" aria-label="facebook" title="vai alla pagina facebook"><svg class="icon it-social-facebook"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-facebook"></use></svg></a><?php endif; ?>
                             <?php if($youtube = dsi_get_option( "youtube", "socials" )) :?><a href="<?php echo $youtube; ?>" aria-label="youtube" title="vai alla pagina youtube"><svg class="icon it-social-youtube"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-youtube"></use></svg></a><?php endif; ?>
