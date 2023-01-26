@@ -31,6 +31,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             <ul>
                                 <?php
                                 foreach ($scuole_didattica as $idstruttura){
+                                    $idstruttura = apply_filters( 'wpml_object_id', $idstruttura, 'post' );
                                     $scuola = get_post($idstruttura);
                                     ?>
                                     <li><a href="#tab-<?php echo $idstruttura; ?>"><?php echo $scuola->post_title; ?></a></li>
@@ -42,16 +43,18 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             $c=0;
                             foreach ($scuole_didattica as $idstruttura) {
                                 $scuola = get_post($idstruttura);
-
                                 ?>
-                                <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
+                                <div id="tab-<?php echo apply_filters( 'wpml_object_id', $idstruttura, 'post' ); ?>" class="responsive-tabs-content">
                                     <div class="accordion-large accordion-wrapper">
 
                                         <?php
+
                                         // recupero i percorsi di studio
                                         $indirizzi = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
                                         if($indirizzi){
                                             foreach ($indirizzi as $idindirizzo){
+                                                $idindirizzo = apply_filters( 'wpml_object_id', $idindirizzo, 'post' );
+
                                                 $indirizzo = get_post($idindirizzo);
                                                 if($indirizzo && 'trash' !== get_post_status($idindirizzo)) {
                                                     $descrizione = dsi_get_meta("descrizione", "", $indirizzo->ID);
