@@ -19,7 +19,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             <div class="h5">L'Istituto</div>
                         </div><!-- /title-section -->
                         <div class="tabs-img">
-                            <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png" title="<?php _e("Le classi", "design_scuole_italia"); ?>" alt="<?php _e("La didattica", "design_scuole_italia"); ?>">
+                            <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png">
                         </div>
                         <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
                             <ul>

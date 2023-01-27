@@ -73,9 +73,12 @@ get_header();
                         <div class="col-12 col-sm-3 col-lg-2 d-none d-sm-block">
                             <div class="section-thumb mx-3">
                                 <?php
-                                if(has_post_thumbnail($post)){
-                                    echo "<img src='".get_the_post_thumbnail_url($post, "item-thumb")."'>";
-                                }
+                                    $image_id= get_post_thumbnail_id($post);
+                                    if(has_post_thumbnail($post))
+                                        $image_url = get_the_post_thumbnail_url($post, "item-thumb");
+                                    else
+                                        $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+                                    dsi_get_img_from_id_url( $image_id, $image_url );
                                 ?>
                             </div><!-- /section-thumb -->
                         </div><!-- /col-lg-2 -->
@@ -303,7 +306,7 @@ get_header();
 											?>
 											<div class="col-4 col-md-3">
 												<div class="note cns">
-													<img class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>" alt="">
+													<img class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>">
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="https://sistemats1.sanita.finanze.it/portale/modalita-di-accesso-con-ts_cns" aria-label="scopri di più su CNS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
 												</div>
 											</div>

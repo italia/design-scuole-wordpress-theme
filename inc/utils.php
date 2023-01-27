@@ -768,7 +768,7 @@ function dsi_is_albo($post){
  * Converte l'anno scolastico nel formato da stampare
  */
 function dsi_convert_anno_scuola($anno){
-    if(is_string($anno) && ($anno != "")) {
+    if(is_int($anno)) {
         $nextanno = $anno + 1;
         return $anno . "/" . $nextanno;
     }else{
@@ -1085,5 +1085,38 @@ if(!function_exists("dsi_get_current_group")) {
             return dsi_get_post_types_group(get_post_type());
         }
         return null;
+    }
+}
+
+// Returns an img tag with appropriate attributes from URL
+if(!function_exists("dsi_get_img_from_url")) {
+    function dsi_get_img_from_url( $url, $classes = '', $show_title = false) {
+        $img_post = get_post( attachment_url_to_postid($url) );
+        $image_alt = get_post_meta( $img_post->ID, '_wp_attachment_image_alt', true);
+        $image_title = get_the_title( $img_post->ID );
+
+        $img = '<img src="'.$url.'" ';        
+        if ($classes) $img .= 'class="'.$classes.'" ';
+        if ($image_alt) $img .= 'alt="'.$image_alt.'" ';
+        if ($image_title && $show_title) $img .= 'title="'.$image_title.'" ';
+        $img .= '/>';
+
+        echo $img;
+    }
+}
+
+// Returns an img tag with appropriate attributes from ID & URL
+if(!function_exists("dsi_get_img_from_id_url")) {
+    function dsi_get_img_from_id_url( $id, $url, $classes = '', $show_title = false) {
+        $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
+        $image_title = get_the_title( $id );
+
+        $img = '<img src="'.$url.'" ';        
+        if ($classes) $img .= 'class="'.$classes.'" ';
+        if ($image_alt) $img .= 'alt="'.$image_alt.'" ';
+        if ($image_title && $show_title) $img .= 'title="'.$image_title.'" ';
+        $img .= '/>';
+
+        echo $img;
     }
 }

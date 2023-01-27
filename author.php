@@ -18,8 +18,8 @@ $bio = get_the_author_meta( 'description');
 //$cognome = get_the_author_meta('last_name');
 
 
-//$foto_url = get_the_author_meta('_dsi_persona_foto');
-//$foto_id = attachment_url_to_postid($foto_url);
+$foto_url = get_the_author_meta('_dsi_persona_foto');
+$image_id = attachment_url_to_postid($foto_url);
 //$image = wp_get_attachment_image($foto_id, "item-thumb");
 $image_url = dsi_get_user_avatar($authordata);
 
@@ -126,11 +126,15 @@ $args = array(
 );
 $strutture = get_posts($args);
 
-function filter_my_structures($structure) {
-    return in_array(
-        (string)$GLOBALS['author_id'],
-        get_post_meta( $structure->ID, "_dsi_struttura_persone", true )
-    );
+function filter_my_structures($structure)
+{
+    if (is_array(get_post_meta($structure->ID, "_dsi_struttura_persone", true)) && !empty(get_post_meta($structure->ID, "_dsi_struttura_persone", true))) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta($structure->ID, "_dsi_struttura_persone", true)
+        );
+    }
+    return false;
 }
 
 $strutture = array_filter($strutture, "filter_my_structures");
@@ -141,11 +145,15 @@ $args = array(
 );
 $documenti = get_posts($args);
 
-function filter_my_documents($document) {
-    return in_array(
-        (string)$GLOBALS['author_id'],
-        get_post_meta( $document->ID, "_dsi_documento_autori", true )
-    );
+function filter_my_documents($document)
+{
+    if (is_array(get_post_meta($document->ID, "_dsi_documento_autori", true)) && !empty(get_post_meta($document->ID, "_dsi_documento_autori", true))) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta($document->ID, "_dsi_documento_autori", true)
+        );
+    }
+    return false;
 }
 
 $documenti = array_filter($documenti, "filter_my_documents");
@@ -165,8 +173,8 @@ $posts = get_posts($args);
                 <div class="row variable-gutters">
                     <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
                         <div class="section-thumb thumb-large mx-3">
-                            <?php if($image_url) {
-                                echo "<img src='".$image_url."' alt=''/>";
+                            <?php if($image_url) {                                
+                                dsi_get_img_from_id_url( $image_id, $image_url );
                             } ?>
                         </div><!-- /section-thumb -->
                     </div><!-- /col-lg-2 -->

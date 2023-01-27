@@ -170,7 +170,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php get_template_part("template-parts/single/actions"); ?>
                                     </div><!-- /col-lg-12 -->
                                 </div><!-- /row -->
-                                <h4 id="art-par-cosa"><?php _e("Cosa fa", "design_scuole_italia"); ?></h4>
+                                <h2 id="art-par-cosa" class="h4"><?php _e("Cosa fa", "design_scuole_italia"); ?></h2>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9 wysiwig-text">
                                         <?php the_content(); ?>
