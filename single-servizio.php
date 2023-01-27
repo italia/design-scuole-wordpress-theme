@@ -170,7 +170,7 @@ get_header();
                                 <h2 class="h4" id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h2>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="article-description wysiwig-text">
+                                        <div class="article-description wysiwig-text" data-element="service-what-is">
                                             <?php the_content(); ?>
                                         </div>
                                     </div><!-- /col-lg-9 -->
@@ -199,7 +199,7 @@ get_header();
                                 if(trim($come_si_fa) != ""){
                                     ?>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9 wysiwig-text">
+                                        <div class="col-lg-9 wysiwig-text" data-element="service-access">
                                             <?php echo wpautop($come_si_fa); ?>
                                             <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
@@ -319,7 +319,7 @@ get_header();
 
                                     <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
-                                            <div class="col-lg-12  px-0 wysiwig-text">
+                                            <div class="col-lg-12  px-0 wysiwig-text" data-element="service-needed">
                                             <?php echo apply_filters("the_content", $cosa_serve); ?>
                                             </div>
                                             <?php if(is_array($cosa_serve_list)) {
@@ -361,7 +361,7 @@ get_header();
                                                     ?>
                                                     <div class="calendar-date">
                                                         <div class="calendar-date-description rounded">
-                                                            <div class="calendar-date-description-content">
+                                                            <div class="calendar-date-description-content" data-element="service-deadlines">
                                                                 <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
                                                                     <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
                                                                     <?php
@@ -432,7 +432,7 @@ get_header();
                                         <div class="col-lg-9">
                                             <h2 class="h4" id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h2>
                                             <div class="card card-bg bg-color rounded">
-                                                <div class="card-body pb-1">
+                                                <div class="card-body pb-1" data-element="service-contacts">
                                                     <ul>
                                                         <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
                                                         <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
@@ -489,7 +489,7 @@ get_header();
                                     ?>
                                     <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9" data-element="service-more-info">
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
