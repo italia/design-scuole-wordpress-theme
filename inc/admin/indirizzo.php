@@ -93,7 +93,7 @@ function dsi_add_indirizzo_metaboxes() {
 
     $cmb_stato->add_field( array(
         'id' => $prefix . 'stato',
-        'desc' => __( 'Lo stato  indica l\'effettiva fruibilità dell\'indirizzo di studio', 'design_scuole_italia' ),
+        'desc' => __( 'Lo stato indica l\'effettiva fruibilità dell\'indirizzo di studio', 'design_scuole_italia' ),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
