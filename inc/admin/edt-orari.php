@@ -1,4 +1,5 @@
 <?php
+define('ORARI_MENU_SLUG', 'orari-settings');
 define('ORARI_OPTION_GROUP', 'orari_option_group');
 define('ORARI_PAGE_SLUG', 'orari_page_slug');
 define('ORARI_SECTION_ID', 'orari_section_id');
@@ -153,7 +154,7 @@ function orari_settings_page()
             ?>
         </form>
     </div>
-<?php
+    <?php
 }
 
 // Register submenu for custom categories of 'orari'
@@ -169,7 +170,7 @@ function orari_submenu()
         /* capability  */
         'manage_options',
         /* menu_slug   */
-        'orari-settings',
+        ORARI_MENU_SLUG,
         /* callback    */
         'orari_settings_page',
         /* position    */
@@ -269,11 +270,35 @@ function orari_webhook_url_callback()
     $orari_webhook_uuid = esc_attr(get_orari_option('orari_webhook_uuid'));
 
     printf(
-        '<input type="text" name="%s" id="%s" value="%s" placeholder="https://example.com/upload" />',
+        '<input type="text" name="%s" id="%s" value="%s" placeholder="[SECRET TOKEN]" />',
         ORARI_OPTION_GROUP . '[orari_webhook_uuid]',
         'orari_webhook_uuid',
         $orari_webhook_uuid
     );
+}
+
+add_action('admin_notices', 'orari_notice');
+function orari_notice()
+{
+    $settings_errors = get_settings_errors(ORARI_PAGE_SLUG . '_settings_errors');
+    // if we have any errors, exit
+    if (!empty($settings_errors)) {
+        return;
+    }
+    if (
+        isset($_GET['page'])
+        && ORARI_MENU_SLUG == $_GET['page']
+        && isset($_GET['settings-updated'])
+        && true == $_GET['settings-updated']
+    ) {
+    ?>
+        <div class="notice notice-success is-dismissible">
+            <p>
+                <strong>Orari settings saved.</strong>
+            </p>
+        </div>
+<?php
+    }
 }
 
 // Generate and store UUID for the webhook
