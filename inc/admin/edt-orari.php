@@ -1,4 +1,7 @@
 <?php
+define('ORARI_OPTION_GROUP', 'orari_option_group');
+define('ORARI_PAGE_SLUG', 'orari_page_slug');
+define('ORARI_SECTION_ID', 'orari_section_id');
 
 // Register custom post type 'orari'
 function orari_post_type()
@@ -30,7 +33,9 @@ function orari_post_type()
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
-        'menu_position'      => null,
+        'menu_icon'          => 'dashicons-clock',
+        // 'menu_position'      => null,
+        'menu_position'      => 1,
         'supports'           => array(
             'title',
             'editor',
@@ -142,8 +147,8 @@ function orari_settings_page()
         <h1>Orari Settings</h1>
         <form method="post" action="options.php">
             <?php
-            settings_fields('orari_settings');
-            do_settings_sections('orari');
+            settings_fields(ORARI_PAGE_SLUG);
+            do_settings_sections(ORARI_PAGE_SLUG);
             submit_button();
             ?>
         </form>
@@ -198,22 +203,19 @@ add_action('admin_menu', 'orari_submenu');
 add_action('admin_init', 'orari_settings');
 function orari_settings()
 {
-    register_setting('orari_settings', 'orari_source_url');
-    register_setting('orari_settings', 'orari_update_interval');
-    register_setting('orari_settings', 'orari_upload_url');
-    register_setting('orari_settings', 'orari_webhook_uuid');
+    register_setting(ORARI_PAGE_SLUG, ORARI_OPTION_GROUP);
 
-    add_settings_section('orari_section', '', 'orari_section_callback', 'orari');
+    add_settings_section(ORARI_SECTION_ID, '', 'orari_section_callback', ORARI_PAGE_SLUG);
 
-    add_settings_field('orari_source_url', 'Source URL', 'orari_source_url_callback', 'orari', 'orari_section');
-    add_settings_field('orari_update_interval', 'Update Interval', 'orari_update_interval_callback', 'orari', 'orari_section');
-    add_settings_field('orari_upload_url', 'Upload to URL', 'orari_upload_url_callback', 'orari', 'orari_section');
-    add_settings_field('orari_webhook_uuid', 'webhook uuid', 'orari_webhook_url_callback', 'orari', 'orari_section');
+    add_settings_field('orari_source_url', 'Source URL', 'orari_source_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
+    add_settings_field('orari_update_interval', 'Update Interval', 'orari_update_interval_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
+    add_settings_field('orari_upload_url', 'Upload to URL', 'orari_upload_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
+    add_settings_field('orari_webhook_uuid', 'webhook uuid', 'orari_webhook_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
 }
 
 function get_orari_option($option, $default = false)
 {
-    $orari_settings = get_option('orari_settings', $default);
+    $orari_settings = get_option(ORARI_OPTION_GROUP, $default);
     if (isset($orari_settings[$option]) || !empty($orari_settings[$option])) {
         return $orari_settings[$option];
     }
@@ -229,37 +231,58 @@ function orari_section_callback()
 function orari_source_url_callback()
 {
     $source_url = esc_attr(get_orari_option('orari_source_url'));
-    echo '<input type="text" name="orari_source_url" value="' . $source_url . '" placeholder="https://example.com/data.json" />';
+
+    printf(
+        '<input type="text" name="%s" id="%s" value="%s" placeholder="https://example.com/data.json" />',
+        ORARI_OPTION_GROUP . '[orari_source_url]',
+        'orari_source_url',
+        $source_url
+    );
 }
 
 function orari_update_interval_callback()
 {
     $update_interval = esc_attr(get_orari_option('orari_update_interval'));
-    echo '<input type="text" name="orari_update_interval" value="' . $update_interval . '" placeholder="60" />';
+
+    printf(
+        '<input type="text" name="%s" id="%s" value="%s" placeholder="60" />',
+        ORARI_OPTION_GROUP . '[orari_update_interval]',
+        'orari_update_interval',
+        $update_interval
+    );
 }
 
-function orari_upload_url_callback()
+function orari_upload_url_callback($args)
 {
     $upload_url = esc_attr(get_orari_option('orari_upload_url'));
-    echo '<input type="text" name="orari_upload_url" value="' . $upload_url . '" placeholder="https://example.com/upload" />';
+
+    printf(
+        '<input type="text" name="%s" id="%s" value="%s" placeholder="https://example.com/upload" />',
+        ORARI_OPTION_GROUP . '[orari_upload_url]',
+        'orari_upload_url',
+        $upload_url
+    );
 }
 
 function orari_webhook_url_callback()
 {
-    $webhook_uuid = esc_attr(get_orari_option('orari_webhook_uuid'));
-    console_log($webhook_uuid);
+    $orari_webhook_uuid = esc_attr(get_orari_option('orari_webhook_uuid'));
 
-    echo '<input type="text" name="orari_webhook_uuid" value="' . $webhook_uuid . '" placeholder="https://example.com/upload" />';
+    printf(
+        '<input type="text" name="%s" id="%s" value="%s" placeholder="https://example.com/upload" />',
+        ORARI_OPTION_GROUP . '[orari_webhook_uuid]',
+        'orari_webhook_uuid',
+        $orari_webhook_uuid
+    );
 }
 
 // Generate and store UUID for the webhook
 function orari_generate_webhook_uuid()
 {
-    $orari_settings = get_option('orari_settings');
-    console_log($orari_settings);
+    $orari_settings = get_option(ORARI_OPTION_GROUP);
     if (!isset($orari_settings['orari_webhook_uuid']) || empty($orari_settings['orari_webhook_uuid'])) {
         $orari_settings['orari_webhook_uuid'] = wp_generate_uuid4();
-        update_option('orari_settings', $orari_settings);
+        update_option(ORARI_OPTION_GROUP, $orari_settings);
     }
 }
 add_action('init', 'orari_generate_webhook_uuid');
@@ -267,8 +290,8 @@ add_action('init', 'orari_generate_webhook_uuid');
 // Webhook URL to trigger orari_cron_job
 function orari_webhook_callback()
 {
-    $orari_settings = get_option('orari_settings');
-    if (isset($_GET['orari_webhook']) && $_GET['orari_webhook'] == $orari_settings['orari_webhook_uuid']) {
+    $orari_webhook_uuid = get_orari_option('orari_webhook_uuid');
+    if (isset($_GET['orari_webhook']) && $_GET['orari_webhook'] == $orari_webhook_uuid) {
         orari_cron_job();
         exit;
     }
