@@ -1407,13 +1407,23 @@ label > span {
 .loop__news__card {
   height: 100%;
   max-height: 25rem;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
 }
 
 .loop__news__card:last-child {
   padding: 1rem 0 1rem 1rem;
 }
 
+@media (max-width: 767.98px) {
+  .loop__news__card:last-child {
+    padding: 1rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .loop__news__card {
+    padding: 1rem;
+  }
+}
 .loop__news__card__content {
   width: 100%;
   min-height: 100%;
@@ -1461,9 +1471,57 @@ label > span {
   border: none;
 }
 
+.loop__progetti {
+  gap: 1rem;
+}
+
 .loop__progetti__card {
   display: flex;
   flex-direction: row;
+  max-height: 6.25rem;
+}
+
+.loop__progetti__card:last-child {
+  margin: 0;
+}
+
+.loop__progetti__card__content {
+  display: flex;
+  gap: 1rem;
+  border-radius: 0.25rem;
+}
+
+.loop__progetti__card__content__image img {
+  border-radius: 0.25rem;
+  max-height: 6.25rem;
+  max-width: 6.25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.loop__progetti__card__content__image__placeholder {
+  min-width: 6.25rem;
+  min_height: 6.25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.loop__progetti__card__content__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 6.25rem;
+  padding: 0.5rem;
+}
+
+.loop__progetti__card__content__body__link__title {
+  color: #1260A4;
+}
+
+.loop__progetti__card__content__body__link p {
+  line-height: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
 body {

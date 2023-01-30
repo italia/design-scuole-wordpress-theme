@@ -78,7 +78,7 @@
 
         <div class="row mt-4 mt-lg-0">
 
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-3 pl-lg-0 p-2">
 
             <a class="btn-lg-default-outline" href="2-livello-ITE-serale">
 
@@ -91,7 +91,7 @@
 
           </div>
 
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-3 p-2">
 
             <a class="btn-lg-default-outline" href="didattica-2/offerta-formativa">
 
@@ -104,7 +104,7 @@
 
           </div>
 
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-3 p-2">
 
             <a class="btn-lg-default-outline" href="open-day">
 
@@ -117,7 +117,7 @@
 
           </div>
 
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-3 p-2 pr-lg-1">
 
             <a class="btn-lg-secondary-outline" href="ASL">
 
@@ -148,21 +148,26 @@
     <div class="row">
 
       <!--LOOP NEWS  -->
-      <div class="row col-12 col-lg-7">
+      <div class="row col-12 col-lg-7 justify-content-center align-items-center mb-4 mb-lg-0">
         <h4 class="col-12">Ultime news </h4>
         <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
-        <a class="btn-lg-default-outline w-100" href="tipologia-articolo/notizie/" class="col-12 p-0">
-          <button>Vai alla sezione</button>
-        </a>
+        <div class="col-12 p-lg-0 p-1 p-md-3 p-lg-0">
+          <a class="btn-lg-default-outline w-100" href="tipologia-articolo/notizie/" class="col-12 p-0">
+            <button class="m-0">Vai alla sezione</button>
+          </a>
+        </div>
       </div><!-- col-12 col-lg-7 -->
 
       <!--LOOP PROGETTI  -->
-      <div class="row col-12 col-lg-4 offset-lg-1">
+      <div class="row col-12 col-lg-4 offset-lg-1 justify-content-between p-md-3 p-1 p-lg-0">
         <h4 class="col-12">Alcuni dei nostri progetti </h4>
         <?php get_template_part("martini-template-parts/loop/loop-progetti-home") ?>
-        <a class="btn-lg-default-outline" href="scheda-progetto">
-          <button>Vedi tutti</button>
-        </a>
+
+        <div class="col-12 align-items-end d-flex p-0">
+          <a class="btn-lg-default-outline w-100" href="scheda-progetto">
+            <button class="m-0">Vedi tutti</button>
+          </a>
+        </div>
       </div><!-- col-12 col-lg-4 offset-lg-1 -->
 
     </div>

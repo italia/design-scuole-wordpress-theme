@@ -1,6 +1,51 @@
 .loop__progetti{
+  gap:1rem;
   &__card{
     display: flex;
     flex-direction: row;
+    max-height: 6.25rem;
+
+    &:last-child{
+      margin: 0;
+    }
+
+    &__content{
+      display: flex;
+      gap: 1rem;
+      // background: $surface;
+      border-radius: 0.25rem;
+      &__image{
+        img{
+          border-radius: .25rem ;
+          max-height: 6.25rem;
+          max-width: 6.25rem;
+          object-fit: cover;
+        }
+
+       &__placeholder{
+            min-width: 6.25rem;
+            min_height: 6.25rem;
+            object-fit: cover;
+            border-radius: .25rem .25rem 0 0 ;
+        }
+      }
+        &__body{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          max-height: 6.25rem;
+          padding: 0.5rem;
+            &__link{
+            &__title{
+              color: $primary
+            }
+            
+            p{
+              line-height: 1.4rem;
+              margin-bottom: 0.5rem;
+            }
+        }
+      }
+    }
   }
 }

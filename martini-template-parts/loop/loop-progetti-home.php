@@ -16,22 +16,25 @@
 
   ?>
 
-    <article class="col-12 loop__progetti__card">
-      <div class="loop__progetti__card__content">
+    <article class="col-12 loop__progetti__card mb-2">
+      <div class="loop__progetti__card__content w-100">
         <a class="loop__progetti__card__content__image" href="<?php the_permalink(); ?>">
           <?php if( !empty(get_the_post_thumbnail()) ) { ?>
-            <?php the_post_thumbnail('news-thumb');?>
+            <?php the_post_thumbnail('project-thumb');?>
             <?php } else { ?>
-                <img class="loop__news__card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>"/>
+                <img class="loop__progetti__card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>"/>
           <?php } ?>
         </a>
+        <div class="loop__progetti__card__content__body w-100">
 
-        <h5 class="loop__progetti__card__content__title"><?php echo mb_strimwidth(get_the_title(), 0, 22, '...'); ?></h5>
-        <p><?php echo mb_strimwidth( get_the_excerpt(), 0, 60, '...' );?></p>
-
-        <a href="<?php the_permalink(); ?>" class="loop__progetti__card__content__link">
-          <button class="loop__progetti__card__content__link__button">Scopri</button>
+        <a href="<?php the_permalink(); ?>" class="loop__progetti__card__content__body__link">
+          <h6 class="loop__progetti__card__content__body__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 20, '...'); ?></h6>
         </a>
+
+        <p class="text-xs"><?php echo mb_strimwidth( get_the_excerpt(), 0, 35, '...' );?></p>
+          
+        
+        </div>
       </div>
     </article> <!--.card -->
 

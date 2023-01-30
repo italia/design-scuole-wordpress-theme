@@ -146,7 +146,7 @@ if ( ! function_exists( 'dsi_setup' ) ) :
             add_image_size( 'item-gallery', 730, 485 , true);
             add_image_size( 'vertical-card', 190, 290 , true);
 						add_image_size( 'news-thumb', 150, 150, true);
-						add_image_size( 'project-thumb',110, 110, true);
+						add_image_size( 'project-thumb',100, 100, true);
             add_image_size( 'banner', 600, 250 , false);
         }
 
