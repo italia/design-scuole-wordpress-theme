@@ -145,7 +145,7 @@ get_header();
                                             </li>
                                         <?php } ?>
                                         <?php
-                                        if($telefono || $mail){
+                                        if($telefono || $mail || (is_array($struttura_responsabile) && count($struttura_responsabile) > 0)){
                                             ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-contatti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Contatti", "design_scuole_italia"); ?>"><?php _e("Contatti", "design_scuole_italia"); ?></a>
@@ -425,46 +425,46 @@ get_header();
                                     </div><!-- /row -->
                                     <?php
                                 }
-
-                                if($telefono || $mail){
+                                
+                                if($telefono || $mail || (is_array($struttura_responsabile) && count($struttura_responsabile) > 0)){
                                     ?>
-                                    <div class="row variable-gutters mb-4" >
-                                        <div class="col-lg-9">
-                                            <h2 class="h4" id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h2>
-                                            <div class="card card-bg bg-color rounded">
-                                                <div class="card-body pb-1" data-element="service-contacts">
-                                                    <ul>
-                                                        <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
-                                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
-                                                    </ul>
-                                                </div></div>
-                                        </div></div>
+                                    <h4 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h4>
+                                    <?php if($telefono || $mail){ ?>
+                                        <div class="row variable-gutters mb-4" >
+                                            <div class="col-lg-9">
+                                                <div class="card card-bg bg-color rounded">
+                                                    <div class="card-body pb-1" data-element="service-contacts">
+                                                        <ul>
+                                                            <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
+                                                            <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!-- col-lg-9 -->
+                                        </div><!-- row variable-gutters mb-4 -->
+                                    <?php } ?>
 
-                                <?php }
-
-                                if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
+                                    <?php if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
-                                    //$struttura = get_post($struttura_responsabile[0]);
-                                    echo "<h3 class='h6'>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h3>";
-                                    ?>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-9">
-                                            <div class="card-deck card-deck-spaced" data-element="structures">
-                                                <?php
-                                                foreach ($struttura_responsabile as $idstruttura) {
-                                                    $struttura = get_post($idstruttura);
-                                                    ?>
-                                                    <?php get_template_part("template-parts/struttura/card"); ?>
+                                        //$struttura = get_post($struttura_responsabile[0]);
+                                        echo "<h5>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h5>";
+                                        ?>
+                                        <div class="row variable-gutters">
+                                            <div class="col-lg-9">
+                                                <div class="card-deck card-deck-spaced" data-element="structures">
                                                     <?php
-                                                }
-                                                ?>
+                                                    foreach ($struttura_responsabile as $idstruttura) {
+                                                        $struttura = get_post($idstruttura);
+                                                        ?>
+                                                        <?php get_template_part("template-parts/struttura/card"); ?>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <?php
-
-                                }
-                                ?>
+                                    <?php } ?>
+                                <?php } ?>
 
                                 <?php                                
 
