@@ -199,7 +199,7 @@ get_header();
                                 if(trim($come_si_fa) != ""){
                                     ?>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9 wysiwig-text" data-element="service-access">
+                                        <div class="col-lg-9 wysiwig-text" data-element="service-generic-access">
                                             <?php echo wpautop($come_si_fa); ?>
                                             <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
@@ -352,7 +352,7 @@ get_header();
                                     <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="calendar-vertical mb-5">
+                                            <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                                                 <?php
                                                 foreach ($fasi_scadenze as $fase){
                                                     $arrdata =  explode("-", $fase["data_fase"]);
@@ -361,7 +361,7 @@ get_header();
                                                     ?>
                                                     <div class="calendar-date">
                                                         <div class="calendar-date-description rounded">
-                                                            <div class="calendar-date-description-content" data-element="service-deadlines">
+                                                            <div class="calendar-date-description-content">
                                                                 <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
                                                                     <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
                                                                     <?php
