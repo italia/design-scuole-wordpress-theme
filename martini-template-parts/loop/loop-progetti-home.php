@@ -1,69 +1,42 @@
+<!-- new loop -->
 
-<div class="p-0" id="progetti-home">
+<div class="row loop__progetti">
 
-  <div class="container m-0 p 0">
+  <?php
+  $loop = new WP_Query(
+    array(
+      'post_type'         => 'scheda_progetto',
+      'post_status'       => 'publish', 
+      'orderby'           => 'count', 
+      'order'             => 'DESC', 
+      'posts_per_page'    => 3, )
+  );
 
-    <div class="row">
-        
-      <h4 class="col-12">Alcuni dei nostri progetti </h4>
+  while ($loop->have_posts()) : $loop->the_post();
 
-      <div class="container-progetti col-12 mb-4">
-        
-        <?php
-          $loop = new WP_Query( array( 
-            'post_type'         => 'scheda_progetto',
-            'post_status'       => 'publish', 
-            'orderby'           => 'count', 
-            'order'             => 'DESC', 
-            'posts_per_page'    => 3, )
-          );
-          
-          while ($loop -> have_posts()) : $loop -> the_post(); 
-          
-        ?> 
+  ?>
 
-        <article class="card-progetti"> 
+    <article class="col-12 loop__progetti__card mb-2">
+      <div class="loop__progetti__card__content w-100">
+        <a class="loop__progetti__card__content__image" href="<?php the_permalink(); ?>">
+          <?php if( !empty(get_the_post_thumbnail()) ) { ?>
+            <?php the_post_thumbnail('project-thumb');?>
+            <?php } else { ?>
+                <img class="loop__progetti__card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>"/>
+          <?php } ?>
+        </a>
+        <div class="loop__progetti__card__content__body w-100">
 
-          <div class="row-img">
-
-            <a class="img-loop" href="<?php the_permalink();?>">
-              
-              <div></div>
-              <?php 
-                if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
-                  echo get_the_post_thumbnail($post->ID);
-                }
-              ?>
-
-            </a>
-
-          </div><!--.row-img -->
-          <div class="card--body">
-
-            <a href="<?php the_permalink();?>">
-            
-              <h5 class="h6 primary"><?php echo mb_strimwidth(get_the_title(), 0, 60,'...');?></h5>
-              <p class="text-sm"><?php echo substr(strip_tags(dsi_get_meta("descrizione")), 0, 72,);?>...</p>
-
-            </a>
-
-          </div>
-              
-        </article>
-        <?php endwhile; ?>
-
-      </div><!--.container-progetti -->
-          
-      <div class="col-12 mt-4 mt-lg-0 pl-0 pr-0 w-100">
-
-        <a class="btn-lg-default-outline" href="scheda-progetto">
-          <button>Vedi tutti</button>
+        <a href="<?php the_permalink(); ?>" class="loop__progetti__card__content__body__link">
+          <h6 class="loop__progetti__card__content__body__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 20, '...'); ?></h6>
         </a>
 
-      </div><!--.col-12 -->
+        <p class="text-xs"><?php echo mb_strimwidth( get_the_excerpt(), 0, 35, '...' );?></p>
+          
+        
+        </div>
+      </div>
+    </article> <!--.card -->
 
-    </div><!-- row -->
-
-  </div><!-- container m-0 p 0 -->
-
-</div><!-- cards-container col-12 col-lg-4 offset-lg-1 p-0 -->
+  <?php endwhile; ?>
+</div>
