@@ -342,7 +342,7 @@ function dsi_ammap_getJs(){
     wp_deregister_script('ammap_functions');
     wp_dequeue_script('ammap_functions');
 
-    wp_register_script( 'ammap_functions', plugins_url('amministrazione-aperta/js/ammap.js'));
+    wp_register_script( 'ammap_functions', plugins_url('italia-amministrazione-aperta/js/ammap.js'));
     wp_enqueue_script( 'ammap_functions');
 }
 add_filter('admin_footer', 'dsi_ammap_getJs', 100);
