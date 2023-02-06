@@ -13,7 +13,7 @@ get_header();
 <main id="main-container" class="main-container">
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
-        <section class="container container-contatti-utili">
+        <section id="primary" class="container" > 
             <div class="row">
                 <div class="col-12 mt-5 px-3">
                     <h4>Articolazione degli uffici </h4>
@@ -43,58 +43,13 @@ get_header();
                     </table>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12  mt-5 px-3">
-                    <table class="table-info table table-bordered">
-                        <tbody>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 mt-5 px-3">
-                    <h4> Collaboratori del dirigente scolastico e referenti/funzioni strumentali</h4>
-                </div>
-                <div class="col-12 mb-5 px-3">
-                    <table class="table-info table table-bordered">
-                        <tbody>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                            <tr><td></td><td></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </section>
-    </main>
-
+        <section id="primary" class="container" >        
+            <div class="content mx-5 my-5" role="main" data-target="index" >
+            <?php the_content(); ?>
+            </div><!-- end content -->
+        </section><!-- end primary -->
+</main>
 
 <?php
 get_footer();
