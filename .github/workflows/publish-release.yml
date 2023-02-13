@@ -23,7 +23,7 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: italia/slack-notify-release-action@v0.0.1
+      - uses: italia/slack-notify-release-action@v0.0.2
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channel_id: ${{ secrets.SLACK_CHANNEL }}
