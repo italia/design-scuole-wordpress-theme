@@ -251,7 +251,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note">
-													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
+													<svg class="svg-filters" width="90" height="64" role="img"><title>Logo SPID</title><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
 													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
@@ -260,7 +260,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note cie">
-													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
+													<svg class="svg-filters" width="90" height="64" role="img"><title>Logo CIE</title><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
 													<p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
@@ -269,7 +269,7 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note cns">
-													<img class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>">
+													<img alt="Logo CNS" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>">
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="https://sistemats1.sanita.finanze.it/portale/modalita-di-accesso-con-ts_cns" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
