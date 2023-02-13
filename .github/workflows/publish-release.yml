@@ -23,3 +23,12 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: italia/slack-notify-release-action@v0.0.1
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel_id: ${{ secrets.SLACK_CHANNEL }}
+          project_name: Tema Wordpress - Design Scuole
+          repo_name: italia/design-scuole-wordpress-theme
