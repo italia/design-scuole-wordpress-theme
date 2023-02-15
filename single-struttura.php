@@ -7,9 +7,8 @@
  * @package Design_Scuole_Italia
  */
 global $post, $servizio, $progetto, $autore, $luogo, $c;
-get_template_part("template-parts/single/related-posts","post");
-get_template_part("template-parts/single/related-posts","events");
-get_template_part("template-parts/single/related-posts","circolari");
+$args = ["post", "evento", "circolare"];
+get_template_part("template-parts/single/related-posts");
 get_header();
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
