@@ -142,7 +142,7 @@ if(isset($struttura->ID)){
 											<span><?php _e( "Telefono", "design_scuole_italia" ); ?></span>
 										</div>
 										<div class="location-content">
-											<p><?php echo $telefono; ?></p>
+											<p><?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></p>
 										</div>
 									</li>
 								<?php } ?>

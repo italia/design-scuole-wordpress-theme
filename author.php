@@ -381,7 +381,7 @@ $posts = get_posts($args);
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <ul>
-                                            <?php if($telefono_pubblico != ""){?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono_pubblico; ?></li><?php } ?>
+                                            <?php if($telefono_pubblico != ""){?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono_pubblico'>$telefono_pubblico</a>"; ?></li><?php } ?>
                                             <?php if($email_pubblico != ""){?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <a href="mailto:<?php echo $email_pubblico; ?>"><?php echo $email_pubblico; ?></a></li><?php } ?>
                                         </ul>
                                     </div><!-- /col-lg-9 -->

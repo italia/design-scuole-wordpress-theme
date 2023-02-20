@@ -326,8 +326,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 <div class="card card-bg bg-color rounded">
                                                     <div class="card-body pb-1">
                                                         <ul>
-                                                            <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
-                                                            <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+                                                        <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></li><?php } ?>
+                                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $mail'>$mail</a>"; ?></li><?php } ?>
                                                         </ul>
                                                     </div></div>
                                             </div></div>
