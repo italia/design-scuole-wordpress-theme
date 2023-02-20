@@ -7,9 +7,8 @@
  * @package Design_Scuole_Italia
  */
 global $post;
-get_template_part("template-parts/single/related-posts","post");
-get_template_part("template-parts/single/related-posts","events");
-get_template_part("template-parts/single/related-posts","circolari");
+$args = ["post", "evento", "circolare"];
+get_template_part("template-parts/single/related-posts");
 
 get_header();
 
