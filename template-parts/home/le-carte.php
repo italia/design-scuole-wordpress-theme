@@ -15,7 +15,7 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 			</div><!-- /row -->
 			<div class="row variable-gutters">
 				<div class="col">
-					<div class="it-carousel-wrapper carousel-cards splide" data-bs-carousel-splide>
+					<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
                   		<div class="splide__track">
                     		<ul class="splide__list">
 							<?php
