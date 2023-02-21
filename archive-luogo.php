@@ -161,8 +161,6 @@ $mappa_primo_piano = dsi_get_option("posizione_mappa", "luoghi") === 'true' ? tr
                         }
                     }
                 }
-
-                get_template_part("template-parts/luogo/map");
             }
         } ?>
 
