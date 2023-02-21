@@ -1270,6 +1270,12 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
+    $social_options->add_field( array(
+        'id' => $prefix . 'telegram',
+        'name' => 'Telegram',
+        'type' => 'text_url',
+    ) );
+
 
     // pagina opzioni
 	/**
