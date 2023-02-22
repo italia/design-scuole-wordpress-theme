@@ -1108,8 +1108,13 @@ if(!function_exists("dsi_get_img_from_id_url")) {
     function dsi_get_img_from_id_url( $id, $url, $classes = '', $show_title = false) {
         $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
         $image_title = get_the_title( $id );
-
-        $img = '<img src="'.$url.'" ';        
+        if ($url) {
+            $url_parts = parse_url($url);
+            if (str_contains($url_parts['host'], "gravatar.com")) {
+                $image_alt = "Avatar utente";
+            }
+        }
+        $img = '<img src="'.$url.'" ';
         if ($classes) $img .= 'class="'.$classes.'" ';
         if ($image_alt) $img .= 'alt="'.$image_alt.'" ';
         if ($image_title && $show_title) $img .= 'title="'.$image_title.'" ';
