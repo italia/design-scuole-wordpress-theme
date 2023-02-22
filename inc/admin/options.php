@@ -1052,7 +1052,7 @@ function dsi_register_main_options_metabox() {
     $luoghi_options->add_field(array(
         'id' => $prefix . 'posizione_mappa',
         'name' => __('Visualizza mappa', 'design_scuole_italia'),
-        'desc' => __('Seleziona <b>No</b> per visualizzare la mappa in fondo alla pagina dopo l\'elenco delle strutture.', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per visualizzare la mappa nella pagina di elenco dei luoghi.', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
