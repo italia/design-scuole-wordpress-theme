@@ -7,9 +7,8 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $badgeclass;
-get_template_part("template-parts/single/related-posts","post");
-get_template_part("template-parts/single/related-posts","events");
-get_template_part("template-parts/single/related-posts","circolari");
+$args = ["post", "evento", "circolare"];
+get_template_part("template-parts/single/related-posts");
 get_header();
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");

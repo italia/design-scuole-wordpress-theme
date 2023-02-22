@@ -7,7 +7,8 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $badgeclass;
-get_template_part("template-parts/single/related-posts", $args = array( "post", "events", "circolari" )); 
+$args = ["post", "evento", "circolare"];
+get_template_part("template-parts/single/related-posts");
 
 // controllo la visibilità della circolare
 $is_pubblica = dsi_get_meta("is_pubblica");

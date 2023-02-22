@@ -1,0 +1,29 @@
+name: Richiedi una feature
+description: Suggerisci funzionalità nuove o aggiornate da includere nel tema.
+title: "Richiedi una nuova feature"
+labels: [enhancement]
+assignees: []
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisiti
+      description: Prenditi un paio di minuti per aiutare i nostri manutentori a lavorare più velocemente.
+      options:
+        - label: Ho già [cercato](https://github.com/italia/design-scuole-wordpress-theme/issues?utf8=%E2%9C%93&q=is%3Aissue) tra le issue la presenza di un problema simile
+          required: true
+        - label: Ho letto le [linee guida di contribuzione](https://github.com/italia/design-scuole-wordpress-theme/blob/main/CONTRIBUTING.md)
+          required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Fornire informazioni dettagliate su ciò che dovremmo aggiungere, inclusi collegamenti pertinenti a progetti precedenti, schermate o demo dal vivo, ove possibile.
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivazione e contesto
+      description: Spiegaci perché questa modifica è necessaria o utile e quali problemi potrebbe aiutare a risolvere.
+    validations:
+      required: true

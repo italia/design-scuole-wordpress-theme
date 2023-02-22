@@ -77,9 +77,9 @@ if(is_array($link_strutture_commissioni) && ($link_strutture_commissioni > 0)) {
 											?>
 											<h4 id="art-par-more"><?php _e("Per informazioni", "design_scuole_italia"); ?></h4>
 													<ul class="location-list mt-3">
-														<?php if($telefono){ ?><li><div class="location-title"><span><?php _e("Telefono", "design_scuole_italia"); ?>:</span></div><div class="location-content"><p><?php echo $telefono; ?></p></div></li><?php } ?>
-														<?php if($mail){ ?><li><div class="location-title"><span><?php _e("Email", "design_scuole_italia"); ?>:</span></div><div class="location-content"><p><?php echo $mail; ?></p></div></li><?php } ?>
-														<?php if($pec){ ?><li><div class="location-title"><span><?php _e("PEC", "design_scuole_italia"); ?>:</span></div><div class="location-content"><p><?php echo $pec; ?></p></div></li><?php } ?>
+														<?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></li><?php } ?>
+                                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $mail'>$mail</a>"; ?></li><?php } ?>
+														<?php if($pec){ ?><li><div class="location-title"><span><?php _e("PEC", "design_scuole_italia"); ?>:</span></div><div class="location-content"><p><?php echo "<a href = 'mailto: $pec'>$pec</a>"; ?></p></div></li><?php } ?>
 													</ul>
 
 										<?php } ?>
