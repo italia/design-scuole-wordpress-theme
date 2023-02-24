@@ -15,7 +15,6 @@ $ext = substr($nomefile, -4);
 
 $attach = get_post($idfile);
 $filetocheck = get_attached_file($idfile);
-
 $filesize = filesize($filetocheck);
 $fulltype = mime_content_type($filetocheck);
 $arrtype = explode("/", $fulltype);
@@ -37,7 +36,7 @@ if(trim($ptitle) == ""){
 		<div class="card-body">
 			<svg class="icon <?php echo $icon; ?>" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
 			<div class="card-icon-content">
-				<p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"  ><?php echo $ptitle; ?></a></strong></p>
+				<p><strong><a target="_blank" href="<?php echo $nomefile; ?>"  ><?php echo $ptitle; ?></a></strong></p>
 				<small><?php echo $type; ?> - <?php echo intval($filesize/1024); ?> kb</small>
 			</div><!-- /card-icon-content -->
 		</div><!-- /card-body -->

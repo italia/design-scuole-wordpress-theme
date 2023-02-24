@@ -74,7 +74,7 @@ class CMB2_Type_File_Base extends CMB2_Type_Text {
 	 * @return string       File wrap output
 	 */
 	public function file_status_output( $args ) {
-		return sprintf( '<%1$s class="file-status cmb2-media-item"><span>%2$s <strong>%3$s</strong></span>&nbsp;&nbsp; (<a href="%4$s" target="_blank" rel="external">%5$s</a> / <a href="#" class="cmb2-remove-file-button"%6$s>%7$s</a>)%8$s</%1$s>',
+		return sprintf( '<%1$s class="file-status cmb2-media-item"><span>%2$s <strong>%3$s</strong>&nbsp<span style="color: red">%9$s</span></span>&nbsp;&nbsp; (<a href="%4$s" target="_blank" rel="external">%5$s</a> / <a href="#" class="cmb2-remove-file-button"%6$s>%7$s</a>)%8$s</%1$s>',
 			$args['tag'],
 			esc_html( $this->_text( 'file_text', esc_html__( 'File:', 'cmb2' ) ) ),
 			esc_html( CMB2_Utils::get_file_name_from_path( $args['value'] ) ),
@@ -82,7 +82,8 @@ class CMB2_Type_File_Base extends CMB2_Type_Text {
 			esc_html( $this->_text( 'file_download_text', esc_html__( 'Download', 'cmb2' ) ) ),
 			isset( $args['cached_id'] ) ? ' rel="' . esc_attr( $args['cached_id'] ) . '"' : '',
 			esc_html( $this->_text( 'remove_text', esc_html__( 'Remove', 'cmb2' ) ) ),
-			isset( $args['id_input'] ) ? $args['id_input'] : ''
+			isset( $args['id_input'] ) ? $args['id_input'] : '',
+			esc_url( $args['value'] ) != $args['value'] ? "(⚠️ Il file caricato contiene caratteri non ammessi, rimuovere il file e caricarlo con un altro nome)" : ""
 		);
 	}
 
