@@ -3,6 +3,8 @@ define('ORARI_MENU_SLUG', 'orari-settings');
 define('ORARI_OPTION_GROUP', 'orari_option_group');
 define('ORARI_PAGE_SLUG', 'orari_page_slug');
 define('ORARI_SECTION_ID', 'orari_section_id');
+define('ORARI_POST_TYPE', 'orario');
+define('ORARI_TAXONOMY', 'orari');
 
 // flush_rewrite_rules();
 
@@ -27,14 +29,14 @@ function orari_post_type()
     );
     $args = array(
         'labels'             => $labels,
-        'public'             => true,
-        'publicly_queryable' => true,
+        'public'             => !true,
+        'publicly_queryable' => !true,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'orari'),
+        'rewrite'            => array('slug' => ORARI_TAXONOMY.'/'.ORARI_POST_TYPE),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_icon'          => 'dashicons-clock',
         // 'menu_position'      => null,
@@ -48,7 +50,7 @@ function orari_post_type()
             'comments'
         ),
     );
-    register_post_type('orari', $args);
+    register_post_type(ORARI_POST_TYPE, $args);
 }
 add_action('init', 'orari_post_type');
 
@@ -69,14 +71,29 @@ function orari_taxonomies()
         'menu_name'         => 'Orari Categories',
     );
     $args = array(
-        'hierarchical'      => true,
+        'hierarchical'      => !true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array('slug' => 'orari_category'),
+        'public'            => true,
+        'show_tagcloud'     => true,
+        'rewrite'           => array('slug' => ORARI_TAXONOMY),
     );
-    register_taxonomy('orari_category', array('orari'), $args);
+    register_taxonomy(ORARI_TAXONOMY, array(ORARI_POST_TYPE), $args);
+    register_term_meta(ORARI_TAXONOMY, 'source_url', array(
+        'type' => 'string',
+        'description' => 'a nice description',
+        'single' => true,
+        'show_in_rest' => array(
+            'schema' => array(
+                'type' => 'string',
+                'format' => 'url',
+                'context' => array( 'view', 'edit' ),
+                'readonly' => true,
+            )
+        ),
+    ));
 }
 add_action('init', 'orari_taxonomies', 0);
 
@@ -91,38 +108,39 @@ function orari_taxonomy_custom_fields_edit($tag)
             <label for="term_meta[source_url]"><?php _e('Source URL'); ?></label>
         </th>
         <td>
-            <input type="text" name="term_meta[source_url]" id="term_meta[source_url]" value="<?php echo esc_attr($term_meta['source_url']) ? esc_attr($term_meta['source_url']) : ''; ?>">
+            <input type="text" name="term_meta[source_url]" id="term_meta[source_url]" value="<?php echo isset($term_meta['source_url']) ? esc_attr($term_meta['source_url']) : ''; ?>">
             <p class="description"><?php _e('Enter the source URL for this category'); ?></p>
         </td>
     </tr>
 <?php
 }
-add_action('orari_category_edit_form_fields', 'orari_taxonomy_custom_fields_edit', 10, 1);
+add_action(ORARI_TAXONOMY . "_edit_form_fields", 'orari_taxonomy_custom_fields_edit', 10, 1);
 
 // Add custom field "source URL" to orari taxonomy
 function orari_taxonomy_custom_fields_add($tag)
 {
-    $t_id = $tag->term_id;
-    $term_meta = get_option("taxonomy_term_$t_id");
 ?>
 
     <div class="form-field">
         <label for="term_meta[source_url]"><?php _e('Source URL'); ?></label>
 
-        <input type="text" name="term_meta[source_url]" id="term_meta[source_url]" value="<?php echo esc_attr($term_meta['source_url']) ? esc_attr($term_meta['source_url']) : ''; ?>">
+        <input type="text" name="term_meta[source_url]" id="term_meta[source_url]" value="">
         <p class="description"><?php _e('Enter the source URL for this category'); ?></p>
     </div>
 <?php
 }
-add_action('orari_category_add_form_fields', 'orari_taxonomy_custom_fields_add', 10, 1);
+add_action(ORARI_TAXONOMY . "_add_form_fields", 'orari_taxonomy_custom_fields_add', 10, 1);
 
 // Save custom field "source URL" value
 function save_orari_taxonomy_custom_fields($term_id)
 {
+    // console_log('save');
     if (isset($_POST['term_meta'])) {
+
         $tax_term_id = 'taxonomy_term_' . $term_id;
         $term_meta = get_option($tax_term_id);
         $cat_keys = array_keys($_POST['term_meta']);
+
         foreach ($cat_keys as $key) {
             if (isset($_POST['term_meta'][$key])) {
                 $term_meta[$key] = $_POST['term_meta'][$key];
@@ -131,14 +149,15 @@ function save_orari_taxonomy_custom_fields($term_id)
         update_option($tax_term_id, $term_meta);
     }
 }
-add_action('edited_orari_category', 'save_orari_taxonomy_custom_fields', 10, 2);
+add_action("edited_" . ORARI_TAXONOMY, 'save_orari_taxonomy_custom_fields', 10, 2);
+add_action("created_" . ORARI_TAXONOMY, 'save_orari_taxonomy_custom_fields', 10, 2);
 
 
 // Remove the 'Orari Add new' submenu page
 function remove_orari_add_submenu()
 {
-    remove_submenu_page('edit.php?post_type=orari', 'post-new.php?post_type=orari');
-    remove_submenu_page('edit-tags.php?post_type=orari', 'edit-tags.php?taxonomy=orari_category&post_type=orari');
+    remove_submenu_page("edit.php?post_type=" . ORARI_POST_TYPE, "post-new.php?post_type=" . ORARI_POST_TYPE);
+    remove_submenu_page("edit-tags.php?post_type=" . ORARI_POST_TYPE, "edit-tags.php?taxonomy=" . ORARI_TAXONOMY . "&post_type=" . ORARI_POST_TYPE);
 }
 add_action('admin_menu', 'remove_orari_add_submenu', 11);
 
@@ -146,7 +165,7 @@ add_action('admin_menu', 'remove_orari_add_submenu', 11);
 add_action('add_meta_boxes', 'orari_add_img_url_meta_box');
 function orari_add_img_url_meta_box()
 {
-    add_meta_box('orari-img-url', 'Image URL', 'orari_img_url_meta_box_callback', 'orari');
+    add_meta_box('orari-img-url', 'Image URL', 'orari_img_url_meta_box_callback', ORARI_POST_TYPE);
 }
 
 // Callback function for the orari_img_url meta box
@@ -198,7 +217,7 @@ function orari_submenu()
 {
     add_submenu_page(
         /* parent_slug */
-        'edit.php?post_type=orari',
+        "edit.php?post_type=" . ORARI_POST_TYPE,
         /* page_title  */
         'Orari Settings',
         /* menu_title  */
@@ -213,13 +232,12 @@ function orari_submenu()
         0
     );
 
-    $taxonomy = 'orari_category';
-    $categories = get_terms($taxonomy);
+    $categories = get_terms(ORARI_TAXONOMY);
     if (!empty($categories)) {
         foreach ($categories as $category) {
             add_submenu_page(
                 /* parent_slug */
-                'edit.php?post_type=orari',
+                "edit.php?post_type=" . ORARI_POST_TYPE,
                 /* page_title  */
                 $category->name,
                 /* menu_title  */
@@ -227,7 +245,7 @@ function orari_submenu()
                 /* capability  */
                 'manage_options',
                 /* menu_slug   */
-                'edit.php?post_type=orari&orari_category=' . $category->slug
+                "edit.php?post_type=" . ORARI_POST_TYPE . "&" . ORARI_TAXONOMY . "=" . $category->slug
                 /* callback    */
                 /* position    */
             );
@@ -418,7 +436,7 @@ function orari_get_source_urls()
 {
     $source_urls = array();
     $terms = get_terms(array(
-        'taxonomy' => 'orari_category',
+        'taxonomy' => ORARI_TAXONOMY,
         'hide_empty' => false,
     ));
     // var_dump($terms);
@@ -459,13 +477,13 @@ function orari_check_source_urls($source_urls)
 // check if there is a post of type 'orari' with title X, if not - create new, else update existing. add 'orari_img_url' to the post
 function update_orari_post($title, $orari_img_url, $tag_id /* $category_name */)
 {
-    $orari_post = get_page_by_title($title, OBJECT, 'orari');
+    $orari_post = get_page_by_title($title, OBJECT, ORARI_POST_TYPE);
     if (!$orari_post) {
         // create new post
         $new_post = array(
             'post_title'    => $title,
             'post_status'   => 'publish',
-            'post_type'     => 'orari',
+            'post_type'     => ORARI_POST_TYPE,
             'tax_input' => array($tag_id)
         );
         $post_id = wp_insert_post($new_post);
@@ -476,7 +494,7 @@ function update_orari_post($title, $orari_img_url, $tag_id /* $category_name */)
     // add 'orari_img_url' to the post
     update_post_meta($post_id, 'orari_img_url', $orari_img_url);
 
-    $status = wp_set_object_terms($post_id, $tag_id, 'orari_category');
+    $status = wp_set_object_terms($post_id, $tag_id, ORARI_TAXONOMY);
     // set category
     // $category_id = get_cat_ID($category_name);
     // if (!$category_id) {
