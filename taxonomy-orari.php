@@ -114,7 +114,7 @@ $term = get_queried_object();
 			}
 		}
 		document.addEventListener('DOMContentLoaded', ()=>{
-			const maxLength = 2+Math.max(...[...document.querySelectorAll('ul#myUl li a')].map(a=>a.innerText.split(' ').map(s=>s.length)).flat());
+			const maxLength = 2+Math.max(...[...document.querySelectorAll('ul#myUL li a')].map(a=>a.innerText.split(' ').map(s=>s.length)).flat());
 			document.getElementById("myUL").style.setProperty('--char-length', maxLength+'ch');
 		})
 	</script>
