@@ -399,11 +399,6 @@ require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
 require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
 require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
 
-require dirname(__FILE__).'/functions-parts/cpt-orario-classi.php';
-require dirname(__FILE__).'/functions-parts/cpt-orario-docenti.php';
-require dirname(__FILE__).'/functions-parts/cpt-orario-laboratori.php';
-require dirname(__FILE__).'/functions-parts/cpt-orario-palestra.php';
-require dirname(__FILE__).'/functions-parts/cpt-orario-serali.php';
 require dirname(__FILE__).'/functions-parts/cpt-slider.php';
 require dirname(__FILE__).'/functions-parts/cpt-pon.php';
 require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
