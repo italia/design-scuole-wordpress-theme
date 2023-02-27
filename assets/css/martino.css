@@ -970,7 +970,7 @@ table td:last-child {
 }
 
 #main-container-orario .contenitore-img .img:target .img-wrapper {
-  overflow-x: scroll;
+  overflow-x: auto;
   text-align: center;
 }
 
