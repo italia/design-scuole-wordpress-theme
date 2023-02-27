@@ -4,6 +4,8 @@ define('ORARI_OPTION_GROUP', 'orari_option_group');
 define('ORARI_PAGE_SLUG', 'orari_page_slug');
 define('ORARI_SECTION_ID', 'orari_section_id');
 
+// flush_rewrite_rules();
+
 // Register custom post type 'orari'
 function orari_post_type()
 {
@@ -140,6 +142,40 @@ function remove_orari_add_submenu()
 }
 add_action('admin_menu', 'remove_orari_add_submenu', 11);
 
+// Register a new meta box for the orari custom post type
+add_action('add_meta_boxes', 'orari_add_img_url_meta_box');
+function orari_add_img_url_meta_box()
+{
+    add_meta_box('orari-img-url', 'Image URL', 'orari_img_url_meta_box_callback', 'orari');
+}
+
+// Callback function for the orari_img_url meta box
+function orari_img_url_meta_box_callback($post)
+{
+    // Get the current value of the orari_img_url custom field
+    $orari_img_url = get_post_meta($post->ID, 'orari_img_url', true);
+?>
+    <p>
+        <label for="orari_img_url">Image URL:</label>
+        <input type="text" id="orari_img_url" name="orari_img_url" value="<?php echo esc_url($orari_img_url); ?>" style="width: 100%;" />
+    </p>
+<?php
+}
+
+// Save the orari_img_url custom field when the orari post is saved
+add_action('save_post', 'orari_save_img_url_meta_box_data', 10, 2);
+function orari_save_img_url_meta_box_data($post_id, $post)
+{
+    // Check if the orari_img_url custom field is set and not empty
+    if (isset($_POST['orari_img_url']) && !empty($_POST['orari_img_url'])) {
+        // Update or add the orari_img_url custom field
+        update_post_meta($post_id, 'orari_img_url', esc_url_raw($_POST['orari_img_url']));
+    } else {
+        // Delete the orari_img_url custom field if it's empty
+        delete_post_meta($post_id, 'orari_img_url');
+    }
+}
+
 function orari_settings_page()
 {
     // Output HTML for the Orari tab settings page
@@ -275,6 +311,13 @@ function orari_webhook_url_callback()
         'orari_webhook_uuid',
         $orari_webhook_uuid
     );
+    $webhook_url = get_site_url() . '/?orari_webhook=' . $orari_webhook_uuid;
+    printf(
+        '<p>%s<a href="%s">%s</a></p>',
+        '',
+        $webhook_url,
+        $webhook_url
+    );
 }
 
 add_action('admin_notices', 'orari_notice');
@@ -312,45 +355,216 @@ function orari_generate_webhook_uuid()
 }
 add_action('init', 'orari_generate_webhook_uuid');
 
-// Webhook URL to trigger orari_cron_job
+// Webhook URL to trigger orari_job
 function orari_webhook_callback()
 {
     $orari_webhook_uuid = get_orari_option('orari_webhook_uuid');
-    if (isset($_GET['orari_webhook']) && $_GET['orari_webhook'] == $orari_webhook_uuid) {
-        orari_cron_job();
-        exit;
+    if (isset($_GET['orari_webhook'])){
+        if ($_GET['orari_webhook'] == $orari_webhook_uuid) {
+            orari_job();
+            exit;
+        }
+        wp_die(__('You do not have permission to access this page.'), 403);
     }
 }
 add_action('init', 'orari_webhook_callback');
 
-// Function to create the Cron job
-function orari_cron_job()
+
+
+
+
+
+function orari_download_and_parse_file($url, $regexp)
 {
-    $source_url = get_option('orari_source_url');
-    $upload_url = get_option('orari_upload_url');
+    // $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+    // $file_contents = file_get_contents($url, false, $context);
+    // console_log($url);
 
-    // Use wp_remote_get to fetch the JSON data from the source URL
-    $response = wp_remote_get($source_url);
-    $data = json_decode(wp_remote_retrieve_body($response), true);
+    // $response = wp_remote_get($url);
+    // $file_contents = wp_remote_retrieve_body($response);
+    $ch = curl_init();
+    $timeout = 5;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    $file_contents = curl_exec($ch);
+    curl_close($ch);
 
-    // Only save the first 200 items of the JSON data to the database
-    $data = array_slice($data, 0, 200);
-
-    // Use wp_remote_post to upload the JSON data to the specified upload URL
-    $args = array(
-        'method' => 'POST',
-        'timeout' => 45,
-        'redirection' => 5,
-        'httpversion' => '1.0',
-        'blocking' => true,
-        'headers' => array(),
-        'body' => $data,
-        'cookies' => array()
-    );
-    wp_remote_post($upload_url, $args);
+    $lines = explode("\n", $file_contents);
+    $matches = array();
+    console_log($file_contents);
+    foreach ($lines as $line) {
+        preg_match($regexp, $line, $line_matches);
+        if (!empty($line_matches)) {
+            $matches[] = array_slice($line_matches, 1);
+            // $matches[] = $line_matches;
+        }
+    }
+    // console_log($matches);
+    return $matches;
 }
 
-function orari_cron_job1()
+function orari_parse_edt_resources($file)
+{
+    // https://regex101.com/r/0npKOq/2
+    // /(?:(?<=new Ressource)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"(?=\);))/gm
+    // Group 1 = group
+    // Group 2 = name
+    // Group 3 = code
+    echo orari_download_and_parse_file($file, '/(?:(?<=new\s+Ressource)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"(?=\);))/');
+}
+
+function orari_get_source_urls()
+{
+    $source_urls = array();
+    $terms = get_terms(array(
+        'taxonomy' => 'orari_category',
+        'hide_empty' => false,
+    ));
+    // var_dump($terms);
+    // console_log($terms);
+
+    // $t_id = $tag->term_id;
+    // $term_meta = get_option("taxonomy_term_$t_id");
+
+    foreach ($terms as $term) {
+        $source_url = get_option("taxonomy_term_" . $term->term_id)['source_url'];
+        // $source_url = get_term_meta($term->term_id, 'orari_source_url', true);
+        console_log($source_url);
+        // console_log(get_option("taxonomy_term_".$term->term_id));
+
+        if (!empty($source_url)) {
+            $source_urls[$term->term_id] = $source_url;
+        }
+    }
+    // console_log($term);
+    // console_log($source_urls);
+    // exit;
+    return $source_urls;
+}
+
+function orari_check_source_urls($source_urls)
+{
+    $valid_urls = array();
+    foreach ($source_urls as $term_id => $source_url) {
+        if (filter_var($source_url, FILTER_VALIDATE_URL) !== false) {
+            $valid_urls[$term_id] = $source_url;
+        } else {
+            error_log(sprintf('Invalid URL: %s', $source_url));
+        }
+    }
+    return $valid_urls;
+}
+
+// check if there is a post of type 'orari' with title X, if not - create new, else update existing. add 'orari_img_url' to the post
+function update_orari_post($title, $orari_img_url, $tag_id /* $category_name */)
+{
+    $orari_post = get_page_by_title($title, OBJECT, 'orari');
+    if (!$orari_post) {
+        // create new post
+        $new_post = array(
+            'post_title'    => $title,
+            'post_status'   => 'publish',
+            'post_type'     => 'orari',
+            'tax_input' => array($tag_id)
+        );
+        $post_id = wp_insert_post($new_post);
+    } else {
+        $post_id = $orari_post->ID;
+    }
+    console_log($tag_id);
+    // add 'orari_img_url' to the post
+    update_post_meta($post_id, 'orari_img_url', $orari_img_url);
+
+    $status = wp_set_object_terms($post_id, $tag_id, 'orari_category');
+    // set category
+    // $category_id = get_cat_ID($category_name);
+    // if (!$category_id) {
+    //     $category_id = wp_create_category($category_name);
+    // }
+    // wp_set_post_categories($post_id, array($category_id));
+    // set tag
+    // wp_set_post_tags($post_id, array($tag_id), true);
+}
+
+// function orari_(Type $var = null)
+// {
+//     # code...
+// }
+
+// Function to create the job
+function orari_job()
+{
+    $config = array(
+        // https://regex101.com/r/0npKOq/2
+        // /(?:(?<=new Ressource)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"(?=\);))/gm
+        // Group 1 = group
+        // Group 2 = [name]
+        // Group 3 = {code}
+        '/_ressource.js' => '/(?:(?<=new Ressource)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"(?=\);))/',
+
+        // https://regex101.com/r/gGSekx/1
+        // /(?:(?<=new Periode)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"\s*(?=\);))/gm
+        // Group 1 = {code}
+        // Group 2 = period
+        // Group 3 = (id)       
+        '/_periode.js' => '/(?:(?<=new Periode)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)"\s*(?=\);))/',
+
+        // https://regex101.com/r/f94EIr/1
+        // /(?:(?<=new Grille)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*([a-zA-Z0-9_]+)(?=\);))/gm
+        // Group 1 = (id)         
+        // Group 3 = [image]
+        '/_grille.js' => '/(?:(?<=new Grille)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*([a-zA-Z0-9_]+)(?=\);))/',
+    );
+    // phpinfo();
+    // exit;
+    $source_base_url = get_orari_option('orari_source_url');
+    // print('fvfv');
+    print($source_base_url);
+    $taxonomies_urls = orari_get_source_urls();
+    // var_dump($taxonomies_urls);
+// exit;
+    foreach ($taxonomies_urls as $term_id => $tax_url) {
+        $url = (filter_var($tax_url, FILTER_VALIDATE_URL) !== false)
+            ? $tax_url
+            : $source_base_url . $tax_url;
+
+        $parsed = array();
+        foreach ($config as $file => $pattern) {
+            console_log($url . $file);
+            console_log($pattern);
+            $parsed[$file] = orari_download_and_parse_file($url . $file, $pattern);
+            // console_log($parsed[$file]);
+        }
+        console_log($parsed);
+        $res = array();
+        while ($resource = array_pop($parsed['/_ressource.js'])) {
+            $period = array_pop($parsed['/_periode.js']);
+            $gate = array_pop($parsed['/_grille.js']);
+
+            // echo '<br>';
+            // var_dump($resource);
+            // echo '<br>';
+            // var_dump($period);
+            // echo '<br>';
+            // var_dump($gate);
+            // echo '<br>';
+
+            if (!empty($period) && !empty($gate)) {
+                $item = array(
+                    'title'   => $resource[1],
+                    'img_url' => $url . '/' . $gate[2],
+                    'period'  => $period[1],
+                );
+                $res[] = $item;
+                update_orari_post($resource[1], $url . '/' . $gate[2], $term_id);
+            }
+        }
+        console_log($res);
+    }
+}
+
+function orari_job1()
 {
     global $wpdb;
 
@@ -397,7 +611,8 @@ function orari_cron_job1()
 
 // Schedule the Cron job to run based on the specified update interval
 $update_interval = get_option('orari_update_interval');
-if (!wp_next_scheduled('orari_cron_job')) {
-    wp_schedule_event(time(), $update_interval, 'orari_cron_job');
+if (!wp_next_scheduled('orari_job')) {
+    // console_log(wp_get_schedules());
+    wp_schedule_event(time(), $update_interval, 'orari_job');
 }
-add_action('orari_cron_job', 'orari_cron_job');
+add_action('orari_job', 'orari_job');

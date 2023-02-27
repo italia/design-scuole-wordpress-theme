@@ -98,6 +98,7 @@ require get_template_directory() . '/inc/import.php';
  */
 require get_template_directory() . '/inc/dompdf.php';
 
+require_once( get_template_directory() . '/inc/admin/edt-orari.php' );
 
 
 
