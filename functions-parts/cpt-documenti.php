@@ -47,19 +47,6 @@ function martini_add_documenti_metaboxes() {
     'priority'     => 'high',
     ) );
 
-    $cmb_aftercontent->add_field( array(
-        'name'             => 'Tipologia di corso',
-        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
-        'type'             => 'radio',
-        'show_option_none' => false,
-        'options'          => array(
-            'altri' => __( 'Altri', 'cmb2' ),
-            'privacy'   => __( 'Privacy', 'cmb2' ),
-            'anticorruzione'   => __( 'Anticorruzione', 'cmb2' ),
-            'modelli'   => __( 'Modelli', 'cmb2' ),
-        ),
-    ) );
-
     // box per caricare file del corso documenti sulle scuole
 
     $cmb_aftercontent->add_field( array(

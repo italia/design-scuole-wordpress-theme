@@ -858,8 +858,47 @@ table td:last-child {
 }
 
 /* loop */
-#loop_orientamento .card-img img {
-  height: 150px !important;
+.orientamento {
+  padding: 1rem;
+}
+
+.orientamento__post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #F0F0F3;
+  padding: 1rem;
+  min-height: 20rem;
+  border-radius: 0.4rem;
+}
+
+.orientamento__post__title {
+  margin: 1rem 0;
+}
+
+.orientamento__post__text {
+  margin: 1rem 0;
+}
+
+.orientamento__post__link__button {
+  background-color: #1260A4;
+  padding: 0.6rem 1.3rem;
+  color: #fff;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.orientamento__post__link__button:hover {
+  background-color: #0073E6;
+}
+
+.referente__list {
+  list-style: disc;
+}
+
+.referente__list__item {
+  padding: 0.4rem 0;
 }
 
 #main-container-orario-docenti .min-h {

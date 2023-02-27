@@ -29,6 +29,47 @@
 
 /* loop */
 
-#loop_orientamento .card-img img {
-    height: 150px !important;
+.orientamento{
+    padding: 1rem;
+
+    &__post{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $surface;
+        padding: 1rem;
+        min-height: 20rem;
+        border-radius: 0.4rem;
+        &__title{
+            margin: 1rem 0;            
+        }
+        &__text{
+            margin: 1rem 0;                
+        }
+        &__link{
+            &__button{
+                background-color: $primary;
+                padding: 0.6rem 1.3rem;
+                color: $on-primary;
+                transition: all 1s cubic-bezier(.215, .61, .355, 1);
+                border: none;
+                border-radius: 0.4rem;
+
+                &:hover{
+                    background-color: $primary-hover;
+                }
+
+            }
+        }
+    }
+}
+
+.referente{
+    &__list{
+        list-style: disc;
+        &__item{
+            padding: 0.4rem 0;
+        }
+    }
+
 }
