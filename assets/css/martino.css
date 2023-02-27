@@ -848,7 +848,7 @@ table td:last-child {
     max-width: 19%;
   }
 }
-/* the_content */
+/* the_contet */
 .iscriviti p {
   font-size: clamp(20px, -4px + 4.16666667vw, 28px);
   line-height: clamp(24px, -24px + 8.33333333vw, 40px);
