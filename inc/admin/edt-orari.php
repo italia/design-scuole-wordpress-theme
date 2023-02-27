@@ -264,9 +264,19 @@ function orari_settings()
 
     add_settings_field('orari_source_url', 'Source URL', 'orari_source_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
     add_settings_field('orari_update_interval', 'Update Interval', 'orari_update_interval_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
-    add_settings_field('orari_upload_url', 'Upload to URL', 'orari_upload_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
+    // add_settings_field('orari_upload_url', 'Upload to URL', 'orari_upload_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
     add_settings_field('orari_webhook_uuid', 'webhook uuid', 'orari_webhook_url_callback', ORARI_PAGE_SLUG, ORARI_SECTION_ID);
 }
+add_action('update_option_' . ORARI_OPTION_GROUP, 'orari_cron_job', 10, 3);
+
+// Schedule the Cron job to run based on the specified update interval
+function orari_cron_job() {
+	if ( ! wp_next_scheduled( 'orari_job' ) ) {
+        $update_interval = get_orari_option('orari_update_interval');
+		wp_schedule_event( time(), $update_interval, 'orari_job' );
+	}
+}
+
 
 function get_orari_option($option, $default = false)
 {
@@ -295,16 +305,32 @@ function orari_source_url_callback()
     );
 }
 
-function orari_update_interval_callback()
-{
-    $update_interval = esc_attr(get_orari_option('orari_update_interval'));
-
-    printf(
-        '<input type="text" name="%s" id="%s" value="%s" placeholder="60" />',
-        ORARI_OPTION_GROUP . '[orari_update_interval]',
-        'orari_update_interval',
-        $update_interval
-    );
+function orari_update_interval_callback() {
+    $schedules = wp_get_schedules();
+    $current = get_orari_option('orari_update_interval');
+    uasort( $schedules, function( array $a, array $b ) {
+        return ( $a['interval'] - $b['interval'] );
+    } );
+    array_walk( $schedules, function( array &$schedule, $name ) {
+        $schedule['name'] = $name;
+        $schedule['is_too_frequent'] = ( $schedule['interval'] < WP_CRON_LOCK_TIMEOUT );
+    } );
+    ?>
+    <select class="postform" name="<?php echo ORARI_OPTION_GROUP . '[orari_update_interval]';?>" id="orari_update_interval" required>
+        <option <?php selected( $current, '_oneoff' ); ?> value="_oneoff"><?php esc_html_e( 'Non-repeating', 'wp-crontrol' ); ?></option>
+        <?php foreach ( $schedules as $sched_name => $sched_data ) { ?>
+            <option <?php selected( $current, $sched_name ); ?> value="<?php echo esc_attr( $sched_name ); ?>">
+            <?php
+                printf(
+                    '%s (%s)',
+                    esc_html( isset( $sched_data['display'] ) ? $sched_data['display'] : $sched_data['name'] ),
+                    esc_html( $sched_name )
+                );
+            ?>
+            </option>
+        <?php } ?>
+    </select>
+    <?php
 }
 
 function orari_upload_url_callback($args)
@@ -495,6 +521,11 @@ function update_orari_post($title, $orari_img_url, $tag_id /* $category_name */)
     update_post_meta($post_id, 'orari_img_url', $orari_img_url);
 
     $status = wp_set_object_terms($post_id, $tag_id, ORARI_TAXONOMY);
+
+    $size = getimagesize($orari_img_url);
+    console_log($size);
+    update_post_meta($post_id, 'orari_img_size', $size[3]);
+
     // set category
     // $category_id = get_cat_ID($category_name);
     // if (!$category_id) {
@@ -531,6 +562,7 @@ function orari_job()
         // https://regex101.com/r/f94EIr/1
         // /(?:(?<=new Grille)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*([a-zA-Z0-9_]+)(?=\);))/gm
         // Group 1 = (id)         
+        // Group 2 = group
         // Group 3 = [image]
         '/_grille.js' => '/(?:(?<=new Grille)\s*\()(?:"([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*([a-zA-Z0-9_]+)(?=\);))/',
     );
@@ -541,7 +573,7 @@ function orari_job()
     print($source_base_url);
     $taxonomies_urls = orari_get_source_urls();
     // var_dump($taxonomies_urls);
-// exit;
+    // exit;
     foreach ($taxonomies_urls as $term_id => $tax_url) {
         $url = (filter_var($tax_url, FILTER_VALIDATE_URL) !== false)
             ? $tax_url
@@ -555,11 +587,34 @@ function orari_job()
             // console_log($parsed[$file]);
         }
         console_log($parsed);
+
+        $period_col_code = array_column($parsed['/_periode.js'], 0);
+        $gate_col_id = array_column($parsed['/_grille.js'], 0);
+
         $res = array();
         while ($resource = array_pop($parsed['/_ressource.js'])) {
-            $period = array_pop($parsed['/_periode.js']);
-            $gate = array_pop($parsed['/_grille.js']);
+            console_log($resource);
+            if ($resource[2] == 'vide') {
+                console_log('$resource continue ');
+                continue;
+            }
 
+            $period_key = array_search($resource[2], $period_col_code);
+            if ($period_key === false) {
+                console_log($resource);
+                console_log('$period_key === false');
+                continue;
+            }
+            $period = $parsed['/_periode.js'][$period_key];
+
+            $gate_key = array_search($period[2], $gate_col_id);
+            if ($gate_key === false) {
+                console_log($resource);
+                console_log('$gate_key === false');
+                continue;
+            }
+            $gate = $parsed['/_grille.js'][$gate_key];
+            
             // echo '<br>';
             // var_dump($resource);
             // echo '<br>';
@@ -569,68 +624,24 @@ function orari_job()
             // echo '<br>';
 
             if (!empty($period) && !empty($gate)) {
-                $item = array(
-                    'title'   => $resource[1],
-                    'img_url' => $url . '/' . $gate[2],
-                    'period'  => $period[1],
-                );
-                $res[] = $item;
-                update_orari_post($resource[1], $url . '/' . $gate[2], $term_id);
+                if ($gate[1] == $resource[0] && $gate[0] == $period[2]) {
+                    console_log('[OK] $gate[1] == $resource[0] && $gate[0] == $period[2]');
+
+                    $item = array(
+                        'title'   => $resource[1],
+                        'img_url' => $url . '/' . $gate[2],
+                        'period'  => $period[1],
+                    );
+                    $res[] = $item;
+                    update_orari_post($resource[1], $url . '/' . $gate[2], $term_id);
+                } else {
+                    console_log('[FAILED] $gate[1] == $resource[0] && $gate[0] == $period[2]');
+                }
+                // console_log($period);
+                // console_log($gate);
             }
         }
         console_log($res);
     }
-}
-
-function orari_job1()
-{
-    global $wpdb;
-
-    $source_url = get_option('orari_source_url');
-    $upload_url = get_option('orari_upload_url');
-
-    // Use wp_remote_get to fetch the JSON data from the source URL
-    $response = wp_remote_get($source_url);
-    $data = json_decode(wp_remote_retrieve_body($response), true);
-
-    // Only save the first 200 items of the JSON data to the database
-    $data = array_slice($data, 0, 200);
-
-    // // Insert the data into the 'orari_data' table
-    // foreach ($data as $item) {
-    //     $wpdb->insert(
-    //         'orari_data',
-    //         array(
-    //             'key' => $item['key'],
-    //             'value' => $item['value']
-    //         ),
-    //         array(
-    //             '%s',
-    //             '%s'
-    //         )
-    //     );
-    // }
-    // mysql -u exampleuser -pexamplepass exampledb 
-
-    // Use wp_remote_post to upload the JSON data to the specified upload URL
-    // $args = array(
-    //     'method' => 'POST',
-    //     'timeout' => 45,
-    //     'redirection' => 5,
-    //     'httpversion' => '1.0',
-    //     'blocking' => true,
-    //     'headers' => array(),
-    //     'body' => $data,
-    //     'cookies' => array()
-    // );
-    // wp_remote_post($upload_url, $args);
-}
-
-
-// Schedule the Cron job to run based on the specified update interval
-$update_interval = get_option('orari_update_interval');
-if (!wp_next_scheduled('orari_job')) {
-    // console_log(wp_get_schedules());
-    wp_schedule_event(time(), $update_interval, 'orari_job');
 }
 add_action('orari_job', 'orari_job');
