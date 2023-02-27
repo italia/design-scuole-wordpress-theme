@@ -48,7 +48,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 // recupero l'anno scolastico di riferimento del progetto
                                 if($anno_scolastico){
                                     ?>
-                                    <i><?php _e("Anno scolastico", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola($anno_scolastico) ?></i>
+                                    <i><?php _e("Anno scolastico", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(intval($anno_scolastico)) ?></i>
                                     <?php
                                 }
                                 ?>
