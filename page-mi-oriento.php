@@ -23,8 +23,9 @@ get_header();
                 
                 <div class="col-lg-8 mt-5 mb-5">
                     <div class="pt-5 px-3">
-                        <h4 class="mb-4">Il nuovo servizio di School Counseling del Martino Martini</h4>
-                        <p>Sei in difficoltà con il tuo percorso scolastico e non sai se hai fatto la scelta giusta? Hai bisogno di aiuto nella scelta del percorso di Alternanza Scuola Lavoro? Vuoi orientarti meglio rispetto alle scelte post-diploma? Hai desideri e talenti ma non sai come realizzarli? Hai bisogno di aiuto nella compilazione del tuo CV o nella redazione del tuo portfolio?</p>
+                        
+                        <?php the_content(); ?>
+
                         <p>Scrivi a <a href="mailto:mioriento@martinomartini.eu">mioriento@martinomartini.eu</a> e prendi appuntamento.</p>
                     </div>
                     <div class="col-12 mt-5 mb-3">

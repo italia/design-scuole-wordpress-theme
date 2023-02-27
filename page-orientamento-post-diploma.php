@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Orientamento in uscita
+/* Template Name: Orientamento post diploma
  *
  * didattica template file
  *
@@ -22,25 +22,8 @@ get_header();
             <div class="row main-content variable-gutters">
                 
                 <div class="col-lg-8 mt-5 mb-5">
-                    <div class="row variable-gutters mb-3">
-                        <div class="pt-5 px-3">    
-                            <h4 class="mb-4">Orientamento in uscita</h4>
-                            <p>L’Orientamento in uscita vuole aiutare gli studenti a maturare una scelta consapevole dopo il conseguimento del diploma, in ambito universitario o lavorativo. Di fronte alla vastità delle opzioni e ai mutamenti continui che investono il mondo della formazione e il mondo del lavoro è fondamentale sapersi orientare. Un lavoro efficace in tal senso permette più facilmente ai giovani di conoscere, cercare, trovare e sfruttare le opportunità offerte dal panorama italiano e non solo.
-                            </p>
-                        </div>
-                    </div><!-- row -->
-                    <div class="row d-md-inline mt-5">
-                        <a href="https://orienta.unitn.it/" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
-                            <button class="w-auto">Orienta UNITN</button>
-                        </a>
-                        <a href="https://www.offertaformativa.vivoscuola.it/" target="blank" class="btn-lg-default w-100 col-12 col-md-6">
-                            <button class="w-auto">Il portale dell'orientamento</button>
-                        </a>
-                    </div><!--.row -->
-
-                    <div class="col-sm-10 offset-sm-1 mt-5 mb-3">
-                        <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
-                    </div>  
+                    <?php the_content(); ?>
+                    
 
                 </div><!-- content -->
 
@@ -91,6 +74,9 @@ get_header();
                                     
                                     <?php foreach ( $phone as $phone){?>
                                     
+                                    <li>
+                                        <p><?php echo wpautop($ulteriori_informazioni); ?></p>
+                                    </li>
                                     <li>
                                          <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
                                     </li>

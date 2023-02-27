@@ -100,7 +100,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                         
                             
                             <div class="row">
-                                <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
+                                <h2 id="art-par-descrizione"><?php _e("Piano di studi", "design_scuole_italia"); ?></h2>
                                 <div class="col-12">
                                     <div class="article-description wysiwig-text">
                                         <?php the_content(); ?>
