@@ -21,8 +21,9 @@ get_header();
                 'post_parent' => $post->ID,
                 'post_type' => 'page',
                 'post_status' => '',
-                'orderby' => 'title',
-                'order' => 'ASC',);
+                'orderby' => 'menu_order',
+                'order' => 'ASC'
+            );
 
                 query_posts($args);
                 
