@@ -32,6 +32,7 @@
                 <div class="footer-info">
                     <?php
                         $gmaps_scuola = dsi_get_option("gmaps_scuola");
+                        $indirizzo_scuola = dsi_get_option("indirizzo_scuola");
                         $telefono_scuola = dsi_get_option("telefono_scuola");
                         $fax_scuola = dsi_get_option("fax_scuola");
                         $fiscale_scuola = dsi_get_option("fiscale_scuola");
