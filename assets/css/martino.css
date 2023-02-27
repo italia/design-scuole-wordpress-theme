@@ -867,23 +867,11 @@ table td:last-child {
   height: 150px !important;
 }
 
-#main-container-orario-docenti .min-h {
+#main-container-orario .min-h {
   min-height: 18.75rem;
 }
 
-#main-container-orario-docenti .contenitore-img img {
-  width: 100%;
-}
-
-@media (max-width: 1200px) {
-  #main-container-orario-docenti .contenitore-img {
-    overflow: scroll;
-  }
-  #main-container-orario-docenti .contenitore-img img {
-    width: auto;
-  }
-}
-#main-container-orario-docenti #myInput {
+#main-container-orario #myInput {
   background-image: url("/css/searchicon.png");
   /* Add a search icon to input */
   background-position: 10px 12px;
@@ -901,16 +889,16 @@ table td:last-child {
   border-radius: 0.75rem;
 }
 
-#main-container-orario-docenti #myUL {
+#main-container-orario #myUL {
   /* Remove default list styling */
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--char-length, 100px), 1fr));
 }
 
-#main-container-orario-docenti #myUL li a {
+#main-container-orario #myUL li a {
   border: 1px solid #DFE2EB;
   /* Add a border to all links */
   margin-top: -1px;
@@ -928,31 +916,45 @@ table td:last-child {
   height: 100%;
 }
 
-#main-container-orario-docenti #myUL li a:hover:not(.header) {
+#main-container-orario #myUL li a:hover:not(.header) {
   background-color: #DFE2EB;
   /* Add a hover effect to all links, except for headers */
 }
 
-#main-container-orario-docenti img:not(:target) {
+#main-container-orario .contenitore-img {
+  position: relative;
+}
+
+#main-container-orario .contenitore-img .img:not(:target) {
   display: none;
 }
 
-#main-container-orario-docenti img:target {
+#main-container-orario .contenitore-img .img:target {
   display: block;
   padding-top: 50px;
+  width: 100%;
 }
 
-#main-container-orario-docenti mark.highlight {
+#main-container-orario .contenitore-img .img:target .img-wrapper {
+  overflow-x: scroll;
+  text-align: center;
+}
+
+#main-container-orario .contenitore-img .img:target .img-wrapper img {
+  margin-inline: auto;
+}
+
+#main-container-orario mark.highlight {
   padding: 0;
   font-weight: bold;
   background-color: transparent;
 }
 
-#main-container-orario-docenti .z-index-1 {
+#main-container-orario .z-index-1 {
   z-index: 1;
 }
 
-#main-container-orario-docenti .z-index-0 {
+#main-container-orario .z-index-0 {
   z-index: 0;
 }
 
