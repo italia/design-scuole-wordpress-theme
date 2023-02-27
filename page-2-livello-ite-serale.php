@@ -20,28 +20,17 @@ get_header();
                 <div class="row main-content variable-gutters">
 
                     <div class="col-lg-8 my-5">
-                        <div class="row pt-5">
-                            <p>Il corso serale presente all’Istituto Martino Martini è il Tecnico Economico, indirizzo Amministrazione, Finanza e Marketing, articolazione AFM.</p>
-                        </div>
-                        <div id="image-block" class="row col-10 offset-1">
-                            <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
-                        </div>
-                        <div class="row pt-2">
-                            <p>Le lezioni si svolgono da lunedì a venerdì dalle ore 19.00 alle ore 23.20. Da lunedì a giovedì in presenza nella sede di via Perlasca n. 4 a Mezzolombardo, il venerdì a distanza tramite Meet. <br>
-                            All'atto dell'iscrizione ogni studente sarà dotato di un account di tipo nome.cognome@martinomartini.eu che permetterà di accedere a Google Workspace, risorsa chiave per il corso serale, dove condivisione e collaborazione sono elementi imprescindibili per il successo formativo dei frequentanti. <br>
-                            <br>
-                            Gli aspetti più significativi del corso serale sono:
-                                <ul class="pl-0">
-                                    <li>Riduzione dell'orario settimanale di lezione (27 ore settimanali distribuite su 5 giorni)</li>
-                                    <li>Riconoscimento di crediti formativi e professionali</li>
-                                    <li>Adozione di percorsi didattici che valorizzano le esperienze culturali e professionali degli studenti</li>
-                                    <li>Organizzazione delle attività didattiche secondo una logica modulare</li>
-                                    <li>Flessibilità dei percorsi formativi</li>
-                                </ul>
-                            </p>
-                            
-                        </div>
+                        <div class="row">
+                            <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
+                            <div class="col-12">
+                                <div class="article-description wysiwig-text">
+                                    <?php the_content(); ?>
+                                </div>
+                            </div><!-- /col-lg-9 -->
+                        </div><!-- /row -->
+                        
                     </div><!-- /main content -->
+
 
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
