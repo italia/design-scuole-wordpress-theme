@@ -16,20 +16,32 @@ get_header();
         <div class="container mb-5 martini-list">        
             <div>
             <?php   
-                $args = array(
-                'posts_per_page' => -1,
-                'post_parent' => $post->ID,
-                'post_type' => 'page',
-                'post_status' => '',
-                'orderby' => 'title',
-                'order' => 'ASC',);
+                if (is_page('orari')) {
+                    $terms = get_terms(array(
+                        'taxonomy' => 'orari',
+                    ));
+                    foreach ($terms as $term){
+                        get_template_part("template-parts/list/page-list", null, array(
+                            "id" => $term->ID,
+                            "link" => get_term_link($term),
+                            "title" => $term->name,
+                        )); 
+                    }
+                } else {
+                    $loop = new WP_Query(array(
+                        'posts_per_page' => -1,
+                        'post_parent' => $post->ID,
+                        'post_type' => 'page',
+                        'post_status' => '',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                    ));
 
-                query_posts($args);
-                
-                if(have_posts()) {
-                    while (have_posts()) : the_post(); 
-                        get_template_part("template-parts/list/page-list"); 
-                    endwhile; 
+                    if($loop->have_posts()) {
+                        while ($loop->have_posts()) : $loop->the_post(); 
+                            get_template_part("template-parts/list/page-list"); 
+                        endwhile; 
+                    }
                 } 
             ?>
             </div>
