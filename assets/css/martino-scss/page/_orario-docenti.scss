@@ -1,21 +1,7 @@
-#main-container-orario-docenti {
+#main-container-orario {
 
   .min-h {
     min-height: px2rem(300px);
-  }
-
-  .contenitore-img img{
-    width: 100%;
-  }
-
-  @media (max-width: 1200px) {
-    .contenitore-img {
-      overflow: scroll;
-      
-      img{
-        width: auto;
-      }
-    }
   }
 
   #myInput {
@@ -42,39 +28,53 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--char-length, 100px), 1fr));
+
+    li a {
+      border: 1px solid $surface-variant;
+      /* Add a border to all links */
+      margin-top: -1px;
+      /* Prevent double borders */
+      background-color: $surface;
+      /* Grey background color */
+      padding: 12px;
+      /* Add some padding */
+      text-decoration: none;
+      /* Remove default text underline */
+      color: $black;
+      /* Add a black text color */
+      display: block;
+      /* Make it into a block element to fill the whole list */
+      height: 100%;
+
+      &:hover:not(.header) {
+        background-color: $surface-variant;
+        /* Add a hover effect to all links, except for headers */
+      }
+    }
   }
 
-  #myUL li a {
-    border: 1px solid $surface-variant;
-    /* Add a border to all links */
-    margin-top: -1px;
-    /* Prevent double borders */
-    background-color: $surface;
-    /* Grey background color */
-    padding: 12px;
-    /* Add some padding */
-    text-decoration: none;
-    /* Remove default text underline */
-    color: $black;
-    /* Add a black text color */
-    display: block;
-    /* Make it into a block element to fill the whole list */
-    height: 100%;
-  }
+  .contenitore-img {
+    .img:not(:target) {
+      display: none;
+    }
 
-  #myUL li a:hover:not(.header) {
-    background-color: $surface-variant;
-    /* Add a hover effect to all links, except for headers */
-  }
+    position: relative;
 
-  img:not(:target) {
-    display: none;
-  }
+    .img:target {
+      display: block;
+      padding-top: 50px;
+      width: 100%;
 
-  img:target {
-    display: block;
-    padding-top: 50px
+      .img-wrapper {
+        overflow-x: scroll;
+        text-align: center;
+        
+        img {
+          margin-inline: auto;
+        }
+      }
+    }
   }
 
   mark.highlight {
