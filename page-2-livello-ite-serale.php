@@ -15,6 +15,45 @@ get_header();
 
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
+
+        <?php
+        while ( have_posts() ) :
+            the_post();
+            set_views($post->ID);
+            $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
+
+            // get all post meta cmb2
+            $percorsi = dsi_get_percorsi_of_scuola($post);
+            // print_r($percorsi);
+            //$sottotitolo = dsi_get_meta("sottotitolo");
+
+            // $link_struttura_didattica = dsi_get_meta("link_struttura_didattica");
+
+            $carriera = dsi_get_meta("carriera");
+            $programma = dsi_get_meta("programma");
+            $descrizione = dsi_get_meta("descrizione");
+            $corso_di_studio = dsi_get_meta("corso_di_studio");
+            $iscrizione_selezioni = dsi_get_meta("iscrizione_selezioni");
+
+            $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
+            $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+
+            $fasi_scadenze = dsi_get_meta("fasi_scadenze");
+            
+            $luoghi = dsi_get_meta("luoghi");
+           
+            $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
+            $libri_testo_file = dsi_get_meta("libri_testo_file");
+
+            $link_schede_documenti = dsi_get_meta("link_schede_documenti");
+            $file_documenti = dsi_get_meta("file_documenti");
+            $altre_info = dsi_get_meta("altre_info");
+
+       
+            $mail = dsi_get_meta("mail");
+            $telefono = dsi_get_meta("telefono");
+            ?>
+
         <section id="text-block" class="section bg-white">
             <div class="container">
                 <div class="row main-content variable-gutters">
