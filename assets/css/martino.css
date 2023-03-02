@@ -848,7 +848,7 @@ table td:last-child {
     max-width: 19%;
   }
 }
-/* the_content */
+/* the_contet */
 .iscriviti p {
   font-size: clamp(20px, -4px + 4.16666667vw, 28px);
   line-height: clamp(24px, -24px + 8.33333333vw, 40px);
@@ -858,27 +858,54 @@ table td:last-child {
 }
 
 /* loop */
-#loop_orientamento .card-img img {
-  height: 150px !important;
+.orientamento {
+  padding: 1rem;
 }
 
-#main-container-orario-docenti .min-h {
+.orientamento__post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #F0F0F3;
+  padding: 1rem;
+  min-height: 20rem;
+  border-radius: 0.4rem;
+}
+
+.orientamento__post__title {
+  margin: 1rem 0;
+}
+
+.orientamento__post__text {
+  margin: 1rem 0;
+}
+
+.orientamento__post__link__button {
+  background-color: #1260A4;
+  padding: 0.6rem 1.3rem;
+  color: #fff;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.orientamento__post__link__button:hover {
+  background-color: #0073E6;
+}
+
+.referente__list {
+  list-style: disc;
+}
+
+.referente__list__item {
+  padding: 0.4rem 0;
+}
+
+#main-container-orario .min-h {
   min-height: 18.75rem;
 }
 
-#main-container-orario-docenti .contenitore-img img {
-  width: 100%;
-}
-
-@media (max-width: 1200px) {
-  #main-container-orario-docenti .contenitore-img {
-    overflow: scroll;
-  }
-  #main-container-orario-docenti .contenitore-img img {
-    width: auto;
-  }
-}
-#main-container-orario-docenti #myInput {
+#main-container-orario #myInput {
   background-image: url("/css/searchicon.png");
   /* Add a search icon to input */
   background-position: 10px 12px;
@@ -896,16 +923,16 @@ table td:last-child {
   border-radius: 0.75rem;
 }
 
-#main-container-orario-docenti #myUL {
+#main-container-orario #myUL {
   /* Remove default list styling */
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--char-length, 100px), 1fr));
 }
 
-#main-container-orario-docenti #myUL li a {
+#main-container-orario #myUL li a {
   border: 1px solid #DFE2EB;
   /* Add a border to all links */
   margin-top: -1px;
@@ -923,31 +950,45 @@ table td:last-child {
   height: 100%;
 }
 
-#main-container-orario-docenti #myUL li a:hover:not(.header) {
+#main-container-orario #myUL li a:hover:not(.header) {
   background-color: #DFE2EB;
   /* Add a hover effect to all links, except for headers */
 }
 
-#main-container-orario-docenti img:not(:target) {
+#main-container-orario .contenitore-img {
+  position: relative;
+}
+
+#main-container-orario .contenitore-img .img:not(:target) {
   display: none;
 }
 
-#main-container-orario-docenti img:target {
+#main-container-orario .contenitore-img .img:target {
   display: block;
   padding-top: 50px;
+  width: 100%;
 }
 
-#main-container-orario-docenti mark.highlight {
+#main-container-orario .contenitore-img .img:target .img-wrapper {
+  overflow-x: auto;
+  text-align: center;
+}
+
+#main-container-orario .contenitore-img .img:target .img-wrapper img {
+  margin-inline: auto;
+}
+
+#main-container-orario mark.highlight {
   padding: 0;
   font-weight: bold;
   background-color: transparent;
 }
 
-#main-container-orario-docenti .z-index-1 {
+#main-container-orario .z-index-1 {
   z-index: 1;
 }
 
-#main-container-orario-docenti .z-index-0 {
+#main-container-orario .z-index-0 {
   z-index: 0;
 }
 
