@@ -134,7 +134,7 @@ function cmb2_sample_metaboxes() {
     // Id's for group's fields only need to be unique for the group. Prefix is not needed.
     $cmb->add_group_field( $group_field_id, array(
         'name' => 'Nome contatto',
-        'id'   => 'title',
+        'id'   => 'nome_contatto',
         'type' => 'text',
         // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
     ) );
@@ -142,7 +142,7 @@ function cmb2_sample_metaboxes() {
     $cmb->add_group_field( $group_field_id, array(
         'name' => 'Numero di telefono',
         'description' => 'Write a short description for this entry',
-        'id'   => 'description',
+        'id'   => 'numero_contatto',
         'type' => 'text',
     ) );
 

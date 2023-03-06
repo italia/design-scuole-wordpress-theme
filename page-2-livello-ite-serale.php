@@ -227,16 +227,25 @@ get_header();
                                 <?php
                                 if(is_array ($contatti_telefonici) && count($contatti_telefonici) && strlen($contatti_telefonici[0])){ ?>
                                 <h6>Telefono</h6>
-                                <ul class="">
+                                <div class="col-12">
                                     
-                                    <?php foreach ( $contatti_telefonici as $contatti_telefonici){?>
+                                    <?php foreach ( $contatti_telefonici as $nome_contatto){?>
                                     
-                                    <li>
-                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
-                                    </li>
+                                    <div class="col-6">
+                                         <p href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </p> 
+                                    </div>
                                     <?php }?>
+
+                                    <?php foreach ( $contatti_telefonici as $numero_contatto){?>
+                                    
+                                    <div class="col-6">
+                                         <p href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </p> 
+                                    </div>
+                                    <?php }?>
+
+
                                    
-                                </ul>
+                                </div>
 
                                 <?php } ?>
 
