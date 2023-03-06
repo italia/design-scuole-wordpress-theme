@@ -14,7 +14,7 @@
 		                    'item_tag'        => 'li',
 		                    'show_on_front'   => true,
 		                    'network'         => false,
-		                    'show_title'      => true,
+		                    'show_title'      => $args!==ORARI_POST_TYPE,
 		                    'show_browse'     => false,
 		                    'labels'          => array(
 			                    'search'      => esc_html__( 'Risultati Ricerca: %s','design_scuole_italia' ),

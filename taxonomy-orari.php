@@ -13,7 +13,7 @@ $term = get_queried_object();
 ?>
 
 <main id="main-container-orario" class="main-container">
-    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <?php get_template_part("template-parts/common/breadcrumb", null, ORARI_POST_TYPE); ?>
 	<section class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-12">
@@ -43,7 +43,7 @@ $term = get_queried_object();
 						));
 						if ($loop->have_posts()) {
 							while ($loop->have_posts()) : $loop->the_post();
-								console_log(get_the_title());
+								// console_log(get_the_title());
 						?>
 								<li><a href="#orario-<?php echo urlencode(get_the_title()).'-'.get_the_ID(); ?>"><?php the_title(); ?></a></li>
 						<?php
