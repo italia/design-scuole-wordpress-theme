@@ -52,6 +52,7 @@ get_header();
        
             $mail = dsi_get_meta("mail");
             $telefono = dsi_get_meta("telefono");
+            $contatti_telefonici = dsi_get_meta("contatti_telefonici");
             ?>
 
         <section id="text-block" class="section bg-white">
@@ -69,6 +70,88 @@ get_header();
                         </div><!-- /row -->
                         
                     </div><!-- /main content -->
+
+                    <?php
+                            // do action per innestare elementi tramite plugin / child theme
+                            do_action("dsi_indirizzo_content_after_description");
+                            ?>
+                            
+                            <!-- TABELLA ORARIO SETTIMANALE -->
+                             <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
+                                <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
+
+                                <div class="row variable-gutters pt-5">
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-12 px-0 wysiwig-text">
+                                            <?php echo wpautop($calendario_classi_descrizione); ?>
+                                        </div>
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php global $idfile, $nomefile;
+                                            if (is_array($calendario_classi_file) && count($calendario_classi_file) > 0) {
+
+                                                foreach ($calendario_classi_file as $idfile => $nomefile) {
+                                                    get_template_part("template-parts/documento/file");
+                                                }
+                                            }
+                                            ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } ?>
+
+
+                            <div class="pt-5">
+                                    <?php         
+                                // print_r($fasi_scadenze);
+                                if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
+                                    ?>
+                                    <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9">
+                                            <div class="calendar-vertical mb-5">
+                                                <?php
+                                                foreach ($fasi_scadenze as $fase){
+                                                    $arrdata =  explode("-", $fase["data_fase"]);
+                                                    $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
+
+                                                    ?>
+                                                    <div class="calendar-date">
+                                                        <div class="calendar-date-day">
+                                                            <small><?php echo $arrdata[2]; ?></small>
+                                                            <p><?php echo $arrdata[0]; ?></p>
+                                                            <small><b><?php echo $monthName; ?></b></small>
+                                                        </div><!-- /calendar-date-day -->
+                                                        <div class="calendar-date-description rounded">
+                                                            <div class="calendar-date-description-content">
+                                                                <?php echo wpautop($fase["desc_fase"]); ?>
+                                                            </div><!-- /calendar-date-description-content -->
+                                                        </div><!-- /calendar-date-description -->
+                                                    </div><!-- /calendar-date -->
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div><!-- /calendar-vertical -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }?>
+                            </div>
+                            
+                            <div class="pt-5">
+                                    <?php
+                                if(trim($altre_info) != ""){
+                                    ?>
+                                    <h4 id="art-par-altre-info"><?php _e("Altre informazioni", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9 wysiwig-text">
+                                            
+                                            <?php echo wpautop($altre_info); ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    
+                                    <?php
+                                }?>
+                            </div>
 
 
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
@@ -123,7 +206,8 @@ get_header();
                                 <!-- Campo contatti -->
                                 <?php 
                                 $emails = get_post_meta( get_the_ID(), 'martini_email', true );
-                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+                                // $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+                                $contattiphone = get_post_meta( get_the_ID(), 'martini_phone', true )
 
                                 
                                 if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
@@ -141,11 +225,11 @@ get_header();
                                 <?php } ?>
 
                                 <?php
-                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
+                                if(is_array ($contatti_telefonici) && count($contatti_telefonici) && strlen($contatti_telefonici[0])){ ?>
                                 <h6>Telefono</h6>
                                 <ul class="">
                                     
-                                    <?php foreach ( $phone as $phone){?>
+                                    <?php foreach ( $contatti_telefonici as $contatti_telefonici){?>
                                     
                                     <li>
                                          <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
