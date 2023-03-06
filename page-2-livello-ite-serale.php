@@ -47,8 +47,13 @@ get_header();
 
        
             $mail = dsi_get_meta("mail");
+<<<<<<< Updated upstream
             $telefono = dsi_get_meta("telefono");
             $contatti_telefonici = dsi_get_meta("contatti_telefonici");
+=======
+            // $telefono = dsi_get_meta("telefono");
+            $riferimenti_telefonici = dsi_get_meta("riferimenti_telefonici");
+>>>>>>> Stashed changes
             ?>
 
         <section id="text-block" class="section bg-white">
@@ -303,21 +308,21 @@ get_header();
                                 <?php } ?>
 
                                 <?php
-                                if(is_array ($contatti_telefonici) && count($contatti_telefonici) && strlen($contatti_telefonici[0])){ ?>
+                                if(is_array ($riferimenti_telefonici) && count($riferimenti_telefonici) && strlen($riferimenti_telefonici[0])){ ?>
                                 <h6>Telefono</h6>
                                 <div class="col-12">
                                     
-                                    <?php foreach ( $contatti_telefonici as $nome_contatto){?>
+                                    <?php foreach ( $riferimenti_telefonici as $nome_contatto){?>
                                     
                                     <div class="col-6">
-                                         <p href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </p> 
+                                         <p href="tel:<?php echo $phonnome_contattoe;?>"> <?php echo $nome_contatto;?> </p> 
                                     </div>
                                     <?php }?>
 
                                     <?php foreach ( $contatti_telefonici as $numero_contatto){?>
                                     
                                     <div class="col-6">
-                                         <p href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </p> 
+                                         <p href="tel:<?php echo $numero_contatto;?>"> <?php echo $numero_contatto;?> </p> 
                                     </div>
                                     <?php }?>
 
