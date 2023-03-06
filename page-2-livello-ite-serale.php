@@ -47,13 +47,7 @@ get_header();
 
        
             $mail = dsi_get_meta("mail");
-<<<<<<< Updated upstream
-            $telefono = dsi_get_meta("telefono");
             $contatti_telefonici = dsi_get_meta("contatti_telefonici");
-=======
-            // $telefono = dsi_get_meta("telefono");
-            $riferimenti_telefonici = dsi_get_meta("riferimenti_telefonici");
->>>>>>> Stashed changes
             ?>
 
         <section id="text-block" class="section bg-white">
@@ -290,7 +284,7 @@ get_header();
                                 <?php 
                                 $emails = get_post_meta( get_the_ID(), 'martini_email', true );
                                 // $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
-                                $contattiphone = get_post_meta( get_the_ID(), 'martini_phone', true )
+                                $contattiphone = get_post_meta( get_the_ID(), 'martini_phone', true );
 
                                 
                                 if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
