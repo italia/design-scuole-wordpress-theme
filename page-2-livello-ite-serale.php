@@ -40,10 +40,6 @@ get_header();
 
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             
-            $luoghi = dsi_get_meta("luoghi");
-           
-            $libri_testo_descrizione = dsi_get_meta("libri_testo_descrizione");
-            $libri_testo_file = dsi_get_meta("libri_testo_file");
 
             $link_schede_documenti = dsi_get_meta("link_schede_documenti");
             $file_documenti = dsi_get_meta("file_documenti");
@@ -51,7 +47,7 @@ get_header();
 
        
             $mail = dsi_get_meta("mail");
-            $telefono = dsi_get_meta("telefono");
+            // $telefono = dsi_get_meta("telefono");
             $contatti_telefonici = dsi_get_meta("contatti_telefonici");
             ?>
 
