@@ -347,7 +347,7 @@ class Breadcrumb_Trail {
 			// todo: rendere dinamiche le url del breadcrumb in base al template di pagina
 			// If viewing an archive page.
 			elseif ( is_archive() ) {
-                if(is_post_type_archive(array("luogo", "documento","struttura")))
+                if(is_post_type_archive(array("luogo", "documento","struttura", "orari")))
                     $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
 
                 else if(is_post_type_archive(array("indirizzo")))
