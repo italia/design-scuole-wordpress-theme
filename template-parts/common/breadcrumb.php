@@ -21,9 +21,10 @@
                             ),
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
-                                'indirizzo'  => 'percorsi-di-studio',
+                                 'indirizzo'  => 'percorsi-di-studio',
 			                     'documento'  => 'tipologia-documento',
 			                     'post'  =>     'tipologia-articolo',
+								 'orari'  =>     'orari',
 			                     'luogo'  => 'tipologia-luogo',
 			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',
