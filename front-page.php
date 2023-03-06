@@ -50,12 +50,32 @@
             <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="orario-docenti">
-              <button>Orario docenti</button>
+            <?php 
+            // todo: Query homepage's list of buttons from database and not hardcoding it
+            $show_orari = array(
+              array(
+                'term'  => 'docenti',
+                'label' => 'Orario docenti'
+              ),
+              array(
+                'term'  => 'classi', 
+                'label' => 'Orario classi' 
+              ),
+            );
+            foreach ($show_orari as $orario ) {
+              $term = get_term_by('slug', $orario['term'], ORARI_TAXONOMY);
+              if ($term) {
+                $term_link = get_term_link($term);
+                if (!is_wp_error($term_link)) {
+                  ?>
+            <a class="btn-lg-default-outline w-100" href="<?php echo $term_link; ?>">
+              <button><?php echo $orario['label']; ?></button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="orari-classi">
-              <button>Orari classi</button>
-            </a>
+                  <?php
+                }
+              }
+            }
+            ?>
             <a class="btn-lg-default-outline w-100" href="https://docs.google.com/spreadsheets/d/1VHINpeHLCE1BzyHgD-GEQVTaRM91HiF9GzLCqdZGqEA/edit?usp=sharing" target="blank">
               <button>Dislocazione aule</button>
             </a>
