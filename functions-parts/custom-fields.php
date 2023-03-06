@@ -115,6 +115,38 @@ function cmb2_sample_metaboxes() {
     ) );   
 
 }
+    // Gruppo contatti telefonici
+    $group_field_id = $cmb->add_field( array(
+    'id'          => 'contatti_telefonici',
+    'type'        => 'group',
+    'description' => __( 'Inserisci i contatti telefonici', 'cmb2' ),
+    // 'repeatable'  => false, // use false if you want non-repeatable group
+    'options'     => array(
+        'group_title'       => __( 'Entry {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+        'add_button'        => __( 'Aggiungi contatto', 'cmb2' ),
+        'remove_button'     => __( 'Elimina contatto', 'cmb2' ),
+        'sortable'          => true,
+        // 'closed'         => true, // true to have the groups closed by default
+        // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+    ),
+) );
+
+    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => 'Nome contatto',
+        'id'   => 'title',
+        'type' => 'text',
+        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+    ) );
+
+    $cmb->add_group_field( $group_field_id, array(
+        'name' => 'Numero di telefono',
+        'description' => 'Write a short description for this entry',
+        'id'   => 'description',
+        'type' => 'text',
+    ) );
+
+
 
 /**
  * Sample template tag function for outputting a cmb2 file_list
