@@ -47,7 +47,7 @@ get_header();
 
        
             $mail = dsi_get_meta("mail");
-            // $telefono = dsi_get_meta("telefono");
+            $telefono = dsi_get_meta("telefono");
             $contatti_telefonici = dsi_get_meta("contatti_telefonici");
             ?>
 
