@@ -95,7 +95,7 @@ get_header();
                                     }
                                     echo "</small>";
                                 }  ?>
-                                <h2 class="mb-3"><?php the_title(); ?></h2>
+                                <h1 class="mb-3"><?php the_title(); ?></h1>
 
                                 <?php echo wpautop($descrizione); ?>
 
