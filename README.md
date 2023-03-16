@@ -11,6 +11,7 @@
 
 Per scaricare il tema hai le seguenti opzioni:
 
++ scaricare lo zip della versione all'interno delle [release del tema](https://github.com/italia/design-scuole-wordpress-theme/releases)
 + eseguire un **fork** del repository cliccando sul pulsante in alto a destra <br>
   ![fork](https://user-images.githubusercontent.com/69706/188415997-2dfee9d2-2c45-4f5b-babd-d4f328770f04.png)
 + eseguire un **fork** del repository tramite il comando `git fork https://github.com/italia/design-scuole-wordpress-theme.git` da terminale
