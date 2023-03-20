@@ -857,6 +857,18 @@ table td:last-child {
   color: #001C39 !important;
 }
 
+#more {
+  display: none;
+}
+
+#readMoreBtn {
+  margin-top: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-weight: 600;
+}
+
 /* loop */
 .orientamento {
   padding: 1rem;
@@ -898,7 +910,7 @@ table td:last-child {
 }
 
 .referente__list__item {
-  padding: 0.4rem 0;
+  padding: 0.4rem 1.4rem;
 }
 
 #main-container-orario .min-h {

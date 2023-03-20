@@ -26,6 +26,17 @@
     color: $on-primary-container !important;
 }
 
+#more{
+    display: none;
+}
+#readMoreBtn{
+    margin-top: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font-weight: 600;
+}
+
 
 /* loop */
 
@@ -68,7 +79,7 @@
     &__list{
         list-style: disc;
         &__item{
-            padding: 0.4rem 0;
+            padding: 0.4rem 1.4rem;
         }
     }
 

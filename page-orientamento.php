@@ -78,8 +78,8 @@
             <div class="col-12 col-md-10 referente">
                 <h3 class="mb-4 referente__title">Referente Orientamento</h3>
                 <p>Per l’anno scolastico in corso, il referente dell’orientamento terze medie è la prof.ssa Marta Leoni: <a href="mailto:marta.leoni@martinomartini.eu" target="_blank"> marta.leoni@martinomartini.eu </a></p>
-                <p>La sua funzione consiste:</p>
-                <ul class="referente__list">
+                <p>La sua funzione consiste: <span id="dots"> ...</span></p>                
+                <ul id="more" class="referente__list">
                     <li class="referente__list__item">nel programmare le varie attività di orientamento a favore degli studenti di terza media e dei loro genitori che li accompagnano in questo delicato passaggio del loro percorso formativo;</li>
                     <li class="referente__list__item">nel raccordarsi con le varie scuole medie del Trentino per assicurare loro l’intervento della Dirigente, dello stesso referente, di altri docenti o di studenti di uno o l’altro indirizzo di studi in base alle esigenze e ai desideri espressi e al tipo di iniziativa prevista presso le loro sedi;</li>
                     <li class="referente__list__item">nel raccordarsi in particolare con le scuole medie di Mezzolombardo, Mezzocorona e Lavis per raccogliere le aspettative e rispondere al meglio al bisogno di orientamento dei ragazzi del bacino naturale di utenza;</li>
@@ -92,6 +92,7 @@
                     <li class="referente__list__item">nell’incontrare individualmente o a piccoli gruppi coloro che sono impossibilitati a partecipare alle attività di orientamento aperte a tutti;</li>
                     <li class="referente__list__item">nell’organizzare i test di ingresso, dalla fase della raccolta delle iscrizioni fino alla comunicazione degli esiti, passando attraverso le fasi della trasmissione delle informazioni dettagliate sui test, della stesura delle tracce e della somministrazione delle prove presso i laboratori informatici dell’Istituto.</li>
                 </ul>
+                <button onclick="readMore()" id="readMoreBtn">Leggi di più</button>
             </div>
         </div>
     </section>
