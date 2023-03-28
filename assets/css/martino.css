@@ -2548,3 +2548,23 @@ body {
   width: 200vw;
   background-color: #DFE2EB;
 }
+
+.TS_VGallery_blocks-gallery-item figure {
+  background: #F0F0F3 !important;
+  padding: 2rem !important;
+}
+
+.TS_VGallery_blocks-gallery-item figure h3 {
+  margin-top: 2rem !important;
+  font-weight: 600 !important;
+}
+
+.TS_VGallery_blocks-gallery-item figure figcaption p {
+  font-family: sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.2rem !important;
+}
+
+.TS_VGallery_blocks-gallery-item figure:hover {
+  background: #C3C6CF !important;
+}
