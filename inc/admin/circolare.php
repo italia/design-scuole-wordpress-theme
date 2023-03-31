@@ -486,7 +486,7 @@ add_action( 'admin_print_scripts-post.php', 'dsi_circolare_admin_script', 9 );
 function dsi_circolare_admin_script() {
     global $post_type;
     if( 'circolare' == $post_type )
-        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/circolare.js' );
+        wp_enqueue_script( 'luogo-admin-script', get_template_directory_uri() . '/inc/admin-js/circolare.js' );
 }
 
 

@@ -393,5 +393,5 @@ add_action( 'admin_print_scripts-user-new.php', 'dsi_utente_admin_script', 11 );
 add_action( 'admin_print_scripts-profile.php', 'dsi_utente_admin_script', 11 );
 
 function dsi_utente_admin_script() {
-		wp_enqueue_script( 'utente-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/persona.js' );
+		wp_enqueue_script( 'utente-admin-script', get_template_directory_uri() . '/inc/admin-js/persona.js' );
 }

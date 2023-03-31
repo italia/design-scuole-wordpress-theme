@@ -204,7 +204,7 @@ function dsi_register_classe_metabox() {
 
 function dsi_classe_admin_script() {
 
-        wp_enqueue_script( 'classe-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/classe.js' );
+        wp_enqueue_script( 'classe-admin-script', get_template_directory_uri() . '/inc/admin-js/classe.js' );
 }
 
 

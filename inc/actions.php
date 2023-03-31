@@ -67,7 +67,7 @@ function dsi_hide_editor() {
  */
 
 function dsi_admin_css_load() {
-    wp_enqueue_style( 'style-admin-css', get_stylesheet_directory_uri() . '/inc/admin-css/style-admin.css' );
+    wp_enqueue_style( 'style-admin-css', get_template_directory_uri() . '/inc/admin-css/style-admin.css' );
 }
 
 add_action( 'admin_enqueue_scripts', 'dsi_admin_css_load' );
