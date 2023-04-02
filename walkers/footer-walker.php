@@ -24,8 +24,6 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 			$custom_data = 'data-element="privacy-policy-link"';
 		} else if ( $item->post_name == 'dichiarazione-di-accessibilita' || stripos( $item->title, 'accessibilità' ) !== false ) { 
 			$custom_data = 'data-element="accessibility-link"';
-		} else if ( $item->post_name == 'note-legali' || stripos( $item->title, 'note' ) !== false ) {
-			$custom_data = 'data-element="legal-notes"';
 		}
 		if ($item->url) {
 			$output .= '<a class="text-underline-hover" href="' . $item->url . '" '.$custom_data.'>';
