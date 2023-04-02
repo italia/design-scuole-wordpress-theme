@@ -295,3 +295,9 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+/*redirect dopo login*/
+function custom_login_redirect() {
+return 'index.php';
+}
+add_filter('login_redirect', 'custom_login_redirect');
+/* fine */
