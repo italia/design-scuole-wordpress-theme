@@ -46,8 +46,7 @@ get_header();
         $altre_info = dsi_get_meta("altre_info");
 
 
-        $mail = dsi_get_meta("mail");
-        $contatti_telefonici = dsi_get_meta("contatti_telefonici");
+        
     ?>
 
         <section id="text-block" class="section bg-white">
@@ -273,35 +272,7 @@ get_header();
                                 }
                                 ?>
                                 <!-- //Info variabili -->
-
-                                <h5>Contatti</h5>
-
-                                <ul>
-
-                                    <!-- Campo contatti -->
-                                    <?php
-                                    $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
-                                    foreach ($martini_group_contact as $martini_contact) {
-                                        $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
-                                        $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
-                                        $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
-
-                                        <li>
-                                            <?php if ($martini_contact["martini_contatto"] != "") echo '<h6> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
-                                            <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
-                                            <br>
-                                            <?php if ($martini_contact["martini_email"] != "") echo '<a> ' . $martini_contact["martini_email"] . ' </a>'; ?>
-                                        </li>
-
-                                    <?php
-                                    }
-                                    ?>
-
-                                </ul>
-
-
-                                <!--/Campo contatti -->
-
+                                
                                 <!-- Campo modulistica -->
                                 <?php
                                 $multidocuments_download = get_post_meta(get_the_ID(), 'documents_download', true);
@@ -338,6 +309,35 @@ get_header();
                                     </ul>
                                 <?php } ?>
                                 <!--/Campo link -->
+
+                                <!-- Campo contatti -->
+                                    <div class="col-12">
+                                        <div class="mailfield pb-1">
+                                            <ul>      
+                                                <?php
+                                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
+
+                                                foreach ($martini_group_contact as $martini_contact) {
+                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+
+                                                    <li>
+                                                        <?php if ($martini_contact["martini_contatto"] != "") echo '<h6> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                        <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                        <br>
+                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                    </li>
+                                                
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--/Campo contatti -->
+
                             </div>
                         </aside>
                     </div> <!--/ sidebar -->

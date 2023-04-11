@@ -339,26 +339,33 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                 }
                                 ?>
 
-                                <?php
-                                if($telefono || $mail){
-                                ?>
-                                <div class="row variable-gutters mb-4" >
+                                <!-- Campo contatti -->
                                     <div class="col-12">
-                                        <h5 id="art-par-contatti"><?php _e("Contatti", "design_scuole_italia"); ?></h5>
-                                        <div>
-                                            <div class="mailfield pb-1">
-                                                <ul>
-                                                    <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <a href="tel:$telefono"><?php echo  $telefono; ?></a></li><?php } ?> 
-                                                    
-                                                    <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <a href="mailto:$mail"><?php echo $mail;  ?></a></li><?php } ?>
-                                                </ul>
-                                            </div>
+                                        <div class="mailfield pb-1">
+                                            <ul>      
+                                                <?php
+                                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
+
+                                                foreach ($martini_group_contact as $martini_contact) {
+                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+
+                                                    <li>
+                                                        <?php if ($martini_contact["martini_contatto"] != "") echo '<h6> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                        <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                        <br>
+                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                    </li>
+                                                
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <?php
-                                }
-                                ?>
+                                    <!--/Campo contatti -->
 
                                 <?php
                                 if(is_array($luoghi) && count($luoghi) > 0){
