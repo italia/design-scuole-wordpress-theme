@@ -115,30 +115,38 @@ function cmb2_sample_metaboxes() {
     ) );   
 
         // Gruppo contatti telefonici
-    $group_field_id = $cmb->add_field( array(
-        'id'          => 'riferimenti_telefonici',
+    $martini_group_contact = $cmb->add_field( array(
+        'id'          => 'martini_group_contact',
         'type'        => 'group',
         'description' => __( 'Inserisci i contatti telefonici', 'cmb2' ),
         'repeatable'  => true, // use false if you want non-repeatable group
         'options'     => array(
-            'group_title'       => __( 'Entry {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+            'group_title'       => __( 'Contatto {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
             'add_button'        => __( 'Aggiungi contatto', 'cmb2' ),
             'remove_button'     => __( 'Elimina contatto', 'cmb2' ),
         ),
     ) );
 
     // Id's for group's fields only need to be unique for the group. Prefix is not needed.
-    $cmb->add_group_field( $group_field_id, array(
+    $cmb->add_group_field( $martini_group_contact, array(
         'name' => 'Nome contatto',
-        'id'   => 'nome_contatto',
+        'id'   => 'martini_contatto',
         'type' => 'text',
     ) );
 
-    $cmb->add_group_field( $group_field_id, array(
+    $cmb->add_group_field( $martini_group_contact, array(
         'name' => 'Numero di telefono',
-        'description' => 'Write a short description for this entry',
-        'id'   => 'numero_contatto',
+        'description' => 'inserisci qui il numero di telefono',
+        'id'   => 'martini_numero_contatto',
         'type' => 'text',
+    ) );
+
+    // Email text field
+    $cmb->add_group_field( $martini_group_contact, array(
+        'name' => __( 'Email', 'cmb2' ),
+        'desc' => __( 'inserisci qui la email', 'cmb2' ),
+        'id'   => 'martini_email',
+        'type' => 'text_email',
     ) );
 
 
@@ -167,6 +175,6 @@ function cmb2_output_file_list( $file_list_meta_id, $img_size = 'medium' ) {
         echo '</div>';
     }
     echo '</div>';
-}
+};
 
 ?>
