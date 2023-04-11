@@ -100,7 +100,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                         
                             
                             <div class="row">
-                                <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
+                                <h2 id="art-par-descrizione"><?php _e("Il corso", "design_scuole_italia"); ?></h2>
                                 <div class="col-12">
                                     <div class="article-description wysiwig-text">
                                         <?php the_content(); ?>
@@ -119,7 +119,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                                 <div class="row variable-gutters pt-5">
                                     <div class="col-lg-12">
-                                        <div class="col-lg-12 px-0 wysiwig-text">
+                                        <div id="tabella_orario" class="col-lg-12 px-0 wysiwig-text">
                                             <?php echo wpautop($calendario_classi_descrizione); ?>
                                         </div>
                                         <div class="card-deck card-deck-spaced">
@@ -285,7 +285,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                         <!--LOOP NEWS  -->
                         <div class="container col-12">
-                            <?php get_template_part('martini-template-parts/loop/loop-progetti-generale') ?>
+                            
                         </div>
                         
                         

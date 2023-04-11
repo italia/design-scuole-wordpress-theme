@@ -774,6 +774,11 @@ table td:last-child {
   list-style-type: none;
 }
 
+#tabella_orario td {
+  text-align: center;
+  border-bottom: 1px solid #d6dce3;
+}
+
 #main-container details summary {
   list-style-type: none;
 }
@@ -1604,7 +1609,8 @@ body {
 }
 
 #sidebar h6 {
-  margin: 1rem 0;
+  margin: 2rem 0 0.5rem;
+  color: #1260A4;
 }
 
 #sidebar .card {

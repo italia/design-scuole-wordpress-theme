@@ -149,6 +149,8 @@ function cmb2_sample_metaboxes() {
         'type' => 'text_email',
     ) );
 
+    
+
 
 }
 
