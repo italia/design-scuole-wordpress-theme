@@ -472,6 +472,7 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
             $exploded = explode('>',$page);
             $i = 0;
             $aria_label = 'aria-label=';
+            $data_element = 'data-element="pager-link"';
             foreach ($exploded as $str) {
                 if (strpos($str, '<a') !== false) {
                     if (strpos($str, 'next') !== false) $aria_label .= "'Vai alla pagina successiva'";
@@ -480,8 +481,9 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
                         $page_num_array = explode('/',$str);
                         $page_num = $page_num_array[count($page_num_array) - 2];
                         $aria_label .= "'Vai alla pagina ".$page_num."'";
+                        $exploded[$i] .= $aria_label;
                     }
-                    $exploded[$i] .= $aria_label;
+                    $exploded[$i] .= $data_element;
                 }
                 ++$i;
             }
@@ -1108,8 +1110,13 @@ if(!function_exists("dsi_get_img_from_id_url")) {
     function dsi_get_img_from_id_url( $id, $url, $classes = '', $show_title = false) {
         $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
         $image_title = get_the_title( $id );
-
-        $img = '<img src="'.$url.'" ';        
+        if ($url) {
+            $url_parts = parse_url($url);
+            if (str_contains($url_parts['host'], "gravatar.com")) {
+                $image_alt = "Avatar utente";
+            }
+        }
+        $img = '<img src="'.$url.'" ';
         if ($classes) $img .= 'class="'.$classes.'" ';
         if ($image_alt) $img .= 'alt="'.$image_alt.'" ';
         if ($image_title && $show_title) $img .= 'title="'.$image_title.'" ';

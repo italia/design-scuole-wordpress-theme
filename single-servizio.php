@@ -145,7 +145,7 @@ get_header();
                                             </li>
                                         <?php } ?>
                                         <?php
-                                        if($telefono || $mail){
+                                        if($telefono || $mail || (is_array($struttura_responsabile) && count($struttura_responsabile) > 0)){
                                             ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-contatti" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Contatti", "design_scuole_italia"); ?>"><?php _e("Contatti", "design_scuole_italia"); ?></a>
@@ -170,7 +170,7 @@ get_header();
                                 <h2 class="h4" id="art-par-descrizione"><?php _e("Cos'è", "design_scuole_italia"); ?></h2>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <div class="article-description wysiwig-text">
+                                        <div class="article-description wysiwig-text" data-element="service-what-is">
                                             <?php the_content(); ?>
                                         </div>
                                     </div><!-- /col-lg-9 -->
@@ -199,7 +199,7 @@ get_header();
                                 if(trim($come_si_fa) != ""){
                                     ?>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9 wysiwig-text">
+                                        <div class="col-lg-9 wysiwig-text" data-element="service-generic-access">
                                             <?php echo wpautop($come_si_fa); ?>
                                             <?php /* if(trim($canale_fisico_prenotazione) != ""){  ?>
                                                 <div class="btn-wrapper mb-5">
@@ -251,25 +251,25 @@ get_header();
 										?>
 											<div class="col-4 col-md-3">
 												<div class="note">
-													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-spid"></use></svg>
-													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
+													<img alt="Logo SPID" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/mini-logo-spid.svg' ); ?>">
+													<p><?php _e("Non hai SPID?", "design_scuole_italia"); ?><br/><a href="https://www.spid.gov.it" aria-label="scopri di più su SPID - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a></p>
 												</div>
 											</div>
 										<?php }
 										if(in_array("CIE", $provider_autenticazione)) {
 										?>
 											<div class="col-4 col-md-3">
-												<div class="note cie">
-													<svg class="svg-filters" width="90" height="64" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" href="#svg-cie"></use></svg>
-													<p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
+												<div class="note">
+													<img alt="Logo CIE" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/mini-logo-cie.svg' ); ?>">
+													<p><?php _e("Non hai CIE?", "design_scuole_italia"); ?><br/><a href="https://www.cartaidentita.interno.gov.it/la-carta/" aria-label="scopri di più su CIE - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a></p>
 												</div>
 											</div>
 										<?php }
 										if(in_array("CNS", $provider_autenticazione)) {
 										?>
 											<div class="col-4 col-md-3">
-												<div class="note cns">
-													<img class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-cns.png' ); ?>">
+												<div class="note">
+													<img alt="Logo CNS" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/mini-logo-cns.svg' ); ?>">
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="https://sistemats1.sanita.finanze.it/portale/modalita-di-accesso-con-ts_cns" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
@@ -319,7 +319,7 @@ get_header();
 
                                     <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
-                                            <div class="col-lg-12  px-0 wysiwig-text">
+                                            <div class="col-lg-12  px-0 wysiwig-text" data-element="service-needed">
                                             <?php echo apply_filters("the_content", $cosa_serve); ?>
                                             </div>
                                             <?php if(is_array($cosa_serve_list)) {
@@ -352,7 +352,7 @@ get_header();
                                     <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="calendar-vertical mb-5">
+                                            <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                                                 <?php
                                                 foreach ($fasi_scadenze as $fase){
                                                     $arrdata =  explode("-", $fase["data_fase"]);
@@ -425,8 +425,8 @@ get_header();
                                     </div><!-- /row -->
                                     <?php
                                 }
-
-                                if($telefono || $mail){
+                                
+                                if($telefono || $mail || (is_array($struttura_responsabile) && count($struttura_responsabile) > 0)){
                                     ?>
                                     <div class="row variable-gutters mb-4" >
                                         <div class="col-lg-9">
@@ -434,37 +434,33 @@ get_header();
                                             <div class="card card-bg bg-color rounded">
                                                 <div class="card-body pb-1">
                                                     <ul>
-                                                        <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
-                                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
+                                                        <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></li><?php } ?>
+                                                        <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $mail'>$mail</a>"; ?></li><?php } ?>
                                                     </ul>
                                                 </div></div>
                                         </div></div>
 
-                                <?php }
-
-                                if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
+                                    <?php if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
-                                    //$struttura = get_post($struttura_responsabile[0]);
-                                    echo "<h3 class='h6'>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h3>";
-                                    ?>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-9">
-                                            <div class="card-deck card-deck-spaced" data-element="structures">
-                                                <?php
-                                                foreach ($struttura_responsabile as $idstruttura) {
-                                                    $struttura = get_post($idstruttura);
-                                                    ?>
-                                                    <?php get_template_part("template-parts/struttura/card"); ?>
+                                        //$struttura = get_post($struttura_responsabile[0]);
+                                        echo "<h5>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h5>";
+                                        ?>
+                                        <div class="row variable-gutters">
+                                            <div class="col-lg-9">
+                                                <div class="card-deck card-deck-spaced" data-element="structures">
                                                     <?php
-                                                }
-                                                ?>
+                                                    foreach ($struttura_responsabile as $idstruttura) {
+                                                        $struttura = get_post($idstruttura);
+                                                        ?>
+                                                        <?php get_template_part("template-parts/struttura/card"); ?>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <?php
-
-                                }
-                                ?>
+                                    <?php } ?>
+                                <?php } ?>
 
                                 <?php                                
 
@@ -489,7 +485,7 @@ get_header();
                                     ?>
                                     <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-9" data-element="service-more-info">
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
@@ -525,7 +521,7 @@ get_header();
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-            <?php get_template_part("template-parts/single/related"); ?>
+ <?php get_template_part("template-parts/single/related"); ?>
         <?php
         endwhile; // End of the loop.
         ?>

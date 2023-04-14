@@ -23,6 +23,9 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 		if ( stripos( $item->title, 'personale scolastico' ) !== false || stripos( $item->title, 'famiglie e studenti' ) !== false ) {
 			$custom_data = 'data-element="service-type"';
 		}
+		if ( stripos( $item->title, 'i luoghi' ) !== false ) {
+			$custom_data = 'data-element="school-locations"';
+		}
 
 		if($custom_data) {
 			if ($item->url) {

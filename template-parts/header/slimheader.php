@@ -3,7 +3,7 @@
         <div class="row variable-gutters">
             <div class="col-6">
                 <a href="https://www.miur.gov.it/" target="_blank" aria-label="MIUR - Collegamento esterno - Apre su nuova scheda">
-                    <strong>Ministero dell'Istruzione</strong>
+                    <strong>Ministero dell'Istruzione e del Merito</strong>
                 </a>
             </div><!-- /col-6 -->
             <div class="col-6 header-utils-wrapper">

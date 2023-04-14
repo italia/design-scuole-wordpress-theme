@@ -29,7 +29,7 @@ $argomenti = dsi_get_argomenti_of_post();
             // recupero l'anno scolastico di riferimento del progetto
             if($anno_scolastico){
                 ?>
-                <i><small><?php _e("Anno scolastico", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola($anno_scolastico) ?></small></i>
+                <i><small><?php _e("Anno scolastico", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(intval($anno_scolastico)) ?></small></i>
                 <?php
             }
             ?>
