@@ -13,7 +13,7 @@ get_header();
 <main id="main-container" class="main-container">
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     <section id="primary" class="container" >        
-        <div class="content mx-5 my-5 organigramma_page" role="main" data-target="index" >
+        <div id="organigramma_page" class="content mx-5 my-5" role="main" data-target="index" >
         <?php the_content(); ?>
         </div><!-- end content -->
     </section><!-- end primary -->
