@@ -119,7 +119,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
                                 <div class="row variable-gutters pt-5">
                                     <div class="col-lg-12">
-                                        <div id="tabella_orario" class="col-lg-12 px-0 wysiwig-text">
+                                        <div id="tabella_orario_settimanale" class="col-lg-12 px-0 wysiwig-text">
                                             <?php echo wpautop($calendario_classi_descrizione); ?>
                                         </div>
                                         <div class="card-deck card-deck-spaced">

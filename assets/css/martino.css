@@ -774,7 +774,7 @@ table td:last-child {
   list-style-type: none;
 }
 
-#tabella_orario td {
+#tabella_orario_settimanale td {
   text-align: center;
   border-bottom: 1px solid #d6dce3;
 }
