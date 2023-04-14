@@ -55,7 +55,7 @@ get_header();
 
                     <div class="col-lg-8 my-5">
                         <div class="row">
-                            <!-- <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2> -->
+                            <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
                             <div class="col-12">
                                 <div class="article-description wysiwig-text">
                                     <?php the_content(); ?>
@@ -252,7 +252,7 @@ get_header();
                                                         <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
                                                         <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
                                                         <br>
-                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
                                                     </li>
                                                 
                                                 <?php

@@ -356,7 +356,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                                         <?php if ($martini_indirizzi_contact["martini_indirizzi_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_indirizzi_contact["martini_indirizzi_contatto"] . ' </h6>'; ?>
                                                         <?php if ($martini_indirizzi_contact["martini_indirizzi_numero_contatto"] != "") echo '<a href="tel:'.$martini_indirizzi_contact["martini_indirizzi_numero_contatto"].'"> ' . $martini_indirizzi_contact["martini_indirizzi_numero_contatto"] . ' </a>'; ?>
                                                         <br>
-                                                        <?php if ($martini_indirizzi_contact["martini_indirizzi_email"] != "") echo '<a> ' . $martini_indirizzi_contact["martini_indirizzi_email"] . ' </a>'; ?>
+                                                        <?php if ($martini_indirizzi_contact["martini_indirizzi_email"] != "") echo '<a href="mailto:'. $martini_indirizzi_contact["martini_indirizzi_email"] . '"> ' . $martini_indirizzi_contact["martini_indirizzi_email"] . ' </a>'; ?>
                                                     </li>
                                                 
                                                 <?php
