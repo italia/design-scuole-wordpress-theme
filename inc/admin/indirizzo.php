@@ -501,21 +501,7 @@ function dsi_add_indirizzo_metaboxes() {
         ),
     ) );
 
-    $cmb_undercontent->add_field( array(
-        'name' => 'Data Open day ',
-        'id'   => $prefix . 'wiki_test_textdate_timestamp',
-        'type' => 'text_date',
-        // 'timezone_meta_key' => 'wiki_test_timezone',
-        // 'date_format' => 'l jS \of F Y',
-    ) );
-
-    $cmb_undercontent->add_field( array(
-        'name' => 'Data Open day 2',
-        'id'   => $prefix . 'wiki_test_textdate_timestamp_2',
-        'type' => 'text_date',
-        // 'timezone_meta_key' => 'wiki_test_timezone',
-        // 'date_format' => 'l jS \of F Y',
-    ) );
+   
 
 
     // $cmb_undercontent->add_field( array(
@@ -542,6 +528,44 @@ function dsi_add_indirizzo_metaboxes() {
     //     ),
     //     */
     // ) );
+
+
+            // Gruppo contatti telefonici
+    $martini_indirizzi_group_contact = $cmb_undercontent->add_field( array(
+        'id'          => 'martini_indirizzi_group_contact',
+        'type'        => 'group',
+        'description' => __( 'Inserisci i contatti telefonici', 'cmb2' ),
+        'repeatable'  => true, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __( 'Contatto {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __( 'Aggiungi contatto', 'cmb2' ),
+            'remove_button'     => __( 'Elimina contatto', 'cmb2' ),
+        ),
+    ) );
+
+    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
+    $cmb_undercontent->add_group_field( $martini_indirizzi_group_contact, array(
+        'name' => 'Nome contatto',
+        'id'   => 'martini_indirizzi_contatto',
+        'type' => 'text',
+    ) );
+
+    $cmb_undercontent->add_group_field( $martini_indirizzi_group_contact, array(
+        'name' => 'Numero di telefono',
+        'description' => 'inserisci qui il numero di telefono',
+        'id'   => 'martini_indirizzi_numero_contatto',
+        'type' => 'text',
+    ) );
+
+    // Email text field
+    $cmb_undercontent->add_group_field( $martini_indirizzi_group_contact, array(
+        'name' => __( 'Email', 'cmb2' ),
+        'desc' => __( 'inserisci qui la email', 'cmb2' ),
+        'id'   => 'martini_indirizzi_email',
+        'type' => 'text_email',
+    ) );
+
+
 
         $cmb_undercontent->add_field( array(
         'id' => $prefix . 'luoghi',

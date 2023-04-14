@@ -344,19 +344,19 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                         <div class="mailfield pb-1">
                                             <ul>      
                                                 <?php
-                                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
-                                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
+                                                $martini_indirizzi_group_contact = get_post_meta(get_the_ID(), 'martini_indirizzi_group_contact', true);
+                                                if (is_array($martini_indirizzi_group_contact) && !empty($martini_indirizzi_group_contact)) 
 
-                                                foreach ($martini_group_contact as $martini_contact) {
-                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
-                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
-                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+                                                foreach ($martini_indirizzi_group_contact as $martini_indirizzi_contact) {
+                                                    $martini_indirizzi_contatto = esc_html($martini_indirizzi_contact["martini_indirizzi_contatto"], 'nome contatto');
+                                                    $martini_indirizzi_contatto = esc_html($martini_indirizzi_contact["martini_indirizzi_numero_contatto"], 'numero contatto');
+                                                    $martini_indirizzi_numero_contatto = esc_html($martini_indirizzi_contact["martini_indirizzi_email"], 'email'); ?>
 
                                                     <li>
-                                                        <?php if ($martini_contact["martini_contatto"] != "") echo '<h6> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
-                                                        <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                        <?php if ($martini_indirizzi_contact["martini_indirizzi_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_indirizzi_contact["martini_indirizzi_contatto"] . ' </h6>'; ?>
+                                                        <?php if ($martini_indirizzi_contact["martini_indirizzi_numero_contatto"] != "") echo '<a href="tel:'.$martini_indirizzi_contact["martini_indirizzi_numero_contatto"].'"> ' . $martini_indirizzi_contact["martini_indirizzi_numero_contatto"] . ' </a>'; ?>
                                                         <br>
-                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                        <?php if ($martini_indirizzi_contact["martini_indirizzi_email"] != "") echo '<a> ' . $martini_indirizzi_contact["martini_indirizzi_email"] . ' </a>'; ?>
                                                     </li>
                                                 
                                                 <?php

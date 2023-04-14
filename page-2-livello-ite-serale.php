@@ -35,8 +35,8 @@ get_header();
         $corso_di_studio = dsi_get_meta("corso_di_studio");
         $iscrizione_selezioni = dsi_get_meta("iscrizione_selezioni");
 
-        $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
-        $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+        $tabella_oraria_classi_descrizione = dsi_get_meta("tabella_oraria_classi_descrizione");
+        $tabella_oraria_classi_file = dsi_get_meta("tabella_oraria_classi_file");
 
         $fasi_scadenze = dsi_get_meta("fasi_scadenze");
 
@@ -55,95 +55,98 @@ get_header();
 
                     <div class="col-lg-8 my-5">
                         <div class="row">
-                            <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
+                            <!-- <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2> -->
                             <div class="col-12">
                                 <div class="article-description wysiwig-text">
                                     <?php the_content(); ?>
                                 </div>
                             </div><!-- /col-lg-9 -->
                         </div><!-- /row -->
-                    </div><!-- /main content -->
 
-                    <?php
-                    // do action per innestare elementi tramite plugin / child theme
-                    do_action("dsi_indirizzo_content_after_description"); ?>
+                            <?php
+                        // do action per innestare elementi tramite plugin / child theme
+                        do_action("dsi_indirizzo_content_after_description"); ?>
 
                     <!-- TABELLA ORARIO SETTIMANALE -->
-                    <?php if (($calendario_classi_file || $calendario_classi_descrizione)) { ?>
-                        <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
+                                <?php if(($tabella_oraria_classi_file || $tabella_oraria_classi_descrizione)){ ?>
+                                    <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
 
-                        <div class="row variable-gutters pt-5">
-                            <div class="col-lg-12">
-                                <div class="col-lg-12 px-0 wysiwig-text">
-                                    <?php echo wpautop($calendario_classi_descrizione); ?>
-                                </div>
-                                <div class="card-deck card-deck-spaced">
-                                    <?php global $idfile, $nomefile;
-                                    if (is_array($calendario_classi_file) && count($calendario_classi_file) > 0) {
+                                    <div class="row variable-gutters pt-5">
+                                        <div class="col-lg-12">
+                                            <div id="tabella_orario_settimanale" class="col-lg-12 px-0 wysiwig-text">
+                                                <?php echo wpautop($tabella_oraria_classi_descrizione); ?>
+                                            </div>
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php global $idfile, $nomefile;
+                                                if (is_array($tabella_oraria_classi_file) && count($tabella_oraria_classi_file) > 0) {
 
-                                        foreach ($calendario_classi_file as $idfile => $nomefile) {
-                                            get_template_part("template-parts/documento/file");
-                                        }
-                                    }
-                                    ?>
-                                </div><!-- /card-deck card-deck-spaced -->
-                            </div><!-- /col-lg-9 -->
-                        </div><!-- /row -->
-                    <?php } ?>
+                                                    foreach ($tabella_oraria_classi_file as $idfile => $nomefile) {
+                                                        get_template_part("template-parts/documento/file");
+                                                    }
+                                                }
+                                                ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                <?php } ?>
 
 
-                    <div class="pt-5">
-                        <?php
-                        // print_r($fasi_scadenze);
-                        if (is_array($fasi_scadenze) && count($fasi_scadenze) > 0) {
-                        ?>
-                            <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
-                            <div class="row variable-gutters">
-                                <div class="col-lg-9">
-                                    <div class="calendar-vertical mb-5">
-                                        <?php
-                                        foreach ($fasi_scadenze as $fase) {
-                                            $arrdata =  explode("-", $fase["data_fase"]);
-                                            $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
+                        <div class="pt-5">
+                            <?php
+                            // print_r($fasi_scadenze);
+                            if (is_array($fasi_scadenze) && count($fasi_scadenze) > 0) {
+                            ?>
+                                <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9">
+                                        <div class="calendar-vertical mb-5">
+                                            <?php
+                                            foreach ($fasi_scadenze as $fase) {
+                                                $arrdata =  explode("-", $fase["data_fase"]);
+                                                $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
 
-                                        ?>
-                                            <div class="calendar-date">
-                                                <div class="calendar-date-day">
-                                                    <small><?php echo $arrdata[2]; ?></small>
-                                                    <p><?php echo $arrdata[0]; ?></p>
-                                                    <small><b><?php echo $monthName; ?></b></small>
-                                                </div><!-- /calendar-date-day -->
-                                                <div class="calendar-date-description rounded">
-                                                    <div class="calendar-date-description-content">
-                                                        <?php echo wpautop($fase["desc_fase"]); ?>
-                                                    </div><!-- /calendar-date-description-content -->
-                                                </div><!-- /calendar-date-description -->
-                                            </div><!-- /calendar-date -->
-                                        <?php
-                                        }
-                                        ?>
-                                    </div><!-- /calendar-vertical -->
-                                </div><!-- /col-lg-9 -->
-                            </div><!-- /row -->
-                        <?php
-                        } ?>
-                    </div>
+                                            ?>
+                                                <div class="calendar-date">
+                                                    <div class="calendar-date-day">
+                                                        <small><?php echo $arrdata[2]; ?></small>
+                                                        <p><?php echo $arrdata[0]; ?></p>
+                                                        <small><b><?php echo $monthName; ?></b></small>
+                                                    </div><!-- /calendar-date-day -->
+                                                    <div class="calendar-date-description rounded">
+                                                        <div class="calendar-date-description-content">
+                                                            <?php echo wpautop($fase["desc_fase"]); ?>
+                                                        </div><!-- /calendar-date-description-content -->
+                                                    </div><!-- /calendar-date-description -->
+                                                </div><!-- /calendar-date -->
+                                            <?php
+                                            }
+                                            ?>
+                                        </div><!-- /calendar-vertical -->
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php
+                            } ?>
+                        </div>
 
-                    <div class="pt-5">
-                        <?php
-                        if (trim($altre_info) != "") {
-                        ?>
-                            <h4 id="art-par-altre-info"><?php _e("Altre informazioni", "design_scuole_italia"); ?></h4>
-                            <div class="row variable-gutters">
-                                <div class="col-lg-9 wysiwig-text">
+                        <div class="pt-5">
+                            <?php
+                            if (trim($altre_info) != "") {
+                            ?>
+                                <h4 id="art-par-altre-info"><?php _e("Altre informazioni", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-9 wysiwig-text">
 
-                                    <?php echo wpautop($altre_info); ?>
-                                </div><!-- /col-lg-9 -->
-                            </div><!-- /row -->
+                                        <?php echo wpautop($altre_info); ?>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
 
-                        <?php
-                        } ?>
-                    </div>
+                            <?php
+                            } ?>
+                        </div>
+
+                    </div><!-- /main content -->
+
+                    
 
 
 

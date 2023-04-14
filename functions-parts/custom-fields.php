@@ -18,6 +18,29 @@ function cmb2_sample_metaboxes() {
         'show_names'    => true,
     ) );
 
+
+     $cmb->add_field( array(
+            'id' => $prefix . 'tabella_oraria_classi_descrizione',
+            'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
+            'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
+            'type' => 'wysiwyg',
+    
+        ) );
+        $cmb->add_field( array(
+            'id' => $prefix . 'tabella_oraria_classi_file',
+            'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
+            'type' => 'file_list',
+            // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+            // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+            // Optional, override default text strings
+            'text' => array(
+                'add_upload_files_text' => __('Aggiungi un nuovo calendario', 'design_scuole_italia' ), // default: "Add or Upload Files"
+                'remove_image_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove Image"
+                'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
+            ),
+        ) );
+
+
     // Pinned text field
     $cmb->add_field( array(
         'name'       => __( 'Informazioni aggiuntive', 'cmb2' ),
@@ -55,23 +78,23 @@ function cmb2_sample_metaboxes() {
         ),
     ) );
 
-    // Email text field
-    $cmb->add_field( array(
-        'name' => __( 'Email', 'cmb2' ),
-        'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
-        'id'   => 'martini_email',
-        'type' => 'text_email',
-        'repeatable' => true,
-    ) );
+    // // Email text field
+    // $cmb->add_field( array(
+    //     'name' => __( 'Email', 'cmb2' ),
+    //     'desc' => __( 'In questo campo bisogna inserire un email', 'cmb2' ),
+    //     'id'   => 'martini_email',
+    //     'type' => 'text_email',
+    //     'repeatable' => true,
+    // ) );
 
-    // Telefono text field
-    $cmb->add_field( array(
-        'name' => __( 'Telefono', 'cmb2' ),
-        'desc' => __( 'In questo campo bisogna inserire un contatto telefonico', 'cmb2' ),
-        'id'   => 'martini_phone',
-        'type' => 'text',
-        'repeatable' => true,
-    ) );
+    // // Telefono text field
+    // $cmb->add_field( array(
+    //     'name' => __( 'Telefono', 'cmb2' ),
+    //     'desc' => __( 'In questo campo bisogna inserire un contatto telefonico', 'cmb2' ),
+    //     'id'   => 'martini_phone',
+    //     'type' => 'text',
+    //     'repeatable' => true,
+    // ) );
 
     // URL text field
     $cmb->add_field( array(
