@@ -25,7 +25,7 @@ get_header();
                     Non sarà possibile acquistare un singolo buono cartaceo, ma solo un minimo di 5 buoni al costo di € 35,90, facendo un bonifico bancario intestato all’Istituto Martino Martini, utilizzando il seguente IBAN:  <strong>I T 4 9 V 0 2 0 0 8 3 5 0 4 0 0 0 0 0 0 5 8 4 3 8 0 4</strong> indicando la seguente causale: <strong>buoni mensa cartacei - Cognome e nome (dello studente)</strong> ritirando i buoni acquistati presso la segreteria didattica in orario aperto al pubblico (signora Rita Cristan) dietro presentazione della contabile del bonifico effettuato. </p>
                 </div>
                 <div class="col-sm-12 offset-md-1 col-md-5">
-                    <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
+                    <img src="<?php echo get_template_directory_uri () ?>/assets/img/Comunita-Rotaliana-Koenigsberg_entilocali_logo.jpg" alt="">
                 </div>
             </div>
         </section>
