@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="main-container" class="main-container">
+<main id="main-container" class="main-container organigramma_page">
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     <section id="primary" class="container" >        
         <div class="content mx-5 my-5" role="main" data-target="index" >
