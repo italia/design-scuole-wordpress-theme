@@ -272,7 +272,7 @@ function dsi_add_indirizzo_metaboxes() {
         
         $cmb_undercontent->add_field( array(
             'id' => $prefix . 'calendario_classi_descrizione',
-            'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
+            'name'        => __( 'Tabella oraria', 'design_scuole_italia' ),
             'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
             'type' => 'wysiwyg',
     
@@ -290,6 +290,20 @@ function dsi_add_indirizzo_metaboxes() {
                 'remove_text' => __('Rimuovi calendario', 'design_scuole_italia' ), // default: "Remove"
             ),
         ) );
+
+
+         $cmb_undercontent->add_field( array(
+        'id' => $prefix . 'orario_lezioni_info',
+        'name'        => __( 'Orario delle lezioni', 'design_scuole_italia' ),
+        'desc' => __( 'Ulteriori informazioni sul Servizio, FAQ ed eventuali riferimenti normativi.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
+
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'programma_discipline_sportive',

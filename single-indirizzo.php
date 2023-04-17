@@ -39,6 +39,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
 
             $calendario_classi_descrizione = dsi_get_meta("calendario_classi_descrizione");
             $calendario_classi_file = dsi_get_meta("calendario_classi_file");
+            $orario_lezioni_info = dsi_get_meta("orario_lezioni_info");
 
             $programma_discipline_sportive = dsi_get_meta("programma_discipline_sportive");
             $programma_primo_biennio = dsi_get_meta("programma_primo_biennio");
@@ -115,7 +116,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                             
                             <!-- TABELLA ORARIO SETTIMANALE -->
                              <?php if(($calendario_classi_file || $calendario_classi_descrizione)){ ?>
-                                <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
+                                <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Quadro orario", "design_scuole_italia"); ?></h4> -->
 
                                 <div class="row variable-gutters pt-5">
                                     <div class="col-lg-12">
@@ -135,6 +136,23 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                             <?php } ?>
+
+                            <!-- ALTRE INFO ORARIO SETTIMANALE -->
+                            <div class="pt-5">
+                                    <?php
+                                if(trim($orario_lezioni_info) != ""){
+                                    ?>
+                                    <h4 id="orario_lezioni_info"><?php _e("Orario delle lezioni", "design_scuole_italia"); ?></h4>
+                                    <div class="row variable-gutters">
+                                        <div class="col-lg-9 wysiwig-text">
+                                            
+                                            <?php echo wpautop($orario_lezioni_info); ?>
+                                        </div><!-- /col-lg-9 -->
+                                    </div><!-- /row -->
+                                    
+                                    <?php
+                                }?>
+                            </div>
 
 
                             <!-- Programma discipline sportive -->
@@ -197,7 +215,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                 if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
                                     ?>
                                     <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
-                                    <div class="row variable-gutters">
+                                    <div class="row variable-gutters mt-5">
                                         <div class="col-lg-9">
                                             <div class="calendar-vertical mb-5">
                                                 <?php
