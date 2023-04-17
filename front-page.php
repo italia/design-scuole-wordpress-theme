@@ -79,6 +79,9 @@
             <a class="btn-lg-default-outline w-100" href="https://docs.google.com/spreadsheets/d/1VHINpeHLCE1BzyHgD-GEQVTaRM91HiF9GzLCqdZGqEA/edit?usp=sharing" target="blank">
               <button>Dislocazione aule</button>
             </a>
+            <a class="btn-lg-default-outline w-100" href="#" target="blank">
+              <button>Piano delle Attività</button>
+            </a>
           </div>
 
           <!-- Calendar -->
@@ -235,9 +238,6 @@
           <h4>Martino Martini</h4>
           <p>Missionario gesuita nato nel 1614 a Trento, Martino Martini fu un noto geografo e cartografo che visse a lungo nella Cina imperiale, viaggiando entro i suoi confini allo scopo di raccogliere informazioni di natura scientifica e geografica. Notevole fu il suo contributo alla conoscenza dell’impero cinese e della sua cultura, che rese accessibile all’occidente anche grazie alla redazione della prima grammatica della lingua cinese.
             Il nostro istituto, che da sempre promuove diversi progetti nell’ambito dell’internazionalizzazione, prosegue idealmente la missione di Martino Martini riconoscendo il valore fondamentale per la nostra società della conoscenza approfondita del nuovo e del diverso e promuovendo la diffusione dei saperi tradizionali quale strumento ineludibile per la formazione di cittadini consapevoli e responsabili.</p>
-          <a class="btn-lg-default-outline" href="presentazione/">
-            <button class="w-auto">Scopri</button>
-          </a>
 
         </div>
         <!--#storia-txt -->
