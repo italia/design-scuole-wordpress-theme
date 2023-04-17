@@ -65,7 +65,7 @@
                     <p class="mb-4">Ecco qua la nostra Videoteca.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="videoteca" target="blank">
+                    <a class="btn-lg-default" href="<?php get_template_directory_uri() . 'videoteca';?>" target="blank">
                         <button class="w-auto">Vedi tutti i video</button>
                     </a>
                 </div>
