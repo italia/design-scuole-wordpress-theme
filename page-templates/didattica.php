@@ -34,7 +34,7 @@ get_header();
                         'post_type' => 'page',
                         'post_status' => '',
                         'orderby' => 'date',
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                     ));
 
                     if($loop->have_posts()) {
