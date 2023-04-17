@@ -33,7 +33,7 @@ get_header();
                         'post_parent' => $post->ID,
                         'post_type' => 'page',
                         'post_status' => '',
-                        'orderby' => 'title',
+                        'orderby' => 'date',
                         'order' => 'ASC',
                     ));
 
