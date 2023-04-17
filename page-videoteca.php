@@ -17,6 +17,9 @@
             <div>
                 <?php echo do_shortcode('[TS_Video_Gallery id="1"]') ;?>
             </div>
+            <div>
+                <?php echo do_shortcode('[TS_Video_Gallery id="2"]') ;?>
+            </div>
         </div>
     </section>
 
