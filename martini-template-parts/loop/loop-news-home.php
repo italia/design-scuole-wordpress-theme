@@ -15,7 +15,7 @@
 
   ?>
 
-    <article class="loop__news__card col-12 col-md-6">
+    <article class="loop__news__card col-12 col-md-6 col-lg-4">
       <div class="loop__news__card__content">
         <a class="loop__news__card__content__image" href="<?php the_permalink(); ?>">
           <?php if( !empty(get_the_post_thumbnail()) ) { ?>
