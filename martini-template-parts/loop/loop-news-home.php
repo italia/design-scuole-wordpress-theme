@@ -1,4 +1,4 @@
-<div class="row loop__news m-0">
+<div class="row loop__news m-0 w-100">
 
   <?php
   $loop = new WP_Query(
