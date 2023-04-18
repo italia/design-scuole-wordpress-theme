@@ -236,7 +236,7 @@ get_header();
                                 <!--/Campo link -->
 
                                 <!-- Campo contatti -->
-                                    <div class="col-12">
+                                    
                                         <div class="mailfield pb-1">
                                             <ul>      
                                                 <?php
@@ -260,7 +260,7 @@ get_header();
                                                 ?>
                                             </ul>
                                         </div>
-                                    </div>
+                                    
                                     <!--/Campo contatti -->
 
                             </div>

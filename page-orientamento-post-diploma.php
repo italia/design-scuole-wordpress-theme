@@ -48,45 +48,56 @@ get_header();
                                 ?>
                                 <!-- //Altre informazioni -->
 
-                                <!-- Campo contatti -->
+                                <!-- Campo link -->
                                 <?php 
-                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
-                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
-
+                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
                                 
-                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
-                                <h5>Contatti</h5> 
+                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
+                                <h5>Link utili</h5> 
                                 <ul class="link-list">
                                     
-                                    <?php foreach ( $emails as $email){?>
+                                    <?php foreach ( $link_url as $link_url){?>
                                     
                                     <li>
-                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
+                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
                                     </li>
-                                    <?php }?>                        
+                                    <?php }?>                         
                                 </ul>
                                 <?php } ?>
+                                <!--/Campo link -->
 
-                                <?php
-                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
-                                <h6>Telefono</h6>
-                                <ul class="">
+                                <!-- Campo contatti -->
                                     
-                                    <?php foreach ( $phone as $phone){?>
-                                    
-                                    <li>
-                                        <p><?php echo wpautop($ulteriori_informazioni); ?></p>
-                                    </li>
-                                    <li>
-                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
-                                    </li>
-                                    <?php }?>
-                                   
-                                </ul>
+                                        <div class="mailfield pb-1">
+                                            <ul>      
+                                                <?php
+                                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
 
-                                <?php } ?>
-                                <!--/Campo contatti -->
+                                                foreach ($martini_group_contact as $martini_contact) {
+                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+
+                                                    <li>
+                                                        <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                        <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                        <br>
+                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                    </li>
+                                                
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    
+                                    <!--/Campo contatti -->
                                 
+                                
+
+                                
+
                                 <!-- Campo modulistica -->
                                 <?php 
                                 $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
@@ -105,23 +116,6 @@ get_header();
                                 <?php } ?>
                                 <!--/Campo modulistica -->
 
-                                <!-- Campo link -->
-                                <?php 
-                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
-                                
-                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
-                                <h5>Link utili</h5> 
-                                <ul class="link-list">
-                                    
-                                    <?php foreach ( $link_url as $link_url){?>
-                                    
-                                    <li>
-                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
-                                    </li>
-                                    <?php }?>                         
-                                </ul>
-                                <?php } ?>
-                                <!--/Campo link -->
                             </div>
                         </aside>
                     </div> <!--/ sidebar -->
