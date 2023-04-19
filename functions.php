@@ -404,6 +404,7 @@ require dirname(__FILE__).'/functions-parts/cpt-pon.php';
 require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
 require dirname(__FILE__).'/functions-parts/cpt-orientamento.php';
 require dirname(__FILE__).'/functions-parts/cpt-documenti.php';
+require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
 
 /* Customize Back-end
 ------------------------*/
