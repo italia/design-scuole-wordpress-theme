@@ -43,7 +43,7 @@
                     <p class="mb-4">Ecco qua il nostro calendario con tutti gli appuntamenti e date.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="#" target="blank">
+                    <a class="btn-lg-default" href="" target="blank">
                         <button class="w-auto">Calendario Open Days</button>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
                     <p class="mb-4">Ecco qua la nostra Videoteca.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="http://martinomartini.local/videoteca/" target="blank">
+                    <a class="btn-lg-default" href="<?php get_template_directory_uri() . 'videoteca';?>" target="blank">
                         <button class="w-auto">Vedi tutti i video</button>
                     </a>
                 </div>

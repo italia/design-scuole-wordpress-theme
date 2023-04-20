@@ -79,7 +79,7 @@
             <a class="btn-lg-default-outline w-100" href="https://docs.google.com/spreadsheets/d/1VHINpeHLCE1BzyHgD-GEQVTaRM91HiF9GzLCqdZGqEA/edit?usp=sharing" target="blank">
               <button>Dislocazione aule</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="#" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://www.google.com/url?q=https://docs.google.com/spreadsheets/d/e/2PACX-1vQAiW61fWMJlamgqpoPDwG0-iwhNMrBh3Kwc_LZToknliSTkjFuoHqAC7fQbUFiDhHXgHvdiLjYl5wN/pubhtml&sa=D&source=docs&ust=1681892553544706&usg=AOvVaw09ShU6uKG4CAZFA3Xb47ga" target="blank">
               <button>Piano delle Attività</button>
             </a>
           </div>
