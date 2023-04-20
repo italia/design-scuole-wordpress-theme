@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Cic
+/* Template Name: Sportello CIC
  *
  * didattica template file
  *
