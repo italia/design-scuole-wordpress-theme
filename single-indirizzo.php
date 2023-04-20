@@ -358,8 +358,13 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                 ?>
 
                                 <!-- Campo contatti -->
-                                    <div class="col-12">
+                                    
                                         <div class="mailfield pb-1">
+                                            <?php
+                                            $martini_indirizzi_group_contact = get_post_meta(get_the_ID(), 'martini_indirizzi_group_contact', true);
+                                            if (is_array($martini_indirizzi_group_contact) && !empty($martini_indirizzi_group_contact)) { ?>
+                                        
+                                            <h5>Contatti</h5>
                                             <ul>      
                                                 <?php
                                                 $martini_indirizzi_group_contact = get_post_meta(get_the_ID(), 'martini_indirizzi_group_contact', true);
@@ -381,8 +386,9 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                                 }
                                                 ?>
                                             </ul>
+                                            <?php } ?>
                                         </div>
-                                    </div>
+                                    
                                     <!--/Campo contatti -->
 
                                 <?php

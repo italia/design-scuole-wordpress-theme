@@ -124,46 +124,37 @@ get_header();
                                 ?>
                                 <!-- //Info variabili -->
 
-                                
-
                                 <!-- Campo contatti -->
-                                <?php 
-                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
-                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+                                    <div class="mailfield pb-1">
+                                        <?php
+                                        $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                        if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
+                                        
+                                        <h5>Contatti</h5>
+                                        <ul>      
+                                            <?php
+                                            $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                            if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
 
-                                
-                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
-                                <h5>Contatti</h5> 
-                                <ul class="link-list">
-                                    
-                                    <?php foreach ( $emails as $email){?>
-                                    
-                                    <li>
-                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
-                                    </li>
-                                    <?php }?>
-                                   
-                                </ul>
-                                <?php } ?>
+                                            foreach ($martini_group_contact as $martini_contact) {
+                                                $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
 
-                                <?php
-                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
-                                <h6>Telefono</h6>
-                                <ul class="">
-                                    
-                                    <?php foreach ( $phone as $phone){?>
-                                    
-                                    <li>
-                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
-                                    </li>
-                                    <?php }?>
-                                   
-                                </ul>
-
-                                <?php } ?>
-
-
-                                <!--/Campo contatti -->
+                                                <li>
+                                                    <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                    <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                    <br>
+                                                    <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                </li>
+                                            
+                                            <?php
+                                            }
+                                            ?>
+                                        </ul>
+                                        <?php } ?>
+                                    </div>
+                                    <!--/Campo contatti -->
                                 
                                 <!-- Campo modulistica -->
                                 <?php 
