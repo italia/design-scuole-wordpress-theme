@@ -24,7 +24,7 @@ body {
     }
     h6 {
         @include font-body;
-        margin: 2rem 0 0.5rem;
+        margin: 1rem 0 0.5rem;
         color: $primary;
     }
     .card{

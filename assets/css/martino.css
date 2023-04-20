@@ -675,10 +675,6 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   display: none;
 }
 
-table td {
-  border-top: 1px solid #d6dce3;
-}
-
 .container-contatti-utili {
   /* general styling */
 }
@@ -769,6 +765,9 @@ table td {
   line-height: 1.25;
 }
 
+table td:last-child {
+  border-bottom: 0;
+}
 
 #sportfield ul {
   padding: 0;
@@ -1610,7 +1609,7 @@ body {
 }
 
 #sidebar h6 {
-  margin: 2rem 0 0.5rem;
+  margin: 1rem 0 0.5rem;
   color: #1260A4;
 }
 

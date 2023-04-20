@@ -48,55 +48,37 @@ get_header();
                                 ?>
                                 <!-- //Altre informazioni -->
 
-                                <!-- Campo link -->
-                                <?php 
-                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
-                                
-                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
-                                <h5>Link utili</h5> 
-                                <ul class="link-list">
-                                    
-                                    <?php foreach ( $link_url as $link_url){?>
-                                    
-                                    <li>
-                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
-                                    </li>
-                                    <?php }?>                         
-                                </ul>
-                                <?php } ?>
-                                <!--/Campo link -->
-
                                 <!-- Campo contatti -->
-                                    
-                                        <div class="mailfield pb-1">
-                                            <ul>      
-                                                <?php
-                                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
-                                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
+                                    <div class="mailfield pb-1">
+                                        <?php
+                                        $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                        if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
+                                        
+                                        <h5>Contatti</h5>
+                                        <ul>      
+                                            <?php
+                                            $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                            if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
 
-                                                foreach ($martini_group_contact as $martini_contact) {
-                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
-                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
-                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+                                            foreach ($martini_group_contact as $martini_contact) {
+                                                $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
 
-                                                    <li>
-                                                        <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
-                                                        <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
-                                                        <br>
-                                                        <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
-                                                    </li>
-                                                
-                                                <?php
-                                                }
-                                                ?>
-                                            </ul>
-                                        </div>
-                                    
-                                    <!--/Campo contatti -->
-                                
-                                
-
-                                
+                                                <li>
+                                                    <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                    <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                    <br>
+                                                    <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                </li>
+                                            
+                                            <?php
+                                            }
+                                            ?>
+                                        </ul>
+                                        <?php } ?>
+                                    </div>
+                                <!--/Campo contatti -->
 
                                 <!-- Campo modulistica -->
                                 <?php 
@@ -115,6 +97,24 @@ get_header();
                                 </ul>
                                 <?php } ?>
                                 <!--/Campo modulistica -->
+
+                                <!-- Campo link -->
+                                <?php 
+                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
+                                
+                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
+                                <h5>Link utili</h5> 
+                                <ul class="link-list">
+                                    
+                                    <?php foreach ( $link_url as $link_url){?>
+                                    
+                                    <li>
+                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
+                                    </li>
+                                    <?php }?>                         
+                                </ul>
+                                <?php } ?>
+                                <!--/Campo link -->
 
                             </div>
                         </aside>

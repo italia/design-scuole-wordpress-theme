@@ -249,27 +249,13 @@ get_header();
                             </div>
                         </div>
 
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <img class="img-mobile" src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
-                                </div>
-                            </div>
-
                         <div class="row">
-                            <div class="mt-5 px-3">    
-                                <h5>Link utili</h5>
-                                <p>
-                                     N.B.: Alcune sezioni dei siti riportati qui di seguito sono consultabili solo previa registrazione alla piattaforma e ottenimento di credenziali da parte del gestore (gratuitamente o a pagamento). 
-                                     <br>
-                                     <br>
-                                <a href="https://www.ICDL.it" target="blank"> www.ICDL.it </a> / <a href="https://www.aica.it" target="blank"> www.aica.it </a> / <a href="https://www.micertificoICDL.it" target="blank"> www.micertificoICDL.it </a> / <a href="https://www.aula01.it" target="blank"> www.aula01.it</a> 	
-                                <br>  		   
-                                <br>
-                                   
-                                    
-                                </p>
+                            <div class="col-12 text-center">
+                                <img class="img-mobile" src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
                             </div>
                         </div>
+                        <br>
+                        <br>
 
                         <?php the_content(); ?>
 
@@ -322,47 +308,38 @@ get_header();
                                 ?>
                                 <!-- //Info variabili -->
 
-                                
-
                                 <!-- Campo contatti -->
-                                <?php 
-                                $emails = get_post_meta( get_the_ID(), 'martini_email', true );
-                                $phone = get_post_meta( get_the_ID(), 'martini_phone', true );
+                                    <div class="mailfield pb-1">
+                                        <?php
+                                        $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                        if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
+                                        
+                                        <h5>Contatti</h5>
+                                        <ul>      
+                                            <?php
+                                            $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                            if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
 
-                                
-                                if(is_array ($emails) && count($emails) && strlen($emails[0])){ ?>
-                                <h5>Contatti</h5> 
-                                <ul class="link-list">
-                                    
-                                    <?php foreach ( $emails as $email){?>
-                                    
-                                    <li>
-                                         <a href="mailto:<?php echo $email;?>" target=blank> <?php echo $email;?> </a> 
-                                    </li>
-                                    <?php }?>
-                                   
-                                </ul>
-                                <?php } ?>
+                                            foreach ($martini_group_contact as $martini_contact) {
+                                                $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
 
-                                <?php
-                                if(is_array ($phone) && count($phone) && strlen($phone[0])){ ?>
-                                <h6>Telefono</h6>
-                                <ul class="">
-                                    
-                                    <?php foreach ( $phone as $phone){?>
-                                    
-                                    <li>
-                                         <a href="tel:<?php echo $phone;?>"> <?php echo $phone;?> </a> 
-                                    </li>
-                                    <?php }?>
-                                   
-                                </ul>
-
-                                <?php } ?>
-
-
+                                                <li>
+                                                    <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                    <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                    <br>
+                                                    <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                </li>
+                                            
+                                            <?php
+                                            }
+                                            ?>
+                                        </ul>
+                                        <?php } ?>
+                                    </div>
                                 <!--/Campo contatti -->
-                                
+
                                 <!-- Campo modulistica -->
                                 <?php 
                                 $multidocuments_download = get_post_meta( get_the_ID(), 'documents_download', true );
