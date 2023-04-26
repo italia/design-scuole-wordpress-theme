@@ -16,13 +16,12 @@ if($slug == "articoli")
     $class = "redbrown";
 }*/
 ?>
-	<main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+	<main id="main-container" class="main-container <?php echo $class; ?>">
 
-        <?php get_template_part("template-parts/hero/notizie", "archive"); ?>
+	<?php get_template_part("martini-template-parts/hero/hero_title"); ?>
 
 
-		<section class="section bg-white border-top border-bottom d-block d-lg-none">
+		<section class="section bg-white border-top border-bottom d-block d-lg-none mx-3 mx-lg-0">
 			<div class="container d-flex justify-content-between align-items-center py-3">
 				<h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
 				<a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#" aria-label="filtri">
@@ -30,13 +29,17 @@ if($slug == "articoli")
 				</a>
 			</div>
 		</section>
-		<section class="section bg-gray-light">
+		<section class="section">
 			<div class="container">
-				<div class="row variable-gutters sticky-sidebar-container">
-					<div class="col-lg-3 bg-white bg-white-left">
+				<div class="variable-gutters sticky-sidebar-container pt-lg-5 pt-4 mx-3 mx-lg-0">
+					<div>
+					<?php get_template_part("template-parts/search/search-form"); ?>
 						<?php get_template_part("template-parts/search/filters", "articolo"); ?>
 					</div>
-					<div class="col-lg-7 offset-lg-1 pt84">
+				</div>
+			</div><!-- /container -->
+				<div class="container p-lg-0 px-lg-2">
+					<div class="row my-lg-5 my-4 mx-lg-2" id="container_archive">
 						<?php if ( have_posts() ) : ?>
 							<?php
 							/* Start the Loop */
@@ -56,9 +59,9 @@ if($slug == "articoli")
 
 						endif;
 						?>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /container -->
+					</div><!-- /row -->
+				</div><!-- /container -->
+			
 		</section>
 	</main>
 

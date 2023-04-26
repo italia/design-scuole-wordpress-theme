@@ -16,7 +16,7 @@ get_header();
 			<div class="container ">
 				<div class="row variable-gutters">
 					<div class="col-lg-5 col-md-8 offset-lg-2">
-						<div class="section-title">
+						<div class="section-title bg-blue">
 							<?php the_archive_title( '<h2 class="mb-0">', '</h2>' ); ?>
 						</div><!-- /title-section -->
 					</div><!-- /col-lg-5 col-md-8 offset-lg-2 -->

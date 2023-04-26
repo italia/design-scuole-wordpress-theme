@@ -1,0 +1,14 @@
+.martini-list {
+    &--item {
+        position: relative;
+        &:nth-child(even)::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -50vw;
+            width: 200vw;
+            background-color:$surface-variant;
+        }
+    }
+}

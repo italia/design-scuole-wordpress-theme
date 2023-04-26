@@ -13,130 +13,82 @@ $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $luoghi = dsi_get_meta("luoghi");
 $persone = dsi_get_meta("persone");
+// get_template_part("martini-template-parts/hero/hero_title");
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
-    <main id="main-container" class="main-container greendark">
+    <main id="main-container" class="main-container container">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php while ( have_posts() ) :  the_post();
-        set_views($post->ID);
+        <section class="py-lg-5 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-12">
+                        <div class="p-0">
+                            <?php while ( have_posts() ) :  the_post();
+                            set_views($post->ID);
+                            get_template_part("template-parts/single/header-post");
+                            ?>
+                        </div><!-- /header post -->
+                
+                        <div class="main-content">
+                            <?php if($user_can_view_post): ?>
+                            <article class="article-wrapper pt-lg-3 p-0">
+                                <div class="wysiwig-text text-black">
+                                    <h5 data-element="metadata" class="text-black font-weight-normal h6"><em><?php _e("", "design_scuole_italia"); ?> <?php
+                                    $date_publish = new DateTime($post->post_date);
+                                    echo $date_publish->format('d.m.Y')
+                                    ?></em></h5>
+                                    <?php
+                                    the_content();
+                                    ?>
+                                </div><!-- /contenuto post -->
+                            </article><!-- /contenuto articolo -->
 
-
-                get_template_part("template-parts/single/header-post");
-            ?>
-
-            <section class="section bg-white py-5">
-                <div class="container">
-                    <div class="row variable-gutters">
-                        <?php if($user_can_view_post): ?>
-                        <div class="main-content col-lg-9 col-md-8 order-lg-1">
-                            <article class="article-wrapper pt-4">
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-8 wysiwig-text">
-                                        <?php
-                                        the_content();
-                                        ?>
-                                    </div>
+                            <?php else: ?>
+                                <div class="p-5 m-5 text-center font-weight-bold wysiwig-text">
+                                    <?php the_content(); ?>
                                 </div>
-                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
-                                    <h2 class="mb-4 h4"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
-                                    <div class="row variable-gutters">
-                                        <div class="col-lg-12">
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php
-                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
-                                                    global $documento;
-                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                        $documento = get_post( $link_scheda_documento );
-                                                        get_template_part( "template-parts/documento/card" );
-                                                    }
-                                                }
+                            <?php endif; ?>
+                        </div><!-- /row--> 
+                    </div>
 
-                                                global $idfile, $nomefile;
-                                                if(is_array($file_documenti) && count($file_documenti)>0) {
+                    <div class="col-12 col-lg-4 pl-lg-5 pl-md-5 pl-0" id="progetti-home">
+                        <?php 
+                            get_template_part("martini-template-parts/loop/sidebar_news");
+                        ?>
 
-                                                    foreach ( $file_documenti as $idfile => $nomefile ) {
-                                                        get_template_part( "template-parts/documento/file" );
-                                                    }
-                                                }
-
-                                                ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-12 -->
-                                    </div><!-- /row -->
-                                    <?php
-                                }
-                                ?>
-                                <?php
-
-                                if(is_array($luoghi) && count($luoghi)>0){
-                                    ?>
-                                    <h2 class="mb-4 h4"><?php _e("Luoghi", "design_scuole_italia"); ?></h2>
-                                    <?php
-                                    $c=0;
-                                    foreach ( $luoghi as $idluogo ) {
-                                        $c ++;
-                                        $luogo = get_post( $idluogo );
-                                        get_template_part( "template-parts/luogo/card" , "large");
-                                    }
-                                    ?>
-                                <?php } ?>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
+                        <div class="mt-4 mb-4">
+                            <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
+                                <h2 class="mb-4 h4 text-black"><?php _e("Allegati", "design_scuole_italia"); ?></h2>
+                                    <div class="">
                                         <?php
-                                            if (comments_open() || get_comments_number()) :
-                                                comments_template();
-                                            endif;
+                                        if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+                                            global $documento;
+                                            foreach ( $link_schede_documenti as $link_scheda_documento ) {
+                                                $documento = get_post( $link_scheda_documento );
+                                                get_template_part( "template-parts/documento/card" );
+                                            }
+                                        }
+
+                                        global $idfile, $nomefile;
+                                        if(is_array($file_documenti) && count($file_documenti)>0) {
+
+                                            foreach ( $file_documenti as $idfile => $nomefile ) {
+                                                get_template_part( "template-parts/documento/file" );
+                                            }
+                                        }
 
                                         ?>
-                                    </div>
-                                </div>
-                                <div class="row variable-gutters">
-                                    <div class="col-lg-12">
-                                        <?php get_template_part( "template-parts/single/bottom" ); ?>
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
-                            </article>
-                        </div><!-- /col-lg-8 -->
-                        <div class="col-lg-3 col-md-4 order-lg-0">
-                            <?php get_template_part("template-parts/single/actions"); ?>
+                                    </div><!-- /card documento-->
                             <?php
-                            $badgeclass = "badge-outline-greendark";
-                            get_template_part("template-parts/common/badges-argomenti"); ?>
-                            <?php
-                            if(is_array($persone) && count($persone)>0){
-                                ?>
-                                <div class="cards-aside mt-4">
-                                    <h2 class="h4"><?php _e("Persone", "design_scuole_italia"); ?></h2>
-                                    <?php
-                                    foreach ($persone as $idutente) {
-                                        $autore = get_user_by("ID", $idutente);
-                                        ?>
-                                        <div class="card card-avatar card-comments">
-                                            <a href="<?php echo get_author_posts_url( $autore->ID);  ?>" aria-label="Vai alla sezione di <?php echo esc_attr(dsi_get_display_name( $autore->ID )); ?>">
-                                                <div class="card-body">
-                                                    <?php get_template_part("template-parts/autore/card"); ?>
-                                                </div>
-                                            </a>
-                                        </div><!-- /card card-bg card-avatar rounded -->
-                                        <?php
-                                    }
-                                    ?>
-                                </div><!-- /cards-avatar -->
-                            <?php } ?>
-                        </div><!-- /col-lg-3 -->
-                        <?php else: ?>
-                            <div class="col-lg-12 p-5 m-5 text-center font-weight-bold wysiwig-text">
-                                <?php the_content(); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div><!-- /row -->
-                </div><!-- /container -->
-            </section>
-
-
-            <?php get_template_part("template-parts/single/more-posts"); ?>
+                        }
+                            ?>
+                    </div><!-- /allegati -->
+                    </div><!--col-3 offset-1 -->
+                </div>
+            </div><!-- /container -->
+        </section>
 
         <?php  	endwhile; // End of the loop. ?>
     </main><!-- #main -->

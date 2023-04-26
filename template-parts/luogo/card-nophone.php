@@ -44,7 +44,7 @@ if(isset($struttura->ID)){
 ?>
 
 <div class="row variable-gutters">
-	<div class="col-lg-9">
+	<div class="col-4">
 		<div class="card card-bg rounded mb-5">
 			<div class="card-header">
                 <?php if(is_singular("luogo")){ ?>
@@ -53,93 +53,7 @@ if(isset($struttura->ID)){
                     <a href="<?php echo get_permalink($luogo); ?>"><strong><?php echo $luogo->post_title; ?></strong></a>
 	            <?php } ?>
 			</div><!-- /card-header -->
-			<div class="card-body p-0">
-				<div class="row variable-gutters">
-					<div class="col-lg-5 pr-0 pt-0 p-b0">
-						<div class="map-wrapper">
-							<div class="map" id="map_<?php echo $c; ?>"></div>
-						</div>
-					</div><!-- /col-lg-4 -->
-					<div class="col-lg-7">
-						<div class="py-4">
-							<ul class="location-list mt-2">
-								<?php if(isset($indirizzo) && $indirizzo != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "indirizzo", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<?php echo wpautop($indirizzo); ?>
-										</div>
-									</li>
-								<?php } ?>
-								<?php if(isset($cap) && $cap != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "CAP", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<p><?php echo $cap; ?></p>
-										</div>
-									</li>
-								<?php } ?>
-								<?php if(isset($orario_pubblico) && $orario_pubblico != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "Orari", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<?php echo wpautop($orario_pubblico); ?>
-										</div>
-									</li>
-								<?php } ?>
-								<?php /* if(isset($mail) && $mail != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "Email", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<p><a href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></p>
-										</div>
-									</li>
-								<?php } ?>
-								<?php if(isset($pec) && $pec != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "PEC", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<p><a href="mailto:<?php echo $pec; ?>"><?php echo $pec; ?></a></p>
-										</div>
-									</li>
-								<?php } ?>
-								<?php
-                                if(isset($telefono) && $telefono != ""){
-	                                ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "Telefono", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<p><?php echo $telefono; ?></p>
-										</div>
-									</li>
-								<?php } */ ?>
-								<?php if(isset($persone) && $persone != ""){ ?>
-									<li>
-										<div class="location-title">
-											<span><?php _e( "Rif.", "design_scuole_italia" ); ?></span>
-										</div>
-										<div class="location-content">
-											<p><?php echo $persone; ?></p>
-										</div>
-									</li>
-								<?php } ?>
-							</ul><!-- /location-list -->
-						</div>
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-			</div><!-- /card-body -->
+			
 		</div><!-- /card card-bg rounded -->
 	</div><!-- /col-lg-9 -->
 </div><!-- /row -->

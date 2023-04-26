@@ -1,0 +1,16 @@
+#open-day{
+    .open-post-title {
+            border-radius: 100%;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            padding: 5% 20%;
+            display: none;
+    }
+    .open-day-foto{
+        display: block;
+        &:hover{
+            display: none;
+        }
+    }
+}

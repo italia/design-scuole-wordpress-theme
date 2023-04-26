@@ -1,0 +1,15 @@
+name: Triger theme update
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      env:
+        URL: ${{ secrets.DEVURL }}
+        TOKEN: ${{ secrets.DEV_TOKEN }}
+        PACKAGE: ${{ secrets.DEV_PACKAGE }}
+      run: |
+          curl "https://${URL}/?wppusher-hook&token=${TOKEN}&package=${PACKAGE}"

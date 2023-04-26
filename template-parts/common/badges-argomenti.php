@@ -1,13 +1,12 @@
 <?php
 global $badgeclass;
 if(!isset($badgeclass))
-	$badgeclass = "badge-outline-purplelight";
-$argomenti = dsi_get_argomenti_of_post();
+	$badgeclass = "badge-outline-greendark";
+$argomenti = dsi_get_tipologia_articolo_of_post();
 if(count($argomenti)) {
 	?>
-	<aside class="badges-wrapper badges-main mt-4">
-	<h2 class="h4"><?php _e("Argomenti", "design_scuole_italia"); ?></h2>
-	<div class="badges">
+	<aside class="badges-wrapper badges-main my-lg-4 mt-3 pl-0">
+	<div class="badges" id="badge">
 		<?php foreach ( $argomenti as $item ) { ?>
 			<a href="<?php echo get_term_link($item); ?>" title="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>" aria-label="<?php _e("Vai all'argomento", "design_scuole_italia"); ?>: <?php echo $item->name; ?>"
 			   class="badge badge-sm badge-pill <?php echo $badgeclass; ?>" data-element="topic-list"><?php echo $item->name; ?></a>
@@ -16,3 +15,4 @@ if(count($argomenti)) {
 	</aside><!-- /badges-wrapper -->
 	<?php
 }
+?>

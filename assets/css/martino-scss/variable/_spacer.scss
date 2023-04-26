@@ -1,0 +1,14 @@
+// spazio da aggiungere dopo hero
+$spazio-hero: 6rem;
+
+// spazio da aggiungere all'ultimo blocco per distanziarlo dal footer
+$spazio-footer: 3rem;
+
+// spazio container-martini
+.container-martini{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// TODO Spacer bootstrap
+// Utilizzare gli spazi di bootstrap e non crearli più da zero, sostituire gli spazi modificati con quelli di default

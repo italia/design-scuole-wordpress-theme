@@ -19,6 +19,7 @@ get_header();
                 <h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
                 <a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#" aria-label="filtri">
                     <svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
+                    <?php get_template_part("template-parts/search/filters-scheda-progetto"); ?>
                 </a>
             </div>
         </section>

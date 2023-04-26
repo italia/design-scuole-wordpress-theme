@@ -333,8 +333,13 @@ class Breadcrumb_Trail {
 			if ( is_home() ) {
 				$this->add_blog_items();
 			}
-
-			// If viewing a single post.
+            
+            // If viewing a single post.
+            if ( is_singular() &&  get_post_type() == 'circolare') {
+                $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+                $this->items[] =  "<a href='".home_url("circolare")."'>".__("Circolari", "design_scuole_italia")."</a>";
+                $this->items[] = get_the_title();
+            }
 			elseif ( is_singular() ) {
 				$this->add_singular_items();
 			}
@@ -342,7 +347,7 @@ class Breadcrumb_Trail {
 			// todo: rendere dinamiche le url del breadcrumb in base al template di pagina
 			// If viewing an archive page.
 			elseif ( is_archive() ) {
-                if(is_post_type_archive(array("luogo", "documento","struttura")))
+                if(is_post_type_archive(array("luogo", "documento","struttura", "orari")))
                     $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
 
                 else if(is_post_type_archive(array("indirizzo")))
@@ -693,9 +698,10 @@ class Breadcrumb_Trail {
 		if ( false !== $post_type_object->rewrite ) {
 
 			// If 'with_front' is true, add $wp_rewrite->front to the trail.
-			if ( $post_type_object->rewrite['with_front'] )
-				$this->add_rewrite_front_items();
-
+			if( is_array($post_type_object) ) {
+				if ( $post_type_object->rewrite['with_front'] )
+					$this->add_rewrite_front_items();
+			}
 			// If there's a rewrite slug, check for parents.
 			if ( ! empty( $post_type_object->rewrite['slug'] ) )
 				$this->add_path_parents( $post_type_object->rewrite['slug'] );

@@ -1,0 +1,39 @@
+.article_title .container {
+    height: auto;
+    position: static;
+}
+
+#title-img {
+    width: 100%;
+    height: 400px;
+}
+
+#title-img {
+    img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+// related projects
+#related_projects {
+    list-style-type: none;
+    padding: 0rem;
+}
+
+#sidebar_projects {
+    margin-top: 6.5rem;
+}
+
+#related_text p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    #sidebar_projects {
+        margin-top: 0.5rem !important;
+    }
+}

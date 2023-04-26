@@ -1,0 +1,18 @@
+.simcal-event-details {
+    color: $black ;
+    
+    a {
+        color: $primary;
+    }
+}
+.simcal-default-calendar-grid{
+
+    .simcal-events{
+        font-size: .80em !important;
+    }
+}
+
+// #main-container ul.simcal-events {
+//     max-height: 200px;
+//     overflow: auto;
+// }

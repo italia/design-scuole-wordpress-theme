@@ -1,0 +1,86 @@
+/* GENERALI */
+
+.bg-primary_container {
+    background-color: $primary-container;
+}
+
+.text-blue {
+    color: $on-primary-container !important;
+}
+
+@media (min-width: 992px) {
+    .col-lg-2_5 {
+        flex: 0 0 19%;
+        max-width: 19%;
+    }
+}
+
+
+/* the_contet */
+
+.iscriviti p {
+    font-size: clamp(20px, -4px + 0.0416666667 * 100vw, 28px);
+    line-height: clamp(24px, -24px + 0.0833333333 * 100vw, 40px);
+    letter-spacing: -0.2625px;
+    font-weight: 600;
+    color: $on-primary-container !important;
+}
+
+#more{
+    display: none;
+}
+#readMoreBtn{
+    margin-top: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font-weight: 600;
+}
+
+
+/* loop */
+
+.orientamento{
+    padding: 1rem;
+
+    &__post{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $surface;
+        padding: 1rem;
+        min-height: 22rem;
+        border-radius: 0.4rem;
+        &__title{
+            margin: 1rem 0;            
+        }
+        &__text{
+            margin: 1rem 0;                
+        }
+        &__link{
+            &__button{
+                background-color: $primary;
+                padding: 0.6rem 1.3rem;
+                color: $on-primary;
+                transition: all 1s cubic-bezier(.215, .61, .355, 1);
+                border: none;
+                border-radius: 0.4rem;
+
+                &:hover{
+                    background-color: $primary-hover;
+                }
+
+            }
+        }
+    }
+}
+
+.referente{
+    &__list{
+        list-style: disc;
+        &__item{
+            padding: 0.4rem 1.4rem;
+        }
+    }
+
+}

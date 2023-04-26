@@ -1,0 +1,104 @@
+.carousel {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 9% 1fr 1fr;
+  grid-template-rows: repeat(var(--grid-rows-num, 4), 1fr);
+  gap: 0% 0px;
+  grid-template-areas: 
+    ".      title  text";
+  width: 100%;
+  height: 100%;
+
+  > {
+    h3 {
+      grid-area: title;
+      margin: 1rem 0;
+      text-transform: uppercase;
+    }
+
+    input[type=radio] {
+      grid-column-start: 1;
+      margin: auto;
+      appearance: none;
+      background-color: #C4C4C4;
+      border-radius: 50%;
+
+      &:not(:checked) {
+        background-color: #C4C4C4;
+      }
+
+      &:checked {
+        background-color: #E6285F;
+      }
+    }
+
+    label {
+      grid-column-start: 2;
+      margin: auto 0;
+      @include h6($color: true);
+    }
+
+    article {
+      grid-area: 1 / 3 / last-line / -1;
+
+      p {
+        // https://stackoverflow.com/a/13924997
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3; 
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    * {
+      align-self: stretch;
+    }
+
+    input {
+      height: 14px;
+      width: 14px;
+    }
+
+    article>div {
+      height: 8rem;
+      width: 8rem;
+      background-size: contain;
+      padding: 1rem 2rem;
+    }
+
+    input {
+      &:checked+label {
+        font-weight: bold;
+
+        +article {
+          @include font-body;
+        }
+      }
+    
+      &:not(:checked)+label+article {
+        display: none;
+      }
+    }
+  }
+
+  // TODO info-carousel mobile styles
+  // Create accordion-like styles for mobile  
+  @include media-breakpoint-down(sm) {
+    // background-color: #E6285F;
+    @include accordion($color: grey, $borders: false);
+    display: block;
+    label > * {
+      @include h5($extend: false);
+    }
+  }
+
+
+  // TODO info-carousel print styles
+  // Create styles for printers
+  // ...
+}

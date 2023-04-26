@@ -82,7 +82,7 @@ $(document).ready(function () {
       }
     } else {
       $("#main-header").addClass("zoom");
-      $(".cbp-spmenu-vertical.cbp-spmenu-left").addClass("zoom");
+      $(".cbp-spmenu-vertical.cbp-spmenu-right").addClass("zoom");
     }
   }
   $(function () {
@@ -94,10 +94,10 @@ $(document).ready(function () {
 jQuery(window).resize(function () {
   if (getZoomBrowser() >= 3) {
     $("#main-header").addClass("zoom");
-    $(".cbp-spmenu-vertical.cbp-spmenu-left").addClass("zoom");
+    $(".cbp-spmenu-vertical.cbp-spmenu-right").addClass("zoom");
   } else {
     $("#main-header").removeClass("zoom");
-    $(".cbp-spmenu-vertical.cbp-spmenu-left").removeClass("zoom");
+    $(".cbp-spmenu-vertical.cbp-spmenu-right").removeClass("zoom");
   }
 });
 /* End Sticky Header */
@@ -467,7 +467,7 @@ $(document).ready(function () {
       });
       if (window_top > div_top) {
         $(".header-utils-wrapper").addClass("utils-moved");
-        if (!navListPrimaryTop) {
+        if (!navListPrimaryTop && navListPrimaryBottom instanceof Element) {
           containerDsk.insertAdjacentElement(
             "afterbegin",
             navListPrimaryBottom
@@ -475,7 +475,7 @@ $(document).ready(function () {
         }
       } else {
         $(".header-utils-wrapper").removeClass("utils-moved");
-        if (!navListPrimaryBottom) {
+        if (!navListPrimaryBottom && navListPrimaryTop instanceof Element) {
           navContainer?.insertAdjacentElement("afterbegin", navListPrimaryTop);
         }
       }
@@ -487,9 +487,9 @@ $(document).ready(function () {
   });
 
   function tabIndexHmburger() {
-    var nav = document.querySelector(".cbp-spmenu-vertical.cbp-spmenu-left");
+    var nav = document.querySelector(".cbp-spmenu-vertical.cbp-spmenu-right");
     var linkList = document.querySelectorAll(
-      ".cbp-spmenu-vertical.cbp-spmenu-left a"
+      ".cbp-spmenu-vertical.cbp-spmenu-right a"
     );
 
     // Options for the observer (which mutations to observe)
@@ -753,3 +753,20 @@ function catchFocusUser(linkList, buttonList) {
 }
 
 tabIndexUser();
+
+// Read more orientamento
+function readMore() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("readMoreBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Leggi di più";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Leggi di meno";
+    moreText.style.display = "inline";
+  }
+}

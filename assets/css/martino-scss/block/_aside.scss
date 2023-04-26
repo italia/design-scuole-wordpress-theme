@@ -1,0 +1,75 @@
+body {
+    overflow-x: hidden;
+}
+#sidebar {
+    background-color: $sidebar;
+
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 10000px;
+        height: 100%;
+        float: right;
+        top: 0;
+        background-color: $sidebar;
+    }
+    a {
+        color: $primary;
+        text-decoration: underline;
+    }
+
+    .mailfield a{
+        text-transform: lowercase;
+    }
+    h6 {
+        @include font-body;
+        margin: 2rem 0 0.5rem;
+        color: $primary;
+    }
+    .card{
+        background-color: transparent;
+    }
+    .mailfield svg {
+            max-height: 24px;
+    }
+
+    #quotes p {
+    font-style: italic;
+    color: $primary;
+    @include text-sm;
+    }
+
+    h5 {
+        margin-top: 2rem;
+    }
+
+    .aside-main {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+    }
+    
+    ul,
+    li {
+            margin: 0;
+            padding: 0;
+        }
+}
+
+@include media-breakpoint-down(sm) {
+
+    #sidebar {
+        margin: 0;
+        margin-inline: -15px;
+        width: calc(100% + 30px);
+        &::before {
+            content: none;
+        }
+    }
+}
+.uppercase_text {
+    text-transform: uppercase;
+}

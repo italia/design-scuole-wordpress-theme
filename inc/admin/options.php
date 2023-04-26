@@ -62,6 +62,100 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
+	$header_options->add_field( array(
+		'id' => $prefix . 'indirizzo_scuola',
+		'name'        => __( 'Indirizzo della Scuola', 'design_scuole_italia' ),
+		'desc' => __( 'Via, numero, CUP - Città' , 'design_scuole_italia' ),
+		'type' => 'text',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+
+    $header_options->add_field( array(
+        'id' => $prefix . 'footer_options',
+        'name'        => __( 'Footer', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del footer' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'gmaps_scuola',
+        'default' => 'https://goo.gl/maps/jn3ThdNhg9YXo64M6',
+		'name'        => __( 'Link Google Maps', 'design_scuole_italia' ),
+		'desc' => __( 'https://goo.gl/maps/XXXXXXXXXXXXXXXXX' ),
+		'type' => 'text_url',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'telefono_scuola',
+        'default' => '0461601122',
+		'name'        => __( 'Telefono', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+        'attributes' => array(
+            'type' => 'tel',
+            'pattern' => '\d{10}',
+            'minlength' => 10,
+            'maxlength' => 10,
+            'data-validate' => 'digit',
+            // 'required'    => 'required'
+        ),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'fax_scuola',
+        'default' => '0461601470',
+		'name'        => __( 'FAX', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+        'attributes' => array(
+            'type' => 'tel',
+            'pattern' => '\d{10}',
+            'minlength' => 10,
+            'maxlength' => 10,
+            'data-validate' => 'digit',
+			// 'required'    => 'required'
+        ),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'fiscale_scuola',
+        'default' => '80015240221',
+		'name'        => __( 'Codice fiscale', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'iban_scuola',
+        'default' => 'IT49V0200835040000005843804',
+		'name'        => __( 'Codice IBAN', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
+	$header_options->add_field( array(
+		'id' => $prefix . 'codice_ministeriale',
+        'default' => 'TNIS00300A',
+		'name'        => __( 'Codice Ministeriale ', 'design_scuole_italia' ),
+		'desc' => __( 'XXXXXXXXXX' , 'design_scuole_italia' ),
+		'type' => 'text',
+		// 'attributes'    => array(
+		// 	'required'    => 'required'
+		// ),
+	) );
+
     /**
      * Registers options page "Alerts".
      */
@@ -1294,20 +1388,6 @@ function dsi_register_main_options_metabox() {
 	$setup_options = new_cmb2_box( $args );
 
     $setup_options->add_field( array(
-        'id' => $prefix . 'footer_options',
-        'name'        => __( 'Footer', 'design_scuole_italia' ),
-        'desc' => __( 'Area di configurazione del testo da inserire nel footer delle scuole.' , 'design_scuole_italia' ),
-        'type' => 'title',
-    ) );
-
-    $setup_options->add_field( array(
-        'id' => $prefix . 'footer_text',
-        'name' => 'Testo Footer',
-        'desc' => __( 'Inserisci nel footer l\'indirizzo, il codice meccanografico, il codice IPA, il codice Fiscale e il CUF ', 'design_scuole_italia' ),
-        'type' => 'textarea'
-    ) );
-
-    $setup_options->add_field( array(
         'id' => $prefix . 'altro_istruzioni',
         'name'        => __( 'Altre Informazioni', 'design_scuole_italia' ),
         'desc' => __( 'Area di configurazione delle opzioni generali del tema.' , 'design_scuole_italia' ),
@@ -1408,6 +1488,32 @@ function dsi_options_display_with_tabs( $cmb_options ) {
             <div class="clear-form"></div>
         </div>
 	</div>
+    <script>
+        ((...inputs) => {
+            const patterns = {
+                letter: /[^\W\d_]/,
+                digit: /\d/,
+                noLineBreak: /.*/,
+                // You can add some more patterns
+                // ...
+            }
+            
+            const validate = (e, regex = /[0-9]|\./) => {
+                const key = String.fromCharCode(e.keyCode || e.which);
+
+                if( !key || regex.test(key) ) return;
+                e.returnValue = false;
+                e?.preventDefault();
+            }
+
+            for (const input of inputs) {
+                const val = input.dataset?.validate
+                const regex = patterns[val] || new RegExp(val)
+
+                input.addEventListener('keypress', e => validate(e, regex))                
+            }
+        })(...document.querySelectorAll('input[data-validate]'))
+    </script>
 	<?php
 }
 

@@ -1,0 +1,35 @@
+
+@each $type, $args in $mm-typo {
+  #{prefix-sel($type)} {
+    @include extend-type($type);
+  }
+}
+
+main { 
+  @each $type, $args in $mm-typo {
+    #{prefix-sel($type)} {
+      @include extend-type($type, $color: true, $size: false);
+      &.primary {
+        @if $type != "primary" {
+          @include extend-type("primary", $color: true, $size: false);
+        }
+      }
+    }
+  }
+}
+
+.font-body, p, ul, ol {
+  @include extend-type("font-body");
+  main :not(button, a) > & {
+    @include extend-type("font-body", $color: true, $size: false);
+  }
+}
+
+.list{
+    list-style-type: disc;
+}
+
+.bold{
+  font-weight: 700;
+}
+

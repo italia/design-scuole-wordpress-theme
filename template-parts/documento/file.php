@@ -1,6 +1,7 @@
 <?php
 global $nomefile, $idfile;
 
+
 $icon = "svg-documents";
 if(substr($nomefile, -3) == "pdf")
 	$icon = "it-pdf-document";
@@ -33,14 +34,14 @@ if(trim($ptitle) == ""){
     $ptitle = str_replace("_", " ", $ptitle);
 }
 ?>
-	<div class="card card-bg card-icon rounded">
-		<div class="card-body">
+	<div class="card card-icon flex flex-row align-items-center p-0">
+		<div class="p-2">
 			<svg class="icon <?php echo $icon; ?>" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?php echo $icon; ?>"></use></svg>
-			<div class="card-icon-content">
-				<p><strong><a target="_blank" href="<?php echo $attach->guid; ?>"  aria-label="Vai alla scheda <?php echo $ptitle; ?>"><?php echo $ptitle; ?></a></strong></p>
-				<small><?php echo $type; ?> - <?php echo intval($filesize/1024); ?> kb</small>
-			</div><!-- /card-icon-content -->
-		</div><!-- /card-body -->
+		</div>
+		<div class="card-icon-content pl-2">
+			<p><strong><a target="_blank" class="h6" href="<?php echo $attach->guid; ?>"  aria-label="Vai alla scheda <?php echo $ptitle; ?>"><?php echo $ptitle; ?></a></strong></p>
+		</div><!-- /card-icon-content -->
 	</div><!-- /card card-bg card-icon rounded -->
 <?php
+
 

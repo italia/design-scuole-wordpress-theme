@@ -14,16 +14,17 @@
 		                    'item_tag'        => 'li',
 		                    'show_on_front'   => true,
 		                    'network'         => false,
-		                    'show_title'      => true,
+		                    'show_title'      => $args!==ORARI_POST_TYPE,
 		                    'show_browse'     => false,
 		                    'labels'          => array(
 			                    'search'      => esc_html__( 'Risultati Ricerca: %s','design_scuole_italia' ),
                             ),
 		                    'post_taxonomy' => array(
 			                     'servizio'  => 'tipologia-servizio', // 'post' post type and 'post_tag' taxonomy
-                                'indirizzo'  => 'percorsi-di-studio',
+                                 'indirizzo'  => 'percorsi-di-studio',
 			                     'documento'  => 'tipologia-documento',
 			                     'post'  =>     'tipologia-articolo',
+								 'orari'  =>     'orari',
 			                     'luogo'  => 'tipologia-luogo',
 			                     // 'programma_materia'  => 'materia', // todo: programma materia
 			                     'struttura'  => 'tipologia-struttura',

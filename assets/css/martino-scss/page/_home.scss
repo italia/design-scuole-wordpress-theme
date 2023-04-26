@@ -1,0 +1,44 @@
+#main-container {
+    #button-navigazione {
+        a {
+            display: grid;
+            height: 100%;
+        }
+    }
+    .rem5 {
+        margin-bottom: 5rem;
+    }
+
+    ul.simcal-events{
+        max-height: 400px;
+        overflow: auto;
+        &li{
+            display: block !important;
+        }
+        .simcal-event-details p{
+                margin: 0 0 0.5em;
+
+            a{
+                color: $primary;
+                font-weight: 400;
+            }
+        }
+    }
+
+    button.simcal-events-toggle{
+        display: none;
+    }
+
+    .simcal-default-calendar-list ul.simcal-events li.simcal-event{
+        margin-bottom: 25px;
+    }
+
+  }
+@media screen and (max-width: 991px) {
+    .wauto {
+        @media (max-width: 575.98px) {
+            width: 100%!important;
+        }
+    }
+    // Ho aggiunto questa classe a .wauto perchè su miscure piccole tornasse a occupare tutto lo spazio disponibile, se crea problemi lo sistemo. (alex)
+}

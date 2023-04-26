@@ -14,13 +14,6 @@ global $gallery;
 								<a href="<?php echo $urlg; ?>" aria-label="Visualizza foto: <?php echo $attach->post_title; ?>">
 									<img src="<?php echo $imageatt[0]; ?>" alt="<?php echo esc_attr($attach->post_title); ?>">	
 								</a>
-								<?php
-								if (!empty($attach->post_title)) {
-								?>
-									<figcaption><?php echo $attach->post_title; ?></figcaption>
-									<?php
-								}
-								?>
 							</figure>
 					</div><!-- /item -->
 				</li>

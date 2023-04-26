@@ -98,6 +98,7 @@ require get_template_directory() . '/inc/import.php';
  */
 require get_template_directory() . '/inc/dompdf.php';
 
+require_once( get_template_directory() . '/inc/admin/edt-orari.php' );
 
 
 
@@ -145,7 +146,8 @@ if ( ! function_exists( 'dsi_setup' ) ) :
             add_image_size( 'item-thumb', 280, 280 , true);
             add_image_size( 'item-gallery', 730, 485 , true);
             add_image_size( 'vertical-card', 190, 290 , true);
-
+						add_image_size( 'news-thumb', 150, 150, true);
+						add_image_size( 'project-thumb',100, 100, true);
             add_image_size( 'banner', 600, 250 , false);
         }
 
@@ -174,37 +176,46 @@ function dsi_widgets_init() {
 		'name'          => esc_html__( 'Footer - colonna 1', 'design_scuole_italia' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Prima colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '<div class="footer-list">',
+		'before_widget' => '',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h2></label><div class="footer-list">',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 2', 'design_scuole_italia' ),
 		'id'            => 'footer-2',
 		'description'   => esc_html__( 'Seconda colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '<div class="footer-list">',
+		'before_widget' => '',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h2></label><div class="footer-list">',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 3', 'design_scuole_italia' ),
 		'id'            => 'footer-3',
 		'description'   => esc_html__( 'Terza colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '<div class="footer-list">',
+		'before_widget' => '',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h2></label><div class="footer-list">',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer - colonna 4', 'design_scuole_italia' ),
 		'id'            => 'footer-4',
 		'description'   => esc_html__( 'Quarta colonna a più di pagina.', 'design_scuole_italia' ),
-		'before_widget' => '<div class="footer-list">',
+		'before_widget' => '',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="h3">',
-		'after_title'   => '</h2>',
+		'after_title'   => '</h2></label><div class="footer-list">',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer - colonna 5', 'design_scuole_italia' ),
+		'id'            => 'footer-5',
+		'description'   => esc_html__( 'Quinta colonna a più di pagina.', 'design_scuole_italia' ),
+		'before_widget' => '',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="h3">',
+		'after_title'   => '</h2></label><div class="footer-list">',
 	) );
 }
 add_action( 'widgets_init', 'dsi_widgets_init' );
@@ -220,6 +231,7 @@ function dsi_scripts() {
 	wp_enqueue_style( 'dsi-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css');
 	wp_enqueue_style( 'dsi-boostrap-italia', get_stylesheet_directory_uri() . '/assets/css/bootstrap-italia.css');
 	wp_enqueue_style( 'dsi-scuole', get_stylesheet_directory_uri() . '/assets/css/scuole.css');
+	wp_enqueue_style( 'dsi-martino', get_stylesheet_directory_uri() . '/assets/css/martino.css');
 	wp_enqueue_style( 'dsi-carousel-style', get_stylesheet_directory_uri() . '/assets/css/carousel-style-double.css');
 	wp_enqueue_style( 'dsi-splide-min', get_stylesheet_directory_uri() . '/assets/css/splide.min.css');
 
@@ -317,7 +329,7 @@ function modify_admin_logo()
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/custom-logo.png);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/logo-custom.png);
             height: 84px;
             width: 84px;
             background-size: 84px 84px;
@@ -328,3 +340,96 @@ function modify_admin_logo()
 <?php }
 
 add_action('login_enqueue_scripts', 'modify_admin_logo');
+
+add_action('wp_head', function () {
+    global $post;
+    if ($post) {
+        setup_postdata($post);
+        $content = get_the_content();
+        preg_match('/\[info_carousel.*?\]/', $content, $matches);
+        if ($matches) {
+			echo '<style>';
+			include get_template_directory() . '/assets/css/martino-carousel.css';
+			echo '</style>';
+        }
+    }
+});
+
+function create_page_if_null($page_name) {
+	console_log($page_name);
+    if( get_page_by_path($page_name) == NULL ) {
+        global $user_ID;
+
+		$createPage = array(
+			'post_author'   => $user_ID,
+			'post_title'    => ucwords(str_replace('-', ' ', $page_name)),
+			'post_name'     => $page_name,
+			'post_date' 	=> date('Y-m-d H:i:s'),
+			'post_content'  => 'Starter content',
+			'post_status'   => 'publish',
+			// 'post_status'   => 'draft',
+			'post_type'     => 'page',
+		);
+
+		// Insert the post into the database
+		wp_insert_post( $createPage );
+    }
+}
+
+function check_static_pages_created(){
+	$pages_to_check = glob(get_template_directory() . '/page-*.php');
+	// $pages_to_exclude = [];
+	// $pages_to_check = array_diff($pages_to_check, $pages_to_exclude);
+
+	foreach (array_unique($pages_to_check) as $page_filepath) {
+		create_page_if_null(preg_replace('/^.*\/page-(.*)\.php$/', '${1}', $page_filepath));
+	}
+}
+add_action('after_switch_theme','check_static_pages_created');
+// add_action('init','check_static_pages_created');
+
+function wpdocs_custom_excerpt_length( $length ) {
+	return 10;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+/* Custom Post Type
+------------------------*/
+require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
+require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
+require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
+
+require dirname(__FILE__).'/functions-parts/cpt-slider.php';
+require dirname(__FILE__).'/functions-parts/cpt-pon.php';
+require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
+require dirname(__FILE__).'/functions-parts/cpt-orientamento.php';
+require dirname(__FILE__).'/functions-parts/cpt-documenti.php';
+require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
+
+/* Customize Back-end
+------------------------*/
+require dirname(__FILE__).'/functions-parts/custom-fields.php';
+require dirname(__FILE__).'/functions-parts/cmb2-js-validation-required.php';
+
+require dirname(__FILE__).'/functions-parts/back-end-custom.php';
+
+function get_file_from_zip($zipfile, $filename)
+{
+	// TODO: Add error handling
+	$file = '';
+	$tmpfile = get_temp_dir().'/tmp_file.zip';
+
+	if (!copy($zipfile, $tmpfile)) {
+		// echo "\nfailed to copy <$zipfile> ...\n";
+		return $file;
+	}
+
+	$zip = new ZipArchive;
+	if ($zip->open($tmpfile) === TRUE) {
+		$file = $zip->getFromName($filename);
+		$zip->close();
+		if ($file != false) return $file;
+	} 
+	// echo 'failed';
+	return $file;
+}

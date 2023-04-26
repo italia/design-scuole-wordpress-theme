@@ -1,0 +1,85 @@
+// Martino Martini Colors
+
+// Primary
+$primary:#1260A4;
+$on-primary:#fff;
+$primary-container:#D2E4FF;
+$on-primary-container:#001C39;
+$primary-hover:#0073E6;
+
+// Secondary
+$secondary:#BD0043;
+$on-secondary:#fff;
+$secondary-hover:#FF4F79;
+
+// Error
+$error:#BA1B1B;
+$on-error:#fff;
+$error-container:#FFDAD4;
+$on-error-container:#410001;
+
+// Background
+$background:#FCFCFF;
+$on-background:#1A1C1E;
+
+// Surface
+$surface:#F0F0F3;
+$on-surface:#C3C6CF;
+$surface-variant:#DFE2EB;
+$on-surface-variant:#43474E;
+$outline:#73777F;
+
+// Yellow
+$yellow:#F0AE2C;
+$on-yellow:#fff;
+$yellow-container:#FFDEA8;
+$on-yellow-container:#281900;
+
+// Light Blue
+$light-blue:#36B6E9;
+$on-light-blue:#fff;
+$light-blue-container:#BEE8FF;
+$on-light-blue-container:#001E2B;
+
+// Purple
+$purple:#982262;
+$on-purple:#fff;
+$purple-container:#FFD9E7;
+$on-purple-container:#3E0022;
+
+// Fuchsia
+$fuchsia:#E9265E;
+$on-fuchsia:#fff;
+$fuchsia-container:#FFD9DE;
+$on-fuchsia-container:#400011;
+
+
+// Red
+$red:#D33D36;
+$on-red:#fff;
+$red-container:#FFD9E7;
+$on-red-container:#410002;
+
+// Orange
+$orange:#EE502F;
+$on-orange:#fff;
+$orange-container:#FFDAD1;
+$on-orange-container:#3F0400;
+
+// Green
+$green:#5AB447;
+$on-green:#fff;
+$green-container:#9BF983;
+$on-green-container:#002200;
+
+// Black
+$black:#000;
+
+// White
+$white:#fff;
+
+// Sidebar
+$sidebar:$surface-variant;
+
+// TODO Add scss color variables
+// Import colors from bootstrap-italia

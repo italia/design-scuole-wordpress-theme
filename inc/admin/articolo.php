@@ -49,16 +49,17 @@ function dsi_add_articolo_metaboxes() {
         'priority'     => 'high',
     ) );
 
-    $cmb_abstrat->add_field( array(
-        'id' => $prefix . 'tipologia',
-        'name'        => __( 'Tipologia articolo *', 'design_scuole_italia' ),
-        'type'             => 'taxonomy_radio_inline',
+
+	$cmb_abstrat->add_field( array(
+        'name'             => $prefix . 'tipologia',
+        'id'               => 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
         'show_option_none' => false,
-        'taxonomy'       => 'tipologia-articolo',
-        'remove_default' => 'true',
-        'default' => "notizie",
-        'attributes' => array(
-            'required' => 'required'
+        'options'          => array(
+			'notizie' => __( 'Notizie', 'cmb2' ),
+            'dicono' => __( 'Dicono di noi', 'cmb2' ),
+            'eventi'   => __( 'Eventi', 'cmb2' ),
+			'circolari'   => __( 'Circolari', 'cmb2' ),
         ),
     ) );
 
@@ -73,6 +74,7 @@ function dsi_add_articolo_metaboxes() {
         ),
     ) );
 
+	
     $cmb_undercontent = new_cmb2_box( array(
 		'id'           => $prefix . 'box_elementi_articolo',
 		'title'         => __( 'Dettagli Articolo', 'design_scuole_italia' ),
@@ -80,41 +82,15 @@ function dsi_add_articolo_metaboxes() {
 		'context'      => 'normal',
 		'priority'     => 'high',
 	) );
-	$cmb_undercontent->add_field( array(
-			'id' => $prefix . 'persone',
-			'name'       => __('Persone ', 'design_scuole_italia' ),
-			'desc' => __( 'Link a schede persone dell\'amminsitrazione citate', 'design_scuole_italia' ),
-			'type'    => 'pw_multiselect',
-			'options' => dsi_get_user_options(),
-			'attributes' => array(
-				'placeholder' =>  __( 'Seleziona uno o più persone / utenti', 'design_scuole_italia' ),
-			),
-		)
-	);
+	
 
 	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'luoghi',
-		'name'    => __( 'Luogo', 'design_scuole_italia' ),
-		'desc' => __( 'Link a schede luoghi del sito citati  ' , 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dsi_get_luoghi_options(),
-	) );
-
-
-	$cmb_undercontent->add_field( array(
-		'id' => $prefix . 'link_schede_documenti',
-		'name'    => __( 'Documenti', 'design_scuole_italia' ),
-		'desc' => __( 'Inserisci qui tutti i documenti che ritieni rilevanti. Se devi caricare il documento <a href="post-new.php?post_type=documento">puoi creare una breve scheda di presentazione</a> (soluzione consigliata e più efficace per gli utenti del sito) oppure caricarlo direttamente nei campi che seguono. ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => false, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'documento',
-			), // override the get_posts args
-		),
+		'id'         => $prefix . 'gallery',
+		'name'       => __( 'Galleria', 'design_scuole_italia' ),
+		'desc'       => __( 'Galleria di immagini', 'design_scuole_italia' ),
+		'type' => 'file_list',
+		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+		'query_args' => array( 'type' => 'image' ), // Only images attachment
 	) );
 
 
