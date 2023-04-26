@@ -76,6 +76,8 @@ function WWS_custom_back()
             #menu-posts-anac-xml-view {display:none !important;}
 
             #menu-posts-scheda_didattica {display:none !important;}
+
+            #setting-error-tgmpa {display:none !important;}
         </style>';
 }
 add_action('wp_before_admin_bar_render', 'WWS_custom_back');
