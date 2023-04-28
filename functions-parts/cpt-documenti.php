@@ -4,8 +4,8 @@
  * Definisce post type per Documenti di istituto
  */
 
-add_action( 'init', 'register_documenti_post_type' );
-function register_documenti_post_type() {
+add_action( 'init', 'register_documenti_istituto_post_type' );
+function register_documenti_istituto_post_type() {
 
 	/** Documenti di istituto **/
 	$labels = array(
@@ -27,17 +27,17 @@ function register_documenti_post_type() {
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'documenti', $args );
+	register_post_type( 'documenti_istituto', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action( 'cmb2_init', 'martini_add_documenti_metaboxes' );
-function martini_add_documenti_metaboxes() {
+add_action( 'cmb2_init', 'martini_add_documenti_istituto_metaboxes' );
+function martini_add_documenti_istituto_metaboxes() {
 
-    $prefix = '_martini_documenti_';
+    $prefix = '_martini_documenti_istituto_';
     
     $cmb_aftercontent = new_cmb2_box( array(
     'id'           => $prefix . 'box_elementi_dati',
