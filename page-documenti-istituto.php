@@ -19,14 +19,14 @@ get_header();
                 <?php 
 
                     $loop = new WP_Query( array(
-                        'post_type'         => 'documenti_istituto',
+                        'post_type'         => 'documenti',
                         'post_status'       => 'publish',
                         'orderby'           => 'title',
                         'order'             => 'ASC',
                         'posts_per_page'    => 999 ,
                     )); 
 
-                    while ($loop -> have_posts()) : $loop -> the_post( 'documenti_istituto' ); 
+                    while ($loop -> have_posts()) : $loop -> the_post( 'documenti' ); 
 
                     $documenti_istituto = get_post_meta( get_the_ID(), '_martini_documenti_istituto_file_documenti_istituto', true );
 

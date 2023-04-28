@@ -17,3 +17,14 @@
     padding-right: 34px;
     display: block;
 }
+
+// Calendar home
+
+.simcal-events{
+    .simcal-event-title{
+        font-size: 12px !important;
+    }
+    .simcal-event-start, .simcal-event-start-date, .simcal-event-end, .simcal-event-end-time, .simcal-event-address .simcal-event-start-location{
+        font-size: 12px !important;
+    }
+}

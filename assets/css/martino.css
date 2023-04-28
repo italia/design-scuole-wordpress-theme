@@ -1605,6 +1605,28 @@ label > span {
   margin-bottom: 0.5rem;
 }
 
+.calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
+  background-color: #1260A4;
+}
+
+.calendar-vertical .calendar-date .calendar-date-day p {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 5px 0;
+  text-align: center;
+  padding-right: 34px;
+  display: block;
+}
+
+.simcal-events .simcal-event-title {
+  font-size: 12px !important;
+}
+
+.simcal-events .simcal-event-start, .simcal-events .simcal-event-start-date, .simcal-events .simcal-event-end, .simcal-events .simcal-event-end-time, .simcal-events .simcal-event-address .simcal-event-start-location {
+  font-size: 12px !important;
+}
+
 body {
   overflow-x: hidden;
 }
