@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying archive pages
  *
@@ -8,40 +9,25 @@
  */
 
 get_header();
-?>
-    <main id="main-container" class="main-container">
-        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
-        <section class="container mt-5 mb-5">
-            <div class="col">
-                <h2> La struttura </h2>
-                <p>
-                L’edificio, costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, 
-                ospita i discenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, 
-                un auditorium e ampi spazi verdi all’esterno. L’offerta formativa si arricchisce con l’adozione di 
-                strumenti educativi atti a sensibilizzare a un corretto rapporto con i consumi energetici, 
-                nonché a valorizzare le risorse alternative con attività volte a promuovere la sostenibilità e l’efficienza 
-                energetica.
-                </p>
-            </div>
-            <div class="col">
-                <h2> La struttura </h2>
-                <p>
-                L’edificio, costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, 
-                ospita i discenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, 
-                un auditorium e ampi spazi verdi all’esterno. L’offerta formativa si arricchisce con l’adozione di 
-                strumenti educativi atti a sensibilizzare a un corretto rapporto con i consumi energetici, 
-                nonché a valorizzare le risorse alternative con attività volte a promuovere la sostenibilità e l’efficienza 
-                energetica.
-                </p>
-            </div>
 
-            <div class="gallery mt-5">
-                <div class="items">
-                    <?php the_content();?>
+?>
+<main id="main-container" class="main-container">
+    <?php get_template_part("template-parts/hero/hero_page"); ?>
+    <section id="container-spazi" class="container px-4 mb-5">
+        <div id="organigramma_page" class="content mx-5 my-5" role="main" data-target="index" >
+        <?php the_content(); ?>
+        </div><!-- end content -->
+        <div class="row my-5">
+            <div class="col-12">
+                <h2> Dove siamo </h2>
+                <div style="width: 100%; overflow: hidden;">
+                    <iframe width="100%" height="600" frameborder="0" style="border:0; margin-top: -150px;" src="https://www.google.com/maps/d/u/0/embed?mid=1Lqf2ZbM8324bARC0U_fQJacC4AJhOV4&ehbc=2E312F">
+                    </iframe>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
 <?php
 get_footer();
