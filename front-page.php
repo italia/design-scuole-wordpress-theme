@@ -50,7 +50,7 @@
             <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
-            <?php 
+            <?php
             // todo: Query homepage's list of buttons from database and not hardcoding it
             $show_orari = array(
               array(
@@ -58,20 +58,20 @@
                 'label' => 'Orario docenti'
               ),
               array(
-                'term'  => 'classi', 
-                'label' => 'Orario classi' 
+                'term'  => 'classi',
+                'label' => 'Orario classi'
               ),
             );
-            foreach ($show_orari as $orario ) {
+            foreach ($show_orari as $orario) {
               $term = get_term_by('slug', $orario['term'], ORARI_TAXONOMY);
               if ($term) {
                 $term_link = get_term_link($term);
                 if (!is_wp_error($term_link)) {
-                  ?>
-            <a class="btn-lg-default-outline w-100" href="<?php echo $term_link; ?>">
-              <button><?php echo $orario['label']; ?></button>
-            </a>
-                  <?php
+            ?>
+                  <a class="btn-lg-default-outline w-100" href="<?php echo $term_link; ?>">
+                    <button><?php echo $orario['label']; ?></button>
+                  </a>
+            <?php
                 }
               }
             }
@@ -100,57 +100,40 @@
       <div id="button-navigazione" class="col-12 my-4">
 
         <div class="row mt-4 mt-lg-0">
-
-          <div class="col-6 col-md-3 pl-lg-0 p-2">
-
-            <a class="btn-lg-default-outline" href="2-livello-ITE-serale">
-
-              <button>
-                <span>DIDATTICA</span>
-                <p class="mb-0">Corso ITE serale</p>
-              </button>
-
-            </a>
-
-          </div>
-
           <div class="col-6 col-md-3 p-2">
-
             <a class="btn-lg-default-outline" href="didattica-2/offerta-formativa">
-
               <button>
                 <span>DIDATTICA</span>
                 <p class="mb-0">Offerta formativa</p>
               </button>
-
             </a>
+          </div>
 
+          <div class="col-6 col-md-3 pl-lg-0 p-2">
+            <a class="btn-lg-default-outline" href="2-livello-ITE-serale">
+              <button>
+                <span>DIDATTICA</span>
+                <p class="mb-0">Corso ITE serale</p>
+              </button>
+            </a>
           </div>
 
           <div class="col-6 col-md-3 p-2">
-
-            <a class="btn-lg-default-outline" href="open-day">
-
+            <a class="btn-lg-default-outline" href="mi-oriento">
               <button>
-                <span>DIDATTICA</span>
-                <p class="mb-0">Open days</p>
+                <span>SERVIZI</span>
+                <p class="mb-0">miOriento</p>
               </button>
-
             </a>
-
           </div>
 
           <div class="col-6 col-md-3 p-2 pr-lg-1">
-
-            <a class="btn-lg-secondary-outline" href="ASL">
-
+            <a class="btn-lg-secondary-outline" href="cic">
               <button>
                 <span>SERVIZI</span>
-                <p class="mb-0">ASL</p>
+                <p class="mb-0">Sportello CIC</p>
               </button>
-
             </a>
-
           </div>
 
         </div>
