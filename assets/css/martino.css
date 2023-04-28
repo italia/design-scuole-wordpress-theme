@@ -1516,7 +1516,7 @@ label > span {
   border-radius: 0.25rem;
 }
 
-.loop__news__card__content__image img {
+.loop__news__card__content__image {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1525,9 +1525,6 @@ label > span {
 
 .loop__news__card__content__image__placeholder {
   max-height: 150px;
-}
-
-.loop__news__card__content__image__placeholder img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -1620,6 +1617,11 @@ label > span {
   text-align: center;
   padding-right: 34px;
   display: block;
+}
+
+.simcal-events {
+  -webkit-padding-start: 0px !important;
+          padding-inline-start: 0px !important;
 }
 
 .simcal-events .simcal-event-title {
