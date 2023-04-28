@@ -35,9 +35,11 @@
         }
         &__placeholder{
           max-height: 150px;
-          width: 100%;
-          object-fit: contain;
-          border-radius: .25rem .25rem 0 0 ;
+          img{
+            width: 100%;
+            object-fit: contain;
+            border-radius: .25rem .25rem 0 0 ;
+          }
         }
       }
       &__title{

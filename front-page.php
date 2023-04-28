@@ -119,7 +119,7 @@
           </div>
 
           <div class="col-6 col-md-3 p-2">
-            <a class="btn-lg-default-outline" href="mi-oriento">
+            <a class="btn-lg-secondary-outline" href="mi-oriento">
               <button>
                 <span>SERVIZI</span>
                 <p class="mb-0">miOriento</p>

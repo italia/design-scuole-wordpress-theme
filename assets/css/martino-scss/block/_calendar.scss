@@ -24,10 +24,13 @@
     .simcal-event-title{
         font-size: 12px !important;
     }
-    .simcal-event-start, .simcal-event-start-date, .simcal-event-end, .simcal-event-end-time{
+    .simcal-event-start{
         font-size: 12px !important;
     }
-    .simcal-event-address .simcal-event-start-location{
+    .simcal-event-end{
+        font-size: 12px !important;
+    }
+    .simcal-event-address{
         font-size: 12px !important;
     }
 }

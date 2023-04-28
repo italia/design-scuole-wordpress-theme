@@ -1525,6 +1525,9 @@ label > span {
 
 .loop__news__card__content__image__placeholder {
   max-height: 150px;
+}
+
+.loop__news__card__content__image__placeholder img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -1623,11 +1626,15 @@ label > span {
   font-size: 12px !important;
 }
 
-.simcal-events .simcal-event-start, .simcal-events .simcal-event-start-date, .simcal-events .simcal-event-end, .simcal-events .simcal-event-end-time {
+.simcal-events .simcal-event-start {
   font-size: 12px !important;
 }
 
-.simcal-events .simcal-event-address .simcal-event-start-location {
+.simcal-events .simcal-event-end {
+  font-size: 12px !important;
+}
+
+.simcal-events .simcal-event-address {
   font-size: 12px !important;
 }
 
