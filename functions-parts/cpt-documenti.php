@@ -4,8 +4,8 @@
  * Definisce post type per Documenti di istituto
  */
 
-add_action( 'init', 'register_documenti_post_type' );
-function register_documenti_post_type() {
+add_action( 'init', 'register_doc_istituto_post_type' );
+function register_doc_istituto_post_type() {
 
 	/** Documenti di istituto **/
 	$labels = array(
@@ -27,43 +27,42 @@ function register_documenti_post_type() {
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'documenti', $args );
+	register_post_type( 'doc_istituto', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action( 'cmb2_init', 'martini_add_documenti_metaboxes' );
-function martini_add_documenti_metaboxes() {
+add_action('cmb2_init', 'martini_add_doc_istituto_metaboxes');
+function martini_add_doc_istituto_metaboxes()
+{
 
-    $prefix = '_martini_documenti_';
-    
-    $cmb_aftercontent = new_cmb2_box( array(
-    'id'           => $prefix . 'box_elementi_dati',
-    'title'        => __( 'Documenti di istituto', 'martino_martini' ),
-    'object_types' => array( 'documenti' ),
-    'context'      => 'normal',
-    'priority'     => 'high',
-    ) );
+    $prefix = '_martini_doc_istituto_';
 
-    // box per caricare file del corso documenti sulle scuole
+    $cmb_aftercontent = new_cmb2_box(array(
+        'id'           => $prefix . 'box_elementi_dati',
+        'title'        => __('Archivio Documenti di istituto', 'martino_martini'),
+        'object_types' => array('doc_istituto'),
+        'context'      => 'normal',
+        'priority'     => 'high',
+    ));
 
-    $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_documenti',
-        'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file del corso documenti della scuola' , 'martino_martini' ),
+    // box per caricare file di doc_istituto
+
+    $cmb_aftercontent->add_field(array(
+        'id' => $prefix . 'file_doc_istituto',
+        'name'    => __('Carica file', 'martino_martini'),
+        'desc' => __('Archivio dei file Documenti di istituto', 'martino_martini'),
         'type' => 'file_list',
-        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
-        // Optional, override default text strings
         'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
+            'add_upload_files_text' => __('Aggiungi un nuovo file', 'martino_martini'), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi file', 'martino_martini'), // default: "Remove Image"
+            'remove_text' => __('Rimuovi', 'martino_martini'), // default: "Remove"
         ),
         'attributes' => array(
             'data-validation' => 'required',
         ),
-    ) );
+
+    ));
 }

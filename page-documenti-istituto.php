@@ -19,16 +19,18 @@ get_header();
                 <?php 
 
                     $loop = new WP_Query( array(
-                        'post_type'         => 'documenti',
+                        'post_type'         => 'doc_istituto',
                         'post_status'       => 'publish',
                         'orderby'           => 'title',
                         'order'             => 'ASC',
                         'posts_per_page'    => 999 ,
                     )); 
 
-                    while ($loop -> have_posts()) : $loop -> the_post( 'documenti' ); 
+                    while ($loop -> have_posts()) : $loop -> the_post( 'doc_istituto' ); 
 
-                    $documenti_istituto = get_post_meta( get_the_ID(), '_martini_documenti_istituto_file_documenti_istituto', true );
+                    $prefix = '_martini_doc_istituto_';
+
+                    $documenti_istituto = get_post_meta( get_the_ID(), $prefix . 'file_doc_istituto', true );
 
                     ?>
                         <article class="col-12 my-2 px-4">

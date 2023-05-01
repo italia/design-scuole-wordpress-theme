@@ -35,8 +35,7 @@ $attributes=array(
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     </section>
     <div class="container">
-        <h2 class="h2 my-5 ml-lg-5">Licei e istitutiti tecnici per tutte le esigenze</h2> 
-
+        
         <section class="bg-white pt-5 pb-3">
             <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'licei');?>
         </section>
