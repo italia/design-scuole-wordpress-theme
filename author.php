@@ -124,9 +124,8 @@ $args = array(
     'posts_per_page' => -1,
     'post_type' => 'struttura'
 );
-$strutture = get_posts($args);
-
-function filter_my_structures($structure)
+$strutturememb = get_posts($args);
+function filter_my_structures_memb($structure)
 {
     if (is_array(get_post_meta($structure->ID, "_dsi_struttura_persone", true)) && !empty(get_post_meta($structure->ID, "_dsi_struttura_persone", true))) {
         return in_array(
@@ -136,8 +135,27 @@ function filter_my_structures($structure)
     }
     return false;
 }
+$strutturememb = array_filter($strutturememb, "filter_my_structures_memb");
 
-$strutture = array_filter($strutture, "filter_my_structures");
+$args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'struttura'
+);
+$struttureresp = get_posts($args);
+
+function filter_my_structures_resp($structure)
+{
+    if (is_array(get_post_meta($structure->ID, "_dsi_struttura_responsabile", true)) && !empty(get_post_meta($structure->ID, "_dsi_struttura_responsabile", true))) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta($structure->ID, "_dsi_struttura_responsabile", true)
+        );
+    }
+    return false;
+}
+$struttureresp = array_filter($struttureresp, "filter_my_structures_resp");
+
+$strutture = array_merge($struttureresp, $strutturememb);
 
 $args = array(
     'posts_per_page' => -1,
