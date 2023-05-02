@@ -195,9 +195,9 @@
 
         <div id="gli-spazi-txt" class="col-lg-5 col-12 offset-lg-1">
 
-          <h4>Gli spazi</h4>
+          <h4>I luoghi</h4>
           <p>La scuola si compone di due sedi: la sede di via Perlasca e la sede di via Filzi. L’edificio di via Perlasca , costruito secondo criteri improntati al risparmio energetico e alla sostenibilità ambientale, ospita gli studenti in ambienti luminosi e spaziosi, con laboratori attrezzati, una grande palestra, un auditorium e ampi spazi verdi all’esterno. L’edificio di via Filzi, sede scolastica storica di Mezzolombardo, è stato di recente rinnovato per ospitare classi e laboratori dell’istituto in crescita negli ultimi anni scolastici. </p>
-          <a class="btn-lg-default-outline" href="spazi">
+          <a class="btn-lg-default-outline" href="luoghi">
             <button class="w-auto">Scopri</button>
           </a>
 
