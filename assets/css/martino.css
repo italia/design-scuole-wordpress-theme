@@ -2650,3 +2650,6 @@ body {
 .table td:last-child {
   border: 1px solid #d6dce3;
 }
+.main-container table {
+  font-size: clamp(16px, 10px + 1.04166667vw, 18px);
+}
