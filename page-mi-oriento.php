@@ -22,15 +22,8 @@ get_header();
             <div class="row main-content variable-gutters">
                 
                 <div class="col-lg-8 mt-5 mb-5">
-                    <div class="pt-5 px-3">
-                        
+                    <div class="pt-5 px-3">                        
                         <?php the_content(); ?>
-
-                        <p>Scrivi a <a href="mailto:mioriento@martinomartini.eu">mioriento@martinomartini.eu</a> e prendi appuntamento.</p>
-                    </div>
-                    <div class="col-12 mt-5 mb-3">
-                            <img src="<?php echo get_template_directory_uri () ?>/assets/placeholders/img-placeholder-500x384.jpg" alt="">
-                    </div> 
                 </div><!-- content -->
                  
                 <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">

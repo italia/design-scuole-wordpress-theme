@@ -8,9 +8,6 @@
 
     <section>
         <div class="container">
-            <div class="row my-5">
-                <h3>Videoteca</h3>
-            </div>
             <div class="row">
                 <?php the_content();?>
             </div>
