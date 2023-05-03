@@ -8,21 +8,16 @@
 
     <section class="container my-5">
         <div class="row">
-            <div class="col-12 col-md-10">
-                <h3 class="mb-4">I nostri indirizzi</h3>
-                <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto. La sua offerta formativa comprende otto percorsi di studio, quattro liceali e quattro tecnici.</p>
-                <p>Per tutti gli indirizzi l’orario delle lezioni è articolato su cinque giorni (dal lunedì al venerdì) con possibilità di accesso al servizio mensa in caso di prolungamento pomeridiano delle lezioni. Le aule e i numerosi laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi. Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla flessibilità, sull'innovazione e sulla personalizzazione.</p>
-                <p>Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini la vorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti. L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.</p>
-            </div>
+            <?php the_content(); ?>
         </div>
     </section>
-       
+
     <section class="container bg-white pt-5 pb-3">
-        <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'licei');?>
+        <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'licei'); ?>
     </section>
 
     <section class="container bg-white py-5">
-        <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'istituto');?>
+        <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'istituto'); ?>
     </section>
 
     <section class="container my-5">
@@ -43,7 +38,7 @@
                     <p class="mb-4">Ecco qua il nostro calendario con tutti gli appuntamenti e date.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="" target="blank">
+                    <a class="btn-lg-default" href="http://2023.martinomartini.eu/calendario-open-day/" target="blank">
                         <button class="w-auto">Calendario Open Days</button>
                     </a>
                 </div>
@@ -65,7 +60,7 @@
                     <p class="mb-4">Ecco qua la nostra Videoteca.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="<?php get_template_directory_uri() . 'videoteca';?>" target="blank">
+                    <a class="btn-lg-default" href="http://2023.martinomartini.eu/servizi/orientamento/videoteca/" target="blank">
                         <button class="w-auto">Vedi tutti i video</button>
                     </a>
                 </div>
@@ -78,7 +73,7 @@
             <div class="col-12 col-md-10 referente">
                 <h3 class="mb-4 referente__title">Referente Orientamento</h3>
                 <p>Per l’anno scolastico in corso, il referente dell’orientamento terze medie è la prof.ssa Marta Leoni: <a href="mailto:marta.leoni@martinomartini.eu" target="_blank"> marta.leoni@martinomartini.eu </a></p>
-                <p>La sua funzione consiste: <span id="dots"> ...</span></p>                
+                <p>La sua funzione consiste: <span id="dots"> ...</span></p>
                 <ul id="more" class="referente__list">
                     <li class="referente__list__item">nel programmare le varie attività di orientamento a favore degli studenti di terza media e dei loro genitori che li accompagnano in questo delicato passaggio del loro percorso formativo;</li>
                     <li class="referente__list__item">nel raccordarsi con le varie scuole medie del Trentino per assicurare loro l’intervento della Dirigente, dello stesso referente, di altri docenti o di studenti di uno o l’altro indirizzo di studi in base alle esigenze e ai desideri espressi e al tipo di iniziativa prevista presso le loro sedi;</li>

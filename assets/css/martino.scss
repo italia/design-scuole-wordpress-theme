@@ -36,11 +36,13 @@
 @import "martino-scss/page/open-day";
 @import "martino-scss/page/calendario";
 @import "martino-scss/page/search";
+@import "martino-scss/page/organizzazione";
 // block
 @import "martino-scss/block/header";
 @import "martino-scss/block/hero";
 @import "martino-scss/block/card-news";
 @import "martino-scss/block/card-progetti";
+@import "martino-scss/block/calendar";
 @import "martino-scss/block/aside";
 @import "martino-scss/block/btn";
 @import "martino-scss/block/footer";
@@ -48,3 +50,4 @@
 @import "martino-scss/block/hero-home";
 @import "martino-scss/block/page-list";
 @import "martino-scss/block/video-card";
+@import "martino-scss/block/table";

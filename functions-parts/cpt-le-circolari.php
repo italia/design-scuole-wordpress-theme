@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Definisce post type per Documenti di istituto
+ * Definisce post type per Circolari
  */
 
-add_action( 'init', 'register_doc_istituto_post_type' );
-function register_doc_istituto_post_type() {
+add_action( 'init', 'register_le_circolari_post_type' );
+function register_le_circolari_post_type() {
 
-	/** Documenti di istituto **/
+	/** Circolari **/
 	$labels = array(
-		'name'          => _x( 'Documenti di istituto', 'Post Type General Name', 'martino_martini' ),
-		'singular_name' => _x( 'Documenti di istituto', 'Post Type Singular Name', 'martino_martini' ),
+		'name'          => _x( 'Circolari', 'Post Type General Name', 'martino_martini' ),
+		'singular_name' => _x( 'Circolari', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new'       => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new_item'  => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'edit_item'      => _x( 'Modifica il File', 'Post Type Singular Name', 'martino_martini' ),
 		'view_item'      => _x( 'Visualizza il File', 'Post Type Singular Name', 'martino_martini' ),
 	);
 	$args   = array(
-		'label'         => __( 'Documenti di istituto', 'martino_martini' ),
+		'label'         => __( 'Circolari', 'martino_martini' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
@@ -27,33 +27,33 @@ function register_doc_istituto_post_type() {
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'doc_istituto', $args );
+	register_post_type( 'le_circolari', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action('cmb2_init', 'martini_add_doc_istituto_metaboxes');
-function martini_add_doc_istituto_metaboxes()
+add_action('cmb2_init', 'martini_add_le_circolari_metaboxes');
+function martini_add_le_circolari_metaboxes()
 {
 
-    $prefix = '_martini_doc_istituto_';
+    $prefix = '_martini_le_circolari_';
 
     $cmb_aftercontent = new_cmb2_box(array(
         'id'           => $prefix . 'box_elementi_dati',
-        'title'        => __('Archivio Documenti di istituto', 'martino_martini'),
-        'object_types' => array('doc_istituto'),
+        'title'        => __('Archivio Circolari', 'martino_martini'),
+        'object_types' => array('le_circolari'),
         'context'      => 'normal',
         'priority'     => 'high',
     ));
 
-    // box per caricare file di doc_istituto
+    // box per caricare file di le_circolari
 
     $cmb_aftercontent->add_field(array(
-        'id' => $prefix . 'file_doc_istituto',
+        'id' => $prefix . 'file_le_circolari',
         'name'    => __('Carica file', 'martino_martini'),
-        'desc' => __('Archivio dei file Documenti di istituto', 'martino_martini'),
+        'desc' => __('Archivio dei file Circolari', 'martino_martini'),
         'type' => 'file_list',
         'text' => array(
             'add_upload_files_text' => __('Aggiungi un nuovo file', 'martino_martini'), // default: "Add or Upload Files"

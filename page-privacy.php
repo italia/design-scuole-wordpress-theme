@@ -14,8 +14,7 @@ get_header();
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <section id="container-privacy" class="container">
-            <details class="row align-items-center my-5 mx-3">
-                <summary class="h4 col-12 pl-0 ml-lg-n2">Archivio privacy</summary>
+            <div class="row align-items-center my-5 mx-3">
                 <?php 
 
                     $loop = new WP_Query( array(
@@ -31,7 +30,7 @@ get_header();
                     $privacy = get_post_meta( get_the_ID(), '_martini_privacy_file_privacy', true );
                     
                     ?>
-                        <article>
+                        <article class="col-12">
                             <div class="row mt-3 ml-4 align-items-center">
                                     <a href="<?php echo array_values($privacy)[0];?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
@@ -43,7 +42,7 @@ get_header();
                         </article>
 
                 <?php endwhile; ?>
-            </details>
+            </div>
         </section>
     </main>
 

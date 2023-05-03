@@ -1,3 +1,28 @@
+html, body,
+h1, h2, h3, h4, h5, h6,
+a, p, span,
+em, small, strong,
+sub, sup,
+mark, del, ins, strike,
+abbr, dfn,
+blockquote, q, cite,
+code, pre,
+ol, ul, li, dl, dt, dd,
+div, section, article,
+main, aside, nav,
+header, hgroup, footer,
+img, figure, figcaption,
+address, time,
+audio, video,
+canvas, iframe,
+details, summary,
+fieldset, form, label, legend,
+table, caption,
+tbody, tfoot, thead,
+tr, th, td {
+  font-family: "Titillium Web", Helvetica, sans-serif;
+}
+
 .container-martini {
   max-width: 1200px;
   margin: 0 auto;
@@ -1192,6 +1217,14 @@ label > span {
   position: absolute;
 }
 
+#organigramma_page ul li {
+  list-style-type: disc;
+}
+
+#organigramma_page .table-responsive.table-bordered {
+  margin-bottom: 3rem;
+}
+
 #main-header {
   color: #000;
 }
@@ -1491,7 +1524,7 @@ label > span {
   border-radius: 0.25rem;
 }
 
-.loop__news__card__content__image img {
+.loop__news__card__content__image {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1501,8 +1534,8 @@ label > span {
 .loop__news__card__content__image__placeholder {
   max-height: 150px;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
@@ -1578,6 +1611,41 @@ label > span {
 .loop__progetti__card__content__body__link p {
   line-height: 1.4rem;
   margin-bottom: 0.5rem;
+}
+
+.calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
+  background-color: #1260A4;
+}
+
+.calendar-vertical .calendar-date .calendar-date-day p {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 5px 0;
+  text-align: center;
+  padding-right: 34px;
+  display: block;
+}
+
+.simcal-events {
+  -webkit-padding-start: 0px !important;
+          padding-inline-start: 0px !important;
+}
+
+.simcal-events .simcal-event-title {
+  font-size: 12px !important;
+}
+
+.simcal-events .simcal-event-start {
+  font-size: 12px !important;
+}
+
+.simcal-events .simcal-event-end {
+  font-size: 12px !important;
+}
+
+.simcal-events .simcal-event-address {
+  font-size: 12px !important;
 }
 
 body {
@@ -2573,4 +2641,12 @@ body {
 
 .TS_VGallery_blocks-gallery-item figure:hover {
   background: #C3C6CF !important;
+}
+
+.table td {
+  border: 1px solid #d6dce3;
+}
+
+.table td:last-child {
+  border: 1px solid #d6dce3;
 }

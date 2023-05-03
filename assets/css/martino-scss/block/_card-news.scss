@@ -28,15 +28,14 @@
       border-radius: .25rem;
 
       &__image{
-        img{
-          width: 100%;
-          object-fit: cover;
-          border-radius: .25rem .25rem 0 0 ;
-        }
+        width: 100%;
+        object-fit: cover;
+        border-radius: .25rem .25rem 0 0 ;
+
         &__placeholder{
           max-height: 150px;
           width: 100%;
-          object-fit: cover;
+          object-fit: contain;
           border-radius: .25rem .25rem 0 0 ;
         }
       }

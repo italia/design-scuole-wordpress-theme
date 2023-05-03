@@ -18,7 +18,7 @@ if($slug == "articoli")
 ?>
 	<main id="main-container" class="main-container <?php echo $class; ?>">
 
-	<?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+	<?php get_template_part("martini-template-parts/hero/hero_taxonomy"); ?>
 
 
 		<section class="section bg-white border-top border-bottom d-block d-lg-none mx-3 mx-lg-0">

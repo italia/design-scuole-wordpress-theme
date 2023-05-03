@@ -1,12 +1,8 @@
 <?php
-    /*WP custom backend
-    --------------------------------*/
-    
-    //custom wp backend back = 17x17px
-if(current_user_can('editor')) {
 
-    function WWS_custom_back() {
-        echo '<style type="text/css">
+function WWS_custom_back()
+{
+    echo '<style type="text/css">
             #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
                 background-image: url(' . get_bloginfo('stylesheet_directory') . 'assets/images_martini/logo-custom.png) !important;
                 background-position: 0 0;
@@ -47,6 +43,8 @@ if(current_user_can('editor')) {
 			
 			#menu-posts-avcp {display:none !important;}
 
+            #menu-posts-circolare {display:none !important;}
+
 			#menu-posts-spesa {display:none !important;}
 
 			#menu-posts-incarico {display:none !important;}
@@ -76,7 +74,12 @@ if(current_user_can('editor')) {
             #menu-dashboard {display:none !important;}
 
             #menu-posts-calendar {display:none !important;}
+
+            #menu-posts-anac-xml-view {display:none !important;}
+
+            #menu-posts-scheda_didattica {display:none !important;}
+
+            #setting-error-tgmpa {display:none !important;}
         </style>';
-    }
-    add_action('wp_before_admin_bar_render', 'WWS_custom_back');
 }
+add_action('wp_before_admin_bar_render', 'WWS_custom_back');
