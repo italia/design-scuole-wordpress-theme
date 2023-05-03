@@ -231,6 +231,24 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+	$home_options->add_field( array(
+        'id' => $prefix . 'giorni_per_filtro',
+        'name' => 'Giorni da considerare come filtro',
+        'desc' => __( '<br>Se compilato con un numero di giorni maggiore di 0, verranno mostrati solo gli articoli pubblicati da meno di X giorni dalla data odierna', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 0,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_events',
         'name' => __('Mostra gli eventi in Home', 'design_scuole_italia'),

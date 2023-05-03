@@ -4546,7 +4546,7 @@ msgstr ""
 #: template-parts/list/article-circolare.php:34
 #: template-parts/single/card-circolare.php:9
 #: template-parts/single/header-circolare.php:25
-msgid "circ. n."
+msgid "Circolare "
 msgstr ""
 
 #: template-parts/list/article-documento.php:38
