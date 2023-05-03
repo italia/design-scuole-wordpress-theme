@@ -43,6 +43,8 @@ function WWS_custom_back()
 			
 			#menu-posts-avcp {display:none !important;}
 
+            #menu-posts-circolare {display:none !important;}
+
 			#menu-posts-spesa {display:none !important;}
 
 			#menu-posts-incarico {display:none !important;}

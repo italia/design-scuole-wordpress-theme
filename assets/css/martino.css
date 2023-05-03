@@ -1217,6 +1217,14 @@ label > span {
   position: absolute;
 }
 
+#organigramma_page ul li {
+  list-style-type: disc;
+}
+
+#organigramma_page .table-responsive.table-bordered {
+  margin-bottom: 3rem;
+}
+
 #main-header {
   color: #000;
 }
@@ -2633,4 +2641,12 @@ body {
 
 .TS_VGallery_blocks-gallery-item figure:hover {
   background: #C3C6CF !important;
+}
+
+.table td {
+  border: 1px solid #d6dce3;
+}
+
+.table td:last-child {
+  border: 1px solid #d6dce3;
 }
