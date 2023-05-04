@@ -399,6 +399,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'id'         => $prefix . 'timestamp_inizio',
 		'name' => 'Data Inizio',
 		'type' => 'text_date_timestamp',
+    	'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
@@ -409,6 +410,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'id'         => $prefix . 'timestamp_fine',
 		'name' => 'Data Fine',
 		'type' => 'text_date_timestamp',
+    	'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
