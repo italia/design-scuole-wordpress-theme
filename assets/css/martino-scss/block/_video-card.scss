@@ -1,21 +1,26 @@
-.TS_VGallery_blocks-gallery-item figure{
-    background: $surface !important;
-    padding: 2rem !important;
-    h3{
-        margin-top: 2rem !important;
-        font-weight: 600 !important;
-    }
+.TS_VGallery_blocks-gallery-item{
+    
+    figure{
+        background: $surface !important;
+        padding: 2rem !important;
 
-    figcaption{
-        p{
-            font-family: sans-serif !important;
-            font-size: 1rem !important;
-            line-height: 1.2rem !important;
-
+        h3{
+            color: red !important;
+            margin-top: 2rem !important;
+            font-weight: 600 !important;
+        }
+    
+        figcaption{
+            p{
+                font-family: sans-serif !important;
+                font-size: 1rem !important;
+                line-height: 1.2rem !important;
+    
+            }
+        }
+    
+        &:hover{
+            background: $on-surface !important;
         }
     }
-
-    &:hover{
-        background: $on-surface !important;
-    }
-}
+} 
