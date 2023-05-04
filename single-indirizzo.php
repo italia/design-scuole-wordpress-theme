@@ -381,7 +381,7 @@ get_header();
 
                                     <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
-                                            <div class="col-lg-12  px-0 wysiwig-text" data-element="service-needed">
+                                            <div class="col-lg-12  px-0 wysiwig-text">
                                             <?php echo apply_filters("the_content", $cosa_serve); ?>
                                             </div>
                                             <?php if(is_array($cosa_serve_list)) {
@@ -483,7 +483,7 @@ get_header();
                                     <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="calendar-vertical mb-5" data-element="service-calendar-list">
+                                            <div class="calendar-vertical mb-5">
                                                 <?php
                                                 foreach ($fasi_scadenze as $fase){
                                                     $arrdata =  explode("-", $fase["data_fase"]);
