@@ -1316,6 +1316,23 @@ function dsi_register_main_options_metabox() {
 	}
 
 	$setup_options = new_cmb2_box( $args );
+    
+    $setup_options->add_field( array(
+        'id' => $prefix . 'argomenti_options',
+        'name'        => __( 'Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del testo da inserire nell\'intestazione della pagina argomenti.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $setup_options->add_field( array(
+		'id' => $prefix . 'testo_argomenti',
+		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Ritrova le informazioni in base agli argomenti scelti dal nostro istituto' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
 
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_options',
