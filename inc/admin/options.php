@@ -1411,6 +1411,19 @@ function dsi_register_main_options_metabox() {
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
+	
+$setup_options->add_field(array(
+        'id' => $prefix . 'show_contatore_commenti',
+        'name' => __('Mostra il contatore dei commenti', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare il numero dei commenti pubblicati', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));	
+
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 
