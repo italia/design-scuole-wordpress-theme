@@ -128,10 +128,10 @@
           </div>
 
           <div class="col-6 col-md-3 p-2 pr-lg-1">
-            <a class="btn-lg-secondary-outline" href="cic">
+            <a class="btn-lg-secondary-outline" href="sportello-cic">
               <button>
                 <span>SERVIZI</span>
-                <p class="mb-0">Sportello CIC</p>
+                <p class="mb-0">Spazio Ascolto CIC</p>
               </button>
             </a>
           </div>
@@ -209,7 +209,7 @@
 
       <div class="row">
 
-        <div id="storia-img" class="col-lg-5 offset-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-1">
+        <div id="storia-img" class="col-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-2">
 
           <img class="w-100" src="http://2023.martinomartini.eu/wp-content/uploads/2023/05/Portrait_of_Martino_Martini_by_Michaelina_Wautier-1-scaled.jpg" alt="">
 

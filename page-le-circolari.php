@@ -21,8 +21,8 @@ get_header();
                     $loop = new WP_Query( array(
                         'post_type'         => 'le_circolari',
                         'post_status'       => 'publish',
-                        'orderby'           => 'title',
-                        'order'             => 'ASC',
+                        'orderby'           => 'date',
+                        'order'             => 'DESC',
                         'posts_per_page'    => 999 ,
                     )); 
 
