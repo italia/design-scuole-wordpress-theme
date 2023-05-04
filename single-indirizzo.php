@@ -374,17 +374,32 @@ get_header();
                                 // struttura responsabile del servizio
                                 //    struttura_responsabile
                                 //    luoghi
-                                $cosa_serve="";
-                                if(trim($cosa_serve) != ""){
+
+                                if(($cosa_serve) || (is_array($cosa_serve_list))) {
                                     ?>
-                                    <h4 id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h4>
-                                    <div class="row variable-gutters">
+                                    <h2 class="h4" id="art-par-cosa-serve"><?php _e( "Cosa serve", "design_scuole_italia" ); ?></h2>
+
+                                    <div class="row variable-gutters mb-2 pb-2">
                                         <div class="col-lg-9">
-                                            <div class="card card-bg bg-color rounded mb-3">
-                                                <div class="card-body">
-                                                    <?php echo $cosa_serve; ?>
-                                                </div>
+                                            <div class="col-lg-12  px-0 wysiwig-text" data-element="service-needed">
+                                            <?php echo apply_filters("the_content", $cosa_serve); ?>
                                             </div>
+                                            <?php if(is_array($cosa_serve_list)) {
+                                                ?>
+                                                <div class="card card-bg bg-color rounded mb-3">
+                                                    <div class="card-body pb-0">
+                                                        <ul>
+                                                            <?php
+                                                            foreach ($cosa_serve_list as $cosa_serve_item){
+                                                                echo "<li>".$cosa_serve_item."</li>";
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                            }
+                                            ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
@@ -465,10 +480,10 @@ get_header();
                                 // print_r($fasi_scadenze);
                                 if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
                                     ?>
-                                    <h4 id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
-                                            <div class="calendar-vertical mb-5">
+                                            <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                                                 <?php
                                                 foreach ($fasi_scadenze as $fase){
                                                     $arrdata =  explode("-", $fase["data_fase"]);
@@ -476,16 +491,19 @@ get_header();
 
                                                     ?>
                                                     <div class="calendar-date">
-                                                        <div class="calendar-date-day">
-                                                            <small><?php echo $arrdata[2]; ?></small>
-                                                            <p><?php echo $arrdata[0]; ?></p>
-                                                            <small><b><?php echo $monthName; ?></b></small>
-                                                        </div><!-- /calendar-date-day -->
                                                         <div class="calendar-date-description rounded">
                                                             <div class="calendar-date-description-content">
-                                                                <?php echo wpautop($fase["desc_fase"]); ?>
+                                                                <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
+                                                                    <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
+                                                                    <?php
+                                                                }
+                                                                echo wpautop($fase["desc_fase"]); ?>
                                                             </div><!-- /calendar-date-description-content -->
                                                         </div><!-- /calendar-date-description -->
+                                                        <h4 class="calendar-date-day">
+                                                            <p><?php echo $arrdata[0]; ?></p>
+                                                            <small><b><?php echo $monthName; ?></b></small>
+                                                        </h4><!-- /calendar-date-day -->
                                                     </div><!-- /calendar-date -->
                                                     <?php
                                                 }
