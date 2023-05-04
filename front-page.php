@@ -209,7 +209,7 @@
 
       <div class="row">
 
-        <div id="storia-img" class="col-lg-6 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-1">
+        <div id="storia-img" class="col-lg-5 offset-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-1">
 
           <img class="w-100" src="http://2023.martinomartini.eu/wp-content/uploads/2023/05/Portrait_of_Martino_Martini_by_Michaelina_Wautier-1-scaled.jpg" alt="">
 
