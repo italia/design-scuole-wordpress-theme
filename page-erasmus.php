@@ -22,7 +22,7 @@ get_header();
                         'post_type'         => 'erasmus',
                         'post_status'       => 'publish',
                         'orderby'           => 'date',
-                        'order'             => 'DESC',
+                        'order'             => 'ASC',
                         'posts_per_page'    => 999 ,
                     )); 
                     

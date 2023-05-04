@@ -22,7 +22,7 @@ get_header();
             <div class="row main-content variable-gutters">
                 
                 <div class="col-lg-8 mt-5 mb-5">
-                    <div class="pt-5 px-3">                        
+                    <div id="organigramma_page" class="pt-5 px-3">                        
                         <?php the_content(); ?>
                     </div>
                 </div><!-- content -->

@@ -21,10 +21,8 @@ get_header();
         <div class="container">
             <div class="row main-content variable-gutters">
                 
-                <div class="col-lg-8 mt-5 mb-5">
+                <div id="organigramma_page" class="col-lg-8 mt-5 mb-5">
                     <?php the_content(); ?>
-                    
-
                 </div><!-- content -->
 
                                 <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">

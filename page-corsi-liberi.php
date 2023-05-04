@@ -23,7 +23,7 @@ get_header();
                 'post_type'         => 'corsi-liberi',
                 'post_status'       => 'publish',
                 'orderby'           => 'date',
-                'order'             => 'DESC',
+                'order'             => 'ASC',
                 'orderby'           => 'title',
                 'posts_per_page'    => 999 ,
             )); ?>
