@@ -35,9 +35,7 @@ body {
     }
 
     #quotes p {
-    font-style: italic;
     color: $primary;
-    @include text-sm;
     }
 
     h5 {
