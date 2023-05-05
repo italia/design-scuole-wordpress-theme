@@ -20,8 +20,8 @@ get_header();
         $loop = new WP_Query(array(
             'post_type'         => 'modulistica',
             'post_status'       => 'publish',
-            'orderby'           => 'count',
-            'order'             => 'DESC',
+            'orderby'           => 'date',
+            'order'             => 'ASC',
             'posts_per_page'    => 999,
         ));
 

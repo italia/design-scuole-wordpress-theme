@@ -2629,6 +2629,7 @@ body {
 }
 
 .TS_VGallery_blocks-gallery-item figure h3 {
+  color: red !important;
   margin-top: 2rem !important;
   font-weight: 600 !important;
 }

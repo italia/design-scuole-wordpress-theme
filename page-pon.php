@@ -22,7 +22,7 @@ get_header();
             $loop = new WP_Query( array(
                 'post_type'         => 'pon',
                 'post_status'       => 'publish',
-                'orderby'           => 'count',
+                'orderby'           => 'date',
                 'order'             => 'ASC',
                 'orderby'           => 'title',
                 'posts_per_page'    => 999 ,

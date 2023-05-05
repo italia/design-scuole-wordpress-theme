@@ -7,7 +7,7 @@
     </section>
 
     <section>
-        <div class="container">
+        <div class="container mx-5">
             <div class="row">
                 <?php the_content();?>
             </div>

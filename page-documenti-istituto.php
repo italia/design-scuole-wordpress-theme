@@ -21,7 +21,7 @@ get_header();
                     $loop = new WP_Query( array(
                         'post_type'         => 'doc_istituto',
                         'post_status'       => 'publish',
-                        'orderby'           => 'title',
+                        'orderby'           => 'date',
                         'order'             => 'ASC',
                         'posts_per_page'    => 999 ,
                     )); 
