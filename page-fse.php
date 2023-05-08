@@ -1,5 +1,5 @@
 <?php
-/* Page name Documenti d'istituto */
+/* Page name FSE */
 
 get_header();
 
@@ -9,22 +9,22 @@ get_header();
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <section id="container-privacy" class="container mt-3 mb-5">
             <div class="row mx-2">
-                <h2 class="col-12 my-3"> Documenti d'istituto</h2>
+                <h2 class="col-12 my-3"> Documenti FSE</h2>
                 <?php 
 
                     $loop = new WP_Query( array(
-                        'post_type'         => 'doc_istituto',
+                        'post_type'         => 'fse',
                         'post_status'       => 'publish',
                         'orderby'           => 'date',
                         'order'             => 'ASC',
                         'posts_per_page'    => 999 ,
                     )); 
 
-                    while ($loop -> have_posts()) : $loop -> the_post( 'doc_istituto' ); 
+                    while ($loop -> have_posts()) : $loop -> the_post( 'fse' ); 
 
-                    $prefix = '_martini_doc_istituto_';
+                    $prefix = '_martini_fse_';
 
-                    $documenti_istituto = get_post_meta( get_the_ID(), $prefix . 'file_doc_istituto', true );
+                    $documenti_istituto = get_post_meta( get_the_ID(), $prefix . 'file_fse', true );
 
                     ?>
                         <article class="col-12 my-2 px-4">

@@ -45,10 +45,13 @@
         <div class="row mt-4 mt-lg-0">
           <div class="col-12 mt-lg-4">
             <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
-              <button>Registro</button>
+              <button>Registro Docenti</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
+            </a>
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
+              <button>Area Riservata</button>
             </a>
             <?php
             // todo: Query homepage's list of buttons from database and not hardcoding it
