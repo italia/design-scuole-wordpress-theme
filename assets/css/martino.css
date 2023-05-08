@@ -2650,7 +2650,7 @@ body {
           border: 1px solid #d6dce3;
         }
           strong {
-            font-size: clamp(16px, 10px);
+            font-size: (font-clamp:(16px, 18px));
           }
     }
 }
