@@ -1,10 +1,5 @@
 <?php
-/* Template Name: Mensa
- *
- * didattica template file
- *
- * @package Design_Scuole_Italia
- */
+/* Page Mensa */
 
 get_header();
 

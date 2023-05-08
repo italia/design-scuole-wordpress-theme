@@ -190,7 +190,7 @@
 
         <div id="gli-spazi-img" class="col-lg-6 col-12 mb-3 mb-lg-0">
 
-          <img class="w-100" src="https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9" alt="">
+          <img class="w-100" src="http://2023.martinomartini.eu/wp-content/uploads/2023/05/martini_home.001.jpeg" alt="">
 
 
         </div>
