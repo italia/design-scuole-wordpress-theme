@@ -324,7 +324,7 @@ function dsi_add_struttura_metaboxes() {
 	
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'pec',
-        'name'       => __( 'Posta eletronica certificata (PEC) della struttura', 'design_scuole_italia' ),
+        'name'       => __( 'Posta elettronica certificata (PEC) della struttura', 'design_scuole_italia' ),
         'desc'       => __( 'PEC della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text_email',
     ) );
