@@ -408,6 +408,7 @@ require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
 require dirname(__FILE__).'/functions-parts/cpt-le-circolari.php';
 require dirname(__FILE__).'/functions-parts/cpt-pnrr.php';
 require dirname(__FILE__).'/functions-parts/cpt-fse.php';
+require dirname(__FILE__).'/functions-parts/cpt-libri.php';
 
 /* Customize Back-end
 ------------------------*/
