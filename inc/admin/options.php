@@ -366,6 +366,26 @@ function dsi_register_main_options_metabox() {
     );
 
 
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_3',
+        'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Argomenti mostrati in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+	$home_options->add_field( array(
+			'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
+			'desc' => __( 'Seleziona gli argomenti da mostrare in prima pagina. ', 'design_scuole_italia' ),
+			'id' => $prefix . 'home_argomenti',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_argomenti_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona e ordina gli argomenti da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+			),
+		)
+	);
+
+
     /**
 	 * Registers options page "La Scuola".
 	 */
