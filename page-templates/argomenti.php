@@ -9,7 +9,7 @@ global $post, $argomento, $ct;
 get_header();
 
 ?>
-	<main id="main-container" class="main-container">
+	<main id="main-container" class="main-container petrol">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 		<?php
 		while ( have_posts() ) :
