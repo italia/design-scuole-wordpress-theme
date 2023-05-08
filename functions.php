@@ -406,6 +406,8 @@ require dirname(__FILE__).'/functions-parts/cpt-orientamento.php';
 require dirname(__FILE__).'/functions-parts/cpt-documenti.php';
 require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
 require dirname(__FILE__).'/functions-parts/cpt-le-circolari.php';
+require dirname(__FILE__).'/functions-parts/cpt-pnrr.php';
+require dirname(__FILE__).'/functions-parts/cpt-fse.php';
 
 /* Customize Back-end
 ------------------------*/

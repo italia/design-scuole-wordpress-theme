@@ -1,10 +1,5 @@
 <?php
-/* Template Name: Attività linguistiche
- *
- * didattica template file
- *
- * @package Design_Scuole_Italia
- */
+/* Page name Attività linguistiche */
 
 get_header();
 
