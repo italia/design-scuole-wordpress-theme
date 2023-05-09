@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Lista
+/* Template Name: Lista Libri
  *
  * didattica template file
  *
