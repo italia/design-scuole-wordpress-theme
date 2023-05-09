@@ -9,6 +9,7 @@
     }
     svg {
         fill: $primary;
+        transform: scale(1.2);
     }
     .hamburger--spin-r.is-active .hamburger-inner::after {
         // bottom: 0;

@@ -9,4 +9,13 @@
     .table-responsive.table-bordered {
         margin-bottom: 3rem;
     }
+
+    a{
+        color: $primary;
+        font-weight: 600;
+
+        &:hover{
+            color: $primary-hover;
+        }
+    }
 }

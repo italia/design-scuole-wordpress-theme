@@ -192,7 +192,7 @@ $background-color: #004882;
 
         .footer-info>div>a {
             font-size: 1.125rem;
-            font-weight: bold;
+            font-weight: 300;
             width: 100%;
 
             @include media-breakpoint-up(sm, $breakpoints: (xs: 0, sm: 508px)) {

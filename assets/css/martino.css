@@ -1225,6 +1225,15 @@ label > span {
   margin-bottom: 3rem;
 }
 
+#organigramma_page a {
+  color: #1260A4;
+  font-weight: 600;
+}
+
+#organigramma_page a:hover {
+  color: #0073E6;
+}
+
 #main-header {
   color: #000;
 }
@@ -1235,6 +1244,7 @@ label > span {
 
 #main-header svg {
   fill: #1260A4;
+  transform: scale(1.2);
 }
 
 #main-header .hamburger--spin-r.is-active .hamburger-inner::after {
@@ -2412,7 +2422,7 @@ body {
 
 .footer--wrapper .footer--main-wrapper .footer-info > div > a {
   font-size: 1.125rem;
-  font-weight: bold;
+  font-weight: 300;
   width: 100%;
 }
 

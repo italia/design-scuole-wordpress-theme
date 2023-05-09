@@ -13,12 +13,12 @@ get_header();
             <section class="martini-list--item px-0 py-4 align-items-center">
                 <div class="row container-martini px-0 px-2 align-items-center">
                     <div class="col-12 col-md-6">
-                        <a href="https://martini-tn.registroelettronico.com/mastercom/">
+                        <a href="https://martini-tn.registroelettronico.com/mastercom/" target="_blank">
                             <h4 class="mb-0">Registro Docenti</h4>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 align-items-start text-md-right">
-                        <a class="btn-sm-default" href="https://martini-tn.registroelettronico.com/mastercom/">
+                        <a class="btn-sm-default" href="https://martini-tn.registroelettronico.com/mastercom/" target="_blank">
                             <button class="w-auto mt-3 mt-md-0 mb-0">Apri</button>
                         </a>
                     </div>
@@ -28,12 +28,12 @@ get_header();
             <section class="martini-list--item px-0 py-4 align-items-center">
                 <div class="row container-martini px-0 px-2 align-items-center">
                     <div class="col-12 col-md-6">
-                        <a href="https://martini-tn-serale.registroelettronico.com/login/?next=/">
+                        <a href="https://martini-tn-serale.registroelettronico.com/login/?next=/" target="_blank">
                             <h4 class="mb-0">Registro Serale</h4>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 align-items-start text-md-right">
-                        <a class="btn-sm-default" href="https://martini-tn-serale.registroelettronico.com/login/?next=/">
+                        <a class="btn-sm-default" href="https://martini-tn-serale.registroelettronico.com/login/?next=/" target="_blank">
                             <button class="w-auto mt-3 mt-md-0 mb-0">Apri</button>
                         </a>
                     </div>
@@ -43,12 +43,12 @@ get_header();
             <section class="martini-list--item px-0 py-4 align-items-center">
                 <div class="row container-martini px-0 px-2 align-items-center">
                     <div class="col-12 col-md-6">
-                        <a href="https://alternanza.registroelettronico.com/martini-tn/">
+                        <a href="https://alternanza.registroelettronico.com/martini-tn/" target="_blank">
                             <h4 class="mb-0">Registro ASL</h4>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 align-items-start text-md-right">
-                        <a class="btn-sm-default" href="https://alternanza.registroelettronico.com/martini-tn/">
+                        <a class="btn-sm-default" href="https://alternanza.registroelettronico.com/martini-tn/" target="_blank">
                             <button class="w-auto mt-3 mt-md-0 mb-0">Apri</button>
                         </a>
                     </div>
@@ -58,12 +58,12 @@ get_header();
             <section class="martini-list--item px-0 py-4 align-items-center">
                 <div class="row container-martini px-0 px-2 align-items-center">
                     <div class="col-12 col-md-6">
-                        <a href="https://martini-tn.registroelettronico.com/mastercom/">
+                        <a href="https://martini-tn.registroelettronico.com/mastercom/" target="_blank">
                             <h4 class="mb-0">Quaderno Studenti</h4>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 align-items-start text-md-right">
-                        <a class="btn-sm-default" href="https://martini-tn.registroelettronico.com/mastercom/">
+                        <a class="btn-sm-default" href="https://martini-tn.registroelettronico.com/mastercom/" target="_blank">
                             <button class="w-auto mt-3 mt-md-0 mb-0">Apri</button>
                         </a>
                     </div>
@@ -73,12 +73,12 @@ get_header();
             <section class="martini-list--item px-0 py-4 align-items-center">
                 <div class="row container-martini px-0 px-2 align-items-center">
                     <div class="col-12 col-md-6">
-                        <a href="https://martini-tn-sito.registroelettronico.com/login/?next=%2Fselect-student%2F">
+                        <a href="https://martini-tn-sito.registroelettronico.com/login/?next=%2Fselect-student%2F" target="_blank">
                             <h4 class="mb-0">Registro famiglie</h4>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 align-items-start text-md-right">
-                        <a class="btn-sm-default" href="https://martini-tn-sito.registroelettronico.com/login/?next=%2Fselect-student%2F">
+                        <a class="btn-sm-default" href="https://martini-tn-sito.registroelettronico.com/login/?next=%2Fselect-student%2F" target="_blank">
                             <button class="w-auto mt-3 mt-md-0 mb-0">Apri</button>
                         </a>
                     </div>
