@@ -1340,7 +1340,7 @@ label > span {
   inset: 0;
   display: block;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #hero > section {
