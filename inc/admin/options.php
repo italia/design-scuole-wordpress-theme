@@ -62,6 +62,28 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
+    $header_options->add_field( array(
+        'id'    => $prefix . 'stemma_scuola',
+        'name' => __('Stemma', 'design_scuole_italia' ),
+        'desc' => __( 'Lo stemma della scuola. Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+
+    $header_options->add_field( array(
+        'id'    => $prefix . 'favicon_scuola',
+        'name' => __('Icona', 'design_scuole_italia' ),
+        'desc' => __( 'L\'immagine da utilizzare come icona (favicon). Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+
     /**
      * Registers options page "Alerts".
      */

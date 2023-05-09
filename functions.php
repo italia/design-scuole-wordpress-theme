@@ -311,3 +311,13 @@ function add_tags_to_all_content_types( $query ) {
 }
 
 add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );
+
+function add_file_types_to_uploads($file_types){
+	$new_filetypes = array();
+	$new_filetypes['svg'] = 'image/svg+xml';
+	$new_filetypes['svgz'] = 'image/svg+xml';
+	$file_types = array_merge($file_types, $new_filetypes );
+	return $file_types;
+}
+
+add_action('upload_mimes', 'add_file_types_to_uploads');
