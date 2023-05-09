@@ -40,7 +40,7 @@
         'tax_query' => array( array(
             'taxonomy' => 'percorsi-di-studio',
             'field' => 'slug',
-            'terms' => 'istituti'
+            'terms' => 'istituto'
         )),
         'orderby' => "title",
         'order' => "ASC"
