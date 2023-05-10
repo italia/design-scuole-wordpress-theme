@@ -195,8 +195,8 @@ function cmb2_sample_metaboxes()
 
     // Email text field
     $cmb->add_group_field($martini_group_link, array(
-        'name' => __('Email', 'cmb2'),
-        'desc' => __('inserisci qui la email', 'cmb2'),
+        'name' => __('Link', 'cmb2'),
+        'desc' => __('inserisci qui URL', 'cmb2'),
         'id'   => 'martini_url_link',
         'type' => 'text_url',
     ));

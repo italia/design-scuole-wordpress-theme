@@ -99,7 +99,7 @@ get_header();
                             $martini_group_libri = get_post_meta(get_the_ID(), 'martini_group_libri', true);
                             if (is_array($martini_group_libri) && !empty($martini_group_libri)) { ?>
 
-                                <h5>Link utili</h5>
+                                <h5>Libri di Testo</h5>
                                 <ul>
                                     <?php
                                     $martini_group_libri = get_post_meta(get_the_ID(), 'martini_group_libri', true);

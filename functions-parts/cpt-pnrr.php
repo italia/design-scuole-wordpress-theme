@@ -34,35 +34,48 @@ function register_pnrr_post_type() {
 
 // registro un nuovo field
 
-add_action('cmb2_init', 'martini_add_pnrr_metaboxes');
-function martini_add_pnrr_metaboxes()
-{
+add_action( 'cmb2_init', 'martini_add_pnrr_metaboxes' );
+function martini_add_pnrr_metaboxes() {
 
     $prefix = '_martini_pnrr_';
+    
+    $cmb_aftercontent = new_cmb2_box( array(
+    'id'           => $prefix . 'box_elementi_dati',
+    'title'        => __( 'PON', 'martino_martini' ),
+    'object_types' => array( 'pnrr' ),
+    'context'      => 'normal',
+    'priority'     => 'high',
+    ) );
 
-    $cmb_aftercontent = new_cmb2_box(array(
-        'id'           => $prefix . 'box_elementi_dati',
-        'title'        => __('Archivio Documenti PNRR', 'martino_martini'),
-        'object_types' => array('pnrr'),
-        'context'      => 'normal',
-        'priority'     => 'high',
-    ));
+    $cmb_aftercontent->add_field( array(
+        'name'             => 'Tipologia di documento',
+        'id'               => $prefix . 'wiki_test_radio', // da modificare e aggiungere il prefix
+        'type'             => 'radio',
+        'show_option_none' => false,
+        'options'          => array(
+            'prevenzione' => __( 'Prevenzione e contrasto alla dispersione scolastica', 'cmb2' ),
+            'futuro'    => __( 'Laboratori per le professioni digitali del futuro', 'cmb2' ),
+            'innovativi'    => __( 'Ambienti di apprendimento innovativi', 'cmb2' ),
+        ),
+    ) );
 
-    // box per caricare file di pnrr
+    // box per caricare file del documento pnrr sulle scuole
 
-    $cmb_aftercontent->add_field(array(
+    $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'file_pnrr',
-        'name'    => __('Carica file', 'martino_martini'),
-        'desc' => __('Archivio dei file Documenti PNRR', 'martino_martini'),
+        'name'    => __( 'Carica file', 'martino_martini' ),
+        'desc' => __( 'Archivio file del documento pnrr della scuola' , 'martino_martini' ),
         'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // 'query_args' => array( 'type' => 'image' ), // Only images attachment
+        // Optional, override default text strings
         'text' => array(
-            'add_upload_files_text' => __('Aggiungi un nuovo file', 'martino_martini'), // default: "Add or Upload Files"
-            'remove_image_text' => __('Rimuovi file', 'martino_martini'), // default: "Remove Image"
-            'remove_text' => __('Rimuovi', 'martino_martini'), // default: "Remove"
+            'add_upload_files_text' => __('Aggiungi un nuovo allegato', 'martino_martini' ), // default: "Add or Upload Files"
+            'remove_image_text' => __('Rimuovi allegato', 'martino_martini' ), // default: "Remove Image"
+            'remove_text' => __('Rimuovi', 'martino_martini' ), // default: "Remove"
         ),
         'attributes' => array(
             'data-validation' => 'required',
         ),
-
-    ));
+    ) );
 }
