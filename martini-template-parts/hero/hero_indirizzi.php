@@ -11,7 +11,7 @@ if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -35,7 +35,7 @@ if( $titolo_pagina == 'opzione scienze applicate in 5 anni (LOS5)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -58,7 +58,7 @@ if( $titolo_pagina == 'sportivo (LIS)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -81,7 +81,7 @@ if( $titolo_pagina == 'opzione economico sociale (LES)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -104,7 +104,7 @@ if( $titolo_pagina == 'Amministrazione finanza e marketing (AFM-ALI)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -127,7 +127,7 @@ if( $titolo_pagina == 'Amministrazione finanza e marketing (indirizzo sportivo)'
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -151,7 +151,7 @@ if( $titolo_pagina == 'Trasporti e logistica (TL)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
@@ -174,7 +174,7 @@ if( $titolo_pagina == 'Conduzione del mezzo (CM)') { ?>
                 <div class="col-lg-6 offset-lg-3">
                     <h1> <?php the_title(); ?> </h1>
                 </div>
-                <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
+                <div id="icona-indirizzo" class="col-lg-2  text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                             <?php the_post_thumbnail(); ?>
