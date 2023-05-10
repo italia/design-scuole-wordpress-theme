@@ -306,63 +306,6 @@ function dsi_add_indirizzo_metaboxes() {
     ) );
 
     $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'programma_discipline_sportive',
-        'name'        => __( 'Programma discipline sportive', 'design_scuole_italia' ),
-
-
-    ) );
-
-    $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'programma_primo_biennio',
-        'name'        => __( 'Programma - Primo Biennio ', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci le discipline di studio per ogni blocco, usando un elenco puntato', 'design_scuole_italia' ),
-        'type'    => 'wysiwyg',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => false, // output the minimal editor config used in Press This
-        ),
-
-    ) );
-
-        $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'programma_secondo_biennio',
-        'name'        => __( 'Programma di studio - Secondo Biennio', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci le discipline di studio per ogni blocco, usando un elenco puntato', 'design_scuole_italia' ),
-        'type'    => 'wysiwyg',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => false, // output the minimal editor config used in Press This
-        ),
-
-    ) );
-
-            $cmb_undercontent->add_field( array(
-        'id' => $prefix . 'programma_quinto_anno',
-        'name'        => __( 'Programma di studio - Quinto Anno', 'design_scuole_italia' ),
-        'desc' => __( 'Inserisci le discipline di studio per ogni blocco, usando un elenco puntato', 'design_scuole_italia' ),
-        'type'    => 'wysiwyg',
-        'attributes'    => array(
-            'required'    => 'required'
-        ),
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'teeny' => false, // output the minimal editor config used in Press This
-        ),
-
-    ) );
-
-
-
-    $cmb_undercontent->add_field( array(
         'id' => $prefix . 'libri_testo_descrizione',
         'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),

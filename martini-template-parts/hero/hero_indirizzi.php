@@ -8,9 +8,8 @@ if( $titolo_pagina == 'opzione scienze applicate in 4 anni (LOS4)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-purple">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -33,9 +32,8 @@ if( $titolo_pagina == 'opzione scienze applicate in 5 anni (LOS5)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-pink">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -80,9 +78,8 @@ if( $titolo_pagina == 'opzione economico sociale (LES)') { ?>
    <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-red">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -104,9 +101,8 @@ if( $titolo_pagina == 'Amministrazione finanza e marketing (AFM-ALI)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-orange">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -128,9 +124,8 @@ if( $titolo_pagina == 'Amministrazione finanza e marketing (indirizzo sportivo)'
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-yellow">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -153,9 +148,8 @@ if( $titolo_pagina == 'Trasporti e logistica (TL)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-lightblue">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -177,9 +171,8 @@ if( $titolo_pagina == 'Conduzione del mezzo (CM)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-blue">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-3 offset-lg-6">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>
