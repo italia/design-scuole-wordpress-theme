@@ -57,9 +57,8 @@ if( $titolo_pagina == 'sportivo (LIS)') { ?>
     <section>
         <div id="hero-indirizzi" class="container-fluid bg-martini-green">
             <div id="content" class="row align-items-center">
-                <div class="col-lg-4 offset-lg-4">
-                    <h1> <?php the_title(); ?> </h1>          
-                    <p> <?php echo $titolo_pagina; ?> </p>
+                <div class="col-lg-6 offset-lg-3">
+                    <h1> <?php the_title(); ?> </h1>
                 </div>
                 <div id="icona-indirizzo" class="col-lg-2 offset-lg-1 text-center">
                     <?php if ( has_post_thumbnail() ) : ?>

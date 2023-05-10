@@ -78,27 +78,13 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                     <div class="container col-lg-8">
 
                         <div class="pt-3">
-                            <a href="../"><p>< Torna all'offerta formativa</p></a>
+                            <a href="http://2023.martinomartini.eu/didattica/offerta-formativa/"><p>< Torna all'offerta formativa</p></a>
                         </div>
                        
 
                         
 
-                        <div class="pt-3">
-                            
-                            <div class="">
-                                <?php if(is_array($percorsi)){
-                                    echo "<small class=\"text-primary\">";
-                                    foreach ($percorsi as $percorso){
-
-                                        if($c) echo ", ";
-                                        echo strtoupper($percorso->name);
-                                        $c++;
-                                    }
-                                    echo "</small>";
-                                }  ?>
-                            </div><!-- /title-section -->
-                        
+                        <div class="pt-3">                        
                             
                             <div class="row">
                                 <h4 id="art-par-descrizione"><?php _e("Caratteristiche del percorso", "design_scuole_italia"); ?></h4>
@@ -152,37 +138,6 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                                     
                                     <?php
                                 }?>
-                            </div>
-
-
-                            <!-- Programma discipline sportive -->
-                            <div class="pt-5">
-                                <?php if($programma_primo_biennio){ ?>
-                                    <h4 id="art-par-programma" class="mt-4"><?php _e("Discipline sportive", "design_scuole_italia"); ?></h4>
-                                <?php } ?>    
-
-                                <div id="sportfield" class="row variable-gutters pt-3">
-                                    <?php if($programma_primo_biennio){ ?>
-                                            <div class="col-lg-4 wysiwig-text">
-                                                <h6>Primo biennio</h6>
-                                                <?php echo apply_filters("the_content",$programma_primo_biennio); ?>
-                                            </div><!-- /col-lg-3 -->
-                                    <?php } ?>
-
-                                    <?php if($programma_secondo_biennio){ ?>
-                                            <div class="col-lg-4 wysiwig-text">
-                                                <h6>Secondo biennio</h6>
-                                                <?php echo apply_filters("the_content",$programma_secondo_biennio); ?>
-                                            </div><!-- /col-lg-3 -->
-                                    <?php } ?>
-
-                                    <?php if($programma_quinto_anno){ ?>
-                                            <div class="col-lg-4 wysiwig-text">
-                                                <h6>Quinto anno</h6>
-                                                <?php echo apply_filters("the_content",$programma_quinto_anno); ?>
-                                            </div><!-- /col-lg-3 -->
-                                    <?php } ?>
-                                </div>
                             </div>
 
                             <div class="pt-5">
