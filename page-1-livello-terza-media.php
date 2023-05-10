@@ -92,29 +92,32 @@ get_header();
                             </div><!-- /row -->
                         <?php } ?>
 
-                        <!-- Libri di testo -->
-                        <div class="pt-5">
-                            <?php if (($libri_testo_file || $libri_testo_descrizione)) { ?>
-                                <h4 id="art-par-libri" class="mt-4"><?php _e("Libri di testo", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters">
-                                    <div class="col-12">
-                                        <div class="col-lg-12 px-0 wysiwig-text">
-                                            <?php echo wpautop($libri_testo_descrizione); ?>
-                                        </div>
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php global $idfile, $nomefile;
-                                            if (is_array($libri_testo_file) && count($libri_testo_file) > 0) {
+                        <!-- Campo Libri -->
+                        <div class="mailfield pb-1">
+                            <?php
+                            $martini_group_libri = get_post_meta(get_the_ID(), 'martini_group_libri', true);
+                            if (is_array($martini_group_libri) && !empty($martini_group_libri)) { ?>
 
-                                                foreach ($libri_testo_file as $idfile => $nomefile) {
-                                                    get_template_part("template-parts/documento/file");
-                                                }
-                                            }
-                                            ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-9 -->
-                                </div><!-- /row -->
+                                <h5>Link utili</h5>
+                                <ul>
+                                    <?php
+                                    $martini_group_libri = get_post_meta(get_the_ID(), 'martini_group_libri', true);
+                                    if (is_array($martini_group_libri) && !empty($martini_group_libri))
+
+                                        foreach ($martini_group_libri as $martini_libri) {
+                                            $martini_libri_ID = esc_html($martini_libri["martini_libri_ID"], 'Testo del libri');
+                                            $martini_libri_testo_file = esc_html($martini_libri["martini_libri_testo_file"], 'libri URL');
+                                    ?>
+                                        <li>
+                                            <a href="<?php echo $martini_libri_testo_file; ?>" target=blank> <?php echo $martini_libri_ID; ?> </a>
+                                        </li>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
                             <?php } ?>
                         </div>
+                        <!--/Campo libri -->
 
 
                         <div class="pt-5">

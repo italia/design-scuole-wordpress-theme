@@ -135,29 +135,6 @@ function dsi_add_indirizzo_metaboxes() {
 
     ) );
 
-    // $cmb_sottotitolo->add_field( array(
-    //     'id' => $prefix . 'link_struttura_didattica',
-    //     'name'    => __( 'Struttura didattica ', 'design_scuole_italia' ),
-    //     'desc' => __( 'Seleziona la struttura (scuola o istituto) che eroga il percorso di studio' , 'design_scuole_italia' ),
-    //     'type'    => 'pw_multiselect',
-    //     'options' => dsi_get_strutture_scuole_options(),
-
-    // ) );
-
-
-
-    // $cmb_sottotitolo->add_field( array(
-    //     'id' => $prefix . 'descrizione',
-    //     'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
-    //     'desc' => __( 'Indicare una sintetica descrizione dell\'indirizzo di studio (max 160 caratteri) utilizzando un linguaggio semplice che possa aiutare qualsiasi utente a identificare con chiarezza il Servizio. Non utilizzare un linguaggio ricco di riferimenti normativi. Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
-    //     'type' => 'textarea',
-    //     'attributes'    => array(
-    //         'maxlength'  => '160',
-    //         'required'    => 'required'
-    //     ),
-    // ) );
-
-
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'corso_di_studio',
         'name'        => __( 'Corso di studio *', 'design_scuole_italia' ),
@@ -177,98 +154,6 @@ function dsi_add_indirizzo_metaboxes() {
         'context'      => 'normal',
         'priority'     => 'high',
     ) );
-
-
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'procedura_esito',
-    //     'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),
-    //     'desc' => __( 'Questo campo indica eventuali procedure collegate.' , 'design_scuole_italia' ),
-    //     'type' => 'textarea'
-    // ) );
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'canale_digitale',
-    //     'name'        => __( 'Servizi on line', 'design_scuole_italia' ),
-    //     'desc' => __( 'Link per avviare la procedura di attivazione del servizio.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
-    //     'type' => 'wysiwyg',
-    //     'options' => array(
-    //         'media_buttons' => false, // show insert/upload button(s)
-    //         'textarea_rows' => 4, // rows="..."
-    //         'teeny' => true, // output the minimal editor config used in Press This
-    //     ),
-
-    // ) );
-
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'canale_digitale_label',
-    //     'name'        => __( 'Azione', 'design_scuole_italia' ),
-    //     'desc' => __( 'Seleziona l\'azione prevista nel link che segue.' , 'design_scuole_italia' ),
-    //     'type' => 'select',
-    //     'options' => array(
-    //         "Vai al sito" => "Vai al sito",
-    //         "Compila" => "Compila",
-    //         "Scarica" => "Scarica",
-    //         "Registrati" => "Registrati",
-    //         "Prenota" => "Prenota",
-    //         "Iscriviti" => "Iscriviti",
-    //         "Accedi" => "Accedi",
-    //         "Visualizza" => "Visualizza"
-    //     )
-    // ) );
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'canale_digitale_link',
-    //     'name'        => __( 'Link', 'design_scuole_italia' ),
-    //     'desc' => __( 'Link per avviare la procedura online.' , 'design_scuole_italia' ),
-    //     'type' => 'text_url'
-    // ) );
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'autenticazione',
-    //     'name'        => __( 'Autenticazione', 'design_scuole_italia' ),
-    //     'desc' => __( 'Indicare, se previste, le modalità di autenticazione necessarie.<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.' , 'design_scuole_italia' ),
-    //     'type' => 'wysiwyg',
-    //     'options' => array(
-    //         'media_buttons' => false, // show insert/upload button(s)
-    //         'textarea_rows' => 4, // rows="..."
-    //         'teeny' => true, // output the minimal editor config used in Press This
-    //     ),
-
-    // ) );
-
-    // $cmb_undercontent->add_field( array(
-	// 	'id'   => $prefix . 'modalita_autenticazione',
-	// 	'name' => __( 'Modalità di autenticazione', 'design_scuole_italia' ),
-	// 	'desc' => __( 'Mostra eventuali modalità di autenticazione per accedere al servizio. Per la loro corretta visualizzazione, è necessario aver inserito una descrizione nel campo “Autenticazione”.' , 'design_scuole_italia' ),
-    //     'type' => 'checkbox',
-    // ) );
-
-	// $cmb_undercontent->add_field( array(
-	// 	'id' => $prefix . 'provider_autenticazione',
-	// 	'name' => __( 'Provider di autenticazione', 'design_scuole_italia' ),
-	// 	'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE) e Carta Nazionale dei Servizi (CNS).' , 'design_scuole_italia' ),
-	// 	'type' => 'pw_multiselect',
-	// 	'options' => array(
-	// 	    'SPID' => 'SPID',
-	// 		'CIE' => 'CIE',
-    //         'CNS' => 'CNS'
-	// 	),
-	// 	'attributes'    => array(
-	// 		'data-conditional-id'     => $prefix.'modalita_autenticazione',
-	// 		'data-conditional-value'  => "false",
-	// 		),
-	// 	) );
-
-    // $cmb_undercontent->add_field( array(
-    //     'id'         => $prefix . 'servizi_correlati',
-    //     'name'       => __( 'Servizi correlati', 'design_scuole_italia' ),
-    //     'type'    => 'pw_multiselect',
-    //     'options' =>  dsi_get_servizi_options(),
-    // ) );
-
-
         
         $cmb_undercontent->add_field( array(
             'id' => $prefix . 'calendario_classi_descrizione',
@@ -324,49 +209,6 @@ function dsi_add_indirizzo_metaboxes() {
             'remove_text' => __('Rimuovi file', 'design_scuole_italia' ), // default: "Remove"
         ),
     ) );
-
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'consigli_di_classe',
-    //     'name'    => __( 'Consigli di classe', 'design_scuole_italia' ),
-    //     'desc' => __( 'Inserisci qui i documenti dei consigli di classe. ' , 'design_scuole_italia' ),
-    //     'type'    => 'custom_attached_posts',
-    //     'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-    //     'options' => array(
-    //         'show_thumbnails' => false, // Show thumbnails on the left
-    //         'filter_boxes'    => true, // Show a text box for filtering the results
-    //         'query_args'      => array(
-    //             'posts_per_page' => 10,
-    //             'post_type'      => 'documento',
-    //         ), // override the get_posts args
-    //     ),
-    // ) );
-
-
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'cosa_serve',
-    //     'name'        => __( 'Cosa Serve (testo introduttivo) ', 'design_scuole_italia' ),
-    //     'desc' => __( 'Se si desidera inserire un video di youtube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube no cookie.' , 'design_scuole_italia' ),'type'    => 'wysiwyg',
-    //     'attributes'    => array(
-    //         'required'    => 'required'
-    //     ),
-    //     'options' => array(
-    //         'media_buttons' => false, // show insert/upload button(s)
-    //         'textarea_rows' => 4, // rows="..."
-    //         'teeny' => true, // output the minimal editor config used in Press This
-    //     ),
-
-    // ) );
-
-
-    // $cmb_undercontent->add_field( array(
-    //     'id' => $prefix . 'cosa_serve_list',
-    //     'name'        => __( 'Cosa Serve (lista)', 'design_scuole_italia' ),
-    //     'desc' => __( 'la lista di cosa serve' , 'design_scuole_italia' ),
-    //     'type' => 'textarea',
-    //     'repeatable'  => true
-    // ) );
 
     /**  repeater fasi_scadenze **/
     $group_field_id = $cmb_undercontent->add_field( array(
