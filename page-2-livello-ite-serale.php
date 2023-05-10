@@ -46,7 +46,7 @@ get_header();
         $altre_info = dsi_get_meta("altre_info");
 
 
-        
+
     ?>
 
         <section id="text-block" class="section bg-white">
@@ -58,37 +58,39 @@ get_header();
                             <h2 id="art-par-descrizione"><?php _e("Cosa si studia", "design_scuole_italia"); ?></h2>
                             <div class="col-12">
                                 <div class="article-description wysiwig-text">
-                                    <?php the_content(); ?>
+                                    <div id="organigramma_page" class="pt-5 px-3">
+                                        <?php the_content(); ?>
+                                    </div>
                                 </div>
                             </div><!-- /col-lg-9 -->
                         </div><!-- /row -->
 
-                            <?php
+                        <?php
                         // do action per innestare elementi tramite plugin / child theme
                         do_action("dsi_indirizzo_content_after_description"); ?>
 
-                    <!-- TABELLA ORARIO SETTIMANALE -->
-                                <?php if(($tabella_oraria_classi_file || $tabella_oraria_classi_descrizione)){ ?>
-                                    <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
+                        <!-- TABELLA ORARIO SETTIMANALE -->
+                        <?php if (($tabella_oraria_classi_file || $tabella_oraria_classi_descrizione)) { ?>
+                            <!-- <h4 id="art-par-calendario" class="mt-4"><?php _e("Calendario delle classi", "design_scuole_italia"); ?></h4> -->
 
-                                    <div class="row variable-gutters pt-5">
-                                        <div class="col-lg-12">
-                                            <div id="tabella_orario_settimanale" class="col-lg-12 px-0 wysiwig-text">
-                                                <?php echo wpautop($tabella_oraria_classi_descrizione); ?>
-                                            </div>
-                                            <div class="card-deck card-deck-spaced">
-                                                <?php global $idfile, $nomefile;
-                                                if (is_array($tabella_oraria_classi_file) && count($tabella_oraria_classi_file) > 0) {
+                            <div class="row variable-gutters pt-5">
+                                <div class="col-lg-12">
+                                    <div id="tabella_orario_settimanale" class="col-lg-12 px-0 wysiwig-text">
+                                        <?php echo wpautop($tabella_oraria_classi_descrizione); ?>
+                                    </div>
+                                    <div class="card-deck card-deck-spaced">
+                                        <?php global $idfile, $nomefile;
+                                        if (is_array($tabella_oraria_classi_file) && count($tabella_oraria_classi_file) > 0) {
 
-                                                    foreach ($tabella_oraria_classi_file as $idfile => $nomefile) {
-                                                        get_template_part("template-parts/documento/file");
-                                                    }
-                                                }
-                                                ?>
-                                            </div><!-- /card-deck card-deck-spaced -->
-                                        </div><!-- /col-lg-9 -->
-                                    </div><!-- /row -->
-                                <?php } ?>
+                                            foreach ($tabella_oraria_classi_file as $idfile => $nomefile) {
+                                                get_template_part("template-parts/documento/file");
+                                            }
+                                        }
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                </div><!-- /col-lg-9 -->
+                            </div><!-- /row -->
+                        <?php } ?>
 
 
                         <div class="pt-5">
@@ -146,14 +148,14 @@ get_header();
 
                     </div><!-- /main content -->
 
-                    
+
 
 
 
 
                     <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
-                            <div class="col-12 col-lg-9" id="program-legend">
+                            <div class="col-12" id="program-legend">
 
 
                                 <!-- Altre informazioni -->
@@ -199,37 +201,37 @@ get_header();
                                 <!-- //Info variabili -->
 
                                 <!-- Campo contatti -->
-                                    <div class="mailfield pb-1">
-                                        <?php
-                                        $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
-                                        if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
-                                        
+                                <div class="mailfield pb-1">
+                                    <?php
+                                    $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                    if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
+
                                         <h5>Contatti</h5>
-                                        <ul>      
+                                        <ul>
                                             <?php
                                             $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
-                                            if (is_array($martini_group_contact) && !empty($martini_group_contact)) 
+                                            if (is_array($martini_group_contact) && !empty($martini_group_contact))
 
-                                            foreach ($martini_group_contact as $martini_contact) {
-                                                $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
-                                                $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
-                                                $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
+                                                foreach ($martini_group_contact as $martini_contact) {
+                                                    $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                    $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
 
                                                 <li>
                                                     <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
-                                                    <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:'.$martini_contact["martini_numero_contatto"].'"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                    <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:' . $martini_contact["martini_numero_contatto"] . '"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
                                                     <br>
-                                                    <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:'. $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                                    <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:' . $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
                                                 </li>
-                                            
+
                                             <?php
-                                            }
+                                                }
                                             ?>
                                         </ul>
-                                        <?php } ?>
-                                    </div>
-                                    <!--/Campo contatti -->
-                                
+                                    <?php } ?>
+                                </div>
+                                <!--/Campo contatti -->
+
                                 <!-- Campo modulistica -->
                                 <?php
                                 $multidocuments_download = get_post_meta(get_the_ID(), 'documents_download', true);
@@ -248,24 +250,38 @@ get_header();
                                 <?php } ?>
                                 <!--/Campo modulistica -->
 
-                                <!-- Campo link -->
-                                <?php
-                                $link_url = get_post_meta(get_the_ID(), 'martini_url', true);
+                                <!-- Campo link url -->
+                                <div class="mailfield pb-1">
+                                    <?php
+                                    $martini_group_link = get_post_meta(get_the_ID(), 'martini_group_link', true);
+                                    if (is_array($martini_group_link) && !empty($martini_group_link)) { ?>
 
-                                if (is_array($link_url) && count($link_url) && strlen($link_url[0])) { ?>
-                                    <h5>Link utili</h5>
-                                    <ul class="link-list">
+                                        <h5>Link utili</h5>
+                                        <ul>
+                                            <?php
+                                            $martini_group_link = get_post_meta(get_the_ID(), 'martini_group_link', true);
+                                            if (is_array($martini_group_link) && !empty($martini_group_link))
 
-                                        <?php foreach ($link_url as $link_url) { ?>
 
-                                            <li>
-                                                <a href="<?php echo $link_url; ?>" target=blank> <?php echo $link_url; ?> </a>
-                                            </li>
-                                        <?php } ?>
+                                                foreach ($martini_group_link as $martini_link) {
+                                                    $martini_link_ID = esc_html($martini_link["martini_link_ID"], 'Testo del link');
+                                                    $martini_url_link = esc_html($martini_link["martini_url_link"], 'link URL');
+                                            ?>
 
-                                    </ul>
-                                <?php } ?>
-                                <!--/Campo link -->
+
+                                                <li>
+
+                                                    <a href="<?php echo $martini_url_link; ?>" target=blank> <?php echo $martini_link_ID; ?> </a>
+
+                                                </li>
+
+                                            <?php
+                                                }
+                                            ?>
+                                        </ul>
+                                    <?php } ?>
+                                </div>
+                                <!--/Campo link url -->
 
                             </div>
                         </aside>

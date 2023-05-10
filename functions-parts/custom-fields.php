@@ -20,14 +20,14 @@ function cmb2_sample_metaboxes() {
 
 
      $cmb->add_field( array(
-            'id' => $prefix . 'tabella_oraria_classi_descrizione',
+            'id' => 'tabella_oraria_classi_descrizione',
             'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
             'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
             'type' => 'wysiwyg',
     
         ) );
         $cmb->add_field( array(
-            'id' => $prefix . 'tabella_oraria_classi_file',
+            'id' => 'tabella_oraria_classi_file',
             'name' => __( 'File pdf del calendario' , 'design_scuole_italia' ),
             'type' => 'file_list',
             // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
@@ -137,7 +137,7 @@ function cmb2_sample_metaboxes() {
         ),
     ) );   
 
-        // Gruppo contatti telefonici
+    // Gruppo contatti telefonici
     $martini_group_contact = $cmb->add_field( array(
         'id'          => 'martini_group_contact',
         'type'        => 'group',
@@ -172,9 +172,33 @@ function cmb2_sample_metaboxes() {
         'type' => 'text_email',
     ) );
 
-    
+    // Gruppo link
+    $martini_group_link = $cmb->add_field( array(
+        'id'          => 'martini_group_link',
+        'type'        => 'group',
+        'description' => __( 'Inserisci i link', 'cmb2' ),
+        'repeatable'  => true, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __( 'Link {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __( 'Aggiungi link', 'cmb2' ),
+            'remove_button'     => __( 'Elimina link', 'cmb2' ),
+        ),
+    ) );
 
+    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
+    $cmb->add_group_field( $martini_group_link, array(
+        'name' => 'Nome link',
+        'id'   => 'martini_link_ID',
+        'type' => 'text',
+    ) );
 
+    // Email text field
+    $cmb->add_group_field( $martini_group_link, array(
+        'name' => __( 'Email', 'cmb2' ),
+        'desc' => __( 'inserisci qui la email', 'cmb2' ),
+        'id'   => 'martini_url_link',
+        'type' => 'text_url',
+    ) );
 }
 
 
@@ -201,5 +225,3 @@ function cmb2_output_file_list( $file_list_meta_id, $img_size = 'medium' ) {
     }
     echo '</div>';
 };
-
-?>
