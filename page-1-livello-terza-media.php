@@ -54,7 +54,7 @@ get_header();
                 <div class="row main-content variable-gutters">
 
                     <div class="col-lg-8 my-5">
-                        <div class="row pt-5 px-3">
+                        <div class="row pt-3 px-3">
                             <!-- <h2 id="art-par-descrizione"><?php _e("Caratteristiche del corso", "design_scuole_italia"); ?></h2> -->
                             <div class="col-12">
                                 <div class="article-description wysiwig-text">

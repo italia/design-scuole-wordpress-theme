@@ -218,7 +218,7 @@ function cmb2_sample_metaboxes()
         'id' => 'martini_libri_ID',
         'name'        => __('Libri di testo', 'design_scuole_italia'),
         'desc' => __('Testo introduttivo', 'design_scuole_italia'),
-        'type' => 'textarea',
+        'type' => 'text',
     ));
     $cmb->add_group_field($martini_group_libri, array(
         'id' => 'martini_libri_testo_file',
