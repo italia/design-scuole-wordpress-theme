@@ -87,8 +87,11 @@ get_header();
 
 							endwhile;
 
-							if(get_query_var( 'paged' ) == $wp_query->max_num_pages && !isset($_GET["post_terms"]))
+
+							if((get_query_var( 'paged' ) == $wp_query->max_num_pages || $wp_query->max_num_pages == 1) && !isset($_GET["post_terms"])){
+                            	$s_query = get_search_query();
 								get_template_part( 'template-parts/search/argomenti' );
+                            }
 
 							?>
                             <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
@@ -99,8 +102,10 @@ get_header();
 
 							get_template_part( 'template-parts/content', 'none' );
 
-							if(!isset($_GET["post_terms"]))
+							if(!isset($_GET["post_terms"])) {
+                            	$s_query = get_search_query();
 								get_template_part( 'template-parts/search/argomenti' );
+                            }
 
 						endif;
 

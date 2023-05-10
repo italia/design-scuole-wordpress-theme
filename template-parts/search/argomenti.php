@@ -1,12 +1,30 @@
 	<?php
-	$argomenti = get_terms(array(
+    global $s_query;
+
+
+	$argomenti_names = get_terms(array(
 		'taxonomy' => 'post_tag',
 		'orderby' => 'count',
 		'order'   => 'DESC',
 		'hide_empty'   => 1,
 		'number' => "20",
-		'search' => get_search_query()
-	));
+    	'search' => $s_query
+        )
+	);
+
+	$argomenti_description = get_terms(array(
+		'taxonomy' => 'post_tag',
+		'orderby' => 'count',
+		'order'   => 'DESC',
+		'hide_empty'   => 1,
+		'number' => "20",
+    	'description__like' => $s_query
+        )
+	);
+
+	$argomenti = array_merge($argomenti_names, $argomenti_description);
+
+
 	if(!empty($argomenti)) { ?>
 	<div class="row variable-gutters mb-5">
 		<div class="col-lg-12">
