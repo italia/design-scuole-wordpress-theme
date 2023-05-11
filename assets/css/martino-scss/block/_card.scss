@@ -1,0 +1,34 @@
+.card {
+  padding: 1rem;
+
+  &__content {
+    background-color: $surface;
+    padding-bottom: 1rem;
+    border-radius: 0.25rem;
+
+    &__image {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &__link {
+      padding: 0 2rem;
+      display: block;
+      &__title {
+        padding: 1rem 0;
+      }
+      &__button {
+        padding: 0.5rem 1rem;
+        color: $white;
+        border-radius: 0.25rem;
+        background-color: $primary;
+        border: none;
+      }
+    }
+    &__text {
+      padding: 0 2rem;
+    }
+  }
+}

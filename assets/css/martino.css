@@ -2660,3 +2660,44 @@ body {
 .table td:last-child {
   border: 1px solid #d6dce3;
 }
+
+.card {
+  padding: 1rem;
+}
+
+.card__content {
+  background-color: #F0F0F3;
+  padding-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.card__content__image {
+  width: 100%;
+}
+
+.card__content__image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card__content__link {
+  padding: 0 2rem;
+  display: block;
+}
+
+.card__content__link__title {
+  padding: 1rem 0;
+}
+
+.card__content__link__button {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  background-color: #1260A4;
+  border: none;
+}
+
+.card__content__text {
+  padding: 0 2rem;
+}
