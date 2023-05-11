@@ -1,16 +1,15 @@
 <?php
 
-add_action('init', function () {
-
-
+add_action('init', 'register_progetti_post_type'); 
+function register_progetti_post_type() {
     /** progetti **/
     $labels = array(
         'name'          => _x('Progetto', 'Post Type General Name', 'martino_martini'),
         'singular_name' => _x('Progetto', 'Post Type Singular Name', 'martino_martini'),
-        'add_new'       => _x('Aggiungi un Post', 'Post Type Singular Name', 'martino_martini'),
-        'add_new_item'  => _x('Aggiungi un Post', 'Post Type Singular Name', 'martino_martini'),
-        'edit_item'      => _x('Modifica il Post', 'Post Type Singular Name', 'martino_martini'),
-        'view_item'      => _x('Visualizza il Post', 'Post Type Singular Name', 'martino_martini'),
+        'add_new'       => _x('Aggiungi un Progetto', 'Post Type Singular Name', 'martino_martini'),
+        'add_new_item'  => _x('Aggiungi un Progetto', 'Post Type Singular Name', 'martino_martini'),
+        'edit_item'      => _x('Modifica il Progetto', 'Post Type Singular Name', 'martino_martini'),
+        'view_item'      => _x('Visualizza il Progetto', 'Post Type Singular Name', 'martino_martini'),
     );
     $args   = array(
         'label'         => __('progetti', 'martino_martini'),
@@ -20,7 +19,7 @@ add_action('init', function () {
         'public'        => true,
         'taxonomies'    => ['tipologia_progetti'],
         'menu_position' => 20,
-        'menu_icon'     => 'dashicons-admin-multisite',
+        'menu_icon'     => 'dashicons-media-document',
         'has_archive'   => true,
         'map_meta_cap'    => true,
     );
@@ -47,10 +46,9 @@ add_action('init', function () {
         ]
     ]);
     register_taxonomy_for_object_type('tipologia_progetti', 'progetti');
-});
+};
 
 // registro un nuovo field
-
 add_action('cmb2_init', 'martini_add_progetti_metaboxes');
 function martini_add_progetti_metaboxes()
 {

@@ -1,14 +1,5 @@
 <?php
-/* Template Name: 2 Livello - ITE serale
- *
- * didattica template file
- *
- * @package Design_Scuole_Italia
- */
-
 get_header();
-
-
 ?>
 
 <main id="main-container" class="main-container">

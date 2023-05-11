@@ -1,14 +1,5 @@
 <?php
-/* Template Name: Calendario
- *
- * didattica template file
- *
- * @package Design_Scuole_Italia
- */
-
 get_header();
-
-
 ?>
 
 <main id="main-container" class="main-container">

@@ -1,51 +1,53 @@
 <?php
-/**
- * The template for displaying home
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Design_Scuole_Italia
- */
 
+/**
+ * Page for display project
+ */
 get_header();
 ?>
-    <main id="main-container" class="main-container redbrown">
-        <?php
-        if ( have_posts() ) :
-            $messages = dsi_get_option( "messages", "home_messages" );
-            if($messages && !empty($messages)) {
-                get_template_part("template-parts/home/messages");
-            }
 
-            get_template_part("template-parts/hero/home");
-
-            get_template_part("template-parts/home/banner");
-
-            $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
-            if($home_is_selezione_automatica == "false"){
-                get_template_part("template-parts/home/articoli", "manuali");
-            }else{
-                get_template_part("template-parts/home/articoli", "eventi");
-            }
-
-            ?>
-        <section class="section bg-white">
-        <?php get_template_part("template-parts/hero/servizi"); ?>
-        <?php get_template_part("template-parts/home/list", "servizi"); ?>
-        </section>
+<main id="main-container" class="main-container">
+    <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+    <!-- container post -->
+    <section class="container my-5">
+        <div class="row my-3">
             <?php
-            $visualizzazione_didattica = dsi_get_option("visualizzazione_didattica", "didattica");
-            if($visualizzazione_didattica == "scuole")
-                get_template_part("template-parts/home/didattica", "cicli");
-            else if($visualizzazione_didattica == "indirizzi")
-                get_template_part("template-parts/home/didattica", "cicli-indirizzi");
+            $loop = new WP_Query(array(
+                'post_type'         => 'post',
+                'post_status'       => 'publish',
+                'orderby'           => 'count',
+                'order'             => 'ASC',
+                'posts_per_page'    => 999,
+            ));
 
-              get_template_part("template-parts/home/didattica", "risorse");
+            while ($loop->have_posts()) : $loop->the_post(); ?>
 
-//            get_template_part("template-parts/luogo/map");
+                <article class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card__content">
+                            <a class="card__content__image" href="<?php the_permalink(); ?>">
+                                <?php if (!empty(get_the_post_thumbnail())) { ?>
+                                    <?php the_post_thumbnail('news-thumb'); ?>
+                                <?php } else { ?>
+                                    <img class="card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>" />
+                                <?php } ?>
+                            </a>
+                            <a href="<?php the_permalink(); ?>" class="card__content__link">
+                                <h5 class="card__content__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 22, '...'); ?></h5>
+                            </a>
+                            <p class="card__content__text"><?php echo mb_strimwidth(get_the_excerpt(), 0, 60, '...'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="card__content__link">
+                                <button class="card__content__link__button">Scopri</button>
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-        endif; // End of the loop.
-        ?>
-    </main>
+            <?php endwhile; ?>
+
+        </div>
+    </section><!-- end primary -->
+</main>
+
 <?php
 get_footer();

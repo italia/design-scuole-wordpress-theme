@@ -1,5 +1,4 @@
 <?php
-/* Single page Progetti */
 get_header();
 ?>
 

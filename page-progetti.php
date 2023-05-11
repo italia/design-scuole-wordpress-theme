@@ -32,7 +32,7 @@ get_header();
                                     <img class="card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>" />
                                 <?php } ?>
                             </a>
-                            <a href="" class="card__content__link">
+                            <a href="<?php the_permalink(); ?>" class="card__content__link">
                                 <h5 class="card__content__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 22, '...'); ?></h5>
                             </a>
                             <p class="card__content__text"><?php echo mb_strimwidth(get_the_excerpt(), 0, 60, '...'); ?></p>
