@@ -13,7 +13,7 @@ function register_footer_logos_post_type() {
 		'name'          => _x( 'Loghi footer', 'Post Type General Name', 'martino_martini' ),
 		'singular_name' => _x( 'Loghi footer', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new'       => _x( 'Aggiungi nuovo logo nel footer', 'Post Type Singular Name', 'martino_martini' ),
-		'add_new_item'  => _x( 'Aggiungi nuovo elemento', 'Post Type Singular Name', 'martino_martini' ),
+		'add_new_item'  => _x( 'Aggiungi nuovo logo nel footer', 'Post Type Singular Name', 'martino_martini' ),
 		'edit_item'     => _x( 'Modifica logo', 'Post Type Singular Name', 'martino_martini' ),
 		'view_item'     => _x( 'Visualizza logo', 'Post Type Singular Name', 'martino_martini' ),
 	);
@@ -37,7 +37,7 @@ function martini_add_footer_logos_metaboxes() {
 	
 	$cmb = new_cmb2_box( array(
 		'id'           	=> $prefix . 'box_elementi_dati',
-		'title'        	=> __( 'Opzioni di slider', 'martino_martini' ),
+		'title'        	=> __( 'Opzioni del logo', 'martino_martini' ),
 		'object_types' 	=> array( 'footer_logos' ),
 		'context'      	=> 'normal',
 		'priority'     	=> 'low',
