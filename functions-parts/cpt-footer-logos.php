@@ -44,17 +44,21 @@ function martini_add_footer_logos_metaboxes() {
 	) );
 
 	$cmb->add_field( array(
-		'id'   		   	=> $prefix . 'url',
-		'name' 		   	=> __( 'Link', 'martino_martini' ),
-		'type' 		   	=> 'text_url',
+		'id'               => $prefix . 'label_position',
+		'name'             => __( 'Posizione del titolo', 'martino_martini' ),
+		'type'             => 'select',
+		'desc'             => __( 'Scegli la modalità di visualizzazione del titolo vicino al logo', 'martino_martini' ),
+		'default'          => 'none',
+		'options'          => array(
+			'right'  	=> __( 'A destra del logo', 'martino_martini' ),
+			'bottom'  	=> __( 'Sotto del logo', 'martino_martini' ),
+			'none'      => __( 'Non mostrare', 'martino_martini' ),
+		),
 	) );
 
 	$cmb->add_field( array(
-		'id' 			=> $prefix . 'label',
-		'name' 			=> __( 'Titolo', 'martino_martini' ),
-		'type' 			=> 'text',
-		'attributes' 	=> array(
-			'maxlength' => '40',
-		),
+		'id'   		   	=> $prefix . 'url',
+		'name' 		   	=> __( 'Link', 'martino_martini' ),
+		'type' 		   	=> 'text_url',
 	) );
 }

@@ -394,7 +394,26 @@ $background-color: #004882;
         }
     }
     
-    #footer_logos-content{
-        color: $black;
+    .footer_logos {
+        &-content {
+            color: $black;
+        }
+
+        &-container {
+            display: flex;
+        }
+
+        &-label {
+            color: $black;
+            font-weight: 600;
+            @include font-body;
+
+            &-bottom {
+                flex-direction: column;
+            }
+            &-right {
+                flex-direction: row;
+            }
+        }
     }
 }
