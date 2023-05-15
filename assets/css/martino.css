@@ -1542,7 +1542,7 @@ label > span {
 }
 
 .loop__news__card__content__image__placeholder {
-  max-height: 150px;
+  max-height: 280px;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -2736,6 +2736,14 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.card__content__image__placeholder {
+  max-height: 280px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .card__content__link {
