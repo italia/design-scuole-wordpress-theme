@@ -104,7 +104,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
+.footer_logos-page > section > #footer_logos-splide .splide__slide a, .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -2152,10 +2152,14 @@ body {
   /* material-theme/sys/dark/primary-container */
   background: #004882;
   color: #fff;
-  padding: 4rem 1.1878rem;
   font-family: "Titillium Web";
   font-style: normal;
   position: relative;
+}
+
+.footer--wrapper .container {
+  padding: 0 1.1878rem;
+  margin-top: 4rem;
 }
 
 .footer--wrapper .container .footer {
@@ -2592,6 +2596,59 @@ body {
   transition: -webkit-clip-path 0.2s ease-in;
   transition: clip-path 0.2s ease-in;
   transition: clip-path 0.2s ease-in, -webkit-clip-path 0.2s ease-in;
+}
+
+.footer_logos-page {
+  height: 256px;
+  width: 100%;
+  position: relative;
+  padding-block: 4rem 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.footer_logos-page > section {
+  background-color: #fff;
+  height: 100%;
+  position: relative;
+}
+
+.footer_logos-page > section > #footer_logos-splide {
+  height: 100%;
+  padding: 0;
+}
+
+.footer_logos-page > section > #footer_logos-splide .splide__slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer_logos-page > section > #footer_logos-splide .splide__slide a {
+  color: #000;
+}
+
+.footer_logos-page > section > #footer_logos-splide .splide__slide__img, .footer_logos-page > section > #footer_logos-splide .splide__slide img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.footer_logos-page > section > #footer_logos-splide .splide__track {
+  height: 100%;
+}
+
+.footer_logos-page > section > #footer_logos-splide .splide__list {
+  width: 100%;
+  gap: 10rem;
+  gap: clamp(4rem, 0.85rem + 12vw, 10rem);
+}
+
+.footer_logos-page #footer_logos-content {
+  color: #000;
 }
 
 #card_image_sidebar {

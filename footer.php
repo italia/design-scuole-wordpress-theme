@@ -10,6 +10,11 @@
  */
 ?>
 <footer id="footer--wrapper" class="footer--wrapper">
+
+    <?php
+        get_template_part("martini-template-parts/footer-logos")
+    ?>
+    
     <div class="container">
         <div class="footer--main-wrapper">
         <!-- <div class="row variable-gutters mb-5"> -->
@@ -29,6 +34,8 @@
                         </a>
                     </h2>
                 </div><!-- /logo-footer -->
+            </section>
+            <section>
                 <div class="footer-info">
                     <?php
                         $gmaps_scuola = dsi_get_option("gmaps_scuola");
@@ -73,7 +80,7 @@
                     </div><!-- /footer--social -->
                 <?php endif ?>
             </section>
-            <section class="footer--banners-wrapper">
+            <!-- <section class="footer--banners-wrapper">
                 <?php
                     $img_dir = get_stylesheet_directory_uri() . '/assets/images_martini/footer' ;
                     // TODO Add links to footer's white areas
@@ -90,7 +97,7 @@
                 <a href="#">
                     <img src="<?php echo $img_dir . '/footer-img-3.jpg';   ?>" alt="" width="619" height="68"  >
                 </a>
-            </section>
+            </section> -->
         </div><!-- /row -->
         <div class="row variable-gutters">
         </div><!-- /row -->
