@@ -257,7 +257,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                             </div>
                                                             <?php if(strlen($descrizione_more)>0){ ?>
 																<button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>
-															<?php} ?>
+															<?php } ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-icon rounded -->
                                                     <?php
