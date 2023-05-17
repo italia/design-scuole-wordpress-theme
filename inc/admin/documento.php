@@ -364,7 +364,7 @@ function dsi_add_documento_metaboxes() {
         'options' =>  dsi_get_servizi_options(),
     ) );
 	
-	$cmb_aftercontent->add_field( array(
+    $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'link_servizi_didattici',
         'name'        => __( 'Indirizzi di studio collegati', 'design_scuole_italia' ),
         'desc' => __( 'Indirizzi di studio collegati al documento' , 'design_scuole_italia' ),

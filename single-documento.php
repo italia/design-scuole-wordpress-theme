@@ -230,7 +230,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /row -->
                                     <?php
                                 }
-								if ( !post_password_required() && is_array( $link_servizi_didattici ) && count($link_servizi_didattici) > 0 ) { ?>
+                                if ( !post_password_required() && is_array( $link_servizi_didattici ) && count($link_servizi_didattici) > 0 ) { ?>
                                     <h2 class="h4" id="art-par-servizio-didattico"><?php _e( "Indirizzi di studio collegati", "design_scuole_italia" ); ?></h2>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-12">
