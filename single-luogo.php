@@ -43,7 +43,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
         $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
-	$indirizzo = dsi_get_meta("indirizzo");
+	    $indirizzo = dsi_get_meta("indirizzo");
         $posizione_gps = dsi_get_meta("posizione_gps");
         $cap = dsi_get_meta("cap");
         $mail = dsi_get_meta("mail");
@@ -256,8 +256,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                                 </small>
                                                             </div>
                                                             <?php if(strlen($descrizione_more)>0){ ?>
-																<button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>
-															<?php } ?>
+                                                                <button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>
+                                                            <?php } ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-icon rounded -->
                                                     <?php
