@@ -43,7 +43,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
         $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
-	    $indirizzo = dsi_get_meta("indirizzo");
+        $indirizzo = dsi_get_meta("indirizzo");
         $posizione_gps = dsi_get_meta("posizione_gps");
         $cap = dsi_get_meta("cap");
         $mail = dsi_get_meta("mail");
