@@ -399,6 +399,7 @@ require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
 require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
 require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
 
+require dirname(__FILE__).'/functions-parts/cpt-footer-logos.php';
 require dirname(__FILE__).'/functions-parts/cpt-slider.php';
 require dirname(__FILE__).'/functions-parts/cpt-pon.php';
 require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
@@ -408,6 +409,8 @@ require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
 require dirname(__FILE__).'/functions-parts/cpt-le-circolari.php';
 require dirname(__FILE__).'/functions-parts/cpt-pnrr.php';
 require dirname(__FILE__).'/functions-parts/cpt-fse.php';
+require dirname(__FILE__).'/functions-parts/cpt-libri.php';
+require dirname(__FILE__).'/functions-parts/cpt-progetti.php';
 
 /* Customize Back-end
 ------------------------*/

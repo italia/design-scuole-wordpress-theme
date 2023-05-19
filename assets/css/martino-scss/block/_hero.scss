@@ -12,7 +12,7 @@
         inset: 0;
         display: block;
         position: absolute;
-        background-color: rgba($color: $black, $alpha: 0.5);
+        background-color: rgba($color: $black, $alpha: 0.3);
     }
     &>section {
         height: 100%;
@@ -103,7 +103,7 @@
             background-repeat: no-repeat;
             background-size: cover;
 
-            filter: brightness(.5);
+            filter: brightness(.8);
         }
     }
 }

@@ -1,48 +1,48 @@
 <?php
 
 /**
- * Definisce post type per Documenti PNRR
+ * Definisce post type per libri
  */
 
-add_action( 'init', 'register_pnrr_post_type' );
-function register_pnrr_post_type() {
+add_action( 'init', 'register_libri_post_type' );
+function register_libri_post_type() {
 
-	/** Documenti PNRR **/
+	/** libri **/
 	$labels = array(
-		'name'          => _x( 'PNRR', 'Post Type General Name', 'martino_martini' ),
-		'singular_name' => _x( 'PNRR', 'Post Type Singular Name', 'martino_martini' ),
+		'name'          => _x( 'Libro', 'Post Type General Name', 'martino_martini' ),
+		'singular_name' => _x( 'Libro', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new'       => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'add_new_item'  => _x( 'Aggiungi un File', 'Post Type Singular Name', 'martino_martini' ),
 		'edit_item'      => _x( 'Modifica il File', 'Post Type Singular Name', 'martino_martini' ),
 		'view_item'      => _x( 'Visualizza il File', 'Post Type Singular Name', 'martino_martini' ),
 	);
 	$args   = array(
-		'label'         => __( 'PNRR', 'martino_martini' ),
+		'label'         => __( 'Libri', 'martino_martini' ),
 		'labels'        => $labels,
 		'supports'      => array( 'title' ),
 		'hierarchical'  => true,
 		'public'        => true,
-		'menu_position' => 9,
-		'menu_icon'     => 'dashicons-book',
+		'menu_position' => 20,
+		'menu_icon'     => 'dashicons-book-alt',
 		'has_archive'   => true,
         'map_meta_cap'    => true,
 	);
-	register_post_type( 'pnrr', $args );
+	register_post_type( 'libri', $args );
 
 }
 
 
 // registro un nuovo field
 
-add_action( 'cmb2_init', 'martini_add_pnrr_metaboxes' );
-function martini_add_pnrr_metaboxes() {
+add_action( 'cmb2_init', 'martini_add_libri_metaboxes' );
+function martini_add_libri_metaboxes() {
 
-    $prefix = '_martini_pnrr_';
+    $prefix = '_martini_libri_';
     
     $cmb_aftercontent = new_cmb2_box( array(
     'id'           => $prefix . 'box_elementi_dati',
-    'title'        => __( 'PON', 'martino_martini' ),
-    'object_types' => array( 'pnrr' ),
+    'title'        => __( 'Libri', 'martino_martini' ),
+    'object_types' => array( 'libri' ),
     'context'      => 'normal',
     'priority'     => 'high',
     ) );
@@ -53,18 +53,23 @@ function martini_add_pnrr_metaboxes() {
         'type'             => 'radio',
         'show_option_none' => false,
         'options'          => array(
-            'prevenzione' => __( 'Prevenzione e contrasto alla dispersione scolastica', 'cmb2' ),
-            'futuro'    => __( 'Laboratori per le professioni digitali del futuro', 'cmb2' ),
-            'innovativi'    => __( 'Ambienti di apprendimento innovativi', 'cmb2' ),
+            'biennio' => __( '1°Biennio (a carico delle famiglie)', 'cmb2' ),
+            'internazionale'    => __( 'Liceo Scientifico Internazionale delle Scienze Applicate', 'cmb2' ),
+            'applicate'    => __( 'Liceo Scientifico Op. Scienze Applicate', 'cmb2' ),
+            'sportivo'      => __( 'Liceo Scientifico Op. Sportivo', 'cmb2' ),
+            'sociale' => __( 'Liceo Scienze Umane Op. Economico Sociale', 'cmb2' ),
+            'diurno'    => __( 'Tecnico Economico Diurno', 'cmb2' ),
+            'serale'         => __( 'Tecnico Economico Serale', 'cmb2' ),
+            'tecnologico'      => __( 'Tecnico Tecnologico' ),
         ),
     ) );
 
-    // box per caricare file del documento pnrr sulle scuole
+    // box per caricare file del documento libri sulle scuole
 
     $cmb_aftercontent->add_field( array(
-        'id' => $prefix . 'file_pnrr',
+        'id' => $prefix . 'file_libri',
         'name'    => __( 'Carica file', 'martino_martini' ),
-        'desc' => __( 'Archivio file del documento pnrr della scuola' , 'martino_martini' ),
+        'desc' => __( 'Archivio file del documento libri della scuola' , 'martino_martini' ),
         'type' => 'file_list',
         // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
         // 'query_args' => array( 'type' => 'image' ), // Only images attachment

@@ -7,23 +7,13 @@ get_header();
 ?>
 
 <main id="main-container" class="main-container">
-    <section id="hero" class="hero-title">
-        <section class="hero-container">
-            <div class="h-100 align-items-center">
-                <div id="hero-content" class="p-2 d-flex flex-column justify-content-center">
-                    <h1> Le Notizie </h1>
-                    <!-- <p class="h3 fw-regular"><?php /*  echo get_the_excerpt(); */ ?></p> -->
-                    <div class="hero-img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
-                </div>
-            </div>
-        </section>
-    </section>
-    <!-- container post -->
+    <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+    <!-- container progetti -->
     <section class="container my-5">
         <div class="row my-3">
             <?php
             $loop = new WP_Query(array(
-                'post_type'         => 'post',
+                'post_type'         => 'progetti',
                 'post_status'       => 'publish',
                 'orderby'           => 'count',
                 'order'             => 'ASC',
@@ -37,7 +27,7 @@ get_header();
                         <div class="card__content">
                             <a class="card__content__image" href="<?php the_permalink(); ?>">
                                 <?php if (!empty(get_the_post_thumbnail())) { ?>
-                                    <?php the_post_thumbnail('item-thumb'); ?>
+                                    <?php the_post_thumbnail('news-thumb'); ?>
                                 <?php } else { ?>
                                     <img class="card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>" />
                                 <?php } ?>

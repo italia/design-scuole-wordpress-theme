@@ -8,10 +8,13 @@ $background-color: #004882;
     /* material-theme/sys/dark/primary-container */
     background: $background-color;
     color: $color;
-    // padding: 50px 0;
-    padding: 4rem 1.1878rem;
     font-family: 'Titillium Web';
     font-style: normal;
+
+    .container {
+        padding: 0 1.1878rem;
+        margin-top: 4rem;
+    }
 
     .container .footer {
         gap: .7rem;
@@ -192,7 +195,7 @@ $background-color: #004882;
 
         .footer-info>div>a {
             font-size: 1.125rem;
-            font-weight: bold;
+            font-weight: 300;
             width: 100%;
 
             @include media-breakpoint-up(sm, $breakpoints: (xs: 0, sm: 508px)) {
@@ -342,4 +345,56 @@ $background-color: #004882;
     // }
 
     @include copyText(a);
+}
+
+.footer_logos-page{
+    height: 256px;  
+    width: 100%; 
+    position: relative;
+    padding-block: 4rem 0;
+    user-select: none;
+    
+    &>section {
+        background-color: $on-primary;
+        height: 100%;
+        position: relative;
+        
+        &>#footer_logos-splide {
+            height: 100%; 
+            padding: 0;
+
+            .splide {
+                &__slide {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 100%;
+
+                    a {
+                        color: $black;
+                        @include font-body;
+                    }
+
+                    &__img, img {
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+
+                &__track {
+                    height: 100%;
+                }
+
+                &__list {
+                    width: 100%;
+                    gap: 10rem;
+                    gap: s-clamp(420px, 1220px, 4rem, 10rem);
+                }
+            }
+        }
+    }
+    
+    #footer_logos-content{
+        color: $black;
+    }
 }

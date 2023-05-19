@@ -36,6 +36,8 @@ function WWS_custom_back()
 			#menu-posts-luogo {display:none !important;}
 			
 			#menu-posts-servizio {display:none !important;}
+
+            #menu-posts-documento {display:none !important;}
 			
 			#menu-posts-evento {display:none !important;}
 			

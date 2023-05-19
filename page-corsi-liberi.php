@@ -1,135 +1,127 @@
 <?php
 
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Design_Scuole_Italia
- */
+/* Page corsi liberi */
 
 get_header();
 
 ?>
 
 
+<main id="main-container" class="main-container">
+
+
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
-<main id="main-container" class="container main-container">
-    <?php get_template_part("template-parts/common/breadcrumb"); ?>
-    <section id="container-corsi-liberi" class="container">
 
-        <?php 
-            $loop = new WP_Query( array(
-                'post_type'         => 'corsi-liberi',
-                'post_status'       => 'publish',
-                'orderby'           => 'date',
-                'order'             => 'ASC',
-                'orderby'           => 'title',
-                'posts_per_page'    => 999 ,
-            )); ?>
-            
-            
-            <!-- loop corsi informatica -->
-            <details class="row align-items-center my-5 mx-3">
-                <summary class="h4 col-12 pl-0 ml-lg-n2">Corsi di informatica</summary>
 
-                <?php 
-                    while ($loop -> have_posts()) : $loop -> the_post();
-                        $radio_input = get_post_meta( get_the_ID(), '_martini_corsi_liberi_wiki_test_radio', true );
-                        $file = get_post_meta( get_the_ID(), '_martini_corsi_liberi_file_informatica', true );
+    <section id="text-block" class="section bg-white">
+        <div class="container">
+            <div class="row main-content variable-gutters">
 
-                        if ($radio_input == 'informatica' ) { ?>
-                            <article>
-                                <div class="row mt-3 ml-4 align-items-center">
-                                    <a href="<?php echo array_values($file)[0];?>"> 
-                                        <svg xmlns="http:www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                                        </svg>
-                                        <?php the_title(); ?>
-                                    </a> 
-                                </div>    
-                            </article><?php
-                        }
-                    endwhile;
-                ?>
-            </details>
-            <!-- loop corsi inglese -->
-            <details class="row align-items-center my-5 mx-3">
-                <summary class="h4 col-12 pl-0 ml-lg-n2">Corsi di inglese</summary>
+                <div class="col-lg-8 mt-5 mb-5">
+                    <div id="organigramma_page" class="pt-5 px-3">
+                        <?php the_content(); ?>
+                    </div>
+                </div><!-- content -->
 
-                <?php 
-                    while ($loop -> have_posts()) : $loop -> the_post();
-                        $radio_input = get_post_meta( get_the_ID(), '_martini_corsi_liberi_wiki_test_radio', true );
-                        $file = get_post_meta( get_the_ID(), '_martini_corsi_liberi_file_informatica', true );
+                <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
+                    <aside class="aside-main aside-sticky">
+                        <div class="col-12 col-lg-9" id="program-legend">
 
-                        if ($radio_input == 'inglese' ) { ?>
-                            <article>
-                                <div class="row mt-3 ml-4 align-items-center">
-                                    <a href="<?php echo array_values($file)[0];?>"> 
-                                        <svg xmlns="http:www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                                        </svg>
-                                        <?php the_title(); ?>
-                                    </a> 
-                                </div>    
-                            </article><?php
-                        }
-                    endwhile;
-                ?>
-            </details>
-            <!-- loop corsi italiano -->
-            <details class="row align-items-center my-5 mx-3">
-                <summary class="h4 col-12 pl-0 ml-lg-n2">Corsi di italiano</summary>
 
-                <?php 
-                    while ($loop -> have_posts()) : $loop -> the_post();
-                        $radio_input = get_post_meta( get_the_ID(), '_martini_corsi_liberi_wiki_test_radio', true );
-                        $file = get_post_meta( get_the_ID(), '_martini_corsi_liberi_file_informatica', true );
+                            <!-- Altre informazioni -->
+                            <?php
+                            $ulteriori_informazioni = get_post_meta(get_the_ID(), 'martini_info', true);
+                            if (trim($ulteriori_informazioni) != "") {
+                            ?>
+                                <h5>Altre informazioni</h5>
+                                <div class="row variable-gutters">
+                                    <div id="quotes" class="col-12 wysiwig-text">
+                                        <?php echo wpautop($ulteriori_informazioni); ?>
+                                    </div>
+                                </div><!-- /row -->
+                            <?php
+                            }
+                            ?>
+                            <!-- //Altre informazioni -->
 
-                        if ($radio_input == 'italiano' ) { ?>
-                            <article>
-                                <div class="row mt-3 ml-4 align-items-center">
-                                    <a href="<?php echo array_values($file)[0];?>"> 
-                                        <svg xmlns="http:www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                                        </svg>
-                                        <?php the_title(); ?>
-                                    </a> 
-                                </div>    
-                            </article><?php
-                        }
-                    endwhile;
-                ?>
-            </details>
-            <!-- loop corsi tedesco -->
-            <details class="row align-items-center my-5 mx-3">
-                <summary class="h4 col-12 pl-0 ml-lg-n2">Corsi di tedesco</summary>
+                            <!-- Campo contatti -->
+                            <div class="mailfield pb-1">
+                                <?php
+                                $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                if (is_array($martini_group_contact) && !empty($martini_group_contact)) { ?>
 
-                <?php 
-                    while ($loop -> have_posts()) : $loop -> the_post();
-                        $radio_input = get_post_meta( get_the_ID(), '_martini_corsi_liberi_wiki_test_radio', true );
-                        $file = get_post_meta( get_the_ID(), '_martini_corsi_liberi_file_informatica', true );
+                                    <h5>Contatti</h5>
+                                    <ul>
+                                        <?php
+                                        $martini_group_contact = get_post_meta(get_the_ID(), 'martini_group_contact', true);
+                                        if (is_array($martini_group_contact) && !empty($martini_group_contact))
 
-                        if ($radio_input == 'tedesco' ) { ?>
-                            <article>
-                                <div class="row mt-3 ml-4 align-items-center">
-                                    <a href="<?php echo array_values($file)[0];?>"> 
-                                        <svg xmlns="http:www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z"/>
-                                        </svg>
-                                        <?php the_title(); ?> 
-                                    </a> 
-                                </div>    
-                            </article><?php
-                        }
-                    endwhile;
-                ?>
-            </details>
-        </section>
-    </main>
+                                            foreach ($martini_group_contact as $martini_contact) {
+                                                $martini_contatto = esc_html($martini_contact["martini_contatto"], 'nome contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_numero_contatto"], 'numero contatto');
+                                                $martini_contatto = esc_html($martini_contact["martini_email"], 'email'); ?>
 
+                                            <li>
+                                                <?php if ($martini_contact["martini_contatto"] != "") echo '<h6 class"mailfield"> ' . $martini_contact["martini_contatto"] . ' </h6>'; ?>
+                                                <?php if ($martini_contact["martini_numero_contatto"] != "") echo '<a href="tel:' . $martini_contact["martini_numero_contatto"] . '"> ' . $martini_contact["martini_numero_contatto"] . ' </a>'; ?>
+                                                <br>
+                                                <?php if ($martini_contact["martini_email"] != "") echo '<a href="mailto:' . $martini_contact["martini_email"] . '"> ' . $martini_contact["martini_email"] . ' </a>'; ?>
+                                            </li>
+
+                                        <?php
+                                            }
+                                        ?>
+                                    </ul>
+                                <?php } ?>
+                            </div>
+                            <!--/Campo contatti -->
+
+                            <!-- Campo modulistica -->
+                            <?php
+                            $multidocuments_download = get_post_meta(get_the_ID(), 'documents_download', true);
+                            if (is_array($multidocuments_download) && !empty($multidocuments_download)) { ?>
+                                <h5>Modulistica</h5>
+                                <ul class="link-list uppercase_text">
+
+                                    <?php foreach ($multidocuments_download as $docID => $documenti) { ?>
+
+                                        <li>
+                                            <a href="<?php echo $documenti; ?>" target=blank> <?php echo get_the_title($docID); ?> </a>
+                                        </li>
+                                    <?php } ?>
+
+                                </ul>
+                            <?php } ?>
+                            <!--/Campo modulistica -->
+
+                            <!-- Campo link -->
+                            <?php
+                            $link_url = get_post_meta(get_the_ID(), 'martini_url', true);
+
+                            if (is_array($link_url) && count($link_url) && strlen($link_url[0])) { ?>
+                                <h5>Link utili</h5>
+                                <ul class="link-list">
+
+                                    <?php foreach ($link_url as $link_url) { ?>
+
+                                        <li>
+                                            <a href="<?php echo $link_url; ?>" target=blank> <?php echo $link_url; ?> </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            <?php } ?>
+                            <!--/Campo link -->
+                        </div>
+                    </aside>
+                </div> <!--/ sidebar -->
+
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </section>
+
+
+
+</main>
 <?php
-
 get_footer();
-
 ?>

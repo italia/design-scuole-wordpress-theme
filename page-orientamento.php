@@ -6,7 +6,7 @@
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     </section>
 
-    <section class="container my-5">
+    <section class="container mt-5">
         <div class="row">
             <?php the_content(); ?>
         </div>

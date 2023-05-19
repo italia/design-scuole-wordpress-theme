@@ -1,14 +1,5 @@
 <?php
-/* Template Name: Mi oriento
- *
- * didattica template file
- *
- * @package Design_Scuole_Italia
- */
-
 get_header();
-
-
 ?>
 
 <main id="main-container" class="main-container">
@@ -29,7 +20,7 @@ get_header();
                  
                 <div id="sidebar" class="col-lg-3 offset-lg-1 px-5 px-3 px-lg-3 py-5">
                         <aside class="aside-main aside-sticky">
-                            <div class="col-12 col-lg-9" id="program-legend">
+                            <div class="col-12" id="program-legend">
                                 
 
                                 <!-- Altre informazioni -->
@@ -98,23 +89,38 @@ get_header();
                                 <?php } ?>
                                 <!--/Campo modulistica -->
 
-                                <!-- Campo link -->
-                                <?php 
-                                $link_url = get_post_meta( get_the_ID(), 'martini_url', true );
-                                
-                                if(is_array ($link_url) && count($link_url) && strlen($link_url[0])){ ?>
-                                <h5>Link utili</h5> 
-                                <ul class="link-list">
-                                    
-                                    <?php foreach ( $link_url as $link_url){?>
-                                    
-                                    <li>
-                                         <a href="<?php echo $link_url;?>" target=blank> <?php echo $link_url;?> </a> 
-                                    </li>
-                                    <?php }?>                         
-                                </ul>
-                                <?php } ?>
-                                <!--/Campo link -->
+                                <!-- Campo link url -->
+                                <div class="mailfield pb-1">
+                                       <?php
+                                       $martini_group_link = get_post_meta(get_the_ID(), 'martini_group_link', true);
+                                       if (is_array($martini_group_link) && !empty($martini_group_link)) { ?>
+                                      
+                                       <h5>Link utili</h5>
+                                       <ul>     
+                                           <?php
+                                           $martini_group_link = get_post_meta(get_the_ID(), 'martini_group_link', true);
+                                           if (is_array($martini_group_link) && !empty($martini_group_link))
+
+
+                                           foreach ($martini_group_link as $martini_link) {
+                                               $martini_link_ID = esc_html($martini_link["martini_link_ID"], 'Testo del link');
+                                               $martini_url_link = esc_html($martini_link["martini_url_link"], 'link URL');
+                                               ?>
+
+
+                                               <li>
+                                                  
+                                                   <a href="<?php echo $martini_url_link;?>" target=blank> <?php echo $martini_link_ID;?> </a>
+                                                  
+                                               </li>
+                                          
+                                           <?php
+                                           }
+                                           ?>
+                                       </ul>
+                                       <?php } ?>
+                                   </div>
+                               <!--/Campo link url -->
                             </div>
                         </aside>
                     </div> <!--/ sidebar -->
