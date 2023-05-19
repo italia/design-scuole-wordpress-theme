@@ -13,7 +13,7 @@
             </div>
             <h3>Orientamento in entrata</h3>
             <div>
-                <?php echo do_shortcode('[TS_Video_Gallery id="3"]') ;?>
+                <?php echo do_shortcode( '[TS_Video_Gallery id="1"]' ); ?>
             </div>
             <h3>Dicono di noi</h3>
             <div>
