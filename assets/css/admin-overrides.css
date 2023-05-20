@@ -1,7 +1,35 @@
-html:not(.sudo-mode) #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-  background-position: 0 0;
-  background-size: cover;
-  color: rgba(0, 0, 0, 0);
+html.martini-admin-prod {
+  --martini-admin-logo-bg: #fff;
+}
+
+html.martini-admin-dev {
+  --martini-admin-logo-bg: #222dce;
+}
+
+html.martini-admin-local {
+  --martini-admin-logo-bg: #07490c;
+}
+
+#wpadminbar #wp-admin-bar-design-scuole > a {
+  display: flex;
+}
+
+#wpadminbar .dsi-icon {
+  margin: auto;
+}
+
+#wpadminbar .dsi-icon::before {
+  display: none !important;
+}
+
+#wpadminbar .dsi-icon .martini-admin-logo {
+  width: 1.5rem;
+  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 1;
+  background-color: var(--martini-admin-logo-bg, #fff);
+  border-radius: 9999px;
 }
 
 html:not(.sudo-mode) #wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {

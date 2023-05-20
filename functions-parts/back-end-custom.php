@@ -4,6 +4,15 @@ function WWS_custom_back()
 {?>
 <script>
     (() => {
+        document.documentElement.classList.add('martini-admin-' + (
+            window.location.host.includes('.eu') 
+                ? 'prod'
+                : window.location.host.includes('local') 
+                ? 'local'
+                : 'dev'
+            )
+        );
+
         // Get the URL query string
         const urlParams = new URLSearchParams(window.location.search);
       
@@ -31,9 +40,15 @@ function WWS_custom_back()
     include get_template_directory() . '/assets/css/admin-overrides.css';
 
 ?>
+   /*  #wpadminbar .dsi-icon:before,
     #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-        background-image: url(<?php echo get_bloginfo('stylesheet_directory'); ?>assets/images_martini/logo-custom.png) !important; 
-    }
+        background-image: url(<?php //echo get_bloginfo('stylesheet_directory'); ?>/assets/images_martini/logo-custom.png) !important; 
+        content: "" !important;
+        width:20px;
+        height:20px;
+        display: inline-block;
+        display: none;
+    } */
 </style>
 <?php
 }
