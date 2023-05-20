@@ -1,0 +1,76 @@
+html.martini-admin-prod {
+  --martini-admin-logo-bg: #fff;
+}
+
+html.martini-admin-dev {
+  --martini-admin-logo-bg: #222dce;
+}
+
+html.martini-admin-local {
+  --martini-admin-logo-bg: #07490c;
+}
+
+#wpadminbar #wp-admin-bar-design-scuole > a {
+  display: flex;
+}
+
+#wpadminbar .dsi-icon {
+  margin: auto;
+}
+
+#wpadminbar .dsi-icon::before {
+  display: none !important;
+}
+
+#wpadminbar .dsi-icon .martini-admin-logo {
+  width: 1.5rem;
+  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 1;
+  background-color: var(--martini-admin-logo-bg, #fff);
+  border-radius: 9999px;
+}
+
+html:not(.sudo-mode) #wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {
+  background-position: 0 0;
+}
+
+html:not(.sudo-mode) .wp-admin div#ays-quiz-winter-discount-main div#ays-quiz-discount-month-main.ays_quiz_discount_info,
+html:not(.sudo-mode) .wp-admin div#ays-quiz-winter-dicount-main div#ays-quiz-dicount-month-main.ays_quiz_dicount_info,
+html:not(.sudo-mode) .wp-admin #adminmenuwrap #menu-dashboard,
+html:not(.sudo-mode) .wp-admin #adminmenuwrap #adminmenu .wp-submenu li.hide-if-no-customize,
+html:not(.sudo-mode) .wp-admin #adminmenuwrap #adminmenu .wp-submenu li a[href="theme-editor.php"],
+html:not(.sudo-mode) .wp-admin #adminmenuwrap #menu-plugins,
+html:not(.sudo-mode) .wp-admin #wpadminbar #wp-toolbar #wp-admin-bar-updates,
+html:not(.sudo-mode) .wp-admin #adminmenuwrap .toplevel_page_ai1wm_export,
+html:not(.sudo-mode) .wp-admin #adminmenuwrap #menu-settings ul li:nth-of-type(3),
+html:not(.sudo-mode) #menu-posts-struttura,
+html:not(.sudo-mode) #toplevel_page_dsi_options,
+html:not(.sudo-mode) #menu-posts-luogo,
+html:not(.sudo-mode) #menu-posts-servizio,
+html:not(.sudo-mode) #menu-posts-documento,
+html:not(.sudo-mode) #menu-posts-evento,
+html:not(.sudo-mode) #menu-comments,
+html:not(.sudo-mode) #menu-posts-avcp,
+html:not(.sudo-mode) #menu-posts-circolare,
+html:not(.sudo-mode) #menu-posts-spesa,
+html:not(.sudo-mode) #menu-posts-incarico,
+html:not(.sudo-mode) #toplevel_page_impostazioni-wpgov,
+html:not(.sudo-mode) #menu-appearance,
+html:not(.sudo-mode) #menu-plugins,
+html:not(.sudo-mode) #menu-users,
+html:not(.sudo-mode) #menu-tools,
+html:not(.sudo-mode) #menu-settings,
+html:not(.sudo-mode) #toplevel_page_cfdb7-list,
+html:not(.sudo-mode) #wp-admin-bar-design-scuole-conf,
+html:not(.sudo-mode) #wp-admin-bar-comments,
+html:not(.sudo-mode) #wp-admin-bar-new-content,
+html:not(.sudo-mode) #wp-admin-bar-manuale,
+html:not(.sudo-mode) #menu-dashboard,
+html:not(.sudo-mode) #menu-posts-calendar,
+html:not(.sudo-mode) #menu-posts-anac-xml-view,
+html:not(.sudo-mode) #menu-posts-scheda_didattica,
+html:not(.sudo-mode) #setting-error-tgmpa {
+  display: none !important;
+}
