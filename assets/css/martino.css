@@ -104,7 +104,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
   color: #000;
 }
 
-.footer_logos-page > section > #footer_logos-splide .splide__slide a, .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
+.footer_logos-page .footer_logos-label, .footer_logos-page > section > #footer_logos-splide .splide__slide a, .footer--wrapper .footer--main-wrapper section.footer--banners-wrapper > *, .main-container .btn-md-disabled-outline button, .main-container .btn-md-secondary-outline button, .main-container .btn-md-secondary button, .main-container .btn-md-disabled button, .main-container .btn-md-default-outline button, .main-container .btn-md-default button, #sidebar h6, #main-header ul.nav-list > li > a, #main-header .header-social span, p, ul, ol, .font-body {
   font-size: 16px;
   font-size: 1rem;
   font-size: clamp(16px, 10px + 1.04166667vw, 18px);
@@ -2154,6 +2154,7 @@ body {
   color: #fff;
   font-family: "Titillium Web";
   font-style: normal;
+  padding-bottom: 4rem;
   position: relative;
 }
 
@@ -2647,8 +2648,25 @@ body {
   gap: clamp(4rem, 0.85rem + 12vw, 10rem);
 }
 
-.footer_logos-page #footer_logos-content {
+.footer_logos-page .footer_logos-content {
   color: #000;
+}
+
+.footer_logos-page .footer_logos-container {
+  display: flex;
+}
+
+.footer_logos-page .footer_logos-label {
+  color: #000;
+  font-weight: 600;
+}
+
+.footer_logos-page .footer_logos-label-bottom {
+  flex-direction: column;
+}
+
+.footer_logos-page .footer_logos-label-right {
+  flex-direction: row;
 }
 
 #card_image_sidebar {
