@@ -38,9 +38,9 @@ if(!function_exists("dsi_members_can_user_view_post")) {
     function dsi_members_can_user_view_post($user_id, $post_id) {
         if(!function_exists("members_can_user_view_post")) {
             return true;
-        }else{
-            return members_can_user_view_post($user_id, $post_id);
         }
+
+        return members_can_user_view_post($user_id, $post_id);
 
     }
 }
@@ -54,58 +54,42 @@ if(!function_exists("dsi_get_meta")){
 	function dsi_get_meta( $key = '', $prefix = "", $post_id = "") {
         if ( ! dsi_members_can_user_view_post(get_current_user_id(), $post_id) ) return false;
 
-		if($post_id == "")
+		if($post_id == "") {
 			$post_id = get_the_ID();
+        }
+
+		if($prefix != "") {
+			return get_post_meta( $post_id, $prefix . $key, true );
+        }
 
 		$post_type = get_post_type($post_id);
 
-		if($prefix != "")
-			return get_post_meta( $post_id, $prefix.$key, true );
+        // Hashmap<String, String>, post_type => prefix
+        $post_types = [
+            "servizio" => "servizio",
+            "indirizzo" => "indirizzo",
+            "luogo" => "luogo",
+            "struttura" => "struttura",
+            "evento" => "evento",
+            "documento" => "documento",
+            "post" => "articolo",
+            "scheda_progetto" => "scheda_progetto",
+            "scheda_didattica" => "scheda_didattica",
+            "circolare" => "circolare",
+        ];
 
-        if(is_singular("servizio") || (isset($post_type) && $post_type == "servizio")){
-            $prefix = '_dsi_servizio_';
-            return get_post_meta( $post_id, $prefix.$key, true );
-        }else if(is_singular("indirizzo") || (isset($post_type) && $post_type == "indirizzo")){
-            $prefix = '_dsi_indirizzo_';
-            return get_post_meta( $post_id, $prefix.$key, true );
-        }else if (is_singular("luogo")  || (isset($post_type) && $post_type == "luogo")) {
-			$prefix = '_dsi_luogo_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("struttura")  || (isset($post_type) && $post_type == "struttura")) {
-			$prefix = '_dsi_struttura_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("evento")  || (isset($post_type) && $post_type == "evento")) {
-			$prefix = '_dsi_evento_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("documento")  || (isset($post_type) && $post_type == "documento")) {
-			$prefix = '_dsi_documento_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("post")  || (isset($post_type) && $post_type == "post")) {
-			$prefix = '_dsi_articolo_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}/*else if (is_singular("programma_materia")  || (isset($post_type) && $post_type == "programma_materia")) { // todo: programma materia
-			$prefix = '_dsi_materia_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}*/else if (is_singular("scheda_progetto")  || (isset($post_type) && $post_type == "scheda_progetto")) {
-			$prefix = '_dsi_scheda_progetto_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("scheda_didattica")  || (isset($post_type) && $post_type == "scheda_didattica")) {
-			$prefix = '_dsi_scheda_didattica_';
-			return get_post_meta( $post_id, $prefix . $key, true );
-		}else if (is_singular("circolare")  || (isset($post_type) && $post_type == "circolare")) {
-            $prefix = '_dsi_circolare_';
-            return get_post_meta( $post_id, $prefix . $key, true );
+        if (is_singular(array_keys($post_types)) || (isset($post_type) && array_key_exists($post_type, $post_types)) ) {
+            $prefix = '_dsi_' . $post_types[$post_type] . '_';
         }
 
-		return get_post_meta( $post_id, $key, true );
+		return get_post_meta( $post_id, $prefix . $key, true );
 	}
 }
 
 
 if(!function_exists("dsi_get_term_meta")){
     function dsi_get_term_meta( $key , $prefix, $term_id) {
-            return get_term_meta($term_id, $prefix.$key, true );
-
+        return get_term_meta($term_id, $prefix.$key, true );
     }
 }
 /**
@@ -561,13 +545,17 @@ function dsi_get_post_types_group($post_type){
  */
 function dsi_get_italian_name_group($group) {
 	$gruppo = "Novità";
-	if($group == "school")
-		$gruppo = "La Scuola";
-	else if($group == "education")
-		$gruppo = "Didattica";
-	else if($group == "service")
-		$gruppo = "Servizi";
-	
+    
+    $groups = [
+        "school" => "La Scuola",
+	    "education" => "Didattica",
+	    "service" => "Servizi"
+    ];
+
+    if(array_key_exists($group, $groups)) {
+        $gruppo = $groups[$group];
+    }
+
     return $gruppo;
 }
 
@@ -580,12 +568,17 @@ function dsi_get_italian_name_group($group) {
 function dsi_get_post_types_color_class($post_type) {
 	$class = "greendark";
 	$group = dsi_get_post_types_group($post_type);
-	if($group == "school")
-		$class = "redbrown";
-	else if($group == "education")
-		$class = "bluelectric";
-	else if($group == "service")
-		$class = "purplelight";
+    
+    $groups = [
+        "school" => "redbrown",
+        "education" => "bluelectric",
+        "service" => "purplelight",
+    ];
+
+    if(array_key_exists($group, $groups)) {
+        $class = $groups[$group];
+    }
+
 	return $class;
 }
 
@@ -598,16 +591,20 @@ function dsi_get_post_types_color_class($post_type) {
 function dsi_get_post_types_icon_class($post_type) {
 	$icon = "newspaper";
 	$group = dsi_get_post_types_group($post_type);
-	if($group == "school")
-		$icon = "school-building";
-	else if($group == "education")
-		$icon = "school";
-	else if($group == "service")
-		$icon = "hand-point-up";
+    $groups = [
+        "school" => "school-building",
+        "education" => "school",
+        "service" => "hand-point-up",
+    ];
+
+    if(array_key_exists($group, $groups)) {
+        return $groups[$group];
+    }
 
 	if($post_type == "documento")
 		$icon = "generic-document";
-		return $icon;
+ 
+    return $icon;
 }
 
 
@@ -701,12 +698,16 @@ function dsi_user_can_sign_circolare($user, $post){
     $destinatari_circolari = dsi_get_meta("destinatari_circolari", "", $post->ID);
     if($destinatari_circolari == "all"){
         return true;
-    }elseif ($destinatari_circolari == "ruolo"){
+    }
+    
+    if ($destinatari_circolari == "ruolo"){
         $ruoli_circolari = dsi_get_meta("ruoli_circolari", "", $post->ID);
         if( array_intersect($ruoli_circolari, $user->roles ) ) {
             return true;
         }
-    }elseif ($destinatari_circolari == "gruppo"){
+    }
+    
+    if ($destinatari_circolari == "gruppo"){
         $gruppi_circolari = dsi_get_meta("gruppi_circolari", "", $post->ID);
         if(is_object_in_term($user->ID, "gruppo-utente", $gruppi_circolari)){
             return true;
@@ -743,25 +744,17 @@ function dsi_user_has_signed_circolare($user, $post){
  * @return bool
  */
 function dsi_is_circolare($post){
-
-    if($post->post_type == "circolare")
-        return true;
-
-    return false;
+    return $post->post_type == "circolare";
 }
 
 
 /**
- * check if is circolare
+ * check if is albo
  * @param $post
  * @return bool
  */
 function dsi_is_albo($post){
-
-    if(has_term("albo-online", "tipologia-documento", $post))
-        return true;
-
-    return false;
+    return has_term("albo-online", "tipologia-documento", $post);
 }
 
 /**
@@ -771,9 +764,9 @@ function dsi_convert_anno_scuola($anno){
     if(is_int($anno)) {
         $nextanno = $anno + 1;
         return $anno . "/" . $nextanno;
-    }else{
-        return "";
     }
+    
+    return "";
 
 }
 
@@ -783,11 +776,7 @@ function dsi_convert_anno_scuola($anno){
  * @return bool
  */
 function dsi_is_scuola($post){
-
-    if(has_term("scuola", "tipologia-struttura", $post))
-        return true;
-
-    return false;
+    return has_term("scuola", "tipologia-struttura", $post);
 }
 
 
@@ -818,145 +807,53 @@ function dsi_sanitize_int( $value, $field_args, $field ) {
     // Don't keep anything that's not numeric
     if ( ! is_numeric( $value ) ) {
         $sanitized_value = '';
-    } else {
-        // Ok, let's clean it up.
-        $sanitized_value = absint( $value );
-    }
+
+        return $sanitized_value;
+    } 
+    
+    // Ok, let's clean it up.
+    $sanitized_value = absint( $value );
+
     return $sanitized_value;
 }
 
 
 if(!function_exists("dsi_pluralize_string")) {
     function dsi_pluralize_string($string){
-    switch ($string){
-        case "Biblioteca":
-            $string = "Biblioteche";
-            break;
-
-        case "Palestra":
-            $string = "Palestre";
-            break;
-
-        case "Edificio scolastico":
-            $string = "Edifici scolastici";
-            break;
-
-        case "Teatro":
-            $string = "Teatri";
-            break;
-
-        case "Laboratorio":
-            $string = "Laboratori";
-            break;
-
-        case "Giardino":
-            $string = "Giardini";
-            break;
-
-        case "Dirigenza Scolastica":
-            $string = "Dirigenze Scolastiche";
-            break;
-
-        case "Segreteria":
-            $string = "Segreterie";
-            break;
-
-        case "Scuola":
-            $string = "Scuole";
-            break;
-
-        case "Commissione":
-            $string = "Commissioni";
-            break;
-
-        case "Organo Collegiale":
-            $string = "Organi Collegiali";
-            break;
-
-        case "Associazione scolastica":
-            $string = "Associazioni scolastiche";
-            break;
-
-        case "Mensa":
-            $string = "Mense";
-            break;
-
-        case "Documento Generico":
-            $string = "Documenti Generici";
-            break;
-
-        case "Bandi e Gare":
-            $string = "Bandi e Gare";
-            break;
-
-        case "Contratto":
-            $string = "Contratti";
-            break;
-
-        case "Delibera":
-            $string = "Delibere";
-            break;
-
-        case "Verbale":
-            $string = "Verbali";
-            break;
-
-        case "Regolamento":
-            $string = "Regolamenti";
-            break;
-
-        case "Documento Programmatico":
-            $string = "Documenti Programmatici";
-            break;
-
-        case "Documento Didattico":
-            $string = "Documenti Didattici";
-            break;
-
-        case "Modulistica":
-            $string = "Modulistica";
-            break;
-
-        case "Albo online":
-            $string = "Albo online";
-            break;
-
-        case "Progetto area scientifica":
-            $string = "Progetti area scientifica";
-            break;
-
-        case "Progetto area umanistica":
-            $string = "Progetti area umanistica";
-            break;
-
-        case "Progetto di integrazione":
-            $string = "Progetti di integrazione";
-            break;
-
-        case "Progetto di orientamento":
-            $string = "Progetti di orientamento";
-            break;
-
-        case "Progetto territorio e ambiente":
-            $string = "Progetti territorio e ambiente";
-            break;
-
-
-        case "Indirizzo di Studio":
-            $string = "Indirizzi di studio";
-            break;
-
-        case "Scuola / Istituto":
-            $string = "Scuole / Istituti";
-            break;
-
-        case "":
-            $string = "";
-            break;
-
-    }
-
-        return $string;
+        $plurals = [
+            "Biblioteca" => "Biblioteche",
+            "Palestra" => "Palestre",
+            "Edificio scolastico" => "Edifici scolastici",
+            "Teatro" => "Teatri",
+            "Laboratorio" => "Laboratori",
+            "Giardino" => "Giardini",
+            "Dirigenza Scolastica" => "Dirigenze Scolastiche",
+            "Segreteria" => "Segreterie",
+            "Scuola" => "Scuole",
+            "Commissione"  => "Commissioni",
+            "Organo Collegiale" => "Organi Collegiali",
+            "Associazione scolastica" => "Associazioni scolastiche",
+            "Mensa" => "Mense",
+            "Documento Generico" => "Documenti Generici",
+            "Bandi e Gare" => "Bandi e Gare",
+            "Contratto" => "Contratti",
+            "Delibera" => "Delibere",
+            "Verbale" => "Verbali",
+            "Regolamento" => "Regolamenti",
+            "Documento Programmatico" => "Documenti Programmatici",
+            "Documento Didattico"  => "Documenti Didattici",
+            "Modulistica" => "Modulistica",
+            "Albo online" => "Albo online",
+            "Progetto area scientifica" => "Progetti area scientifica",
+            "Progetto area umanistica" => "Progetti area umanistica",
+            "Progetto di integrazione" => "Progetti di integrazione",
+            "Progetto di orientamento" => "Progetti di orientamento",
+            "Progetto territorio e ambiente" => "Progetti territorio e ambiente",
+            "Indirizzo di Studio" => "Indirizzi di studio",
+            "Scuola / Istituto" => "Scuole / Istituti",
+        ];
+    
+        return array_key_exists($string, $plurals) ? $plurals[$string] : "";
     }
 }
 
@@ -966,13 +863,15 @@ if(!function_exists("dsi_pluralize_string")) {
 
 function dsi_get_display_name($user_id){
 
-    $display = get_the_author_meta('display_name', $user_id);
     $nome = get_the_author_meta('first_name', $user_id);
     $cognome = get_the_author_meta('last_name', $user_id);
-    if(($nome != "") && ($cognome != ""))
-        return $nome." ".$cognome;
-    else
-        return $display;
+    if(($nome != "") && ($cognome != "")) {
+        return $nome . " " . $cognome;
+    }
+
+    // Use it as a text fallback
+    $display = get_the_author_meta('display_name', $user_id);
+    return $display;
 
 }
 

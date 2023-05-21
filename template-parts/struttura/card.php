@@ -1,6 +1,10 @@
 <?php
 global $struttura;
 
+if(is_null($struttura)) {
+	return;
+}
+
 $tipologie = wp_get_object_terms( $struttura->ID, 'tipologia-struttura' );
 $tipologia = "";
 if(is_array($tipologie) && count($tipologie) > 0){

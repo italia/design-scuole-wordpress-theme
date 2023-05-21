@@ -3,7 +3,14 @@ global $post;
 
 $studenti = dsi_get_option( "studenti", "la_scuola" );
 $classi = dsi_get_option( "classi", "la_scuola" );
-$media = intval($studenti / $classi);
+
+$media = 0;
+
+// Prevent: Division by zero
+// Fatal error
+if($classi > 0) {
+	$media = intval($studenti / $classi);
+}
 ?>
 
 	<section class="section section-padding py-5 bg-gray-light">

@@ -15,7 +15,9 @@ function dsi_pdf_generator(){
     global $post, $type;
     if(is_singular("circolare") && isset($_GET) && ($_GET["pdf"] == "true")){
 
-        $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+        // get_template_directory_uri() returns fatal error on Docker container
+        $image_url = get_template_directory() ."/assets/placeholders/logo-service.png";
+            
         $data = file_get_contents($image_url);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
@@ -41,7 +43,13 @@ function dsi_pdf_generator(){
             <title><?php echo $post->post_title; ?></title>
         </head>
         <body>
-        <img src="<?php echo $base64; ?>" style="width:90px; height: 90px; float:left; ">
+        <?php 
+        /**
+         * Prevent fatal error on PDF rendering
+         */
+        if($base64 != "data:image/;base64,") { ?>
+            <img src="<?php echo $base64; ?>" style="width:90px; height: 90px; float:left; ">
+        <?php } ?>
         <p class="h1">
             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
             <br>

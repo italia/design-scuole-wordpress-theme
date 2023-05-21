@@ -1,6 +1,10 @@
 <?php
 global $luogo, $struttura, $c;
 
+if (is_null($luogo)) {
+	return;
+}
+
 // controllo se è un parent, in caso recupero i dati del genitore
 if ($luogo->post_parent == 0) {
 	$card_title = $luogo->post_title;

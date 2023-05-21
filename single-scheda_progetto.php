@@ -142,41 +142,66 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <?php if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
-                                    ?>
+                                <?php 
+                                // Prevent showing Luogo title
+                                if(($is_luogo_scuola == "true" && is_array($link_schede_luoghi) && count($link_schede_luoghi)) || (trim($nome_luogo_custom) != "" && $is_luogo_scuola == "false")) {
+                                ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <h4><?php _e( "Luogo", "design_scuole_italia" ); ?></h4>
                                             <?php
                                             $c = 0;
-                                            if ( $is_luogo_scuola == "true" && is_array( $link_schede_luoghi ) && count( $link_schede_luoghi ) > 0 ) {
-                                                foreach ( $link_schede_luoghi as $idluogo ) {
+                                            /**
+                                             * Weird behavior occurs here. 
+                                             * If luogo is selected in the backend panel but it has been trashed this luogo is shown and returns 404. 
+                                             * If luogo is deleted, a fatal error is returned. 
+                                             * If the project file is subsequently updated and a location external to the school is set and saved as 
+                                             * a location within the school yes, it is shown in any case.
+                                             * Better double check.
+                                             */
+                                            if ($is_luogo_scuola == "true" && is_array($link_schede_luoghi) && count($link_schede_luoghi) > 0) {
+                                                foreach ($link_schede_luoghi as $idluogo) {
                                                     $c ++;
                                                     $luogo = get_post( $idluogo );
+
                                                     get_template_part( "template-parts/luogo/card", "large" );
                                                 }
-                                            } else if ( $nome_luogo_custom != "" ) {
+                                            } else if (trim($nome_luogo_custom) != "" && $is_luogo_scuola == "false") {
                                                 get_template_part( "template-parts/luogo/card", "custom" );
                                             } ?>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
-                                    <?php } ?>
-                                <?php if(is_array($link_strutture)) {
-                                    ?>
+                                <?php } ?>
+                                <?php 
+                                /**
+                                 * If struttura is selected in the administration panel but it has been trashed this struttura is shown and returns 404. 
+                                 * If struttura is deleted, an empty card with icon is shown.
+                                 */
+                                if(is_array($link_strutture)) {
+                                    $args = array(
+                                        'post_type'  => 'struttura',
+                                        'post__in'   => $link_strutture
+                                    );
+                                    $strutture_query = new WP_Query($args);
+                                    if($strutture_query->have_posts()) {
+                                ?>
                                     <h4><?php _e("Responsabile", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced mb-2">
-                                                <?php
-                                                foreach ($link_strutture as $idstruttura) {
-                                                    $struttura = get_post($idstruttura);
-                                                    get_template_part("template-parts/struttura/card");
-                                                }
-                                                ?>
+                                <?php
+                                        while($strutture_query->have_posts()) {
+                                            $strutture_query->the_post();
+                                            global $post;
+                                            $struttura = $post;
+                                            get_template_part("template-parts/struttura/card");
+                                        }
+                                ?>
                                             </div><!-- /card-deck -->
                                         </div><!-- /col-lg-12 -->
                                     </div><!-- /row -->
-                                    <?php
+                                <?php 
+                                    } wp_reset_postdata();
                                 }
                                 ?>
 
@@ -257,18 +282,28 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div>
                                     </div>
                                 <?php }  ?>
-                                <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ ?>
+                                <?php 
+                                if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ 
+                                    $args = array(
+                                        'post_type'  => 'documento',
+                                        'post__in'   => $link_schede_documenti
+                                    );
+                                    $documenti_query = new WP_Query($args);
+                                    if($documenti_query->have_posts()) {
+                                ?>
                                     <h4  id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
                                                 <?php
-                                                if(is_array($link_schede_documenti) && count($link_schede_documenti)>0) {
+                                                while($documenti_query->have_posts()) {
+                                                    $documenti_query->the_post();
                                                     global $documento;
-                                                    foreach ( $link_schede_documenti as $link_scheda_documento ) {
-                                                        $documento = get_post( $link_scheda_documento );
-                                                        get_template_part( "template-parts/documento/card" );
-                                                    }
+                                                    global $post;
+                                                    
+                                                    $documento = $post;
+                                                    get_template_part( "template-parts/documento/card" );
+
                                                 }
 
                                                 /*
@@ -285,19 +320,33 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </div><!-- /col-lg-12 -->
                                     </div><!-- /row -->
                                     <?php
+                                    } wp_reset_postdata();
                                 }
                                 ?>
-                                <?php if($link_schede_servizi){ ?>
+                                <?php 
+                                if($link_schede_servizi){ 
+                                    $args = array(
+                                        'post_type'  => 'servizio',
+                                        'post__in'   => $link_schede_servizi
+                                    );
+                                    $servizi_query = new WP_Query($args);
+                                    if($servizi_query->have_posts()) {
+                                ?>
                                     <h4><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h4>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
-                                        foreach ($link_schede_servizi as $idservizio){
-                                            $servizio = get_post($idservizio);
+                                        while($servizi_query->have_posts()) {
+                                            $servizi_query->the_post();
+                                            global $post;
+                                            $servizio = $post;
                                             get_template_part("template-parts/servizio/card");
                                         }
                                         ?>
                                     </div><!-- /card-deck card-deck-spaced -->
-                                <?php } ?>
+                                <?php 
+                                    } wp_reset_postdata(); 
+                                } 
+                                ?>
 
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">

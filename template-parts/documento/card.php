@@ -1,5 +1,6 @@
 <?php
 global $documento;
+if(is_null($documento)) return;
 ?>
 <div class="card card-bg card-icon rounded">
 		<div class="card-body">
