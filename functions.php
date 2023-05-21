@@ -329,17 +329,27 @@ function modify_admin_logo()
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(http://2023.martinomartini.eu/wp-content/uploads/2022/11/cropped-logo-custom-e1668359681239.png);
+            background-image: url(<?php echo get_bloginfo('stylesheet_directory');?>/assets/images_martini/logo-custom.png);
             height: 84px;
             width: 84px;
             background-size: 84px 84px;
             background-repeat: no-repeat;
-            padding-bottom: 30px;
+            padding-bottom: 0;
         }
     </style>
 <?php }
 
 add_action('login_enqueue_scripts', 'modify_admin_logo');
+
+function martini_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'martini_login_logo_url' );
+
+function martini_login_logo_url_title() {
+    return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertext', 'martini_login_logo_url_title' );
 
 add_action('wp_head', function () {
     global $post;
