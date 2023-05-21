@@ -78,7 +78,7 @@ $titolo_pagina = get_post_meta( get_the_ID(), '_dsi_indirizzo_corso_di_studio', 
                     <div class="container col-lg-8">
 
                         <div class="pt-3">
-                            <a href="http://2023.martinomartini.eu/didattica/offerta-formativa/"><p>< Torna all'offerta formativa</p></a>
+                            <a href="/didattica/offerta-formativa/"><p>< Torna all'offerta formativa</p></a>
                         </div>
                        
 
