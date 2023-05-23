@@ -1,0 +1,89 @@
+// upper-left admin logo
+html.martini-admin {
+    &-prod {
+        --martini-admin-logo-bg: #fff;
+    }
+    &-dev {
+        --martini-admin-logo-bg: #222dce;
+    }
+    &-local {
+        --martini-admin-logo-bg: #07490c;
+    }
+}
+#wpadminbar {
+    #wp-admin-bar-design-scuole {
+        
+        &>a {
+            display: flex;
+        }
+    }
+
+    .dsi-icon {
+        margin: auto;
+
+        &::before {
+            display: none !important;
+        }
+
+        .martini-admin-logo {
+            width: 1.5rem;
+            margin: auto;
+            object-fit: contain;
+            aspect-ratio: 1;
+            background-color: var(--martini-admin-logo-bg, #fff);
+            border-radius: 9999px;
+        }
+    }
+}
+
+html:not(.sudo-mode) {
+    #wpadminbar #wp-admin-bar-wp-logo.hover>.ab-item .ab-icon {
+        background-position: 0 0;
+    }
+
+    .wp-admin div#ays-quiz-winter-discount-main div#ays-quiz-discount-month-main.ays_quiz_discount_info,
+    .wp-admin div#ays-quiz-winter-dicount-main div#ays-quiz-dicount-month-main.ays_quiz_dicount_info,
+    /*hide dashboard*/
+    .wp-admin #adminmenuwrap #menu-dashboard,
+    /*hide pages*/
+    /*hide customizer*/
+    .wp-admin #adminmenuwrap #adminmenu .wp-submenu li.hide-if-no-customize,
+    /*hide theme editor*/
+    .wp-admin #adminmenuwrap #adminmenu .wp-submenu li a[href="theme-editor.php"],
+    /*hide plugin*/
+    .wp-admin #adminmenuwrap #menu-plugins,
+    .wp-admin #wpadminbar #wp-toolbar #wp-admin-bar-updates,
+    /*hide all in one*/
+    .wp-admin #adminmenuwrap .toplevel_page_ai1wm_export,
+    /*hide writing settings*/
+    .wp-admin #adminmenuwrap #menu-settings ul li:nth-of-type(3),
+    #menu-posts-struttura,
+    #toplevel_page_dsi_options,
+    #menu-posts-luogo,
+    #menu-posts-servizio,
+    #menu-posts-documento,
+    #menu-posts-evento,
+    #menu-comments,
+    #menu-posts-avcp,
+    #menu-posts-circolare,
+    #menu-posts-spesa,
+    #menu-posts-incarico,
+    #toplevel_page_impostazioni-wpgov,
+    #menu-appearance,
+    #menu-plugins,
+    #menu-users,
+    #menu-tools,
+    #menu-settings,
+    #toplevel_page_cfdb7-list,
+    #wp-admin-bar-design-scuole-conf,
+    #wp-admin-bar-comments,
+    #wp-admin-bar-new-content,
+    #wp-admin-bar-manuale,
+    #menu-dashboard,
+    #menu-posts-calendar,
+    #menu-posts-anac-xml-view,
+    #menu-posts-scheda_didattica,
+    #setting-error-tgmpa {
+        display: none !important;
+    }
+}

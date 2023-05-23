@@ -38,7 +38,7 @@
                     <p class="mb-4">Ecco qua il nostro calendario con tutti gli appuntamenti e date.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="http://2023.martinomartini.eu/calendario-open-day/" target="blank">
+                    <a class="btn-lg-default" href="/calendario-open-day/" target="blank">
                         <button class="w-auto">Calendario Open Days</button>
                     </a>
                 </div>
@@ -60,7 +60,7 @@
                     <p class="mb-4">Ecco qua la nostra Videoteca.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="http://2023.martinomartini.eu/servizi/orientamento/videoteca/" target="blank">
+                    <a class="btn-lg-default" href="/servizi/orientamento/videoteca/" target="blank">
                         <button class="w-auto">Vedi tutti i video</button>
                     </a>
                 </div>

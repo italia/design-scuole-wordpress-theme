@@ -190,7 +190,7 @@
 
         <div id="gli-spazi-img" class="col-lg-6 col-12 mb-3 mb-lg-0">
 
-          <img class="w-100" src="http://2023.martinomartini.eu/wp-content/uploads/2023/05/martini_home.001.jpeg" alt="">
+          <img class="w-100" src="/wp-content/uploads/2023/05/martini_home.001.jpeg" alt="">
 
 
         </div>
@@ -214,7 +214,7 @@
 
         <div id="storia-img" class="col-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-2">
 
-          <img class="w-100" src="http://2023.martinomartini.eu/wp-content/uploads/2023/05/Portrait_of_Martino_Martini_by_Michaelina_Wautier-1-scaled.jpg" alt="">
+          <img class="w-100" src="/wp-content/uploads/2023/05/Portrait_of_Martino_Martini_by_Michaelina_Wautier-1-scaled.jpg" alt="">
 
         </div>
         <!--#storia-img -->
