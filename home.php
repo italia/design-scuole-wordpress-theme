@@ -7,17 +7,7 @@ get_header();
 ?>
 
 <main id="main-container" class="main-container">
-    <section id="hero" class="hero-title">
-        <section class="hero-container">
-            <div class="h-100 align-items-center">
-                <div id="hero-content" class="p-2 d-flex flex-column justify-content-center">
-                    <h1> Le Notizie </h1>
-                    <!-- <p class="h3 fw-regular"><?php /*  echo get_the_excerpt(); */ ?></p> -->
-                    <div class="hero-img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
-                </div>
-            </div>
-        </section>
-    </section>
+    <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     <!-- container post -->
     <section class="container my-5">
         <div class="row my-3">
