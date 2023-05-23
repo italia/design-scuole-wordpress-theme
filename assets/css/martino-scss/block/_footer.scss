@@ -19,10 +19,11 @@ $background-color: #004882;
     }
 
     .container .footer {
+        margin-top: 2rem;
         gap: .7rem;
         display: grid;
         grid-template-columns:
-            repeat(auto-fill, minmax(25ch, 1fr));
+            repeat(auto-fill, minmax(24ch, 1fr));
 
 
         @if $footer-use-tabs =='true' {
@@ -76,6 +77,7 @@ $background-color: #004882;
         display: flex;
         flex-wrap: wrap;
         gap: 1.25rem;
+        justify-content: space-between;
 
         section {
 
