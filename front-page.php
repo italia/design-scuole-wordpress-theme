@@ -47,10 +47,10 @@
             <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro Docenti</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
               <button>Area Riservata</button>
             </a>
             <?php
