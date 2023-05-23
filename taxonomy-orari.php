@@ -30,8 +30,8 @@ $term = get_queried_object();
 							// 'post_status' => "publish",
 							'post_per_page' => '-1',
 							'nopaging' => !false,
-							// 'orderby' => "title",
-							// 'order' => "ASC",
+							'orderby' => "title",
+							'order' => "ASC",
 							// 'cat' => $term->term_id
 							'tax_query' => array(
 								array(
