@@ -659,7 +659,7 @@ main :not(button, a) > .font-body, main :not(button, a) > p, main :not(button, a
 }
 
 #main-container ul.simcal-events {
-  max-height: 400px;
+  max-height: 200px;
   overflow: auto;
 }
 
@@ -1638,6 +1638,7 @@ label > span {
 }
 
 .simcal-events {
+  max-height: 20rem;
   -webkit-padding-start: 0px !important;
           padding-inline-start: 0px !important;
 }

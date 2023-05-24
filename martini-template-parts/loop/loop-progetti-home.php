@@ -5,7 +5,7 @@
   <?php
   $loop = new WP_Query(
     array(
-      'post_type'         => 'scheda_progetto',
+      'post_type'         => 'progetti',
       'post_status'       => 'publish', 
       'orderby'           => 'count', 
       'order'             => 'DESC', 
@@ -28,11 +28,8 @@
         <div class="loop__progetti__card__content__body w-100">
 
         <a href="<?php the_permalink(); ?>" class="loop__progetti__card__content__body__link">
-          <h6 class="loop__progetti__card__content__body__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 20, '...'); ?></h6>
-        </a>
-
-        <p class="text-xs"><?php echo mb_strimwidth( get_the_excerpt(), 0, 35, '...' );?></p>
-          
+          <h6 class="loop__progetti__card__content__body__link__title"><?php echo mb_strimwidth(get_the_title(), 0, 40, '...'); ?></h6>
+        </a>          
         
         </div>
       </div>
