@@ -23,6 +23,10 @@ tr, th, td {
   font-family: "Titillium Web", Helvetica, sans-serif;
 }
 
+.page-numbers {
+  margin: 0 1rem;
+}
+
 .carousel > label {
   font-size: 16px;
   font-size: 1rem;

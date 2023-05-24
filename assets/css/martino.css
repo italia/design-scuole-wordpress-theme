@@ -23,6 +23,10 @@ tr, th, td {
   font-family: "Titillium Web", Helvetica, sans-serif;
 }
 
+.page-numbers {
+  margin: 0 1rem;
+}
+
 .container-martini {
   max-width: 1200px;
   margin: 0 auto;
@@ -1549,6 +1553,10 @@ label > span {
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
+.loop__news__card__content__image img {
+  max-height: 220px;
+}
+
 .loop__news__card__content__title {
   margin: 0.5rem 1rem;
 }
@@ -1638,7 +1646,6 @@ label > span {
 }
 
 .simcal-events {
-  max-height: 20rem;
   -webkit-padding-start: 0px !important;
           padding-inline-start: 0px !important;
 }
@@ -2755,6 +2762,7 @@ body {
 
 .card__content__image img {
   width: 100%;
+  max-height: 220px;
   -o-object-fit: cover;
      object-fit: cover;
 }
