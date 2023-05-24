@@ -35,12 +35,14 @@
         &__placeholder{
           max-height: 280px;
           width: 100%;
+          max-width: 100%;
           object-fit: contain;
           border-radius: .25rem .25rem 0 0 ;
         }
 
         img{
-          max-height: 220px;
+          max-height: 200px;
+          max-width: 100%;
         }
       }
       &__title{
