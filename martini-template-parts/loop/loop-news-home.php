@@ -25,7 +25,7 @@
           <?php } ?>
         </a>
 
-        <h5 class="loop__news__card__content__title"><?php echo mb_strimwidth(get_the_title(), 0, 44, '...'); ?></h5>
+        <h5 class="loop__news__card__content__title"><?php echo mb_strimwidth(get_the_title(), 0, 35, '...'); ?></h5>
 
         <a href="<?php the_permalink(); ?>" class="loop__news__card__content__link">
           <button class="loop__news__card__content__link__button">Scopri</button>
