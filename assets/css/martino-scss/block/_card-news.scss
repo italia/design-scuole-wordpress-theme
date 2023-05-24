@@ -38,6 +38,10 @@
           object-fit: contain;
           border-radius: .25rem .25rem 0 0 ;
         }
+
+        img{
+          max-height: 220px;
+        }
       }
       &__title{
         margin: .5rem 1rem;
