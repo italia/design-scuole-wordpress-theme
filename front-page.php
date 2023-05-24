@@ -17,8 +17,7 @@
         <div id="nostro-istituto">
 
           <h2>Il nostro istituto</h2>
-          <p>L’istituto Martino Martini è una scuola secondaria di secondo grado sita nel comune di Mezzolombardo, facilmente raggiungibile attraverso i mezzi di trasporto. Nell’istituto sono presenti 8 indirizzi di studio, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono quelli del liceo scientifico opzione <strong>scienze applicate,</strong> del liceo <strong>scientifico sportivo,</strong> del liceo <strong>scientifico internazionale quadriennale</strong> e del liceo delle <strong>scienze umane</strong> opzione socio-economica. Gli indirizzi tecnici sono quelli dell'istituto economico opzione <strong>amministrazione finanza e marketing,</strong> dell’istituto economico internazionale sportivo, dell’istituto tecnologico opzione <strong>trasporti e logistica</strong> e dell’istituto tecnologico <strong>conduzione del mezzo aereo.</strong><br>Per tutti gli indirizzi l’orario delle lezioni è articolato su cinque giorni (dal lunedì al venerdì) con possibilità di accesso al servizio mensa in caso di prolungamento pomeridiano delle lezioni.. Le aule e i numerosi laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi.
-
+          <p>L’istituto Martino Martini è una scuola secondaria di 2° grado nel comune di Mezzolombardo, facilmente raggiungibile con i mezzi di trasporto. Nell’istituto sono presenti 8 indirizzi, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono: il liceo scientifico opzione scienze applicate, il liceo scientifico sportivo, il liceo scientifico internazionale quadriennale e il liceo delle scienze umane opzione socio-economica. Gli indirizzi tecnici sono: l'istituto economico opzione amministrazione finanza e marketing, l’istituto economico internazionale sportivo, l’istituto tecnologico opzione trasporti e logistica e l’istituto tecnologico conduzione del mezzo aereo. Per tutti gli indirizzi l’orario delle lezioni è su cinque giorni (lunedì-venerdì) con la mensa nei giorni con lezioni pomeridiane. Le aule e i laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi.
           </p>
 
         </div>
@@ -47,7 +46,7 @@
             <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
               <button>Registro Docenti</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/GestOre/" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
@@ -161,7 +160,7 @@
         <h4 class="col-12">Ultime news </h4>
         <?php get_template_part("martini-template-parts/loop/loop-news-home") ?>
         <div class="col-12 p-lg-0 p-1 p-md-3 p-lg-0">
-          <a class="btn-lg-default-outline w-100" href="tipologia-articolo/notizie/" class="col-12 p-0">
+          <a class="btn-lg-default-outline w-100" href="novita/le-notizie/" class="col-12 p-0">
             <button class="m-0">Vai alla sezione</button>
           </a>
         </div>
@@ -173,7 +172,7 @@
         <?php get_template_part("martini-template-parts/loop/loop-progetti-home") ?>
 
         <div class="col-12 align-items-end d-flex p-0">
-          <a class="btn-lg-default-outline w-100" href="scheda-progetto">
+          <a class="btn-lg-default-outline w-100" href="didattica/progetti/">
             <button class="m-0">Vedi tutti</button>
           </a>
         </div>

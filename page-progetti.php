@@ -27,7 +27,7 @@ get_header();
                         <div class="card__content">
                             <a class="card__content__image" href="<?php the_permalink(); ?>">
                                 <?php if (!empty(get_the_post_thumbnail())) { ?>
-                                    <?php the_post_thumbnail('news-thumb'); ?>
+                                    <?php the_post_thumbnail('article-simple-thumb'); ?>
                                 <?php } else { ?>
                                     <img class="card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>" />
                                 <?php } ?>
