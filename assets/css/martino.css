@@ -1548,13 +1548,15 @@ label > span {
 .loop__news__card__content__image__placeholder {
   max-height: 280px;
   width: 100%;
+  max-width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .loop__news__card__content__image img {
-  max-height: 220px;
+  max-height: 200px;
+  max-width: 100%;
 }
 
 .loop__news__card__content__title {
