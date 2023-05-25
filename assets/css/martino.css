@@ -1561,11 +1561,7 @@ label > span {
 
 .loop__news__card__content__title {
   margin: 0.5rem 1rem;
-}
-
-.loop__news__card__content p {
-  max-width: 30ch;
-  margin: 0.5rem 1rem;
+  font-size: 22px;
 }
 
 .loop__news__card__content__link {
