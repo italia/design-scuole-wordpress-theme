@@ -7,8 +7,8 @@
     array(
       'post_type'         => 'progetti',
       'post_status'       => 'publish', 
-      'orderby'           => 'count', 
-      'order'             => 'DESC', 
+      'orderby'           => 'menu_order', 
+      'order'             => 'ASC', 
       'posts_per_page'    => 3, )
   );
 
