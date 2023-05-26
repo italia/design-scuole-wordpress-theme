@@ -333,6 +333,18 @@ function dsi_add_servizi_metaboxes() {
         'repeatable'  => true
     ) );
 
+	$cmb_undercontent->add_field( array(
+		'id' => $prefix . 'fasi_scadenze_intro',
+		'name'        => __( 'Fasi e scadenze (testo introduttivo) * ', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Per elaborare la richiesta sono necessari 4 giorni".', 'design_scuole_italia' ),
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'media_buttons' => false, // show insert/upload button(s)
+			'textarea_rows' => 4, // rows="..."
+			'teeny' => true, // output the minimal editor config used in Press This
+		),
+
+	) );
 
     /**  repeater fasi_scadenze **/
 	$group_field_id = $cmb_undercontent->add_field( array(
