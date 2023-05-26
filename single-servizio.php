@@ -41,6 +41,7 @@ get_header();
             $cosa_serve = dsi_get_meta("cosa_serve");
             $cosa_serve_list = dsi_get_meta("cosa_serve_list");
 
+            $fasi_scadenze_intro = dsi_get_meta("fasi_scadenze_intro");
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             $casi_particolari = dsi_get_meta("casi_particolari");
             $link_schede_documenti = dsi_get_meta("link_schede_documenti");
