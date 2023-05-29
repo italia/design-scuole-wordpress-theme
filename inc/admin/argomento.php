@@ -31,7 +31,7 @@ function dsi_create_argomento_taxonomy() {
     $wp_taxonomies['post_tag']->label = 'Argomento';
 
 
-    	register_taxonomy_for_object_type( 'post_tag', 'servizio' );
+	register_taxonomy_for_object_type( 'post_tag', 'servizio' );
 	register_taxonomy_for_object_type( 'post_tag', 'documento' );
 	register_taxonomy_for_object_type( 'post_tag', 'materia' );
 	register_taxonomy_for_object_type( 'post_tag', 'luogo' );
