@@ -25,6 +25,7 @@ get_header();
                 'orderby'           => 'title',
                 'order'             => 'DESC',
                 'posts_per_page'    => 10,
+                'paged' => get_query_var('paged') ? get_query_var('paged') : 1 
             ));
 
             while ($loop->have_posts()) : $loop->the_post('le_circolari');
@@ -50,14 +51,14 @@ get_header();
         </div>
         <div class="row my-5 justify-content-center">
             <?php
-            //double pagination on the same page
-            $pag_args1 = array(
-                'format'  => '?paged1=%#%',
-                'current' => $paged1,
-                'total'   => $loop->max_num_pages,
-                'add_args' => array('paged2' => $paged2)
-            );
-            echo paginate_links($pag_args1);
+            $big = 999999999; // need an unlikely integer
+            echo paginate_links(array(
+                'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+                'format' => '?paged=%#%',
+                'current' => max(1, get_query_var('paged')),
+                'total' => $loop->max_num_pages
+            ));
+            wp_reset_postdata();
             ?>
         </div>
     </section>
