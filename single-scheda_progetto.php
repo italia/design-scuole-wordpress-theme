@@ -17,6 +17,7 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_strutture = dsi_get_meta("link_strutture");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $link_schede_servizi = dsi_get_meta("link_schede_servizi");
+$partecipanti = dsi_get_meta("partecipanti");
 
 //$file_documenti = dsi_get_meta("file_documenti");
 $is_realizzato = dsi_get_meta("is_realizzato");
@@ -95,6 +96,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-responsabili" title="Vai al paragrafo <?php _e("Chi cura le attività", "design_scuole_italia"); ?>"><?php _e("Chi cura le attività", "design_scuole_italia"); ?></a>
+                                            </li>
+                                        <?php }
+										if(trim($partecipanti) != "") { 
+                                        ?>
+                                            <li>
+                                                <a class="list-item scroll-anchor-offset" href="#art-par-partecipanti" title="Vai al paragrafo <?php _e("Chi partecipa", "design_scuole_italia"); ?>"><?php _e("Chi partecipa", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php }
                                         if($is_realizzato == "true"){
@@ -247,10 +254,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php }
                                 
                                 global $classe;
-                                $partecipanti = dsi_get_meta("partecipanti");
                                 if(trim($partecipanti)){
                                     ?>
-                                    <h2 class="h3"><?php _e( "Chi partecipa", "design_scuole_italia" ); ?></h2>
+                                    <h2 class="h3" id="art-par-partecipanti"><?php _e( "Chi partecipa", "design_scuole_italia" ); ?></h2>
                                     <div class="row variable-gutters wysiwig-text">
                                         <div class="col-lg-12">
                                             <?php
