@@ -25,6 +25,7 @@ get_header();
                 'orderby'           => 'title',
                 'order'             => 'DESC',
                 'posts_per_page'    => 10,
+                'paged' => get_query_var('paged') ? get_query_var('paged') : 1 
             ));
 
             while ($loop->have_posts()) : $loop->the_post('le_circolari');
