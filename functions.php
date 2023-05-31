@@ -305,3 +305,18 @@ function add_file_types_to_uploads($file_types){
 }
 
 add_action('upload_mimes', 'add_file_types_to_uploads');
+
+/**
+ * Consenti ricerca per argomenti/tags con tutti i content types
+ */
+function add_tags_to_all_content_types( $query ) {
+  if ( is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if($query->is_tag && $query->is_main_query()){
+    $query->set('post_type', array('documento','luogo','struttura','page','servizio','indirizzo','evento','post','circolare','scheda_didattica','scheda_progetto','materia'));
+  }
+}
+
+add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );

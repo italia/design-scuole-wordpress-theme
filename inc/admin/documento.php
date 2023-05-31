@@ -356,9 +356,6 @@ function dsi_add_documento_metaboxes() {
     ) );
 
 
-// todo servizi con correlazione bidirezionale
-
-
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'servizi_collegati',
         'name'        => __( 'Servizi collegati', 'design_scuole_italia' ),
@@ -366,6 +363,15 @@ function dsi_add_documento_metaboxes() {
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_servizi_options(),
     ) );
+	
+    $cmb_aftercontent->add_field( array(
+        'id' => $prefix . 'link_servizi_didattici',
+        'name'        => __( 'Indirizzi di studio collegati', 'design_scuole_italia' ),
+        'desc' => __( 'Indirizzi di studio collegati al documento' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_servizi_didattici_options(),
+    ) );
+	
 /*
     $cmb_aftercontent->add_field( array(
         'id' => $prefix . 'link_servizi_collegati',
@@ -790,7 +796,7 @@ function dsi_save_documento( $post_id) {
 
 new dsi_bidirectional_cmb2("_dsi_documento_", "documento", "servizi_collegati", "box_elementi_dati", "_dsi_servizio_link_schede_documenti");
 
-
+new dsi_bidirectional_cmb2("_dsi_documento_", "documento", "link_servizi_didattici", "box_elementi_dati", "_dsi_indirizzo_link_schede_documenti");
 
 function dsi_annulla_doc(){
     global $wpdb;
