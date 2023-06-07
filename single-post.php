@@ -45,14 +45,18 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php
                                         $prefix = '_dsi_articolo_';
                                         $galleria = get_post_meta(get_the_ID(), $prefix . 'gallery', true);
-                                        echo '<div class="file-list-wrap">';
+                                        echo '<div class="splide">';
+                                        echo '<div class="splide__track">';
+                                        echo '<ul class="splide__list">';
 
                                         // Loop through them and output an image
                                         foreach ((array) $galleria as $attachment_id => $attachment_url) {
-                                            echo '<div class="file-list-image">';
-                                            echo wp_get_attachment_image($attachment_id, $size = 'thumbnail',$attr = '');
+                                            echo '<div class="splide__slide">';
+                                            echo wp_get_attachment_image($attachment_id, $size = 'thumbnail', $attr = '');
                                             echo '</div>';
                                         }
+                                        echo '</ul>';
+                                        echo '</div>';
                                         echo '</div>';
                                         ?>
                                     </div>
@@ -65,16 +69,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <div class="my-3">
                                     <!-- Galleria -->
                                     <?php
-                                    $prefix = '_martini_progetti_';
-                                    $galleria = get_post_meta(get_the_ID(), $prefix . 'wiki_galleria', true);
-                                    echo '<div class="file-list-wrap">';
+                                    $prefix = '_dsi_articolo_';
+                                    $galleria = get_post_meta(get_the_ID(), $prefix . 'gallery', true);
+                                    echo '<div class="splide">';
+                                    echo '<div class="splide__track">';
+                                    echo '<ul class="splide__list">';
 
                                     // Loop through them and output an image
                                     foreach ((array) $galleria as $attachment_id => $attachment_url) {
-                                        echo '<div class="file-list-image">';
-                                        echo wp_get_attachment_image($attachment_id, $size = 'thumbnail',$attr = '');
+                                        echo '<div class="splide__slide">';
+                                        echo wp_get_attachment_image($attachment_id, $size = 'thumbnail', $attr = '');
                                         echo '</div>';
                                     }
+                                    echo '</ul>';
+                                    echo '</div>';
                                     echo '</div>';
                                     ?>
                                 </div>
