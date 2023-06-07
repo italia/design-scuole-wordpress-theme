@@ -24,7 +24,7 @@ get_header();
                             // Loop through them and output an image
                             foreach ((array) $galleria as $attachment_id => $attachment_url) {
                                 echo '<div class="file-list-image">';
-                                echo wp_get_attachment_image($attachment_id, $img_size);
+                                echo wp_get_attachment_image($attachment_id, $size = 'thumbnail',$attr = '');
                                 echo '</div>';
                             }
                             echo '</div>';
