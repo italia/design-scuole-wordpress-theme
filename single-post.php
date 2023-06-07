@@ -52,7 +52,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         // Loop through them and output an image
                                         foreach ((array) $galleria as $attachment_id => $attachment_url) {
                                             echo '<div class="splide__slide">';
-                                            echo wp_get_attachment_image($attachment_id, $size = 'thumbnail', $attr = '');
+                                            echo wp_get_attachment_image($attachment_id, $size = 'item-thumb', $attr = '');
                                             echo '</div>';
                                         }
                                         echo '</ul>';
@@ -78,7 +78,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     // Loop through them and output an image
                                     foreach ((array) $galleria as $attachment_id => $attachment_url) {
                                         echo '<div class="splide__slide">';
-                                        echo wp_get_attachment_image($attachment_id, $size = 'thumbnail', $attr = '');
+                                        echo wp_get_attachment_image($attachment_id, $size = 'item-thumb', $attr = '');
                                         echo '</div>';
                                     }
                                     echo '</ul>';
