@@ -41,7 +41,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     the_content();
                                     ?>
                                     <div class="my-3">
-                                        <?php get_template_part("martini-template-parts/gallery/loop-gallery"); ?>
+                                        <!-- Galleria -->
+                                        <?php
+                                        $prefix = '_dsi_articolo_';
+                                        $galleria = get_post_meta(get_the_ID(), $prefix . 'gallery', true);
+                                        echo '<div class="file-list-wrap">';
+
+                                        // Loop through them and output an image
+                                        foreach ((array) $galleria as $attachment_id => $attachment_url) {
+                                            echo '<div class="file-list-image">';
+                                            echo wp_get_attachment_image($attachment_id, $img_size);
+                                            echo '</div>';
+                                        }
+                                        echo '</div>';
+                                        ?>
                                     </div>
                                 </div><!-- /contenuto post -->
                             </article><!-- /contenuto articolo -->
@@ -50,7 +63,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <div class="p-5 m-5 text-center font-weight-bold wysiwig-text">
                                 <?php the_content(); ?>
                                 <div class="my-3">
-                                    <?php get_template_part("martini-template-parts/gallery/loop-gallery"); ?>
+                                    <!-- Galleria -->
+                                    <?php
+                                    $prefix = '_martini_progetti_';
+                                    $galleria = get_post_meta(get_the_ID(), $prefix . 'wiki_galleria', true);
+                                    echo '<div class="file-list-wrap">';
+
+                                    // Loop through them and output an image
+                                    foreach ((array) $galleria as $attachment_id => $attachment_url) {
+                                        echo '<div class="file-list-image">';
+                                        echo wp_get_attachment_image($attachment_id, $img_size);
+                                        echo '</div>';
+                                    }
+                                    echo '</div>';
+                                    ?>
                                 </div>
                             </div>
                         <?php endif; ?>
