@@ -104,6 +104,16 @@ get_header();
 
 </main>
 
+<script>
+    new Splide('.splide', {
+        autoWidth: true,
+        focus: 0,
+        omitEnd: true,
+        type: 'loop',
+        perPage: 3,
+    });
+</script>
+
 
 
 <?php

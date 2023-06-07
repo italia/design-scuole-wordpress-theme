@@ -97,5 +97,16 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 <?php endwhile; // End of the loop. 
 ?>
 </main><!-- #main -->
+
+<script>
+    new Splide('.splide', {
+        autoWidth: true,
+        focus: 0,
+        omitEnd: true,
+        type: 'loop',
+        perPage: 3,
+    });
+</script>
+
 <?php
 get_footer();
