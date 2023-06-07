@@ -19,16 +19,14 @@ get_header();
                         <?php
                         $prefix = '_dsi_articolo_';
                         $galleria = get_post_meta(get_the_ID(), $prefix . 'gallery', true);
-                        echo '<div class="">';
-                        echo '<ul class="">';
+                        echo '<div class="row">';
 
                         // Loop through them and output an image
                         foreach ((array) $galleria as $attachment_id => $attachment_url) {
-                            echo '<div class="">';
+                            echo '<div class="col-lg-4 col-md-6 col-12">';
                             echo wp_get_attachment_image($attachment_id, $size = 'item-thumb', $attr = '');
                             echo '</div>';
                         }
-                        echo '</ul>';
                         echo '</div>';
                         ?>
                     </div>
