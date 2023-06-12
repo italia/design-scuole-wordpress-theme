@@ -83,41 +83,50 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                         <div class="accordion-large-content accordion-content">
                                             <?php echo wpautop($descrizione); ?>
                                             <div class="row variable-gutters">
-                                                <?php
-                                                // controllo se la struttura ha dei percorsi di studio, in caso linko quelli:
-                                                $indirizzi = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
-                                                if ($indirizzi) {
-                                                    //echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
-                                                    foreach ($indirizzi as $idindirizzo) {
-                                                        if(get_the_title($idindirizzo) != ""){
+                                                        <?php
+                                                        // controllo se la struttura ha dei percorsi di studio, in caso linko quelli:
+                                                        $indirizzi = dsi_get_meta("link_servizi_didattici", "", $struttura->ID);
+
+                                                        if ($indirizzi) {
+                                                            $count_indirizzi_in_percorso_selezionato = 0;
+                                                            //echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
+                                                            foreach ($indirizzi as $idindirizzo) {
+                                                                if (get_the_title($idindirizzo) != "" && is_object_in_term($idindirizzo, 'percorsi-di-studio', $slugindirizzo)) {
+                                                                    $count_indirizzi_in_percorso_selezionato++;
+
                                                         ?>
-                                                        <div class="col-lg-6  d-flex mb-2 ">
-                                                            <a href="<?php echo get_permalink($idindirizzo); ?>"
-                                                               class="btn btn-redbrown"
-                                                               style="text-decoration:none;"><?php echo get_the_title($idindirizzo); ?></a>
-                                                        </div>
+                                                                    <div class="col-lg-6  d-flex mb-2 ">
+                                                                        <a href="<?php echo get_permalink($idindirizzo); ?>" class="btn btn-redbrown" style="text-decoration:none;"><?php echo get_the_title($idindirizzo) ?></a>
+                                                                    </div>
+
+                                                                <?php
+                                                                }
+                                                            }
+
+
+                                                            if ($count_indirizzi_in_percorso_selezionato == 0) { ?>
+                                                                <div class="col-lg-6 d-flex">
+
+                                                                    <a href="<?php echo get_permalink($struttura); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
+                                                                </div>
+
+                                                            <?php }
+                                                        } else {
+                                                            ?>
+                                                            <div class="col-lg-6 d-flex">
+
+                                                                <a href="<?php echo get_permalink($struttura); ?>" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
+                                                            </div>
 
                                                         <?php
                                                         }
-                                                    }
-                                                }  else {
-                                                ?>
-                                                <div class="col-lg-6 d-flex">
-
-                                                    <a href="<?php echo get_permalink($struttura); ?>"
-                                                       class="btn btn-bluelectric"
-                                                       style="background-color:#0a00cb; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
-                                                </div>
-
-                                                <?php
-                                                 }
-                                                ?>
-                                            </div>
-                                        </div><!-- /accordion-large-content -->
+                                                        ?>
+                                                    </div>
+                                                </div><!-- /accordion-large-content -->
 
                                         <?php
-                                    }
-                                } else{
+                                            }
+                                        } else{
                                     echo '<div ><h5 class="text-white">';
                                     _e("Nessun istituto associato a questa indirizzo di studi.", "design_scuole_italia");
                                     echo '</h5></div>';

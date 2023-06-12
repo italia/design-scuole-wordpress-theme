@@ -31,15 +31,18 @@ function dsi_create_argomento_taxonomy() {
     $wp_taxonomies['post_tag']->label = 'Argomento';
 
 
-    register_taxonomy_for_object_type( 'post_tag', 'servizio' );
+	register_taxonomy_for_object_type( 'post_tag', 'servizio' );
 	register_taxonomy_for_object_type( 'post_tag', 'documento' );
 	register_taxonomy_for_object_type( 'post_tag', 'materia' );
 	register_taxonomy_for_object_type( 'post_tag', 'luogo' );
 	register_taxonomy_for_object_type( 'post_tag', 'struttura' );
 	register_taxonomy_for_object_type( 'post_tag', 'evento' );
-    register_taxonomy_for_object_type( 'post_tag', 'circolare' );
-    register_taxonomy_for_object_type( 'post_tag', 'scheda_progetto' );
-    register_taxonomy_for_object_type( 'post_tag', 'scheda_didattica' );
+    	register_taxonomy_for_object_type( 'post_tag', 'circolare' );
+    	register_taxonomy_for_object_type( 'post_tag', 'scheda_progetto' );
+    	register_taxonomy_for_object_type( 'post_tag', 'scheda_didattica' );
+    	register_taxonomy_for_object_type( 'post_tag', 'page' );
+	register_taxonomy_for_object_type( 'post_tag', 'indirizzo' );
+	register_taxonomy_for_object_type( 'post_tag', 'post' );
 
 }
 

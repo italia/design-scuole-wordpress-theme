@@ -31,7 +31,7 @@ $locations[$id][] = [
 ];
 ?>
 <div class="card card-bg card-icon rounded mb-3">
-    <a href="<?php echo get_permalink($luogo); ?>">
+    <a href="<?php echo get_permalink($luogo); ?>" data-element="location-link">
         <div class="card-body">
             <svg class="icon svg-marker-simple"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use></svg>
             <div class="card-icon-content">

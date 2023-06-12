@@ -7,9 +7,8 @@
  * @package Design_Scuole_Italia
  */
 global $post, $documento, $servizio,  $autore, $struttura;
-get_template_part("template-parts/single/related-posts","post");
-get_template_part("template-parts/single/related-posts","events");
-get_template_part("template-parts/single/related-posts","circolari");
+$args = ["post", "evento", "circolare"];
+get_template_part("template-parts/single/related-posts");
 $luogo = $post;
 get_header();
 
@@ -44,7 +43,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
         $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
-	$indirizzo = dsi_get_meta("indirizzo");
+        $indirizzo = dsi_get_meta("indirizzo");
         $posizione_gps = dsi_get_meta("posizione_gps");
         $cap = dsi_get_meta("cap");
         $mail = dsi_get_meta("mail");
@@ -172,7 +171,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php
                                 if($video) {
                                     ?>
-                                    <h4 id="art-par-video"><?php _e("Video", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-video"><?php _e("Video", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters mb-5">
                                         <div class="col-lg-9">
                                             <?php echo wp_oembed_get ($video); ?>
@@ -184,7 +183,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
-                                        <h4 id="art-par-02"><?php _e("Descrizione", "design_scuole_italia"); ?></h4>
+                                        <h2 class="h4" id="art-par-desc"><?php _e("Descrizione", "design_scuole_italia"); ?></h2>
                                         <div class="col-lg-12 px-0 wysiwig-text">
                                         <?php the_content(); ?>
                                         </div>
@@ -202,7 +201,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             $children = get_children( $args );
                                             if(is_array($children) && count($children)>0){
 
-                                                echo "<h6>".__("Ospita", "design_scuole_italia")."</h6>";
+                                                echo "<h3 class='h6'>".__("Ospita", "design_scuole_italia")."</h3>";
                                                 echo '<div class="card-deck card-deck-spaced">';
                                                 foreach ($children as $child) {
                                                     $descrizione_breve_child = dsi_get_meta("descrizione_breve", "", $child->ID);
@@ -231,7 +230,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <?php
                                         if(is_array($elementi_di_interesse) && $elementi_di_interesse != ""){
                                             ?>
-                                            <h6><?php _e("Elementi di interesse", "design_scuole_italia"); ?></h6>
+                                            <h3 class="h6"><?php _e("Elementi di interesse", "design_scuole_italia"); ?></h3>
                                             <div class="card-deck card-deck-spaced mb-4 card_container_accordion">
                                                 <?php
                                                 $count = 0;
@@ -252,11 +251,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                                 <small>
                                                                     <span id="dsi_description_<?php echo $count; ?>"><?php echo $descrizione_excerpt; ?></span>
                                                                     <?php if(!empty($descrizione_more)): ?>
-                                                                    <p style="position: absolute; left: -9999em" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></p>
+                                                                    <span class="collapse" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></span>
                                                                     <?php endif; ?>
                                                                 </small>
                                                             </div>
-                                                            <a href="#" class="show small dsi_more" data-id="<?php echo $count; ?>">Visualizza altro</a>
+                                                            <?php if(strlen($descrizione_more)>0){ ?>
+                                                                <button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>
+                                                            <?php } ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-icon rounded -->
                                                     <?php
@@ -270,14 +271,14 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
 
-                                <h4 id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h4>
+                                <h2 class="h4" id="art-par-dove"><?php _e("Dove si trova", "design_scuole_italia"); ?></h2>
                                 <?php
                                 global $lg;
                                 $lg=12;
                                 get_template_part("template-parts/luogo/card"); ?>
 
                                 <?php if($modalita_accesso){ ?>
-                                    <h6><?php _e("Modalità di accesso", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Modalità di accesso", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters mb-5">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -318,7 +319,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php } ?>
 
                                 <?php if($servizi_presenti || $servizi_altro){ ?>
-                                    <h4 id="art-par-06" class="mb-4"><?php _e("Servizi presenti", "design_scuole_italia"); ?></h4>
+                                    <h2 id="art-par-servizi" class="h4 mb-4"><?php _e("Servizi presenti", "design_scuole_italia"); ?></h2>
                                     <?php if($servizi_presenti){ ?>
                                         <div class="row variable-gutters">
                                             <div class="col-lg-12">
@@ -342,7 +343,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php } ?>
 
                                 <?php if($link_strutture){ ?>
-                                    <h4 id="art-par-strutture" class="mb-4"><?php _e("Il luogo è sede di", "design_scuole_italia"); ?></h4>
+                                    <h2 id="art-par-strutture" class="h4 mb-4"><?php _e("Il luogo è sede di", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -358,9 +359,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /row -->
                                 <?php } ?>
                                 <?php if($gestito_da_nome != "" || (is_array($gestito_da) && count($gestito_da)> 0) || (is_array($gestito_da_persone) && count($gestito_da_persone) > 0)){ ?>
-                                    <h4 id="art-par-08"><?php _e("Gestito da", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-gestione"><?php _e("Gestito da", "design_scuole_italia"); ?></h2>
                                     <?php if(is_array($gestito_da) && count($gestito_da)> 0){ ?>
-                                        <h6><?php _e("Strutture che gestiscono il luogo", "design_scuole_italia"); ?></h6>
+                                        <h3 class="h6"><?php _e("Strutture che gestiscono il luogo", "design_scuole_italia"); ?></h3>
 
                                         <div class="row variable-gutters">
                                             <div class="col-lg-12">
@@ -377,7 +378,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php } ?>
 
                                     <?php if(is_array($gestito_da_persone) && count($gestito_da_persone)>0){ ?>
-                                        <h6><?php _e("Persone che gestiscono il luogo", "design_scuole_italia"); ?></h6>
+                                        <h3 class="h6"><?php _e("Persone che gestiscono il luogo", "design_scuole_italia"); ?></h3>
                                         <div class="card-deck card-deck-spaced mb-2">
                                             <?php
                                             foreach ($gestito_da_persone as $idutente) {
@@ -416,7 +417,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 if(trim($altre_info) != ""){
                                     ?>
-                                    <h4 id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($altre_info); ?>
@@ -427,7 +428,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
                                 ?>
                                 <?php if((trim($anno_costruzione) != "") || (trim($numero_piani) != "") || (trim($posti_sedere) != "") ){ ?>
-                                    <h4 id="art-par-dettagli"><?php _e("Dettagli edificio", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-dettagli"><?php _e("Dettagli edificio", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
                                             <div class="big-data-rounded-icon">
@@ -439,15 +440,15 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 </div><!-- /big-data-rounded-icon-wrapper -->
                                                 <div class="big-data-rounded-icon-content">
                                                     <?php if($anno_costruzione){ ?>
-                                                        <h4><?php _e("Anno di costruzione", "design_scuole_italia"); ?></h4>
+                                                        <h3 class="h4"><?php _e("Anno di costruzione", "design_scuole_italia"); ?></h3>
                                                         <p><?php echo $anno_costruzione; ?></p>
                                                     <?php } ?>
                                                     <?php if($numero_piani){ ?>
-                                                        <h4><?php _e("Numero di piani", "design_scuole_italia"); ?></h4>
+                                                        <h3 class="h4"><?php _e("Numero di piani", "design_scuole_italia"); ?></h3>
                                                         <p><?php echo $numero_piani; ?></p>
                                                     <?php } ?>
                                                     <?php if($posti_sedere){ ?>
-                                                        <h4><?php _e("Posti a sedere", "design_scuole_italia"); ?></h4>
+                                                        <h3 class="h4"><?php _e("Posti a sedere", "design_scuole_italia"); ?></h3>
                                                         <p><?php echo $posti_sedere; ?></p>
                                                     <?php } ?>
                                                 </div>
@@ -466,7 +467,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                 <section class="section bg-gray-light py-5" id="art-par-galleria">
                     <div class="container py-4">
                         <div class="title-section text-center mb-5">
-                            <h3 class="h4"><?php _e("Gallery", "design_scuole_italia"); ?> <?php the_title(); ?></h3>
+                            <h2 class="h4"><?php _e("Gallery", "design_scuole_italia"); ?> <?php the_title(); ?></h2>
                         </div><!-- /title-large -->
                         <div class="row variable-gutters">
                             <div class="col">
