@@ -13,7 +13,7 @@ get_header();
 
         <?php
         $loop = new WP_Query(array(
-            'post_type'         => 'pon',
+            'post_type'         => 'pnrr',
             'post_status'       => 'publish',
             'orderby'           => 'date',
             'order'             => 'ASC',
@@ -28,8 +28,8 @@ get_header();
 
             <?php
             while ($loop->have_posts()) : $loop->the_post();
-                $radio_input = get_post_meta(get_the_ID(), '_martini_pon_wiki_test_radio', true);
-                $file = get_post_meta(get_the_ID(), '_martini_pon_file_pon', true);
+                $radio_input = get_post_meta(get_the_ID(), '_martini_pnrr_wiki_test_radio', true);
+                $file = get_post_meta(get_the_ID(), '_martini_pnrr_file_pnrr', true);
 
                 if ($radio_input == 'prevenzione') { ?>
                     <article>
@@ -52,8 +52,8 @@ get_header();
 
             <?php
             while ($loop->have_posts()) : $loop->the_post();
-                $radio_input = get_post_meta(get_the_ID(), '_martini_pon_wiki_test_radio', true);
-                $file = get_post_meta(get_the_ID(), '_martini_pon_file_pon', true);
+                $radio_input = get_post_meta(get_the_ID(), '_martini_pnrr_wiki_test_radio', true);
+                $file = get_post_meta(get_the_ID(), '_martini_pnrr_file_pnrr', true);
 
                 if ($radio_input == 'futuro') { ?>
                     <article>
@@ -76,8 +76,8 @@ get_header();
 
             <?php
             while ($loop->have_posts()) : $loop->the_post();
-                $radio_input = get_post_meta(get_the_ID(), '_martini_pon_wiki_test_radio', true);
-                $file = get_post_meta(get_the_ID(), '_martini_pon_file_pon', true);
+                $radio_input = get_post_meta(get_the_ID(), '_martini_pnrr_wiki_test_radio', true);
+                $file = get_post_meta(get_the_ID(), '_martini_pnrr_file_pnrr', true);
 
                 if ($radio_input == 'innovativi') { ?>
                     <article>
