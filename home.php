@@ -25,8 +25,8 @@ get_header();
             $loop = new WP_Query(array(
                 'post_type'         => 'post',
                 'post_status'       => 'publish',
-                'orderby'           => 'count',
-                'order'             => 'ASC',
+                'orderby'           => 'date',
+                'order'             => 'DESC',
                 'posts_per_page'    => 999,
             ));
 
