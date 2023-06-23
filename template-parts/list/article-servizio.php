@@ -16,15 +16,15 @@ if(!$excerpt)
 
 <article class="card card-bg card-article card-article-purplelight">
     <div class="card-body">
-        <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
+        <a href="<?php echo get_permalink(); ?>" data-element="service-link"><div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
             <?php if(!$image_url){ ?>
                 <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
             <?php } ?>
         </div>
         <div class="card-article-content">
-            <h2 class="h3"><a href="<?php echo get_permalink(); ?>" data-element="service-link"><?php the_title(); ?></a>
+            <h2 class="h3"><?php the_title(); ?>
             </h2>
-            <p><?php echo $excerpt; ?></p>
+            <p><?php echo $excerpt; ?></p></a>
         </div><!-- /card-avatar-content -->
     </div><!-- /card-body -->
 </article><!-- /card card-bg card-article -->
