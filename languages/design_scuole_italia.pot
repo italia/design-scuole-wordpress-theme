@@ -2665,7 +2665,7 @@ msgid "Descrizione Sezione"
 msgstr ""
 
 #: inc/admin/options.php:600
-msgid "es: \"I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti\""
+msgid "es: \"I servizi offerti dalla scuola e dedicati a tutti i genitori, studenti, personale ATA e docenti\""
 msgstr ""
 
 #: inc/admin/options.php:609
@@ -4449,7 +4449,7 @@ msgstr ""
 
 #: template-parts/home/didattica-cicli-indirizzi.php:16
 #: template-parts/home/didattica-cicli.php:15
-msgid "la nostra offerta formativa"
+msgid "La nostra offerta formativa"
 msgstr ""
 
 #: template-parts/home/didattica-cicli-indirizzi.php:19

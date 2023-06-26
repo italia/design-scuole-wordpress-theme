@@ -731,7 +731,7 @@ function dsi_register_main_options_metabox() {
     $servizi_options->add_field( array(
 		'id' => $prefix . 'testo_servizi',
 		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
-		'desc' => __( 'es: "I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'desc' => __( 'es: "I servizi offerti dalla scuola e dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'maxlength'  => '140'
