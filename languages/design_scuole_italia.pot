@@ -386,7 +386,7 @@ msgstr ""
 
 #: inc/activation.php:138
 #: inc/admin/options.php:461
-msgid "I numeri della Scuola"
+msgid "I numeri della scuola"
 msgstr ""
 
 #. Template Name of the theme

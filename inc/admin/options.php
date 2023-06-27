@@ -594,7 +594,7 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$main_options->add_field( array(
-		'name'        => __( 'I numeri della Scuola', 'design_scuole_italia' ),
+		'name'        => __( 'I numeri della scuola', 'design_scuole_italia' ),
 		'desc' => __('Inserisci il numero di studenti e classi della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id' => $prefix . 'prefisso_numeri',
