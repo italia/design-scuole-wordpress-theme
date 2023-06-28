@@ -5,6 +5,7 @@
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
 $giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
+$data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
 
 $ct=0;
 $column = 1;
@@ -45,8 +46,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             	$filter = array(
                 		'date_query' => array(
             				array(
-                				'after' => '30 days ago',
-                				'before' => 'today',
+								'after' => '-'. $giorni_per_filtro . ' day',
                 				'inclusive' => true,
             				),
             			),
