@@ -12,7 +12,7 @@ function dsi_register_main_options_metabox() {
 		'option_key'   => 'dsi_options',
 		'tab_group'    => 'dsi_options',
 		'tab_title'    => __('Opzioni di base', "design_scuole_italia"),
-        'capability'    => 'manage_options',
+        'capability'    => 'manage_theme_config',
 		'position'        => 2, // Menu position. Only applicable if 'parent_slug' is left empty.
 		'icon_url'        => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 	);
