@@ -26,6 +26,12 @@ function dsi_create_argomento_taxonomy() {
         'separate_items_with_commas' => __( 'Separata gli argomenti con la virgola', 'design_scuole_italia' ),
         'add_or_remove_items' => __( 'Aggiungi o rimuovi argomenti', 'design_scuole_italia' ),
         'choose_from_most_used' => __( 'Scegli tra gli argomenti più usati', 'design_scuole_italia' ),
+		'no_terms' => __( 'Argomento non presente', 'design_scuole_italia' ),
+		'items_list_navigation' => __( 'Etichetta per la intestazione nascosta della impaginazione della tabella', 'design_scuole_italia' ),
+		'items_list' => __( 'Etichetta per la intestazione nascosta della tabella', 'design_scuole_italia' ),
+		'name_field_description' => __( 'Descrizione per il campo Nome nella schermata Modifica tag', 'design_scuole_italia' ),
+		'slug_field_description' => __( 'Descrizione per il campo Slug nella schermata Modifica tag', 'design_scuole_italia' ),
+		'desc_field_description' => __( 'Presentazione per il campo Descrizione nella schermata Modifica tag', 'design_scuole_italia' ),
     );
 
     $wp_taxonomies['post_tag']->label = 'Argomento';
