@@ -424,7 +424,7 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$main_options->add_field( array(
-		'name'        => __( 'La Storia', 'design_scuole_italia' ),
+		'name'        => __( 'La storia', 'design_scuole_italia' ),
 		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id' => $prefix . 'prefisso_storia',
@@ -594,7 +594,7 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$main_options->add_field( array(
-		'name'        => __( 'I numeri della Scuola', 'design_scuole_italia' ),
+		'name'        => __( 'I numeri della scuola', 'design_scuole_italia' ),
 		'desc' => __('Inserisci il numero di studenti e classi della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id' => $prefix . 'prefisso_numeri',
@@ -731,7 +731,7 @@ function dsi_register_main_options_metabox() {
     $servizi_options->add_field( array(
 		'id' => $prefix . 'testo_servizi',
 		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
-		'desc' => __( 'es: "I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'desc' => __( 'es: "I servizi offerti dalla scuola e dedicati a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'maxlength'  => '140'
