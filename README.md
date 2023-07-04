@@ -4,7 +4,7 @@
 ## **Un sito per le scuole italiane**
 ### I primi passi con il tema Wordpress (2.3.2)
 
-**Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modello/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
+**Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modelli/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
 
 ## **Installazione e supporto**
 ### **Come scaricare il tema**
@@ -66,7 +66,7 @@ Il tema è basato sul [modello di sito istituzionale delle scuole italiane](http
 ### **Cosa fa**
 Il tema WordPress è stato progettato per adottare rapidamente il modello di sito istituzionale delle scuole. Il tema imposta automaticamente lo stile grafico del sito, i layout delle pagine e il menu di navigazione, permettendo di velocizzare l’adozione tecnica del modello e di focalizzarsi sulla creazione dei contenuti sulle pagine.
 
-[La progettazione del modello](https://docs.italia.it/italia/designers-italia/design-scuole-docs/it/v2022.1/index.html), iniziata nel 2018 con un aggiornamento nel 2022, si è basata su un’ampia ricerca con gli utenti. L’obiettivo del modello è di offrire a genitori, studenti e all’intera comunità scolastica un punto di accesso digitale al mondo della scuola che sia semplice, funzionale e che risponda alle loro esigenze. 
+La progettazione del modello, iniziata nel 2018 con un aggiornamento nel 2022, si è basata su un’ampia ricerca con gli utenti. L’obiettivo del modello è di offrire a genitori, studenti e all’intera comunità scolastica un punto di accesso digitale al mondo della scuola che sia semplice, funzionale e che risponda alle loro esigenze. 
 
 Il modello di sito istituzionale scolastico vuole comunicare l’identità e l’atmosfera di una scuola, fornendo agli utenti tutte le informazioni sull’organizzazione dell’istituto, sui percorsi di studio e sui servizi di supporto alla didattica.
 
@@ -112,8 +112,6 @@ Una volta iniziato il lavoro sulle prime 5 tipologie di contenuto suggerite, si 
 - schede didattiche.
 
 Prima della pubblicazione del sito, è utile definire con chiarezza chi sarà responsabile della pubblicazione di ciascuna delle tipologie di contenuti, in modo da garantire un flusso di pubblicazione costante. Non tutte le sezioni del sito andranno gestite e aggiornate con la stessa frequenza. È bene prendere consapevolezza delle varie sezioni e della frequenza con cui ciascun aggiornamento va fatto.
-
-[Consulta un esempio di suddivisione del lavoro](https://docs.google.com/spreadsheets/d/1MoayTY05SE4ixtgBsfsdngdrFJf_Z2KNvDkMF3tKfc8/edit#gid=703325418)
 
 Le schede didattiche, ovvero gli approfondimenti su un argomento specifico, sono l’unico contenuto che può esser scritto liberamente dai docenti, dopo averli fatti iscrivere a WordPress.
 
@@ -261,7 +259,7 @@ WordPress è il CMS più usato dalle scuole. Puoi usare l’apposito [kit per cr
 
 ➔	**Non ho WordPress. Cosa devo fare?**
 
-Puoi passare a[ WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito scolastico](https://designers.italia.it/modello/scuole/). 
+Puoi passare a[ WordPress](https://it.wordpress.org/) in qualunque momento, oppure usare le [altre risorse per la creazione del sito scolastico](https://designers.italia.it/modelli/scuole/). 
 
 
 ➔	**Quali sono i benefici dell’uso del tema WordPress?**
@@ -333,7 +331,7 @@ Prima di tutto assicurati che sia un problema relativo al tema WordPress e non a
 ## Come contribuire
 Vorresti dare una mano contribuendo allo sviluppo del tema?
 
-Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza su l'[Architettura dell'Informazione dei siti web delle Scuole Italiane](https://docs.google.com/spreadsheets/d/1MoayTY05SE4ixtgBsfsdngdrFJf_Z2KNvDkMF3tKfc8/edit#gid=782511705) e fai riferimento alle [indicazioni su come contribuire](https://github.com/italia/design-scuole-wordpress-theme/blob/main/CONTRIBUTING.md).
+Se non l'hai già fatto, inizia spendendo qualche minuto per approfondire la tua conoscenza su l'[Architettura dell'Informazione dei siti web delle Scuole Italiane (ODS 337KB)](https://designers.italia.it/files/resources/modelli/scuole/adotta-il-modello-di-sito-scolastico/definisci-architettura-e-contenuti/Architettura-informazione-sito-scuole.ods) e fai riferimento alle [indicazioni su come contribuire](https://github.com/italia/design-scuole-wordpress-theme/blob/main/CONTRIBUTING.md).
 
 A questo punto, è necessario scaricare una copia in locale del tema tramite il comando `git fork https://github.com/italia/design-scuole-wordpress-theme.git` da terminale o cliccando sul pulsante Fork <br>
 ![fork](https://user-images.githubusercontent.com/69706/188419656-21fa5b0e-c52a-4168-a1d1-8ea9a149da6a.png)
