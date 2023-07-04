@@ -410,7 +410,7 @@ msgstr ""
 #: inc/activation.php:219
 #: inc/admin/options.php:285
 #: inc/admin/options.php:295
-msgid "La Storia"
+msgid "La storia"
 msgstr ""
 
 #: inc/activation.php:246
@@ -4540,7 +4540,7 @@ msgid "Tutti i documenti"
 msgstr ""
 
 #: template-parts/home/timeline.php:12
-msgid "La Storia della scuola"
+msgid "La storia della scuola"
 msgstr ""
 
 #: template-parts/list/article-circolare.php:34

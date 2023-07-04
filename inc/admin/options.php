@@ -424,7 +424,7 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$main_options->add_field( array(
-		'name'        => __( 'La Storia', 'design_scuole_italia' ),
+		'name'        => __( 'La storia', 'design_scuole_italia' ),
 		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',
 		'id' => $prefix . 'prefisso_storia',
