@@ -1097,9 +1097,14 @@ class Breadcrumb_Trail {
 			// If the category has a parent, add the hierarchy to the trail.
 			if ( 0 < $term->parent )
 				$this->add_term_parents( $term->parent, $taxonomy );
-
+			
+			$post_type_filter = '';
+			if ( $taxonomy && get_taxonomy( $taxonomy ) && get_taxonomy( $taxonomy )->object_type && count( get_taxonomy( $taxonomy )->object_type ) > 1 ) {
+				$post_type_filter = '?post_type='.$post_type;
+			}
+			
 			// Add the category archive link to the trail.
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), $term->name );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ).$post_type_filter, $term->name );
 		}
 	}
 
