@@ -346,7 +346,7 @@ class Breadcrumb_Trail {
 					case 'luogo':
 					case 'documento':
 					case 'struttura':
-						$this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
+						$this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 						break;
 				}
 				$this->add_singular_items();
@@ -355,7 +355,7 @@ class Breadcrumb_Trail {
 				// @todo: rendere dinamiche le url del breadcrumb in base al template di pagina
 
                 if( is_post_type_archive( array("luogo", "documento","struttura") ) ) {
-                    $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 				} else if( is_post_type_archive( array("indirizzo") ) ) {
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
 				} else if( is_post_type_archive( array("circolare", "evento") ) ) {
