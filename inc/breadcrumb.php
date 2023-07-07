@@ -329,70 +329,69 @@ class Breadcrumb_Trail {
 			$this->add_network_home_link();
 			$this->add_site_home_link();
 
-			// If viewing the home/blog page.
-			if ( is_home() ) {
+			if ( is_home() ) { // If viewing the home/blog page.
 				$this->add_blog_items();
-			}
-
-			// If viewing a single post.
-			elseif ( is_singular() ) {
+			} else if ( is_singular() ) { // If viewing a single post.
+				switch( get_post_type() ) {
+					case 'post':
+					case 'circolare':
+					case 'evento':
+						$this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+						break;
+					case 'scheda_didattica':
+					case 'scheda_progetto':
+					case 'evento':
+						$this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
+						break;
+					case 'luogo':
+					case 'documento':
+					case 'struttura':
+						$this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+						break;
+				}
 				$this->add_singular_items();
-			}
+			} else if ( is_archive() ) { // If viewing an archive page.
 
-			// todo: rendere dinamiche le url del breadcrumb in base al template di pagina
-			// If viewing an archive page.
-			elseif ( is_archive() ) {
-                if(is_post_type_archive(array("luogo", "documento","struttura")))
-                    $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("La Scuola", "design_scuole_italia")."</a>";
+				// @todo: rendere dinamiche le url del breadcrumb in base al template di pagina
 
-                else if(is_post_type_archive(array("indirizzo")))
+                if( is_post_type_archive( array("luogo", "documento","struttura") ) ) {
+                    $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+				} else if( is_post_type_archive( array("indirizzo") ) ) {
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
-
-                else if(is_post_type_archive(array("circolare", "evento")))
+				} else if( is_post_type_archive( array("circolare", "evento") ) ) {
                     $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
-
-                else if(is_post_type_archive(array("scheda_didattica", "scheda_progetto")))
+				} else if( is_post_type_archive( array("scheda_didattica", "scheda_progetto") ) ) {
                     $this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
-
-                if(is_post_type_archive(array("servizio"))){
+				} else if(is_post_type_archive(array("servizio"))){
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
                     $this->items[] =  __("Tutti i Servizi", "design_scuole_italia");
-                }else if ( is_post_type_archive() ){
+                } else if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
 
-                }
-                elseif ( is_category() || is_tag() || is_tax() ){
-                    if(is_tax(array("tipologia-articolo")))
+                } else if ( is_category() || is_tag() || is_tax() ) {
+                    if( is_tax( array("tipologia-articolo") ) ) {
                         $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
-
+					}
                     $this->add_term_archive_items();
-                }
-				elseif ( is_author() )
+                } else if ( is_author() ) {
 					$this->add_user_archive_items();
-
-				elseif ( get_query_var( 'minute' ) && get_query_var( 'hour' ) )
+				} else if ( get_query_var( 'minute' ) && get_query_var( 'hour' ) ) {
 					$this->add_minute_hour_archive_items();
-
-				elseif ( get_query_var( 'minute' ) )
+				} else if ( get_query_var( 'minute' ) ) {
 					$this->add_minute_archive_items();
-
-				elseif ( get_query_var( 'hour' ) )
+				} else if ( get_query_var( 'hour' ) ) {
 					$this->add_hour_archive_items();
-
-				elseif ( is_day() )
+				} else if ( is_day() ) {
 					$this->add_day_archive_items();
-
-				elseif ( get_query_var( 'w' ) )
+				} else if ( get_query_var( 'w' ) ) {
 					$this->add_week_archive_items();
-
-				elseif ( is_month() )
+				} else if ( is_month() ) {
 					$this->add_month_archive_items();
-
-				elseif ( is_year() )
+				} else if ( is_year() ) {
 					$this->add_year_archive_items();
-
-				else
+				} else {
 					$this->add_default_archive_items();
+				}
 			}
 
 			// If viewing a search results page.
@@ -1098,9 +1097,14 @@ class Breadcrumb_Trail {
 			// If the category has a parent, add the hierarchy to the trail.
 			if ( 0 < $term->parent )
 				$this->add_term_parents( $term->parent, $taxonomy );
-
+			
+			$post_type_filter = '';
+			if ( $taxonomy && get_taxonomy( $taxonomy ) && get_taxonomy( $taxonomy )->object_type && count( get_taxonomy( $taxonomy )->object_type ) > 1 ) {
+				$post_type_filter = '?post_type='.$post_type;
+			}
+			
 			// Add the category archive link to the trail.
-			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ), $term->name );
+			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term, $taxonomy ) ).$post_type_filter, $term->name );
 		}
 	}
 
