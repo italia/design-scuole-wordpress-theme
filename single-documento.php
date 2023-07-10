@@ -23,6 +23,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $file_documenti         = dsi_get_meta( "file_documenti" );
             $licenza                = dsi_get_meta( "licenza" );
             $servizi_collegati      = dsi_get_meta( "servizi_collegati" );
+            $link_servizi_didattici = dsi_get_meta("link_servizi_didattici");
            // $link_servizi_collegati = dsi_get_meta( "link_servizi_collegati" );
             $timeline               = dsi_get_meta( "timeline" );
             $ufficio                = dsi_get_meta( "ufficio" );
@@ -221,6 +222,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
                                                 <?php foreach ($servizi_collegati as $idservizio){
+                                                    $servizio = get_post($idservizio);
+                                                    get_template_part("template-parts/servizio/card");
+                                                } ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
+                                if ( !post_password_required() && is_array( $link_servizi_didattici ) && count($link_servizi_didattici) > 0 ) { ?>
+                                    <h2 class="h4" id="art-par-servizio-didattico"><?php _e( "Indirizzi di studio collegati", "design_scuole_italia" ); ?></h2>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php foreach ($link_servizi_didattici as $idservizio){
                                                     $servizio = get_post($idservizio);
                                                     get_template_part("template-parts/servizio/card");
                                                 } ?>

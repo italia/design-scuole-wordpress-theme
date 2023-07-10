@@ -386,7 +386,7 @@ msgstr ""
 
 #: inc/activation.php:138
 #: inc/admin/options.php:461
-msgid "I numeri della Scuola"
+msgid "I numeri della scuola"
 msgstr ""
 
 #. Template Name of the theme
@@ -410,7 +410,7 @@ msgstr ""
 #: inc/activation.php:219
 #: inc/admin/options.php:285
 #: inc/admin/options.php:295
-msgid "La Storia"
+msgid "La storia"
 msgstr ""
 
 #: inc/activation.php:246
@@ -2665,7 +2665,7 @@ msgid "Descrizione Sezione"
 msgstr ""
 
 #: inc/admin/options.php:600
-msgid "es: \"I servizi offerti dal liceo scientifico Enriques dedicati a tutti i genitori, studenti, personale ATA e docenti\""
+msgid "es: \"I servizi offerti dalla scuola e dedicati a tutti i genitori, studenti, personale ATA e docenti\""
 msgstr ""
 
 #: inc/admin/options.php:609
@@ -4449,7 +4449,7 @@ msgstr ""
 
 #: template-parts/home/didattica-cicli-indirizzi.php:16
 #: template-parts/home/didattica-cicli.php:15
-msgid "la nostra offerta formativa"
+msgid "La nostra offerta formativa"
 msgstr ""
 
 #: template-parts/home/didattica-cicli-indirizzi.php:19
@@ -4540,7 +4540,7 @@ msgid "Tutti i documenti"
 msgstr ""
 
 #: template-parts/home/timeline.php:12
-msgid "La Storia della scuola"
+msgid "La storia della scuola"
 msgstr ""
 
 #: template-parts/list/article-circolare.php:34
