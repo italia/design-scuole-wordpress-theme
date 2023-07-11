@@ -14,14 +14,14 @@ require "vendor/cmb-field-select2-master/cmb-field-select2.php";
 function dsi_get_user_options( $query_args = false) {
 
 	if(!$query_args)
-		$query_args['fields'] = array( 'ID', 'user_login' );
+		$query_args['fields'] = array( 'ID', 'display_name' );
 
 	$users = get_users( $query_args );
 
 	$user_options = array();
 	if ( $users ) {
 		foreach ( $users as $user ) {
-			$user_options[ $user->ID ] = $user->user_login;
+			$user_options[ $user->ID ] = $user->display_name;
 		}
 	}
 
