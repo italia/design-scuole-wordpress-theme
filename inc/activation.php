@@ -13,7 +13,7 @@ function dsi_create_pages_on_theme_activation() {
 
 
     // template page per la scuola
-    $new_page_title    = __( 'La Scuola', 'design_scuole_italia' ); // Page's title
+    $new_page_title    = __( 'Scuola', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '';                           // Content goes here
     $new_page_template = 'page-templates/la-scuola.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
@@ -109,8 +109,8 @@ function dsi_create_pages_on_theme_activation() {
     }
 
 
-    // template page per Le Persone
-    $new_page_title    = __( 'Persone', 'design_scuole_italia' ); // Page's title
+    // template page per Le persone
+    $new_page_title    = __( 'Le persone', 'design_scuole_italia' ); // Page's title
     $new_page_content  = '';                           // Content goes here
     $new_page_template = 'page-templates/persone.php';       // The template to use for the page
     $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
