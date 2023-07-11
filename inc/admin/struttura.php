@@ -289,9 +289,12 @@ function dsi_add_struttura_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix .'sedi',
         'name'    => __( 'Sedi', 'design_scuole_italia' ),
-        'desc' => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_luoghi_options(),
+		'attributes' => array(
+			'placeholder' => 'Seleziona i luoghi che rappresentano le sedi della struttura, in ordine di importanza se più di uno.'
+		),
     ) );
 
     /*
@@ -306,7 +309,7 @@ function dsi_add_struttura_metaboxes() {
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
-        'name'       => __( 'Recapito telefonico struttura', 'design_scuole_italia' ),
+        'name'       => __( 'Recapito telefonico della struttura', 'design_scuole_italia' ),
         'desc'       => __( 'Numero di telefono della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text',
     ) );
@@ -318,7 +321,13 @@ function dsi_add_struttura_metaboxes() {
         'desc'       => __( 'Email della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text_email',
     ) );
-
+	
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'pec',
+        'name'       => __( 'Posta elettronica certificata (PEC) della struttura', 'design_scuole_italia' ),
+        'desc'       => __( 'PEC della struttura. ', 'design_scuole_italia' ),
+        'type'       => 'text_email',
+    ) );
 
 
     $cmb_undercontent->add_field( array(

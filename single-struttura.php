@@ -42,7 +42,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $altre_info = dsi_get_meta("altre_info");
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
-//			$pec = dsi_get_meta("pec");
+			$pec = dsi_get_meta("pec");
 
         $children = false;
     if($post->post_parent == 0) {
@@ -318,7 +318,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php } ?>
 
                                     <?php
-                                    if($telefono || $mail){
+                                    if($telefono || $mail || $pec){
                                         ?>
                                         <div class="row variable-gutters">
                                             <div class="col-lg-9">
@@ -328,6 +328,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                         <ul>
                                                         <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></li><?php } ?>
                                                         <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $mail'>$mail</a>"; ?></li><?php } ?>
+                                                        <?php if($pec){ ?><li><strong><?php _e("Posta Elettronica Certificata (PEC)", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $pec'>$pec</a>"; ?></li><?php } ?>
                                                         </ul>
                                                     </div></div>
                                             </div></div>
@@ -394,7 +395,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <ul>
                                             <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
                                             <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
-                                            <?php if($pec){ ?><li><strong><?php _e("PEC", "design_scuole_italia"); ?>:</strong> <?php echo $pec; ?></li><?php } ?>
+                                            <?php if($PEC){ ?><li><strong><?php _e("Posta Elettronica Certificata (PEC)", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $PEC'>$PEC</a>"; ?></li><?php } ?>
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
