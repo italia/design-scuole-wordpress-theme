@@ -42,7 +42,18 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $altre_info = dsi_get_meta("altre_info");
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
-			$pec = dsi_get_meta("pec");
+            $pec = dsi_get_meta("pec");
+
+            $contatti_dedicati = dsi_get_meta("contatti_dedicati");
+            if($contatti_dedicati != "on") {
+                $contatti_centralino = dsi_get_option("contatti_centralino", "contacts");
+                $contatti_PEO = dsi_get_option("contatti_PEO", "contacts");
+                $contatti_PEC = dsi_get_option("contatti_PEC", "contacts");
+
+                if($contatti_centralino) $telefono = $contatti_centralino;
+                if($contatti_PEO) $mail = $contatti_PEO;
+                if($contatti_PEC) $pec = $contatti_PEC;
+            }
 
         $children = false;
     if($post->post_parent == 0) {
