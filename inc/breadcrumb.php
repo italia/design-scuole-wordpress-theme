@@ -353,21 +353,23 @@ class Breadcrumb_Trail {
 			} else if ( is_archive() ) { // If viewing an archive page.
 
 				// @todo: rendere dinamiche le url del breadcrumb in base al template di pagina
-
                 if( is_post_type_archive( array("luogo", "documento","struttura") ) ) {
                     $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("indirizzo") ) ) {
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
+					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("circolare", "evento") ) ) {
                     $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("scheda_didattica", "scheda_progetto") ) ) {
                     $this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
+                    $this->add_post_type_archive_items();
 				} else if(is_post_type_archive(array("servizio"))){
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
                     $this->items[] =  __("Tutti i Servizi", "design_scuole_italia");
                 } else if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
-
                 } else if ( is_category() || is_tag() || is_tax() ) {
                     if( is_tax( array("tipologia-articolo") ) ) {
                         $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
@@ -544,12 +546,12 @@ class Breadcrumb_Trail {
 		$post_id = get_queried_object_id();
 
 		// If the post has a parent, follow the parent trail.
-		if ( 0 < $post->post_parent )
+		if ( 0 < $post->post_parent ) {
 			$this->add_post_parents( $post->post_parent );
-
-		// If the post doesn't have a parent, get its hierarchy based off the post type.
-		else
+		} else {
+			// If the post doesn't have a parent, get its hierarchy based off the post type.
 			$this->add_post_hierarchy( $post_id );
+		}
 
 		// Display terms for specific post type taxonomy if requested.
 		if ( ! empty( $this->post_taxonomy[ $post->post_type ] ) )
@@ -1006,10 +1008,10 @@ class Breadcrumb_Trail {
 		if ( 'post' === $post_type ) {
 
 			// Add $wp_rewrite->front to the trail.
-			$this->add_rewrite_front_items();
+			#$this->add_rewrite_front_items();
 
 			// Map the rewrite tags.
-			$this->map_rewrite_tags( $post_id, get_option( 'permalink_structure' ) );
+			#$this->map_rewrite_tags( $post_id, get_option( 'permalink_structure' ) );
 		}
 
 		// If the post type has rewrite rules.
