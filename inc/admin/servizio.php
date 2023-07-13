@@ -131,10 +131,9 @@ function dsi_add_servizi_metaboxes() {
     $cmb_sottotitolo->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => __( 'Tipologia servizio', 'design_scuole_italia' ),
-        'type'             => 'taxonomy_multicheck_inline',
+        'type'             => 'taxonomy_radio_inline',
         'taxonomy'       => 'tipologia-servizio',
-        'remove_default' => 'true',
-		'select_all_button' => false
+        'remove_default' => 'true'
     ) );
 
 
