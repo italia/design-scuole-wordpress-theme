@@ -138,9 +138,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <h2 class="mb-2 h3" id="art-par-cosa"><?php _e("Presentazione", "design_scuole_italia"); ?></h2>
+                                        <h3 class="mb-2 h4"><?php _e("Durata", "design_scuole_italia"); ?></h3>
+                                        <p class="text-bluelectric"><strong><?php echo dsi_get_date_evento($post); ?></strong></p>
                                         <?php
                                         if(trim(get_the_content()) != "") {
                                             ?>
+                                            <h3 class="mb-2 h4"><?php _e("Descrizione del progetto", "design_scuole_italia"); ?></h3>
                                             <div class="col-lg-12 px-0 wysiwig-text">
                                                 <?php the_content(); ?>
                                             </div>
@@ -162,8 +165,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <?php
                                         }
                                         ?>
-                                        <h3 class="mb-2 h4"><?php _e("Periodo di svolgimento", "design_scuole_italia"); ?></h3>
-                                        <p class="text-bluelectric"><strong><?php echo dsi_get_date_evento($post); ?></strong></p>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php if((is_array($link_schede_luoghi) && count($link_schede_luoghi)) || ($nome_luogo_custom != "")) {
