@@ -1,10 +1,14 @@
-# ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Design Scuole Italia
+# ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Design Scuole Italia - Fork Robyone
 [![Join the #design siti scuole channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_scuole-blue.svg)](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
 ## **Un sito per le scuole italiane**
 ### I primi passi con il tema Wordpress (2.3.3)
 
 **Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modelli/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
+
+In questa specifica versione fork Robyone ha applicato modifiche migliorative richieste dai clienti e dagli asseveratori / consulenti dei progetti PNRR 1.4.1. Robyone si impegna a proporre i cambiamenti per applicarli al tema nazionale e si impegna ad allineare ai nuovi aggiornamenti la fork.
+
+Codice sorgente pubblicato con medesima licenza del repository nazionale.
 
 ## **Installazione e supporto**
 ### **Come scaricare il tema**
@@ -44,19 +48,42 @@ Sul [canale Slack #design-siti-scuole](http://developersitalia.slack.com/message
 
 ## **Indice**
 
-- [Cos'è](#cosè)
-- [Cosa fa](#cosa-fa)
-- [La cura verso i contenuti](#la-cura-verso-i-contenuti)
-- [Da dove iniziare](#da-dove-iniziare)
-- [Riscrivere o importare i contenuti del vecchio sito](#riscrivere-o-importare-i-contenuti-del-vecchio-sito)
-- [Relazioni tra i contenuti](#relazioni-tra-i-contenuti)
-- [I diversi content type](#i-diversi-content-type)
-- [Personalizzazione](#personalizzazione)
-- [La community di riferimento](#la-community-di-riferimento)
-- [FAQ](#faq)
-- [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
-- [Segnalazione bug](#segnalazione-bug)
-- [Come contribuire](#come-contribuire)
+- [ Design Scuole Italia - Fork Robyone](#-design-scuole-italia---fork-robyone)
+  - [**Un sito per le scuole italiane**](#un-sito-per-le-scuole-italiane)
+    - [I primi passi con il tema Wordpress (2.3.3)](#i-primi-passi-con-il-tema-wordpress-233)
+  - [**Installazione e supporto**](#installazione-e-supporto)
+    - [**Come scaricare il tema**](#come-scaricare-il-tema)
+    - [Come aggiornare il tema](#come-aggiornare-il-tema)
+    - [Dipendenze](#dipendenze)
+    - [**Supporto tecnico ed editoriale**](#supporto-tecnico-ed-editoriale)
+  - [**Indice**](#indice)
+    - [**Cos'è**](#cosè)
+    - [**Cosa fa**](#cosa-fa)
+    - [**La cura verso i contenuti**](#la-cura-verso-i-contenuti)
+    - [**Da dove iniziare**](#da-dove-iniziare)
+      - [Editor Gutenberg](#editor-gutenberg)
+    - [**Riscrivere o importare i contenuti del vecchio sito**](#riscrivere-o-importare-i-contenuti-del-vecchio-sito)
+    - [**Relazioni tra i contenuti**](#relazioni-tra-i-contenuti)
+    - [**I diversi _content type_**](#i-diversi-content-type)
+      - [I luoghi](#i-luoghi)
+      - [Le strutture organizzative](#le-strutture-organizzative)
+      - [I servizi](#i-servizi)
+      - [Le persone](#le-persone)
+      - [I percorsi e gli indirizzi di studio](#i-percorsi-e-gli-indirizzi-di-studio)
+      - [I documenti](#i-documenti)
+      - [I progetti](#i-progetti)
+      - [Le schede didattiche](#le-schede-didattiche)
+      - [Le notizie](#le-notizie)
+      - [Eventi e calendario eventi](#eventi-e-calendario-eventi)
+      - [Le circolari](#le-circolari)
+    - [**Personalizzazione**](#personalizzazione)
+    - [**La community di riferimento**](#la-community-di-riferimento)
+    - [**F.A.Q**](#faq)
+      - [**Bootstrap Italia**](#bootstrap-italia)
+  - [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
+    - [Componenti distribuiti con i template](#componenti-distribuiti-con-i-template)
+  - [Segnalazione bug](#segnalazione-bug)
+  - [Come contribuire](#come-contribuire)
 
 ### **Cos'è**
 Il tema Design Scuole Italia è un’applicazione di WordPress, il sistema di gestione di contenuti (CMS) che consente di creare un sito web. 
