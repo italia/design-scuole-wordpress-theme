@@ -377,6 +377,11 @@ new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_servizi"
 // relazione bidirezionale struttura / percorso
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_servizi_didattici", "box_sottotitolo", "_dsi_indirizzo_link_struttura_didattica");
 
+// relazione bidirezionale struttura responsabile / persona
+new dsi_bidirectional_cmb2_to_usermeta("_dsi_struttura_", "struttura", "responsabile", "box_elementi_struttura", "_dsi_persona_altri_ruoli_struttura_responsabile");
+
+// relazione bidirezionale struttura componente / persona
+new dsi_bidirectional_cmb2_to_usermeta("_dsi_struttura_", "struttura", "persone", "box_elementi_struttura", "_dsi_persona_altri_ruoli_struttura");
 
 /**
  * salvo il parent cmb2
