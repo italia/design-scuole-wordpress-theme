@@ -368,7 +368,7 @@ function dsi_add_persone_metaboxes() {
 function dsi_get_cmb2_user( $query_args ) {
 
 	$args = wp_parse_args( $query_args, array(
-		'fields' => array( 'user_login' ),
+		'fields' => array( 'display_name' ),
 
 	) );
 
@@ -377,7 +377,7 @@ function dsi_get_cmb2_user( $query_args ) {
 	$user_options = array();
 	if ( $users ) {
 		foreach ( $users as $user ) {
-			$user_options[ $user->ID ] = $user->user_login;
+			$user_options[ $user->ID ] = $user->display_name;
 		}
 	}
 
