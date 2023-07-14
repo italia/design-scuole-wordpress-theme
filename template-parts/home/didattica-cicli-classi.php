@@ -4,7 +4,7 @@ global $classe;
 // recupero le scuole selezionate
 $scuole_didattica = dsi_get_option("scuole_didattica", "didattica");
 if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
-    ?>
+?>
 
     <section class="section section-padding py-0 bg-bluelectric section-tabs-bg">
         <div class="container">
@@ -26,9 +26,9 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 <?php
                                 foreach ($scuole_didattica as $idstruttura){
                                     $scuola = get_post($idstruttura);
-                                    ?>
+                                ?>
                                     <li><a href="#tab-<?php echo $idstruttura; ?>"><?php echo $scuola->post_title; ?></a></li>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </ul>
@@ -36,7 +36,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             foreach ($scuole_didattica as $idstruttura) {
                                 $scuola = get_post($idstruttura);
 
-                                ?>
+                            ?>
                                 <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
                                     <div class="accordion-large accordion-wrapper">
 
@@ -45,10 +45,10 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         $percorsi = wp_get_object_terms($idstruttura, "percorsi-di-studio");
                                         if(is_array($percorsi) && count($percorsi)>0){
                                             foreach ($percorsi as $percorso){
-                                                ?>
+                                        ?>
                                                 <hr/>
                                                 <div class="accordion-large-title accordion-header">
-                                                    <h3><?php echo $percorso->name; ?></h3>
+                                                    <h3><a href="javascript:void(0)"><?php echo $percorso->name; ?></a></h3>
                                                 </div><!-- /accordion-large-title -->
                                                 <div class="accordion-large-content accordion-content">
                                                     <?php echo wpautop($percorso->description); ?>
@@ -86,7 +86,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                     ?>
                                                 </div><!-- /accordion-large-content -->
 
-                                                <?php
+                                        <?php
                                             }
                                         }else{
                                             echo '<div ><h5 class="text-white">';
@@ -99,7 +99,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                                     </div>
                                 </div>
-                                <?php
+                            <?php
                             }
                             ?>
 
@@ -109,5 +109,5 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
             </div><!-- /row -->
         </div><!-- /container -->
     </section><!-- /section -->
-    <?php
+<?php
 }
