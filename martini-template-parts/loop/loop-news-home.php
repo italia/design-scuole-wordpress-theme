@@ -7,7 +7,7 @@
       'post_status'       => 'publish',
       'orderby'           => 'count',
       'order'             => 'DESC',
-      'posts_per_page'    => 2,
+      'posts_per_page'    => 4,
     )
   );
 
@@ -25,7 +25,7 @@
           <?php } ?>
         </a>
 
-        <h5 class="loop__news__card__content__title"><?php echo mb_strimwidth(get_the_title(), 0, 60, '...'); ?></h5>
+        <h5 class="loop__news__card__content__title"><?php echo mb_strimwidth(get_the_title(), 0, 50, '...'); ?></h5>
 
         <a href="<?php the_permalink(); ?>" class="loop__news__card__content__link">
           <button class="loop__news__card__content__link__button">Scopri</button>

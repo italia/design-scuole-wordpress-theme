@@ -9,7 +9,7 @@
       'post_status'       => 'publish', 
       'orderby'           => 'menu_order', 
       'order'             => 'ASC', 
-      'posts_per_page'    => 3, )
+      'posts_per_page'    => 6, )
   );
 
   while ($loop->have_posts()) : $loop->the_post();
