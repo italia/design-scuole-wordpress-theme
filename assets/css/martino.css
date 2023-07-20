@@ -1508,17 +1508,16 @@ label > span {
 }
 
 .loop__news__card {
-  height: 100%;
   max-height: 25rem;
   padding: 1rem 1rem 1rem 0;
 }
 
-.loop__news__card:last-child {
+.loop__news__card:nth-child(even) {
   padding: 1rem 0 1rem 1rem;
 }
 
 @media (max-width: 767.98px) {
-  .loop__news__card:last-child {
+  .loop__news__card:nth-child(even) {
     padding: 1rem;
   }
 }
@@ -2609,7 +2608,8 @@ body {
 
 .footer_logos-page {
   height: 256px;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
   position: relative;
   padding-block: 4rem 0;
   -webkit-user-select: none;
