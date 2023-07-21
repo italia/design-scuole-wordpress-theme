@@ -9,7 +9,22 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 	<div class="card-body">
 		<div class="card-content">
 			<h3 class="h5"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
-			<p><?php echo get_the_excerpt($post); ?></p>
+
+<?php
+        if($post->post_type == "post") {
+	        ?>
+            <p><?php echo $post->_dsi_articolo_descrizione; ?></p>
+            <?php
+        } else if($post->post_type == "circolare") {
+	        ?>
+            <p><?php echo $post->_dsi_circolare_descrizione; ?></p>
+            <?php
+        } else {                        
+            ?>
+            <p><?php echo get_the_excerpt($post); ?></p>
+	        <?php
+        }
+            ?>
 		</div>
 		<?php if($image_url) { ?>
 			<div class="card-thumb">

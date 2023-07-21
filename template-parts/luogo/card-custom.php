@@ -1,15 +1,15 @@
 <?php
 global $post;
-$c=0;
+$c = 0;
 
 $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $posizione_gps =  dsi_get_meta("posizione_gps_luogo_custom");
 $indirizzo_luogo_custom = dsi_get_meta("indirizzo_luogo_custom");
 $arrq = array();
-if(dsi_get_meta("quartiere_luogo_custom") != "")
-	$arrq[]=dsi_get_meta("quartiere_luogo_custom");
-if(dsi_get_meta("circoscrizione_luogo_custom") != "")
-	$arrq[]=dsi_get_meta("circoscrizione_luogo_custom");
+if (dsi_get_meta("quartiere_luogo_custom") != "")
+	$arrq[] = dsi_get_meta("quartiere_luogo_custom");
+if (dsi_get_meta("circoscrizione_luogo_custom") != "")
+	$arrq[] = dsi_get_meta("circoscrizione_luogo_custom");
 ?>
 
 <div class="card card-bg rounded mb-5">
@@ -30,18 +30,18 @@ if(dsi_get_meta("circoscrizione_luogo_custom") != "")
 </div><!-- /card card-bg rounded -->
 
 <script>
-    jQuery(function() {
-        var mymap = L.map('map_<?php echo $c; ?>', {
-            zoomControl: false,
-            scrollWheelZoom: false
-        }).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
+	window.addEventListener('load', function() {
+		var mymap = L.map('map_<?php echo $c; ?>', {
+			zoomControl: false,
+			scrollWheelZoom: false
+		}).setView([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>], 15);
 
-        L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(mymap);
+		L.marker([<?php echo $posizione_gps["lat"]; ?>, <?php echo $posizione_gps["lng"]; ?>]).addTo(mymap);
 
-        // add the OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '',
-            maxZoom: 18,
-        }).addTo(mymap);
-    });
+		// add the OpenStreetMap tiles
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '',
+			maxZoom: 18,
+		}).addTo(mymap);
+	});
 </script>

@@ -23,7 +23,7 @@ $autore = get_user_by("ID", $post->post_author);
                 </div><!-- /section-thumb -->
             </div><!-- /col-lg-2 -->
             <div class="col-12 col-sm-9 col-lg-5 col-md-8">
-                <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
+                <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
                 <div class="section-title">
                     <h1 class="h2"><?php the_title(); ?></h1>
                     <p><?php echo dsi_get_meta("descrizione"); ?></p>
