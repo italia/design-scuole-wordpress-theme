@@ -204,15 +204,15 @@ if(!function_exists("dsi_get_user_role")) {
         }else if($ruolo_scuola == "personaleata"){
 
             if($ruolo_non_docente == "direttore-amministrativo"){
-                $str_ruolo .= "Direttore amministrativo ";
+                $str_ruolo .= "Direttore amministrativo";
             }else if($ruolo_non_docente == "tecnico"){
                 $str_ruolo .= "Personale tecnico ";
             }else if($ruolo_non_docente == "amministrativo"){
-                $str_ruolo .= "Personale amministrativo ";
+                $str_ruolo .= "Personale amministrativo";
             }else if($ruolo_non_docente == "collaboratore"){
                 $str_ruolo .= "Collaboratore scolastico";
             }else{
-                $str_ruolo .= "Non docente ";
+                $str_ruolo .= "Non docente";
             }
 
         }
