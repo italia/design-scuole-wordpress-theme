@@ -312,7 +312,7 @@ function dsi_add_persone_metaboxes() {
 	) );
 
 	$cmb_user->add_field( array(
-		'name'    => __( 'Altri ruoli - referente ', 'design_scuole_italia' ),
+		'name'    => __( 'Altri ruoli di referente', 'design_scuole_italia' ),
 		'desc'    => __( 'Definisci qui ruoli di referente attribuiti (dove non sono previste strutture o funzioni strumentali) ', 'design_scuole_italia' ),
 		'id'      => $prefix . 'altri_ruoli_referente',
 		'type'    => 'textarea',
@@ -323,7 +323,7 @@ function dsi_add_persone_metaboxes() {
 	) );
 
 	$cmb_user->add_field( array(
-		'name'    => __( 'Altri ruoli - funzioni strumentali ', 'design_scuole_italia' ),
+		'name'    => __( 'Altri ruoli', 'design_scuole_italia' ),
 		'desc'    => __( 'Definisci qui altri ruoli (per componenti strutture, funzioni strumentali o referenti riferirsi agli altri campi previsti) ', 'design_scuole_italia' ),
 		'id'      => $prefix . 'altri_ruoli',
 		'type'    => 'textarea',
