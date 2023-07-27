@@ -189,7 +189,8 @@ if(!function_exists("dsi_get_user_role")) {
         $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola', $user->ID);
         $tipo_posto = get_the_author_meta('_dsi_persona_tipo_posto', $user->ID);
         $ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente', $user->ID);
-        $altri_ruoli = get_the_author_meta('_dsi_persona_altri_ruoli', $user->ID);
+        $altri_ruoli_funzioni_strumentali = get_the_author_meta('_dsi_persona_altri_ruoli_funzioni_strumentali', $user->ID);
+        $altri_ruoli_referente = get_the_author_meta('_dsi_persona_altri_ruoli_referente', $user->ID);
 
         $str_ruolo = "";
         if($ruolo_scuola == "dirigente"){
@@ -200,11 +201,6 @@ if(!function_exists("dsi_get_user_role")) {
             if($tipo_posto == "sostegno"){
                 $str_ruolo .= "di sostegno ";
             }
-
-            if($altri_ruoli != ""){
-                    $str_ruolo .= " e funzione strumentale";
-            }
-
         }else if($ruolo_scuola == "personaleata"){
 
             if($ruolo_non_docente == "direttore-amministrativo"){
@@ -220,6 +216,22 @@ if(!function_exists("dsi_get_user_role")) {
             }
 
         }
+
+        if($altri_ruoli_funzioni_strumentali != "" || $altri_ruoli_referente != ""){
+            if($altri_ruoli_funzioni_strumentali != "" && $altri_ruoli_referente != ""){
+                if($str_ruolo != "") $str_ruolo .=", "; 
+                $str_ruolo .= "funzione strumentale e referente";
+            } else if($altri_ruoli_funzioni_strumentali != ""){
+                if($str_ruolo != "") $str_ruolo .=" e "; 
+                $str_ruolo .= "funzione strumentale";
+            } else if($altri_ruoli_referente != ""){
+                if($str_ruolo != "") $str_ruolo .=" e "; 
+                $str_ruolo .= "referente";
+            }
+        }
+
+        if($str_ruolo != "")
+            $str_ruolo = ucfirst($str_ruolo);
 
         return $str_ruolo;
 	}

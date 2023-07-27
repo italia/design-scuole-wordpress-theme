@@ -16,6 +16,8 @@ $author_id = $authordata->ID;
 $bio = get_the_author_meta( 'description');
 $altri_ruoli_struttura_responsabile = get_the_author_meta('_dsi_persona_altri_ruoli_struttura_responsabile');
 $altri_ruoli_struttura = get_the_author_meta('_dsi_persona_altri_ruoli_struttura');
+$altri_ruoli_funzioni_strumentali = get_the_author_meta('_dsi_persona_altri_ruoli_funzioni_strumentali');
+$altri_ruoli_referente = get_the_author_meta('_dsi_persona_altri_ruoli_referente');
 $altri_ruoli = get_the_author_meta('_dsi_persona_altri_ruoli');
 
 //$nome = get_the_author_meta('first_name');
@@ -347,8 +349,26 @@ $posts = get_posts($args);
                                     </div><!-- /col-lg-12 -->
                                 </div><!-- /row -->
                             <?php } ?>
+                            
+							<?php if($altri_ruoli_funzioni_strumentali != "") { ?>
+                            	<h4 class="mb-3"><?php _e("Funzioni strumentali attribuite", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-9">
+                                        <p><?php echo $altri_ruoli_funzioni_strumentali; ?></p>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } 
 
-							<?php if($altri_ruoli != "") { ?>
+							if($altri_ruoli_referente != "") { ?>
+                            	<h4 class="mb-3"><?php _e("Altri ruoli di referente", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-9">
+                                        <p><?php echo $altri_ruoli_referente; ?></p>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } 
+
+							if($altri_ruoli != "") { ?>
                             	<h4 class="mb-3"><?php _e("Altri ruoli", "design_scuole_italia"); ?></h4>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-9">
