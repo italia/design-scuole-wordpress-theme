@@ -373,7 +373,7 @@ class Breadcrumb_Trail {
                 } else if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
                 } else if ( is_category() || is_tag() || is_tax() ) {
-                    if( is_tax( array("tipologia-articolo") ) ) {
+                    if( is_tax( array("tipologia-articolo", "tipologia-evento", "tipologia-circolare") ) ) {
                         $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
 					}
 					else if (is_tax(array("tipologia-struttura","tipologia-documento","tipologia-luogo"))){
