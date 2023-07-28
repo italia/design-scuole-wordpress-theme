@@ -225,7 +225,7 @@ function dsi_scripts() {
 	wp_enqueue_style( 'dsi-splide-min', get_template_directory_uri() . '/assets/css/splide.min.css');
 
 	wp_enqueue_script( 'dsi-modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js');
-	
+
 	// print css
     	wp_enqueue_style('dsi-print-style', get_template_directory_uri() . '/print.css', array(),'20190912','print' );
 
@@ -311,3 +311,16 @@ function add_tags_to_all_content_types( $query ) {
 }
 
 add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );
+
+// Sistema temporaneamente i breadcrumb per alcune pagine
+function breadcrumb_fix( $string, $arg1 ) {
+
+        $string = str_replace("La Scuola", "Scuola",$string);
+		$string = str_replace("Documenti", "Le carte della scuola",$string);
+		$string = str_replace("Strutture", "Organizzazione",$string);
+		$string = str_replace("?post_type=indirizzo","",$string);
+		$string = str_replace("Indirizzo di Studio", "Indirizzi di studio",$string);
+
+    return $string;
+}
+add_filter( 'breadcrumb_trail', 'breadcrumb_fix', 10, 3);
