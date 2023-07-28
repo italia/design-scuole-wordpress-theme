@@ -490,6 +490,8 @@ function dsi_add_indirizzo_metaboxes() {
             ), // override the get_posts args
         ),
     ) );
+    
+    new dsi_bidirectional_cmb2("_dsi_indirizzo_", "indirizzo", "link_schede_documenti", "box_elementi_indirizzo", "_dsi_documento_link_servizi_didattici");
 
 
     $cmb_undercontent->add_field( array(

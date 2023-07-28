@@ -295,3 +295,19 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+
+
+/**
+ * Consenti ricerca per argomenti/tags con tutti i content types
+ */
+function add_tags_to_all_content_types( $query ) {
+  if ( is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if($query->is_tag && $query->is_main_query()){
+    $query->set('post_type', array('documento','luogo','struttura','page','servizio','indirizzo','evento','post','circolare','scheda_didattica','scheda_progetto','materia'));
+  }
+}
+
+add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );

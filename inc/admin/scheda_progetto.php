@@ -96,7 +96,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 
     $cmb_sottotitolo->add_field( array(
 		'id' => $prefix . 'descrizione',
-		'name'        => __( 'Descrizione *', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione breve *', 'design_scuole_italia' ),
 		'desc' => __( 'Breve descrizione del contenuti della scheda (max 160 caratteri) Vincoli: 160 caratteri spazi inclusi.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
@@ -125,7 +125,12 @@ function dsi_add_scheda_progetto_metaboxes() {
             'name'       => __('Partecipanti', 'design_scuole_italia' ),
             'desc' => __( 'descrizione dei partecipanti al progetto' , 'design_scuole_italia' ),
             'id'             => $prefix . 'partecipanti',
-            'type'    => 'textarea',
+            'type' => 'wysiwyg',
+			'options' => array(
+				'media_buttons' => false, // show insert/upload button(s)
+				'textarea_rows' => 4, // rows="..."
+				'teeny' => true, // output the minimal editor config used in Press This
+			),
         )
     );
 
@@ -159,7 +164,12 @@ function dsi_add_scheda_progetto_metaboxes() {
             'name'       => __('In collaborazione con', 'design_scuole_italia' ),
             'desc' => __( 'eventuale lista di enti pubblici, privati, associazioni, etc' , 'design_scuole_italia' ),
             'id'             => $prefix . 'collaborazione',
-            'type'    => 'textarea',
+            'type' => 'wysiwyg',
+			'options' => array(
+				'media_buttons' => false, // show insert/upload button(s)
+				'textarea_rows' => 4, // rows="..."
+				'teeny' => true, // output the minimal editor config used in Press This
+			),
         )
     );
 
@@ -399,6 +409,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'id'         => $prefix . 'timestamp_inizio',
 		'name' => 'Data Inizio',
 		'type' => 'text_date_timestamp',
+    	'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),
@@ -409,6 +420,7 @@ function dsi_add_scheda_progetto_metaboxes() {
 		'id'         => $prefix . 'timestamp_fine',
 		'name' => 'Data Fine',
 		'type' => 'text_date_timestamp',
+    	'date_format' => 'd-m-Y',
 		'attributes' => array(
 			'required' => 'required'
 		),

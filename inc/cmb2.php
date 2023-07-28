@@ -14,14 +14,14 @@ require "vendor/cmb-field-select2-master/cmb-field-select2.php";
 function dsi_get_user_options( $query_args = false) {
 
 	if(!$query_args)
-		$query_args['fields'] = array( 'ID', 'user_login' );
+		$query_args['fields'] = array( 'ID', 'display_name' );
 
 	$users = get_users( $query_args );
 
 	$user_options = array();
 	if ( $users ) {
 		foreach ( $users as $user ) {
-			$user_options[ $user->ID ] = $user->user_login;
+			$user_options[ $user->ID ] = $user->display_name;
 		}
 	}
 
@@ -303,7 +303,6 @@ function dsi_get_tipologie_amministrazione_trasparente( $query_args = false) {
     return $options;
 }
 
-
 /**
  * Lista di tipologia di servizi
  * @param bool $query_args
@@ -315,6 +314,29 @@ function dsi_get_tipologia_servizi_options( $query_args = false) {
 	$items = get_terms( array(
 		'taxonomy' => 'tipologia-servizio',
 		'hide_empty' => false,
+	));
+
+	$options = array();
+	if ( $items ) {
+		foreach ( $items as $item ) {
+			$options[ $item->term_id ] = $item->name;
+		}
+	}
+	return $options;
+}
+
+
+/**
+ * Lista di tipologia di servizi
+ * @param bool $query_args
+ *
+ * @return array
+ */
+function dsi_get_argomenti_options( $query_args = false) {
+
+	$items = get_terms( array(
+		'taxonomy' => 'post_tag',
+		'hide_empty' => true,
 	));
 
 	$options = array();
