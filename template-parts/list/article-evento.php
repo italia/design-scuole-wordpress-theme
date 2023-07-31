@@ -14,15 +14,20 @@ if(!$excerpt)
 // $argomenti = dsi_get_argomenti_of_post();
 $timestamp_inizio = dsi_get_meta("timestamp_inizio", "_dsi_evento_", $post->ID);
 $timestamp_fine= dsi_get_meta("timestamp_fine", "_dsi_evento_", $post->ID);
-?>
+
+
+
+$data_inizio_it = date_i18n("j F Y", $timestamp_inizio);
+$data_fine_it = date_i18n("j F Y", $timestamp_fine);
+?> 
 <a class="presentation-card-link" href="<?php the_permalink(); ?>">
-    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" >
+    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" role="region" aria-description="Card dell'articolo">
         <div class="card-body">
-            <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
-                <div class="date">
-                    <span class="year"><?php echo date_i18n("Y", $timestamp_inizio); ?></span>
-                    <span class="day"><?php echo date_i18n("d", $timestamp_inizio); ?></span>
-                    <span class="month"><?php echo date_i18n("M", $timestamp_inizio); ?></span>
+            <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?> aria-hidden=true>
+                <div class="date" aria-hidden=true>
+                    <span class="year" aria-hidden=true><?php echo date_i18n("Y", $timestamp_inizio); ?></span>
+                    <span class="day" aria-hidden=true><?php echo date_i18n("d", $timestamp_inizio); ?></span>
+                    <span class="month" aria-hidden=true><?php echo date_i18n("M", $timestamp_inizio); ?></span>
                 </div>
                 <?php if(!$image_url){ ?>
                     <svg class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
@@ -41,5 +46,13 @@ $timestamp_fine= dsi_get_meta("timestamp_fine", "_dsi_evento_", $post->ID);
                     <?php } */ ?>
             </div><!-- /card-avatar-content -->
         </div><!-- /card-body -->
+		<div class="card-event-dates">
+			<div class="card-event-dates-icon" aria-hidden=true>
+				<svg class="icon svg-calendar"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-calendar"></use></svg>
+			</div><!-- /card-event-dates-icon -->
+			<div class="card-event-dates-content">
+				<p class="font-weight-normal"><?php echo dsi_get_date_evento($post); ?></p>
+			</div><!-- /card-event-dates-content -->
+		</div><!-- /card-event-dates -->
     </article><!-- /card card-bg card-article -->
 </a>
