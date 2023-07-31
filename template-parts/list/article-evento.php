@@ -14,11 +14,6 @@ if(!$excerpt)
 // $argomenti = dsi_get_argomenti_of_post();
 $timestamp_inizio = dsi_get_meta("timestamp_inizio", "_dsi_evento_", $post->ID);
 $timestamp_fine= dsi_get_meta("timestamp_fine", "_dsi_evento_", $post->ID);
-
-
-
-$data_inizio_it = date_i18n("j F Y", $timestamp_inizio);
-$data_fine_it = date_i18n("j F Y", $timestamp_fine);
 ?> 
 <a class="presentation-card-link" href="<?php the_permalink(); ?>">
     <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" role="region" aria-description="Card dell'articolo">
