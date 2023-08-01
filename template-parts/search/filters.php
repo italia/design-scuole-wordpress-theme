@@ -39,7 +39,8 @@ if(isset($_GET["post_terms"]))
         <ul>
             <?php
             foreach ( $types as $type ) {
-	            $name = get_post_type_object( $type )->labels->name;
+		    if ( post_type_exists( $type ) ) { 
+	            	$name = get_post_type_object( $type )->labels->name;
                 ?>
                 <li>
                     <div class="form-check my-0">
@@ -47,8 +48,8 @@ if(isset($_GET["post_terms"]))
                         <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                     </div>
                 </li>
-
             <?php
+		    }
             }
             ?>
         </ul>
