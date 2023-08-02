@@ -798,8 +798,8 @@ function dsi_is_scuola($post){
  */
 function dsi_get_current_anno_scolastico($year = true){
     $today_month = date("n");
-    if($today_month < 8){
-        if($year) return date("Y")-1; else return dsi_convert_anno_scuola(date("Y")-1);
+    if($today_month > 6){
+        if($year) return date("Y")-0; else return dsi_convert_anno_scuola(date("Y")-0);
     }else{
         if($year) return date("Y"); else return dsi_convert_anno_scuola(date("Y"));
     }
