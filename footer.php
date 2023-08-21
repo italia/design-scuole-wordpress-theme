@@ -18,7 +18,7 @@
                     alt="Finanziato dall' Unione Europea - Next generation EU"
                 >
                 <div class="logo-footer">
-                    <?php get_template_part("template-parts/common/logo"); ?>
+                    <?php get_template_part("template-parts/common/logo", null, array( 'ignora_stemma_scuola' => true )); ?>
 
                     <h2 class="h1">
                         <a href="<?php echo home_url(); ?>">

@@ -52,17 +52,38 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-	$header_options->add_field( array(
-		'id' => $prefix . 'luogo_scuola',
-		'name'        => __( 'Città *', 'design_scuole_italia' ),
-		'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
-		'type' => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
+    $header_options->add_field( array(
+        'id' => $prefix . 'luogo_scuola',
+        'name'        => __( 'Città *', 'design_scuole_italia' ),
+        'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
+        'type' => 'text',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
+    ));
+  
+    $header_options->add_field( array(
+        'id'    => $prefix . 'stemma_scuola',
+        'name' => __('Stemma', 'design_scuole_italia' ),
+        'desc' => __( 'Lo stemma della scuola. Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
 
-    
+    $header_options->add_field( array(
+        'id'    => $prefix . 'favicon_scuola',
+        'name' => __('Icona', 'design_scuole_italia' ),
+        'desc' => __( 'L\'immagine da utilizzare come icona (favicon). Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+   
     /**
      * Registers options page "Dati fiscali e di contatto".
      */
@@ -116,7 +137,7 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_email',
     ) );
 
-	$contacts_options->add_field( array(
+    $contacts_options->add_field( array(
         'id' => $prefix . 'contatti_CF',
         'name' => 'Codice fiscale',
         'type' => 'text',
@@ -309,6 +330,24 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+	$home_options->add_field( array(
+        'id' => $prefix . 'giorni_per_filtro',
+        'name' => 'Giorni da considerare come filtro',
+        'desc' => __( '<br>Se compilato con un numero di giorni maggiore di 0, verranno mostrati solo gli articoli pubblicati da meno di X giorni dalla data odierna', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 0,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_events',
         'name' => __('Mostra gli eventi in Home', 'design_scuole_italia'),
@@ -424,6 +463,26 @@ function dsi_register_main_options_metabox() {
             ),
         )
     );
+
+
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_3',
+        'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Argomenti mostrati in home page' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+	$home_options->add_field( array(
+			'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
+			'desc' => __( 'Seleziona gli argomenti da mostrare in prima pagina. ', 'design_scuole_italia' ),
+			'id' => $prefix . 'home_argomenti',
+			'type'    => 'pw_multiselect',
+			'options' => dsi_get_argomenti_options(),
+			'attributes' => array(
+				'placeholder' =>  __( 'Seleziona e ordina gli argomenti da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+			),
+		)
+	);
 
 
     /**
@@ -1376,6 +1435,23 @@ function dsi_register_main_options_metabox() {
 	}
 
 	$setup_options = new_cmb2_box( $args );
+    
+    $setup_options->add_field( array(
+        'id' => $prefix . 'argomenti_options',
+        'name'        => __( 'Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del testo da inserire nell\'intestazione della pagina argomenti.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $setup_options->add_field( array(
+		'id' => $prefix . 'testo_argomenti',
+		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Ritrova le informazioni in base agli argomenti scelti dal nostro istituto' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
 
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_options',
@@ -1454,6 +1530,19 @@ function dsi_register_main_options_metabox() {
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
+	
+$setup_options->add_field(array(
+        'id' => $prefix . 'show_contatore_commenti',
+        'name' => __('Mostra il contatore dei commenti', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare il numero dei commenti pubblicati', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));	
+
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 
