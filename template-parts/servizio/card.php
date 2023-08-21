@@ -2,7 +2,7 @@
 global $servizio;
 if($servizio->post_status == "publish") {
     ?>
-    <div class="card card-bg card-icon rounded h-100">
+    <div class="card card-bg card-icon rounded">
         <a href="<?php echo get_permalink($servizio); ?>">
             <div class="card-body">
                 <svg class="icon svg-marker-simple" aria-hidden="true">
