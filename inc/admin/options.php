@@ -475,11 +475,11 @@ function dsi_register_main_options_metabox() {
 	$main_options->add_field( array(
 		'id' => $prefix . 'citazione',
 			'name'        => __( 'Citazione', 'design_scuole_italia' ),
-		'desc' => __( 'Breve (compresa tra 70 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
+		'desc' => __( 'Breve (compresa tra 20 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
             'maxlength'  => '140',
-			'minlength'  => '70'
+			'minlength'  => '20'
 		),
 	) );
 
