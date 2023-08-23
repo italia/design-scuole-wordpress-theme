@@ -296,16 +296,6 @@ function add_menu_link_class( $atts, $item, $args ) {
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
-function add_file_types_to_uploads($file_types){
-	$new_filetypes = array();
-	$new_filetypes['svg'] = 'image/svg+xml';
-	$new_filetypes['svgz'] = 'image/svg+xml';
-	$file_types = array_merge($file_types, $new_filetypes );
-	return $file_types;
-}
-
-add_action('upload_mimes', 'add_file_types_to_uploads');
-
 /**
  * Consenti ricerca per argomenti/tags con tutti i content types
  */
@@ -330,6 +320,7 @@ function add_file_types_to_uploads($file_types){
 }
 
 add_action('upload_mimes', 'add_file_types_to_uploads');
+
 // Sistema temporaneamente i breadcrumb per alcune pagine
 function breadcrumb_fix( $string, $arg1 ) {
 
