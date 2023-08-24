@@ -296,7 +296,7 @@ function add_menu_link_class( $atts, $item, $args ) {
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
-  function add_file_types_to_uploads($file_types){
+function add_file_types_to_uploads($file_types){
 	$new_filetypes = array();
 	$new_filetypes['svg'] = 'image/svg+xml';
 	$new_filetypes['svgz'] = 'image/svg+xml';
