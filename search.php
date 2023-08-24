@@ -21,7 +21,7 @@ get_header();
                                 if(get_search_query() != "")
                                     _e("Risultati della ricerca per:", "design_scuole_italia");
                                 ?></p>
-                            <h2 class="mb-0"><?php if(get_search_query() != "")
+                            <h1 class="h2 mb-0"><?php if(get_search_query() != "")
                                                         echo get_search_query();
                                                     else
                                                         _e("Ricerca generica", "design-scuole-italia");
