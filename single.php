@@ -8,7 +8,7 @@
  */
 global $post, $autore;
 $args = ["post", "evento", "circolare"];
-$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder1280x960.jpg";
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 get_template_part("template-parts/single/related-posts");
 get_header();
 

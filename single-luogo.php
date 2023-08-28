@@ -11,7 +11,7 @@ $args = ["post", "evento", "circolare"];
 get_template_part("template-parts/single/related-posts");
 $luogo = $post;
 get_header();
-$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder1280x960.jpg";
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
 
