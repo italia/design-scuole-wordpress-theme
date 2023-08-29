@@ -12,7 +12,7 @@ get_header();
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("template-parts/hero/luoghi", "archive"); ?>
+        <?php get_template_part("template-parts/hero/didattica", "archive"); ?>
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
             <div class="container d-flex justify-content-between align-items-center py-3">

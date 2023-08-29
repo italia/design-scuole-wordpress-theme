@@ -14,6 +14,12 @@ $authordata = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) 
 
 $author_id = $authordata->ID;
 $bio = get_the_author_meta( 'description');
+$altri_ruoli_struttura_responsabile = get_the_author_meta('_dsi_persona_altri_ruoli_struttura_responsabile');
+$altri_ruoli_struttura = get_the_author_meta('_dsi_persona_altri_ruoli_struttura');
+$altri_ruoli_funzioni_strumentali = get_the_author_meta('_dsi_persona_altri_ruoli_funzioni_strumentali');
+$altri_ruoli_referente = get_the_author_meta('_dsi_persona_altri_ruoli_referente');
+$altri_ruoli = get_the_author_meta('_dsi_persona_altri_ruoli');
+
 //$nome = get_the_author_meta('first_name');
 //$cognome = get_the_author_meta('last_name');
 
@@ -37,6 +43,7 @@ $durata_incarico_docente = get_the_author_meta('_dsi_persona_durata_incarico_doc
 $altre_info = get_the_author_meta('_dsi_persona_altre_info');
 $email_pubblico = get_the_author_meta('_dsi_persona_email_pubblico');
 $telefono_pubblico = get_the_author_meta('_dsi_persona_telefono_pubblico');
+
 
 $str_ruolo = "";
 if($ruolo_scuola == "dirigente"){
@@ -124,9 +131,8 @@ $args = array(
     'posts_per_page' => -1,
     'post_type' => 'struttura'
 );
-$strutture = get_posts($args);
-
-function filter_my_structures($structure)
+$strutturememb = get_posts($args);
+function filter_my_structures_memb($structure)
 {
     if (is_array(get_post_meta($structure->ID, "_dsi_struttura_persone", true)) && !empty(get_post_meta($structure->ID, "_dsi_struttura_persone", true))) {
         return in_array(
@@ -136,8 +142,43 @@ function filter_my_structures($structure)
     }
     return false;
 }
+$strutturememb = array_filter($strutturememb, "filter_my_structures_memb");
+$strutturememb = array_column($strutturememb, 'ID');
 
-$strutture = array_filter($strutture, "filter_my_structures");
+if($strutturememb != null && $altri_ruoli_struttura == null) $altri_ruoli_struttura = [];
+
+foreach ($strutturememb as $id_struttura) {
+	$id_struttura = strval($id_struttura);
+	if(!in_array($id_struttura, $altri_ruoli_struttura))
+    	array_push($altri_ruoli_struttura, $id_struttura);
+}
+
+$args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'struttura'
+);
+$struttureresp = get_posts($args);
+
+function filter_my_structures_resp($structure)
+{
+    if (is_array(get_post_meta($structure->ID, "_dsi_struttura_responsabile", true)) && !empty(get_post_meta($structure->ID, "_dsi_struttura_responsabile", true))) {
+        return in_array(
+            (string)$GLOBALS['author_id'],
+            get_post_meta($structure->ID, "_dsi_struttura_responsabile", true)
+        );
+    }
+    return false;
+}
+$struttureresp = array_filter($struttureresp, "filter_my_structures_resp");
+$struttureresp = array_column($struttureresp, 'ID');
+
+if($struttureresp != null && $altri_ruoli_struttura_responsabile == null) $altri_ruoli_struttura_responsabile = [];
+
+foreach ($struttureresp as $id_struttura) {
+	$id_struttura = strval($id_struttura);
+	if(!in_array($id_struttura, $altri_ruoli_struttura_responsabile))
+    	array_push($altri_ruoli_struttura_responsabile, $id_struttura);
+}
 
 $args = array(
     'posts_per_page' => -1,
@@ -201,29 +242,19 @@ $posts = get_posts($args);
                             </div>
                             <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="people-detail">
                                 <ul class="link-list">
-                                    <?php if($bio != "") { ?>
+                                    <?php if($bio != "" || $altri_ruoli != "" || (is_array($altri_ruoli_struttura_responsabile) && count($altri_ruoli_struttura_responsabile) > 0) || (is_array($altri_ruoli_struttura) && count($altri_ruoli_struttura) > 0)) { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-bio" title="Vai al paragrafo <?php _e("Biografia", "design_scuole_italia"); ?>"><?php _e("Biografia", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
-                                    <?php if(is_array($schede_didattiche) && count($schede_didattiche) > 0)  { ?>
+                                    <?php if((is_array($schede_didattiche) && count($schede_didattiche) > 0) || (is_array($schede_progetto) && count($schede_progetto) > 0))  { ?>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Schede didattiche", "design_scuole_italia"); ?>"><?php _e("Schede didattiche", "design_scuole_italia"); ?></a>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if(is_array($schede_progetto) && count($schede_progetto) > 0)  { ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-progetti" title="Vai al paragrafo <?php _e("Progetti", "design_scuole_italia"); ?>"><?php _e("Progetti", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-didattica" title="Vai al paragrafo <?php _e("Didattica", "design_scuole_italia"); ?>"><?php _e("Didattica", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
                                     <?php if(is_array($documenti) && count($documenti) > 0)  { ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-documenti" title="Vai al paragrafo <?php _e("Documenti", "design_scuole_italia"); ?>"><?php _e("Documenti", "design_scuole_italia"); ?></a>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if(is_array($posts) && count($posts) > 0)  { ?>
-                                        <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-articoli" title="Vai al paragrafo <?php _e("Articoli", "design_scuole_italia"); ?>"><?php _e("Articoli", "design_scuole_italia"); ?></a>
                                         </li>
                                     <?php } ?>
 
@@ -248,14 +279,111 @@ $posts = get_posts($args);
                     </div>
                     <div class="col-lg-8 col-md-8 offset-lg-1 pt84">
                         <article class="article-wrapper">
-                            <?php if($bio != "") { ?>
+                            
+                            <?php if($bio != "" || $altri_ruoli != "" || (is_array($altri_ruoli_struttura_responsabile) && count($altri_ruoli_struttura_responsabile) > 0) || (is_array($altri_ruoli_struttura) && count($altri_ruoli_struttura) > 0)) { ?>
                                 <h3 id="art-par-bio"><?php _e("Biografia", "design_scuole_italia"); ?></h3>
+                            <?php } ?>    
+                            
+                            <?php if($bio != "") { ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <p><?php echo $bio; ?></p>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
+                            <?php } 
+
+							if (is_array($altri_ruoli_struttura) && count($altri_ruoli_struttura) > 0) {
+                                ?>
+                                <h4 class="mb-4"><?php _e("Dove lavora", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($altri_ruoli_struttura as $id_struttura) {
+                                            	$struttura = get_post($id_struttura);
+                                            	?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon it-pdf-document">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="#svg-school"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($struttura); ?>" ><?php echo $struttura->post_title; ?></a></strong>
+                                                            </p>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                                <?php
+                                            } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
                             <?php }
+                            
+                            if (is_array($altri_ruoli_struttura_responsabile) && count($altri_ruoli_struttura_responsabile) > 0) {
+                                ?>
+                                <h4 class="mb-4"><?php _e("Strutture di cui è responsabile", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="card-deck card-deck-spaced">
+                                            <?php foreach ($altri_ruoli_struttura_responsabile as $id_struttura) {
+                                            	$struttura = get_post($id_struttura);
+                                            	?>
+                                                <div class="card card-bg card-icon rounded">
+                                                    <div class="card-body">
+                                                        <svg class="icon it-pdf-document">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="#svg-school"></use>
+                                                        </svg>
+                                                        <div class="card-icon-content">
+                                                            <p>
+                                                                <strong><a href="<?php echo get_permalink($struttura); ?>" ><?php echo $struttura->post_title; ?></a></strong>
+                                                            </p>
+                                                        </div><!-- /card-icon-content -->
+                                                    </div><!-- /card-body -->
+                                                </div><!-- /card card-bg card-icon rounded -->
+                                                <?php
+                                            } ?>
+                                        </div><!-- /card-deck card-deck-spaced -->
+                                    </div><!-- /col-lg-12 -->
+                                </div><!-- /row -->
+                            <?php } ?>
+                            
+							<?php if($altri_ruoli_funzioni_strumentali != "") { ?>
+                            	<h4 class="mb-3"><?php _e("Funzioni strumentali attribuite", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-9">
+                                        <p><?php echo $altri_ruoli_funzioni_strumentali; ?></p>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } 
+
+							if($altri_ruoli_referente != "") { ?>
+                            	<h4 class="mb-3"><?php _e("Altri ruoli di referente", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-9">
+                                        <p><?php echo $altri_ruoli_referente; ?></p>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } 
+
+							if($altri_ruoli != "") { ?>
+                            	<h4 class="mb-3"><?php _e("Altri ruoli", "design_scuole_italia"); ?></h4>
+                                <div class="row variable-gutters mb-4">
+                                    <div class="col-lg-9">
+                                        <p><?php echo $altri_ruoli; ?></p>
+                                    </div><!-- /col-lg-9 -->
+                                </div><!-- /row -->
+                            <?php } 
+
+
+							if((is_array($schede_didattiche) && count($schede_didattiche) > 0) || (is_array($schede_progetto) && count($schede_progetto) > 0))  { ?>
+                                   <h3 id="art-par-didattica"
+                                    class="mb-4"><?php _e("Didattica", "design_scuole_italia"); ?></h3>
+                            <?php } ?>
+
+							<?php
                             if (is_array($schede_didattiche) && count($schede_didattiche) > 0) {
                                 ?>
                                 <h4 id="art-par-didattica"
@@ -337,32 +465,7 @@ $posts = get_posts($args);
                                 </div><!-- /row -->
                             <?php }
 
-                            if (is_array($strutture) && count($strutture) > 0) {
-                                ?>
-                                <h4 id="art-par-documenti"  class="mb-4"><?php _e("Strutture", "design_scuole_italia"); ?></h4>
-                                <div class="row variable-gutters mb-4">
-                                    <div class="col-lg-12">
-                                        <div class="card-deck card-deck-spaced">
-                                            <?php foreach ($strutture as $struttura) { ?>
-                                                <div class="card card-bg card-icon rounded">
-                                                    <div class="card-body">
-                                                        <svg class="icon it-pdf-document">
-                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                xlink:href="#svg-school"></use>
-                                                        </svg>
-                                                        <div class="card-icon-content">
-                                                            <p>
-                                                                <strong><a href="<?php echo get_permalink($struttura); ?>" ><?php echo $struttura->post_title; ?></a></strong>
-                                                            </p>
-                                                        </div><!-- /card-icon-content -->
-                                                    </div><!-- /card-body -->
-                                                </div><!-- /card card-bg card-icon rounded -->
-                                            <?php } ?>
-                                        </div><!-- /card-deck card-deck-spaced -->
-                                    </div><!-- /col-lg-12 -->
-                                </div><!-- /row -->
-                            <?php }
-
+                            
                             if(trim($altre_info) != ""){
                                 ?>
                                 <h4 id="art-par-altre-info"

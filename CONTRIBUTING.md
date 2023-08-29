@@ -39,6 +39,7 @@ Il repository di Bootstrap Italia usa alcune label per identificare le issue (cr
 - `good first issue` - Criticità particolarmente semplici da prendere in carico per chi non ha conoscenza approfondita del progetto.
 - `help wanted` - Criticità pronte per ricevere contributi da parte della comunità e di nuovi aspiranti sviluppatori.
 - `invalid` - Criticità considerata invalida.
+- `next` - Indica una criticità o funzionalità che saranno sviluppate in futuro.
 - `question` - Indica una criticità o pull request per la quale si ha bisogno di maggiori informazioni.
 - `wontfix` - Indica che la criticità o la pull request viene chiusa senza alcun lavoro aggiuntivo.
 

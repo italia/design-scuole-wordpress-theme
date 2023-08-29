@@ -5,30 +5,6 @@
 
 require get_template_directory() . '/inc/vendor/parsedown.php';
 
-
-/**
- * Welcome page
- */
-remove_action('welcome_panel', 'wp_welcome_panel');
-add_action( 'welcome_panel', 'dsi_welcome_panel' );
-
-function dsi_welcome_panel(){
-    ?>
-    <div class="welcome-panel-content" style="padding-bottom:30px;">
-        <img src="https://avatars1.githubusercontent.com/u/15377824?s=36&v=4"  style="float:left; margin:0px 20px;" />
-        <h2><?php _e( 'Design Scuole Italia: il tema di Developers Italia per le Scuole Italiane', "design_scuole_italia" ); ?></h2>
-    </div>
-    <?php
-}
-
-function dsi_welcome_init() {
-    global $wpdb;
-    $wpdb->update($wpdb->usermeta,array('meta_value'=>1),array('meta_key'=>'show_welcome_panel'));
-}
-
-add_action('after_switch_theme','dsi_welcome_init');
-
-
 /**
  * Gestione widget dashboard admin
  *

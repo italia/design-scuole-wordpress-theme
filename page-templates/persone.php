@@ -54,7 +54,7 @@ get_header();
                                                 <div class="col-lg-4">
                                                     <div class="card card-bg bg-color bg-dark card-avatar rounded mb-3">
                                                         <div class="card-body">
-                                                            <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                                            <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-avatar rounded -->
                                                 </div><!-- /col-lg-4 -->
@@ -80,7 +80,7 @@ get_header();
                                                 <div class="col-lg-4">
                                                     <div class="card card-bg bg-white card-avatar rounded mb-3">
                                                         <div class="card-body">
-                                                            <?php get_template_part("template-parts/autore/card", "insegnante"); ?>
+                                                            <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-avatar rounded -->
                                                 </div><!-- /col-lg-4 -->

@@ -9,7 +9,7 @@ $image_url = dsi_get_user_avatar($autore);
     <?php dsi_get_img_from_id_url( $image_id, $image_url ); ?>
 </div><!-- /card-avatar-img -->
 <div class="card-avatar-content">
-    <p class="font-weight-normal">da 
+    <p class="font-weight-normal">
         <a href="<?php echo get_author_posts_url( $autore->ID); ?>" aria-label="vai alla pagina di <?php echo dsi_get_display_name( $autore->ID ); ?>">
             <strong class="text-underline"><u><?php echo dsi_get_display_name( $autore->ID ); ?></u></strong>
         </a>
