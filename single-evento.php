@@ -17,6 +17,7 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $date = dsi_get_meta("date");
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
@@ -29,13 +30,15 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 			$autore = get_user_by("ID", $post->post_author);
 			?>
 
-				<?php if(has_post_thumbnail($post)){ ?>
-        <section class="section bg-white article-title">
-                    <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
-					<?php
-					$colsize = 6;
-				}else{
-				?>
+				<?php if (has_post_thumbnail($post)) { ?>
+                    <section class="section bg-white article-title">
+                        <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                        <?php
+                        $colsize = 6;
+                    } else { ?>
+                        <section class="section bg-white article-title">
+                            <div class="title-img" style="background-image: url('<?php echo $fallback_image_url; ?>');"></div>
+                <?php } ?>
                 <section class="section bg-white article-title article-title-small">
 		            <?php
 					$colsize = 12;
@@ -418,27 +421,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-
-            <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
-                <section class="section bg-gray-light py-5" id="art-par-04">
-                    <div class="container py-4">
-                        <div class="title-section text-center mb-5">
-                            <h2 class="h4">Foto e video</h2>
-                        </div><!-- /title-large -->
-                        <div class="row variable-gutters">
-                            <div class="col">
-                                <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
-                                    <div class="splide__track">
-                                        <ul class="splide__list">
-                                        <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
-                                        </ul>
-                                    </div><!-- /carousel-simple -->
-                                </div>
-                            </div><!-- /col -->
-                        </div><!-- /row -->
-                    </div><!-- /container -->
-                </section>
-            <?php } ?>
 
 			<?php get_template_part("template-parts/single/more-posts"); ?>
 
