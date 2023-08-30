@@ -66,6 +66,16 @@ get_header();
             $servizi_correlati = dsi_get_meta("servizi_correlati");
             $mail = dsi_get_meta("mail");
             $telefono = dsi_get_meta("telefono");
+
+            $contatti_dedicati = dsi_get_meta("contatti_dedicati");
+            if($contatti_dedicati != "on") {
+                $contatti_centralino = dsi_get_option("contatti_centralino", "contacts");
+                $contatti_PEO = dsi_get_option("contatti_PEO", "contacts");
+
+                if($contatti_centralino) $telefono = $contatti_centralino;
+                if($contatti_PEO) $mail = $contatti_PEO;
+            }
+
             ?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
