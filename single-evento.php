@@ -140,6 +140,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 								$gallery = dsi_get_meta("gallery");
                             	if ( is_array( $gallery ) && count( $gallery ) > 0 ) {
                             	    ?>
+								<h3  class="h6"><?php _e("Foto", "design_scuole_italia"); ?></h3>
                                 <div class="row variable-gutters">
                                     <div class="col">
                                         <div class="it-carousel-wrapper inside-carousel splide" data-bs-carousel-splide>
@@ -156,6 +157,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 								$video = dsi_get_meta("video");
 								if($video) { ?>
+								 <h3  class="h6 pt-5"><?php _e("Video", "design_scuole_italia"); ?></h3>
                                     <div class="video-container my-4">
 										<?php echo wp_oembed_get ($video); ?>
                                     </div>
@@ -345,8 +347,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 </li><?php } ?>
                                             <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_telefono") != "")) { ?>
                                                 <li><strong
-                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
-                                                </li><?php } ?>
+                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo "<a href='tel:+39".dsi_get_meta("contatto_telefono")."'>".dsi_get_meta("contatto_telefono")."</a>"; ?>
+	                                             </li><?php } ?>
                                             <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_email") != "")) { ?>
                                                 <li><strong
                                                         class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
