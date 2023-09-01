@@ -17,6 +17,7 @@ $nome_luogo_custom = dsi_get_meta("nome_luogo_custom");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 $date = dsi_get_meta("date");
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
@@ -29,20 +30,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 			$autore = get_user_by("ID", $post->post_author);
 			?>
 
-				<?php if(has_post_thumbnail($post)){ ?>
-        <section class="section bg-white article-title">
-                    <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
-					<?php
-					$colsize = 6;
-				}else{
-				?>
-                <section class="section bg-white article-title article-title-small">
-		            <?php
-					$colsize = 12;
-				} ?>
+				<?php if (has_post_thumbnail($post)) { ?>
+                    <section class="section bg-white article-title">
+                        <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                        <?php
+                    } else { ?>
+                        <section class="section bg-white article-title">
+                            <div class="title-img" style="background-image: url('<?php echo $fallback_image_url; ?>');"></div>
+                <?php } ?>
                 <div class="container">
                     <div class="row variable-gutters">
-                        <div class="col-md-<?php echo $colsize; ?> flex align-items-center">
+                        <div class="col-md-6 flex align-items-center">
                             <div class="title-content">
                                 <h1 class="h2"><?php the_title(); ?></h1>
                                 <h2 class="d-none"><?php echo get_post_type(); ?></h2>
@@ -137,6 +135,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 								$gallery = dsi_get_meta("gallery");
                             	if ( is_array( $gallery ) && count( $gallery ) > 0 ) {
                             	    ?>
+								<h3  class="h6"><?php _e("Foto", "design_scuole_italia"); ?></h3>
                                 <div class="row variable-gutters">
                                     <div class="col">
                                         <div class="it-carousel-wrapper inside-carousel splide" data-bs-carousel-splide>
@@ -153,6 +152,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 								$video = dsi_get_meta("video");
 								if($video) { ?>
+								 <h3  class="h6 pt-5"><?php _e("Video", "design_scuole_italia"); ?></h3>
                                     <div class="video-container my-4">
 										<?php echo wp_oembed_get ($video); ?>
                                     </div>
@@ -342,8 +342,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 </li><?php } ?>
                                             <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_telefono") != "")) { ?>
                                                 <li><strong
-                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo dsi_get_meta("contatto_telefono"); ?>
-                                                </li><?php } ?>
+                                                        class="mr-2"><?php _e("Telefono:", "design_scuole_italia"); ?></strong> <?php echo "<a href='tel:+39".dsi_get_meta("contatto_telefono")."'>".dsi_get_meta("contatto_telefono")."</a>"; ?>
+	                                             </li><?php } ?>
                                             <?php if (($organizzato_da_scuola != "si") && (dsi_get_meta("contatto_email") != "")) { ?>
                                                 <li><strong
                                                         class="mr-2"><?php _e("Email:", "design_scuole_italia"); ?></strong>
@@ -418,27 +418,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-
-            <?php if ( is_array( $gallery ) && count( $gallery ) > 0 ) { ?>
-                <section class="section bg-gray-light py-5" id="art-par-04">
-                    <div class="container py-4">
-                        <div class="title-section text-center mb-5">
-                            <h2 class="h4">Foto e video</h2>
-                        </div><!-- /title-large -->
-                        <div class="row variable-gutters">
-                            <div class="col">
-                                <div class="it-carousel-wrapper simple-two-carousel splide" data-bs-carousel-splide>
-                                    <div class="splide__track">
-                                        <ul class="splide__list">
-                                        <?php get_template_part( "template-parts/single/gallery", $post->post_type ); ?>
-                                        </ul>
-                                    </div><!-- /carousel-simple -->
-                                </div>
-                            </div><!-- /col -->
-                        </div><!-- /row -->
-                    </div><!-- /container -->
-                </section>
-            <?php } ?>
 
 			<?php get_template_part("template-parts/single/more-posts"); ?>
 

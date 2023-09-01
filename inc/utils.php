@@ -189,6 +189,8 @@ if(!function_exists("dsi_get_user_role")) {
         $ruolo_scuola = get_the_author_meta('_dsi_persona_ruolo_scuola', $user->ID);
         $tipo_posto = get_the_author_meta('_dsi_persona_tipo_posto', $user->ID);
         $ruolo_non_docente = get_the_author_meta('_dsi_persona_ruolo_non_docente', $user->ID);
+        $altri_ruoli_funzioni_strumentali = get_the_author_meta('_dsi_persona_altri_ruoli_funzioni_strumentali', $user->ID);
+        $altri_ruoli_referente = get_the_author_meta('_dsi_persona_altri_ruoli_referente', $user->ID);
 
         $str_ruolo = "";
         if($ruolo_scuola == "dirigente"){
@@ -199,23 +201,37 @@ if(!function_exists("dsi_get_user_role")) {
             if($tipo_posto == "sostegno"){
                 $str_ruolo .= "di sostegno ";
             }
-
         }else if($ruolo_scuola == "personaleata"){
 
             if($ruolo_non_docente == "direttore-amministrativo"){
-                $str_ruolo .= "Direttore amministrativo ";
+                $str_ruolo .= "Direttore amministrativo";
             }else if($ruolo_non_docente == "tecnico"){
                 $str_ruolo .= "Personale tecnico ";
             }else if($ruolo_non_docente == "amministrativo"){
-                $str_ruolo .= "Personale amministrativo ";
+                $str_ruolo .= "Personale amministrativo";
             }else if($ruolo_non_docente == "collaboratore"){
                 $str_ruolo .= "Collaboratore scolastico";
             }else{
-                $str_ruolo .= "Non docente ";
+                $str_ruolo .= "Non docente";
             }
 
-
         }
+
+        if($altri_ruoli_funzioni_strumentali != "" || $altri_ruoli_referente != ""){
+            if($altri_ruoli_funzioni_strumentali != "" && $altri_ruoli_referente != ""){
+                if($str_ruolo != "") $str_ruolo .=", "; 
+                $str_ruolo .= "funzione strumentale e referente";
+            } else if($altri_ruoli_funzioni_strumentali != ""){
+                if($str_ruolo != "") $str_ruolo .=" e "; 
+                $str_ruolo .= "funzione strumentale";
+            } else if($altri_ruoli_referente != ""){
+                if($str_ruolo != "") $str_ruolo .=" e "; 
+                $str_ruolo .= "referente";
+            }
+        }
+
+        if($str_ruolo != "")
+            $str_ruolo = ucfirst($str_ruolo);
 
         return $str_ruolo;
 	}
@@ -511,7 +527,7 @@ function dsi_get_post_types_grouped($type = "", $tag = false){
 	if($type == "")
 		$type = "any";
 	if($type === "school")
-		$post_types = array("documento", "luogo", "struttura", "page");
+		$post_types = array("documento", "luogo", "struttura", "page", "amm-trasparente");
 	else if($type === "news")
 		$post_types = array("evento", "post", "circolare");
 	else if($type === "education")
@@ -519,7 +535,7 @@ function dsi_get_post_types_grouped($type = "", $tag = false){
 	else if($type === "service")
 		$post_types = array("servizio", "indirizzo");
 	else
-		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "indirizzo", "struttura", "page"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "indirizzo", "struttura", "page", "amm-trasparente"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
 
 	// rimuovo post types che non hanno la categoria
 	if($tag){
@@ -798,10 +814,10 @@ function dsi_is_scuola($post){
  */
 function dsi_get_current_anno_scolastico($year = true){
     $today_month = date("n");
-    if($today_month < 8){
-        if($year) return date("Y")-1; else return dsi_convert_anno_scuola(date("Y")-1);
+    if($today_month > 6){
+        if($year) return date("Y")-0; else return dsi_convert_anno_scuola(date("Y")-0);
     }else{
-        if($year) return date("Y"); else return dsi_convert_anno_scuola(date("Y"));
+        if($year) return date("Y")-1; else return dsi_convert_anno_scuola(date("Y")-1);
     }
 
 }
