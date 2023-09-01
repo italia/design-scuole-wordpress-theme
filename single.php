@@ -44,6 +44,7 @@ get_header();
                         <div class="card card-avatar card-comments">
                             <div class="card-body p-0">
                                 <?php get_template_part("template-parts/autore/card"); ?>
+				<?php if(dsi_get_option("show_contatore_commenti", "setup") != "false") { ?>    
                                 <?php if ( comments_open() || get_comments_number() ){
                                     ?>
                                     <div class="comments ml-auto">
@@ -51,6 +52,7 @@ get_header();
                                     </div><!-- /comments -->
                                     <?php
                                 } ?>
+				<?php } ?>    
                             </div><!-- /card-body -->
                         </div><!-- /card card-avatar -->
                     </div><!-- /col-md-6 -->
