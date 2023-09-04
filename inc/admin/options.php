@@ -52,16 +52,16 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-	$header_options->add_field( array(
-		'id' => $prefix . 'luogo_scuola',
-		'name'        => __( 'Città *', 'design_scuole_italia' ),
-		'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
-		'type' => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
-
+    $header_options->add_field( array(
+        'id' => $prefix . 'luogo_scuola',
+        'name'        => __( 'Città *', 'design_scuole_italia' ),
+        'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
+        'type' => 'text',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
+    ));
+  
     $header_options->add_field( array(
         'id'    => $prefix . 'stemma_scuola',
         'name' => __('Stemma', 'design_scuole_italia' ),
@@ -1612,8 +1612,8 @@ function dsi_options_assets() {
     $current_screen = get_current_screen();
 
     if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dsi_options') {
-        wp_enqueue_style( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-css/jquery-ui.css' );
-        wp_enqueue_script( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
+        wp_enqueue_style( 'dsi_options_dialog', get_template_directory_uri() . '/inc/admin-css/jquery-ui.css' );
+        wp_enqueue_script( 'dsi_options_dialog', get_template_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
     }
 }
 add_action( 'admin_enqueue_scripts', 'dsi_options_assets' );

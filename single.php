@@ -8,8 +8,10 @@
  */
 global $post, $autore;
 $args = ["post", "evento", "circolare"];
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 get_template_part("template-parts/single/related-posts");
 get_header();
+
 
 ?>
     <main id="main-container" class="main-container greendark">
@@ -20,21 +22,18 @@ get_header();
 		$image_url = get_the_post_thumbnail_url($post, "item-gallery");
 		$autore = get_user_by("ID", $post->post_author);
 		?>
-            <?php if(has_post_thumbnail($post)){ ?>
-            <section class="section bg-white article-title article-title-author">
-
-            <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
-            <?php
-	            $colsize = 6;
-            }else{
-            ?>
-                <section class="section bg-white article-title article-title-small article-title-author">
-		            <?php
-                $colsize = 12;
-            } ?>
+            <?php 
+                if (has_post_thumbnail($post)) { ?>
+                    <section class="section bg-white article-title">
+                        <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
+                        <?php
+                } else { ?>
+                    <section class="section bg-white article-title">
+                        <div class="title-img" style="background-image: url('<?php echo $fallback_image_url; ?>');"></div>
+                <?php } ?>
             <div class="container">
                 <div class="row variable-gutters">
-                    <div class="col-md-<?php echo $colsize; ?> article-title-author-container">
+                    <div class="col-md-6 article-title-author-container">
                         <div class="title-content">
                             <h1><?php the_title(); ?></h1>
                         </div><!-- /title-content -->

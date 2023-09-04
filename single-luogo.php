@@ -11,7 +11,7 @@ $args = ["post", "evento", "circolare"];
 get_template_part("template-parts/single/related-posts");
 $luogo = $post;
 get_header();
-
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
 
@@ -60,19 +60,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         }
         ?>
 
-        <?php if(has_post_thumbnail($post)){ ?>
+        <?php if (has_post_thumbnail($post)) { ?>
         <section class="section bg-white article-title">
             <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
             <?php
-            $colsize = 6;
-            }else{
-            ?>
-            <section class="section bg-white article-title article-title-small">
+            
+            } else { ?>
+        <section class="section bg-white article-title">
+            <div class="title-img" style="background-image: url('<?php echo $fallback_image_url; ?>');"></div>
                 <?php
-                $colsize = 12;
-                } ?>			<div class="container">
+                } 
+                ?>			
+                <div class="container">
                     <div class="row variable-gutters">
-                        <div class="col-md-<?php echo $colsize; ?>">
+                        <div class="col-md-6">
                             <div class="title-content">
                                 <h1><?php the_title(); ?></h1>
                                 <p class="mb-0"><?php echo $descrizione_breve; ?></p>

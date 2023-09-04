@@ -13,6 +13,6 @@ global $post, $licenza;
         if(trim($licenza)!= "")
             echo $licenza;
         else
-            _e("Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia.", "design_scuole_italia"); ?></p>
+            _e("Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 4.0 Italia.", "design_scuole_italia"); ?></p>
 </div><!-- /article-footer -->
 

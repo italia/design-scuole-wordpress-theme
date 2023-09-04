@@ -7,7 +7,7 @@ function dsi_register_struttura_post_type() {
 
     /** struttura **/
     $labels = array(
-        'name'          => _x( 'Strutture', 'Post Type General Name', 'design_scuole_italia' ),
+        'name'          => _x( 'Organizzazione', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name' => _x( 'Struttura', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'       => _x( 'Aggiungi Struttura Organizzativa', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new_item'  => _x( 'Aggiungi la Struttura Organizzativa', 'Post Type Singular Name', 'design_scuole_italia' ),
@@ -456,5 +456,6 @@ add_action( 'admin_print_scripts-post.php', 'dsi_struttura_admin_script', 11 );
 function dsi_struttura_admin_script() {
     global $post_type;
     if( 'struttura' == $post_type )
-        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/struttura.js' );
+        wp_enqueue_script( 'struttura-admin-script', get_template_directory_uri() . '/inc/admin-js/struttura.js' );
+}
 }
