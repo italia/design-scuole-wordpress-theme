@@ -12,7 +12,8 @@ require "vendor/cmb-field-select2-master/cmb-field-select2.php";
 
 
 function dsi_get_user_options( $query_args = false) {
-
+	if(!is_array($query_args)) $query_args = [];
+	
 	if(!$query_args)
 		$query_args['fields'] = array( 'ID', 'display_name' );
 
