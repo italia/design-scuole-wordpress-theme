@@ -4,6 +4,8 @@
 
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
+$giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
+$data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
 
 $ct=0;
 $column = 1;
@@ -16,17 +18,14 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     <div class="row variable-gutters">
     <?php
     foreach ( $tipologie_notizie as $id_tipologia_notizia ) {
-        if($ct >= $column)
-            break;
 
         $tipologia_notizia = get_term_by("id", $id_tipologia_notizia, "tipologia-articolo");
+    
         if($tipologia_notizia) {
             // se è selezionata solo una tipologia, pesco 2 elementi
             $ppp=1;
-            if((count($tipologie_notizie) == 1) && ($home_show_events == "false")){
+            if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                 $ppp=2;
-                echo '<div class="row variable-gutters">';
-            }
             $args = array('post_type' => 'post',
                     'posts_per_page' => $ppp,
                     'tax_query' => array(
@@ -35,8 +34,23 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                             'field' => 'term_id',
                             'terms' => $tipologia_notizia->term_id,
                         ),
-                    ),
-                );
+                	),
+            );
+        
+        	if($giorni_per_filtro != "" || $giorni_per_filtro > 0) {
+            	$filter = array(
+                		'date_query' => array(
+            				array(
+								'after' => '-'. $giorni_per_filtro . ' day',
+                				'inclusive' => true,
+            				),
+            			),
+        		);
+            
+				$args = array_merge($args,$filter);
+            	
+            }
+        
             $posts = get_posts($args);
 
             $lg = 4;
@@ -50,6 +64,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 </div><!-- /title-section -->
 
                 <?php
+                if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
+                    echo '<div class="row variable-gutters">';
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
                         echo '<div class="col-lg-6 mb-2">';
