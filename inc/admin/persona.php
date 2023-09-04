@@ -128,7 +128,8 @@ function dsi_add_persone_metaboxes() {
 		'new_user_section' => 'add-new-user',
         //'new_user_section' => 'add-existing-user',
         // where form will show on new user page. 'add-existing-user' is only other valid option.
-		'priority'     => 'hight',
+        'context'      => 'normal',
+		'priority'     => 'high',
 	) );
 
 	$cmb_user->add_field( array(
@@ -277,19 +278,33 @@ function dsi_add_persone_metaboxes() {
 	) );
 
 	$cmb_user->add_field( array(
+		'id' => $prefix . 'altri_ruoli_struttura_responsabile',
+		'name'    => __( 'Altri ruoli - Responsabile strutture organizzative ', 'design_scuole_italia' ),
+		'desc' => __( 'Altre strutture organizzative di cui è responsabile (Es. consiglio di istituto). Seleziona una struttura organizzativa. Se non la trovi inseriscila <a href="post-new.php?post_type=struttura">cliccando qui</a> ' , 'design_scuole_italia' ),
+		'type'    => 'pw_multiselect',
+    	'options' => dsi_get_strutture_options(),
+            'attributes' => array(
+                'placeholder' =>  __( 'Seleziona una o più strutture', 'design_scuole_italia' ),
+            ),
+	) );
+
+
+	$cmb_user->add_field( array(
 		'id' => $prefix . 'altri_ruoli_struttura',
-		'name'    => __( 'Altri ruoli - strutture organizzative ', 'design_scuole_italia' ),
-		'desc' => __( 'Altre strutture organizzative di cui fa parte (Es consiglio di istituto). Seleziona una struttura organizzativa. Se non la trovi inseriscila <a href="post-new.php?post_type=struttura">cliccando qui</a> ' , 'design_scuole_italia' ),
-		'type'    => 'custom_attached_posts',
-		'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-		'options' => array(
-			'show_thumbnails' => false, // Show thumbnails on the left
-			'filter_boxes'    => true, // Show a text box for filtering the results
-			'query_args'      => array(
-				'posts_per_page' => 10,
-				'post_type'      => 'struttura',
-			), // override the get_posts args
-		),
+		'name'    => __( 'Altri ruoli - Componente strutture organizzative ', 'design_scuole_italia' ),
+		'desc' => __( 'Altre strutture organizzative di cui fa parte (Es. consiglio di istituto). Seleziona una struttura organizzativa. Se non la trovi inseriscila <a href="post-new.php?post_type=struttura">cliccando qui</a> ' , 'design_scuole_italia' ),
+		'type'    => 'pw_multiselect',
+   		'options' => dsi_get_strutture_options(),
+            'attributes' => array(
+                'placeholder' =>  __( 'Seleziona una o più strutture', 'design_scuole_italia' ),
+            ),
+	) );
+
+	$cmb_user->add_field( array(
+		'name'    => __( 'Funzioni strumentali', 'design_scuole_italia' ),
+		'desc'    => __( 'Definisci qui altre funzioni strumentali attribuite', 'design_scuole_italia' ),
+		'id'      => $prefix . 'altri_ruoli_funzioni_strumentali',
+		'type'    => 'textarea',
         'attributes'    => array(
             'data-conditional-id'     => $prefix . 'ruolo_scuola',
             'data-conditional-value'  => wp_json_encode(array('docente','personaleata'))
@@ -297,8 +312,19 @@ function dsi_add_persone_metaboxes() {
 	) );
 
 	$cmb_user->add_field( array(
-		'name'    => __( 'Altri ruoli - funzioni strumentali ', 'design_scuole_italia' ),
-		'desc'    => __( 'Definisci qui altre funzioni strumentali attribuite ', 'design_scuole_italia' ),
+		'name'    => __( 'Altri ruoli di referente', 'design_scuole_italia' ),
+		'desc'    => __( 'Definisci qui ruoli di referente attribuiti (dove non sono previste strutture o funzioni strumentali) ', 'design_scuole_italia' ),
+		'id'      => $prefix . 'altri_ruoli_referente',
+		'type'    => 'textarea',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix . 'ruolo_scuola',
+            'data-conditional-value'  => wp_json_encode(array('docente','personaleata'))
+        ),
+	) );
+
+	$cmb_user->add_field( array(
+		'name'    => __( 'Altri ruoli', 'design_scuole_italia' ),
+		'desc'    => __( 'Definisci qui altri ruoli (per componenti strutture, funzioni strumentali o referenti riferirsi agli altri campi previsti) ', 'design_scuole_italia' ),
 		'id'      => $prefix . 'altri_ruoli',
 		'type'    => 'textarea',
         'attributes'    => array(
@@ -384,6 +410,15 @@ function dsi_get_cmb2_user( $query_args ) {
 	return $user_options;
 }
 
+// relazione bidirezionale persona /  struttura responsabile
+new dsi_bidirectional_cmb2_from_usermeta("_dsi_persona_", "altri_ruoli_struttura_responsabile", "persona_box", "_dsi_struttura_responsabile");
+
+// relazione bidirezionale persona /  struttura componente
+new dsi_bidirectional_cmb2_from_usermeta("_dsi_persona_", "altri_ruoli_struttura", "persona_box", "_dsi_struttura_persone");
+
+
+
+
 
 /**
  * aggiungo js per condizionale parent
@@ -393,5 +428,5 @@ add_action( 'admin_print_scripts-user-new.php', 'dsi_utente_admin_script', 11 );
 add_action( 'admin_print_scripts-profile.php', 'dsi_utente_admin_script', 11 );
 
 function dsi_utente_admin_script() {
-		wp_enqueue_script( 'utente-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/persona.js' );
+		wp_enqueue_script( 'utente-admin-script', get_template_directory_uri() . '/inc/admin-js/persona.js' );
 }

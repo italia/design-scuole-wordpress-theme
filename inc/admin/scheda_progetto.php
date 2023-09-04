@@ -487,5 +487,5 @@ add_action( 'admin_print_scripts-post.php', 'dsi_progetto_admin_script', 11 );
 function dsi_progetto_admin_script() {
     global $post_type;
     if( 'scheda_progetto' == $post_type )
-        wp_enqueue_script( 'progetto-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/progetto.js' );
+        wp_enqueue_script( 'progetto-admin-script', get_template_directory_uri() . '/inc/admin-js/progetto.js' );
 }
