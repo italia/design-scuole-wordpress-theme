@@ -19,9 +19,9 @@
       <div class="loop__news__card__content">
         <a class="loop__news__card__content__image" href="<?php the_permalink(); ?>">
           <?php if( !empty(get_the_post_thumbnail()) ) { ?>
-            <?php the_post_thumbnail('article-simple-thumb');?>
+            <?php the_post_thumbnail('item-gallery');?>
             <?php } else { ?>
-                <img class="loop__news__card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>"/>
+                <img class="object-fit-cover loop__news__card__content__image__placeholder" src="<?php echo get_template_directory_uri() . '/assets/images_martini/logo-custom.png'; ?>"/>
           <?php } ?>
         </a>
 
