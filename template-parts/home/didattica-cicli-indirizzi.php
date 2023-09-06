@@ -23,13 +23,6 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/didattica-mockup.png">
                     </div>
                     <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
-                        <ul>
-                            <?php
-                        </div><!-- /title-section -->
-                        <div class="tabs-img">
-                            <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/didattica-mockup.png" alt="Immagine d'esempio di una scheda didattica">
-                        </div>
-                        <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
                             <ul>
                                 <?php
                             foreach ($indirizzi_didattica as $slugindirizzo){
