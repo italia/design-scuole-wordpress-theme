@@ -17,7 +17,9 @@
         <div id="nostro-istituto">
 
           <h2>Il nostro istituto</h2>
-          <p>L’istituto Martino Martini è una scuola secondaria di 2° grado nel comune di Mezzolombardo, facilmente raggiungibile con i mezzi di trasporto. Nell’istituto sono presenti 8 indirizzi, 4 di ambito liceale e 4 di ambito tecnico. Gli indirizzi liceali sono: il liceo scientifico opzione scienze applicate, il liceo scientifico sportivo, il liceo scientifico internazionale quadriennale e il liceo delle scienze umane opzione socio-economica. Gli indirizzi tecnici sono: l'istituto economico opzione amministrazione finanza e marketing, l’istituto economico internazionale sportivo, l’istituto tecnologico opzione trasporti e logistica e l’istituto tecnologico conduzione del mezzo aereo. Per tutti gli indirizzi l’orario delle lezioni è su cinque giorni (lunedì-venerdì) con la mensa nei giorni con lezioni pomeridiane. Le aule e i laboratori sono dislocati su due sedi: la sede di via Perlasca, di più recente costruzione, e l’edificio storico di via Filzi.
+          <p>L’istituto Martino Martini è una scuola secondaria di 2° grado situata a Mezzolombardo, facilmente raggiungibile con i mezzi. Nell’istituto sono presenti <strong>8 indirizzi, 4 liceali e 4 tecnici.</strong> Gli indirizzi liceali sono: lo scientifico opzione <strong>scienze applicate</strong>, lo scientifico <strong>sportivo</strong>, lo scientifico internazionale <strong>quadriennale</strong> e il liceo delle <strong>scienze umane</strong> opzione socio-economica. Gli indirizzi tecnici sono: l'istituto economico opzione <strong>amministrazione finanza e marketing</strong>, l’istituto economico <strong>internazionale sportivo</strong>, l’istituto tecnologico opzione <strong>trasporti e logistica</strong> e opzione <strong>conduzione del mezzo aereo</strong>. L’orario delle lezioni è su <strong>cinque giorni</strong> (lu-ve) con la <strong>mensa</strong>. Le classi sono dislocate su due sedi: la recente sede di via Perlasca e l’edificio storico di via Filzi.
+
+            Grazie ai diversi indirizzi di studio, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto ha fatto propria un’idea di scuola i cui valori si fondano su <strong>flessibilità, innovazione e personalizzazione</strong>. Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni, sia di natura tecnologica che metodologica, i docenti lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione, accettando la difficile sfida del successo formativo di tutti gli studenti.L’obiettivo è offrire ai ragazzi un ambiente di apprendimento <strong>sereno e motivante</strong>, ma nel contempo <strong>attento alla costruzione di competenze solide</strong>, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
           </p>
 
         </div>
@@ -211,7 +213,7 @@
 
       <div class="row">
 
-        <div id="storia-img" class="col-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-2">
+        <div id="storia-img" class="d-lg-block d-none col-lg-5 col-12 mb-3 mb-lg-0 order-lg-2 offset-lg-2">
 
           <img class="w-100" src="/wp-content/uploads/2023/05/Portrait_of_Martino_Martini_by_Michaelina_Wautier-1-scaled.jpg" alt="">
 
