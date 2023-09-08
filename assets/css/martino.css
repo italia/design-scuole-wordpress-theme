@@ -1554,6 +1554,8 @@ label > span {
 }
 
 .loop__news__card__content__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
   max-height: 200px;
   max-width: 100%;
 }

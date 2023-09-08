@@ -9,7 +9,7 @@
  * @package Design_Scuole_Italia
  */
 ?>
-<footer id="footer--wrapper" class="footer--wrapper">
+<footer id="footer--wrapper" class="footer--wrapper pt-3">
 
     <?php
         get_template_part("martini-template-parts/footer-logos")
@@ -34,6 +34,7 @@
                         </a>
                     </h2>
                 </div><!-- /logo-footer -->
+                <img src="https://www.martinomartini.eu/wp-content/uploads/2023/09/logo_mm_footer.png" alt="">
             </section>
             <section>
                 <div class="footer-info">
@@ -41,6 +42,8 @@
                         $gmaps_scuola = dsi_get_option("gmaps_scuola");
                         $indirizzo_scuola = dsi_get_option("indirizzo_scuola");
                         $telefono_scuola = dsi_get_option("telefono_scuola");
+                        $email_scuola = dsi_get_option("email_scuola");
+                        $pec_scuola = dsi_get_option("pec_scuola");
                         $fax_scuola = dsi_get_option("fax_scuola");
                         $fiscale_scuola = dsi_get_option("fiscale_scuola");
                         $iban_scuola = dsi_get_option("iban_scuola");
@@ -52,6 +55,12 @@
                         if (is_string($telefono_scuola)) { ?>
                             <div><a data-prefix="Tel.:" href="tel:<?php echo $telefono_scuola; ?>"><?php echo $telefono_scuola; ?></a></div>
                         <?php } 
+                        if (is_string($email_scuola)) { ?>
+                            <div><a data-prefix="email.:" href="mailto:<?php echo $email_scuola; ?>"><?php echo $email_scuola; ?></a></div>
+                        <?php }
+                        if (is_string($pec_scuola)) { ?>
+                            <div><a data-prefix="PEC.:" href="mailto:<?php echo $pec_scuola; ?>"><?php echo $pec_scuola; ?></a></div>
+                        <?php }
                         if (is_string($fax_scuola)) { ?>
                             <div><a data-prefix="Fax:" href="fax:<?php echo $fax_scuola; ?>"><?php echo $fax_scuola; ?></a></div>
                         <?php } 

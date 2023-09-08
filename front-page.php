@@ -18,8 +18,6 @@
 
           <h2>Il nostro istituto</h2>
           <p>L’istituto Martino Martini è una scuola secondaria di 2° grado situata a Mezzolombardo, facilmente raggiungibile con i mezzi. Nell’istituto sono presenti <strong>8 indirizzi, 4 liceali e 4 tecnici.</strong> Gli indirizzi liceali sono: lo scientifico opzione <strong>scienze applicate</strong>, lo scientifico <strong>sportivo</strong>, lo scientifico internazionale <strong>quadriennale</strong> e il liceo delle <strong>scienze umane</strong> opzione socio-economica. Gli indirizzi tecnici sono: l'istituto economico opzione <strong>amministrazione finanza e marketing</strong>, l’istituto economico <strong>internazionale sportivo</strong>, l’istituto tecnologico opzione <strong>trasporti e logistica</strong> e opzione <strong>conduzione del mezzo aereo</strong>. L’orario delle lezioni è su <strong>cinque giorni</strong> (lu-ve) con la <strong>mensa</strong>. Le classi sono dislocate su due sedi: la recente sede di via Perlasca e l’edificio storico di via Filzi.
-
-            Grazie ai diversi indirizzi di studio, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto ha fatto propria un’idea di scuola i cui valori si fondano su <strong>flessibilità, innovazione e personalizzazione</strong>. Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni, sia di natura tecnologica che metodologica, i docenti lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione, accettando la difficile sfida del successo formativo di tutti gli studenti.L’obiettivo è offrire ai ragazzi un ambiente di apprendimento <strong>sereno e motivante</strong>, ma nel contempo <strong>attento alla costruzione di competenze solide</strong>, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
           </p>
 
         </div>
@@ -28,9 +26,7 @@
         <div id="mission-vision">
 
           <h3>La scuola secondo noi</h3>
-          <p>Grazie alla pluralità di indirizzi di studio che caratterizzano la nostra offerta formativa, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto Martino Martini ha fatto propria un’idea di scuola i cui valori si fondano sulla flessibilità, sull’innovazione e sulla personalizzazione. Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni in campo didattico, sia di natura tecnologica che metodologica, i docenti del Martini lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione dei ragazzi, accettando la difficile sfida del successo formativo di tutti gli studenti.L’idea di fondo è quella di offrire ai ragazzi un ambiente di apprendimento sereno e motivante, ma nel contempo attento alla costruzione di competenze solide, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.
-
-          </p>
+          <p>Grazie ai diversi indirizzi di studio, ciascuno dei quali offre alla comunità scolastica nuovi stimoli ed opportunità, l’Istituto ha fatto propria un’idea di scuola i cui valori si fondano su <strong>flessibilità, innovazione e personalizzazione</strong>. Attenti a cogliere le opportunità di miglioramento offerte dalle innovazioni, sia di natura tecnologica che metodologica, i docenti lavorano collegialmente da anni sulle tematiche dell’accoglienza e dell’inclusione, accettando la difficile sfida del successo formativo di tutti gli studenti.L’obiettivo è offrire ai ragazzi un ambiente di apprendimento <strong>sereno e motivante</strong>, ma nel contempo <strong>attento alla costruzione di competenze solide</strong>, indispensabili per il progetto di vita post-diploma e spendibili sia in ambito lavorativo che universitario.</p>
 
         </div>
         <!--#mission-vision -->
