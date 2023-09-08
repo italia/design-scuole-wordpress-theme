@@ -107,6 +107,28 @@ function dsi_register_main_options_metabox() {
         ),
 	) );
 
+    $header_options->add_field( array(
+		'id' => $prefix . 'email_scuola',
+        'default' => 'segr.martini.mezzolombardo@scuole.provincia.tn.it',
+		'name'        => __( 'Email', 'design_scuole_italia' ),
+		'desc' => __( 'email' , 'design_scuole_italia' ),
+		'type' => 'text',
+        'attributes' => array(
+            'type' => 'email',
+        ),
+	) );
+
+    $header_options->add_field( array(
+		'id' => $prefix . 'pec_scuola',
+        'default' => 'martini@pec.provincia.tn.it ',
+		'name'        => __( 'PEC', 'design_scuole_italia' ),
+		'desc' => __( 'pec' , 'design_scuole_italia' ),
+		'type' => 'text',
+        'attributes' => array(
+            'type' => 'pec',
+        ),
+	) );
+
 	$header_options->add_field( array(
 		'id' => $prefix . 'fax_scuola',
         'default' => '0461601470',
