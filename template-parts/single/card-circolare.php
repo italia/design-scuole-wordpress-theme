@@ -1,7 +1,6 @@
 <?php
 global $post;
 $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $post->ID);
-$setup_circolare = dsi_get_option("setup_circolari", "setup");
 $accesso_circolare = circolare_access($post->ID);
 ?>
 
