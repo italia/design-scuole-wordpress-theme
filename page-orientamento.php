@@ -72,7 +72,7 @@
         <div class="row">
             <div class="col-12 col-md-10 referente">
                 <h3 class="mb-4 referente__title">Referente Orientamento</h3>
-                <p>Per l’anno scolastico in corso, il referente dell’orientamento terze medie è la prof.ssa Marta Leoni: <a href="mailto:marta.leoni@martinomartini.eu" target="_blank"> marta.leoni@martinomartini.eu </a></p>
+                <p>Per l’anno scolastico in corso, il referente dell’orientamento terze medie è la prof.ssa Agnese Astuti: <a href="mailto:agnese.astuti@martinomartini.eu" target="_blank"> agnese.astuti@martinomartini.eu </a></p>
                 <p>La sua funzione consiste: <span id="dots"> ...</span></p>
                 <ul id="more" class="referente__list">
                     <li class="referente__list__item">nel programmare le varie attività di orientamento a favore degli studenti di terza media e dei loro genitori che li accompagnano in questo delicato passaggio del loro percorso formativo;</li>
