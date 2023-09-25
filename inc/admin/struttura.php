@@ -458,4 +458,3 @@ function dsi_struttura_admin_script() {
     if( 'struttura' == $post_type )
         wp_enqueue_script( 'struttura-admin-script', get_template_directory_uri() . '/inc/admin-js/struttura.js' );
 }
-}
