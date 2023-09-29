@@ -60,7 +60,7 @@
                     <p class="mb-4">Ecco qua la nostra Videoteca.</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-end">
-                    <a class="btn-lg-default" href="/servizi/orientamento/videoteca/" target="blank">
+                    <a class="btn-lg-default" href="https://www.martinomartini.eu/wp-content/uploads/2023/09/Calendario-Open-Days-2324.pdf" target="blank">
                         <button class="w-auto">Vedi tutti i video</button>
                     </a>
                 </div>
