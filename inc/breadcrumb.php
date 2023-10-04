@@ -336,55 +336,55 @@ class Breadcrumb_Trail {
 					case 'post':
 					case 'circolare':
 					case 'evento':
-						$this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+						$this->items[] =  "<a href='".home_url("index.php/novita")."'>".__("Novità", "design_scuole_italia")."</a>";
 						break;
 					case 'scheda_didattica':
 					case 'scheda_progetto':
 					case 'evento':
-						$this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
+						$this->items[] =  "<a href='".home_url("index.php/didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
 						break;
 					case 'luogo':
 					case 'documento':
 					case 'struttura':
-						$this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+						$this->items[] =  "<a href='".home_url("index.php/la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 						break;
 					case 'indirizzo':
-						$this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
+						$this->items[] =  "<a href='".home_url("index.php/servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
 				}
 				$this->add_singular_items();
 			} else if ( is_archive() ) { // If viewing an archive page.
 
 				// @todo: rendere dinamiche le url del breadcrumb in base al template di pagina
                 if( is_post_type_archive( array("luogo", "documento","struttura") ) ) {
-                    $this->items[] =  "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("index.php/la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("indirizzo") ) ) {
-                    $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("index.php/servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
 					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("circolare", "evento") ) ) {
-                    $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("index.php/novita")."'>".__("Novità", "design_scuole_italia")."</a>";
 					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("scheda_didattica", "scheda_progetto") ) ) {
-                    $this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("index.php/didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
                     $this->add_post_type_archive_items();
 				} else if(is_post_type_archive(array("servizio"))){
-                    $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
+                    $this->items[] =  "<a href='".home_url("index.php/servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
                     $this->items[] =  __("Tutti i Servizi", "design_scuole_italia");
                 } else if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
                 } else if ( is_category() || is_tag() || is_tax() ) {
                     if( is_tax( array("tipologia-articolo", "tipologia-evento", "tipologia-circolare") ) ) {
-                        $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+                        $this->items[] =  "<a href='".home_url("index.php/novita")."'>".__("Novità", "design_scuole_italia")."</a>";
 					}
 					else if (is_tax(array("tipologia-struttura","tipologia-documento","tipologia-luogo"))){
-						$this->items[] = "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+						$this->items[] = "<a href='".home_url("index.php/la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
 					}
 					else if (is_tax(array("tipologia-progetto"))){
-						$this->items[] = "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
+						$this->items[] = "<a href='".home_url("index.php/didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
 					}
 					else if (is_tax(array("percorsi-di-studio"))){
-						$this->items[] = "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
-						$this->items[] = "<a href='".home_url("indirizzo-di-studio")."'>".__("Indirizzi di studio", "design_scuole_italia")."</a>";
+						$this->items[] = "<a href='".home_url("index.php/servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
+						$this->items[] = "<a href='".home_url("index.php/indirizzo-di-studio")."'>".__("Indirizzi di studio", "design_scuole_italia")."</a>";
 					}
                     $this->add_term_archive_items();
                 } else if ( is_author() ) {
