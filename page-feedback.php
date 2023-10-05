@@ -2,7 +2,7 @@
 ?>
 <main class="py-5">
     <div class="container py-5">
-        <h1 data-element="legal-notes-section" class="h1 py-3">
+        <h1 data-element="legal-notes-section" class="h1 py-3" style="color: #1260A4;">
             Feedback
         </h1>
         <p data-element="legal-notes-body">
