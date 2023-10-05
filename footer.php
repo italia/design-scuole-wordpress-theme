@@ -163,7 +163,7 @@
                     <a href="https://form.agid.gov.it/view/696de8bc-1f82-48a1-9037-d97d9f2d7dab/" data-element="accessibility-link">Dichiarazione di accessibilita</a>
                 </li>
                 <li class="footer-inline-menu col-12 col-md-3">
-                    <a href="https://form.agid.gov.it/view/696de8bc-1f82-48a1-9037-d97d9f2d7dab/" data-element="accessibility-link">Dichiarazione di accessibilita</a>
+                    <a href="/feedback/" data-element="accessibility-link">Feedback</a>
                 </li>
             </div>
         </div>
