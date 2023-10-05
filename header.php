@@ -319,6 +319,7 @@ $theme_locations = get_nav_menu_locations();
                         <div class="header-search d-flex align-items-center">
                             <button type="button" class="d-flex align-items-center search-btn" data-toggle="modal" data-target="#search-modal" aria-label="Cerca nel sito" data-element="search-modal-button">
                                 <!-- <span class="d-none d-lg-block mr-2"><strong>Cerca</strong></span> -->
+                                <input data-element="search-modal-input" placeholder="Cerca servizi, notizie o documenti" class="d-none">
                                 <svg class="svg-search">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-search"></use>
                                 </svg>
