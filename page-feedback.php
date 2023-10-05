@@ -2,11 +2,12 @@
 ?>
 <main class="py-5">
     <div class="container py-5">
-        <h1 data-element="legal-notes-section" class="h1 py-3">
+        <h1 data-element="legal-notes-section" class="h1 py-3" style="color: #1260A4;">
             Feedback
         </h1>
         <p data-element="legal-notes-body">
-            Per inviare segnalazioni su casi di mancata conformità ai requisiti di accessibilità scrivere alla casella di posta elettronica martini@pec.provincia.tn.it
+            Per inviare segnalazioni su casi di mancata conformità ai requisiti di accessibilità scrivere alla casella di posta elettronica 
+            <a href="mailto:martini@pec.provincia.tn.it" target="_blank">martini@pec.provincia.tn.it</a>
 
         </p>
         <p>
