@@ -2,7 +2,7 @@
 ?>
 <main class="main-container py-5">
     <div class="container py-5">
-        <h1 data-element="legal-notes-section">
+        <h1 data-element="legal-notes-section" class="h1 py-3">
             Licenza dei contenuti
         </h1>
         <p data-element="legal-notes-body">
