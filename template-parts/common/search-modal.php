@@ -85,7 +85,7 @@
                             <div class="col-lg-5">
                                 <div class="searches-list-wrapper">
                                 <div class="h4">Ricerche frequenti</div>
-                                <ul class="searches-list">
+                                <ul class="searches-list" data-element="all-topics">
                                     <?php
                                     $popular_posts = new WP_Query( array(
                                         'post_type'     => ['circolare','documento','evento','incarico','indirizzo', 'luogo', 'post','scheda_didattica','scheda_progetto','servizio','struttura'], 
