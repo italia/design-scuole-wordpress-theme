@@ -178,7 +178,7 @@
                     "menu_class" => "footer-inline-menu",
                     "container" => "",
                     "item" => 'privacy-policy',
-                    'walker' => new Footer_Privacy_Walker()
+                    'walker' => new Footer_Menu_Walker()
                 ));
             }
             ?>

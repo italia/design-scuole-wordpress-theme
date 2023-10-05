@@ -15,7 +15,7 @@
  * @see Walker
  */
 
-class Header_Menu_Walker extends Walker_Nav_Menu {
+class Mobile_Header_Menu_Walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		$output .= "<li>";
 		$custom_data = '';
@@ -29,15 +29,15 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 
 		if($custom_data) {
 			if ($item->url) {
-				$output .= '<a class="list-item" href="' . $item->url . '" '.$custom_data.'>';
+				$output .= '<a href="' . $item->url . '" '.$custom_data.'>';
 			} else {
-				$output .= '<a class="list-item" href="#" '.$custom_data.'>';
+				$output .= '<a href="#" '.$custom_data.'>';
 			}
 		} else {
 			if ($item->url) {
-				$output .= '<a class="list-item" href="' . $item->url . '">';
+				$output .= '<a href="' . $item->url . '">';
 			} else {
-				$output .= '<a class="list-item" href="#">';
+				$output .= '<ahref="#">';
 			}
 		}
  

@@ -90,7 +90,7 @@ $theme_locations = get_nav_menu_locations();
                                         ?>
                                         <li class="text-redbrown menu-dropdown-simple-wrapper">
                                             <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'school' ? 'active' : '' ?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown1" title="Vai alla pagina: <?php _e("Scuola", "design_scuole_italia"); ?>"><?php _e("Scuola", "design_scuole_italia"); ?></a>
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap, "depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "items_wrap" => $items_wrap, "depth" => 1, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Mobile_Header_Menu_Walker())) ?>
                                         </li>
                                     <?php
                                     }
@@ -112,7 +112,7 @@ $theme_locations = get_nav_menu_locations();
                                         ?>
                                         <li class="text-purplelight menu-dropdown-simple-wrapper">
                                             <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'service' ? 'active' : '' ?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown2" title="Vai alla pagina: <?php _e("Servizi", "design_scuole_italia"); ?>"><?php _e("Servizi", "design_scuole_italia"); ?></a>
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Mobile_Header_Menu_Walker())) ?>
                                         </li>
                                     <?php
 
@@ -141,7 +141,7 @@ $theme_locations = get_nav_menu_locations();
                                                 "items_wrap" => $items_wrap, 
                                                 "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", 
                                                 "container" => "", 
-                                                "walker" => new Header_Mobile_Menu()
+                                                "walker" => new Mobile_Header_Menu_Walker()
                                                 )) ?>
                                         </li>
                                     <?php
@@ -164,7 +164,7 @@ $theme_locations = get_nav_menu_locations();
                                         ?>
                                         <li class="text-bluelectric menu-dropdown-simple-wrapper">
                                             <a class="toggle-dropdown toggle-dropdown-simple <?php echo $active_page == 'education' ? 'active' : '' ?>" role="button" href="#" aria-expanded="false" id="mainNavDropdown4" title="Vai alla pagina: <?php _e("Didattica", "design_scuole_italia"); ?>"><?php _e("Didattica", "design_scuole_italia"); ?></a>
-                                            <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Header_Mobile_Menu())) ?>
+                                            <?php wp_nav_menu(array("menu" => $menu_obj, "depth" => 1, "items_wrap" => $items_wrap, "menu_class" => "menu-dropdown dl-submenu menu-dropdown-simple", "container" => "", "walker" => new Mobile_Header_Menu_Walker())) ?>
                                         </li>
                                     <?php
                                     }
