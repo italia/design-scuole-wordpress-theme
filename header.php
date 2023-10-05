@@ -11,7 +11,7 @@
  */
 
 /** Header_Mobile_Menu class */
-require_once get_template_directory() . '/walkers/class-header-walker-nav-menu.php';
+require_once get_template_directory() . '/walkers/mobile-header-walker.php';
 
 $theme_locations = get_nav_menu_locations();
 ?>
