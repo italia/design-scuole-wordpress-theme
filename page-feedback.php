@@ -6,7 +6,8 @@
             Feedback
         </h1>
         <p data-element="legal-notes-body">
-            Per inviare segnalazioni su casi di mancata conformità ai requisiti di accessibilità scrivere alla casella di posta elettronica martini@pec.provincia.tn.it
+            Per inviare segnalazioni su casi di mancata conformità ai requisiti di accessibilità scrivere alla casella di posta elettronica 
+            <a href="mailto:martini@pec.provincia.tn.it" target="_blank">martini@pec.provincia.tn.it</a>
 
         </p>
         <p>
