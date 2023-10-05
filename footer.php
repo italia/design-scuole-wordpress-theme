@@ -156,7 +156,7 @@
         <!-- note legali -->
         <div class="py-3">
             <li class="footer-inline-menu">
-                <a href="/page-note-legali.php" data-element="legal-notes">Note legali</a>
+                <a href="/note-legali/" data-element="legal-notes" class="h1 py-3">Note legali</a>
             </li>
         </div>
 
