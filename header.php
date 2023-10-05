@@ -85,7 +85,7 @@ $theme_locations = get_nav_menu_locations();
                                         if($landing_url)
                                             $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                         ?>
                                         <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -107,7 +107,7 @@ $theme_locations = get_nav_menu_locations();
                                         if($landing_url)
                                             $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                         ?>
                                         <li class="text-purplelight menu-dropdown-simple-wrapper">
@@ -130,7 +130,7 @@ $theme_locations = get_nav_menu_locations();
                                         if($landing_url)
                                             $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                         ?>
                                         <li class="text-greendark menu-dropdown-simple-wrapper">
@@ -159,7 +159,7 @@ $theme_locations = get_nav_menu_locations();
                                         if($landing_url)
                                             $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                         ?>
                                         <li class="text-bluelectric menu-dropdown-simple-wrapper">
@@ -214,7 +214,7 @@ $theme_locations = get_nav_menu_locations();
                                     if($landing_url)
                                         $items_wrap = '<ul class="%2$s" data-element="school-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                     <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -240,7 +240,7 @@ $theme_locations = get_nav_menu_locations();
                                     if($landing_url)
                                         $items_wrap = '<ul class="%2$s" data-element="services-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                     <li class="text-purplelight menu-dropdown-simple-wrapper">
@@ -267,7 +267,7 @@ $theme_locations = get_nav_menu_locations();
                                     if($landing_url)
                                         $items_wrap = '<ul class="%2$s" data-element="news-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                     <li class="text-greendark menu-dropdown-simple-wrapper">
@@ -293,7 +293,7 @@ $theme_locations = get_nav_menu_locations();
                                     if($landing_url)
                                         $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="'.$landing_url.'" data-element="overview"></a></div></li>-->%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><li class="menu-title" ><div class="h3"><a href="#" data-element="overview"></a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><li class="menu-title" ><div class="h3 d-none"><a href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                     <li class="text-bluelectric menu-dropdown-simple-wrapper">

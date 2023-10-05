@@ -155,9 +155,17 @@
 
         <!-- note legali -->
         <div class="py-3">
-            <li class="footer-inline-menu">
-                <a href="/note-legali/" data-element="legal-notes">Note legali</a>
-            </li>
+            <div class="row justify-content-between">
+                <li class="footer-inline-menu col-12 col-md-3">
+                    <a href="/note-legali/" data-element="legal-notes">Note legali</a>
+                </li>
+                <li class="footer-inline-menu col-12 col-md-3">
+                    <a href="https://form.agid.gov.it/view/696de8bc-1f82-48a1-9037-d97d9f2d7dab/" data-element="accessibility-link">Dichiarazione di accessibilita</a>
+                </li>
+                <li class="footer-inline-menu col-12 col-md-3">
+                    <a href="https://form.agid.gov.it/view/696de8bc-1f82-48a1-9037-d97d9f2d7dab/" data-element="accessibility-link">Dichiarazione di accessibilita</a>
+                </li>
+            </div>
         </div>
 
         <section class="bottom">
