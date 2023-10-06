@@ -1,9 +1,8 @@
 <?php
 
-/**
- * The template for displaying archive pages
+/* Template Name: MOdulistica
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * modulistica template file
  *
  * @package Design_Scuole_Italia
  */
@@ -43,6 +42,10 @@ get_header();
 
         <?php endwhile; ?>
     </section>
+    <!-- Scheda per controllo crawler -->
+    <div class="container d-none">
+        <?php get_template_part("martini-template-parts/scheda-servizio");?>
+    </div>
 </main>
 
 <?php
