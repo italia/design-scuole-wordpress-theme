@@ -28,7 +28,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         ?>
                     </div><!-- /header post -->
 
-                    <div class="main-content">
+                    <div class="main-content my-3">
                         <?php if ($user_can_view_post) : ?>
                             <article class="article-wrapper pt-lg-3 p-0">
                                 <div class="wysiwig-text text-black">
@@ -79,7 +79,24 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     ?>
                                 </div>
                             </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                            <div class="my-3">
+                                <!-- Scaricabili -->
+                                <?php
+                                $prefix = '_dsi_articolo_';
+                                $scaricabili = get_post_meta(get_the_ID(), $prefix . 'file_documenti', true);
+                                if (is_array($scaricabili) && !empty($scaricabili)) { ?>
+                                    <h5>Scaricabili</h5>
+                                    <ul class="link-list uppercase_text">
+                                        <?php foreach ($scaricabili as $docID => $documenti) { ?>
+                                            <li>
+                                                <a href="<?php echo $documenti; ?>" target=blank> <?php echo get_the_title($docID); ?> </a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                <?php } ?>
+
+                            </div>
                     </div><!-- /row-->
                 </div>
             </div>
