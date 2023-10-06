@@ -8,6 +8,7 @@
        url('../font/italia-icon-font.svg?94539880#italia-icon-font') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 [class^="it-"]:before, [class*=" it-"]:before {
