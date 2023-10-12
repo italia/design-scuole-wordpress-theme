@@ -8,7 +8,7 @@ function dsi_register_evento_post_type() {
 
 	/** evento **/
 	$labels = array(
-		'name'                  => _x( 'Eventi', 'Post Type General Name', 'design_scuole_italia' ),
+		'name'                  => _x( 'Calendario eventi', 'Post Type General Name', 'design_scuole_italia' ),
 		'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
