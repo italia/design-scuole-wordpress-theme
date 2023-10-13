@@ -52,15 +52,114 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-	$header_options->add_field( array(
-		'id' => $prefix . 'luogo_scuola',
-		'name'        => __( 'Città *', 'design_scuole_italia' ),
-		'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
-		'type' => 'text',
-		'attributes'    => array(
-			'required'    => 'required'
-		),
-	) );
+    $header_options->add_field( array(
+        'id' => $prefix . 'luogo_scuola',
+        'name'        => __( 'Città *', 'design_scuole_italia' ),
+        'desc' => __( 'La città dove risiede la Scuola' , 'design_scuole_italia' ),
+        'type' => 'text',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
+    ));
+  
+    $header_options->add_field( array(
+        'id'    => $prefix . 'stemma_scuola',
+        'name' => __('Stemma', 'design_scuole_italia' ),
+        'desc' => __( 'Lo stemma della scuola. Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+
+    $header_options->add_field( array(
+        'id'    => $prefix . 'favicon_scuola',
+        'name' => __('Icona', 'design_scuole_italia' ),
+        'desc' => __( 'L\'immagine da utilizzare come icona (favicon). Si raccomanda di caricare un\'immagine in formato svg' , 'design_scuole_italia' ),
+        'type' => 'file',
+        'query_args'   => array(
+        'type' => array(
+            'image/svg',
+        ))
+    ));
+   
+    /**
+     * Registers options page "Dati fiscali e di contatto".
+     */
+
+     $args = array(
+        'id'           => 'dsi_options_contacts',
+        'title'        => esc_html__( 'Dati fiscali e di contatto', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'contacts',
+        'capability'    => 'manage_options',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Dati fiscali e di contatto', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $contacts_options = new_cmb2_box( $args );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_istruzioni',
+        'name'        => __( 'Dati fiscali e di contatto', 'design_scuole_italia' ),
+        'desc' => __( 'Configura i dati che verranno mostrati nei servizi e nel pié di pagina del sito web.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_indirizzo',
+        'name' => 'Indirizzo',
+        'type' => 'text',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_centralino',
+        'name'        => __( 'Centralino', 'design_comuni_italia' ),
+        'type' => 'text_medium',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_PEO',
+        'name' => 'Posta Elettronica Ordinaria (PEO)',
+        'type' => 'text_email',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_PEC',
+        'name' => 'Posta Elettronica Certificata (PEC)',
+        'type' => 'text_email',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_CF',
+        'name' => 'Codice fiscale',
+        'type' => 'text',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_meccanografico',
+        'name' => 'Codice meccanografico di istituto',
+        'type' => 'text',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_IPA',
+        'name' => 'Codice Indice delle Pubbliche Amministrazioni (IPA)',
+        'type' => 'text',
+    ) );
+
+    $contacts_options->add_field( array(
+        'id' => $prefix . 'contatti_CUF',
+        'name' => 'Codice Unico di Fatturazione (CUF)',
+        'type' => 'text',
+    ) );
 
     /**
      * Registers options page "Alerts".
@@ -453,11 +552,11 @@ function dsi_register_main_options_metabox() {
 	$main_options->add_field( array(
 		'id' => $prefix . 'citazione',
 			'name'        => __( 'Citazione', 'design_scuole_italia' ),
-		'desc' => __( 'Breve (compresa tra 70 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
+		'desc' => __( 'Breve (compresa tra 20 e 140 caratteri spazi inclusi) frase identificativa della missione o della identità dell\'istituto . Es. "Da sempre un punto di riferimento per la formazione degli studenti a Roma" Es. "La scuola è una comunità: costruiamo insieme il futuro". Link alla pagina di presentazione della missione della scuola' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
             'maxlength'  => '140',
-			'minlength'  => '70'
+			'minlength'  => '20'
 		),
 	) );
 
@@ -1364,7 +1463,7 @@ function dsi_register_main_options_metabox() {
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_text',
         'name' => 'Testo Footer',
-        'desc' => __( 'Inserisci nel footer l\'indirizzo, il codice meccanografico, il codice IPA, il codice Fiscale e il CUF ', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci nel footer ulteriori informazioni oltre a dati legali e di contatto', 'design_scuole_italia' ),
         'type' => 'textarea'
     ) );
 
@@ -1513,8 +1612,8 @@ function dsi_options_assets() {
     $current_screen = get_current_screen();
 
     if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dsi_options') {
-        wp_enqueue_style( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-css/jquery-ui.css' );
-        wp_enqueue_script( 'dsi_options_dialog', get_stylesheet_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
+        wp_enqueue_style( 'dsi_options_dialog', get_template_directory_uri() . '/inc/admin-css/jquery-ui.css' );
+        wp_enqueue_script( 'dsi_options_dialog', get_template_directory_uri() . '/inc/admin-js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog'), '1.0', true );
     }
 }
 add_action( 'admin_enqueue_scripts', 'dsi_options_assets' );

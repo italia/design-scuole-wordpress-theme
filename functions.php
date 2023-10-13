@@ -225,7 +225,7 @@ function dsi_scripts() {
 	wp_enqueue_style( 'dsi-splide-min', get_template_directory_uri() . '/assets/css/splide.min.css');
 
 	wp_enqueue_script( 'dsi-modernizr', get_template_directory_uri() . '/assets/js/modernizr.custom.js');
-	
+
 	// print css
     	wp_enqueue_style('dsi-print-style', get_template_directory_uri() . '/print.css', array(),'20190912','print' );
 
@@ -296,6 +296,15 @@ function add_menu_link_class( $atts, $item, $args ) {
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
+function add_file_types_to_uploads($file_types){
+	$new_filetypes = array();
+	$new_filetypes['svg'] = 'image/svg+xml';
+	$new_filetypes['svgz'] = 'image/svg+xml';
+	$file_types = array_merge($file_types, $new_filetypes );
+	return $file_types;
+}
+
+add_action('upload_mimes', 'add_file_types_to_uploads');
 
 /**
  * Consenti ricerca per argomenti/tags con tutti i content types
@@ -311,3 +320,53 @@ function add_tags_to_all_content_types( $query ) {
 }
 
 add_action( 'pre_get_posts', 'add_tags_to_all_content_types' );
+
+// Sistema temporaneamente i breadcrumb per alcune pagine
+function breadcrumb_fix( $string, $arg1 ) {
+
+    $string = str_replace("La Scuola", "Scuola",$string);
+		$string = str_replace("Documenti", "Le carte della scuola",$string);
+		$string = str_replace("Strutture", "Organizzazione",$string);
+		$string = str_replace("?post_type=indirizzo","",$string);
+		$string = str_replace("Indirizzo di Studio", "Indirizzi di studio",$string);
+
+    return $string;
+}
+add_filter( 'breadcrumb_trail', 'breadcrumb_fix', 10, 3);
+
+// Verifica se l'utente è abilitato a vedere il contenuto della circolare
+function circolare_access($post_ID) {
+
+$is_pubblica = dsi_get_meta("is_pubblica");
+$destinatari_circolari =  dsi_get_meta("destinatari_circolari");
+$user = wp_get_current_user();
+$current_user_roles = (array) $user->roles;
+if($destinatari_circolari == "ruolo"){
+	$allowed_roles = dsi_get_meta("ruoli_circolari"); 
+	$c = array_intersect($allowed_roles,$current_user_roles);
+	if (count($c) > 0) {
+	$can_view = "true";
+	} else {
+	$can_view = "false";
+	}
+}
+if($destinatari_circolari == "gruppo"){
+	$users = array();
+	$gruppi_circolari = dsi_get_meta("gruppi_circolari", '', $post->ID);
+	$users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
+	if (in_array($user->ID,$users )) {
+		$can_view = "true";
+	} else {
+		$can_view = "false";
+	}	
+}
+if($destinatari_circolari == "all"){
+	$can_view = "true";
+}
+if ( $is_pubblica == "true" || ($is_pubblica == "false" && is_user_logged_in() &&  $can_view == "true") ){
+	$accesso_circolare = "true";
+	} else {
+	$accesso_circolare = "false";
+}
+return $accesso_circolare;
+}

@@ -44,6 +44,7 @@ get_header();
                             </div>
                         </div>
                         <div class="row variable-gutters">
+                            <?php if(dsi_get_option("show_contatore_commenti", "setup") != "false") { ?>
                             <div class="col-lg-12">
                                 <?php
                                 if ( comments_open() || get_comments_number() ) :
@@ -51,6 +52,7 @@ get_header();
                                 endif;
                                 ?>
                             </div>
+                            <?php } ?>
                         </div>
                         <div class="row variable-gutters">
                             <div class="col-lg-12">

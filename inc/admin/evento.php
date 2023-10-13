@@ -8,7 +8,7 @@ function dsi_register_evento_post_type() {
 
 	/** evento **/
 	$labels = array(
-		'name'                  => _x( 'Eventi', 'Post Type General Name', 'design_scuole_italia' ),
+		'name'                  => _x( 'Calendario eventi', 'Post Type General Name', 'design_scuole_italia' ),
 		'singular_name'         => _x( 'Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'               => _x( 'Aggiungi un Evento', 'Post Type Singular Name', 'design_scuole_italia' ),
@@ -586,5 +586,5 @@ add_action( 'admin_print_scripts-post.php', 'dsi_evento_admin_script', 11 );
 function dsi_evento_admin_script() {
     global $post_type;
     if( 'evento' == $post_type )
-        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/evento.js' );
+        wp_enqueue_script( 'luogo-admin-script', get_template_directory_uri() . '/inc/admin-js/evento.js' );
 }

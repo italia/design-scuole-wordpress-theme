@@ -32,12 +32,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         <?php while ( have_posts() ) :  the_post();
         set_views($post->ID);
             $image_url = get_the_post_thumbnail_url($post, "item-gallery");
+
+            if(!has_post_thumbnail($post)){ 
+                $image_url = get_template_directory_uri() . '/assets/placeholders/placeholder-1280x960.jpg';
+            }
+
             $autore = get_user_by("ID", $post->post_author);
             ?>
 
 
             <section class="section bg-white article-title">
-                <div class="title-img" <?php if(has_post_thumbnail($post)){ ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?>></div>
+                <div class="title-img" <?php if($image_url){ ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?>></div>
                 <div class="container">
                     <div class="row variable-gutters">
                         <div class="col-md-6 d-flex align-items-center">

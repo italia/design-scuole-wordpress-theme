@@ -18,12 +18,11 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         <div class="title-small">
                             <div class="h5"><?php _e("L'Istituto", "design_scuole_italia"); ?></div>
                         <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
-
-                        </div><!-- /title-section -->
-                        <div class="tabs-img">
-                            <img class="img-fluid" src="<?php echo  get_stylesheet_directory_uri(); ?>/assets/img/didattica-mockup.png">
-                        </div>
-                        <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
+                    </div><!-- /title-section -->
+                    <div class="tabs-img">
+                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/didattica-mockup.png">
+                    </div>
+                    <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
                             <ul>
                                 <?php
                             foreach ($indirizzi_didattica as $slugindirizzo){

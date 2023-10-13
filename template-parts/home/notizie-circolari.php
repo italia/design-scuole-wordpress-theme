@@ -23,7 +23,7 @@ if($ct%2)
 					foreach ($posts as $post){ ?>				
 					<li class="splide__slide">
 						<div class="it-single-slide-wrapper h-100">
-							<?php get_template_part("template-parts/single/card", "vertical-thumb"); ?>
+							<?php get_template_part("template-parts/single/card", "vertical-thumb-circolare"); ?>
 						</div>
 					</li>
 					<?php } ?>

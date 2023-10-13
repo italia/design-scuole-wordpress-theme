@@ -10,26 +10,22 @@ global $post, $autore, $luogo, $c, $badgeclass;
 $args = ["post", "evento", "circolare"];
 get_template_part("template-parts/single/related-posts");
 
-// controllo la visibilità della circolare
-$is_pubblica = dsi_get_meta("is_pubblica");
-if($is_pubblica == "false") {
-    if(!is_user_logged_in()){
-        wp_redirect(home_url());
-    }
-}
+$numerazione_circolare = dsi_get_meta("numerazione_circolare");
 
+// verifica se l'utente può vedere il contenuto della circolare
+$accesso_circolare = circolare_access($post->ID);
 
 get_header();
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $file_documenti = dsi_get_meta("file_documenti");
 //$luoghi = dsi_get_meta("luoghi");
 //$persone = dsi_get_meta("persone");
-$numerazione_circolare = dsi_get_meta("numerazione_circolare");
-
-
 ?>
-    <main id="main-container" class="main-container greendark">
-        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+<main id="main-container" class="main-container greendark">
+
+	<?php get_template_part("template-parts/common/breadcrumb"); ?>
+
+	<?php if($accesso_circolare != "false") { ?>
 
         <?php while ( have_posts() ) :  the_post();
         set_views($post->ID);
@@ -41,16 +37,18 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
             <section class="section bg-white py-5">
                 <div class="container border-top">
                     <div class="row variable-gutters">
-
                         <div class="col-lg-9 col-md-8 order-lg-1">
-                            <article class="article-wrapper pt-4">
+						    <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
                                     <div class="col-lg-8 wysiwig-text">
                                         <?php
                                         the_content();
                                         ?>
                                     </div>
-                                </div>
+                                </div>	
+
+								<?php if (!post_password_required()) { ?>
+								
                                 <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) || (is_array($file_documenti) && count($file_documenti)>0)) { ?>
                                     <h2 class="h4 mb-4"><?php _e("Documenti", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
@@ -95,12 +93,13 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                                     }
                                     ?>
                                 <?php } */ ?>
-
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">
                                         <?php get_template_part( "template-parts/single/bottom" ); ?>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
+								
+							<?php } ?>	
                             </article>
                         </div><!-- /col-lg-8 -->
                         <div class="col-lg-3 col-md-4 order-lg-0">
@@ -136,10 +135,28 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
                 </div><!-- /container -->
             </section>
 
-
             <?php get_template_part("template-parts/single/more-posts"); ?>
 
         <?php  	endwhile; // End of the loop. ?>
-    </main><!-- #main -->
+		
+	<?php } else { ?> 
+	
+		<section class="section bg-white py-5">
+                <div class="container">
+                    <div class="row variable-gutters">
+                        <div class="col-lg-9 col-md-8 order-lg-1">
+						    <article class="article-wrapper pt-4">
+                                <div class="row variable-gutters">
+                                    <div class="col-lg-8 wysiwig-text">
+										<p class="article-wrapper">Il contenuto della circolare n.<?php echo $numerazione_circolare?> è riservato.</p>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>	
+				</div>
+		</section>
+	<?php } ?> 
+</main><!-- #main -->
 <?php
 get_footer();

@@ -8,7 +8,7 @@ function dsi_register_circolare_post_type()
 
     /** circolari **/
     $labels = array(
-        'name' => _x('Circolari', 'Post Type General Name', 'design_scuole_italia'),
+        'name' => _x('Le circolari', 'Post Type General Name', 'design_scuole_italia'),
         'singular_name' => _x('Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'add_new' => _x('Aggiungi una Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'add_new_item' => _x('Aggiungi una nuova Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
@@ -486,7 +486,7 @@ add_action( 'admin_print_scripts-post.php', 'dsi_circolare_admin_script', 9 );
 function dsi_circolare_admin_script() {
     global $post_type;
     if( 'circolare' == $post_type )
-        wp_enqueue_script( 'luogo-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/circolare.js' );
+        wp_enqueue_script( 'luogo-admin-script', get_template_directory_uri() . '/inc/admin-js/circolare.js' );
 }
 
 

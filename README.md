@@ -2,11 +2,12 @@
 [![Join the #design siti scuole channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_scuole-blue.svg)](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
 ## **Un sito per le scuole italiane**
-### I primi passi con il tema Wordpress (2.4.0)
+### I primi passi con il tema Wordpress (2.5.1)
 
 **Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modelli/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
 
 ## **Installazione e supporto**
+
 ### **Come scaricare il tema**
 
 Per scaricare il tema hai le seguenti opzioni:
@@ -18,12 +19,28 @@ Per scaricare il tema hai le seguenti opzioni:
 + eseguire il **download**, cliccando prima sul pulsante "Code" e poi sulla voce "Download ZIP" dal menu a tendina 
 ![download-zip](https://user-images.githubusercontent.com/69706/188414872-9a0c33c5-19b1-461a-b577-29cb08723806.png)
 
-Se non conosci il comando `fork` puoi [leggere questa guida](https://docs.github.com/en/get-started/quickstart/fork-a-repo) (disponibile solo in inglese)
+Se non conosci il comando `fork` puoi [leggere questa guida](https://docs.github.com/en/get-started/quickstart/fork-a-repo) (disponibile solo in inglese).
 
 _👉 **Nota bene**: se decidi di scaricare il tema tramite il `fork` non è necessario effettuare le _pull request_ sul repository originale_
 
+### Come inserire il tema all'interno di un'installazione WordPress
+
+Una volta scaricato il repository, inserisci la cartella all'interno del progetto WordPress al seguente percorso `wp-content > themes `.
+
+Successivamente, crea la version _"child"_ del tema duplicando la cartella appena copia e aggiungendo l'estesione `-child`.
+
+Esempio: 
+```
+wp-content > themes > design-scuole-wordpress-theme (tema parent)
+wp-content > themes > design-scuole-wordpress-theme-child (tema child)
+```
+
+> È raccomandata l'installazione del tema come _"child"_ in modo tale da poterlo aggiornare facilmente senza compromettere le personalizzazioni locali. [Vedi la guida ufficiale](https://developer.wordpress.org/themes/advanced-topics/child-themes/#1-create-a-child-theme-folder) su come installare un tema _"child"_.
+
 ### Come aggiornare il tema
-Se hai scaricato il tema tramite il comando **fork** e vuoi aggiornarla all'ultima versione, esegui il comando `git pull` da terminale.
+Le modalità di aggiornamento dipendono dall'opzione scelta per l'installazione:
+- Se hai scaricato il tema tramite il comando **fork**, esegui il comando `git pull` da terminale.
+- Se hai scaricato il file `.zip`, copia la cartella della nuova versione all'interno del percorso `wp-content > themes >design-scuole-wordpress-theme-child ` **(Raccomandato)**  
 
 ### Dipendenze 
 

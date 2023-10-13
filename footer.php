@@ -18,7 +18,7 @@
                     alt="Finanziato dall' Unione Europea - Next generation EU"
                 >
                 <div class="logo-footer">
-                    <?php get_template_part("template-parts/common/logo"); ?>
+                    <?php get_template_part("template-parts/common/logo", null, array( 'ignora_stemma_scuola' => true )); ?>
 
                     <h2 class="h1">
                         <a href="<?php echo home_url(); ?>">
@@ -79,14 +79,62 @@
             </div>
         </div><!-- /row -->
         <?php
-        $footer_text = dsi_get_option("footer_text", "setup");
-        if(isset($footer_text) && trim($footer_text) != "") {
+            $contatti_indirizzo = dsi_get_option("contatti_indirizzo", "contacts");
+            
+            $contatti_centralino = dsi_get_option("contatti_centralino", "contacts");
+            $contatti_PEO = dsi_get_option("contatti_PEO", "contacts");
+            $contatti_PEC = dsi_get_option("contatti_PEC", "contacts");
+
+            $contatti_CF = dsi_get_option("contatti_CF", "contacts");
+            $contatti_meccanografico = dsi_get_option("contatti_meccanografico", "contacts");
+            $contatti_IPA = dsi_get_option("contatti_IPA", "contacts");
+            $contatti_CUF = dsi_get_option("contatti_CUF", "contacts");
+
+            $footer_text = dsi_get_option("footer_text", "setup");
+
+            if($contatti_indirizzo || $contatti_centralino || $contatti_PEO || $contatti_PEC || $contatti_CF || $contatti_meccanografico || $contatti_IPA || $contatti_CUF || (isset($footer_text) && trim($footer_text) != "")) {
             ?>
-            <div class="row variable-gutters mb-3">
-                <div class="col-lg-12 text-left text-md-center footer-text">
-                    <?php echo wpautop($footer_text); ?>
+                <div class="row variable-gutters mb-3">
+                    <div class="col-lg-12 text-left text-md-center footer-text">
+                            
+                            <?php if($contatti_indirizzo) { ?>
+                                Indirizzo: <a class="text-underline-hover" href="https://www.google.com/maps/search/<?php echo $contatti_indirizzo; ?>" title="Visualizza su Google Maps"><?php echo $contatti_indirizzo; ?></a>
+                            <?php } ?>
+                            
+                            <?php if($contatti_centralino || $contatti_PEO || $contatti_PEC) { ?>
+                                <ul class="list-inline">
+                                    <?php if($contatti_centralino) { ?>
+                                        <li class="list-inline-item">Centralino: <a class="text-underline-hover" href="tel:<?php echo str_replace(' ', '', $contatti_centralino); ?>"><?php echo $contatti_centralino; ?></a></li>
+                                    <?php } ?>
+                                    <?php if($contatti_PEO) { ?>
+                                        <li class="list-inline-item">Email: <a class="text-underline-hover" href="mailto:<?php echo str_replace(' ', '', $contatti_PEO); ?>"><?php echo $contatti_PEO; ?></a></li>
+                                    <?php } ?>
+                                    <?php if($contatti_PEC) { ?>
+                                        <li class="list-inline-item">Posta elettronica certificata (PEC): <a class="text-underline-hover" href="mailto:<?php echo str_replace(' ', '', $contatti_PEC); ?>"><?php echo $contatti_PEC; ?></a></li>
+                                    <?php } ?>
+                                </ul>
+                            <?php } ?>
+                            
+                            <?php if($contatti_CF || $contatti_meccanografico || $contatti_IPA || $contatti_CUF) { ?>
+                                <ul class="list-unstyled">
+                                    <?php if($contatti_CF) { ?>
+                                        <li>Codice fiscale: <?php echo $contatti_CF; ?></li>
+                                    <?php } ?>
+                                    <?php if($contatti_meccanografico) { ?>
+                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><?php echo $contatti_meccanografico; ?></a></li>
+                                    <?php } ?>
+                                    <?php if($contatti_IPA) { ?>
+                                        <li>Codice Indice delle Pubbliche Amministrazioni (IPA): <?php echo $contatti_IPA; ?></li>
+                                    <?php } ?>
+                                    <?php if($contatti_CUF) { ?>
+                                        <li>Codice unico di fatturazione (CUF): <?php echo $contatti_CUF; ?></li>
+                                    <?php } ?>
+                                </ul>
+                            <?php } ?>
+                            
+                            <?php echo wpautop($footer_text); ?>
+                    </div>
                 </div>
-            </div>
             <?php
         }
         get_template_part("template-parts/common/copy");

@@ -448,12 +448,22 @@ function dsi_add_indirizzo_metaboxes() {
 
     ) );
 
+    $cmb_undercontent->add_field( array(
+        'id'   => $prefix . 'contatti_dedicati',
+        'name' => __( 'Modalità di contatto', 'design_scuole_italia' ),
+        'desc' => __( 'Sono presenti contatti dedicati per l\'indirizzo di studio. In caso contrario vengono mostrati in automatico i contatti (email e telefono) dell\'ufficio relazioni con il pubblico (URP) inseriti in Configurazione' , 'design_scuole_italia' ),
+        'type' => 'checkbox',
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
-        'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
+        'name'       => __( 'Riferimento email', 'design_scuole_italia' ),
         'desc'       => __( 'Indirizzo di posta elettronica . ', 'design_scuole_italia' ),
         'type'       => 'text_email',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
         /*'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
             'data-conditional-value' => '0',
@@ -466,6 +476,10 @@ function dsi_add_indirizzo_metaboxes() {
         'name'       => __( 'Riferimento telefonico ', 'design_scuole_italia' ),
         'desc'       => __( 'Telefono . ', 'design_scuole_italia' ),
         'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
         /*
         'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
@@ -569,7 +583,7 @@ add_action( 'admin_print_scripts-post.php', 'dsi_indirizzo_admin_script', 11 );
 function dsi_indirizzo_admin_script() {
     global $post_type;
     if( 'indirizzo' == $post_type )
-        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/indirizzo.js' );
+        wp_enqueue_script( 'struttura-admin-script', get_template_directory_uri() . '/inc/admin-js/indirizzo.js' );
 }
 
 if(!function_exists('dsi_percorsi_di_studio_edit_meta_field')) {

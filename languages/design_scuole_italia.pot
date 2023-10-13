@@ -4633,7 +4633,7 @@ msgid "Revisione"
 msgstr ""
 
 #: template-parts/single/bottom.php:16
-msgid "Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 3.0 Italia."
+msgid "Eccetto dove diversamente specificato, questo articolo è stato rilasciato sotto Licenza Creative Commons Attribuzione 4.0 Italia."
 msgstr ""
 
 #: template-parts/single/more-posts.php:40
