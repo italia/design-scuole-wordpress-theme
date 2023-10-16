@@ -8,7 +8,7 @@ function dsi_register_circolare_post_type()
 
     /** circolari **/
     $labels = array(
-        'name' => _x('Circolari', 'Post Type General Name', 'design_scuole_italia'),
+        'name' => _x('Le circolari', 'Post Type General Name', 'design_scuole_italia'),
         'singular_name' => _x('Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'add_new' => _x('Aggiungi una Circolare', 'Post Type Singular Name', 'design_scuole_italia'),
         'add_new_item' => _x('Aggiungi una nuova Circolare', 'Post Type Singular Name', 'design_scuole_italia'),

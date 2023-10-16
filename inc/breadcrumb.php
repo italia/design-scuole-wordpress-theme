@@ -384,7 +384,7 @@ class Breadcrumb_Trail {
 					}
 					else if (is_tax(array("percorsi-di-studio"))){
 						$this->items[] = "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
-						$this->items[] = "<a href='".home_url("indirizzo-di-studio")."'>".__("Indirizzi di studio", "design_scuole_italia")."</a>";
+						$this->items[] = "<a href='".home_url("indirizzo-di-studio")."'>".__("Percorsi di studio", "design_scuole_italia")."</a>";
 					}
                     $this->add_term_archive_items();
                 } else if ( is_author() ) {

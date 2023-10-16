@@ -333,3 +333,40 @@ function breadcrumb_fix( $string, $arg1 ) {
     return $string;
 }
 add_filter( 'breadcrumb_trail', 'breadcrumb_fix', 10, 3);
+
+// Verifica se l'utente è abilitato a vedere il contenuto della circolare
+function circolare_access($post_ID) {
+
+$is_pubblica = dsi_get_meta("is_pubblica");
+$destinatari_circolari =  dsi_get_meta("destinatari_circolari");
+$user = wp_get_current_user();
+$current_user_roles = (array) $user->roles;
+if($destinatari_circolari == "ruolo"){
+	$allowed_roles = dsi_get_meta("ruoli_circolari"); 
+	$c = array_intersect($allowed_roles,$current_user_roles);
+	if (count($c) > 0) {
+	$can_view = "true";
+	} else {
+	$can_view = "false";
+	}
+}
+if($destinatari_circolari == "gruppo"){
+	$users = array();
+	$gruppi_circolari = dsi_get_meta("gruppi_circolari", '', $post->ID);
+	$users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
+	if (in_array($user->ID,$users )) {
+		$can_view = "true";
+	} else {
+		$can_view = "false";
+	}	
+}
+if($destinatari_circolari == "all"){
+	$can_view = "true";
+}
+if ( $is_pubblica == "true" || ($is_pubblica == "false" && is_user_logged_in() &&  $can_view == "true") ){
+	$accesso_circolare = "true";
+	} else {
+	$accesso_circolare = "false";
+}
+return $accesso_circolare;
+}
