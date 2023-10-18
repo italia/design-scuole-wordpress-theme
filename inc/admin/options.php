@@ -1481,6 +1481,14 @@ function dsi_register_main_options_metabox() {
 		'type' => 'text'
     ) );
 
+    
+	$setup_options->add_field( array(
+		'id' => $prefix . 'protect_from_public_access_extensions',
+		'name' => 'Estensioni protette dall\'accesso esterno',
+		'desc' => __( 'Inserisci le estensioni di file (.ext) separate da una virgola da controllare per evitare accesso ad informazioni riservate. Per i file con tali estensioni sar&agrave; possibile configurare nei media l\'opzione per consentire l\'accesso solo da utenti registrati', 'design_scuole_italia' ),
+		'type' => 'text'
+    ) );
+
     $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolari',
         'name'        => __( 'Configurazione email Circolari', 'design_scuole_italia' ),
@@ -1641,3 +1649,22 @@ function dsi_check_cron_options() {
         update_option('home_messages', $to_update, true);
     }
 }
+
+
+function dsi_check_media_htaccess(string $object_id, array $updated, CMB2 $cmb) {
+
+    $data = $cmb->data_to_save['protect_from_public_access_extensions'];
+    $data = str_replace(",", "|", $data);
+
+    $basedir = wp_get_upload_dir()['basedir'];
+
+    unlink($basedir . '\.htaccess');
+
+    if($data != "") {
+        $htaccesscontent = "RewriteRule \d{4}/(.*)[". $data . "]$ ". site_url( '', 'relative') ."/?action=reservedfilecheck&file=$0";
+        $htaccessfile = fopen($basedir . '\.htaccess', "w") or die("Unable to open file!");
+        fwrite($htaccessfile, $htaccesscontent);
+        fclose($htaccessfile);
+    }
+}
+add_action( 'cmb2_save_options-page_fields_dsi_setup_menu', 'dsi_check_media_htaccess', 10, 3 );
