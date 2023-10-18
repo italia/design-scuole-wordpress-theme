@@ -500,7 +500,9 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
         // Maybe put in some extra arguments based on the post status.
         $pdf_link = add_query_arg( array( 'pdf' => 'true' ), $url );
 
+        if (circolare_access($post->ID) != 'false') {
         $new_actions['pdf'] = sprintf( '<a href="%1$s"><b>%2$s</b></a>', esc_url( $pdf_link ), esc_html( __( 'PDF', 'design_scuole_italia' ) ) );
+		}
 
         if($notificato) {
             $csv_link = add_query_arg( array( 'csv' => 'true' ), $url );
@@ -513,9 +515,9 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
 
 // aggiungo bottone generazione pdf
 add_action( 'post_submitbox_misc_actions', function( $post ){
-    // check something using the $post object
-    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare")){
-        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera PDF</a></div>';
+    // check something using the $post object 
+    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare") && (circolare_access($post->ID) != 'false') ){
+        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera il PDF</a></div>';
     }
 });
 
