@@ -2,15 +2,25 @@
 
 // global $calendar_card;
 
+global $set_card_top_margin;
+
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
+$home_show_circolari = dsi_get_option("home_show_circolari", "homepage");
 $giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
 $data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
+$post_per_tipologia = dsi_get_option("home_post_per_tipologia", "homepage");
 
 $ct=0;
+
 $column = 1;
 if($home_show_events == "false")
-    $column = 2;
+    $column=$column+1;
+if($home_show_circolari == "false")
+    $column=$column+1;
+
+if($post_per_tipologia == "") $post_per_tipologia = 1;
+
 if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     ?>
     <section class="section bg-white py-2 py-lg-3 py-xl-5">
@@ -23,10 +33,10 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     
         if($tipologia_notizia) {
             // se è selezionata solo una tipologia, pesco 2 elementi
-            $ppp=1;
+            $ppp=$post_per_tipologia;
 			
-            if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
-                $ppp=2;
+            if(count($tipologie_notizie) == 1 && $post_per_tipologia < $column)
+                $ppp=$column;
 			
             $args = array('post_type' => 'post',
                     'posts_per_page' => $ppp,
@@ -56,8 +66,9 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             $posts = get_posts($args);
 
             $lg = 4;
-            if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
-                $lg = 8;
+            if((count($tipologie_notizie) == 1))
+                $lg = $column * 4;
+
             if (is_array($posts) && count($posts)) { 
             ?>
             <div class="col-lg-<?php echo $lg; ?>">
@@ -66,18 +77,24 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 </div><!-- /title-section -->
 
                 <?php
-                if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
+                if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '<div class="row variable-gutters">';
+
+                $set_card_top_margin = false;
+
                 foreach ($posts as $post) {
-                    if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
-                        echo '<div class="col-lg-6 mb-2">';
+                    if((count($tipologie_notizie) == 1) && ($column > 1))
+                        echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
+
                     get_template_part("template-parts/single/card", "vertical-thumb");
 
-                    if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
+                    if((count($tipologie_notizie) == 1) && ($column > 1))
                          echo '</div>';
+
+                    $set_card_top_margin = true;
                 }
 
-                if((count($tipologie_notizie) == 1) && ($home_show_events == "false"))
+                if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '</div>';
                 ?>
                 <div class="py-4">
@@ -125,16 +142,15 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             // $calendar_card = true;
             // get_template_part("template-parts/evento/full_calendar");
         }
-
-    ?>
-    <div class="py-4">
-        <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>?archive=true"><strong><?php _e("Consulta l'archivio", "design_scuole_italia"); ?></strong></a>
-    </div>
-    </div><!-- /col-lg-4 -->
+        ?>
+        <div class="py-4">
+            <a class="text-underline" href="<?php echo get_post_type_archive_link("evento"); ?>?archive=true"><strong><?php _e("Consulta l'archivio", "design_scuole_italia"); ?></strong></a>
+        </div>
+        </div><!-- /col-lg-4 -->
     <?php
-}
-?>
+    }
 
+    if($home_show_circolari != "false") { ?>
         <div class="col-lg-4">
 
             <div class="title-section pb-4">
@@ -155,6 +171,9 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             </div>
 
         </div>
+    <?php
+    }
+    ?>
 
         </div><!-- /row -->
     </div><!-- /container -->
