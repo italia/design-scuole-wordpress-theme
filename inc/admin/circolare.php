@@ -144,6 +144,19 @@ function dsi_add_circolare_metaboxes() {
     ));
 
     $cmb_tipologie->add_field(array(
+        'id'         => $prefix . 'timestamp_scadenza_feedback',
+        'name' => __('Data scadenza ricezione feedback', 'design_scuole_italia'),
+        'desc' => __('Se compilato, sar&agrave; possibile inviare un feeedback solo prima della data/ora indicata.', 'design_scuole_italia'),
+        'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
+        'attributes' => array(
+            'autocomplete' => 'off',
+			'data-conditional-id'    => $prefix . 'require_feedback',
+			'data-conditional-value' => wp_json_encode( array( 'presa_visione', 'si_no', 'si_no_visione' ) )
+        ),
+    ));
+
+    $cmb_tipologie->add_field(array(
         'id' => $prefix . 'destinatari_circolari',
         'name' => __('Destinatari della Circolare', 'design_scuole_italia'),
         'type' => 'radio_inline',
@@ -521,7 +534,7 @@ add_action( 'post_submitbox_misc_actions', function( $post ){
 
 if(!function_exists('dsi_csv_generator')) {
     function dsi_csv_generator(){
-        if(is_singular("circolare") && isset($_GET) && ($_GET["csv"] == "true")) {
+        if(is_singular("circolare") && isset($_GET) && isset($_GET["csv"]) && ($_GET["csv"] == "true")) {
             global $post;
 
             // output headers so that the file is downloaded rather than displayed
