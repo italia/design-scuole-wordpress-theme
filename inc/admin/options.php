@@ -365,6 +365,41 @@ function dsi_register_main_options_metabox() {
         ),
     ));
 
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_show_circolari',
+        'name' => __('Mostra le circolari in Home', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro delle circolari in Home', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true_circolare',
+        'options' => array(
+            'false' => __('No', 'design_scuole_italia'),
+            'true_circolare' => __('Si, mostra la circolare pi&ugrave; recente', 'design_scuole_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+    ));
+    
+	$home_options->add_field( array(
+        'id' => $prefix . 'home_post_per_tipologia',
+        'name' => 'Articoli da mostrare per ogni tipologia in Home',
+        'desc' => __( 'Qualora ci sia solo una tipologia selezionata, il numero di articoli minimo verr&agrave; calcolato in base allo spazio a disposizione nella prima riga. Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'default' => '1',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 1,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_banner',
         'name'        => __( 'Sezione Banner', 'design_scuole_italia' ),
