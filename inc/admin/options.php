@@ -365,6 +365,41 @@ function dsi_register_main_options_metabox() {
         ),
     ));
 
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_show_circolari',
+        'name' => __('Mostra le circolari in Home', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro delle circolari in Home', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true_circolare',
+        'options' => array(
+            'false' => __('No', 'design_scuole_italia'),
+            'true_circolare' => __('Si, mostra la circolare pi&ugrave; recente', 'design_scuole_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+    ));
+    
+	$home_options->add_field( array(
+        'id' => $prefix . 'home_post_per_tipologia',
+        'name' => 'Articoli da mostrare per ogni tipologia in Home',
+        'desc' => __( 'Qualora ci sia solo una tipologia selezionata, il numero di articoli minimo verr&agrave; calcolato in base allo spazio a disposizione nella prima riga. Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'default' => '1',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 1,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_banner',
         'name'        => __( 'Sezione Banner', 'design_scuole_italia' ),
@@ -1481,6 +1516,14 @@ function dsi_register_main_options_metabox() {
 		'type' => 'text'
     ) );
 
+    
+	$setup_options->add_field( array(
+		'id' => $prefix . 'protect_from_public_access_extensions',
+		'name' => 'Estensioni protette dall\'accesso esterno',
+		'desc' => __( 'Inserisci le estensioni di file (.ext) separate da una virgola da controllare per evitare accesso ad informazioni riservate. Per i file con tali estensioni sar&agrave; possibile configurare nei media l\'opzione per consentire l\'accesso solo da utenti registrati', 'design_scuole_italia' ),
+		'type' => 'text'
+    ) );
+
     $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolari',
         'name'        => __( 'Configurazione email Circolari', 'design_scuole_italia' ),
@@ -1641,3 +1684,22 @@ function dsi_check_cron_options() {
         update_option('home_messages', $to_update, true);
     }
 }
+
+
+function dsi_check_media_htaccess(string $object_id, array $updated, CMB2 $cmb) {
+
+    $data = $cmb->data_to_save['protect_from_public_access_extensions'];
+    $data = str_replace(",", "|", $data);
+
+    $basedir = wp_get_upload_dir()['basedir'];
+
+    unlink($basedir . '\.htaccess');
+
+    if($data != "") {
+        $htaccesscontent = "RewriteRule \d{4}/(.*)[". $data . "]$ ". site_url( '', 'relative') ."/?action=reservedfilecheck&file=$0";
+        $htaccessfile = fopen($basedir . '\.htaccess', "w") or die("Unable to open file!");
+        fwrite($htaccessfile, $htaccesscontent);
+        fclose($htaccessfile);
+    }
+}
+add_action( 'cmb2_save_options-page_fields_dsi_setup_menu', 'dsi_check_media_htaccess', 10, 3 );

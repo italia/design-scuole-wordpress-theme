@@ -10,7 +10,7 @@ if($ct%2)
 <section class="section <?php echo $container_class; ?> py-5">
 	<div class="container">
 		<div class="title-section mb-5">
-			<h2 class="h4"><?php _e("Circolari", "design_scuole_italia"); ?></h2>
+			<h2 class="h4"><?php _e("Le circolari", "design_scuole_italia"); ?></h2>
 		</div><!-- /title-large -->
 		<div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
 			<div class="splide__track">

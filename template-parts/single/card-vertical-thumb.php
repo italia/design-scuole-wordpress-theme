@@ -1,13 +1,15 @@
 <?php
-global $post, $autore;
+global $post, $autore, $set_card_top_margin;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_id= get_post_thumbnail_id($post);
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
+$show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
 
-?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded">
+
+?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
 	<div class="card-body">
-		<div class="card-content">
+		<div class="card-content flex-grow-1">
 			<h3 class="h5"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
 
 <?php
@@ -35,7 +37,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 	<div class="card-comments-wrapper">
 		<?php get_template_part("template-parts/autore/card"); ?>
         <?php
-        if($post->post_type == "post") {
+        if($post->post_type == "post" && $show_contatore_commenti != "false") {
 	        ?>
             <div class="comments">
                 <p><?php echo $post->comment_count; ?></p>

@@ -144,6 +144,19 @@ function dsi_add_circolare_metaboxes() {
     ));
 
     $cmb_tipologie->add_field(array(
+        'id'         => $prefix . 'timestamp_scadenza_feedback',
+        'name' => __('Data scadenza ricezione feedback', 'design_scuole_italia'),
+        'desc' => __('Se compilato, sar&agrave; possibile inviare un feeedback solo prima della data/ora indicata.', 'design_scuole_italia'),
+        'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
+        'attributes' => array(
+            'autocomplete' => 'off',
+			'data-conditional-id'    => $prefix . 'require_feedback',
+			'data-conditional-value' => wp_json_encode( array( 'presa_visione', 'si_no', 'si_no_visione' ) )
+        ),
+    ));
+
+    $cmb_tipologie->add_field(array(
         'id' => $prefix . 'destinatari_circolari',
         'name' => __('Destinatari della Circolare', 'design_scuole_italia'),
         'type' => 'radio_inline',
@@ -500,7 +513,9 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
         // Maybe put in some extra arguments based on the post status.
         $pdf_link = add_query_arg( array( 'pdf' => 'true' ), $url );
 
+        if (circolare_access($post->ID) != 'false') {
         $new_actions['pdf'] = sprintf( '<a href="%1$s"><b>%2$s</b></a>', esc_url( $pdf_link ), esc_html( __( 'PDF', 'design_scuole_italia' ) ) );
+		}
 
         if($notificato) {
             $csv_link = add_query_arg( array( 'csv' => 'true' ), $url );
@@ -513,15 +528,15 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
 
 // aggiungo bottone generazione pdf
 add_action( 'post_submitbox_misc_actions', function( $post ){
-    // check something using the $post object
-    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare")){
-        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera PDF</a></div>';
+    // check something using the $post object 
+    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare") && (circolare_access($post->ID) != 'false') ){
+        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera il PDF</a></div>';
     }
 });
 
 if(!function_exists('dsi_csv_generator')) {
     function dsi_csv_generator(){
-        if(is_singular("circolare") && isset($_GET) && ($_GET["csv"] == "true")) {
+        if(is_singular("circolare") && isset($_GET) && isset($_GET["csv"]) && ($_GET["csv"] == "true")) {
             global $post;
 
             // output headers so that the file is downloaded rather than displayed

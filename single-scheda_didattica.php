@@ -15,8 +15,10 @@ $file_documenti = dsi_get_meta("file_documenti");
 
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
-    <main id="main-container" class="main-container bluelectric">
-        <?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+	
+	<main class="main-container bluelectric"><a name="main-container" id="main-container" tabindex="-1" ></a>
+        
 
         <?php while ( have_posts() ) :  the_post();
             set_views($post->ID);
@@ -94,12 +96,16 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-obiettivi" title="Vai al paragrafo <?php _e("Obiettivi", "design_scuole_italia"); ?>"><?php _e("Obiettivi", "design_scuole_italia"); ?></a>
                                         </li>
+										<?php if ( !empty( get_the_content() ) ) { ?>
                                         <li>
-                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("Il Contenuto", "design_scuole_italia"); ?>"><?php _e("Il Contenuto", "design_scuole_italia"); ?></a>
+                                            <a class="list-item scroll-anchor-offset" href="#art-par-contenuti" title="Vai al paragrafo <?php _e("Contenuti", "design_scuole_italia"); ?>"><?php _e("Contenuti", "design_scuole_italia"); ?></a>
                                         </li>
+										<?php } ?>
+										<?php if((is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Risorse", "design_scuole_italia"); ?>"><?php _e("Risorse", "design_scuole_italia"); ?></a>
                                         </li>
+										<?php } ?>
                                         <?php if ( is_array($posts_array) && count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
@@ -113,7 +119,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div>
                         <div class="col-lg-6">
                             <article class="article-wrapper pt-4 px-3">
-                                <h2 class="h4" id="art-par-obiettivi"><?php _e("Obiettivo", "design_scuole_italia"); ?></h2>
+                                <h2 class="h4"><a name="art-par-obiettivi" id="art-par-obiettivi" tabindex="-1"></a><?php _e("Obiettivi", "design_scuole_italia"); ?></h2>
+								
                                 <?php
                                 $obiettivi = dsi_get_meta("obiettivi");
                                 echo wpautop($obiettivi);
@@ -122,7 +129,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 $tempo_apprendimento = dsi_get_meta("tempo_apprendimento");
                                 if($tempo_apprendimento != "") {
                                     ?>
-                                    <div class="h6"><?php _e( "Tempo di apprendimento", "design_scuole_italia" ); ?></div>
+                                    <p><?php _e( "Tempo di apprendimento", "design_scuole_italia" ); ?></p>
                                     <div class="col-lg-9 px-0">
                                         <div class="card-simple-wrapper mb-5">
                                         <div class="card-simple rounded">
@@ -138,15 +145,19 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php
                                 }
                                 ?>
-                                <h2 class="h4" id="art-par-contenuti"><?php _e("L'argomento", "design_scuole_italia"); ?></h2>
+								
+								<?php if ( !empty( get_the_content() ) ) { ?>
+                                <h2 class="h4"><a name="art-par-contenuti" id="art-par-contenuti" tabindex="-1"></a><?php _e("Contenuti", "design_scuole_italia"); ?></h2>
                                 <div class="col-lg-12 px-0 wysiwig-text">
                                 <?php the_content(); ?>
                                 </div>
-
+								<?php } ?>
                                 <?php
                                 $descrizione_attivita = dsi_get_meta("descrizione_attivita");
                                 ?>
+								<?php if(is_array($attivita) && count($attivita) > 0)  {   ?>
                                 <h2 class="h4"><?php _e("Attività", "design_scuole_italia"); ?></h2>
+								<?php } ?>
                                 <div class="col-lg-12 px-0">
                                 <?php
                                 echo wpautop($descrizione_attivita);
@@ -191,8 +202,8 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     }
                                 }
                                 ?>
-                                <h2 class="h4" id="art-par-info"><?php _e("Risorse", "design_scuole_italia"); ?></h2>
                                 <?php if((is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) || (is_array($file_documenti) && count($file_documenti)>0)){ ?>
+								<h2 class="h4"><a name="art-par-info" id="art-par-info" tabindex="-1"></a><?php _e("Risorse", "design_scuole_italia"); ?></h2>
                                     <div class="card-deck card-deck-spaced">
                                         <?php
                                         if(is_array($link_schede_materiale_didattico) && count($link_schede_materiale_didattico)>0) {
