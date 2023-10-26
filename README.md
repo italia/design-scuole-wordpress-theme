@@ -10,6 +10,16 @@ In questa specifica versione fork Robyone ha applicato modifiche migliorative ri
 
 Codice sorgente pubblicato con medesima licenza del repository nazionale.
 
+### Accessibilità
+
+Attualmente le pagine non superano completamente i test di accessibilità automatizzati (https://mauve.isti.cnr.it/ per WCAG, https://validator.w3.org/ per standard HTML5, https://jigsaw.w3.org/css-validator/ per standard CSS). Le verifiche sono state svolte su una installazione pulita del tema, senza inserire contenuti personalizzati.
+
+Robyone ha provveduto a segnalare quanto riscontrato aprendo issue nel repository nazionale (https://github.com/italia/design-scuole-wordpress-theme/issues/502) e si impegna a prendere in considerazione e migliorare l'accessibilità del tema nei futuri aggiornamenti che proporrà.
+
+Qualora si voglia procedere all'aggiornamento della dichiarazione di accessibilità in seguito a questa informativa, tenendo conto degli errori specificati nell'issue aperta:
+* è necessario controllare non siano presenti nel proprio sito web ulteriori difetti dovuti a contenuti inseriti dall'Ente o documenti non web pubblicati dallo stesso;
+* è necessario controllare che la versione installata del tema sia la stessa di quella oggetto della presente informativa.
+
 ## **Installazione e supporto**
 
 ### **Come scaricare il tema**
