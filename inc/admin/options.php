@@ -974,7 +974,18 @@ function dsi_register_main_options_metabox() {
 		)
 	);
 
-
+	$notizie_options->add_field(array(
+	        'id' => $prefix . 'notizie_show_circolari_panoramica',
+	        'name' => __('Mostra le circolari in Panoramica', 'design_scuole_italia'),
+	        'desc' => __('Abilita il carosello delle circolari in Panoramica', 'design_scuole_italia'),
+	        'type' => 'radio_inline',
+	        'default' => 'true_circolare',
+	        'options' => array(
+	            'false' => __('No', 'design_scuole_italia'),
+	            'true_circolare' => __('Si, mostra il carosello', 'design_scuole_italia'),
+	        )
+    	));
+	
 	/**
 	 * Registers Didattica option page.
 	 */
