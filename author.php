@@ -230,7 +230,6 @@ $posts = get_posts($args);
             </div><!-- /container -->
         </section><!-- /section -->
 
-
         <section class="section bg-white">
             <div class="container container-border-top">
                 <div class="row variable-gutters">
@@ -550,7 +549,6 @@ $posts = get_posts($args);
             <?php
         }
         ?>
-
     </main><!-- #main -->
 <?php
 get_footer();
