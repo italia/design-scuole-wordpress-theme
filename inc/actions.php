@@ -300,7 +300,13 @@ global $wp_query;
     } elseif ( is_post_type_archive("servizio") ) {
         $title = __("Tutti i servizi", "design_scuole_italia");
     } elseif ( is_post_type_archive("evento") ) {
-        $title = __("Calendario", "design_scuole_italia");
+        $title = __("Calendario eventi", "design_scuole_italia");
+    } elseif ( is_post_type_archive("indirizzo") ) {
+        $title = __("Percorsi di studio", "design_scuole_italia");
+	} elseif ( is_post_type_archive("scheda_progetto") ) {
+        $title = __("I progetti delle classi", "design_scuole_italia");	
+    } elseif ( is_post_type_archive("scheda_didattica") ) {
+        $title = __("Le schede didattiche", "design_scuole_italia");	
     } elseif ( is_tax("tipologia-servizio") ) {
         // $title = __("Servizi per ", "design_scuole_italia").": ".single_term_title('', false);
         $title = single_term_title('', false);
