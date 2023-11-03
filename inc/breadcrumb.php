@@ -340,7 +340,6 @@ class Breadcrumb_Trail {
 						break;
 					case 'scheda_didattica':
 					case 'scheda_progetto':
-					case 'evento':
 						$this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
 						break;
 					case 'luogo':
@@ -361,15 +360,38 @@ class Breadcrumb_Trail {
 				} else if( is_post_type_archive( array("indirizzo") ) ) {
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
 					$this->add_post_type_archive_items();
-				} else if( is_post_type_archive( array("circolare", "evento") ) ) {
+				} else if( is_post_type_archive( array("evento") ) ) {
                     $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
 					$this->add_post_type_archive_items();
 				} else if( is_post_type_archive( array("scheda_didattica", "scheda_progetto") ) ) {
                     $this->items[] =  "<a href='".home_url("didattica")."'>".__("Didattica", "design_scuole_italia")."</a>";
-                    $this->add_post_type_archive_items();
+                    
+					// se è selezionato un percorso di studio
+					if (get_query_var("percorsi-di-studio")){
+						$this->items[] = "<a href='".home_url("scheda-didattica")."'>".__("Le schede didattiche", "design_scuole_italia")."</a>";
+						
+						$terms = get_terms (array(
+							'taxonomy' => 'percorsi-di-studio',
+							'hide_empty' => true,
+							'parent' => 0,
+						) );						
+						foreach ( $terms as $term ) {
+							if($term->slug == get_query_var("percorsi-di-studio")) {
+								$this->items[] = __($term->name, "design_scuole_italia");
+							}
+						}
+						
+					}
+					else
+						$this->add_post_type_archive_items();
+
 				} else if(is_post_type_archive(array("servizio"))){
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
                     $this->items[] =  __("Tutti i Servizi", "design_scuole_italia");
+					
+				} else if(is_post_type_archive(array("circolare"))){
+                    $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
+                    $this->items[] =  __("Le circolari", "design_scuole_italia");
                 } else if ( is_post_type_archive() ){
                     $this->add_post_type_archive_items();
                 } else if ( is_category() || is_tag() || is_tax() ) {
@@ -388,6 +410,8 @@ class Breadcrumb_Trail {
 					}
                     $this->add_term_archive_items();
                 } else if ( is_author() ) {
+					$this->items[] = "<a href='".home_url("scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+					$this->items[] = "<a href='".home_url("le-persone")."'>".__("Le persone", "design_scuole_italia")."</a>";
 					$this->add_user_archive_items();
 				} else if ( get_query_var( 'minute' ) && get_query_var( 'hour' ) ) {
 					$this->add_minute_hour_archive_items();
@@ -576,6 +600,20 @@ class Breadcrumb_Trail {
 				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), $post_title );
 
 			elseif ( true === $this->args['show_title'] )
+			
+			
+			// Inserisci nel breadcrumb la tipologia dell'evento
+			$post_tags = get_the_terms(get_the_ID(), 'tipologia-evento');
+			
+			if ($post_tags) {foreach($post_tags as $tag) { $this->items[] =  '<a href="'.get_tag_link($tag->term_id).'">'. $tag->name .'</a>';}}
+
+			// Inserisci nel breadcrumb la tipologia della circolare 
+			$circolare_tags = get_the_terms(get_the_ID(), 'tipologia-circolare');
+			
+			if ($circolare_tags) {foreach($circolare_tags as $circolare_tag) { $this->items[] =  '<a href="'.get_tag_link($circolare_tag->term_id).'">'. $circolare_tag->name .'</a>';}}
+			
+			
+			
 				$this->items[] = $post_title;
 		}
 	}
@@ -598,6 +636,7 @@ class Breadcrumb_Trail {
 		$taxonomy       = get_taxonomy( $term->taxonomy );
 		$done_post_type = false;
 
+		
 		// If there are rewrite rules for the taxonomy.
 		if ( false !== $taxonomy->rewrite ) {
 
@@ -703,6 +742,7 @@ class Breadcrumb_Trail {
 		// Get the post type object.
 		$post_type_object = get_post_type_object( get_query_var( 'post_type' ) );
 
+		
 		if ( false !== $post_type_object->rewrite ) {
 
 			// If 'with_front' is true, add $wp_rewrite->front to the trail.
@@ -1033,8 +1073,8 @@ class Breadcrumb_Trail {
 			if ( $post_type_object->rewrite['with_front'] )
 				$this->add_rewrite_front_items();
 
-			// If there's a path, check for parents.
-			if ( ! empty( $post_type_object->rewrite['slug'] ) )
+			// If there's a path, check for parents. (and posttype is not "circolare" per correggere problema breadcrum con link doppio)
+			if ( ! empty( $post_type_object->rewrite['slug'] ) && $post_type!="circolare")
 				$this->add_path_parents( $post_type_object->rewrite['slug'] );
 		}
 
@@ -1046,7 +1086,7 @@ class Breadcrumb_Trail {
 
 			// Core filter hook.
 			$label = apply_filters( 'post_type_archive_title', $label, $post_type_object->name );
-
+			
 			$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type ) ), $label );
 		}
 
