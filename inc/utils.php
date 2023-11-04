@@ -719,15 +719,17 @@ function dsi_user_can_sign_circolare($user, $post){
         return true;
     }elseif ($destinatari_circolari == "ruolo"){
         $ruoli_circolari = dsi_get_meta("ruoli_circolari", "", $post->ID);
-        if( array_intersect($ruoli_circolari, $user->roles ) ) {
-            return true;
-        }
-    }elseif ($destinatari_circolari == "gruppo"){
-        $gruppi_circolari = dsi_get_meta("gruppi_circolari", "", $post->ID);
-        if(is_object_in_term($user->ID, "gruppo-utente", $gruppi_circolari)){
-            return true;
-        }
-    }
+		if ($ruoli_circolari) {	
+			if( array_intersect($ruoli_circolari, $user->roles ) ) {
+				return true;
+			}
+		}
+		}elseif ($destinatari_circolari == "gruppo"){
+			$gruppi_circolari = dsi_get_meta("gruppi_circolari", "", $post->ID);
+			if(is_object_in_term($user->ID, "gruppo-utente", $gruppi_circolari)){
+				return true;
+			}
+		}
 
     return false;
 }
