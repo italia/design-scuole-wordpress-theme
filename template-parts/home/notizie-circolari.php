@@ -1,12 +1,14 @@
 <?php
 global $post, $tipologia_notizia, $ct, $servizio;
-
+$notizie_show_circolari_panoramica = dsi_get_option("notizie_show_circolari_panoramica", "notizie");
 $container_class = "bg-white";
 if($ct%2)
 	$container_class = "bg-gray-light";
 
 ?>
 
+
+<?php if($notizie_show_circolari_panoramica != "false") { ?>
 <section class="section <?php echo $container_class; ?> py-5">
 	<div class="container">
 		<div class="title-section mb-5">
@@ -35,3 +37,4 @@ if($ct%2)
 		</div>
 	</div><!-- /container -->
 </section><!-- /section -->
+<?php } ?>

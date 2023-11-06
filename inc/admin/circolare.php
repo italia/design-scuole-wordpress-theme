@@ -26,6 +26,7 @@ function dsi_register_circolare_post_type()
         'has_archive' => true,
         'capability_type' => array('circolare', 'circolari'),
         'map_meta_cap' => true,
+	'description'    => __( "Le circolari della scuola", 'design_scuole_italia' ),    
     );
     register_post_type('circolare', $args);
 
