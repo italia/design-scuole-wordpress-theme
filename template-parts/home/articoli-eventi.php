@@ -118,20 +118,25 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         <?php
         if ($home_show_events == "true_event") {
-            $args = array('post_type' => 'evento',
+            $args = array(
+                'post_type' => 'evento',
                 'posts_per_page' => 1,
                 'meta_key' => '_dsi_evento_timestamp_inizio',
-                'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
+                'orderby' => 'meta_value',
+                'order' => 'ASC',
+                'meta_key' => '_dsi_evento_timestamp_inizio',
                 'meta_query' => array(
+                    'relation' => 'OR',
                     array(
-                        'key' => '_dsi_evento_timestamp_inizio'
+                        'key' => '_dsi_evento_timestamp_fine',
+                        'value' => current_datetime()->modify('-1 day')->getTimestamp(),
+                        'compare' => '>='
                     ),
                     array(
                         'key' => '_dsi_evento_timestamp_inizio',
-                        'value' => time(),
-                        'compare' => '>=',
-                        'type' => 'numeric'
-                    )
+                        'value' => current_datetime()->modify('-1 day')->getTimestamp(),
+                        'compare' => '>='
+                    ),
                 )
             );
             $posts = get_posts($args);
