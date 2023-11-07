@@ -410,8 +410,8 @@ class Breadcrumb_Trail {
 					}
                     $this->add_term_archive_items();
                 } else if ( is_author() ) {
-					$this->items[] = "<a href='".home_url("scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
-					$this->items[] = "<a href='".home_url("le-persone")."'>".__("Le persone", "design_scuole_italia")."</a>";
+					$this->items[] = "<a href='".home_url("la-scuola")."'>".__("Scuola", "design_scuole_italia")."</a>";
+					$this->items[] = "<a href='".home_url("la-scuola/persone")."'>".__("Le persone", "design_scuole_italia")."</a>";
 					$this->add_user_archive_items();
 				} else if ( get_query_var( 'minute' ) && get_query_var( 'hour' ) ) {
 					$this->add_minute_hour_archive_items();
