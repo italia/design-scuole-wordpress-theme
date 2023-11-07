@@ -151,29 +151,44 @@ function dsi_eventi_filters( $query ) {
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
             $query->set('orderby', array('meta_value' => 'DESC', 'date' => 'DESC'));
             $query->set( 'meta_query', array(
+                'relation' => 'AND',
                 array(
-                    'key' => '_dsi_evento_timestamp_inizio'
+                    'key' => '_dsi_evento_timestamp_inizio',
+                    'value' => current_datetime()->modify('today')->getTimestamp(),
+                    'compare' => '<',
+                    'type' => 'numeric'
                 ),
                 array(
-                    'key' => '_dsi_evento_timestamp_fine',
-                    'value' => time(),
-                    'compare' => '<=',
-                    'type' => 'numeric'
+                    'relation' => 'OR',
+                    array(
+                        'key' => '_dsi_evento_timestamp_fine',
+                        'value' => current_datetime()->modify('today')->getTimestamp(),
+                        'compare' => '<',
+                        'type' => 'numeric'
+                    ),
+                    array(
+                        'key' => '_dsi_evento_timestamp_fine',
+                        'compare' => 'NOT EXISTS',
+                    ),
                 )
             ));
         }else{
             $query->set('meta_key', '_dsi_evento_timestamp_inizio' );
             $query->set('orderby', array('meta_value' => 'ASC', 'date' => 'ASC'));
             $query->set( 'meta_query', array(
-                array(
-                    'key' => '_dsi_evento_timestamp_inizio'
-                ),
+                'relation' => 'OR',
                 array(
                     'key' => '_dsi_evento_timestamp_fine',
-                    'value' => time(),
+                    'value' => current_datetime()->modify('today')->getTimestamp(),
                     'compare' => '>=',
                     'type' => 'numeric'
-                )
+                ),
+                array(
+                    'key' => '_dsi_evento_timestamp_inizio',
+                    'value' => current_datetime()->modify('today')->getTimestamp(),
+                    'compare' => '>=',
+                    'type' => 'numeric'
+                ),
             ));
 
         }
