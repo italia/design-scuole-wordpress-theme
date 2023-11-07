@@ -2,16 +2,16 @@
 <?php foreach($messages as $message): ?>
     <?php
 
-    if(trim($message['testo_message']) == "") continue;
-    $message_date = strtotime($message['data_message']);
+    if(trim($message['testo_message'] ?? "") == "") continue;
+    $message_date = isset($message['data_message']) ? strtotime($message['data_message']) : false;
     $now = strtotime("now");
     $color = $message['colore_message'] == 'yellow' ? 'black' : 'white';
-    if (($message_date != "") && ($message_date <= $now)) continue; ?>
+    if ($message_date && ($message_date <= $now)) continue; ?>
 
     <div class="p-4 home-message <?php echo $message['colore_message'] ?>">
         <div class="home-message-content">
             <p class="msg">
-                <?php if($message['icona_message']): ?>
+                <?php if($message['icona_message'] ?? false): ?>
                 <svg id="alert" viewBox="0 0 492.963 492.963">
                     <path d="M246.458,169.582c-11.5,0-19.1,9.6-19.1,19.1v114.8c0,11.5,7.6,19.101,19.1,19.101s19.101-9.601,19.101-19.101v-114.8C265.559,177.182,257.958,169.582,246.458,169.582z"/>
                     <circle cx="246.458" cy="379.982" r="19.1"/>
@@ -19,11 +19,10 @@
                 </svg>
                 <?php endif; ?>
                 <?php echo nl2br($message['testo_message']) ?>
-                <?php if($message['link_message']): ?>
+                <?php if($message['link_message'] ?? false): ?>
                     <a href="<?php echo $message['link_message']; ?>" class="btn btn-sm btn-outline-<?php echo $color; ?> ml-3">Dettagli</a>
                 <?php endif; ?>
             </p>
         </div>
     </div>
 <?php endforeach; ?>
-
