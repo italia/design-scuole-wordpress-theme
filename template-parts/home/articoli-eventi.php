@@ -129,12 +129,12 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                     'relation' => 'OR',
                     array(
                         'key' => '_dsi_evento_timestamp_fine',
-                        'value' => current_datetime()->modify('-1 day')->getTimestamp(),
+                        'value' => current_datetime()->modify('today')->getTimestamp(),
                         'compare' => '>='
                     ),
                     array(
                         'key' => '_dsi_evento_timestamp_inizio',
-                        'value' => current_datetime()->modify('-1 day')->getTimestamp(),
+                        'value' => current_datetime()->modify('today')->getTimestamp(),
                         'compare' => '>='
                     ),
                 )
