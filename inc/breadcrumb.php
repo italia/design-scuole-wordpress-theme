@@ -602,22 +602,22 @@ class Breadcrumb_Trail {
 			elseif ( true === $this->args['show_title'] )
 			
 			
-			// Inserisci nel breadcrumb la tipologia dell'evento
-			$post_tags = get_the_terms(get_the_ID(), 'tipologia-evento');
-			
-			if ($post_tags) {foreach($post_tags as $tag) { $this->items[] =  '<a href="'.get_tag_link($tag->term_id).'">'. $tag->name .'</a>';}}
+			// Trova le tipologia dell'evento
+			$evento_tags = get_the_terms(get_the_ID(), 'tipologia-evento');
 
-			// Inserisci nel breadcrumb la tipologia della circolare 
+			// Inserisci solo la prima tipologia per evitare di fare vedere più di una tipologia nel breadcrumb, nel caso l'evento ne abbia più di una
+			if ($evento_tags) {$this->items[] =  '<a href="'.get_tag_link($evento_tags[0]->term_id).'">'. $evento_tags[0]->name .'</a>';}
+
+			// Trova le tipologia tipologia della circolare 
 			$circolare_tags = get_the_terms(get_the_ID(), 'tipologia-circolare');
-			
-			if ($circolare_tags) {foreach($circolare_tags as $circolare_tag) { $this->items[] =  '<a href="'.get_tag_link($circolare_tag->term_id).'">'. $circolare_tag->name .'</a>';}}
-			
-			
-			
-				$this->items[] = $post_title;
+		
+			// Inserisci solo la prima tipologia per evitare di fare vedere più di una tipologia nel breadcrumb, nel caso la circolare ne abbia più di una
+			if ($circolare_tags) {$this->items[] =  '<a href="'.get_tag_link($circolare_tags[0]->term_id).'">'. $circolare_tags[0]->name .'</a>';}
+
+			$this->items[] = $post_title;
 		}
 	}
-
+	
 	/**
 	 * Adds the items to the trail items array for taxonomy term archives.
 	 *
