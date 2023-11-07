@@ -124,7 +124,6 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 'meta_key' => '_dsi_evento_timestamp_inizio',
                 'orderby' => 'meta_value',
                 'order' => 'ASC',
-                'meta_key' => '_dsi_evento_timestamp_inizio',
                 'meta_query' => array(
                     'relation' => 'OR',
                     array(
