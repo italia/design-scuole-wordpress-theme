@@ -189,7 +189,7 @@ class dsi_UserTaxonomies {
             if(!current_user_can('edit_user', $user_id) && current_user_can($taxonomy->cap->assign_terms)) return false;
 
             // Save the data
-            $terms	= array_map(fn($term) => esc_html($term), $_POST[$key]);
+            $terms	= array_map(fn($term) => esc_html($term), $_POST[$key] ?? []);
             
             wp_set_object_terms($user_id, $terms, $key, true);
             clean_object_term_cache($user_id, $key);
