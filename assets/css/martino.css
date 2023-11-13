@@ -918,6 +918,12 @@ table td:last-child {
   border-radius: 0.4rem;
 }
 
+.orientamento__post__img img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .orientamento__post__title {
   margin: 1rem 0;
 }
@@ -1554,6 +1560,7 @@ label > span {
 }
 
 .loop__news__card__content__image img {
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   max-height: 200px;

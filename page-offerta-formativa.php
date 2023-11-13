@@ -35,6 +35,7 @@ $attributes=array(
         <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     </section>
     <div class="container">
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
         
         <section class="bg-white pt-5 pb-3">
             <?php get_template_part('martini-template-parts/carousel/indirizzi', null, 'licei');?>
