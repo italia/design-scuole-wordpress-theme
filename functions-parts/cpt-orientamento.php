@@ -19,7 +19,7 @@ function register_orientamento_post_type() {
 	$args   = array(
 		'label'         => __( 'orientamento', 'martino_martini' ),
 		'labels'        => $labels,
-		'supports'      => array( 'title', 'editor'),
+		'supports'      => array( 'title', 'editor', 'thumbnail'),
 		'hierarchical'  => true,
 		'public'        => true,
 		'menu_position' => 26,

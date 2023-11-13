@@ -3,6 +3,7 @@ get_header();
 ?>
 
 <main id="main-container" class="main-container">
+<?php get_template_part("template-parts/common/breadcrumb"); ?>
 
     <section id="text-block" class="section bg-white mt-5 mb-5">
         <div class="container">

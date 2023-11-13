@@ -20,6 +20,7 @@ get_header();
     </section>
     <!-- container post -->
     <section class="container my-5">
+        <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <div class="row my-3">
             <?php
             $loop = new WP_Query(array(

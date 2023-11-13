@@ -2,6 +2,7 @@
 ?>
 <main class="py-5">
     <div class="container py-5">
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
         <h1 data-element="legal-notes-section" class="h1 py-3" style="color: #1260A4;">
             Licenza dei contenuti
         </h1>
