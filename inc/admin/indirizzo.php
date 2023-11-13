@@ -8,7 +8,7 @@ function dsi_register_indirizzo_post_type() {
 
     /** indirizzo **/
     $labels = array(
-        'name'                  => _x( 'Indirizzo di Studio', 'Post Type General Name', 'design_scuole_italia' ),
+        'name'                  => _x( 'Percorsi di Studio', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name'         => _x( 'Indirizzo di Studio', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new_item'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
