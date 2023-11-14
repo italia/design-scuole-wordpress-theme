@@ -453,3 +453,8 @@ function reserved_file_check(){
 	}
 }
 add_action( 'init', 'reserved_file_check', 10, 2);
+// redirect diretto alla home del sito senza visualizzare la bacheca
+function custom_login_redirect() {
+return 'index.php';
+}
+add_filter('login_redirect', 'custom_login_redirect');
