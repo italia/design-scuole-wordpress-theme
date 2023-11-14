@@ -207,9 +207,10 @@ $args = array(
 $posts = get_posts($args);
 
 ?>
-    <main id="main-container" class="main-container petrol">
-        <?php get_template_part("template-parts/common/breadcrumb"); ?>
-        <section class="section bg-petrol py-3 py-lg-3 py-xl-5">
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
+	<main id="main-container" class="main-container redbrown">
+       
+        <section class="section bg-redbrown  py-3 py-lg-3 py-xl-5">
             <div class="container">
                 <div class="row variable-gutters">
                     <div class="col-12 col-sm-3 col-lg-3 d-none d-sm-block">
@@ -221,8 +222,8 @@ $posts = get_posts($args);
                     </div><!-- /col-lg-2 -->
                     <div class="col-12 col-sm-9 col-md-8 col-lg-8 offset-lg-1 d-flex align-items-center">
                         <div class="section-title">
-                            <h2 class="mb-3"><?php echo dsi_get_display_name($author_id); ?></h2>
-                            <p><?php echo $str_ruolo; ?></p>
+                            <h2 class="mb-3 text-white"><?php echo dsi_get_display_name($author_id); ?></h2>
+                            <p class="text-white"><?php echo $str_ruolo; ?></p>
                         </div><!-- /title-section -->
                     </div><!-- /col-lg-5 col-md-8 -->
                 </div><!-- /row -->
