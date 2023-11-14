@@ -18,6 +18,10 @@
 class Footer_Menu_Walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		$output .= "<li>";
+        $target = '';
+        if($item->target){
+            $target = 'target="'.$item->target.'"';
+        }
 
 		$custom_data = '';
 		if ( $item->post_name == 'privacy-policy' || stripos( $item->title, 'privacy' ) !== false ) {
@@ -28,7 +32,7 @@ class Footer_Menu_Walker extends Walker_Nav_Menu {
 			$custom_data = 'data-element="legal-notes"';
 		}
 		if ($item->url) {
-			$output .= '<a class="text-underline-hover" href="' . $item->url . '" '.$custom_data.'>';
+			$output .= '<a class="text-underline-hover" '.$target.' href="' . $item->url . '" '.$custom_data.'>';
 		} else {
 			$output .= '<a class="text-underline-hover" href="#" '.$custom_data.'>';
 		}

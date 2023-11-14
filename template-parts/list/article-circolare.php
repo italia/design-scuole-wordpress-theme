@@ -33,7 +33,16 @@ $accesso_circolare = circolare_access($post->ID);
 					<h2 class="h3"><?php the_title(); ?></h2>	
                     <p><?php echo $excerpt; ?></p>
                 </div><!-- /card-avatar-content -->
-        </div><!-- /card-body --> 
+        </div><!-- /card-body -->
+	<div class="p-1">
+	<?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
+		if ($post_tags) {
+			foreach($post_tags as $tag) {
+			echo '<a href="'.get_tag_link($tag->term_id).'" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
+			}
+		}
+	?>
+	</div>		    
     </article><!-- /card card-bg card-article -->
 </a>
 <?php } else { ?>
