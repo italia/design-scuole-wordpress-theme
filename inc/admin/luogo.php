@@ -7,7 +7,7 @@ function dsi_register_luogo_post_type() {
 
 	/** luogo **/
 	$labels = array(
-		'name'          => _x( 'Luoghi', 'Post Type General Name', 'design_scuole_italia' ),
+		'name'          => _x( 'I luoghi', 'Post Type General Name', 'design_scuole_italia' ),
 		'singular_name' => _x( 'Luogo', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new'       => _x( 'Aggiungi un Luogo', 'Post Type Singular Name', 'design_scuole_italia' ),
 		'add_new_item'  => _x( 'Aggiungi un Luogo', 'Post Type Singular Name', 'design_scuole_italia' ),
