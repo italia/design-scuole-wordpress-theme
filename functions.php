@@ -328,7 +328,12 @@ function breadcrumb_fix( $string, $arg1 ) {
 		$string = str_replace("Documenti", "Le carte della scuola",$string);
 		$string = str_replace("Strutture", "Organizzazione",$string);
 		$string = str_replace("?post_type=indirizzo","",$string);
-		$string = str_replace("Indirizzo di Studio", "Indirizzi di studio",$string);
+		$string = str_replace("Indirizzo di Studio", "Percorsi di studio",$string);
+		$string = str_replace("Luoghi", "I luoghi",$string);
+		$string = str_replace("Schede Progetti", "I progetti delle classi",$string);
+		$string = str_replace("Schede Didattiche", "Le schede didattiche",$string);
+		$string = str_replace("Tutti i Servizi", "Tutti i servizi",$string);		
+		$string = str_replace("La Storia", "La storia",$string);
 
     return $string;
 }
