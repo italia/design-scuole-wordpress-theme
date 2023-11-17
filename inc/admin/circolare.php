@@ -474,7 +474,7 @@ add_action('admin_notices', 'dsi_circolari_admin_notice');
 add_action( 'edit_form_after_title', 'sdi_circolare_add_content_after_title' );
 function sdi_circolare_add_content_after_title($post) {
     if($post->post_type == "circolare")
-        _e('<span><>il <b>Titolo</b> è il <b>Nome della Circolare</b></span><br><br>', 'design_scuole_italia' );
+        _e('<span><i>il <b>Titolo</b> è il <b>Nome della Circolare</b></i></span><br><br>', 'design_scuole_italia' );
 }
 
 

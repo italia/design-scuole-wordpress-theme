@@ -555,7 +555,7 @@ function dsi_add_eventi_metaboxes() {
 add_action( 'edit_form_after_title', 'sdi_evento_add_content_after_title' );
 function sdi_evento_add_content_after_title($post) {
 	if($post->post_type == "evento")
-		_e('<span><i>il <b>Titolo</b> è il <b>Nome dell\'Evento</b></span><br><br>', 'design_scuole_italia' );
+		_e('<span><i>il <b>Titolo</b> è il <b>Nome dell\'Evento</b></i></span><br><br>', 'design_scuole_italia' );
 }
 
 /**

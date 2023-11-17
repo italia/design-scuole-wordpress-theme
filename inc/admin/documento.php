@@ -483,7 +483,7 @@ function dsi_add_documento_metaboxes() {
 add_action( 'edit_form_after_title', 'sdi_documento_add_content_after_title' );
 function sdi_documento_add_content_after_title($post) {
     if($post->post_type == "documento")
-        _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b></span><br><br>', 'design_scuole_italia' );
+        _e('<span><i>il <b>Titolo</b> è il <b>Nome del Documento</b></i></span><br><br>', 'design_scuole_italia' );
 }
 
 
