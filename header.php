@@ -210,7 +210,7 @@ if(is_search() || is_archive())
                     <div class="logo-header">
 						<?php get_template_part("template-parts/common/logo"); ?>
                         <div class="h1">
-                            <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="vai alla homepage" >
+                            <a href="<?php echo home_url(); ?>" aria-label="<?php echo dsi_get_option("tipologia_scuola"); ?> <?php echo dsi_get_option("nome_scuola"); ?>" title="vai alla homepage" >
                                 <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                 <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                 <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
