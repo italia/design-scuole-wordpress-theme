@@ -10,7 +10,7 @@ if($visualizza_banner == "si") {
             <div class="row variable-gutters">
                 <div class="col">
                     <p class="text-center"><?php _e("Pubblicità e Informazione", "design_scuole_italia"); ?></p>
-                    <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide">
+                    <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide="" data-splide="{&quot;type&quot;:&quot;loop&quot;,&quot;autoplay&quot;:true,&quot;perPage&quot;:3}">
                         <div class="splide__track ps-lg-3 pe-lg-3">
                             <ul class="splide__list it-carousel-all">
                                 <?php
