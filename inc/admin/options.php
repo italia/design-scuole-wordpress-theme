@@ -1704,11 +1704,11 @@ function dsi_check_media_htaccess(string $object_id, array $updated, CMB2 $cmb) 
 
     $basedir = wp_get_upload_dir()['basedir'];
 
-    unlink($basedir . '\.htaccess');
+    unlink($basedir . '/.htaccess');
 
     if($data != "") {
         $htaccesscontent = "RewriteRule \d{4}/(.*)[". $data . "]$ ". site_url( '', 'relative') ."/?action=reservedfilecheck&file=$0";
-        $htaccessfile = fopen($basedir . '\.htaccess', "w") or die("Unable to open file!");
+        $htaccessfile = fopen($basedir . '/.htaccess', "w") or die("Unable to open file!");
         fwrite($htaccessfile, $htaccesscontent);
         fclose($htaccessfile);
     }
