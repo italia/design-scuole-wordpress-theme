@@ -72,50 +72,53 @@ function dsi_add_circolare_metaboxes() {
 
     $prefix = '_dsi_circolare_';
 
-    $cmb_abstrat = new_cmb2_box( array(
+    $cmb_backend = new_cmb2_box( array(
         'id'           => $prefix . 'box_abstract',
         'object_types' => array( 'circolare' ),
         'context'      => 'after_title',
         'priority'     => 'high',
     ) );
 
-    $cmb_abstrat->add_field( array(
+    $cmb_backend->add_field( array(
         'id' => $prefix . 'tipologia',
         'name'        => '<span class="_dsi_circolare_tipologia">'.__( 'Tipologia circolare *', 'design_scuole_italia' ).'<span>',
-        'type'             => 'taxonomy_multicheck_inline',
+        'type'             => 'taxonomy_radio_inline',
         'taxonomy'       => 'tipologia-circolare',
-        'select_all_button' => false,
-        'remove_default' => 'true',
+       'remove_default' => 'true',
+		'attributes'    => array(
+			'required' => 'required'
+		),
 
     ) );
 
 
-    $cmb_abstrat->add_field( array(
+    $cmb_backend->add_field( array(
         'id' => $prefix . 'descrizione',
-        'name'        => __( 'Abstract', 'design_scuole_italia' ),
+        'name'        => __( 'Oggetto *', 'design_scuole_italia' ),
         'desc' => __( 'Indicare un sintetico abstract (max 160 caratteri)' , 'design_scuole_italia' ),
         'type' => 'textarea',
         'attributes'    => array(
-            'maxlength'  => '160'
+            'maxlength'  => '160',
+			'required' => 'required',
         ),
     ) );
 
-    $cmb_tipologie = new_cmb2_box( array(
-        'id'           => $prefix . 'box_sottotitolo',
-//		'title'        => __( 'Sottotitolo', 'design_scuole_italia' ),
-        'object_types' => array( 'circolare' ),
-        'context'      => 'after_title',
-        'priority'     => 'high',
-    ) );
 
 
-    $cmb_tipologie->add_field(array(
+
+    $cmb_backend->add_field(array(
         'id' => $prefix . 'numerazione_circolare',
-        'name' => __('Numerazione Circolare', 'design_scuole_italia'),
-        'type' => 'text_small'
+        'name' => __('Numerazione Circolare *', 'design_scuole_italia'),
+        'type' => 'text_small',
+		 'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 0,
+			'required' => 'required',
+        ),
     ));
 
-    $cmb_tipologie->add_field(array(
+    $cmb_backend->add_field(array(
         'id' => $prefix . 'is_pubblica',
         'name' => __('Visibilità della Circolare sul sito', 'design_scuole_italia'),
         'desc' => __('Seleziona se il documento è pubblico o visibile solo agli utenti registrati indicati di seguito', 'design_scuole_italia'),
@@ -127,37 +130,11 @@ function dsi_add_circolare_metaboxes() {
         ),
     ));
 
-    $cmb_tipologie->add_field(array(
-        'id' => $prefix . 'circolare_title',
-        'name' => __('Notifiche agli utenti', 'design_scuole_italia'),
-        'desc' => __('Le circolari inviano notifiche al destinatario, e rendono visibile la circolare sulla sua bacheca utente.<br> NB: Le notifiche vengono inviate <b>al primo salvataggio dell\'articolo in stato "pubblicato"</b>. <b>Da quel momento in poi cambiamenti nei campi che seguono non genereranno notifiche agli utenti</b>.' , 'design_scuole_italia'),
-        'type' => 'title',
-    ));
 
 
-    $cmb_tipologie->add_field(array(
-        'id' => $prefix . 'require_feedback',
-        'name' => __('Richiedi un Feedback agli utenti:', 'design_scuole_italia'),
-        'desc' => __(' Se la circolare è di tipologia "assemblea sindacale" l\'azione richiesta è "Sì/NO. Se la circolare è di tipologia "sciopero" l\'azione richiesta è "Adesione sì/no/presa visione".', 'design_scuole_italia'),
-        'type' => 'radio_inline',
-        'default' => "false",
-        'options' => dsi_get_circolari_feedback_options(),
-    ));
+   
 
-    $cmb_tipologie->add_field(array(
-        'id'         => $prefix . 'timestamp_scadenza_feedback',
-        'name' => __('Data scadenza ricezione feedback', 'design_scuole_italia'),
-        'desc' => __('Se compilato, sar&agrave; possibile inviare un feeedback solo prima della data/ora indicata.', 'design_scuole_italia'),
-        'type' => 'text_datetime_timestamp',
-        'date_format' => 'd-m-Y',
-        'attributes' => array(
-            'autocomplete' => 'off',
-			'data-conditional-id'    => $prefix . 'require_feedback',
-			'data-conditional-value' => wp_json_encode( array( 'presa_visione', 'si_no', 'si_no_visione' ) )
-        ),
-    ));
-
-    $cmb_tipologie->add_field(array(
+    $cmb_backend->add_field(array(
         'id' => $prefix . 'destinatari_circolari',
         'name' => __('Destinatari della Circolare', 'design_scuole_italia'),
         'type' => 'radio_inline',
@@ -170,7 +147,7 @@ function dsi_add_circolare_metaboxes() {
     ));
 
 
-    $cmb_tipologie->add_field( array(
+    $cmb_backend->add_field( array(
             'name'       => __('Seleziona i ruoli ', 'design_scuole_italia' ),
             'id' => $prefix . 'ruoli_circolari',
             'type'    => 'pw_multiselect',
@@ -183,7 +160,7 @@ function dsi_add_circolare_metaboxes() {
         )
     );
 
-    $cmb_tipologie->add_field( array(
+    $cmb_backend->add_field( array(
             'name'       => __('Seleziona i gruppi ', 'design_scuole_italia' ),
             'id' => $prefix . 'gruppi_circolari',
             'type'    => 'pw_multiselect',
@@ -196,7 +173,35 @@ function dsi_add_circolare_metaboxes() {
         )
     );
 
+    $cmb_backend->add_field(array(
+        'id' => $prefix . 'circolare_title',
+        'name' => __('Notifiche agli utenti', 'design_scuole_italia'),
+        'desc' => __('Le circolari inviano notifiche al destinatario, e rendono visibile la circolare sulla sua bacheca utente.<br> NB: Le notifiche vengono inviate <b>al primo salvataggio dell\'articolo in stato "pubblicato"</b>. <b>Da quel momento in poi cambiamenti nei campi che seguono non genereranno notifiche agli utenti</b>.' , 'design_scuole_italia'),
+        'type' => 'title',
+    ));
 
+
+	$cmb_backend->add_field(array(
+        'id' => $prefix . 'require_feedback',
+        'name' => __('Richiedi un Feedback agli utenti:', 'design_scuole_italia'),
+        'desc' => __(' Se la circolare è di tipologia "assemblea sindacale" l\'azione richiesta è "Sì/NO. Se la circolare è di tipologia "sciopero" l\'azione richiesta è "Adesione sì/no/presa visione".', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => "false",
+        'options' => dsi_get_circolari_feedback_options(),
+    ));
+
+    $cmb_backend->add_field(array(
+        'id'         => $prefix . 'timestamp_scadenza_feedback',
+        'name' => __('Data scadenza ricezione feedback', 'design_scuole_italia'),
+        'desc' => __('Se compilato, sar&agrave; possibile inviare un feeedback solo prima della data/ora indicata.', 'design_scuole_italia'),
+        'type' => 'text_datetime_timestamp',
+        'date_format' => 'd-m-Y',
+        'attributes' => array(
+            'autocomplete' => 'off',
+			'data-conditional-id'    => $prefix . 'require_feedback',
+			'data-conditional-value' => wp_json_encode( array( 'presa_visione', 'si_no', 'si_no_visione' ) )
+        ),
+    ));
 
 
     $cmb_undercontent = new_cmb2_box( array(
@@ -469,7 +474,7 @@ add_action('admin_notices', 'dsi_circolari_admin_notice');
 add_action( 'edit_form_after_title', 'sdi_circolare_add_content_after_title' );
 function sdi_circolare_add_content_after_title($post) {
     if($post->post_type == "circolare")
-        _e('<span><>il <b>Titolo</b> è il <b>Nome della Circolare</b></span><br><br>', 'design_scuole_italia' );
+        _e('<span><i>il <b>Titolo</b> è il <b>Nome della Circolare</b></i></span><br><br>', 'design_scuole_italia' );
 }
 
 
@@ -514,8 +519,10 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
         // Maybe put in some extra arguments based on the post status.
         $pdf_link = add_query_arg( array( 'pdf' => 'true' ), $url );
 
-        if (circolare_access($post->ID) != 'false') {
+		if (circolare_access($post->ID) != 'false') {
         $new_actions['pdf'] = sprintf( '<a href="%1$s"><b>%2$s</b></a>', esc_url( $pdf_link ), esc_html( __( 'PDF', 'design_scuole_italia' ) ) );
+		} else {
+			$new_actions['pdf'] = '';
 		}
 
         if($notificato) {
@@ -529,15 +536,19 @@ function dsi_circolare_modify_list_row_actions( $actions, $post ) {
 
 // aggiungo bottone generazione pdf
 add_action( 'post_submitbox_misc_actions', function( $post ){
-    // check something using the $post object 
-    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare") && (circolare_access($post->ID) != 'false') ){
-        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera il PDF</a></div>';
+    // check something using the $post object
+    if (( get_post_status( $post->ID ) === 'publish' ) && ( get_post_type($post->ID) == "circolare")){
+		if (circolare_access($post->ID) != 'false') {
+        echo '<div class="misc-pub-section"><a href="'. add_query_arg( array( 'pdf' => 'true' ), get_permalink($post->ID)).'" class="button" >Genera PDF</a></div>';
+		} else  {
+		echo '';	
+		}
     }
 });
 
 if(!function_exists('dsi_csv_generator')) {
     function dsi_csv_generator(){
-        if(is_singular("circolare") && isset($_GET) && isset($_GET["csv"]) && ($_GET["csv"] == "true")) {
+        if(is_singular("circolare") && isset($_GET) && ($_GET["csv"] == "true")) {
             global $post;
 
             // output headers so that the file is downloaded rather than displayed
@@ -640,4 +651,3 @@ if(!function_exists('dsi_csv_generator')) {
     }
 }
 add_action("template_redirect", "dsi_csv_generator");
-

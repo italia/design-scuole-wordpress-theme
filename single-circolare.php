@@ -134,7 +134,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 						if ($post_tags) {
 							echo '<h2 class="h4">Tipologia</h2>';
 							foreach($post_tags as $tag) {
-							echo '<a href="'.get_tag_link($tag->term_id).'" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
+                                echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
 							}
 						}
 					?>

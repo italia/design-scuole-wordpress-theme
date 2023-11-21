@@ -17,6 +17,8 @@ function dsi_add_dashboard_widget() {
     wp_add_dashboard_widget ('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget');
 
     wp_add_dashboard_widget('dsi_circolari_signed_widget', 'Circolari Firmate', 'dsi_circolari_signed_dashboard_widget');
+
+    wp_add_dashboard_widget('dsi_menu_utente_widget', 'Menu utente', 'dsi_menu_utente_dashboard_widget', context: 'side');
 }
 
 function dsi_circolari_dashboard_widget() {
@@ -102,7 +104,32 @@ function dsi_circolari_signed_dashboard_widget() {
     echo "</div>";
 }
 
+function dsi_menu_utente_dashboard_widget()
+{
+    $theme_locations = get_nav_menu_locations();
 
+    if ($theme_locations['menu-utente'])
+        $menu_obj = get_term($theme_locations['menu-utente'], 'nav_menu');
+
+    if (!isset($menu_obj)) {
+        echo '<p>Menu utente non configurato.</p>';
+        if (current_user_can('administrator')) { ?>
+            <p>
+                Puoi configurare questa sezione per mostrare velocemente risorse utili per gli utenti registrati, come i documenti dedicati solo al personale.
+            </p>
+            <p>
+                È possibile, ad esempio, creare un argomento "Area riservata" e collocarvi tutti i documenti riservati al personale, avendo cura di impostare la visibilità di ogni documento come privato. Quindi, per mostrare velocemente un collegamento all'argomento "Area riservata" in questa sezione, puoi configurare un menu in <em>Aspetto &gt; Menu &gt; Crea un nuovo menu</em> con una voce che conduca all'argomento "Area riservata", e infine collegare il menu appena creato alla posizione <em>Menu utente</em> in <em>Gestione posizioni</em>.
+            </p>
+        <?php }
+    } else { ?>
+        <p>Qui puoi trovare velocemente collegamenti utili al personale scolastico.</p>
+        <ul>
+            <?php wp_nav_menu(array(
+                "menu" => $menu_obj,
+            )) ?>
+        </ul>
+<?php };
+}
 
 add_action('wp_dashboard_setup', 'dsi_remove_all_dashboard_meta_boxes', 100 );
 
