@@ -118,7 +118,7 @@ function dsi_menu_utente_dashboard_widget()
                 Puoi configurare questa sezione per mostrare velocemente risorse utili per gli utenti registrati, come i documenti dedicati solo al personale.
             </p>
             <p>
-                È possibile, ad esempio, creare un argomento "Area riservata" e collocarvi tutti i documenti riservati al personale, avendo cura di impostare la visibilità di ogni documento come privato. Quindi, per mostrare velocemente un collegamento all'argomento "Area riservata" in questa sezione, puoi configurare il menu in <em>Aspetto &gt; Menu &gt; Seleziona un menu da modificare &gt; Utente (Menu utente) </em> con una voce che conduca all'argomento "Area riservata". Se il menu Utente non è disponibile o se gli utenti autenticati non amministratori non riescono a vedere i contenuti privati, disattiva e riattiva il tema (attivandone un altro e poi riattivando quello delle scuole in <em>Aspetto &gt; Temi</em>).
+                È possibile, ad esempio, creare un argomento "Area riservata" e collocarvi tutti i documenti riservati al personale, avendo cura di impostare la visibilità di ogni documento come privato. Quindi, per mostrare velocemente un collegamento all'argomento "Area riservata" in questa sezione, puoi configurare il menu in <em>Aspetto &gt; Menu &gt; Seleziona un menu da modificare &gt; Utente (Menu utente) </em> con una voce che conduca all'argomento "Area riservata", e infine collegare il menu appena creato alla posizione <em>Menu utente</em> in <em>Gestione posizioni</em>.
             </p>
         <?php }
     } else { ?>
