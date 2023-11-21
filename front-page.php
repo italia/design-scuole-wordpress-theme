@@ -41,10 +41,10 @@
 
         <div class="row mt-4 mt-lg-0">
           <div class="col-12 mt-lg-4">
-            <a class="btn-lg-default w-100" href="https://martini-tn.registroelettronico.com/mastercom/" target="blank">
+            <a class="btn-lg-default w-100" href="registri" target="blank">
               <button>Registro Docenti</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/GestOre/" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/gestore/" target="blank">
               <button>GestOre</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
@@ -76,10 +76,10 @@
               }
             }
             ?>
-            <a class="btn-lg-default-outline w-100" href="https://docs.google.com/spreadsheets/d/1VHINpeHLCE1BzyHgD-GEQVTaRM91HiF9GzLCqdZGqEA/edit?usp=sharing" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/dislocazione-aule/" target="blank">
               <button>Dislocazione aule</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.google.com/url?q=https://docs.google.com/spreadsheets/d/e/2PACX-1vQAiW61fWMJlamgqpoPDwG0-iwhNMrBh3Kwc_LZToknliSTkjFuoHqAC7fQbUFiDhHXgHvdiLjYl5wN/pubhtml&sa=D&source=docs&ust=1681892553544706&usg=AOvVaw09ShU6uKG4CAZFA3Xb47ga" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/piano-delle-attivita/" target="blank">
               <button>Piano delle Attività</button>
             </a>
           </div>

@@ -8,7 +8,7 @@
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
     <section>
-        <div class="container mx-5">
+        <div class="container mx-auto">
         <?php
         wp_reset_query(); // necessary to reset query
         while (have_posts()) : the_post(); ?>
