@@ -993,6 +993,22 @@ function dsi_create_pages_on_theme_activation() {
     }
 
     /**
+     * creo il menu utente (visibile in bacheca)
+     */
+    $name = __('Utente', "design_scuole_italia");
+
+    wp_delete_nav_menu($name);
+    $menu_object = wp_get_nav_menu_object( $name );
+    if(!$menu_object) {
+        $menu_id = wp_create_nav_menu($name);
+        $menu = get_term_by( 'id', $menu_id, 'nav_menu' );
+
+        $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+        $locations_primary_arr["menu-utente"] = $menu->term_id;
+        set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+    }
+
+    /**
      * aggiungo i menu come widget
      */
 
