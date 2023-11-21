@@ -56,6 +56,7 @@ function martini_add_pnrr_metaboxes() {
             'prevenzione' => __( 'Prevenzione e contrasto alla dispersione scolastica', 'cmb2' ),
             'futuro'    => __( 'Laboratori per le professioni digitali del futuro', 'cmb2' ),
             'innovativi'    => __( 'Ambienti di apprendimento innovativi', 'cmb2' ),
+            'stem'    => __( 'Azioni di potenziamento delle competenze STEM e multilinguistiche', 'cmb2' ),
         ),
     ) );
 

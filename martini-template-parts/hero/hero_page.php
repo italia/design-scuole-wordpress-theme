@@ -47,6 +47,7 @@ $use_slider = -1;
     document.addEventListener('DOMContentLoaded', () =>
         (!!Splide) && (new Splide('#hero-splide', {
             type: 'loop',
+            autoplay: true,
             pagination: true,
             classes: {
                 arrows: 'splide__arrows container',
