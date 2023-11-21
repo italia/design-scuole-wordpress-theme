@@ -1075,6 +1075,21 @@ function dsi_create_pages_on_theme_activation() {
             $admins->add_cap( $cap.$custom_type);
         }
     }
+
+    /**
+     * do il permesso a tutti gli utenti che hanno effettuato l'accesso di vedere i contenuti privati, in modo che si possano pubblicare elementi visibili solo al personale scolastico
+    */
+    if ( ! function_exists( 'get_editable_roles' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/user.php';
+    }
+
+    foreach (get_editable_roles() as $role => $_) {
+        $custom_types = array("posts", "eventi", "documenti", "luoghi", "schede_didattica", "schede_progetto", "strutture", "servizi", "indirizzi_di_studio", "circolari");
+        foreach ($custom_types as $custom_type){
+            get_role($role)->add_cap( 'read_private_' . $custom_type);
+        }
+    }
+
 //    $custom_tax = array("materie", "tipologia_articoli", "classi", "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi","tipologia_strutture","percorsi-di-studio");
     $custom_tax = array("tipologia_articoli",  "tipologia_documenti", "tipologia_eventi", "tipologia_luoghi", "tipologia_servizi", "tipologia_progetti","tipologia_strutture","tipologia_circolare","percorsi-di-studio");
     $caps_terms = array("manage_","edit_","delete_","assign_");
