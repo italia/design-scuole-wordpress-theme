@@ -7,7 +7,7 @@ function dsi_register_documento_post_type() {
 
     /** documenti **/
     $labels = array(
-        'name'          => _x( 'Documenti', 'Post Type General Name', 'design_scuole_italia' ),
+        'name'          => _x( 'Le carte della scuola', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name' => _x( 'Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'       => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new_item'  => _x( 'Aggiungi un Documento', 'Post Type Singular Name', 'design_scuole_italia' ),
