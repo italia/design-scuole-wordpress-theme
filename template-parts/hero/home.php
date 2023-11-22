@@ -6,7 +6,7 @@ Modifica per Liceo Pitagora
 START
 */
 
-echo do_shortcode('[smartslider3 slider="2"]');
+echo "ciao";
 
 /*
 END
