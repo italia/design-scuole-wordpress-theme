@@ -151,14 +151,24 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     }
 
     if($home_show_circolari != "false") { ?>
-        <div class="col-lg-4">
+    <?php
+    /*
+    Modifica per Liceo Pitagora
+        Correzione Circolari
+
+    START
+    */
+    ?>
+        <div class="col-lg-12">
 
             <div class="title-section pb-4">
                 <h2><?php _e("Circolari", "design_scuole_italia"); ?></h2>
             </div><!-- /title-section -->
+
+            <div style="display:flex; justify-content: space-between">
             <?php
             $args = array('post_type' => 'circolare',
-                'posts_per_page' => 1
+                'posts_per_page' => 3
             );
             $posts = get_posts($args);
             foreach ($posts as $post) {
@@ -166,11 +176,21 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             }
             ?>
 
+            </div>
+
             <div class="py-4">
                 <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>
             </div>
 
         </div>
+
+        <?php
+         /*
+         END
+
+         Modifica per Liceo Pitagora     
+         */
+        ?>
     <?php
     }
     ?>
