@@ -371,17 +371,26 @@ function dsi_add_persone_metaboxes() {
 		'id'      => $prefix . 'email_pubblico',
 		'type'    => 'text_email'
 	) );
+/*
 
+Modifica per Liceo Pitagora
+
+START
+*/
 	$cmb_user->add_field( array(
 		'name'    => __( 'Ulteriori informazioni', 'design_scuole_italia' ),
 		'desc'    => __( 'Ulteriori informazioni relative alla persona', 'design_scuole_italia' ),
 		'id'      => $prefix . 'altre_info',
-		'type'    => 'textarea',
+		'type'    => 'wysiwyg',
 		//'attributes'    => array(
 		//	'required'    => 'required'
 		//),
 	) );
+/*
+END
 
+Modifica per Liceo Pitagora
+*/
 
 }
 
