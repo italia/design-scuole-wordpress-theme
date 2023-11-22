@@ -1,4 +1,23 @@
-<?php
+<?php 
+
+/* 
+Modifica per Liceo Pitagora
+
+START
+*/
+
+echo do_shortcode('[smartslider3 slider="2"]');
+
+/*
+END
+
+Modifica per Liceo Pitagora
+*/
+
+/*
+
+ORIGINAL VERSION
+
 global $post;
 
 $img_identita = dsi_get_option("immagine", "la_scuola");
@@ -47,3 +66,4 @@ if($img_identita == ""){
     </div><!-- /container -->
     <div class="hero-img d-none d-md-block" style="background-image: url('<?php echo $img_identita; ?>');"></div>
 </section><!-- /section -->
+*/
