@@ -387,7 +387,7 @@ class Breadcrumb_Trail {
 
 				} else if(is_post_type_archive(array("servizio"))){
                     $this->items[] =  "<a href='".home_url("servizi")."'>".__("Servizi", "design_scuole_italia")."</a>";
-                    $this->items[] =  __("Tutti i Servizi", "design_scuole_italia");
+                    $this->items[] =  __("Tutti i servizi", "design_scuole_italia");
 					
 				} else if(is_post_type_archive(array("circolare"))){
                     $this->items[] =  "<a href='".home_url("novita")."'>".__("Novità", "design_scuole_italia")."</a>";
