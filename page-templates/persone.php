@@ -43,7 +43,32 @@ get_header();
                             <?php if (is_array($responsabile) && count($responsabile) > 0) { ?>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-3">
-                                        <h3 class="text-lg-right mb-3"><?php _e("Responsabile", "design_scuole_italia"); ?></h3>
+                                        <h3 class="text-lg-right mb-3">
+
+                                            <?php 
+                                            /*
+                                            Modifica per Liceo Pitagora
+                                                Correzione naming ruoli persone
+                                            START
+                                            */
+                                            if($struttura->post_title == "Dirigenza"){
+											    _e("Dirigente Scolastico", "design_scuole_italia");
+											} else if ($struttura->post_title == "Segreteria"){ 
+											    _e("DSGA", "design_scuole_italia");
+										    } else {
+											 _e("Responsabile", "design_scuole_italia");
+											};
+                                            
+                                            /*
+                                            END
+
+                                            Modifica per Liceo Pitagora
+                                            */
+
+                                            ?>
+                                        <?php // _e("Responsabile", "design_scuole_italia"); ?>
+
+                                    </h3>
                                     </div><!-- /col-lg-3 -->
                                     <div class="col-lg-9">
                                         <div class="row variable-gutters">
@@ -69,7 +94,34 @@ get_header();
                             <?php if (is_array($persone) && count($persone) > 0) { ?>
                                 <div class="row variable-gutters mb-4">
                                     <div class="col-lg-3">
-                                        <h4 class="text-lg-right mb-3"><?php _e("Persone", "design_scuole_italia"); ?></h4>
+                                        <h4 class="text-lg-right mb-3">
+
+                                        <?php 
+                                        /*
+                                            Modifica per Liceo Pitagora
+                                                Correzione naming ruoli persone
+                                            START
+                                        */
+
+                                        if($struttura->post_title == "Dirigenza"){
+											 _e("Collaboratori Vicari", "design_scuole_italia");
+											 } else if ($struttura->post_title == "Segreteria"){
+											 _e("Assistenti Amministrativi", "design_scuole_italia");
+											 } else {
+											 _e("Persone", "design_scuole_italia");
+										};
+                                        
+                                        /*
+                                            END
+
+                                            Modifica per Liceo Pitagora
+                                        */
+
+                                        ?>
+                                            
+                                        <?php // _e("Persone", "design_scuole_italia"); ?>
+                                    
+                                        </h4>
                                     </div><!-- /col-lg-3 -->
                                     <div class="col-lg-9">
                                         <div class="row variable-gutters">
