@@ -360,6 +360,33 @@ function dsi_add_struttura_metaboxes() {
     ) );
 
 
+/*
+Modifica per Liceo Pitagora
+
+START
+*/
+
+    $cmb_undercontent->add_field( array(
+		'id' => $prefix . 'struttura_documenti',
+		'name'    => __( 'Carica documenti', 'design_scuole_italia' ),
+		'desc' => __( 'Se la Struttura non è descritta da una scheda documento, link al documento. ' , 'design_scuole_italia' ),
+		'type' => 'file_list',
+		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+		// 'query_args' => array( 'type' => 'image' ), // Only images attachment
+		// Optional, override default text strings
+		'text' => array(
+			'add_upload_files_text' => __('Aggiungi un nuovo Documento', 'design_scuole_italia' ), // default: "Add or Upload Files"
+			'remove_image_text' => __('Rimuovi Documento', 'design_scuole_italia' ), // default: "Remove Image"
+			'remove_text' => __('Rimuovi', 'design_scuole_italia' ), // default: "Remove"
+		),
+	) );
+
+/*
+END
+
+Modifica per Liceo Pitagora
+*/
+
 }
 
 

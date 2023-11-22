@@ -411,6 +411,37 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
                                 <?php } */ ?>
+
+                                <?php
+                                /*
+                                Modifica per Liceo Pitagora
+                                    Aggiunta di documenti
+                                START
+                                */
+                                ?>
+                                
+                                <?php if((is_array($file_documenti) && count($file_documenti)>0)){ ?>
+                                    <h2 class="h4" id="art-par-info"><?php _e("Risorse", "design_scuole_italia"); ?></h2>
+                                    <div class="card-deck card-deck-spaced">
+                                        <?php
+                                        
+
+                                            foreach ( $file_documenti as $idfile => $nomefile ) {
+                                                get_template_part( "template-parts/documento/file" );
+                                            }
+                                        
+                                        ?>
+                                    </div><!-- /card-deck card-deck-spaced -->
+                                <?php } ?>
+
+                                <?php
+                                /*
+                                END
+
+                                Modifica per Liceo Pitagora
+                                */
+                                ?>
+
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <?php get_template_part("template-parts/single/bottom"); ?>
