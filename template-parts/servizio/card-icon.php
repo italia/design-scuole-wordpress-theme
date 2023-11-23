@@ -3,7 +3,7 @@ global $servizio;
 
 $image_id = get_post_thumbnail_id($servizio);
 if (has_post_thumbnail($servizio))
-    $image_url = get_the_post_thumbnail_url($servizio, "item-thumb");
+    $image_url = get_the_post_thumbnail_url($servizio, "thumbnail");
 
 
 if ($servizio->post_status == "publish") {
