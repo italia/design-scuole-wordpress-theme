@@ -17,46 +17,6 @@ if(is_array($timeline) && count($timeline) > 0) {
 			<div class="row variable-gutters">
 				<div class="col">
 
-				<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols splide history-carousel" data-bs-carousel-splide>
-                	<div class="splide__track">
-						<ul class="splide__list">				
-							<?php
-							foreach ( $timeline as $item ) {
-								$timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
-								?>							
-								<li class="splide__slide">
-									<div class="it-single-slide-wrapper h-100">	
-										<div class="card card-img card-serif">
-											<div class="card-body px-0">
-												<h5><?php echo date_i18n("F Y", $timestamp); ?></h5>
-												<h3><?php echo $item["titolo_timeline"] ?></h3>
-												<p><?php echo $item["descrizione_timeline"] ?></p>
-											</div><!-- /card-body -->
-										</div><!-- /card -->
-									</div><!-- /item -->
-								</li>
-								<?php
-							}
-							?>
-						</ul>
-				   	</div><!-- /carousel-calendar -->
-				</div>
-				<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols splide year-carousel" data-bs-carousel-splide>
-                  <div class="splide__track">
-                    <ul class="splide__list">
-					<?php
-						foreach ( $timeline as $item ) {
-							$timestamp = is_numeric($item["data_timeline"]) && (int)$item["data_timeline"] == $item["data_timeline"] ? $item["data_timeline"] : strtotime($item["data_timeline"]);
-								?>	
-							<li class="splide__slide">
-								<div class="it-single-slide-wrapper dot-text h-100"><?php echo date_i18n("Y", $timestamp); ?></div>
-							</li>
-							<?php
-						}
-					?>
-                    </ul>
-                  </div>
-                </div><!-- /carousel-year -->
 
 				</div><!-- /col -->
 			</div><!-- /row -->
