@@ -4,7 +4,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $post->ID);
 $accesso_circolare = circolare_access($post->ID);
 ?>
 
-<div class="card card-bg bg-white card-thumb-rounded col-lg-3">
+<div class="card card-bg bg-white card-thumb-rounded col-lg-4">
 	<div class="card-body">
 		<div class="card-content">
 		<?php if($accesso_circolare != "false") { ?>
