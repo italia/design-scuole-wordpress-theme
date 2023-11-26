@@ -9,7 +9,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col">
-                    <div class="responsive-tabs-wrapper padding-top-200">
+                    <div class="responsive-tabs-wrapper" style="padding-top: 105px">
                         <!-- <div class="title-large">
                             <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
                             <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
