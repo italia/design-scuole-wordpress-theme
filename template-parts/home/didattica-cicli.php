@@ -136,7 +136,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 <div class="accordion-large accordion-wrapper">
 
                                     <h3 class="mb-0">Dirigenza e amministrazione</h3>
-                                    <ul style="background-color: transparent">
+                                    <ul style="background-color: transparent !important">
                                         <li><strong>Sede principale</strong> Piazza Umberto I, 15 - 88900 Crotone (KR)</li>
                                         <li><strong>Telefono</strong> 0962-905731</li>
                                         <li><strong>E-mail</strong> KRPC02000L@istruzione.it</li>
@@ -159,7 +159,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                                 <p>Le Iscrizioni On Line prevedono alcune fasi:</p>
 
-                                <ul style="background-color: transparent">
+                                <ul style="background-color: transparent !important">
                                     <li><strong>PRIMA FASE:</strong> abilitazione al servizio presso il portale del Ministero dell'Istruzione e del Merito <a href="https://www.miur.gov.it/">https://www.miur.gov.it</a>dal 19 dicembre 2022. I genitori e gli esercenti la responsabilità genitoriale (affidatari, tutori) si abilitano al Servizio “Iscrizioni on line”, disponibile sul portale Ministero dell’Istruzione e del Merito :<a href="http://www.istruzione.it/iscrizionionline/">www.istruzione.it/iscrizionionline/</a>utilizzando le credenziali SPID (Sistema Pubblico di Identità Digitale), CIE (Carta di identità elettronica) o eIDAS (Electronic IDentification Authentication and Signature) .</li>
                                     <li><strong>SECONDA FASE:</strong> compilazione della domanda vera e propria e l'invio alle scuole scelte  utilizzando una procedura accessibile all'indirizzo: <a href="https://www.istruzione.it/iscrizionionline/">https://www.istruzione.it/iscrizionionline/</a> [si accede tramite SPID/CIE/eIDAS] dal ore dalle 8:00 del 9 gennaio 2023 alle 20:00 del 30 gennaio 2023. </li>
                                     <li><strong>TERZA FASE:</strong> Aggiornamento sullo stato di avanzamento della domanda ed eventuale accettazione da parte della Scuola successivamente alla scadenza della procedura di iscrizione on line.</li>
