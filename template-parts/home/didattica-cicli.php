@@ -5,7 +5,7 @@ $scuole_didattica = dsi_get_option("scuole_didattica", "didattica");
 if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 ?>
 
-    <section class="section section-padding py-0 section-tabs-bg" id="didattica">
+    <section class="section section-padding py-0 section-tabs-bg bg-bluelectric" id="didattica">
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col">
