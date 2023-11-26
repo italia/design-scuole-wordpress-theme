@@ -15,7 +15,9 @@ if(is_array($timeline) && count($timeline) > 0) {
 				</div><!-- /col -->
 			</div><!-- /row -->
 			<div class="row variable-gutters">
-				<div class="col">
+
+				<div class="col d-flex justify-content-center">
+					<a class="btn btn-redbrown" href="/la-scuola/la-storia/">Scopri di più</a>
 
 
 				</div><!-- /col -->
