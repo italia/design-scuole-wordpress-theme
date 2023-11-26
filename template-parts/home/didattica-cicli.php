@@ -172,7 +172,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                             <div id="tab-albo" class="responsive-tabs-content" style="padding-top: 105px">
                                 <div class="accordion-large accordion-wrapper">
-                                <h3 class="mb-0">Albo online e trasparenza</h3>
+                                <h3 class="mb-0" style="margin-bottom: 25px">Albo online e trasparenza</h3>
                                 <p>
                                         <a href="/tipologia-documento/albo-online/" class="btn" style="background-color:#cd5f4a; text-decoration:none; color: white">Visita l'albo online</a>
                                 </p>
