@@ -45,7 +45,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                         ?>
 
                         <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
-                            <ul>
+                            <ul id="navigazione-didattica">
                                 <?php
                                 foreach ($scuole_didattica as $idstruttura){
                                     $scuola = get_post($idstruttura);
