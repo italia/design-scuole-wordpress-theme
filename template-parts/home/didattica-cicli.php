@@ -148,7 +148,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                     <p>Natascia Senatore</p>
 
                                     <p>
-                                        <a href="/la-scuola/" class="btn btn-bluelectric" style="background-color:#0a00cb; text-decoration:none;">Tutto sulla nostra Scuola</a>
+                                        <a href="/la-scuola/" class="btn" style="background-color:#0a00cb; text-decoration:none;">Tutto sulla nostra Scuola</a>
                                     </p>
                                 </div>
                             </div><!-- /accordion-large-content -->
