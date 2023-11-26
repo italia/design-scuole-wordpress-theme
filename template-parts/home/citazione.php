@@ -66,7 +66,7 @@ if(trim($citazione) != ""){
 			<div class="row variable-gutters justify-content-center">
 				<div class="col-md-10">
 					<div class="big-quote">
-						<h2><?php echo $citazione; ?></h2>
+						<h2 style="font-size: 5rem"><?php echo $citazione; ?></h2>
 					</div><!-- /big-quote -->
 				</div><!-- /col-md-10 -->
 			</div><!-- /row -->
