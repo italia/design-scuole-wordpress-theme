@@ -16,8 +16,6 @@ get_header();
             the_post();
             get_template_part("template-parts/hero/page");
 
-            get_template_part("template-parts/home/timeline");
-
         endwhile; // End of the loop.
         ?>
     </main>
