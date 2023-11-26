@@ -66,20 +66,20 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                             ?>
                                 <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
-                                <div class="title-large">
-                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
-                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
-                        </div><!-- /title-large -->
-                        <div class="title-small">
-                            <div class="h5"><?php
+                                    <div class="title-large">
+                                        <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
+                                        <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
+                                    </div><!-- /title-large -->
+                                    <div class="title-small">
+                                        <div class="h5"><?php
                                             // se sono più strutture è un istituto, altrimenti una scuola
-                                if(is_array($scuole_didattica) && count($scuole_didattica) == 1)
+                                            if(is_array($scuole_didattica) && count($scuole_didattica) == 1)
                                                 _e("La scuola", "design_scuole_italia");
                                             else
                                                 _e("L'Istituto", "design_scuole_italia"); ?></div>
-                            <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
+                                        <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
 
-                        </div><!-- /title-section -->
+                                    </div><!-- /title-section -->
                                     <div class="accordion-large accordion-wrapper">
 
                                         <?php
