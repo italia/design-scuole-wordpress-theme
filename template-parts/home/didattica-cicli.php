@@ -93,7 +93,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         ?>
                                                     <hr/>
                                                     <div class="accordion-large-title accordion-header">
-                                                        <h3><a href="javascript:void(0)" style="color: #004080"><?php echo $indirizzo->post_title; ?></a></h3>
+                                                        <h3><a href="javascript:void(0)" style="color: #17324d"><?php echo $indirizzo->post_title; ?></a></h3>
                                                     </div><!-- /accordion-large-title -->
                                                     <div tabindex="0" class="accordion-large-content accordion-content">
                                                         <?php echo wpautop($descrizione); ?>
