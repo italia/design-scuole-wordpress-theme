@@ -10,20 +10,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
             <div class="row variable-gutters">
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
-                        <div class="title-large">
-                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
-                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
-                        </div><!-- /title-large -->
-                        <div class="title-small">
-                            <div class="h5"><?php
-                                            // se sono più strutture è un istituto, altrimenti una scuola
-                                if(is_array($scuole_didattica) && count($scuole_didattica) == 1)
-                                                _e("La scuola", "design_scuole_italia");
-                                            else
-                                                _e("L'Istituto", "design_scuole_italia"); ?></div>
-                            <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
-
-                        </div><!-- /title-section -->
+                        
                         <?php
                         /*
                         Modifica per Liceo Pitagora
@@ -79,6 +66,20 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                             ?>
                                 <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
+                                <div class="title-large">
+                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
+                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
+                        </div><!-- /title-large -->
+                        <div class="title-small">
+                            <div class="h5"><?php
+                                            // se sono più strutture è un istituto, altrimenti una scuola
+                                if(is_array($scuole_didattica) && count($scuole_didattica) == 1)
+                                                _e("La scuola", "design_scuole_italia");
+                                            else
+                                                _e("L'Istituto", "design_scuole_italia"); ?></div>
+                            <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
+
+                        </div><!-- /title-section -->
                                     <div class="accordion-large accordion-wrapper">
 
                                         <?php
@@ -155,12 +156,12 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                             <div id="tab-iscrizione" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
-                                <h3 class="mb-0">Dirigenza e amministrazione</h3>
+                                <h3 class="mb-0">Come iscriversi</h3>
 
                                 <p>Le Iscrizioni On Line prevedono alcune fasi:</p>
 
                                 <ul style="background-color: transparent !important">
-                                    <li><strong>PRIMA FASE:</strong> abilitazione al servizio presso il portale del Ministero dell'Istruzione e del Merito <a href="https://www.miur.gov.it/">https://www.miur.gov.it</a>dal 19 dicembre 2022. I genitori e gli esercenti la responsabilità genitoriale (affidatari, tutori) si abilitano al Servizio “Iscrizioni on line”, disponibile sul portale Ministero dell’Istruzione e del Merito :<a href="http://www.istruzione.it/iscrizionionline/">www.istruzione.it/iscrizionionline/</a>utilizzando le credenziali SPID (Sistema Pubblico di Identità Digitale), CIE (Carta di identità elettronica) o eIDAS (Electronic IDentification Authentication and Signature) .</li>
+                                    <li><strong>PRIMA FASE:</strong> abilitazione al servizio presso il portale del Ministero dell'Istruzione e del Merito <a href="https://www.miur.gov.it/">https://www.miur.gov.it</a> dal 19 dicembre 2022. I genitori e gli esercenti la responsabilità genitoriale (affidatari, tutori) si abilitano al Servizio “Iscrizioni on line”, disponibile sul portale Ministero dell’Istruzione e del Merito :<a href="http://www.istruzione.it/iscrizionionline/">www.istruzione.it/iscrizionionline/</a> utilizzando le credenziali SPID (Sistema Pubblico di Identità Digitale), CIE (Carta di identità elettronica) o eIDAS (Electronic IDentification Authentication and Signature) .</li>
                                     <li><strong>SECONDA FASE:</strong> compilazione della domanda vera e propria e l'invio alle scuole scelte  utilizzando una procedura accessibile all'indirizzo: <a href="https://www.istruzione.it/iscrizionionline/">https://www.istruzione.it/iscrizionionline/</a> [si accede tramite SPID/CIE/eIDAS] dal ore dalle 8:00 del 9 gennaio 2023 alle 20:00 del 30 gennaio 2023. </li>
                                     <li><strong>TERZA FASE:</strong> Aggiornamento sullo stato di avanzamento della domanda ed eventuale accettazione da parte della Scuola successivamente alla scadenza della procedura di iscrizione on line.</li>
                                 </ul>
@@ -172,6 +173,8 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             <div id="tab-albo" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
                                 <h3 class="mb-0">Albo online e trasparenza</h3>
+
+
                                 </div>
                             </div><!-- /accordion-large-content -->
 
