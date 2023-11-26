@@ -100,7 +100,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                         <?php echo wpautop($descrizione); ?>
                                                         <p><a href="<?php echo get_permalink($indirizzo); ?>"
                                                               class="btn"
-                                                              style="background-color:#CD5F4A; text-decoration:none;"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
+                                                              style="background-color:#CD5F4A; text-decoration:none; color: white"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                                         </p>
                                                     </div><!-- /accordion-large-content -->
 
