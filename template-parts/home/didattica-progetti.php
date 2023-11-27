@@ -31,7 +31,7 @@ if(is_array($posts) && count($posts)) {
 
             foreach ($posts as $progetto) { ?>
                 <div class="col-lg-4">
-                    <?php get_template_part("template-parts/progetto/card", "bluelight"); ?>
+                    <?php get_template_part("template-parts/progetto/card"); ?>
                 </div>
             <?php } ?>
         </div><!-- /row -->
