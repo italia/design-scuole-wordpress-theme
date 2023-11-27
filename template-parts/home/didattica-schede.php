@@ -7,7 +7,7 @@ $posts = get_posts($args);
 if(is_array($posts) && count($posts)) {
 
     ?>
-    <section class="section bg-bluelectricdark py-5">
+    <section class="section bg-bluelectric py-5">
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col">
