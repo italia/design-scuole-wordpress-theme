@@ -108,7 +108,7 @@ function dsi_menu_utente_dashboard_widget()
 {
     $theme_locations = get_nav_menu_locations();
 
-    if ($theme_locations['menu-utente'])
+    if ($theme_locations['menu-utente'] ?? false)
         $menu_obj = get_term($theme_locations['menu-utente'], 'nav_menu');
 
     if (!isset($menu_obj) || !$menu_obj->count) {
