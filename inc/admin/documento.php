@@ -256,12 +256,25 @@ function dsi_add_documento_metaboxes() {
         ),
     ) );
 
+    $cmb_at = new_cmb2_box( array(
+        'id'           => $prefix . 'box_amministrazione-trasparente-intro',
+        'object_types' => array( 'documento' ),
+        'context'      => 'after_editor',
+        'priority'     => 'high'
+    ) );
 
 
-    $cmb_sottotitolo->add_field(array(
+    $cmb_at->add_field(array(
+        'id' => $prefix . 'title_amministrazione_trasparente',
+        'name' => __('Amministrazione Trasparente', 'design_scuole_italia'),
+        'desc' => __('Opzioni per la sezione Amministrazione Trasparente del sito web', 'design_scuole_italia'),
+        'type' => 'title'
+    ));
+
+    $cmb_at->add_field(array(
         'id' => $prefix . 'is_amministrazione_trasparente',
-        'name' => __('Amministrazione Trasparente *', 'design_scuole_italia'),
-        'desc' => __('Seleziona se il documento fa parte di Amministrazione Trasparente', 'design_scuole_italia'),
+        'name' => __('Pubblica in Amministrazione Trasparente *', 'design_scuole_italia'),
+        'desc' => __('Seleziona se il documento fa parte di Amministrazione Trasparente. Se selezionato, dovrai scegliere le categorie alle quali abbinare il documento', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'false',
         'options' => array(
@@ -269,27 +282,6 @@ function dsi_add_documento_metaboxes() {
             'false' => __('No', 'design_scuole_italia'),
         ),
     ));
-
-
-
-    $cmb_sottotitolo->add_field(array(
-            'name' => __('Tipologia di Amministrazione Trasparente ', 'design_scuole_italia'),
-            'desc' => __('Collega alla sezione di Amministrazione Trasparente. ', 'design_scuole_italia'),
-            'id' => $prefix . 'amministrazione_trasparente',
-            'taxonomy'       => 'amministrazione-trasparente', //Enter Taxonomy Slug
-            'type'           => 'taxonomy_select_hierarchical',
-            'remove_default' => 'true', // Removes the default metabox provided by WP core.
-            // Optionally override the args sent to the WordPress get_terms function.
-            'query_args' => array(
-                // 'orderby' => 'slug',
-                // 'hide_empty' => true,
-            ),
-            'attributes' => array(
-                'data-conditional-id' => $prefix . 'is_amministrazione_trasparente',
-                'data-conditional-value' => "true",
-            ),
-        )
-    );
 
     $cmb_aftercontent = new_cmb2_box( array(
         'id'           => $prefix . 'box_elementi_dati',
@@ -386,7 +378,7 @@ function dsi_add_documento_metaboxes() {
     $timeline_group_id = $cmb_aftercontent->add_field( array(
         'id'           => $prefix . 'timeline',
         'type'        => 'group',
-        'name'        => '<h1>Fasi</h1>',
+        'name'        => '<h3>Fasi</h3>',
         'desc' => __( 'Suddividere i contenuti del documento in fasi e relative date. Es data di apertura della partecipazione a un bando, data di scadenza della possibilità di partecipare al bando' , 'design_scuole_italia' ),
         'repeatable'  => true,
         'options'     => array(
@@ -488,22 +480,14 @@ function sdi_documento_add_content_after_title($post) {
 
 
 /**
- * Aggiungo testo dopo l'editor
- */
-add_action( 'edit_form_after_editor', 'sdi_documento_add_content_after_editor', 100 );
-function sdi_documento_add_content_after_editor($post) {
-    if($post->post_type == "documento")
-        _e('<br>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.<br><br>', 'design_scuole_italia' );
-}
-
-
-/**
  * Aggiungo testo prima del content
  */
 add_action( 'edit_form_after_title', 'sdi_documento_add_content_before_editor', 100 );
 function sdi_documento_add_content_before_editor($post) {
-    if($post->post_type == "documento")
-        _e('<h1>Descrizione Estesa del Documento</h1>', 'design_scuole_italia' );
+    if($post->post_type == "documento") {
+        _e('<h3>Descrizione estesa</h3>', 'design_scuole_italia' );
+    	_e('<p>Se si desidera inserire un video di YouTube è necessaria l\'opzione "Enable privacy-enhanced mode" che permette di pubblicare il video in modalità youtube-nocookie.</p>', 'design_scuole_italia' );
+    }
 }
 
 
@@ -578,14 +562,26 @@ function dsi_append_documenti_post_status_list(){
         echo '
       <script>
       jQuery(document).ready(function($){
+      	   if($("input:radio[name=_dsi_documento_is_amministrazione_trasparente]:checked").val() === true) {
+                $( "#taxonomy-amministrazione-trasparente" ).parent().parent().show();
+           } else {
+    		    $( "#taxonomy-amministrazione-trasparente" ).parent().parent().hide();
+    	   }
+            
            $("select#post_status").append("<option value=\"scaduto\" '.$complete_s.'>Scaduto</option>");
            $(".misc-pub-section label").append("'.$label_s.'");
            
            $("select#post_status").append("<option value=\"annullato\" '.$complete_a.'>Annullato</option>");
            $(".misc-pub-section label").append("'.$label_a.'");
+           
+           	$("input:radio[name=_dsi_documento_is_amministrazione_trasparente]").change( function() {
+            	if($(this).val() == "true") {
+                	$( "#taxonomy-amministrazione-trasparente" ).parent().parent().show();
+                } else {
+    				$( "#taxonomy-amministrazione-trasparente" ).parent().parent().hide();
+    			}
+			});
            ';
-
-
 
 
             if($post->post_status == "scaduto"){
@@ -883,3 +879,9 @@ function dsi_sortable_documento_column( $columns ) {
 
     return $columns;
 }
+
+
+add_action( 'admin_menu', function() {
+    remove_meta_box('amministrazione-trasparentediv', 'documento', 'side');
+    add_meta_box( 'amministrazione-trasparentediv', 'Sezioni di amministrazione trasparente', 'post_categories_meta_box', 'documento', 'normal', 'high', array( 'taxonomy' => 'amministrazione-trasparente' ));
+} );
