@@ -165,7 +165,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 <h2><?php _e("Circolari", "design_scuole_italia"); ?></h2>
             </div><!-- /title-section -->
 
-            <div style="display:flex; justify-content: space-between">
+            <div style="justify-content: space-between" id="row-circolare">
             <?php
             $args = array('post_type' => 'circolare',
                 'posts_per_page' => 3
