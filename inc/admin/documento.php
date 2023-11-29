@@ -562,7 +562,7 @@ function dsi_append_documenti_post_status_list(){
         echo '
       <script>
       jQuery(document).ready(function($){
-      	   if($("input:radio[name=_dsi_documento_is_amministrazione_trasparente]:checked").val() === true) {
+      	   if($("input:radio[name=_dsi_documento_is_amministrazione_trasparente]:checked").val() == "true") {
                 $( "#taxonomy-amministrazione-trasparente" ).parent().parent().show();
            } else {
     		    $( "#taxonomy-amministrazione-trasparente" ).parent().parent().hide();
