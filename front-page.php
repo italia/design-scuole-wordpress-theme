@@ -42,7 +42,7 @@
         <div class="row mt-4 mt-lg-0">
           <div class="col-12 mt-lg-4">
             <a class="btn-lg-default w-100" href="registri" target="blank">
-              <button>Registro Docenti</button>
+              <button>Registri</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/gestore/" target="blank">
               <button>GestOre</button>
