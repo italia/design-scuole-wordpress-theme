@@ -2803,3 +2803,7 @@ body {
 .card__content__text {
   padding: 0 2rem;
 }
+
+#article_data {
+  display: none;
+}
