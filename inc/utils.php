@@ -524,26 +524,27 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
  * @return array
  */
 function dsi_get_post_types_grouped($type = "", $tag = false){
+    $at_plugin = "amministrazione-trasparente/amministrazionetrasparente.php";
+
 	if($type == "")
 		$type = "any";
-	if($type === "school")
-		$post_types = array("documento", "luogo", "struttura", "page", "amm-trasparente");
+	if($type === "school") {
+		$post_types = array("documento", "luogo", "struttura", "page");
+        if(is_plugin_active( $at_plugin ) ) array_push($post_types, "amm-trasparente");
+    }
 	else if($type === "news")
 		$post_types = array("evento", "post", "circolare");
 	else if($type === "education")
 		$post_types = array("scheda_didattica", "scheda_progetto"); // todo: programma materia 		$post_types = array("programma_materia", "scheda_didattica", "scheda_progetto");
 	else if($type === "service")
 		$post_types = array("servizio", "indirizzo");
-	else
-		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "indirizzo", "struttura", "page", "amm-trasparente"); // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+	else {
+		$post_types = array("evento", "post","circolare", "documento", "luogo", "scheda_didattica", "scheda_progetto", "servizio", "indirizzo", "struttura", "page"); 
+        if(is_plugin_active( $at_plugin )) array_push($post_types, "amm-trasparente");
 
-	// rimuovo post types che non hanno la categoria
-	if($tag){
-		if (($key = array_search("page", $post_types)) !== false) {
-			unset($post_types[$key]);
-		}
+        // todo: programma materia $post_types = array("evento", "post","circolare", "documento", "luogo", "materia", "programma_materia", "scheda_didattica", "scheda_progetto", "servizio", "struttura", "page");
+    }
 
-	}
 	return $post_types;
 
 }
@@ -1055,6 +1056,7 @@ if(!function_exists("dsi_get_current_group")) {
         if (is_tax()) {
             $taxonomy = get_queried_object() -> taxonomy;
             $term = get_queried_object() -> slug;
+            $tipo_post = '';
             if ($taxonomy == 'tipologia-servizio'){
                $tipo_post = 'servizio';
             }
