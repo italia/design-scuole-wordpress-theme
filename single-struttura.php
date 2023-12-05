@@ -356,6 +356,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             $c=0;
                                             foreach ($sedi as $idluogo){
                                                 $c++;
+                                            	$struttura = $post;
                                                 $luogo = get_post($idluogo);
                                                 get_template_part( "template-parts/luogo/card", "nophone");
 
