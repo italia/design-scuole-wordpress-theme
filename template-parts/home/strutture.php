@@ -39,10 +39,10 @@ global $struttura;
 		<div class="row variable-gutters">
 			<div class="col-md-12">
 				<div class="big-quote big-quote-secondary">
-					<h3><?php echo $descrizione_strutture; ?></h3>
+					<h3 style="text-align: center"><?php echo $descrizione_strutture; ?></h3>
 				</div><!-- /big-quote -->
 			</div><!-- /col-md-6 -->
-			<div class="col-md-12 cards-wrapper-center">
+			<div class="col-md-12 cards-wrapper-center" style="margin-top: 40px">
 				<?php
                 if(isset($link_strutture_evidenza) && is_array($link_strutture_evidenza) && count($link_strutture_evidenza)>0) {
                     foreach ($link_strutture_evidenza as $id_struttura) {
