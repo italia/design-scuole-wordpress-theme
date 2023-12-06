@@ -42,7 +42,7 @@ global $struttura;
 					<h3><?php echo $descrizione_strutture; ?></h3>
 				</div><!-- /big-quote -->
 			</div><!-- /col-md-6 -->
-			<div class="col-md-12 offset-md-1 cards-wrapper-center">
+			<div class="col-md-12 cards-wrapper-center">
 				<?php
                 if(isset($link_strutture_evidenza) && is_array($link_strutture_evidenza) && count($link_strutture_evidenza)>0) {
                     foreach ($link_strutture_evidenza as $id_struttura) {

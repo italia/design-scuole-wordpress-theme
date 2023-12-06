@@ -9,7 +9,7 @@ global $post, $gallery, $struttura;
 get_header();
 
 ?>
-	<main id="main-container" class="main-container redbrown">
+	<main id="main-container" class="main-container redbrown la-scuola">
 		<?php get_template_part("template-parts/common/breadcrumb"); ?>
 		<?php
 		while ( have_posts() ) :
