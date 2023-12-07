@@ -40,7 +40,7 @@ wp-content > themes > design-scuole-wordpress-theme-child (tema child)
 ### Come aggiornare il tema
 Le modalità di aggiornamento dipendono dall'opzione scelta per l'installazione:
 - Se hai scaricato il tema tramite il comando **fork**, esegui il comando `git pull` da terminale.
-- Se hai scaricato il file `.zip`, copia la cartella della nuova versione all'interno del percorso `wp-content > themes >design-scuole-wordpress-theme-child ` **(Raccomandato)**  
+- Se hai scaricato il file `.zip`, copia la cartella della nuova versione all'interno del percorso `wp-content > themes >design-scuole-wordpress-theme ` **(Raccomandato)**  
 
 ### Dipendenze 
 
