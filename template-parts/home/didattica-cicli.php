@@ -78,7 +78,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 $scuola = get_post($idstruttura);
 
                             ?>
-                                <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content" style="padding-top: 105px">
+                                <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
                                     <div class="accordion-large accordion-wrapper">
                                     <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
                                     <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
@@ -134,7 +134,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             ?>
 
                             <div id="tab-dirigenza" class="responsive-tabs-content">
-                                <div class="accordion-large accordion-wrapper" style="padding-top: 105px">
+                                <div class="accordion-large accordion-wrapper">
 
                                     <h3 class="mb-0">Dirigenza e amministrazione</h3>
                                     <ul style="background-color: transparent !important">
@@ -154,7 +154,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 </div>
                             </div><!-- /accordion-large-content -->
 
-                            <div id="tab-iscrizione" class="responsive-tabs-content" style="padding-top: 105px">
+                            <div id="tab-iscrizione" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
                                 <h3 class="mb-0">Come iscriversi</h3>
 
@@ -170,7 +170,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 </div>    
                             </div><!-- /accordion-large-content -->
 
-                            <div id="tab-albo" class="responsive-tabs-content" style="padding-top: 105px">
+                            <div id="tab-albo" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
                                 <h3 class="mb-0" style="margin-bottom: 25px">Albo online e trasparenza</h3>
                                 <p>
