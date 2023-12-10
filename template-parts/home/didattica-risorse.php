@@ -50,7 +50,7 @@ if((is_array($progetti) && count($progetti)) || (is_array($scheda_didattica) && 
                                                      xlink:href="#svg-books"></use>
                                             </svg>
                                             <div class="card-icon-content">
-                                                <p><strong><?php _e("Progetti", "design_scuole_italia"); ?></strong></p>
+                                                <p><strong><?php _e("I progetti delle classi", "design_scuole_italia"); ?></strong></p>
                                             </div><!-- /card-icon-content -->
                                         </div><!-- /card-body -->
                                     </a>
@@ -72,7 +72,7 @@ if((is_array($progetti) && count($progetti)) || (is_array($scheda_didattica) && 
                                             </svg>
                                             <div class="card-icon-content">
                                                 <p>
-                                                    <strong><?php _e("Schede didattiche", "design_scuole_italia"); ?></strong>
+                                                    <strong><?php _e("Le schede didattiche", "design_scuole_italia"); ?></strong>
                                                 </p>
                                             </div><!-- /card-icon-content -->
                                         </div><!-- /card-body -->
