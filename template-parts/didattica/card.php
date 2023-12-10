@@ -7,7 +7,7 @@ $image_id = get_post_thumbnail_id($post);
 if(!$image_url)
     $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
 
-?><div class="card card-horizontal">
+?><div class="card card-horizontal card-wrapper card-bg card-icon rounded">
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
