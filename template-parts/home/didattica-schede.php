@@ -12,7 +12,7 @@ if(is_array($posts) && count($posts)) {
             <div class="row variable-gutters">
                 <div class="col">
                     <div class="section-title mb-5">
-                        <h2><?php _e("Schede didattiche", "design_scuole_italia"); ?></h2>
+                        <h2><?php _e("Le schede didattiche", "design_scuole_italia"); ?></h2>
                     </div>
 
                     <div class="splide splide-double mb-1" data-bs-carousel-splide>
