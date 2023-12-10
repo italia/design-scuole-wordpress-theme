@@ -5,16 +5,14 @@ $args = array('post_type' => 'scheda_progetto',
     'posts_per_page' => 3
 );
 $posts = get_posts($args);
-if(is_array($posts) && count($posts)) {
+if(is_array($posts) && count($posts)) {   
     ?>
     <section class="section bg-white">
-    <section class="section bg-linear-vertical-blue-light">
         <div class="container py-5">
             <div class="row variable-gutters">
                 <div class="col">
-                    <div class="section-title text-center mb-4">
-                        <h2><?php _e("I Progetti", "design_scuole_italia"); ?></h2>
-                        <p class="mb-4"><?php _e("Scopri i progetti dell'Istituto", "design_scuole_italia") ?></p>
+                    <div class="section-title mb-4">
+                        <h2><?php _e("I progetti delle classi", "design_scuole_italia"); ?></h2>
                         <!-- <div class="clearfix">
                             <a class="btn btn-bluelectric" style="min-width: 200px;"
                                href="<?php echo get_post_type_archive_link("scheda_progetto") ?>"><?php _e("Scopri", "design_scuole_italia"); ?></a>
@@ -23,7 +21,7 @@ if(is_array($posts) && count($posts)) {
                 </div><!-- /col -->
             </div><!-- /row -->
         </div><!-- /container -->
-    </section>
+
 
     <div class="container position-relative slided-top">
         <div class="row variable-gutters pb-5">
