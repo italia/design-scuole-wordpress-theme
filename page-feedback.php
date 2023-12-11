@@ -14,7 +14,7 @@
         <p>
             Nella e-mail è necessario indicare come oggetto “Segnalazione mancata conformità ai requisiti di accessibilità”
         </p>
-        <ul>
+        <ul style="list-style-type: disc;">
             <li>
                 nome e cognome
             </li>
