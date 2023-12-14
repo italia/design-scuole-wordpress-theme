@@ -84,14 +84,17 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     ?>
                                 <?php } ?>
                                 <div class="row variable-gutters">
+                                <?php if(dsi_get_option("show_contatore_commenti", "setup") != "false") { ?>
+                                <?php if ( comments_open() || get_comments_number() ){ ?>
                                     <div class="col-lg-12">
                                         <?php
                                             if (comments_open() || get_comments_number()) :
                                                 comments_template();
                                             endif;
-
                                         ?>
                                     </div>
+                                    <?php } ?>
+		                        <?php } ?>
                                 </div>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-12">

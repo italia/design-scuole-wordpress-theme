@@ -21,7 +21,7 @@ get_header();
                                 if(get_search_query() != "")
                                     _e("Risultati della ricerca per:", "design_scuole_italia");
                                 ?></p>
-                            <h2 class="mb-0"><?php if(get_search_query() != "")
+                            <h1 class="h2 mb-0"><?php if(get_search_query() != "")
                                                         echo get_search_query();
                                                     else
                                                         _e("Ricerca generica", "design-scuole-italia");
@@ -86,6 +86,13 @@ get_header();
 								get_template_part( 'template-parts/list/article', get_post_type() );
 
 							endwhile;
+
+
+							if((get_query_var( 'paged' ) == $wp_query->max_num_pages || $wp_query->max_num_pages == 1) && !isset($_GET["post_terms"])){
+                            	$s_query = get_search_query();
+								get_template_part( 'template-parts/search/argomenti' );
+                            }
+
 							?>
                             <nav class="pagination-wrapper" aria-label="Navigazione della pagina">
 								<?php echo dsi_bootstrap_pagination(); ?>
@@ -95,7 +102,14 @@ get_header();
 
 							get_template_part( 'template-parts/content', 'none' );
 
+							if(!isset($_GET["post_terms"])) {
+                            	$s_query = get_search_query();
+								get_template_part( 'template-parts/search/argomenti' );
+                            }
+
 						endif;
+
+
 						?>
                     </div><!-- /col-lg-8 -->
                 </div><!-- /row -->

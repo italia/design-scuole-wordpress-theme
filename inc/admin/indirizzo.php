@@ -8,7 +8,7 @@ function dsi_register_indirizzo_post_type() {
 
     /** indirizzo **/
     $labels = array(
-        'name'                  => _x( 'Indirizzo di Studio', 'Post Type General Name', 'design_scuole_italia' ),
+        'name'                  => _x( 'Percorsi di Studio', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name'         => _x( 'Indirizzo di Studio', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new_item'               => _x( 'Aggiungi un indirizzo', 'Post Type Singular Name', 'design_scuole_italia' ),
@@ -448,12 +448,22 @@ function dsi_add_indirizzo_metaboxes() {
 
     ) );
 
+    $cmb_undercontent->add_field( array(
+        'id'   => $prefix . 'contatti_dedicati',
+        'name' => __( 'Modalità di contatto', 'design_scuole_italia' ),
+        'desc' => __( 'Sono presenti contatti dedicati per l\'indirizzo di studio. In caso contrario vengono mostrati in automatico i contatti (email e telefono) dell\'ufficio relazioni con il pubblico (URP) inseriti in Configurazione' , 'design_scuole_italia' ),
+        'type' => 'checkbox',
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'mail',
-        'name'       => __( 'Riferimento mail', 'design_scuole_italia' ),
+        'name'       => __( 'Riferimento email', 'design_scuole_italia' ),
         'desc'       => __( 'Indirizzo di posta elettronica . ', 'design_scuole_italia' ),
         'type'       => 'text_email',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
         /*'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
             'data-conditional-value' => '0',
@@ -466,6 +476,10 @@ function dsi_add_indirizzo_metaboxes() {
         'name'       => __( 'Riferimento telefonico ', 'design_scuole_italia' ),
         'desc'       => __( 'Telefono . ', 'design_scuole_italia' ),
         'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
         /*
         'attributes' => array(
             'data-conditional-id'    => $prefix . 'childof',
@@ -490,6 +504,8 @@ function dsi_add_indirizzo_metaboxes() {
             ), // override the get_posts args
         ),
     ) );
+    
+    new dsi_bidirectional_cmb2("_dsi_indirizzo_", "indirizzo", "link_schede_documenti", "box_elementi_indirizzo", "_dsi_documento_link_servizi_didattici");
 
 
     $cmb_undercontent->add_field( array(
@@ -567,7 +583,7 @@ add_action( 'admin_print_scripts-post.php', 'dsi_indirizzo_admin_script', 11 );
 function dsi_indirizzo_admin_script() {
     global $post_type;
     if( 'indirizzo' == $post_type )
-        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/indirizzo.js' );
+        wp_enqueue_script( 'struttura-admin-script', get_template_directory_uri() . '/inc/admin-js/indirizzo.js' );
 }
 
 if(!function_exists('dsi_percorsi_di_studio_edit_meta_field')) {

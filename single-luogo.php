@@ -11,7 +11,7 @@ $args = ["post", "evento", "circolare"];
 get_template_part("template-parts/single/related-posts");
 $luogo = $post;
 get_header();
-
+$fallback_image_url = get_template_directory_uri() ."/assets/placeholders/placeholder-1280x960.jpg";
 $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $post->ID);
 ?>
 
@@ -43,7 +43,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $gestito_da_link  = dsi_get_meta("gestito_da_link");
         $gestito_da_persone  = dsi_get_meta("gestito_da_persone");
 
-	$indirizzo = dsi_get_meta("indirizzo");
+        $indirizzo = dsi_get_meta("indirizzo");
         $posizione_gps = dsi_get_meta("posizione_gps");
         $cap = dsi_get_meta("cap");
         $mail = dsi_get_meta("mail");
@@ -60,19 +60,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         }
         ?>
 
-        <?php if(has_post_thumbnail($post)){ ?>
+        <?php if (has_post_thumbnail($post)) { ?>
         <section class="section bg-white article-title">
             <div class="title-img" style="background-image: url('<?php echo $image_url; ?>');"></div>
             <?php
-            $colsize = 6;
-            }else{
-            ?>
-            <section class="section bg-white article-title article-title-small">
+            
+            } else { ?>
+        <section class="section bg-white article-title">
+            <div class="title-img" style="background-image: url('<?php echo $fallback_image_url; ?>');"></div>
                 <?php
-                $colsize = 12;
-                } ?>			<div class="container">
+                } 
+                ?>			
+                <div class="container">
                     <div class="row variable-gutters">
-                        <div class="col-md-<?php echo $colsize; ?>">
+                        <div class="col-md-6">
                             <div class="title-content">
                                 <h1><?php the_title(); ?></h1>
                                 <p class="mb-0"><?php echo $descrizione_breve; ?></p>
@@ -251,11 +252,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                                 <small>
                                                                     <span id="dsi_description_<?php echo $count; ?>"><?php echo $descrizione_excerpt; ?></span>
                                                                     <?php if(!empty($descrizione_more)): ?>
-                                                                    <p style="position: absolute; left: -9999em" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></p>
+                                                                    <span class="collapse" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></span>
                                                                     <?php endif; ?>
                                                                 </small>
                                                             </div>
-                                                            <a href="#" class="show small dsi_more" data-id="<?php echo $count; ?>">Visualizza altro</a>
+                                                            <?php if(strlen($descrizione_more)>0){ ?>
+                                                                <button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>
+                                                            <?php } ?>
                                                         </div><!-- /card-body -->
                                                     </div><!-- /card card-bg card-icon rounded -->
                                                     <?php

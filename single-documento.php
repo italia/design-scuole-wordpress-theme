@@ -23,6 +23,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $file_documenti         = dsi_get_meta( "file_documenti" );
             $licenza                = dsi_get_meta( "licenza" );
             $servizi_collegati      = dsi_get_meta( "servizi_collegati" );
+            $link_servizi_didattici = dsi_get_meta("link_servizi_didattici");
            // $link_servizi_collegati = dsi_get_meta( "link_servizi_collegati" );
             $timeline               = dsi_get_meta( "timeline" );
             $ufficio                = dsi_get_meta( "ufficio" );
@@ -59,7 +60,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div><!-- /col-lg-5 col-md-8 -->
                         <div class="col-lg-3 col-md-4 offset-lg-1">
                             <?php get_template_part( "template-parts/single/actions" ); ?>
-                            <?php 
+                            <?php
                                 $badgeclass = "badge-outline-redbrown";
                                 get_template_part( "template-parts/common/badges-argomenti" ); ?>
 
@@ -229,6 +230,20 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /row -->
                                     <?php
                                 }
+                                if ( !post_password_required() && is_array( $link_servizi_didattici ) && count($link_servizi_didattici) > 0 ) { ?>
+                                    <h2 class="h4" id="art-par-servizio-didattico"><?php _e( "Indirizzi di studio collegati", "design_scuole_italia" ); ?></h2>
+                                    <div class="row variable-gutters mb-4">
+                                        <div class="col-lg-12">
+                                            <div class="card-deck card-deck-spaced">
+                                                <?php foreach ($link_servizi_didattici as $idservizio){
+                                                    $servizio = get_post($idservizio);
+                                                    get_template_part("template-parts/servizio/card");
+                                                } ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                    </div><!-- /row -->
+                                    <?php
+                                }
                                 if ( !post_password_required() && is_array( $timeline ) && count( $timeline ) > 0 ) {
                                     ?>
                                     <h2 class="h4" id="art-par-tempi"><?php _e( "Tempi e scadenze", "design_scuole_italia" ); ?></h2>
@@ -258,7 +273,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 if ( !post_password_required() && is_array( $ufficio ) && count( $ufficio ) > 0 ) { ?>
 
                                     <h2 class="h4" id="art-par-contatti"><?php _e( "Contatti", "design_scuole_italia" ); ?></h2>
-                                    <div class="h6"><?php _e( "Ufficio responsabile del documento", "design_scuole_italia" ); ?></div>
+                                    <div class="h6"><?php _e( "Struttura responsabile del documento", "design_scuole_italia" ); ?></div>
                                     <div class="row variable-gutters mb-4">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">

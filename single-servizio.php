@@ -41,6 +41,7 @@ get_header();
             $cosa_serve = dsi_get_meta("cosa_serve");
             $cosa_serve_list = dsi_get_meta("cosa_serve_list");
 
+            $fasi_scadenze_intro = dsi_get_meta("fasi_scadenze_intro");
             $fasi_scadenze = dsi_get_meta("fasi_scadenze");
             $casi_particolari = dsi_get_meta("casi_particolari");
             $link_schede_documenti = dsi_get_meta("link_schede_documenti");
@@ -57,6 +58,16 @@ get_header();
             $servizi_correlati = dsi_get_meta("servizi_correlati");
             $mail = dsi_get_meta("mail");
             $telefono = dsi_get_meta("telefono");
+
+            $contatti_dedicati = dsi_get_meta("contatti_dedicati");
+
+            if($contatti_dedicati != "on") {
+                $contatti_centralino = dsi_get_option("contatti_centralino", "contacts");
+                $contatti_PEO = dsi_get_option("contatti_PEO", "contacts");
+                
+                if($contatti_centralino) $telefono = $contatti_centralino;
+                if($contatti_PEO) $mail = $contatti_PEO;
+            }
             ?>
             <section class="section bg-white py-2 py-lg-3 py-xl-5">
                 <div class="container">
@@ -129,7 +140,7 @@ get_header();
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-cosa-serve" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Cosa serve", "design_scuole_italia"); ?>"><?php _e("Cosa serve", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) { ?>
+                                        <?php if(($fasi_scadenze_intro) || (is_array($fasi_scadenze) && count($fasi_scadenze)>0)) { ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-tempi-scadenze" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Tempi e scadenze", "design_scuole_italia"); ?>"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></a>
                                             </li>
@@ -347,11 +358,16 @@ get_header();
                                 <?php
 
                                 // print_r($fasi_scadenze);
-                                if(is_array($fasi_scadenze) && count($fasi_scadenze)>0) {
+                                if($fasi_scadenze_intro || (is_array($fasi_scadenze) && count($fasi_scadenze)>0)) {
                                     ?>
                                     <h2 class="h4" id="art-par-tempi-scadenze"><?php _e("Tempi e scadenze", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9">
+                                            <?php if($fasi_scadenze_intro) { ?>
+                                    		    <div class="col-lg-12  px-0 wysiwig-text" data-element="service-calendar-text">
+                                            	    <?php echo apply_filters("the_content", $fasi_scadenze_intro); ?>
+                                                </div>
+                                            <?php } ?>
                                             <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                                                 <?php
                                                 foreach ($fasi_scadenze as $fase){

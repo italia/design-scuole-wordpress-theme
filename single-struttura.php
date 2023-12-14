@@ -42,7 +42,18 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $altre_info = dsi_get_meta("altre_info");
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
-//			$pec = dsi_get_meta("pec");
+            $pec = dsi_get_meta("pec");
+
+            $contatti_dedicati = dsi_get_meta("contatti_dedicati");
+            if($contatti_dedicati != "on") {
+                $contatti_centralino = dsi_get_option("contatti_centralino", "contacts");
+                $contatti_PEO = dsi_get_option("contatti_PEO", "contacts");
+                $contatti_PEC = dsi_get_option("contatti_PEC", "contacts");
+
+                if($contatti_centralino) $telefono = $contatti_centralino;
+                if($contatti_PEO) $mail = $contatti_PEO;
+                if($contatti_PEC) $pec = $contatti_PEC;
+            }
 
         $children = false;
     if($post->post_parent == 0) {
@@ -189,12 +200,12 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 }
 
                                 if(dsi_is_scuola($post) && $link_servizi_didattici){ ?>
-                                    <h6><?php
+                                    <h3 class="h6"><?php
                                         if(is_array($link_servizi_didattici) && count($link_servizi_didattici) > 1)
                                             _e("Indirizzi di studio", "design_scuole_italia");
                                         else
                                             _e("Indirizzo di studio", "design_scuole_italia");
-                                        ?></h6>
+                                        ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_servizi_didattici as $idservizio){
@@ -207,7 +218,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
                                 <?php if($link_schede_servizi){ ?>
-                                    <h6><?php _e("Servizi di cui la struttura è responsabile", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Servizi di cui la struttura è responsabile", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_servizi as $idservizio){
@@ -223,7 +234,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
                                 <?php if($link_schede_progetti){ ?>
-                                    <h6><?php _e("Progetti", "design_scuole_italia"); ?></h6>
+                                    <h3 class="h6"><?php _e("Progetti", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_progetti as $idprogetto){
@@ -234,7 +245,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
                                 <?php  if((is_array($responsabile) && count($responsabile)>0) || (is_array($persone) && count($persone)>0) || $altri_componenti != "" ||  $telefono || $mail || ( $post->post_parent == 0 && $children) || ($post->post_parent > 0)){  ?>
-                                    <h4 id="art-par-organizzazione"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h4>
+                                    <h2 id="art-par-organizzazione" class="h4"><?php _e("Organizzazione e contatti", "design_scuole_italia"); ?></h2>
 
                                     <?php
                                     // se è un parent
@@ -251,7 +262,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         $children = get_children( $args );*/
                                         if(is_array($children) && count($children)>0){
 
-                                            echo "<h6>".__("Strutture dipendenti", "design_scuole_italia")."</h6>";
+                                            echo '<h3 class="h6">'.__("Strutture dipendenti", "design_scuole_italia").'</h3>';
                                             echo '<div class="card-deck card-deck-spaced">';
                                             foreach ($children as $struttura) {
                                                 get_template_part("template-parts/struttura/card");
@@ -261,7 +272,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     }else{
                                         // è un child
 
-                                        echo "<h6>".__("Dipende da", "design_scuole_italia")."</h6>";
+                                        echo '<h3 class="h6">' . __("Dipende da", "design_scuole_italia") . '</h3>';
                                         echo '<div class="card-deck card-deck-spaced">';
                                         $struttura = get_post($post->post_parent);
                                         get_template_part("template-parts/struttura/card");
@@ -270,7 +281,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     ?>
 
                                     <?php if(is_array($responsabile) && count($responsabile)>0){ ?>
-                                        <h6><?php _e("Responsabile", "design_scuole_italia"); ?></h6>
+                                        <h3 class="h6"><?php _e("Responsabile", "design_scuole_italia"); ?></h3>
                                         <div class="card-deck card-deck-spaced mb-2">
                                             <?php
                                             foreach ($responsabile as $idutente) {
@@ -293,7 +304,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
 
                                     <?php if(is_array($persone) && count($persone)>0){ ?>
-                                        <h6><?php _e("Persone", "design_scuole_italia"); ?></h6>
+                                        <h3 class="h6"><?php _e("Persone", "design_scuole_italia"); ?></h3>
                                         <div class="card-deck card-deck-spaced mb-2">
                                             <?php
                                             foreach ($persone as $idutente) {
@@ -313,21 +324,22 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     <?php } ?>
 
                                     <?php if($altri_componenti != ""){ ?>
-                                        <h6><?php _e("Altri componenti", "design_scuole_italia"); ?></h6>
+                                        <h3 class="h6"><?php _e("Altri componenti", "design_scuole_italia"); ?></h3>
                                         <p><?php echo $altri_componenti; ?></p>
                                     <?php } ?>
 
                                     <?php
-                                    if($telefono || $mail){
+                                    if($telefono || $mail || $pec){
                                         ?>
                                         <div class="row variable-gutters">
                                             <div class="col-lg-9">
-                                                <h6><?php _e("Contatti", "design_scuole_italia"); ?></h6>
+                                                <h3 class="h6"><?php _e("Contatti", "design_scuole_italia"); ?></h3>
                                                 <div class="card card-bg bg-color rounded">
                                                     <div class="card-body pb-1">
                                                         <ul>
                                                         <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo "<a href='tel:+39$telefono'>$telefono</a>"; ?></li><?php } ?>
                                                         <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $mail'>$mail</a>"; ?></li><?php } ?>
+                                                        <?php if($pec){ ?><li><strong><?php _e("Posta Elettronica Certificata (PEC)", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $pec'>$pec</a>"; ?></li><?php } ?>
                                                         </ul>
                                                     </div></div>
                                             </div></div>
@@ -339,7 +351,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
-                                            <h4 id="art-par-sede" class="mt-4"><?php (count($sedi)==1)?_e("Sede", "design_scuole_italia"):_e("Sedi", "design_scuole_italia"); ?></h4>
+                                            <h2 id="art-par-sede" class="h4 mt-4"><?php (count($sedi)==1)?_e("Sede", "design_scuole_italia"):_e("Sedi", "design_scuole_italia"); ?></h2>
                                             <?php
                                             $c=0;
                                             foreach ($sedi as $idluogo){
@@ -378,7 +390,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div>
                                 <?php } */ ?>
                                 <?php if($altre_info != ""){ ?>
-                                    <h4 id="art-par-info" class="mb-4 mt-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h4>
+                                    <h2 id="art-par-info" class="h4 mb-4 mt-4"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($altre_info); ?>
@@ -394,7 +406,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <ul>
                                             <?php if($telefono){ ?><li><strong><?php _e("Telefono", "design_scuole_italia"); ?>:</strong> <?php echo $telefono; ?></li><?php } ?>
                                             <?php if($mail){ ?><li><strong><?php _e("Email", "design_scuole_italia"); ?>:</strong> <?php echo $mail; ?></li><?php } ?>
-                                            <?php if($pec){ ?><li><strong><?php _e("PEC", "design_scuole_italia"); ?>:</strong> <?php echo $pec; ?></li><?php } ?>
+                                            <?php if($PEC){ ?><li><strong><?php _e("Posta Elettronica Certificata (PEC)", "design_scuole_italia"); ?>:</strong> <?php echo "<a href = 'mailto: $PEC'>$PEC</a>"; ?></li><?php } ?>
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
