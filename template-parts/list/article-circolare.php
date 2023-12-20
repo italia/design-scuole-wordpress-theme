@@ -38,7 +38,7 @@ $accesso_circolare = circolare_access($post->ID);
 	<?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
 		if ($post_tags) {
 			foreach($post_tags as $tag) {
-			echo '<a href="'.get_tag_link($tag->term_id).'" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
+			echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a> ';
 			}
 		}
 	?>
