@@ -7,6 +7,9 @@ $home_servizi_manuali = dsi_get_option("home_servizi_manuali", "homepage");
     <div class="row variable-gutters mb-4">
         <?php
         $home_is_selezione_automatica_servizi = dsi_get_option("home_is_selezione_automatica_servizi", "homepage");
+        $home_mostra_icone = dsi_get_option("home_icone_servizi", "homepage") == "true";
+        $home_mostra_icone = $home_mostra_icone ? "icon" : "noicon";
+        
         if($home_is_selezione_automatica_servizi != "false"){
             $args = array('post_type' => 'servizio',
                 'posts_per_page' => 6,
@@ -15,7 +18,7 @@ $home_servizi_manuali = dsi_get_option("home_servizi_manuali", "homepage");
             foreach ($servizi as $servizio) {
                 ?>
                 <div class="col-lg-4 mb-4">
-                    <?php get_template_part("template-parts/servizio/card", "noicon"); ?>
+                    <?php get_template_part("template-parts/servizio/card", $home_mostra_icone); ?>
                 </div><!-- /col-lg-4 -->
                 <?php
             }
@@ -25,7 +28,7 @@ $home_servizi_manuali = dsi_get_option("home_servizi_manuali", "homepage");
                  $servizio = get_post($idservizio);
                     ?>
                     <div class="col-lg-4 mb-4">
-                        <?php get_template_part("template-parts/servizio/card", "noicon"); ?>
+                        <?php get_template_part("template-parts/servizio/card", $home_mostra_icone); ?>
                     </div><!-- /col-lg-4 -->
                     <?php
 
