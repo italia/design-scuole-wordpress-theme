@@ -479,6 +479,18 @@ function dsi_register_main_options_metabox() {
     ));
 
     $home_options->add_field(array(
+        'id' => $prefix . 'home_icone_servizi',
+        'name' => __('Icona servizi', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare l\'immagine del servizio accanto al suo nome', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'false',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
+
+    $home_options->add_field(array(
             'name' => __('Selezione articoli ', 'design_scuole_italia'),
             'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
             'id' => $prefix . 'home_servizi_manuali',
