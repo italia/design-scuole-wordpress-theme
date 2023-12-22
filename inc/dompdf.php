@@ -13,7 +13,7 @@ add_action("template_redirect", "dsi_pdf_generator");
 
 function dsi_pdf_generator(){
     global $post, $type;
-    if(is_singular("circolare") && isset($_GET) && ($_GET["pdf"] == "true")){
+    if(is_singular("circolare") && isset($_GET["pdf"]) && ($_GET["pdf"] == "true")){
 
         $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
         $data = file_get_contents($image_url);
