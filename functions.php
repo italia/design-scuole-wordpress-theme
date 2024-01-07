@@ -158,6 +158,7 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 			/*'menu-classe' => esc_html__( 'Sottovoci del menu principale, voce "La mia classe"', 'design_scuole_italia' ),*/
 			'menu-topright' => esc_html__( 'Menu secondario (in alto a destra)', 'design_scuole_italia' ),
 			'menu-footer' => esc_html__( 'Menu a piè di pagina', 'design_scuole_italia' ),
+			'menu-utente' => esc_html__( 'Menu utente', 'design_scuole_italia' ),
 		) );
 
 	}

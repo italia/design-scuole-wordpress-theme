@@ -548,7 +548,7 @@ add_action( 'post_submitbox_misc_actions', function( $post ){
 
 if(!function_exists('dsi_csv_generator')) {
     function dsi_csv_generator(){
-        if(is_singular("circolare") && isset($_GET) && ($_GET["csv"] == "true")) {
+        if(is_singular("circolare") && isset($_GET["csv"]) && ($_GET["csv"] == "true")) {
             global $post;
 
             // output headers so that the file is downloaded rather than displayed
