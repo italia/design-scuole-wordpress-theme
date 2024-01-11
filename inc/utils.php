@@ -546,7 +546,6 @@ function dsi_get_post_types_grouped($type = "", $tag = false){
     }
 
 	return $post_types;
-
 }
 
 

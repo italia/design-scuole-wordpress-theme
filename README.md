@@ -2,7 +2,7 @@
 [![Join the #design siti scuole channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_scuole-blue.svg)](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
 ## **Un sito per le scuole italiane**
-### I primi passi con il tema Wordpress (2.7.0)
+### I primi passi con il tema Wordpress (2.8.1)
 
 **Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modelli/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
 
@@ -54,7 +54,7 @@ wp-content > themes > design-scuole-wordpress-theme-child (tema child)
 ### Come aggiornare il tema
 Le modalità di aggiornamento dipendono dall'opzione scelta per l'installazione:
 - Se hai scaricato il tema tramite il comando **fork**, esegui il comando `git pull` da terminale.
-- Se hai scaricato il file `.zip`, copia la cartella della nuova versione all'interno del percorso `wp-content > themes >design-scuole-wordpress-theme-child ` **(Raccomandato)**  
+- Se hai scaricato il file `.zip`, copia la cartella della nuova versione all'interno del percorso `wp-content > themes >design-scuole-wordpress-theme ` **(Raccomandato)**  
 
 ### Dipendenze 
 

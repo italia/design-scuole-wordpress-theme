@@ -30,19 +30,17 @@ $accesso_circolare = circolare_access($post->ID);
 				<?php } ?>
 				<div class="card-article-content"> 
                     <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
-					<h2 class="h3"><?php the_title(); ?></h2>	
-                    <p><?php echo $excerpt; ?></p>
-                </div><!-- /card-avatar-content -->
-        </div><!-- /card-body -->
-	<div class="p-1">
-	<?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
+					<h2 class="h3"><?php the_title(); ?></h2>
+				        <p><?php echo $excerpt; ?></p>
+         <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
 		if ($post_tags) {
 			foreach($post_tags as $tag) {
-			echo '<a href="'.get_tag_link($tag->term_id).'" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
+			echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a> ';
 			}
 		}
-	?>
-	</div>		    
+        ?>
+                </div><!-- /card-avatar-content -->
+        </div><!-- /card-body -->	    
     </article><!-- /card card-bg card-article -->
 </a>
 <?php } else { ?>
