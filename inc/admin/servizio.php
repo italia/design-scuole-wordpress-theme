@@ -259,12 +259,13 @@ function dsi_add_servizi_metaboxes() {
     $cmb_undercontent->add_field(array(
         'id' => $prefix . 'provider_autenticazione',
         'name'        => __( 'Provider di autenticazione', 'design_scuole_italia' ),
-        'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE) e Carta Nazionale dei Servizi (CNS).' , 'design_scuole_italia' ),
+        'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE), Carta Nazionale dei Servizi (CNS) e electronic IDentification Authentication and Signature (eIDAS).' , 'design_scuole_italia' ),
         'type' => 'pw_multiselect',
         'options' => array(
             'SPID' => 'SPID',
             'CIE' => 'CIE',
-            'CNS' => 'CNS'
+            'CNS' => 'CNS',
+            'eIDAS' => 'eIDAS',
         ),
         'attributes'    => array(
             'data-conditional-id'     => $prefix.'modalita_autenticazione',
