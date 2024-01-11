@@ -116,7 +116,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         ?>
 
                                         <div class="text-center text-sm-left">
-                                            <a class="btn mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>" style="background-color: #CD5F4A; color: white"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
+                                            <a class="btn mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>" style="background-color: #0a00cb; color: white"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
                                         </div>
 
                                     </div>
