@@ -525,6 +525,7 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
  */
 function dsi_get_post_types_grouped($type = "", $tag = false){
     $at_plugin = "amministrazione-trasparente/amministrazionetrasparente.php";
+    include_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 	if($type == "")
 		$type = "any";
