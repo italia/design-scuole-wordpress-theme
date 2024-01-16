@@ -94,7 +94,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         ?>
                                                     <hr/>
                                                     <div class="accordion-large-title accordion-header">
-                                                        <h3><button style="color: #17324d"><?php echo $indirizzo->post_title; ?></button></h3>
+                                                        <h3><button style="color: #17324d; background: none; border: none;"><?php echo $indirizzo->post_title; ?></button></h3>
                                                     </div><!-- /accordion-large-title -->
                                                     <div tabindex="0" class="accordion-large-content accordion-content">
                                                         <?php echo wpautop($descrizione); ?>
