@@ -13,6 +13,11 @@ get_header();
 <main id="main-container" class="main-container my-5">
     <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
+    <div class="container">
+        <div class="container py-4 px-3">
+            <?php echo the_content(); ?>
+        </div>
+    </div>
     <section class="container my-3">
         <?php
 
@@ -44,7 +49,7 @@ get_header();
     </section>
     <!-- Scheda per controllo crawler -->
     <div class="container d-none">
-        <?php get_template_part("martini-template-parts/scheda-servizio");?>
+        <?php get_template_part("martini-template-parts/scheda-servizio"); ?>
     </div>
 </main>
 
