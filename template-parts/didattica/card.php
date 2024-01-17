@@ -2,12 +2,13 @@
 global $post, $autore;
 $autore = get_user_by("ID", $post->post_author);
 $tempo_apprendimento = dsi_get_meta("tempo_apprendimento", "_dsi_scheda_didattica_", $post->ID);
-$image_url = get_the_post_thumbnail_url($post, "vertical-card");
+$image_url = get_the_post_thumbnail_url($post, "item-thumb");
 $image_id = get_post_thumbnail_id($post);
 if(!$image_url)
     $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+?>
 
-?><div class="card card-horizontal card-wrapper card-bg card-icon rounded">
+<div class="card card-horizontal card-wrapper card-bg card-icon p-2 card-article-bluelectric cursorhand">
 
         <div class="card-thumb rounded">
             <?php if($image_url) { ?>
@@ -22,10 +23,10 @@ if(!$image_url)
             <?php
             $argomenti = dsi_get_argomenti_of_post();
             foreach ( $argomenti as $item ) { ?>
-                <a class="btn btn-xs btn-rounded btn-outline-white" href="<?php echo get_term_link($item); ?>" class="badge badge-sm badge-pill badge-outline-bluelectric"><?php echo $item->name; ?></a>
+                <a href="<?php echo get_term_link($item); ?>" class="badge badge-sm badge-pill badge-outline-bluelectric"><?php echo $item->name; ?></a>
             <?php } ?>
         </div>
-        <small class="card-date"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></small>
+        <small class="card-date icon-dark"><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></small>
         <h3><a href="<?php echo get_permalink($post); ?>" ><?php echo get_the_title($post); ?></a></h3>
         <?php
         if(!empty($tempo_apprendimento) || get_comment_count($post->ID)["approved"] > 0) {
@@ -51,7 +52,7 @@ if(!$image_url)
         }
         ?>
         <div class="card-author">
-            <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
+            <p class="text-dark">da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
         </div><!-- /card-author -->
     </div><!-- /card-body -->
 </div><!-- /card -->
