@@ -26,6 +26,7 @@ if($visualizza_banner == "si") {
                                                     src="<?php echo $image_url; ?>" 
                                                     style="max-width: 100%;" 
                                                     alt="<?php echo $image_alt; ?>" />
+                                                    <?php if($banner["caption"] && $banner["caption"] != "") echo '<figcaption class="h5 mt-2">'.$banner["caption"].'</figcaption>'; ?>
                                                 </figure>
                                             <?php if($banner["url"] != "") echo '</a>'; ?>
                                         </div><!-- /item -->

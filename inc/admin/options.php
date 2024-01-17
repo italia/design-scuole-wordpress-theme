@@ -459,6 +459,13 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
+    $home_options->add_group_field( $bsnner_group_id, array(
+        'name' => 'Didascalia',
+        'desc' => 'Testo da accompagnare al banner (lasciare vuoto se non necessario)',
+        'id'   => 'caption',
+        'type' => 'text',
+    ) );
+
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_2',
         'name'        => __( 'Sezione Servizi', 'design_scuole_italia' ),
