@@ -330,6 +330,42 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_layout',
+        'name' => __('Layout dei contenuti', 'design_scuole_italia'),
+        'desc' => __('Modalità di distribuzione dei contenuti nella pagina', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'verticale',
+        'options' => array(
+            'verticale' => __('Verticale (predefinito)', 'design_scuole_italia'),
+            'orizzontale' => __('Orizzontale (un tipo di contenuto per ogni riga)', 'design_scuole_italia'),
+        ),
+        'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+    ));
+
+
+	$home_options->add_field( array(
+        'id' => $prefix . 'home_post_per_tipologia',
+        'name' => 'Articoli da mostrare per ogni tipologia in Home',
+        'desc' => __( 'Qualora ci sia solo una tipologia selezionata, il numero di articoli minimo verr&agrave; calcolato in base allo spazio a disposizione nella prima riga. Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'default' => '1',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 1,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
+
 	$home_options->add_field( array(
         'id' => $prefix . 'giorni_per_filtro',
         'name' => 'Giorni da considerare come filtro',
@@ -356,7 +392,7 @@ function dsi_register_main_options_metabox() {
         'default' => 'false',
         'options' => array(
             'false' => __('No', 'design_scuole_italia'),
-            'true_event' => __('Si, mostra il prossimo evento', 'design_scuole_italia'),
+            'true_event' => __('Si, mostra il numero di eventi impostato', 'design_scuole_italia'),
             // 'true_calendar' => __('Si, mostra il calendario', 'design_scuole_italia'),
         ),
         'attributes' => array(
@@ -364,6 +400,25 @@ function dsi_register_main_options_metabox() {
             'data-conditional-value' => "true",
         ),
     ));
+
+	$home_options->add_field( array(
+        'id' => $prefix . 'home_events_count',
+        'name' => 'Eventi da mostrare in Home',
+        'desc' => __( 'Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
+        'type' => 'text_small',
+        'default' => '1',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+            'min' => 1,
+        ),
+    	'attributes' => array(
+            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+            'data-conditional-value' => "true",
+        ),
+        'sanitization_cb' => 'dsi_sanitize_int',
+        'escape_cb'       => 'dsi_sanitize_int',
+    ) );
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_circolari',
@@ -373,18 +428,18 @@ function dsi_register_main_options_metabox() {
         'default' => 'true_circolare',
         'options' => array(
             'false' => __('No', 'design_scuole_italia'),
-            'true_circolare' => __('Si, mostra la circolare pi&ugrave; recente', 'design_scuole_italia'),
+            'true_circolare' => __('Si, mostra il numero di circolari pi&ugrave; recenti impostato', 'design_scuole_italia'),
         ),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
             'data-conditional-value' => "true",
         ),
     ));
-    
+
 	$home_options->add_field( array(
-        'id' => $prefix . 'home_post_per_tipologia',
-        'name' => 'Articoli da mostrare per ogni tipologia in Home',
-        'desc' => __( 'Qualora ci sia solo una tipologia selezionata, il numero di articoli minimo verr&agrave; calcolato in base allo spazio a disposizione nella prima riga. Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
+        'id' => $prefix . 'home_circolari_count',
+        'name' => 'Circolari da mostrare in Home',
+        'desc' => __( 'Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
         'type' => 'text_small',
         'default' => '1',
         'attributes' => array(

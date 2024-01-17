@@ -10,6 +10,8 @@ $home_show_circolari = dsi_get_option("home_show_circolari", "homepage");
 $giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
 $data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
 $post_per_tipologia = dsi_get_option("home_post_per_tipologia", "homepage");
+$home_events_count = dsi_get_option("home_events_count", "homepage");
+$home_circolari_count = dsi_get_option("home_circolari_count", "homepage");
 
 $ct=0;
 
@@ -118,8 +120,9 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         <?php
         if ($home_show_events == "true_event") {
-            $args = array('post_type' => 'evento',
-                'posts_per_page' => 1,
+            $args = array(
+                'post_type' => 'evento',
+                'posts_per_page' => $home_events_count,
                 'meta_key' => '_dsi_evento_timestamp_inizio',
                 'orderby'   =>  array('meta_value' => 'ASC', 'date' => 'ASC'),
                 'meta_query' => array(
@@ -135,8 +138,10 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 )
             );
             $posts = get_posts($args);
+           	$set_card_top_margin = false;
             foreach ($posts as $post) {
-                get_template_part("template-parts/evento/card");
+                get_template_part("template-parts/single/card", "vertical-thumb-evento");
+                $set_card_top_margin = true;
             }
         }else {
             // $calendar_card = true;
@@ -158,11 +163,13 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
             </div><!-- /title-section -->
             <?php
             $args = array('post_type' => 'circolare',
-                'posts_per_page' => 1
+                'posts_per_page' => $home_circolari_count
             );
             $posts = get_posts($args);
+           	$set_card_top_margin = false;
             foreach ($posts as $post) {
-                get_template_part("template-parts/single/card", "circolare");
+                get_template_part("template-parts/single/card", "vertical-thumb-circolare");
+                $set_card_top_margin = true;
             }
             ?>
 
