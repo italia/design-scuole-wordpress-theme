@@ -10,6 +10,7 @@ $home_show_circolari = dsi_get_option("home_show_circolari", "homepage");
 $giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
 $data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
 $post_per_tipologia = dsi_get_option("home_post_per_tipologia", "homepage");
+$home_articoli_manuali = dsi_get_option("home_articoli_manuali", "homepage");
 
 $ct=0;
 
@@ -48,6 +49,14 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                         ),
                 	),
             );
+
+            if(is_array($home_articoli_manuali) && count($home_articoli_manuali)>0)	{
+            	$exclude = array(
+                		'exclude' => $home_articoli_manuali
+        		);
+            
+				$args = array_merge($args,$exclude);
+            }
         
         	if($giorni_per_filtro != "" || $giorni_per_filtro > 0) {
             	$filter = array(

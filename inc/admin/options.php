@@ -298,20 +298,8 @@ function dsi_register_main_options_metabox() {
     ) );
 
     $home_options->add_field(array(
-        'id' => $prefix . 'home_is_selezione_automatica',
-        'name' => __('Selezione Automatica', 'design_scuole_italia'),
-        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente gli articoli in home page. Le colonne mostreranno l\'ultimo articolo delle tipologie selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
-        'type' => 'radio_inline',
-        'default' => 'true',
-        'options' => array(
-            'true' => __('Si', 'design_scuole_italia'),
-            'false' => __('No', 'design_scuole_italia'),
-        ),
-    ));
-
-    $home_options->add_field(array(
             'name' => __('Selezione articoli ', 'design_scuole_italia'),
-            'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
+            'desc' => __('Seleziona i contenuti da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
             'id' => $prefix . 'home_articoli_manuali',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -322,13 +310,21 @@ function dsi_register_main_options_metabox() {
                     'posts_per_page' => -1,
                     'post_type'      => array('post', 'page', 'evento', 'circolare'),
                 ), // override the get_posts args
-            ),
-            'attributes' => array(
-                'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-                'data-conditional-value' => "false",
-            ),
+            )
         )
     );
+
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_is_selezione_automatica',
+        'name' => __('Selezione Automatica', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente gli contenuti della sezione Novità in home page. Le colonne mostreranno l\'ultimo articolo delle tipologie selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
 
 	$home_options->add_field( array(
         'id' => $prefix . 'giorni_per_filtro',
