@@ -14,11 +14,11 @@ add_action( 'wp_dashboard_setup', 'dsi_add_dashboard_widget' );
 
 function dsi_add_dashboard_widget() {
 
-    wp_add_dashboard_widget ('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget');
+    wp_add_dashboard_widget('dsi_circolari_widget', 'Circolari da Leggere / Firmare', 'dsi_circolari_dashboard_widget');
 
     wp_add_dashboard_widget('dsi_circolari_signed_widget', 'Circolari Firmate', 'dsi_circolari_signed_dashboard_widget');
-
-    wp_add_dashboard_widget('dsi_menu_utente_widget', 'Menu utente', 'dsi_menu_utente_dashboard_widget', context: 'side');
+    
+    wp_add_dashboard_widget('dsi_menu_utente_widget', 'Menu utente', 'dsi_menu_utente_dashboard_widget', 'side');
 }
 
 function dsi_circolari_dashboard_widget() {
