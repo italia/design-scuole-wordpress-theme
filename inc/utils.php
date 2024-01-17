@@ -1145,3 +1145,20 @@ if(!function_exists("dsi_get_img_from_id_url")) {
         echo $img;
     }
 }
+
+// Returns a list of image thumbnails settings
+if(!function_exists("dsi_get_img_thumbnails")) {
+    function dsi_get_img_thumbnails() {
+
+        $thumbnails = array(
+          array("name"=>"article-simple-thumb", "title"=>"Miniatura articolo (500*384)", "width"=>500, "height"=>384, "crop"=>true),
+          array("name"=>"item-thumb", "title"=>"Miniatura quadrata (280*280)", "width"=>280, "height"=>280, "crop"=>true),
+          array("name"=>"item-gallery", "title"=>"Miniatura gallery (730*485)", "width"=>730, "height"=>485, "crop"=>true),
+          array("name"=>"vertical-card", "title"=>"Miniatura verticale (190*290)", "width"=>190, "height"=>290, "crop"=>true),
+          array("name"=>"banner", "title"=>"Banner (600*250)", "width"=>600, "height"=>250, "crop"=>false),
+          array("name"=>"banner-cropped", "title"=>"Banner con ritaglio (600*250)", "width"=>600, "height"=>250, "crop"=>true),
+        );
+        
+        return $thumbnails;
+    }
+}

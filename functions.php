@@ -139,15 +139,14 @@ if ( ! function_exists( 'dsi_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-        // image size
-        if ( function_exists( 'add_image_size' ) ) {
-            add_image_size( 'article-simple-thumb', 500, 384 , true);
-            add_image_size( 'item-thumb', 280, 280 , true);
-            add_image_size( 'item-gallery', 730, 485 , true);
-            add_image_size( 'vertical-card', 190, 290 , true);
-
-            add_image_size( 'banner', 600, 250 , false);
-        }
+		// image size
+		if ( function_exists( 'add_image_size' ) ) {
+			$thumbnailsizes = dsi_get_img_thumbnails();
+			
+			foreach ($thumbnailsizes as &$size) {
+				add_image_size($size["name"], $size["width"], $size["height"] , $size["crop"]);
+			}
+		}
 
         // This theme uses wp_nav_menu()
 		register_nav_menus( array(

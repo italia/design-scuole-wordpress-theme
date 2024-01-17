@@ -459,6 +459,25 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
+    $home_options->add_group_field( $bsnner_group_id, array(
+        'name' => 'Didascalia',
+        'desc' => 'Testo da accompagnare al banner (lasciare vuoto se non necessario)',
+        'id'   => 'caption',
+        'type' => 'text',
+    ) );
+
+    $home_options->add_field(  array(
+        'id' => $prefix.'forza_dimensione_banner',
+        'name'    => __( 'Forza dimensioni banner', 'design_scuole_italia' ),
+        'desc' => __( 'Il sistema forza la visualizzazione di tutti i banner impostando le stesse dimensioni e se necessario tagliando il contenuto (600*250). Se l\'effetto non è quello previsto, potrebbe essere necessario generare nuovamente le thumbnail delle immagini interessate (ricaricandole o tramite plugin esterno)' , 'design_scuole_italia' ),
+        'type'    => 'radio_inline',
+        'options' => array(
+            'si' => __( 'Si', 'design_scuole_italia' ),
+            'no'   => __( 'No', 'design_scuole_italia' ),
+        ),
+        'default' => "no"
+    ) );
+
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_2',
         'name'        => __( 'Sezione Servizi', 'design_scuole_italia' ),
