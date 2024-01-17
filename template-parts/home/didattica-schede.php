@@ -7,7 +7,7 @@ $posts = get_posts($args);
 if(is_array($posts) && count($posts)) {
 
     ?>
-    <section class="section bg-white py-5">
+    <section class="section bg-light py-5">
         <div class="container">
             <div class="row variable-gutters">
                 <div class="col">
@@ -20,7 +20,7 @@ if(is_array($posts) && count($posts)) {
                             <ul class="splide__list">
                                 <?php
                                 foreach ($posts as $post) { ?>
-                                    <li class="splide__slide mb-5">
+                                    <li class="splide__slide mb-0">
                                         <div class="item rounded">
                                             <?php get_template_part("template-parts/didattica/card"); ?>
                                         </div>
