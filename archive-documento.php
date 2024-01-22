@@ -1,5 +1,7 @@
 <?php
 /**
+ * Template Name: Archivio Documenti
+ * 
  * The template for displaying archive
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
@@ -13,7 +15,7 @@ global $documento;
     <main id="main-container" class="main-container redbrown">
         <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
-        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+        <?php get_template_part("template-parts/hero/documenti"); ?>
 
         <?php
         // recupero la lista delle tipologie
@@ -41,7 +43,7 @@ global $documento;
                                     ?>
                                     <div class="title-section mb-5">
                                         <h2 class="h4">
-                                            <?php if (count($documenti) > 1) echo dsi_pluralize_string($tipologia_documento->name); else echo $tipologia_documento->name; ?>
+                                            <?php if (is_array($documenti) && count($documenti) > 1) echo dsi_pluralize_string($tipologia_documento->name); else echo $tipologia_documento->name; ?>
                                         </h2>
                                     </div><!-- /title-section -->
                                     <div class="row variable-gutters">
@@ -52,7 +54,7 @@ global $documento;
                                         <?php } ?>
                                     </div><!-- /row -->
                                     <div class="pt3 text-center">
-                                        <a class="text-underline" href="<?php echo get_term_link($tipologia_documento) ?>" aria-label="Vedi tutti <?php echo dsi_pluralize_string($tipologia_documento->name); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
+                                        <a class="text-underline" href="<?php echo get_term_link($tipologia_documento) ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
                                     </div>
                                     <?php
                                 }

@@ -802,14 +802,14 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
-        // wp_update_nav_menu_item($menu->term_id, 0, array(
-        //     'menu-item-title' => __('Le circolari', "design_scuole_italia"),
-        //     'menu-item-status' => 'publish',
-        //     'menu-item-object' => 'circolare',
-        //     'menu-item-type' => 'post_type_archive',
-        //     'menu-item-attr-title' => __('Le circolari', "design_scuole_italia"),
-        //     'menu-item-classes' => 'footer-link',
-        // ));
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Le circolari', "design_scuole_italia"),
+            'menu-item-status' => 'publish',
+            'menu-item-object' => 'circolare',
+            'menu-item-type' => 'post_type_archive',
+            'menu-item-attr-title' => __('Le circolari', "design_scuole_italia"),
+            'menu-item-classes' => 'footer-link',
+        ));
 
 
         // $term = get_term_by("name", "Albo online", "tipologia-documento");
