@@ -459,3 +459,15 @@ function reserved_file_check(){
 	}
 }
 add_action( 'init', 'reserved_file_check', 10, 2);
+
+// aggiungi data elements alla pagina note-legali
+function insert_data_attribute_note_legali( $content ) {
+	if (is_page( 'note-legali')) {
+		$search  = array('<h2>Licenza dei contenuti', '<p>In applicazione del principio');
+		$replace = array('<h2 data-element="legal-notes-section">Licenza dei contenuti', '<p data-element="legal-notes-body">In applicazione del principio');
+	return str_replace($search, $replace, $content);
+
+	}   
+	else return $content; 
+	}
+add_filter('the_content', 'insert_data_attribute_note_legali');
