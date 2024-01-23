@@ -29,7 +29,7 @@ get_header();
             }else if($home_layout == "orizzontale") {
                 get_template_part("template-parts/home/novita", "orizzontale");
             }else {
-                get_template_part("template-parts/home/articoli", "eventi");
+                get_template_part("template-parts/home/novita", "verticale");
             }
 
             ?>

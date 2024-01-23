@@ -1,5 +1,5 @@
 <?php
-global $post, $autore, $set_card_top_margin;
+global $post, $autore, $set_card_top_margin, $set_card_wrapper;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_id= get_post_thumbnail_id($post);
@@ -7,7 +7,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
 
 
-?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
+?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_wrapper ? "card-wrapper" : ""; ?> <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
 	<div class="card-body">
 		<div class="card-content flex-grow-1">
 			<h3 class="h5"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
