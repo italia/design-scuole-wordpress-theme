@@ -300,11 +300,12 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',
         'name' => __('Selezione Automatica', 'design_scuole_italia'),
-        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente i contenuti (articoli, eventi, circolari) in pagina iniziale. Verranno mostrate le tipologie di articoli selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente i contenuti (articoli, eventi, circolari) in pagina iniziale, scegliendo la modalità di distribuzione verticale o orizzontale (un tipo di contenuto per riga). Verranno mostrate le tipologie di articoli selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
         'type' => 'radio_inline',
-        'default' => 'true',
+        'default' => 'true_vertical',
         'options' => array(
-            'true' => __('Si', 'design_scuole_italia'),
+            'true_vertical' => __('Si, layout verticale', 'design_scuole_italia'),
+            'true_horizontal' => __('Si, layout orizzontale', 'design_scuole_italia'),
             'false' => __('No', 'design_scuole_italia'),
         ),
     ));
@@ -325,27 +326,10 @@ function dsi_register_main_options_metabox() {
             ),
             'attributes' => array(
                 'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-                'data-conditional-value' => "false",
+                'data-conditional-value' => 'false',
             ),
         )
     );
-
-    $home_options->add_field(array(
-        'id' => $prefix . 'home_layout',
-        'name' => __('Layout dei contenuti', 'design_scuole_italia'),
-        'desc' => __('Modalità di distribuzione dei contenuti nella pagina iniziale', 'design_scuole_italia'),
-        'type' => 'radio_inline',
-        'default' => 'verticale',
-        'options' => array(
-            'verticale' => __('Verticale (predefinito)', 'design_scuole_italia'),
-            'orizzontale' => __('Orizzontale (un tipo di contenuto per ogni riga)', 'design_scuole_italia'),
-        ),
-        'attributes' => array(
-            'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
-        ),
-    ));
-
 
 	$home_options->add_field( array(
         'id' => $prefix . 'home_post_per_tipologia',
@@ -360,7 +344,7 @@ function dsi_register_main_options_metabox() {
         ),
     	'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
@@ -378,7 +362,7 @@ function dsi_register_main_options_metabox() {
         ),
     	'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
@@ -398,7 +382,7 @@ function dsi_register_main_options_metabox() {
         ),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
     ));
 
@@ -415,7 +399,7 @@ function dsi_register_main_options_metabox() {
         ),
     	'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
@@ -433,7 +417,7 @@ function dsi_register_main_options_metabox() {
         ),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
     ));
 
@@ -450,11 +434,27 @@ function dsi_register_main_options_metabox() {
         ),
     	'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-            'data-conditional-value' => "true",
+            'data-conditional-value' => wp_json_encode( array( 'true_vertical', 'true_horizontal' ) ),
         ),
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
+
+    $home_options->add_field(array(
+         'id' => $prefix . 'carousel_novita',
+         'name' => __('Abilita scorrimento contenuti', 'design_scuole_italia'),
+         'desc' => __('Abilita il carousel dei contenuti in pagina iniziale (vale per tutti i tipi di contenuto)', 'design_scuole_italia'),
+         'type' => 'radio_inline',
+         'default' => 'false',
+         'options' => array(
+             'false' => __('No', 'design_scuole_italia'),
+             'true' => __('Si', 'design_scuole_italia'),
+         ),
+         'attributes' => array(
+             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
+             'data-conditional-value' => "true_horizontal",
+         ),
+     ));
 
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_banner',
