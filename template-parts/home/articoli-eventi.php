@@ -9,9 +9,15 @@ $home_show_events = dsi_get_option("home_show_events", "homepage");
 $home_show_circolari = dsi_get_option("home_show_circolari", "homepage");
 $giorni_per_filtro = dsi_get_option("giorni_per_filtro", "homepage");
 $data_limite_filtro = strtotime("-". $giorni_per_filtro . " day");
+
 $post_per_tipologia = dsi_get_option("home_post_per_tipologia", "homepage");
+if($post_per_tipologia == "") $post_per_tipologia = 1;
+
 $home_events_count = dsi_get_option("home_events_count", "homepage");
+if($home_events_count == "") $home_events_count = 1;
+
 $home_circolari_count = dsi_get_option("home_circolari_count", "homepage");
+if($home_circolari_count == "") $home_circolari_count = 1;
 
 $ct=0;
 
@@ -20,8 +26,6 @@ if($home_show_events == "false")
     $column=$column+1;
 if($home_show_circolari == "false")
     $column=$column+1;
-
-if($post_per_tipologia == "") $post_per_tipologia = 1;
 
 if(is_array($tipologie_notizie) && count($tipologie_notizie)){
     ?>
