@@ -1,5 +1,5 @@
 <?php
-global $post, $autore, $set_card_top_margin;
+global $post, $autore, $set_card_top_margin, $set_card_wrapper;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_id= get_post_thumbnail_id($post);
@@ -10,7 +10,7 @@ $is_pubblica = dsi_get_meta("is_pubblica");
 $accesso_circolare = circolare_access($post->ID);
 
 
-?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
+?><div class="card card-bg card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_wrapper ? "card-wrapper" : ""; ?> <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
 	<div class="card-body">
 	<?php if($accesso_circolare != "false") { ?>
 		<div class="card-content">

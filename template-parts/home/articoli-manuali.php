@@ -1,4 +1,5 @@
 <?php
+global $set_card_wrapper;
 
 $home_articoli_manuali = dsi_get_option("home_articoli_manuali", "homepage");
 
@@ -16,6 +17,7 @@ if(is_array($home_articoli_manuali) && count($home_articoli_manuali)){
                 <?php
                 foreach ( $home_articoli_manuali as $idpost ) {
                     $post = get_post($idpost);
+                    $set_card_wrapper = true;
                     if($post) {
                         ?>
                         <div class="col-lg-4 mb-4">

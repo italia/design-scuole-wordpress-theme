@@ -1,5 +1,5 @@
 <?php
-global $post;
+global $post, $set_card_wrapper;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
@@ -18,7 +18,7 @@ if($dataora_inizio <= $dataora_adesso && $dataora_adesso <= $dataora_fine)
 	$in_corso = true;
 
 ?>
-<div class="card card-bg card-event bg-white card-thumb-rounded <?php echo $in_corso ? "border border-success" : ""; ?>">
+<div class="card card-bg card-event bg-white card-thumb-rounded <?php echo $set_card_wrapper ? "card-wrapper" : ""; ?> <?php echo $in_corso ? "border border-success" : ""; ?>">
 	<div class="card-body">
 		<div class="card-content">
 			<h3 class="h5"><a href="<?php echo get_permalink($post);     ?>"><?php echo get_the_title($post); ?></a></h3>

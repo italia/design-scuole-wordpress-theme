@@ -1,5 +1,5 @@
 <?php
-global $post, $set_card_top_margin;
+global $post, $set_card_top_margin, $set_card_wrapper;
 $autore = get_user_by("ID", $post->post_author);
 
 $image_url = get_the_post_thumbnail_url($post, "vertical-card");
@@ -17,7 +17,7 @@ $in_corso = false;
 if($dataora_inizio <= $dataora_adesso && $dataora_adesso <= $dataora_fine)
 	$in_corso = true;
 
-?><div class="card card-bg card-event card-vertical-thumb bg-white card-thumb-rounded <?php echo $in_corso ? "border border-success" : ""; ?> <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
+?><div class="card card-bg card-event card-vertical-thumb bg-white card-thumb-rounded <?php echo $set_card_wrapper ? "card-wrapper" : ""; ?> <?php echo $in_corso ? "border border-success" : ""; ?> <?php echo $set_card_top_margin ? "mt-2" : ""; ?>">
 	<div class="card-body">
 		<div class="card-content">
 			<h3 class="h5"><a href="<?php echo get_permalink($post);     ?>"><?php echo get_the_title($post); ?></a></h3>

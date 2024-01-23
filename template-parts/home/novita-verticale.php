@@ -2,7 +2,8 @@
 
 // global $calendar_card;
 
-global $set_card_top_margin;
+global $set_card_top_margin, $set_card_wrapper;
+$set_card_wrapper = false;
 
 $tipologie_notizie = dsi_get_option("tipologie_notizie", "notizie");
 $home_show_events = dsi_get_option("home_show_events", "homepage");
