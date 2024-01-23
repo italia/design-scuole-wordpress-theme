@@ -292,15 +292,15 @@ function dsi_register_main_options_metabox() {
 
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_1',
-        'name'        => __( 'Sezione Notizie', 'design_scuole_italia' ),
-        'desc' => __( 'Gestione Notizie / Articoli / Eventi mostrati in home page' , 'design_scuole_italia' ),
+        'name'        => __( 'Sezione novità', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione articoli, pagine, eventi, circolari mostrati in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',
         'name' => __('Selezione Automatica', 'design_scuole_italia'),
-        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente gli articoli in home page. Le colonne mostreranno l\'ultimo articolo delle tipologie selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente i contenuti (articoli, eventi, circolari) in pagina iniziale. Verranno mostrate le tipologie di articoli selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true',
         'options' => array(
@@ -310,8 +310,8 @@ function dsi_register_main_options_metabox() {
     ));
 
     $home_options->add_field(array(
-            'name' => __('Selezione articoli ', 'design_scuole_italia'),
-            'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
+            'name' => __('Selezione contenuti in evidenza', 'design_scuole_italia'),
+            'desc' => __('Seleziona i contenuti da mostrare in pagina iniziale. Consiglio: selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.', 'design_scuole_italia'),
             'id' => $prefix . 'home_articoli_manuali',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -333,7 +333,7 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field(array(
         'id' => $prefix . 'home_layout',
         'name' => __('Layout dei contenuti', 'design_scuole_italia'),
-        'desc' => __('Modalità di distribuzione dei contenuti nella pagina', 'design_scuole_italia'),
+        'desc' => __('Modalità di distribuzione dei contenuti nella pagina iniziale', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'verticale',
         'options' => array(
@@ -349,7 +349,7 @@ function dsi_register_main_options_metabox() {
 
 	$home_options->add_field( array(
         'id' => $prefix . 'home_post_per_tipologia',
-        'name' => 'Articoli da mostrare per ogni tipologia in Home',
+        'name' => 'Limite articoli da mostrare per ogni tipologia',
         'desc' => __( 'Qualora ci sia solo una tipologia selezionata, il numero di articoli minimo verr&agrave; calcolato in base allo spazio a disposizione nella prima riga. Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
         'type' => 'text_small',
         'default' => '1',
@@ -368,7 +368,7 @@ function dsi_register_main_options_metabox() {
 
 	$home_options->add_field( array(
         'id' => $prefix . 'giorni_per_filtro',
-        'name' => 'Giorni da considerare come filtro',
+        'name' => 'Giorni da considerare come filtro articoli',
         'desc' => __( '<br>Se compilato con un numero di giorni maggiore di 0, verranno mostrati solo gli articoli pubblicati da meno di X giorni dalla data odierna', 'design_scuole_italia' ),
         'type' => 'text_small',
         'attributes' => array(
@@ -386,13 +386,14 @@ function dsi_register_main_options_metabox() {
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_events',
-        'name' => __('Mostra gli eventi in Home', 'design_scuole_italia'),
-        'desc' => __('Abilita gli eventi in Home e decidi come mostrarli', 'design_scuole_italia'),
+        'name' => __('Mostra gli eventi', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro degli eventi in pagina iniziale e decidi come mostrarli (verrà rispettato il limite scelto)', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'false',
         'options' => array(
             'false' => __('No', 'design_scuole_italia'),
-            'true_event' => __('Si, mostra il numero di eventi impostato', 'design_scuole_italia'),
+            'true_event' => __('Si, mostra solo gli eventi futuri', 'design_scuole_italia'),
+            'true_event_include_current' => __('Si, mostra sia gli eventi futuri che in svolgimento', 'design_scuole_italia'),
             // 'true_calendar' => __('Si, mostra il calendario', 'design_scuole_italia'),
         ),
         'attributes' => array(
@@ -403,7 +404,7 @@ function dsi_register_main_options_metabox() {
 
 	$home_options->add_field( array(
         'id' => $prefix . 'home_events_count',
-        'name' => 'Eventi da mostrare in Home',
+        'name' => 'Limite eventi da mostrare',
         'desc' => __( 'Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
         'type' => 'text_small',
         'default' => '1',
@@ -422,13 +423,13 @@ function dsi_register_main_options_metabox() {
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_show_circolari',
-        'name' => __('Mostra le circolari in Home', 'design_scuole_italia'),
-        'desc' => __('Abilita il riquadro delle circolari in Home', 'design_scuole_italia'),
+        'name' => __('Mostra le circolari', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro delle circolari in pagina iniziale (verrà rispettato il limite scelto)', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true_circolare',
         'options' => array(
             'false' => __('No', 'design_scuole_italia'),
-            'true_circolare' => __('Si, mostra il numero di circolari pi&ugrave; recenti impostato', 'design_scuole_italia'),
+            'true_circolare' => __('Si, mostra le più recenti', 'design_scuole_italia'),
         ),
         'attributes' => array(
             'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
@@ -438,7 +439,7 @@ function dsi_register_main_options_metabox() {
 
 	$home_options->add_field( array(
         'id' => $prefix . 'home_circolari_count',
-        'name' => 'Circolari da mostrare in Home',
+        'name' => 'Limite circolari da mostrare',
         'desc' => __( 'Se non compilato, il valore predefinito &egrave; 1.', 'design_scuole_italia' ),
         'type' => 'text_small',
         'default' => '1',
@@ -458,7 +459,7 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_banner',
         'name'        => __( 'Sezione Banner', 'design_scuole_italia' ),
-        'desc' => __( 'Gestione sezione Banner (opzionale) mostrata in home page' , 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Banner (opzionale) mostrata in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
@@ -547,7 +548,7 @@ function dsi_register_main_options_metabox() {
 
     $home_options->add_field(array(
             'name' => __('Selezione articoli ', 'design_scuole_italia'),
-            'desc' => __('Seleziona gli articoli da mostrare in Home Page. NB: Selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
+            'desc' => __('Seleziona gli articoli da mostrare in pagina iniziale. Consiglio: selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.  ', 'design_scuole_italia'),
             'id' => $prefix . 'home_servizi_manuali',
             'type'    => 'custom_attached_posts',
             'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
@@ -570,18 +571,18 @@ function dsi_register_main_options_metabox() {
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_3',
         'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
-        'desc' => __( 'Gestione sezione Argomenti mostrati in home page' , 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Argomenti mostrati in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
 	$home_options->add_field( array(
 			'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
-			'desc' => __( 'Seleziona gli argomenti da mostrare in prima pagina. ', 'design_scuole_italia' ),
+			'desc' => __( 'Seleziona gli argomenti da mostrare in pagina iniziale. ', 'design_scuole_italia' ),
 			'id' => $prefix . 'home_argomenti',
 			'type'    => 'pw_multiselect',
 			'options' => dsi_get_argomenti_options(),
 			'attributes' => array(
-				'placeholder' =>  __( 'Seleziona e ordina gli argomenti da mostrare nella HomePage di sezione', 'design_scuole_italia' ),
+				'placeholder' =>  __( 'Seleziona e ordina gli argomenti', 'design_scuole_italia' ),
 			),
 		)
 	);
