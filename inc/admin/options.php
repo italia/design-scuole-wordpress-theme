@@ -289,16 +289,15 @@ function dsi_register_main_options_metabox() {
     ) );
 */
 
-
     $home_options->add_field( array(
-        'id' => $prefix . 'home_istruzioni_1',
-        'name'        => __( 'Sezione novità', 'design_scuole_italia' ),
-        'desc' => __( 'Gestione articoli, pagine, eventi, circolari mostrati in pagina iniziale' , 'design_scuole_italia' ),
+        'id' => $prefix . 'home_istruzioni_0',
+        'name'        => __( 'Sezione contenuti in evidenza', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione contenuti in evidenza mostrati in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-    
+
     $home_options->add_field(array(
-        'name' => __('Contenuti in evidenza', 'design_scuole_italia'),
+        'name' => __('Scelta manuale dei contenuti', 'design_scuole_italia'),
         'desc' => __('Seleziona i contenuti da mostrare in pagina iniziale. Consiglio: selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.', 'design_scuole_italia'),
         'id' => $prefix . 'home_articoli_manuali',
         'type'    => 'custom_attached_posts',
@@ -308,11 +307,18 @@ function dsi_register_main_options_metabox() {
             'filter_boxes'    => true, // Show a text box for filtering the results
             'query_args'      => array(
                 'posts_per_page' => -1,
-                'post_type'      => array('post', 'page', 'evento', 'circolare'),
+                'post_type'      => array('post', 'page', 'evento', 'circolare', 'documento'),
                 ), // override the get_posts args
             )
         )
     );
+
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_1',
+        'name'        => __( 'Sezione novità', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione articoli, pagine, eventi, circolari mostrati in pagina iniziale' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',

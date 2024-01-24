@@ -23,9 +23,9 @@ get_header();
 
             $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
             
-            get_template_part("template-parts/home/articoli", "manuali");
+            get_template_part("template-parts/home/contenuti-in-evidenza");
 
-            }else if($home_is_selezione_automatica == "true_horizontal") {
+            if($home_is_selezione_automatica == "true_horizontal") {
                 get_template_part("template-parts/home/novita", "orizzontale");
             }else if($home_is_selezione_automatica != "false") {
                 get_template_part("template-parts/home/novita", "verticale");
