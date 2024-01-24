@@ -23,11 +23,11 @@ get_header();
 
             $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
             
-            if($home_is_selezione_automatica == "false"){
-                get_template_part("template-parts/home/articoli", "manuali");
+            get_template_part("template-parts/home/articoli", "manuali");
+
             }else if($home_is_selezione_automatica == "true_horizontal") {
                 get_template_part("template-parts/home/novita", "orizzontale");
-            }else {
+            }else if($home_is_selezione_automatica != "false") {
                 get_template_part("template-parts/home/novita", "verticale");
             }
 

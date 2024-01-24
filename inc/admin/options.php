@@ -296,10 +296,27 @@ function dsi_register_main_options_metabox() {
         'desc' => __( 'Gestione articoli, pagine, eventi, circolari mostrati in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
+    
+    $home_options->add_field(array(
+        'name' => __('Contenuti in evidenza', 'design_scuole_italia'),
+        'desc' => __('Seleziona i contenuti da mostrare in pagina iniziale. Consiglio: selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.', 'design_scuole_italia'),
+        'id' => $prefix . 'home_articoli_manuali',
+        'type'    => 'custom_attached_posts',
+        'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
+        'options' => array(
+            'show_thumbnails' => false, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array(
+                'posts_per_page' => -1,
+                'post_type'      => array('post', 'page', 'evento', 'circolare'),
+                ), // override the get_posts args
+            )
+        )
+    );
 
     $home_options->add_field(array(
         'id' => $prefix . 'home_is_selezione_automatica',
-        'name' => __('Selezione Automatica', 'design_scuole_italia'),
+        'name' => __('Visualizzazione automatizzata', 'design_scuole_italia'),
         'desc' => __('Seleziona <b>Si</b> per mostrare automaticamente i contenuti (articoli, eventi, circolari) in pagina iniziale, scegliendo la modalità di distribuzione verticale o orizzontale (un tipo di contenuto per riga). Verranno mostrate le tipologie di articoli selezionate nella <a href="admin.php?page=notizie">configurazione della Pagina "Novità"</a>,', 'design_scuole_italia'),
         'type' => 'radio_inline',
         'default' => 'true_vertical',
@@ -309,27 +326,6 @@ function dsi_register_main_options_metabox() {
             'false' => __('No', 'design_scuole_italia'),
         ),
     ));
-
-    $home_options->add_field(array(
-            'name' => __('Selezione contenuti in evidenza', 'design_scuole_italia'),
-            'desc' => __('Seleziona i contenuti da mostrare in pagina iniziale. Consiglio: selezionane 3 o multipli di 3 per evitare buchi nell\'impaginazione.', 'design_scuole_italia'),
-            'id' => $prefix . 'home_articoli_manuali',
-            'type'    => 'custom_attached_posts',
-            'column'  => true, // Output in the admin post-listing as a custom column. https://github.com/CMB2/CMB2/wiki/Field-Parameters#column
-            'options' => array(
-                'show_thumbnails' => false, // Show thumbnails on the left
-                'filter_boxes'    => true, // Show a text box for filtering the results
-                'query_args'      => array(
-                    'posts_per_page' => -1,
-                    'post_type'      => array('post', 'page', 'evento', 'circolare'),
-                ), // override the get_posts args
-            ),
-            'attributes' => array(
-                'data-conditional-id' => $prefix . 'home_is_selezione_automatica',
-                'data-conditional-value' => 'false',
-            ),
-        )
-    );
 
 	$home_options->add_field( array(
         'id' => $prefix . 'home_post_per_tipologia',
