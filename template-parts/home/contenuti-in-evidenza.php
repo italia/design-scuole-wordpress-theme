@@ -25,10 +25,6 @@ if(is_array($home_articoli_manuali) && count($home_articoli_manuali)){
                             if ($post->post_type == "evento") {
                                 get_template_part("template-parts/evento/card");
                             }
-                            else if ($post->post_type == "documento") {
-                                $documento = $post;
-                                get_template_part("template-parts/documento/card");
-                            }
                             else {
                                 get_template_part("template-parts/single/card-vertical-thumb", $post->post_type);
                             }
