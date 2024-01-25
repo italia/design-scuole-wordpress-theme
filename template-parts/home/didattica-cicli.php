@@ -81,7 +81,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
                                     <div class="accordion-large accordion-wrapper">
                                     <h2 class="h3" style="color: #fff"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
-                                    <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
+                                    <h2 class="h4 label-didattica" style="color: #fff"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
                                         <?php
                                         // recupero i percorsi di studio
                                         $indirizzi = dsi_get_meta("link_servizi_didattici", "", $idstruttura);
