@@ -10,10 +10,10 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
             <div class="row variable-gutters">
                 <div class="col">
                     <div class="responsive-tabs-wrapper">
-                        <!-- <div class="title-large">
-                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
-                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
-                        </div> title-large -->
+                        <div class="title-large">
+                            <!-- <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
+                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>title-large -->
+                        </div>
                         <div class="title-small">
                             <div class="h5"><?php
                                             // se sono più strutture è un istituto, altrimenti una scuola
