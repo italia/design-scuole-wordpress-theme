@@ -14,8 +14,8 @@
 									</button>
 								</h2>
 								<div class="form-group search-form">
-									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?></label>
-									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>">
+									<label for="search-input"><?php _e("Cerca","design_scuole_italia"); ?>
+									<input type="text" name="s" id="search-input" data-element="search-modal-input" class="form-control" placeholder="<?php _e("Cerca informazioni, servizi, notizie o documenti","design_scuole_italia"); ?>" value="<?php echo get_search_query(); ?>"></label>
                                     <button type="button" class="clean-input" aria-label="Elimina testo di ricerca">
                                         <svg class="svg-cancel-large" role="presentation">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cancel-large"></use>
