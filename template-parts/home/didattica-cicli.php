@@ -10,10 +10,10 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
             <div class="row variable-gutters">
                 <div class="col">
                     <div class="responsive-tabs-wrapper">
-                        <div class="title-large">
-                            <h1 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h1>
-                            <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
-                        </div>
+                        <!-- <div class="title-large">
+                            <h1 class="h3"><?php // _e("La didattica", "design_scuole_italia"); ?></h1>
+                            <h2 class="h4 label-didattica"><?php // _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
+                        </div> title-large -->
                         <div class="title-small">
                             <div class="h5"><?php
                                             // se sono più strutture è un istituto, altrimenti una scuola
@@ -80,7 +80,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             ?>
                                 <div id="tab-<?php echo $idstruttura; ?>" class="responsive-tabs-content">
                                     <div class="accordion-large accordion-wrapper">
-                                    <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                                    <h2 class="h3" style="color: #fff"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
                                     <h2 class="h4 label-didattica"><?php _e("La nostra offerta formativa", "design_scuole_italia"); ?></h2>
                                         <?php
                                         // recupero i percorsi di studio
@@ -94,7 +94,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         ?>
                                                     <hr/>
                                                     <div class="accordion-large-title accordion-header">
-                                                        <h3><button style="color: #17324d; background: none; border: none;"><?php echo $indirizzo->post_title; ?></button></h3>
+                                                        <h3><button style="color: #fff; background: none; border: none;"><?php echo $indirizzo->post_title; ?></button></h3>
                                                     </div><!-- /accordion-large-title -->
                                                     <div tabindex="0" class="accordion-large-content accordion-content">
                                                         <?php echo wpautop($descrizione); ?>
