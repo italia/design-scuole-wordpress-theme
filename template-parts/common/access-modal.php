@@ -42,12 +42,12 @@
                                     <?php }?>
                                     <div class="access-login-form">
                                         <div class="form-group">
-                                            <label for="login-email-field">Email address
-                                            <input type="text" name="log" id="login-email-field" class="input form-control" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="La tua email"></label>
+                                            <label for="login-email-field">Email address</label>
+                                            <input type="text" name="log" id="login-email-field" class="input form-control" value="" size="20" autocapitalize="off" aria-describedby="access-form" placeholder="La tua email">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="login-password-field">Password
-                                            <input type="password" name="pwd" id="login-password-field" class="form-control" value="" size="20" aria-describedby="access-form" placeholder="Password"></label>
+                                            <label for="login-password-field">Password</label>
+                                            <input type="password" name="pwd" id="login-password-field" class="form-control" value="" size="20" aria-describedby="access-form" placeholder="Password">
                                         </div>
 
                                         <div class="row variable-gutters mb-4">
