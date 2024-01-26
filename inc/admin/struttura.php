@@ -7,7 +7,7 @@ function dsi_register_struttura_post_type() {
 
     /** struttura **/
     $labels = array(
-        'name'          => _x( 'Strutture', 'Post Type General Name', 'design_scuole_italia' ),
+        'name'          => _x( 'Organizzazione', 'Post Type General Name', 'design_scuole_italia' ),
         'singular_name' => _x( 'Struttura', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new'       => _x( 'Aggiungi Struttura Organizzativa', 'Post Type Singular Name', 'design_scuole_italia' ),
         'add_new_item'  => _x( 'Aggiungi la Struttura Organizzativa', 'Post Type Singular Name', 'design_scuole_italia' ),
@@ -289,9 +289,12 @@ function dsi_add_struttura_metaboxes() {
     $cmb_undercontent->add_field( array(
         'id' => $prefix .'sedi',
         'name'    => __( 'Sedi', 'design_scuole_italia' ),
-        'desc' => __( 'Selezione i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona i <a href="edit.php?post_type=luogo">luoghi</a> che rappresentano le sedi della struttura, in ordine di importanza se più di uno. ' , 'design_scuole_italia' ),
         'type'    => 'pw_multiselect',
         'options' =>  dsi_get_luoghi_options(),
+		'attributes' => array(
+			'placeholder' => 'Seleziona i luoghi che rappresentano le sedi della struttura, in ordine di importanza se più di uno.'
+		),
     ) );
 
     /*
@@ -303,12 +306,22 @@ function dsi_add_struttura_metaboxes() {
         'options' =>  dsi_get_luoghi_options(),
     ) );
 */
+    $cmb_undercontent->add_field( array(
+        'id'   => $prefix . 'contatti_dedicati',
+        'name' => __( 'Modalità di contatto', 'design_scuole_italia' ),
+        'desc' => __( 'Sono presenti contatti dedicati per la struttura. In caso contrario vengono mostrati in automatico i contatti (email e telefono) dell\'ufficio relazioni con il pubblico (URP) inseriti in Configurazione' , 'design_scuole_italia' ),
+        'type' => 'checkbox',
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id'         => $prefix . 'telefono',
-        'name'       => __( 'Recapito telefonico struttura', 'design_scuole_italia' ),
+        'name'       => __( 'Recapito telefonico della struttura', 'design_scuole_italia' ),
         'desc'       => __( 'Numero di telefono della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
     ) );
 
 
@@ -317,9 +330,22 @@ function dsi_add_struttura_metaboxes() {
         'name'       => __( 'Email della struttura', 'design_scuole_italia' ),
         'desc'       => __( 'Email della struttura. ', 'design_scuole_italia' ),
         'type'       => 'text_email',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
     ) );
-
-
+	
+    $cmb_undercontent->add_field( array(
+        'id'         => $prefix . 'pec',
+        'name'       => __( 'Posta elettronica certificata (PEC) della struttura', 'design_scuole_italia' ),
+        'desc'       => __( 'PEC della struttura. ', 'design_scuole_italia' ),
+        'type'       => 'text_email',
+        'attributes'    => array(
+            'data-conditional-id'     => $prefix.'contatti_dedicati',
+            'data-conditional-value'  => "true",
+        ),
+    ) );
 
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'altre_info',
@@ -377,6 +403,11 @@ new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_schede_servizi"
 // relazione bidirezionale struttura / percorso
 new dsi_bidirectional_cmb2("_dsi_struttura_", "struttura", "link_servizi_didattici", "box_sottotitolo", "_dsi_indirizzo_link_struttura_didattica");
 
+// relazione bidirezionale struttura responsabile / persona
+new dsi_bidirectional_cmb2_to_usermeta("_dsi_struttura_", "struttura", "responsabile", "box_elementi_struttura", "_dsi_persona_altri_ruoli_struttura_responsabile");
+
+// relazione bidirezionale struttura componente / persona
+new dsi_bidirectional_cmb2_to_usermeta("_dsi_struttura_", "struttura", "persone", "box_elementi_struttura", "_dsi_persona_altri_ruoli_struttura");
 
 /**
  * salvo il parent cmb2
@@ -425,5 +456,5 @@ add_action( 'admin_print_scripts-post.php', 'dsi_struttura_admin_script', 11 );
 function dsi_struttura_admin_script() {
     global $post_type;
     if( 'struttura' == $post_type )
-        wp_enqueue_script( 'struttura-admin-script', get_stylesheet_directory_uri() . '/inc/admin-js/struttura.js' );
+        wp_enqueue_script( 'struttura-admin-script', get_template_directory_uri() . '/inc/admin-js/struttura.js' );
 }

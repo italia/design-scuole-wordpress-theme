@@ -57,34 +57,34 @@ function dsi_register_documento_post_type() {
 
     register_taxonomy( 'tipologia-documento', array( 'documento' ), $args );
 
-    $labels = array(
-        'name'              => _x( 'Amministrazione Trasparente', 'taxonomy general name', 'design_scuole_italia' ),
-        'singular_name'     => _x( 'Amministrazione Trasparente', 'taxonomy singular name', 'design_scuole_italia' ),
-        'search_items'      => __( 'Cerca ', 'design_scuole_italia' ),
-        'all_items'         => __( 'Tutte', 'design_scuole_italia' ),
-        'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
-        'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
-        'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
-        'new_item_name'     => __( 'Nuova', 'design_scuole_italia' ),
-        'menu_name'         => __( 'Amministrazione Trasparente', 'design_scuole_italia' ),
-    );
+    // $labels = array(
+    //     'name'              => _x( 'Amministrazione Trasparente', 'taxonomy general name', 'design_scuole_italia' ),
+    //     'singular_name'     => _x( 'Amministrazione Trasparente', 'taxonomy singular name', 'design_scuole_italia' ),
+    //     'search_items'      => __( 'Cerca ', 'design_scuole_italia' ),
+    //     'all_items'         => __( 'Tutte', 'design_scuole_italia' ),
+    //     'edit_item'         => __( 'Modifica', 'design_scuole_italia' ),
+    //     'update_item'       => __( 'Aggiorna', 'design_scuole_italia' ),
+    //     'add_new_item'      => __( 'Aggiungi', 'design_scuole_italia' ),
+    //     'new_item_name'     => __( 'Nuova', 'design_scuole_italia' ),
+    //     'menu_name'         => __( 'Amministrazione Trasparente', 'design_scuole_italia' ),
+    // );
 
-    $args = array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'amministrazione-trasparente' ),
-        'capabilities'      => array(
-            'manage_terms'  => 'manage_tipologia_documenti',
-            'edit_terms'    => 'edit_tipologia_documenti',
-            'delete_terms'  => 'delete_tipologia_documenti',
-            'assign_terms'  => 'assign_tipologia_documenti'
-        )
-    );
+    // $args = array(
+    //     'hierarchical'      => true,
+    //     'labels'            => $labels,
+    //     'show_ui'           => true,
+    //     'show_admin_column' => true,
+    //     'query_var'         => true,
+    //     'rewrite'           => array( 'slug' => 'amministrazione-trasparente' ),
+    //     'capabilities'      => array(
+    //         'manage_terms'  => 'manage_tipologia_documenti',
+    //         'edit_terms'    => 'edit_tipologia_documenti',
+    //         'delete_terms'  => 'delete_tipologia_documenti',
+    //         'assign_terms'  => 'assign_tipologia_documenti'
+    //     )
+    // );
 
-    register_taxonomy( 'amministrazione-trasparente', array( 'documento' ), $args );
+    // register_taxonomy( 'amministrazione-trasparente', array( 'documento' ), $args );
 
     $labels = array(
         'name'              => _x( 'Albo on line', 'taxonomy general name', 'design_scuole_italia' ),
@@ -258,38 +258,38 @@ function dsi_add_documento_metaboxes() {
 
 
 
-    $cmb_sottotitolo->add_field(array(
-        'id' => $prefix . 'is_amministrazione_trasparente',
-        'name' => __('Amministrazione Trasparente *', 'design_scuole_italia'),
-        'desc' => __('Seleziona se il documento fa parte di Amministrazione Trasparente', 'design_scuole_italia'),
-        'type' => 'radio_inline',
-        'default' => 'false',
-        'options' => array(
-            'true' => __('Si', 'design_scuole_italia'),
-            'false' => __('No', 'design_scuole_italia'),
-        ),
-    ));
+    // $cmb_sottotitolo->add_field(array(
+    //     'id' => $prefix . 'is_amministrazione_trasparente',
+    //     'name' => __('Amministrazione Trasparente *', 'design_scuole_italia'),
+    //     'desc' => __('Seleziona se il documento fa parte di Amministrazione Trasparente', 'design_scuole_italia'),
+    //     'type' => 'radio_inline',
+    //     'default' => 'false',
+    //     'options' => array(
+    //         'true' => __('Si', 'design_scuole_italia'),
+    //         'false' => __('No', 'design_scuole_italia'),
+    //     ),
+    // ));
 
 
 
-    $cmb_sottotitolo->add_field(array(
-            'name' => __('Tipologia di Amministrazione Trasparente ', 'design_scuole_italia'),
-            'desc' => __('Collega alla sezione di Amministrazione Trasparente. ', 'design_scuole_italia'),
-            'id' => $prefix . 'amministrazione_trasparente',
-            'taxonomy'       => 'amministrazione-trasparente', //Enter Taxonomy Slug
-            'type'           => 'taxonomy_select_hierarchical',
-            'remove_default' => 'true', // Removes the default metabox provided by WP core.
-            // Optionally override the args sent to the WordPress get_terms function.
-            'query_args' => array(
-                // 'orderby' => 'slug',
-                // 'hide_empty' => true,
-            ),
-            'attributes' => array(
-                'data-conditional-id' => $prefix . 'is_amministrazione_trasparente',
-                'data-conditional-value' => "true",
-            ),
-        )
-    );
+    // $cmb_sottotitolo->add_field(array(
+    //         'name' => __('Tipologia di Amministrazione Trasparente ', 'design_scuole_italia'),
+    //         'desc' => __('Collega alla sezione di Amministrazione Trasparente. ', 'design_scuole_italia'),
+    //         'id' => $prefix . 'amministrazione_trasparente',
+    //         'taxonomy'       => 'amministrazione-trasparente', //Enter Taxonomy Slug
+    //         'type'           => 'taxonomy_select_hierarchical',
+    //         'remove_default' => 'true', // Removes the default metabox provided by WP core.
+    //         // Optionally override the args sent to the WordPress get_terms function.
+    //         'query_args' => array(
+    //             // 'orderby' => 'slug',
+    //             // 'hide_empty' => true,
+    //         ),
+    //         'attributes' => array(
+    //             'data-conditional-id' => $prefix . 'is_amministrazione_trasparente',
+    //             'data-conditional-value' => "true",
+    //         ),
+    //     )
+    // );
 
     $cmb_aftercontent = new_cmb2_box( array(
         'id'           => $prefix . 'box_elementi_dati',
@@ -772,15 +772,15 @@ function dsi_save_documento( $post_id) {
         }
     }
 
-    if(!isset($_POST["_dsi_documento_is_amministrazione_trasparente"]) || $_POST["_dsi_documento_is_amministrazione_trasparente"] == "false"){
+    // if(!isset($_POST["_dsi_documento_is_amministrazione_trasparente"]) || $_POST["_dsi_documento_is_amministrazione_trasparente"] == "false"){
 
-        unset($_POST["_dsi_documento_amministrazione_trasparente"]);
-        $amm = wp_get_object_terms($post_id, 'amministrazione-trasparente');
+    //     unset($_POST["_dsi_documento_amministrazione_trasparente"]);
+    //     $amm = wp_get_object_terms($post_id, 'amministrazione-trasparente');
 
 
-        foreach($amm as $amt)
-            wp_remove_object_terms( $post_id, $amt->name, 'amministrazione-trasparente' );
-    }
+    //     foreach($amm as $amt)
+    //         wp_remove_object_terms( $post_id, $amt->name, 'amministrazione-trasparente' );
+    // }
 
 
     add_action( 'save_post_luogo', 'dsi_save_luogo' );
