@@ -15,9 +15,10 @@ get_header();
 ?>
 
     <main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+        
+    <?php get_template_part("martini-template-parts/hero/hero_archive"); ?>
 
-        <?php get_template_part("template-parts/hero/notizie", "archive"); ?>
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
             <div class="container d-flex justify-content-between align-items-center py-3">

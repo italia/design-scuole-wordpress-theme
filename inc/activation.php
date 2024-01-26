@@ -160,31 +160,31 @@ function dsi_create_pages_on_theme_activation() {
 
 
     // template page per Amministrazione Trasparente
-    $new_page_title    = __( 'Amministrazione Trasparente', 'design_scuole_italia' ); // Page's title
-    $new_page_content  = '';                           // Content goes here
-    $new_page_template = 'page-templates/amministrazione-trasparente.php';       // The template to use for the page
-    $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
+    // $new_page_title    = __( 'Amministrazione Trasparente', 'design_scuole_italia' ); // Page's title
+    // $new_page_content  = '';                           // Content goes here
+    // $new_page_template = 'page-templates/amministrazione-trasparente.php';       // The template to use for the page
+    // $page_check        = get_page_by_title( $new_page_title );   // Check if the page already exists
     // Store the above data in an array
-    $new_page = array(
-        'post_type'    => 'page',
-        'post_title'   => $new_page_title,
-        'post_content' => $new_page_content,
-        'post_status'  => 'publish',
-        'post_author'  => 1,
-        'post_slug'    => 'amministrazione-trasparente'
-    );
+    // $new_page = array(
+    //     'post_type'    => 'page',
+    //     'post_title'   => $new_page_title,
+    //     'post_content' => $new_page_content,
+    //     'post_status'  => 'publish',
+    //     'post_author'  => 1,
+    //     'post_slug'    => 'amministrazione-trasparente'
+    // );
 
 
-    // If the page doesn't already exist, create it
-    if ( ! isset( $page_check->ID ) ) {
-        $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
-        if ( ! empty( $new_page_template ) ) {
-            update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
-        }
-    }else{
-        $amministrazione_trasparente_page_id = $page_check->ID;
-        update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
-    }
+    // // If the page doesn't already exist, create it
+    // if ( ! isset( $page_check->ID ) ) {
+    //     $amministrazione_trasparente_page_id = wp_insert_post( $new_page );
+    //     if ( ! empty( $new_page_template ) ) {
+    //         update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+    //     }
+    // }else{
+    //     $amministrazione_trasparente_page_id = $page_check->ID;
+    //     update_post_meta( $amministrazione_trasparente_page_id, '_wp_page_template', $new_page_template );
+    // }
 
 
     // template page per Presentazione
@@ -426,21 +426,21 @@ function dsi_create_pages_on_theme_activation() {
      *
      */
 
-    $ammtrasps = dsi_amministrazione_trasparente_array();
-    foreach ( $ammtrasps as $couple ) {
-        $parentname = $couple[0];
-        $parentchild = $couple[1];
-        if (!term_exists( $parentname , 'amministrazione-trasparente')) {
-            $parent = wp_insert_term($parentname, 'amministrazione-trasparente');
-            if(!is_wp_error($parent)){
-                $parent_id = $parent["term_id"];
-                foreach ($parentchild as $child){
-                    wp_insert_term($child, 'amministrazione-trasparente', array("parent" => $parent_id));
-                }
-            }
-        }
-    }
-    dsi_amministrazione_trasparente_genera_descrizioni();
+    // $ammtrasps = dsi_amministrazione_trasparente_array();
+    // foreach ( $ammtrasps as $couple ) {
+    //     $parentname = $couple[0];
+    //     $parentchild = $couple[1];
+    //     if (!term_exists( $parentname , 'amministrazione-trasparente')) {
+    //         $parent = wp_insert_term($parentname, 'amministrazione-trasparente');
+    //         if(!is_wp_error($parent)){
+    //             $parent_id = $parent["term_id"];
+    //             foreach ($parentchild as $child){
+    //                 wp_insert_term($child, 'amministrazione-trasparente', array("parent" => $parent_id));
+    //             }
+    //         }
+    //     }
+    // }
+    // dsi_amministrazione_trasparente_genera_descrizioni();
     /*
     * popolo le tipologie di struttura
      *
@@ -575,16 +575,16 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
-        $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
+        // $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
 
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Amministrazione trasparente', "design_scuole_italia"),
-            'menu-item-url' => $ammtrasp_landing_url,
-            'menu-item-status' => 'publish',
-            'menu-item-type' => 'custom', // optional
-            'menu-item-attr-title' => __('Amministrazione trasparente', "design_scuole_italia"),
-            'menu-item-classes' => 'footer-link',
-        ));
+        // wp_update_nav_menu_item($menu->term_id, 0, array(
+        //     'menu-item-title' => __('Amministrazione trasparente', "design_scuole_italia"),
+        //     'menu-item-url' => $ammtrasp_landing_url,
+        //     'menu-item-status' => 'publish',
+        //     'menu-item-type' => 'custom', // optional
+        //     'menu-item-attr-title' => __('Amministrazione trasparente', "design_scuole_italia"),
+        //     'menu-item-classes' => 'footer-link',
+        // ));
 
         $term = get_term_by("name", "Albo online", "tipologia-documento");
         wp_update_nav_menu_item($menu->term_id, 0, array(
@@ -650,14 +650,14 @@ function dsi_create_pages_on_theme_activation() {
             'menu-item-classes' => 'footer-link',
         ));
 
-        // wp_update_nav_menu_item($menu->term_id, 0, array(
-        //     'menu-item-title' => __('Le carte della scuola', "design_scuole_italia"),
-        //     'menu-item-status' => 'publish',
-        //     'menu-item-object' => 'documento',
-        //     'menu-item-type' => 'post_type_archive',
-        //     'menu-item-attr-title' => __('Le carte della scuola', "design_scuole_italia"),
-        //     'menu-item-classes' => 'footer-link',
-        // ));
+        wp_update_nav_menu_item($menu->term_id, 0, array(
+            'menu-item-title' => __('Le carte della scuola', "design_scuole_italia"),
+            'menu-item-status' => 'publish',
+            'menu-item-object' => 'documento',
+            'menu-item-type' => 'post_type_archive',
+            'menu-item-attr-title' => __('Le carte della scuola', "design_scuole_italia"),
+            'menu-item-classes' => 'footer-link',
+        ));
 
 //        $persone_landing_url = dsi_get_template_page_url("page-templates/persone.php");
         $persone_id = dsi_get_template_page_id("page-templates/persone.php");
@@ -914,16 +914,16 @@ function dsi_create_pages_on_theme_activation() {
         $menu = get_term_by('id', $menu_id, 'nav_menu');
         $menu_footer = $menu_id;
 
-        $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
+        // $ammtrasp_landing_url = dsi_get_template_page_url("page-templates/amministrazione-trasparente.php");
 
-        wp_update_nav_menu_item($menu->term_id, 0, array(
-            'menu-item-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
-            'menu-item-url' => $ammtrasp_landing_url,
-            'menu-item-status' => 'publish',
-            'menu-item-type' => 'custom', // optional
-            'menu-item-attr-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
-            'menu-item-classes' => 'footer-link',
-        ));
+        // wp_update_nav_menu_item($menu->term_id, 0, array(
+        //     'menu-item-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
+        //     'menu-item-url' => $ammtrasp_landing_url,
+        //     'menu-item-status' => 'publish',
+        //     'menu-item-type' => 'custom', // optional
+        //     'menu-item-attr-title' => __('Amministrazione Trasparente', "design_scuole_italia"),
+        //     'menu-item-classes' => 'footer-link',
+        // ));
 
         $term = get_term_by("name", "Albo online", "tipologia-documento");
         wp_update_nav_menu_item($menu->term_id, 0, array(
