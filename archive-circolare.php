@@ -1,5 +1,7 @@
 <?php
 /**
+ * Template Name: Archivio Circolari
+ *
  * The template for displaying archive
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#archive
@@ -13,14 +15,15 @@ get_header();
 ?>
 
     <main id="main-container" class="main-container <?php echo $class; ?>>">
-		<?php get_template_part("template-parts/common/breadcrumb"); ?>
+        
+    <?php get_template_part("martini-template-parts/hero/hero_archive"); ?>
 
-        <?php get_template_part("martini-template-parts/hero/hero_title"); ?>
+    <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
         <section class="section bg-white border-top border-bottom d-block d-lg-none">
             <div class="container d-flex justify-content-between align-items-center py-3">
                 <h3 class="h6 text-uppercase mb-0 label-filter"><strong><?php _e("Filtri", "design_scuole_italia"); ?></strong></h3>
-                <a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#" aria-label="filtri">
+                <a class="toggle-search-results-mobile toggle-menu menu-search push-body mb-0" href="#">
                     <svg class="svg-filters"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-filters"></use></svg>
                 </a>
             </div>
@@ -37,7 +40,7 @@ get_header();
 							/* Start the Loop */
 							while ( have_posts() ) :
 								the_post();
-								get_template_part( 'template-parts/list/article', get_post_type() );
+								get_template_part( 'template-parts/list/article-circolare');
 
 							endwhile;
 							?>

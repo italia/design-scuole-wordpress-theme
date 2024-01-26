@@ -9,7 +9,7 @@ $numerazione_circolare = dsi_get_meta("numerazione_circolare");
 if(has_post_thumbnail($post))
     $image_url = get_the_post_thumbnail_url($post, "item-thumb");
 else
-    $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
+    $image_url = get_template_directory_uri() ."/images/logo-custom.png";
 
 $autore = get_user_by("ID", $post->post_author);
 ?>

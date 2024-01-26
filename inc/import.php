@@ -30,21 +30,21 @@ function dsi_filter_wp_import_post_data_raw($post)
     }
 
     // amministrazione trasparente
-    if($post["post_type"] == "amm-trasparente"){
-        $post["post_type"] = "documento";
+    // if($post["post_type"] == "amm-trasparente"){
+    //     $post["post_type"] = "documento";
 
-        $new_terms = array();
-        if(isset($post["terms"])) {
-            foreach ($post["terms"] as $terms) {
-                if ($terms["domain"] == "tipologie") {
-                    $terms["domain"] = "amministrazione-trasparente";
-                }
-                $new_terms[] = $terms;
-            }
-            $post["terms"] = $new_terms;
-        }
+    //     $new_terms = array();
+    //     if(isset($post["terms"])) {
+    //         foreach ($post["terms"] as $terms) {
+    //             if ($terms["domain"] == "tipologie") {
+    //                 $terms["domain"] = "amministrazione-trasparente";
+    //             }
+    //             $new_terms[] = $terms;
+    //         }
+    //         $post["terms"] = $new_terms;
+    //     }
 
-    }
+    // }
 
     return $post;
 }

@@ -311,6 +311,53 @@ function set_views($post_ID) {
 	}
 }
 
+// Verifica se l'utente è abilitato a vedere il contenuto della circolare
+function circolare_access($post_ID) {
+
+	$is_pubblica = dsi_get_meta("is_pubblica");
+	$destinatari_circolari = "";
+	$destinatari_circolari =  dsi_get_meta("destinatari_circolari");
+	$user = wp_get_current_user();
+	$current_user_roles = (array) $user->roles;
+	if($destinatari_circolari == "ruolo"){
+		$allowed_roles = dsi_get_meta("ruoli_circolari"); 
+		
+		if ($allowed_roles) {
+			$c = array_intersect($allowed_roles,$current_user_roles);
+			if (count($c) > 0) {
+				$can_view = "true";
+			} 
+			else {
+				$can_view = "false";
+			}
+		}
+		else {
+			$can_view = "false";
+		}
+	}
+	if($destinatari_circolari == "gruppo"){
+		$users = array();
+		
+		$gruppi_circolari = dsi_get_meta("gruppi_circolari");
+		
+		$users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
+		if (in_array($user->ID,$users )) {
+			$can_view = "true";
+		} else {
+			$can_view = "false";
+		}	
+	}
+	if($destinatari_circolari == "all"){
+		$can_view = "true";
+	}
+	if ( $is_pubblica == "true" || ($is_pubblica == "false" && is_user_logged_in() &&  $can_view == "true") ){
+		$accesso_circolare = "true";
+		} else {
+		$accesso_circolare = "false";
+	}
+	return $accesso_circolare;
+	}
+
 //keeps the count accurate by removing prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
@@ -405,8 +452,6 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 /* Custom Post Type
 ------------------------*/
-require dirname(__FILE__).'/functions-parts/cpt-sicurezza.php';
-require dirname(__FILE__).'/functions-parts/cpt-privacy.php';
 require dirname(__FILE__).'/functions-parts/cpt-corsi-liberi.php';
 
 require dirname(__FILE__).'/functions-parts/cpt-footer-logos.php';
@@ -414,9 +459,7 @@ require dirname(__FILE__).'/functions-parts/cpt-slider.php';
 require dirname(__FILE__).'/functions-parts/cpt-pon.php';
 require dirname(__FILE__).'/functions-parts/cpt-erasmus.php';
 require dirname(__FILE__).'/functions-parts/cpt-orientamento.php';
-require dirname(__FILE__).'/functions-parts/cpt-documenti.php';
 require dirname(__FILE__).'/functions-parts/cpt-modulistica.php';
-require dirname(__FILE__).'/functions-parts/cpt-le-circolari.php';
 require dirname(__FILE__).'/functions-parts/cpt-pnrr.php';
 require dirname(__FILE__).'/functions-parts/cpt-fse.php';
 require dirname(__FILE__).'/functions-parts/cpt-libri.php';
