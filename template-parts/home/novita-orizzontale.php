@@ -21,6 +21,9 @@ if($home_events_count == "") $home_events_count = 1;
 $home_circolari_count = dsi_get_option("home_circolari_count", "homepage");
 if($home_circolari_count == "") $home_circolari_count = 1;
 
+$carousel_novita = dsi_get_option("carousel_novita", "homepage");
+$carousel_novita = $carousel_novita == "true" ? true : false;
+
 $ct=0;
 
 $column = 3;
@@ -71,19 +74,32 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                     <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
-                <?php
-                    
-                echo '<div class="row variable-gutters">';
+                <?php if ($carousel_novita) { ?>
+                    <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <?php 
+                                    foreach ($posts as $post) {
+                                        echo '<li class="splide__slide"><div class="it-single-slide-wrapper h-100">';
+                                            get_template_part("template-parts/single/card", "vertical-thumb");
+                                        echo '</div></li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div><!-- /carousel-large -->
+                <?php } else { ?>
+                    <div class="row variable-gutters">
+                        <?php 
+                            foreach ($posts as $post) {
+                                echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
+                                    get_template_part("template-parts/single/card", "vertical-thumb");
+                                echo '</div>';
+                            }
+                        ?>
+                    </div>
+                <?php } ?>
 
-
-                foreach ($posts as $post) {
-                	echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
-                    	get_template_part("template-parts/single/card", "vertical-thumb");
-                    echo '</div>';
-                }
-
-                echo '</div>';
-                ?>
                 <div class="py-2">
                     <a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
                 </div>
@@ -152,13 +168,33 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
             $posts = get_posts($args);
             $events_shown = count($posts);
-            echo '<div class="row variable-gutters">';
-            foreach ($posts as $post) {
-                echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
-                	get_template_part("template-parts/evento/card");
-                echo '</div>';
-            }
-            echo '</div>';
+
+
+            if ($carousel_novita) { ?>
+                <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <?php 
+                                foreach ($posts as $post) {
+                                    echo '<li class="splide__slide"><div class="it-single-slide-wrapper h-100">';
+                                    get_template_part("template-parts/evento/card");
+                                    echo '</div></li>';
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                </div><!-- /carousel-large -->
+            <?php } else { ?>
+                <div class="row variable-gutters">
+                    <?php 
+                        foreach ($posts as $post) {
+                            echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
+                            get_template_part("template-parts/evento/card");
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
+            <?php }
         }else {
             // $calendar_card = true;
             // get_template_part("template-parts/evento/full_calendar");
@@ -186,14 +222,32 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 'posts_per_page' => $home_circolari_count
             );
             $posts = get_posts($args);
-            echo '<div class="row variable-gutters">';
-            foreach ($posts as $post) {
-                echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
-                	get_template_part("template-parts/single/card", "circolare");
-                echo '</div>';
-            }
-            echo '</div>';
-            ?>
+
+            if ($carousel_novita) { ?>
+                <div class="it-carousel-wrapper carousel-notice it-carousel-landscape-abstract-three-cols splide" data-bs-carousel-splide>
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <?php 
+                                foreach ($posts as $post) {
+                                    echo '<li class="splide__slide"><div class="it-single-slide-wrapper h-100">';
+                                    get_template_part("template-parts/single/card", "circolare");
+                                    echo '</div></li>';
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                </div><!-- /carousel-large -->
+            <?php } else { ?>
+                <div class="row variable-gutters">
+                    <?php 
+                        foreach ($posts as $post) {
+                            echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
+                            get_template_part("template-parts/single/card", "circolare");
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
+            <?php } ?>
 
             <div class="py-4">
                 <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>

@@ -21,6 +21,8 @@ if($home_events_count == "") $home_events_count = 1;
 $home_circolari_count = dsi_get_option("home_circolari_count", "homepage");
 if($home_circolari_count == "") $home_circolari_count = 1;
 
+$home_articoli_manuali = dsi_get_option("home_articoli_manuali", "homepage");
+
 $ct=0;
 
 $column = 1;
@@ -56,6 +58,14 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                         ),
                 	),
             );
+
+            if(is_array($home_articoli_manuali) && count($home_articoli_manuali)>0)	{
+            	$exclude = array(
+                		'exclude' => $home_articoli_manuali
+        		);
+            
+				$args = array_merge($args,$exclude);
+            }
         
         	if($giorni_per_filtro != "" || $giorni_per_filtro > 0) {
             	$filter = array(
@@ -68,7 +78,6 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
         		);
             
 				$args = array_merge($args,$filter);
-            	
             }
         
             $posts = get_posts($args);
