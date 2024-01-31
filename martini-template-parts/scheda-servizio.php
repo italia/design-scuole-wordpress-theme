@@ -64,7 +64,7 @@
         <button data-element="service-online-access">Accesso online</button>
         <button data-element="service-generic-access">Accesso generico</button>
         <p data-element="service-needed">Cosa serve</p>
-        <div data-element=“service-calendar-text”>
+        <div data-element="service-calendar-text">
             <p>Tempi e scadenze</p>
         </div>
         <div data-element="service-more-info">
