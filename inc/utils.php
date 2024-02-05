@@ -1143,3 +1143,42 @@ if(!function_exists("dsi_get_img_from_id_url")) {
         echo $img;
     }
 }
+
+if (!function_exists("dsi_is_object_in_term_or_term_ancestors")) {
+    /**
+     * Determines if the given object is associated with any of the given terms or with any of the terms' children.
+     * @param int $id ID of the object (post ID, link ID, …).
+     * @param string $taxonomy Single taxonomy name.
+     * @param int|string|array $terms Term ID, slug, or array of such to check against.
+     * @return bool|WP_Error WP_Error on input error.
+     */
+    function dsi_is_object_in_term_or_child_term(int $object_id, string $taxonomy, $terms = null)
+    {
+        $is_object_in_term = is_object_in_term($object_id, $taxonomy, $terms);
+
+        if(is_wp_error($is_object_in_term) || $is_object_in_term)
+            return $is_object_in_term;
+
+        $object_terms = wp_get_object_terms($object_id, $taxonomy);
+
+        if (empty($object_terms)) {
+            return false;
+        }
+
+        $terms = (array) $terms;
+
+        foreach ($object_terms as $object_term) {
+            foreach ($terms as $term) {
+                if (is_numeric($term))
+                    $term_id = (int) $term;
+                else
+                    $term_id = get_term_by('slug', $term, $taxonomy)->term_id;
+
+                if ($term_id && (term_is_ancestor_of($term_id, $object_term, $taxonomy)))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+}
