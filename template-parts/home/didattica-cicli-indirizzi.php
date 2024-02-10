@@ -27,13 +27,11 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                 <?php
                             foreach ($indirizzi_didattica as $slugindirizzo){
                                 $indirizzo = get_term_by("slug", $slugindirizzo,"percorsi-di-studio");
-                                if($indirizzo && 'trash' !== get_post_status($idindirizzo)) {
                                 ?>
-                                        <li>
-                                            <a href="#tab-<?php echo $slugindirizzo; ?>"><?php echo $indirizzo->name; ?></a>
-                                        </li>
+                                <li>
+                                    <a href="#tab-<?php echo $slugindirizzo; ?>"><?php echo $indirizzo->name; ?></a>
+                                </li>
                                 <?php
-                                    }
                                 }
                                 ?>
                             </ul>
@@ -90,7 +88,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                                             $count_indirizzi_in_percorso_selezionato = 0;
                                                             //echo "<div class='col-12'><small><strong>Percorsi di studio</strong></small></div>";
                                                             foreach ($indirizzi as $idindirizzo) {
-                                                                if (get_the_title($idindirizzo) != "" && is_object_in_term($idindirizzo, 'percorsi-di-studio', $slugindirizzo)) {
+                                                                if (get_the_title($idindirizzo) != "" && dsi_is_object_in_term_or_child_term($idindirizzo, 'percorsi-di-studio', $slugindirizzo)) {
                                                                     $count_indirizzi_in_percorso_selezionato++;
 
                                                         ?>
@@ -127,7 +125,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                             }
                                         } else{
                                             echo '<div ><h5 class="text-white">';
-                                            _e("Nessun istituto associato a questa indirizzo di studi.", "design_scuole_italia");
+                                            _e("Nessun istituto associato a questo indirizzo di studi.", "design_scuole_italia");
                                             echo '</h5></div>';
                                         }
                                         ?>
