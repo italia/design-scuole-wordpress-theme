@@ -321,6 +321,15 @@ get_header();
 												</div>
 											</div>
 										<?php }	
+                                        if(in_array("eIDAS", $provider_autenticazione)) {
+											?>
+											<div class="col-4 col-md-3">
+												<div class="note eidas">
+													<img alt="Logo eIDAS" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-eidas.png' ); ?>">
+													<p><?php _e("Che cos'è eIDAS?", "design_scuole_italia"); ?><br/><a href="https://www.eid.gov.it/" aria-label="scopri di più su eIDAS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+												</div>
+											</div>
+										<?php }	
                                         }?>
                                     </div><!-- /row -->
                                 <?php
