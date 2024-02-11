@@ -284,7 +284,16 @@ get_header();
 													<p><?php _e("Non hai CNS?", "design_scuole_italia"); ?><br/><a href="https://sistemats1.sanita.finanze.it/portale/modalita-di-accesso-con-ts_cns" aria-label="scopri di più su CNS - link esterno - (apre pagina su nuova scheda)" data-focus-mouse="false">Scopri di più</a>.</p>
 												</div>
 											</div>
-										<?php }									
+										<?php }
+                                        if(in_array("eIDAS", $provider_autenticazione)) {
+											?>
+											<div class="col-4 col-md-3">
+												<div class="note">
+													<img alt="Logo eIDAS" class="svg-filters" width="90" height="64" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/mini-logo-eidas.svg' ); ?>">
+													<p><?php _e("Che cos'è eIDAS?", "design_scuole_italia"); ?><br/><a href="https://www.eid.gov.it/" aria-label="scopri di più su eIDAS (apre pagina su nuova scheda)">Scopri di più</a>.</p>
+												</div>
+											</div>
+                                        <?php }	
 									}?>
                                     </div><!-- /row -->
 								<?php
