@@ -2,7 +2,7 @@
 [![Join the #design siti scuole channel](https://img.shields.io/badge/Slack%20channel-%23design_siti_scuole-blue.svg)](https://developersitalia.slack.com/messages/design-siti-scuole/)
 
 ## **Un sito per le scuole italiane**
-### I primi passi con il tema Wordpress (2.8.1)
+### I primi passi con il tema Wordpress (2.9.0)
 
 **Design Scuole Italia** è il tema WordPress che permette di aderire al [modello di sito istituzionale delle scuole](https://designers.italia.it/modelli/scuole/), progettato dal Dipartimento per la trasformazione digitale in collaborazione con il Ministero dell’Istruzione.
 
@@ -280,8 +280,10 @@ L’area di configurazione è divisa in tab per le diverse aree del sito.
 
 Cliccando su “Configurazione" è possibile definire:
 
--	**opzioni di base**: i contenuti nell’header del sito, come il tipo di istituto, il nome dell’istituto e la città;
--	**home**: i contenuti delle sezioni notizie e servizi sull’homepage del sito;
+-	**opzioni di base**: i contenuti dell'intestazione del sito, come il tipo di istituto, il nome dell’istituto e la città;
+-	**dati fiscali e di contatto**: le informazioni di base della scuola (indirizzo, pec, codice ipa, codice meccanografico, ecc), vengono riportate nel piè di pagina e nelle pagine interne;
+-	**avvisi in Home**: i messaggi di avviso mostrati mostrati all'inizio dei contenuti della pagina iniziale;
+-	**home**: i contenuti in evidenza, le novità, i banner, i servizi e gli argomenti mostrati nella pagina iniziale del sito;
 -	**scuola**: tutti i contenuti relativi alla sezione scuola, ovvero l’immagine e la citazione principali, la timeline della storia della scuola, le strutture dell’organizzazione scolastica, i luoghi, l’area documentale e i numeri della scuola;
 -	**presentazione**: area dove selezionare gli articoli che popolano la sezione “presentazione della scuola”;
 -	**servizi**: area di gestione della pagina di panoramica dei servizi, in cui è possibile selezionare le tipologie di servizi da mostrare; 
@@ -291,8 +293,9 @@ Cliccando su “Configurazione" è possibile definire:
 -	**organizzazione**: area di configurazione della pagina di presentazione dell’organizzazione scolastica, tramite la selezione delle strutture organizzative da mostrare;
 -	**luoghi**: area in cui configurare la tipologia e l’ordine delle tipologie di luoghi da mostrare;
 -	**documenti**: area di configurazione dei documenti, organizzati in base alle tipologie selezionate;
--	**servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di login (registro elettronico o altri);
--	**altro**: i contenuti del footer (in cui vanno inserite le informazioni di base della scuola: indirizzo, pec, codice ipa, codice meccanografico, etc), il token mapbox (da creare per utilizzare le mappe openstreetmap dei luoghi), il testo delle mail delle circolari, e il setup della sezione albo.
+-	**servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di accesso (registro elettronico o altri);
+-	**socialmedia**: collegamenti ai social mostrati nell'intestazione e nel piè di pagina.
+-	**altro**: la descrizione della sezione Argomenti, i contenuti ulteriori del piè di pagina, il token mapbox (da creare per utilizzare le mappe openstreetmap dei luoghi), la configurazione delle estensioni protette dall'accesso esterno, il testo delle mail delle circolari e il setup della sezione albo.
 
 
 ### **La community di riferimento**
