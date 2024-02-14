@@ -23,12 +23,13 @@ $post_terms = array();
 if(isset($_GET["post_terms"]))
 	$post_terms = $_GET["post_terms"];
 
+$current_term = get_queried_object();
 ?>
 
 <aside class="aside-list sticky-sidebar search-results-filters">
     <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
     <input type="hidden" name="s" value="" />
-    <input type="hidden" name="post_terms[]" value="<?php $tag = get_tag(get_query_var("tag")); if($tag) echo $tag->term_id; ?>" />
+	<input type="hidden" name="post_terms[]" value="<?php echo $current_term->term_id; ?>">
 
     <?php
     foreach ($groups as $key => $value){
