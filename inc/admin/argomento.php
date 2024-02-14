@@ -46,6 +46,33 @@ function dsi_create_argomento_taxonomy() {
 
 }
 
+/**
+ * Crea i metabox del post type post
+ */
+add_action( 'cmb2_init', 'dsi_add_argomento_metaboxes' );
+function dsi_add_argomento_metaboxes() {
+
+    $prefix = '_dsi_post_tag_';
+
+    /**
+     * Metabox to add fields to tags
+     */
+    $cmb_backend = new_cmb2_box( array(
+        'id'               => $prefix . 'box_edit',
+    	'object_types'     => array( 'term' ),
+        'taxonomies'       => array( 'post_tag' ),
+        'context' => 'normal',
+        'priority' => 'high',
+    ) );
+
+    $cmb_backend->add_field( array(
+        'name' => __( 'Copertina', 'design_scuole_italia' ),
+        'desc' => __( 'Copertina principale, viene mostrata nelle liste di panoramica', 'design_scuole_italia' ),
+        'id'   => $prefix . 'immagine',
+        'type' => 'file',
+        'query_args' => array( 'type' => 'image' ), // Only images attachment
+    ) );
+}
 
 /**
  * Filtro per estendere i post type ai tag
