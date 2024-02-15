@@ -685,6 +685,13 @@ function dsi_register_main_options_metabox() {
 	) );
 
 	$main_options->add_field( array(
+		'id' => $prefix . 'autore_citazione',
+			'name'        => __( 'Autore citazione', 'design_scuole_italia' ),
+		'desc' => __( "Se inserito, il nome dell'autore apparirà in basso a destra rispetto alla citazione, preceduto da un trattino" , 'design_scuole_italia' ),
+		'type' => 'text',
+	) );
+
+	$main_options->add_field( array(
 		'name'        => __( 'La storia', 'design_scuole_italia' ),
 		'desc' => __('Timeline della Scuola', 'design_scuole_italia' ),
 		'type' => 'title',

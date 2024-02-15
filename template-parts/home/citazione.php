@@ -2,6 +2,7 @@
 global $post;
 
 $citazione = dsi_get_option("citazione", "la_scuola");
+$autore_citazione = trim(dsi_get_option("autore_citazione", "la_scuola") ?? '');
 if(trim($citazione) != ""){
 	?>
 	<section class="section py-4 bg-redbrown big-quote-wrapper">
@@ -68,6 +69,11 @@ if(trim($citazione) != ""){
 					<div class="big-quote">
 						<h2><?php echo $citazione; ?></h2>
 					</div><!-- /big-quote -->
+          <?php if($autore_citazione){ ?>
+            <div class="h2 text-white">
+              — <?= $autore_citazione ?>
+            </div>
+          <?php } ?>
 				</div><!-- /col-md-10 -->
 			</div><!-- /row -->
 		</div><!-- /container -->
