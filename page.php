@@ -10,8 +10,13 @@
 
 get_header();
 ?>
+<style>
+    :root {
+        --bootstrap-italia-version: "1.6.2";
+    }
+</style>
 
-<main id="main-container" class="main-container">
+<main id="main-container" class="main-container titillium">
 
     <?php get_template_part("template-parts/common/breadcrumb"); ?>
 
@@ -25,7 +30,7 @@ get_header();
                 <div class="row variable-gutters">
                     <div class="col-md-12 article-title-author-container">
                         <div class="title-content">
-                            <h1><?php the_title(); ?></h1>
+                            <h1 class="titillium"><?php the_title(); ?></h1>
                         </div><!-- /title-content -->
                     </div><!-- /col-md-6 -->
                 </div><!-- /row -->
@@ -38,14 +43,14 @@ get_header();
 
 
                     <div class="row variable-gutters">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 titillium">
                             <?php
                             the_content();
                             ?>
                         </div>
                     </div>
                     <div class="row variable-gutters">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 titillium">
                             <?php
                             if (comments_open() || get_comments_number()) :
                                 comments_template();

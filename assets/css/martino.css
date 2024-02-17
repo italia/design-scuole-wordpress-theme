@@ -27,6 +27,10 @@ tr, th, td {
   margin: 0 1rem;
 }
 
+.titillium {
+  font-family: "Titillium Web", sans-serif;
+}
+
 .container-martini {
   max-width: 1200px;
   margin: 0 auto;
