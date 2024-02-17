@@ -1,3 +1,19 @@
+<aside>
+    <div>
+        <a><span>Indice della pagina</span></a>
+    </div>
+    <div>
+        <ul data-element="page-index">
+            <li><a>Cos'è</a></li>
+            <li><a>Come si accede al servizio</a></li>
+            <li><a>Cosa serve</a></li>
+            <li><a>Tempi e scadenze</a></li>
+            <li><a>Casi particolari</a></li>
+            <li><a>Contatti</a></li>
+            <li><a>Ulteriori informazioni</a></li>
+        </ul>
+    </div>
+</aside>
 <section class="d-none">
     <div class="container">
         <div class="row">
@@ -72,20 +88,4 @@
         </div>
 
     </div>
-    <aside>
-        <div>
-            <a><span>Indice della pagina</span></a>
-        </div>
-        <div>
-            <ul data-element="page-index">
-                <li><a>Cos'è</a></li>
-                <li><a>Come si accede al servizio</a></li>
-                <li><a>Cosa serve</a></li>
-                <li><a>Tempi e scadenze</a></li>
-                <li><a>Casi particolari</a></li>
-                <li><a>Contatti</a></li>
-                <li><a>Ulteriori informazioni</a></li>
-            </ul>
-        </div>
-    </aside>
 </section>
