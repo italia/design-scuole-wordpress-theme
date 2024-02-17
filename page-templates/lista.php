@@ -45,6 +45,10 @@ get_header();
             }
             ?>
         </div>
+        <!-- Scheda per controllo crawler -->
+        <div class="container d-none">
+            <?php get_template_part("martini-template-parts/scheda-servizio"); ?>
+        </div>
     </div>
 </main>
 <?php
