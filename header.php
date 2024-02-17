@@ -81,11 +81,11 @@ $theme_locations = get_nav_menu_locations();
                                     if (isset($theme_locations[$theme_location]))
                                         $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                     if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                        $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
+                                        $landing_url = 'la-scuola';
                                         if ($landing_url)
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><li class="menu-title"><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown1" data-element="school-submenu" class="%2$s"><li class="menu-title"><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                         <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -103,11 +103,11 @@ $theme_locations = get_nav_menu_locations();
                                     if (isset($theme_locations[$theme_location]))
                                         $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                     if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                        $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
+                                        $landing_url = 'servizi';
                                         if ($landing_url)
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown2" data-element="services-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                         <li class="text-purplelight menu-dropdown-simple-wrapper">
@@ -126,11 +126,11 @@ $theme_locations = get_nav_menu_locations();
                                     if (isset($theme_locations[$theme_location]))
                                         $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                     if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                        $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
+                                        $landing_url = 'novita';
                                         if ($landing_url)
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown3" data-element="news-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                         <li class="text-greendark menu-dropdown-simple-wrapper">
@@ -155,11 +155,11 @@ $theme_locations = get_nav_menu_locations();
                                     if (isset($theme_locations[$theme_location]))
                                         $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                     if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                        $landing_url = dsi_get_template_page_url("page-templates/didattica.php");
+                                        $landing_url = 'didattica';
                                         if ($landing_url)
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                         else
-                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                            $items_wrap = '<ul  aria-labelledby="mainNavDropdown4" data-element="teaching-submenu" id="%1$s" class="%2$s"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                     ?>
                                         <li class="text-bluelectric menu-dropdown-simple-wrapper">
@@ -210,12 +210,11 @@ $theme_locations = get_nav_menu_locations();
                                 if (isset($theme_locations[$theme_location]))
                                     $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                 if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                    $landing_url = dsi_get_template_page_url("page-templates/la-scuola.php");
+                                    $landing_url = 'la-scuola';
                                     if ($landing_url)
-                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><li class="menu-title" ><div class="h3 d-none"><a
-                                        class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="school-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                 ?>
                                     <li class="text-redbrown menu-dropdown-simple-wrapper">
@@ -237,12 +236,11 @@ $theme_locations = get_nav_menu_locations();
                                 if (isset($theme_locations[$theme_location]))
                                     $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                 if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                    $landing_url = dsi_get_template_page_url("page-templates/servizi.php");
+                                    $landing_url = 'servizi';
                                     if ($landing_url)
-                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><li class="menu-title" ><div class="h3 d-none"><a
-                                     class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="services-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                 ?>
                                     <li class="text-purplelight menu-dropdown-simple-wrapper">
@@ -265,11 +263,11 @@ $theme_locations = get_nav_menu_locations();
                                 if (isset($theme_locations[$theme_location]))
                                     $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                 if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                    $landing_url = dsi_get_template_page_url("page-templates/notizie.php");
+                                    $landing_url = 'novita';
                                     if ($landing_url)
-                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><li class="menu-title" ><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="news-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                 ?>
                                     <li class="text-greendark menu-dropdown-simple-wrapper">
@@ -291,11 +289,11 @@ $theme_locations = get_nav_menu_locations();
                                 if (isset($theme_locations[$theme_location]))
                                     $menu_obj = get_term($theme_locations[$theme_location], 'nav_menu');
                                 if (isset($menu_obj) && !is_wp_error($menu_obj)) {
-                                    $landing_url = dsi_get_template_page_url("page-templates/didattica.php");
+                                    $landing_url = 'didattica';
                                     if ($landing_url)
-                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><!--<li class="menu-title" ><div class="h3"><a class="list-item" href="' . $landing_url . '" data-element="overview"></a></div></li>-->%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
                                     else
-                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><li class="menu-title" ><div class="h3 d-none"><a class="list-item" href="#" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
+                                        $items_wrap = '<ul class="%2$s" data-element="teaching-submenu"><li class="menu-title" ><div class="link-list"><a class="list-item" href="' . $landing_url . '" data-element="overview">Panoramica</a></div></li>%3$s</ul>';
 
                                 ?>
                                     <li class="text-bluelectric menu-dropdown-simple-wrapper">
@@ -368,7 +366,7 @@ $theme_locations = get_nav_menu_locations();
                 </div><!-- /row -->
             </div><!-- /container -->
 
-            <div class="bg-white d-none d-xl-block header-bottom" id="sub-nav">
+            <div class="bg-white d-xl-block header-bottom" id="sub-nav">
                 <div class="container">
                     <div class="row variable-gutters">
                     </div><!-- /row -->
