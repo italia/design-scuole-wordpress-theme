@@ -40,7 +40,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
             $altre_info = dsi_get_meta("altre_info");
             $telefono = dsi_get_meta("telefono");
             $mail = dsi_get_meta("mail");
-//			$pec = dsi_get_meta("pec");
+			$pec = dsi_get_meta("pec");
 
             $nascondi_licenza = true;
 
@@ -148,13 +148,13 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-info" title="Vai al paragrafo <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                             </li>
-                                        <?php }/*
+                                        <?php }
                                          if($telefono || $mail || $pec){
                                         ?>
                                         <li>
                                             <a class="list-item scroll-anchor-offset" href="#art-par-more" title="Vai al paragrafo <?php _e("Per saperne di più", "design_scuole_italia"); ?>"><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                         </li>
-                                         <?php }*/ ?>
+                                         <?php }; ?>
                                         <?php if ( is_array($posts_array) && count( $posts_array ) )  {   ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-correlati"
@@ -384,7 +384,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     </div><!-- /card-deck card-deck-spaced -->
                                 <?php } ?>
                                 <?php }
-                                /*
+                                
                                 if($telefono || $mail || $pec){
                                 ?>
                                 <h4 id="art-par-more"><?php _e("Per saperne di più", "design_scuole_italia"); ?></h4>
@@ -397,7 +397,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         </ul>
                                     </div><!-- /col-lg-9 -->
                                 </div><!-- /row -->
-                                <?php } */ ?>
+                                <?php } ; ?>
                                 <div class="row variable-gutters">
                                     <div class="col-lg-9">
                                         <?php get_template_part("template-parts/single/bottom"); ?>
