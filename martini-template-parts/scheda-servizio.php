@@ -48,30 +48,75 @@
         </div>
         <div class="row">
             <ul data-element="places">
-                <li class="col-12">
-                    <div><span>Indirizzo</span></div>
-                    <div>
-                        <p>Via Garibaldi</p>
+
+                <li>
+                    <div class="location-title">
+                        <span>indirizzo</span>
+                    </div>
+                    <div class="location-content">
+                        <p>Via Giorgio Perlasca 4, Trento</p>
                     </div>
                 </li>
-                <li class="col-12">
-                    <div><span>GPS</span></div>
-                    <div>
-                        <p>GPS</p>
+                <li>
+                    <div class="location-title">
+                        <span>CAP</span>
+                    </div>
+                    <div class="location-content">
+                        <p>38017</p>
                     </div>
                 </li>
-                <li class="col-12">
-                    <div><span>Orari</span></div>
-                    <div>
-                        <p>dalle 8:30 alle 17:00</p>
+                <li>
+                    <div class="location-title">
+                        <span>Orari</span>
+                    </div>
+                    <div class="location-content">
+                        <p>Uffici amministrativi - telefonicamente e in presenza<br>
+                            dal lunedì al venerdì dalle 10.00 alle 12.00</p>
                     </div>
                 </li>
+                <li>
+                    <div class="location-title">
+                        <span>Email</span>
+                    </div>
+                    <div class="location-content">
+                        <p><a href="mailto:segr.martini.mezzolombardo@scuole.provincia.tn.it">segr.martini.mezzolombardo@scuole.provincia.tn.it</a></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="location-title">
+                        <span>PEC</span>
+                    </div>
+                    <div class="location-content">
+                        <p><a href="mailto:martini@pec.provincia.tn.it">martini@pec.provincia.tn.it</a></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="location-title">
+                        <span>Telefono</span>
+                    </div>
+                    <div class="location-content">
+                        <p><a href="tel:+390461601470">0461601470</a></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="location-title">
+                        <svg class="icon svg-marker-simple" style="width: 14px; height: 14px;">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker-simple"></use>
+                        </svg>
+                    </div>
+                    <div class="location-content">
+                        <p>
+                            <a href="https://goo.gl/maps/jn3ThdNhg9YXo64M6" target="_blank">Naviga su Google Map</a>
+                        </p>
+                    </div>
+                </li>
+
             </ul>
         </div>
         <div>
             <p>Contatti</p>
             <a href="#" data-element="structures">Martino Martini</a>
-            <p data-element="metadata">Metadati</p>
+            <p data-element="metadata"><strong>Pubblicato:</strong> 09.01.2024 <span>-</span> <strong>Revisione:</strong> 09.01.2024</p>
         </div>
     </div>
     <div class="container">
