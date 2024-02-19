@@ -44,7 +44,7 @@
             <a class="btn-lg-default w-100" href="registri" target="blank">
               <button>Registri</button>
             </a>
-            <a class="btn-lg-default-outline w-100" href="https://www.martinomartini.eu/gestore/" target="blank">
+            <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/GestOre/" target="blank">
               <button>GestOre</button>
             </a>
             <a class="btn-lg-default-outline w-100" href="https://servizi.martinomartini.eu/index.php/component/users/?view=login&Itemid=101" target="blank">
