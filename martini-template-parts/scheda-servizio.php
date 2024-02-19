@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <ul data-element="places">
-                <!-- <li class="col-12">
+                <li class="col-12">
                     <div><span>Indirizzo</span></div>
                     <div>
                         <p>Via Garibaldi</p>
@@ -57,7 +57,7 @@
                 <li class="col-12">
                     <div><span>GPS</span></div>
                     <div>
-                        <p></p>
+                        <p>GPS</p>
                     </div>
                 </li>
                 <li class="col-12">
@@ -65,13 +65,13 @@
                     <div>
                         <p>dalle 8:30 alle 17:00</p>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
         <div>
             <p>Contatti</p>
-            <!-- <a href="#" data-element="structures"></a>
-            <p data-element="metadata">Metadati</p> -->
+            <a href="#" data-element="structures">Martino Martini</a>
+            <p data-element="metadata">Metadati</p>
         </div>
     </div>
     <div class="container">
