@@ -114,13 +114,11 @@
             </ul>
         </div>
         <div>
-            <p>Contatti</p>
-
-
+            <h6>Struttura responsabile del servizio</h6>
             <div class="col-lg-9">
                 <div class="card-deck card-deck-spaced" data-element="structures">
                     <div class="card card-bg card-icon-main rounded">
-                        <a href="https://www.martinomartini.eu/struttura/dirigenza/" aria-describedby="card-desc-dirigenza" aria="" label="Apre link: Istituto Tecnico ">
+                        <a href="https://www.martinomartini.eu/struttura/dirigenza/" aria-describedby="card-desc-dirigenza" aria="" label="Apre link: Istituto Tecnico" martino="" martini=""="">
                             <div class="card-body">
 
                                 <svg class="icon" width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;" aria-hidden="true">
@@ -155,11 +153,10 @@
 
                 </div>
             </div>
-
-
-            <p data-element="metadata"><strong>Pubblicato:</strong> 09.01.2024 <span>-</span> <strong>Revisione:</strong> 09.01.2024</p>
         </div>
+        <p data-element="metadata"><strong>Pubblicato:</strong> 09.01.2024 <span>-</span> <strong>Revisione:</strong> 09.01.2024</p>
     </div>
+
     <div class="container">
         <p data-element="service-what-is">Cos'è</p>
         <button data-element="service-booking-access">Prenota appuntamento</button>
