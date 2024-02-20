@@ -310,7 +310,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                         <div class="row variable-gutters">
                                             <div class="col-lg-9">
-                                                <h6><?php _e("Contatti", "design_scuole_italia"); ?></h6>
+                                                <h6 class="d-none"><?php _e("Contatti", "design_scuole_italia"); ?></h6>
                                                 <div class="card card-bg bg-color rounded">
                                                     <div class="card-body pb-1">
                                                         <ul>
