@@ -35,10 +35,10 @@
                         </a>
                     </h2>
                 </div><!-- /logo-footer -->
-                <img src="https://www.martinomartini.eu/wp-content/uploads/2023/09/logo_mm_footer.png" alt="">
+                <img src="https://www.martinomartini.eu/wp-content/uploads/2023/09/logo_mm_footer.png" alt="" style="max-width: 100%;">
             </section>
             <section>
-                <div class="footer-info">
+                <div class="footer-info" style="max-width: 100%;">
                     <?php
                     $gmaps_scuola = dsi_get_option("gmaps_scuola");
                     $indirizzo_scuola = dsi_get_option("indirizzo_scuola");
