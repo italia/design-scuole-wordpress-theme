@@ -1579,7 +1579,7 @@ function dsi_register_main_options_metabox() {
         'title'        => esc_html__( 'Argomenti', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'argomenti',
-        'capability'    => 'manage_options',
+        'capability'    => 'manage_theme_config',
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
         'tab_title'    => __('Argomenti', "design_scuole_italia"),	);
