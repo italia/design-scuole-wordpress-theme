@@ -67,11 +67,9 @@
                     <?php }
                     if (is_string($fiscale_scuola)) { ?>
                         <div><a data-prefix="Cod. Fisc.:" href="#" data-copy-text="<?php echo $fiscale_scuola; ?>"><?php echo $fiscale_scuola; ?></a></div>
-                    <?php }
-                    if (is_string($iban_scuola)) { ?>
-                        <div><a data-prefix="Cod. IBAN:" href="#" data-copy-text="<?php echo $iban_scuola; ?>"><?php echo $iban_scuola; ?></a></div>
-                    <?php }
-                    if (is_string($codice_ministeriale)) { ?>
+                    <?php } ?>
+                        <div><a href="https://www.martinomartini.eu/servizi/famiglie-e-studenti/pagopa/">PagoPa</a></div>
+                    <?php  if (is_string($codice_ministeriale)) { ?>
                         <div><a data-prefix="Cod. Ministeriale:" href="#" data-copy-text="<?php echo $codice_ministeriale; ?>"><?php echo $codice_ministeriale; ?></a></div>
                     <?php } ?>
                 </div>
