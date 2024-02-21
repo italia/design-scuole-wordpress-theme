@@ -588,6 +588,43 @@ function dsi_register_main_options_metabox() {
         )
     );
 
+    
+    $home_options->add_field( array(
+        'id' => $prefix . 'home_istruzioni_3',
+        'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Gestione sezione Argomenti mostrati in pagina iniziale' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+    
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_show_argomenti',
+        'name' => __('Mostra gli argomenti in pagina iniziale', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro degli argomenti in pagina iniziale e decidi quali mostrare. Per la modalità di visualizzazione, vai alla scheda Argomenti.', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'manual',
+        'options' => array(
+            'false' => __('No', 'design_scuole_italia'),
+            'true_manual' => __('Si, mostra gli argomenti scelti di seguito'),
+            'true_evidenza' => __('Si, mostra gli argomenti in evidenza (Scheda Argomenti)', 'design_scuole_italia')
+        )
+    ));
+    
+    $home_options->add_field( array(
+        'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
+            'desc' => __( 'Seleziona gli argomenti da mostrare in pagina iniziale. ', 'design_scuole_italia' ),
+            'id' => $prefix . 'home_argomenti',
+            'type'    => 'pw_multiselect',
+            'options' => dsi_get_argomenti_options(),
+            'attributes' => array(
+                'placeholder' =>  __( 'Seleziona e ordina gli argomenti', 'design_scuole_italia' ),
+            ),
+            'attributes' => array(
+                'data-conditional-id' => $prefix . 'home_show_argomenti',
+                'data-conditional-value' => "true_manual",
+            ),
+        )
+    );
+
     /**
 	 * Registers options page "La Scuola".
 	 */

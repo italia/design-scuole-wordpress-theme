@@ -1,6 +1,12 @@
 <?php
 global $argomento, $show_descrizione;
-$argomenti_evidenza = dsi_get_option("argomenti_evidenza", "argomenti");
+
+$home_show_argomenti = dsi_get_option("home_show_argomenti", "homepage");
+if(!$home_show_argomenti) $home_show_argomenti = "true_manual";
+        
+$argomenti = dsi_get_option("home_argomenti", "homepage");
+if($home_show_argomenti == "true_evidenza") $argomenti = dsi_get_option("argomenti_evidenza", "argomenti");
+
 $argomenti_evidenza_layout = dsi_get_option("argomenti_evidenza_layout", "argomenti");
 $show_descrizione = dsi_get_option("argomenti_evidenza_descrizione", "argomenti");
 
@@ -11,7 +17,7 @@ if($argomenti_evidenza_layout == "immagine") $layout = "image";
 <div class="container position-relative slided-top">
     <div class="row variable-gutters mb-4 petrol">
         <?php
-                foreach ($argomenti_evidenza as $idargomento){
+                foreach ($argomenti as $idargomento){
                  $argomento = get_term($idargomento, 'post_tag');
                     ?>
                     <div class="col-lg-4 mb-4">
