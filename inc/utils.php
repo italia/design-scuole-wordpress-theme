@@ -1200,3 +1200,45 @@ if(!function_exists("dsi_get_img_thumbnails")) {
         return $thumbnails;
     }
 }
+
+if(!function_exists("dsi_get_progetti_in_luogo")) {
+    /**
+     * Gets all scheda_progetto posts that are associated to the given luogo.
+     * @param int|string $luogo_id ID of luogo post
+     * @return WP_Post[] Array of scheda_progetto posts
+     */
+    function dsi_get_progetti_in_luogo($luogo_id)
+    {
+        $args = array(
+            'post_type' => 'scheda_progetto',
+            'numberposts' => -1,
+            'post_status' => 'publish',
+            'meta_query' => [
+                'relation' => 'AND',
+                [
+                    'key' => '_dsi_scheda_progetto_is_luogo_scuola',
+                    'value'   => 'true',
+                ],
+                [
+                    'relation' => 'OR',
+                    [
+                        'key' => '_dsi_scheda_progetto_link_schede_luoghi',
+                        'value'   => serialize(strval($luogo_id)), // Saved as string
+                        'compare' => 'LIKE'
+                    ],
+                    [
+                        'key' => '_dsi_scheda_progetto_link_schede_luoghi',
+                        'value'   => serialize(intval($luogo_id)), // Saved as integer. Could collide with serialized array indexes in the array
+                        'compare' => 'LIKE'
+                    ],
+                ]
+            ],
+        );
+        $progetti = get_posts($args);
+    
+        //filter progetti by checking that the luogo id is actually in the luoghi array and was not just an index collision in the query
+        $progetti = array_filter($progetti, fn ($progetto) => in_array($luogo_id, get_post_meta($progetto->ID, '_dsi_scheda_progetto_link_schede_luoghi', true)));
+    
+        return $progetti;
+    }
+}
