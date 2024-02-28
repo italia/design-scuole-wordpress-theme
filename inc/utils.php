@@ -118,6 +118,11 @@ if(!function_exists("dsi_get_user_avatar")){
 		if(!$user && is_user_logged_in()){
 			$user = wp_get_current_user();
 		}
+        
+        $force_privacy_partial_display = get_user_meta( $user->ID, '_dsi_persona_force_privacy_partial_display', true);
+        if($force_privacy_partial_display == "true")
+            return get_avatar_url( $user->ID, array("size" => $size, "force_default" => true) );
+
         $foto_id = null;
 		$foto_url = get_the_author_meta('_dsi_persona_foto', $user->ID);
 		if($foto_url)
@@ -983,16 +988,9 @@ if(!function_exists("dsi_pluralize_string")) {
  * funzione per la gestione del nome autore
  */
 
-function dsi_get_display_name($user_id){
-
+ function dsi_get_display_name($user_id){
     $display = get_the_author_meta('display_name', $user_id);
-    $nome = get_the_author_meta('first_name', $user_id);
-    $cognome = get_the_author_meta('last_name', $user_id);
-    if(($nome != "") && ($cognome != ""))
-        return $nome." ".$cognome;
-    else
-        return $display;
-
+    return $display;
 }
 
 

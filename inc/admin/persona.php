@@ -141,13 +141,30 @@ function dsi_add_persone_metaboxes() {
 	) );
 
 	$cmb_user->add_field( array(
+		'name'    => __( 'Protezione privacy', 'design_scuole_italia' ),
+		'id'      => $prefix . 'force_privacy_partial_display',
+		'desc'     => __( 'L\'opzione permette di visualizzare pubblicamente il cognome puntato. Attivandola, non &egrave; inoltre possibile impostare una foto profilo (non viene caricata neanche la foto da gravatar).' , 'design_scuole_italia' ),
+		'type'    => 'radio_inline',
+		'options'          => array(
+			'true' => __( 'Si', 'design_scuole_italia' ),
+			'false'     => __( 'No', 'design_scuole_italia' ),
+		),
+		'default' => 'false',
+		'attributes'    => array(
+			'required'    => 'required'
+		),
+	) );
+
+	$cmb_user->add_field( array(
 		'name'    => __( 'Foto della Persona', 'design_scuole_italia' ),
 		'desc'    => __( 'Inserire una fotografia che ritrae il soggetto descritto nella scheda', 'design_scuole_italia' ),
 		'id'      => $prefix . 'foto',
 		'type'    => 'file',
+		'attributes' => array(
+			'data-conditional-id'    => $prefix . 'force_privacy_partial_display',
+			'data-conditional-value' => 'false',
+		),
 	) );
-
-
 
 	$cmb_user->add_field( array(
 		'name'    => __( 'Ruolo nell\'organizzazione *', 'design_scuole_italia' ),
