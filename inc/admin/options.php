@@ -1378,6 +1378,16 @@ function dsi_register_main_options_metabox() {
         'escape_cb'       => 'absint',
     ) );
 
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'mostra_progetti_in_luogo',
+        'name'        => __( 'Mostra progetti correlati', 'design_scuole_italia' ),
+        'desc' => __('Mostra i progetti che si svolgono in un luogo nella pagina relativa a quel luogo, sotto la sezione "Ulteriori informazioni".', 'design_scuole_italia' ),
+        'type' => 'radio_inline',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            '' => __('No', 'design_scuole_italia'),
+        ),
+    ) );
 
     /**
      * Documenti
