@@ -36,7 +36,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $altre_info = dsi_get_meta("info");
         $servizi_presenti = dsi_get_meta("servizi_presenti");
         $servizi_altro = dsi_get_meta("servizi_altro");
-        $progetti_presenti = dsi_get_progetti_in_luogo($post->ID);
+
+        $option_mostra_progetti = dsi_get_option("mostra_progetti_in_luogo", "luoghi") ?? false;
+        $progetti_presenti = $option_mostra_progetti ? dsi_get_progetti_in_luogo($post->ID) : [];
 
         $show_altre_info = trim($altre_info) || !empty($progetti_presenti);
 
