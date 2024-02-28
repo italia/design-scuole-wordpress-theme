@@ -479,3 +479,18 @@ function dsi_login_redirect( $redirect_to, $request, $user ) {
 }
 
 add_filter( 'login_redirect', 'dsi_login_redirect', 10, 3 );
+// Forza cambiamento nome pubblico dell'utente in caso di privacy attiva
+function privacy_update( $user_id, $old_user_data) {
+	$udata = get_user_by( 'ID', $user_id );
+
+	$force_privacy_partial_display = get_user_meta( $user_id, '_dsi_persona_force_privacy_partial_display', true);
+	
+	preg_match_all('/\b\w/', $udata->last_name, $initials);
+	$new_last_name = implode('. ', $initials[0]);
+	if($new_last_name && $new_last_name != "") $new_last_name = $new_last_name . '.';
+	$partial_display_name = $udata->first_name . ' ' . $new_last_name;
+
+	if($force_privacy_partial_display == 'true' && $partial_display_name != $udata->display_name) {
+		$user_data = wp_update_user( array( 'ID' => $user_id, 'display_name' => $partial_display_name ) );
+	}
+}
