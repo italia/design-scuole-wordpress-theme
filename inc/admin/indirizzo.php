@@ -200,7 +200,12 @@ function dsi_add_indirizzo_metaboxes() {
         'id' => $prefix . 'procedura_esito',
         'name'        => __( 'Procedure collegate', 'design_scuole_italia' ),
         'desc' => __( 'Questo campo indica eventuali procedure collegate.' , 'design_scuole_italia' ),
-        'type' => 'textarea'
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
     ) );
 
     $cmb_undercontent->add_field( array(
@@ -264,12 +269,13 @@ function dsi_add_indirizzo_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id' => $prefix . 'provider_autenticazione',
 		'name' => __( 'Provider di autenticazione', 'design_scuole_italia' ),
-		'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE) e Carta Nazionale dei Servizi (CNS).' , 'design_scuole_italia' ),
+		'desc' => __( 'Selezionare i provider di autenticazione tra SPID, Carta di Identità Elettronica (CIE), Carta Nazionale dei Servizi (CNS) e electronic IDentification Authentication and Signature (eIDAS).' , 'design_scuole_italia' ),
 		'type' => 'pw_multiselect',
 		'options' => array(
 		    'SPID' => 'SPID',
 			'CIE' => 'CIE',
-            'CNS' => 'CNS'
+            'CNS' => 'CNS',
+            'eIDAS' => 'eIDAS'
 		),
 		'attributes'    => array(
 			'data-conditional-id'     => $prefix.'modalita_autenticazione',
@@ -316,8 +322,12 @@ function dsi_add_indirizzo_metaboxes() {
         'id' => $prefix . 'calendario_classi_descrizione',
         'name'        => __( 'L\'orario delle classi', 'design_scuole_italia' ),
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
     ) );
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'calendario_classi_file',
@@ -337,7 +347,12 @@ function dsi_add_indirizzo_metaboxes() {
         'id' => $prefix . 'libri_testo_descrizione',
         'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'textarea',
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
     ) );
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'libri_testo_file',
@@ -431,8 +446,12 @@ function dsi_add_indirizzo_metaboxes() {
         'id' => $prefix . 'casi_particolari',
         'name'        => __( 'Casi particolari', 'design_scuole_italia' ),
         'desc' => __( 'Inserire come testo libero, eventuali casi particolari riferiti all\'ottenimento del Servizio in questione.' , 'design_scuole_italia' ),
-        'type' => 'textarea',
-
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
+        ),
     ) );
 
     $cmb_undercontent->add_field( array(

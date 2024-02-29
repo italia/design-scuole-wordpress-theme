@@ -55,7 +55,7 @@ get_header();
                         if(is_post_type_archive("evento") && !isset($_GET["date"])) {
                             if (isset($_GET["archive"]) && ($_GET["archive"] == "true")) { ?>
                                 <p><a class="btn btn-block btn-secondary"
-                                      href="<?php echo get_post_type_archive_link("evento"); ?>"><?php _e("Consulta gli eventi futuri", "design_scuole_italia"); ?></a>
+                                      href="<?php echo get_post_type_archive_link("evento"); ?>"><?php _e("Consulta gli eventi in svolgimento e futuri", "design_scuole_italia"); ?></a>
                                 </p>
                             <?php } else { ?>
                                 <p><a class="btn btn-block btn-secondary"

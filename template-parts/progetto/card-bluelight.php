@@ -4,7 +4,7 @@ $autore = get_user_by("ID", $progetto->post_author);
 $post = $progetto;
 ?>
 
-    <div class="card card-bg bg-blue-light card-thumb-rounded mb-3 h-100">
+    <div class="card card-bg bg-white card-thumb-rounded mb-3 h-100">
         <div class="card-body">
             <div class="card-content">
                 <a href="<?php echo get_permalink($progetto); ?>" class="project-card-title"><h3 class="mb-0"><?php echo $progetto->post_title; ?></h3></a>    
