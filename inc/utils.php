@@ -119,8 +119,9 @@ if(!function_exists("dsi_get_user_avatar")){
 			$user = wp_get_current_user();
 		}
         
-        $force_privacy_partial_display = get_user_meta( $user->ID, '_dsi_persona_force_privacy_partial_display', true);
-        if($force_privacy_partial_display == "true")
+        $privacy_hidden = get_user_meta( $user->ID, '_dsi_persona_privacy_hidden', true);
+        
+        if(!$privacy_hidden || $privacy_hidden == "true")
             return get_avatar_url( $user->ID, array("size" => $size, "force_default" => true) );
 
         $foto_id = null;
