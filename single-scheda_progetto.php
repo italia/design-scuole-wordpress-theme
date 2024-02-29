@@ -239,11 +239,21 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                             $autore = get_user_by("ID", $idutente);
                                             ?>
                                             <div class="card card-bg card-avatar rounded">
-                                                <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
+                                                <?php
+													$privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
+                        
+													if($privacy_hidden == "false") {
+														?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
+													}
+												?>
                                                     <div class="card-body">
                                                         <?php get_template_part("template-parts/autore/card-insegnante"); ?>
                                                     </div>
-                                                </a>
+                                                <?php
+													if($privacy_hidden == "false") {
+														?></a><?php
+													}
+												?>
                                             </div><!-- /card card-bg card-avatar rounded -->
                                             <?php
                                         }
