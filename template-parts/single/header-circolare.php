@@ -31,11 +31,22 @@ $autore = get_user_by("ID", $post->post_author);
             </div><!-- /col-lg-5 col-md-8 -->
             <div class="col-lg-3 col-md-4 offset-lg-1">
                 <div class="card card-avatar card-comments mt-3">
-                    <a href="<?php echo get_author_posts_url( $autore->ID);  ?>">
+                   <?php
+                        $privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
+                        
+                        if($privacy_hidden == "false") {
+                            ?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
+                        }
+                        ?>
                         <div class="card-body p-0">
                             <?php get_template_part("template-parts/autore/card"); ?>
                         </div>
-                    </a>
+                        <?php
+                        
+                        if($privacy_hidden == "false") {
+                            ?></a><?php
+                        }
+                   ?>
                 </div>
             </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
         </div><!-- /row -->

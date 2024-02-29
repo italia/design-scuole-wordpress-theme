@@ -1210,16 +1210,16 @@ function dsi_register_main_options_metabox() {
     ) );
 
     $persone_options->add_field( array(
-        'id' => $prefix . 'strutture_persone',
-        'name'        => __( 'Seleziona e ordina le strutture organizzative a cui fanno capo le persone', 'design_scuole_italia' ),
-        'desc' => __( 'Seleziona le strutture organizzative di cui vuoi mostrare le persone. <a href="'.$persone_landing_url.'">La pagina con la lista delle persone sarà popolata automaticamente</a>. ' , 'design_scuole_italia' ),
-        'type'    => 'pw_multiselect',
-        'options' => dsi_get_strutture_options(),
-        'attributes' => array(
-            'placeholder' =>  __( 'Seleziona e ordina le strutture di cui mostrare le persone', 'design_scuole_italia' ),
+        'id' => $prefix . 'contenuto_ulteriore_sezione_persone',
+        'name'        => __( 'Messaggio ulteriore', 'design_scuole_italia' ),
+        'desc' => __( 'Verrà mostrato dopo l\'elenco delle persone. es: Non è presente l\'elenco completo delle persone. Per ulteriori informazioni contattaci tramite i recapiti disponibili.' , 'design_scuole_italia' ),
+        'type' => 'wysiwyg',
+        'options' => array(
+            'media_buttons' => false, // show insert/upload button(s)
+            'textarea_rows' => 4, // rows="..."
+            'teeny' => true, // output the minimal editor config used in Press This
         ),
     ) );
-
 
     /**
      * Organizzazione
