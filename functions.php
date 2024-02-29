@@ -480,29 +480,18 @@ function dsi_login_redirect( $redirect_to, $request, $user ) {
 
 add_filter( 'login_redirect', 'dsi_login_redirect', 10, 3 );
 
-// Forza cambiamento nome pubblico dell'utente in caso di privacy attiva
-function privacy_update( $user_id, $old_user_data) {
-	$udata = get_user_by( 'ID', $user_id );
+// anonimizza i dati in caso di opzione privacy attiva
+function rest_remove_extra_user_data($response, $user, $request) {
+	$privacy_hidden = get_user_meta( $response->data['id'], '_dsi_persona_privacy_hidden', true);
 
-	$force_privacy_partial_display = get_user_meta( $user_id, '_dsi_persona_force_privacy_partial_display', true);
-	
-	preg_match_all('/\b\w/', $udata->last_name, $initials);
-	$new_last_name = implode('. ', $initials[0]);
+	if(!$privacy_hidden || $privacy_hidden == 'true') {
+		$response->data['name'] = 'Protected user';
 
-	if($new_last_name && $new_last_name != "") $new_last_name = $new_last_name . '.';
-	$partial_display_name = $udata->first_name . ' ' . $new_last_name;
-
-	if($force_privacy_partial_display == 'true' && $udata->display_name != $partial_display_name) {
-		$user_data = wp_update_user( array( 'ID' => $user_id, 'display_name' => $partial_display_name ) );
+    	unset($response->data['link']);
+    	unset($response->data['slug']);
+    	unset($response->data['avatar_urls']);
 	}
 
-	if($force_privacy_partial_display == 'false' && $udata->display_name == $partial_display_name) {
-		$default_display_name = $udata->username;
-
-		if($udata->first_name != "" && $udata->last_name != "")
-			$default_display_name =  $udata->first_name . ' ' . $udata->last_name;
-
-		$user_data = wp_update_user( array( 'ID' => $user_id, 'display_name' => $default_display_name ) );
-	}
+	return $response;
 }
-add_action( 'profile_update', 'privacy_update', 10, 2 );
+add_filter("rest_prepare_user", "rest_remove_extra_user_data", 12, 3);
