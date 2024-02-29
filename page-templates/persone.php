@@ -119,6 +119,9 @@ if ($number_of_users > 0) {
 		?>
 		<section class="section bg-light py-5">
 			<div class="container">
+				<div class="title-section">
+					<h2 class="h4">Informazioni ulteriori</h2>
+				</div>
 				<?php echo $contenuto_ulteriore; ?>
 			</div>
 		</section>
