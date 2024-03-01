@@ -57,6 +57,7 @@ function martini_add_pnrr_metaboxes() {
             'futuro'    => __( 'Laboratori per le professioni digitali del futuro', 'cmb2' ),
             'innovativi'    => __( 'Ambienti di apprendimento innovativi', 'cmb2' ),
             'stem'    => __( 'Azioni di potenziamento delle competenze STEM e multilinguistiche', 'cmb2' ),
+            'formazione'    => __( 'Formazione del personale scolastico per la transizione digitale', 'cmb2' ),
         ),
     ) );
 
