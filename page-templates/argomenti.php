@@ -33,11 +33,13 @@ get_header();
 					</div><!-- /title-large -->
 						<div class="row variable-gutters"><?php
                 				foreach ($argomenti_evidenza as $idargomento){
-                 					$argomento = get_term($idargomento, 'post_tag'); ?>
+                 					$argomento = get_term($idargomento, 'post_tag');
+									if($argomento) { ?>
 									<div class="col-lg-4 mb-4">
 										<?php get_template_part("template-parts/argomento/card", $layout); ?>
 									</div>
-							<?php }
+							<?php 	}
+								}
 						?></div>
 				</div><!-- /container -->
 			</section><!-- /section -->
