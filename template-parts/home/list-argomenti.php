@@ -18,13 +18,14 @@ if($argomenti_evidenza_layout == "immagine") $layout = "image";
     <div class="row variable-gutters mb-4 petrol">
         <?php
                 foreach ($argomenti as $idargomento){
-                 $argomento = get_term($idargomento, 'post_tag');
-                    ?>
-                    <div class="col-lg-4 mb-4">
-                        <?php get_template_part("template-parts/argomento/card", $layout); ?>
-                    </div><!-- /col-lg-4 -->
-                    <?php
-
+                    $argomento = get_term($idargomento, 'post_tag');
+                    if($argomento) {
+                        ?>
+                        <div class="col-lg-4 mb-4">
+                            <?php get_template_part("template-parts/argomento/card", $layout); ?>
+                        </div><!-- /col-lg-4 -->
+                        <?php
+                    }
                 }
         ?>
     </div><!-- /row -->
