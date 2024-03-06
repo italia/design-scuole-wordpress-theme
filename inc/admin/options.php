@@ -588,26 +588,42 @@ function dsi_register_main_options_metabox() {
         )
     );
 
-
+    
     $home_options->add_field( array(
         'id' => $prefix . 'home_istruzioni_3',
         'name'        => __( 'Sezione Argomenti', 'design_scuole_italia' ),
         'desc' => __( 'Gestione sezione Argomenti mostrati in pagina iniziale' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
-	$home_options->add_field( array(
-			'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
-			'desc' => __( 'Seleziona gli argomenti da mostrare in pagina iniziale. ', 'design_scuole_italia' ),
-			'id' => $prefix . 'home_argomenti',
-			'type'    => 'pw_multiselect',
-			'options' => dsi_get_argomenti_options(),
-			'attributes' => array(
-				'placeholder' =>  __( 'Seleziona e ordina gli argomenti', 'design_scuole_italia' ),
-			),
-		)
-	);
-
+    
+    $home_options->add_field(array(
+        'id' => $prefix . 'home_show_argomenti',
+        'name' => __('Mostra gli argomenti in pagina iniziale', 'design_scuole_italia'),
+        'desc' => __('Abilita il riquadro degli argomenti in pagina iniziale e decidi quali mostrare. Per la modalità di visualizzazione, vai alla scheda Argomenti.', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'manual',
+        'options' => array(
+            'false' => __('No', 'design_scuole_italia'),
+            'true_manual' => __('Si, mostra gli argomenti scelti di seguito'),
+            'true_evidenza' => __('Si, mostra gli argomenti in evidenza (Scheda Argomenti)', 'design_scuole_italia')
+        )
+    ));
+    
+    $home_options->add_field( array(
+        'name'       => __('Argomenti da mostrare', 'design_scuole_italia' ),
+            'desc' => __( 'Seleziona gli argomenti da mostrare in pagina iniziale. ', 'design_scuole_italia' ),
+            'id' => $prefix . 'home_argomenti',
+            'type'    => 'pw_multiselect',
+            'options' => dsi_get_argomenti_options(),
+            'attributes' => array(
+                'placeholder' =>  __( 'Seleziona e ordina gli argomenti', 'design_scuole_italia' ),
+            ),
+            'attributes' => array(
+                'data-conditional-id' => $prefix . 'home_show_argomenti',
+                'data-conditional-value' => "true_manual",
+            ),
+        )
+    );
 
     /**
 	 * Registers options page "La Scuola".
@@ -1548,6 +1564,91 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
+    /**
+     * Registers options page "Argomenti".
+     */
+    $args = array(
+        'id'           => 'dsi_options_argomenti',
+        'title'        => esc_html__( 'Argomenti', 'design_scuole_italia' ),
+        'object_types' => array( 'options-page' ),
+        'option_key'   => 'argomenti',
+        'capability'    => 'manage_options',
+        'parent_slug'  => 'dsi_options',
+        'tab_group'    => 'dsi_options',
+        'tab_title'    => __('Argomenti', "design_scuole_italia"),	);
+
+    // 'tab_group' property is supported in > 2.4.0.
+    if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+        $args['display_cb'] = 'dsi_options_display_with_tabs';
+    }
+
+    $argomenti_options = new_cmb2_box( $args );
+
+    $argomenti_options->add_field( array(
+        'id' => $prefix . 'argomenti_options',
+        'name'        => __( 'Argomenti', 'design_scuole_italia' ),
+        'desc' => __( 'Area di configurazione del testo da inserire nell\'intestazione della pagina argomenti.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+    $argomenti_options->add_field( array(
+		'id' => $prefix . 'testo_argomenti',
+		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Ritrova le informazioni in base agli argomenti scelti dal nostro istituto"' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
+	$argomenti_options->add_field( array(
+        'name'       => __('Argomenti in evidenza', 'design_scuole_italia' ),
+        'desc' => __( 'Seleziona gli argomenti da mostrare in evidenza nella panoramica degli argomenti e in pagina iniziale. ', 'design_scuole_italia' ),
+        'id' => $prefix . 'argomenti_evidenza',
+        'type'    => 'pw_multiselect',
+        'options' => dsi_get_argomenti_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina gli argomenti', 'design_scuole_italia' ),
+        ),
+    ));
+
+    $argomenti_options->add_field(array(
+        'id' => $prefix . 'argomenti_evidenza_layout',
+        'name' => __('Modalità argomenti in evidenza', 'design_scuole_italia'),
+        'desc' => __('Scegli come mostrare gli argomenti in evidenza', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'solo_testo',
+        'options' => array(
+            'solo_testo' => __('Card con solo testo', 'design_scuole_italia'),
+            'icona' => __('Card con icona', 'design_scuole_italia'),
+            'immagine' => __('Card con copertina', 'design_scuole_italia'),
+        ),
+    ));
+
+    
+    $argomenti_options->add_field(array(
+        'id' => $prefix . 'argomenti_evidenza_descrizione',
+        'name' => __('Descrizione argomenti in evidenza', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare la descrizione accanto al titolo degli argomenti in evidenza', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'false',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
+
+    $argomenti_options->add_field(array(
+        'id' => $prefix . 'argomenti_descrizione',
+        'name' => __('Descrizione argomenti', 'design_scuole_italia'),
+        'desc' => __('Seleziona per mostrare la descrizione accanto al titolo degli argomenti', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'false',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));
 
     // pagina opzioni
 	/**
@@ -1571,23 +1672,6 @@ function dsi_register_main_options_metabox() {
 
 	$setup_options = new_cmb2_box( $args );
     
-    $setup_options->add_field( array(
-        'id' => $prefix . 'argomenti_options',
-        'name'        => __( 'Argomenti', 'design_scuole_italia' ),
-        'desc' => __( 'Area di configurazione del testo da inserire nell\'intestazione della pagina argomenti.' , 'design_scuole_italia' ),
-        'type' => 'title',
-    ) );
-
-    $setup_options->add_field( array(
-		'id' => $prefix . 'testo_argomenti',
-		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Ritrova le informazioni in base agli argomenti scelti dal nostro istituto' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'attributes'    => array(
-			'maxlength'  => '140'
-		),
-	) );
-
     $setup_options->add_field( array(
         'id' => $prefix . 'footer_options',
         'name'        => __( 'Footer', 'design_scuole_italia' ),
