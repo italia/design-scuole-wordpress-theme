@@ -486,3 +486,12 @@ function rest_remove_extra_user_data($response, $user, $request) {
 	return $response;
 }
 add_filter("rest_prepare_user", "rest_remove_extra_user_data", 12, 3);
+
+//redireziona gli utenti alla pagina iniziale dopo il login (se non sono impostati redirect)
+function dsi_login_redirect( $redirect_to, $request, $user ) {
+	// Senza impostare il redirect a 'wp-admin' (nonostante $redirect_to punti a quella pagina di default),
+	// gli utenti sottoscrittori che effetuano il login si ritroverebbero in /wp-admin/profile.php, che può essere disorientante.
+	return str_ends_with($redirect_to, '/wp-admin/') ? 'wp-admin' : $redirect_to;
+}
+
+add_filter( 'login_redirect', 'dsi_login_redirect', 10, 3 );

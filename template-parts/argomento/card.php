@@ -1,7 +1,7 @@
 <?php
-global $argomento;
+global $argomento, $show_descrizione;
     ?>
-    <div class="card card-bg card-icon rounded h-100">
+    <div class="card card-bg card-wrapper card-icon rounded h-100">
         <a href="<?php echo get_term_link($argomento); ?>">
             <div class="card-body">
                 <svg class="icon svg-marker-simple" aria-hidden="true">
@@ -9,7 +9,7 @@ global $argomento;
                 </svg>
                 <div class="card-icon-content"  id="card-desc-<?php echo $argomento->term_id; ?>">
                     <p><strong><?php echo $argomento->name; ?></strong></p>
-                    <small><?php echo $argomento->description; ?></small>
+                    <?php if($show_descrizione == "true") { ?><small><?php echo $argomento->description; ?></small> <?php } ?>
                 </div><!-- /card-icon-content -->
             </div><!-- /card-body -->
         </a>
