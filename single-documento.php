@@ -213,7 +213,27 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         ?>
                                         <div class="row variable-gutters mb-4">
                                             <div class="col-lg-12">
-                                                <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Albo Annullato", "design_scuole_italia"); ?></h5>
+                                                <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Atto annullato", "design_scuole_italia"); ?></h5>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    } else if (dsi_is_albo($post) && $post->post_status == "scaduto") {
+                                        $servizi_richiesta_atti = dsi_get_option("servizi_richiesta_atti", "setup");
+                                        ?>
+                                        <div class="row variable-gutters mb-4">
+                                            <div class="col-lg-12">
+                                                <h5 class="text-redbrown"><?php _e("Allegati non disponibili - Atto scaduto", "design_scuole_italia"); ?></h5>
+                                                <?php if (is_array($servizi_richiesta_atti) && count($servizi_richiesta_atti) > 0) { ?>
+                                                <p>Puoi richiedere il documento tramite <?php echo count($servizi_richiesta_atti) == 1 ? "il servizio dedicato" : "i servizi dedicati"; ?>.</p>
+                                                <div class="card-deck card-deck-spaced">
+                                                <?php foreach ($servizi_richiesta_atti as $idservizio){
+                                                    $servizio = get_post($idservizio);
+                                                    if($servizio) {
+                                                        get_template_part("template-parts/servizio/card");
+                                                    }
+                                                } ?>
+                                                </div>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                         <?php
