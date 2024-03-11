@@ -435,9 +435,7 @@ function dsi_utente_admin_script()
 }
 
 /* WYSIWYG biography */
-// inspired by https://wordpress.org/plugins/visual-biography-editor/
-
-function dsi_bio_visual_editor($user)
+function dsi_wysiwyg_bio($user)
 {
 	if (!current_user_can('edit_posts'))
 		return;
@@ -456,33 +454,33 @@ function dsi_bio_visual_editor($user)
 	</table>
 <?php
 }
-add_action('show_user_profile', 'dsi_bio_visual_editor');
-add_action('edit_user_profile', 'dsi_bio_visual_editor');
+add_action('show_user_profile', 'dsi_wysiwyg_bio');
+add_action('edit_user_profile', 'dsi_wysiwyg_bio');
 
 
-function dsi_bio_save_filters()
+function dsi_wysiwyg_bio_save_filters()
 {
 	if (!current_user_can('edit_posts'))
 		return;
 	remove_all_filters('pre_user_description');
 }
-add_action('admin_init', 'dsi_bio_save_filters');
+add_action('admin_init', 'dsi_wysiwyg_bio_save_filters');
 
-function dsi_bio_load_js( $hook ) {
+function dsi_wysiwyg_bio_load_js( $hook ) {
 	if ( !current_user_can('edit_posts') )
 		return;
 
 	if ( $hook == 'profile.php' || $hook == 'user-edit.php' ) {
 		wp_enqueue_script(
 			'wysiwyg-bio-admin-script', 
-			get_template_directory_uri() . '/inc/admin-js/wysiwyg-bio.js', 
+			get_template_directory_uri() . '/inc/admin-js/persona-wysiwyg-bio.js', 
 			array('jquery'), 
 			false, 
 			true
 		);
 	}
 }
-add_action( 'admin_enqueue_scripts', 'dsi_bio_load_js', 10, 1 );
+add_action( 'admin_enqueue_scripts', 'dsi_wysiwyg_bio_load_js', 10, 1 );
 
 add_filter('get_the_author_description', 'wptexturize');
 add_filter('get_the_author_description', 'convert_chars');
