@@ -435,41 +435,57 @@ function dsi_utente_admin_script()
 }
 
 /* WYSIWYG biography */
+// inspired by https://wordpress.org/plugins/visual-biography-editor/
 
-function dsi_show_extra_profile_fields($user)
+function dsi_bio_visual_editor($user)
 {
-	wp_enqueue_editor();
-
+	if (!current_user_can('edit_posts'))
+		return;
 ?>
-	<script>
-		document.addEventListener("DOMContentLoaded", function(event) {
-			var id = 'description';
-
-			wp.editor.initialize(id, {
-				tinymce: {
-					wpautop: true,
-					skin: 'lightgray',
-				},
-				quicktags: true
-			});
-		});
-	</script>
+	<table class="form-table">
+		<tr>
+			<th><label for="description"><?php _e('Biographical Info'); ?></label></th>
+			<td>
+				<?php
+				$description = get_user_meta($user->ID, 'description', true);
+				wp_editor($description, 'description');
+				?>
+				<p class="description"><?php _e('Share a little biographical information to fill out your profile. This may be shown publicly.'); ?></p>
+			</td>
+		</tr>
+	</table>
 <?php
 }
-add_action('show_user_profile', 'dsi_show_extra_profile_fields');
-add_action('edit_user_profile', 'dsi_show_extra_profile_fields');
+add_action('show_user_profile', 'dsi_bio_visual_editor');
+add_action('edit_user_profile', 'dsi_bio_visual_editor');
 
 
-function dsi_bio_save_filters() {
-	if ( !current_user_can('edit_posts') )
+function dsi_bio_save_filters()
+{
+	if (!current_user_can('edit_posts'))
 		return;
 	remove_all_filters('pre_user_description');
 }
-add_action( 'admin_init', 'dsi_bio_save_filters' );
+add_action('admin_init', 'dsi_bio_save_filters');
 
+function dsi_bio_load_js( $hook ) {
+	if ( !current_user_can('edit_posts') )
+		return;
 
-add_filter( 'get_the_author_description', 'wptexturize' );
-add_filter( 'get_the_author_description', 'convert_chars' );
-add_filter( 'get_the_author_description', 'wpautop' );
+	if ( $hook == 'profile.php' || $hook == 'user-edit.php' ) {
+		wp_enqueue_script(
+			'wysiwyg-bio-admin-script', 
+			get_template_directory_uri() . '/inc/admin-js/wysiwyg-bio.js', 
+			array('jquery'), 
+			false, 
+			true
+		);
+	}
+}
+add_action( 'admin_enqueue_scripts', 'dsi_bio_load_js', 10, 1 );
+
+add_filter('get_the_author_description', 'wptexturize');
+add_filter('get_the_author_description', 'convert_chars');
+add_filter('get_the_author_description', 'wpautop');
 
 /* end WYSIWYG biography */
