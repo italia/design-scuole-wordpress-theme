@@ -430,3 +430,25 @@ add_action( 'admin_print_scripts-profile.php', 'dsi_utente_admin_script', 11 );
 function dsi_utente_admin_script() {
 		wp_enqueue_script( 'utente-admin-script', get_template_directory_uri() . '/inc/admin-js/persona.js' );
 }
+
+function dsi_show_extra_profile_fields($user) {
+    wp_enqueue_editor();
+
+    ?>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var id = 'description';
+    
+        wp.editor.initialize(id, {
+            tinymce: {
+				wpautop: true,
+				skin: 'lightgray',
+			},
+            quicktags: true
+        });
+    });
+    </script>
+    <?php
+    }
+    
+add_action('show_user_profile', 'dsi_show_extra_profile_fields');
