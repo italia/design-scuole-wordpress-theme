@@ -48,18 +48,21 @@ get_header();
 //            get_template_part("template-parts/luogo/map");
 
         endif; // End of the loop.
-		
-		
-		$home_argomenti = dsi_get_option("home_argomenti", "homepage");
-		
-		if (is_array($home_argomenti) && count($home_argomenti)) {
-			?>
-				<section class="section bg-white">
-					<?php get_template_part("template-parts/hero/argomenti"); ?>
-					<?php get_template_part("template-parts/home/list", "argomenti"); ?>
-				</section>
-			<?php
-		}
+        
+        $home_show_argomenti = dsi_get_option("home_show_argomenti", "homepage");
+        if(!$home_show_argomenti) $home_show_argomenti = "true_manual";
+        
+        $argomenti = dsi_get_option("home_argomenti", "homepage");
+        if($home_show_argomenti == "true_evidenza") $argomenti = dsi_get_option("argomenti_evidenza", "argomenti");
+        
+        if (is_array($argomenti) && count($argomenti)) {
+        ?>
+        <section class="section bg-white">
+            <?php get_template_part("template-parts/hero/argomenti"); ?>
+            <?php get_template_part("template-parts/home/list", "argomenti"); ?>
+        </section>
+        <?php
+        }
         ?>
     </main>
 <?php
