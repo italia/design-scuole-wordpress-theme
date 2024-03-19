@@ -7,6 +7,23 @@
  */
 
 get_header();
+
+function printUl($data){
+	echo '<a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '"><h5>'.$data[0].'<span class="counterA" style="color:red"> ('.$data["count"].')</span></h5></a>';
+	echo "<ul>";
+	foreach($data[1] as $inner){
+		printLi($inner);
+	}
+	echo "</ul>";
+}
+function printLi($data){
+	if(count($data[1])==0){
+		echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '">' . $data[0] . '</a> <span class="counterA" style="color:red"> ('.$data["count"].')</span></li>';
+	}
+	else{
+		printUl($data);
+	}
+}
 ?>
 
     <main id="main-container" class="main-container">
@@ -40,45 +57,33 @@ get_header();
 ?>
                                 <div class="row variable-gutters">
                                     <?php
-
                                 $atcontatore = $atct = 0;
-                                foreach (dsi_amministrazione_trasparente_array() as $inner) {
-                                    $atcontatore++;
+                                foreach (get_amministrazione_array() as $inner) {
 
                                     //  Scan through inner loop
-                                    $atreturn = '<ul>';
-                                    $atcounter = 0;
-                                    foreach ($inner[1] as $value) {
-                                        $args = array( 'taxonomy' => 'amministrazione-trasparente', 'term' => $value );
-                                        $query = new WP_Query( $args );
-                                        $fount_posts = $query->found_posts;
-                                        $atcounter = $atcounter + $fount_posts;
 
-                                        if ( !$fount_posts) {
-                                            $opty = 'style="opacity: 0.7;"';
-                                        } else { $opty = ''; }
-                                        $atreturn .= '<li '.$opty.'>';
-                                       // $atreturn .= '<li>';
-                                        $atreturn .= '<a href="' . get_term_link( get_term_by('name', $value, 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $value . '">' . $value . '</a>';
-                                        $atreturn .= '</li>';
-                                    }
-                                    $atreturn .= '</ul>';
 
                                     echo "<div class='col-lg-6'>";
                                     echo '<div class="ammtrasm-tableclass" id="at-s-'.++$atct.'">';
 
                                     $sez_l = strtolower(preg_replace('/[^a-zA-Z]+/', '', $inner[0]));
-                                    echo '<h3>';
-                                    echo '<div class="at-number">'.$atcounter.'</div>';
+                                    echo '<a href="' . get_term_link( get_term_by('name', $inner[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $inner[0] . '"><h3>';
+                                    echo '<span id="'.$sez_l.'" href="#'.$sez_l.'">'.$inner[0].'</span><span class="counterA" style="color:red"> ('.$inner["count"].')</span></h3></a>';
+                                    echo '<ul>';
 
-                                    echo '<span id="'.$sez_l.'" href="#'.$sez_l.'"><a href="'.get_term_link(get_term_by('name', $inner[0], 'amministrazione-trasparente'), 'amministrazione-trasparente').'">'.$inner[0].'</a></span></h3>';
-                                    echo $atreturn;
-
+                                    
+									foreach ($inner[1] as $value) {
+										if(count($value[1])==0){
+											printLi($value);
+										}
+										else{
+											printUl($value);
+										}
+                                    }
+									echo '</ul>';
                                     echo '</div>';
                                     echo '</div>';
-
                                 }
-
                                 ?>
                                 </div>
                             </div>
@@ -87,6 +92,11 @@ get_header();
                     </article>
                 </div>
             </section>
+			<style>
+			.counterA{
+				font-size:14px
+			}
+			</style>
         <?php
         endwhile; // End of the loop.
         ?>
