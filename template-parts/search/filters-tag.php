@@ -40,6 +40,7 @@ $current_term = get_queried_object();
             <?php
             foreach ( $types as $type ) {
 	            $name = get_post_type_object( $type )->labels->name;
+                if ($name) {
                 ?>
                 <li>
                     <div class="form-check my-0">
@@ -47,8 +48,8 @@ $current_term = get_queried_object();
                         <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                     </div>
                 </li>
-
             <?php
+                }
             }
             ?>
         </ul>
