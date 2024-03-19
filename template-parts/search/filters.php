@@ -83,7 +83,10 @@ if(isset($_GET["post_terms"]))
                 }
             }
 
-            for ($i = 0; $i < 20; $i++) {
+            $terms_count = count($terms);
+            if($terms_count > 20) $terms_count = 20;
+
+            for ($i = 0; $i < $terms_count; $i++) {
                 $term = $terms[$i];
                 ?>
                 <li>
