@@ -20,9 +20,17 @@ $theme_locations = get_nav_menu_locations();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <?php if ($favicon_url = dsi_get_option("favicon_scuola")) { ?>
+		<link rel="icon" type="image/x-icon" href="<?= $favicon_url ?>">
+	<?php } 
 
-    <?php
-    $og_image_url = get_the_post_thumbnail_url() ?: $url_favicon; // Tag Open Graph per l'immagine di copertina nei link condivisi (es: Facebook)
+    // Tag Open Graph per l'immagine di copertina nei link condivisi (es: Facebook)
+    $cover_image_url = dsi_get_option("immagine", "la_scuola");
+    $thumbnail_url = get_the_post_thumbnail_url();
+
+    $home_image_url = $cover_image_url ?: $favicon_url;
+
+    $og_image_url = is_front_page() ? $home_image_url : ($thumbnail_url ?: $home_image_url);
 
     if ($og_image_url) { ?>
         <meta property="og:image" content="<?= $og_image_url ?>">
