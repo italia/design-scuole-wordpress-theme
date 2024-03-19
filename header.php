@@ -21,9 +21,19 @@ $theme_locations = get_nav_menu_locations();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-	<?php if (dsi_get_option("favicon_scuola")) { ?>
-		<link rel="icon" type="image/x-icon" href="<?php echo dsi_get_option("favicon_scuola");?>">
-	<?php } ?>
+    <?php
+    $og_image_url = get_the_post_thumbnail_url() ?: $url_favicon; // Tag Open Graph per l'immagine di copertina nei link condivisi (es: Facebook)
+
+    if ($og_image_url) { ?>
+        <meta property="og:image" content="<?= $og_image_url ?>">
+        <?php
+        $og_image_url_alt = get_post_meta(attachment_url_to_postid($og_image_url), '_wp_attachment_image_alt', true);
+
+        if ($og_image_url_alt) { ?>
+            <meta property="og:image:alt" content="<?= $og_image_url_alt ?>">
+    <?php }
+    }
+    ?>
     
 	<?php wp_head(); ?>
 </head>
