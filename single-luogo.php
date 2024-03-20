@@ -37,6 +37,11 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
         $servizi_presenti = dsi_get_meta("servizi_presenti");
         $servizi_altro = dsi_get_meta("servizi_altro");
 
+        $option_mostra_progetti = dsi_get_option("mostra_progetti_in_luogo", "luoghi") ?? false;
+        $progetti_presenti = $option_mostra_progetti ? dsi_get_progetti_in_luogo($post->ID) : [];
+
+        $show_altre_info = trim($altre_info) || !empty($progetti_presenti);
+
         $modalita_accesso = dsi_get_meta("modalita_accesso");
         $gestito_da  = dsi_get_meta("gestito_da");
         $gestito_da_nome  = dsi_get_meta("gestito_da_nome");
@@ -135,7 +140,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-gestione" title="Vai al paragrafo <?php _e("Gestito da", "design_scuole_italia"); ?>"><?php _e("Gestito da", "design_scuole_italia"); ?></a>
                                             </li>
                                         <?php } ?>
-                                        <?php if(trim($altre_info) != ""){ ?>
+                                        <?php if($show_altre_info){ ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-altre-info" title="<?php _e("Vai al paragrafo", "design_scuole_italia"); ?> <?php _e("Ulteriori informazioni", "design_scuole_italia"); ?>"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></a>
                                             </li>
@@ -416,13 +421,26 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php } ?>
                                 <?php
 
-                                if(trim($altre_info) != ""){
+                                if($show_altre_info){
                                     ?>
                                     <h2 class="h4" id="art-par-altre-info"><?php _e("Ulteriori informazioni", "design_scuole_italia"); ?></h2>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
                                             <?php echo wpautop($altre_info); ?>
                                         </div><!-- /col-lg-9 -->
+
+                                        <?php if(!empty($progetti_presenti)){ ?>
+                                        <div class="col-lg-12">
+                                            <h3 class="h5">Progetti nel luogo</h3>
+                                            <div class="mt-3 card-deck card-deck-spaced">
+                                                <?php
+                                                foreach ( $progetti_presenti as $progetto ) {
+                                                    get_template_part("template-parts/progetto/card");
+                                                }
+                                                ?>
+                                            </div><!-- /card-deck card-deck-spaced -->
+                                        </div><!-- /col-lg-12 -->
+                                        <?php } ?>
                                     </div><!-- /row -->
                                     <?php
                                 }

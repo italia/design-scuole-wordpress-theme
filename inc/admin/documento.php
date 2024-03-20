@@ -127,7 +127,7 @@ function dsi_add_documento_metaboxes() {
 
     $prefix = '_dsi_documento_';
 
-
+    $protect_from_public_access_extensions = dsi_get_option("protect_from_public_access_extensions", "setup");
 
 
     $cmb_annullato = new_cmb2_box( array(
@@ -194,6 +194,13 @@ function dsi_add_documento_metaboxes() {
         'id'             => $prefix . 'data_scadenza',
         'type'    => 'text_date_timestamp',
         'date_format' => 'd/m/Y',
+    ) );
+
+    $cmb_side->add_field( array(
+        'name' => 'Limita l\'accesso agli allegati dopo scadenza',
+        'desc' => 'Per limitare l\'accesso ai singoli allegati alla scadenza, assicurati che le estensioni dei file allegati siano presenti in <a href="admin.php?page=setup" target="_blank">Configurazione &gt; Altro</a> &gt; Estensioni protette dall\'accesso esterno. <br /><strong>' . ($protect_from_public_access_extensions != "" ? 'Estensioni attualmente protette: '. $protect_from_public_access_extensions : 'Nessuna estensione attualmente protetta') . '</strong>',
+        'type' => 'title',
+        'id'   => 'protect_file_ext_advice'
     ) );
 
     $cmb_sottotitolo = new_cmb2_box( array(
@@ -716,8 +723,28 @@ function dsi_check_documenti_daily() {
         )
     );
     $scaduti = get_posts($args);
+
+	$protect_from_public_access_extensions = dsi_get_option("protect_from_public_access_extensions", "setup");
+    $protected_extensions = explode(',', $protect_from_public_access_extensions);
+
     foreach ($scaduti as $item){
         $post = array( 'ID' => $item->ID, 'post_status' => "scaduto" );
+        if($protect_from_public_access_extensions && $protect_from_public_access_extensions != "") {
+            $file_documenti = get_post_meta( $item->ID, '_dsi_documento_file_documenti', true);
+
+            if (is_array($file_documenti) && count($file_documenti) > 0) { 
+                foreach($file_documenti as $url) {
+                    $attachment_id = attachment_url_to_postid($url);
+
+                    $ext = ".".pathinfo($url, PATHINFO_EXTENSION);
+
+                    if (in_array($ext, $protected_extensions)) {
+                        $protected = update_post_meta($attachment_id, 'protect_from_public_access', true);
+                    }
+                }
+            }
+        }
+
         wp_update_post($post);
     }
 

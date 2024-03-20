@@ -1371,6 +1371,16 @@ function dsi_register_main_options_metabox() {
         'escape_cb'       => 'absint',
     ) );
 
+    $luoghi_options->add_field( array(
+        'id' => $prefix . 'mostra_progetti_in_luogo',
+        'name'        => __( 'Mostra progetti correlati', 'design_scuole_italia' ),
+        'desc' => __('Mostra i progetti che si svolgono in un luogo nella pagina relativa a quel luogo, sotto la sezione "Ulteriori informazioni".', 'design_scuole_italia' ),
+        'type' => 'radio_inline',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            '' => __('No', 'design_scuole_italia'),
+        ),
+    ) );
 
     /**
      * Documenti
@@ -1708,6 +1718,19 @@ function dsi_register_main_options_metabox() {
 		'type' => 'text'
     ) );
 
+    
+    $setup_options->add_field(array(
+        'id' => $prefix . 'show_contatore_commenti',
+        'name' => __('Mostra il contatore dei commenti', 'design_scuole_italia'),
+        'desc' => __('Seleziona <b>Si</b> per mostrare il numero dei commenti pubblicati', 'design_scuole_italia'),
+        'type' => 'radio_inline',
+        'default' => 'true',
+        'options' => array(
+            'true' => __('Si', 'design_scuole_italia'),
+            'false' => __('No', 'design_scuole_italia'),
+        ),
+    ));	
+
     $setup_options->add_field( array(
         'id' => $prefix . 'mail_circolari',
         'name'        => __( 'Configurazione email Circolari', 'design_scuole_italia' ),
@@ -1757,19 +1780,17 @@ function dsi_register_main_options_metabox() {
         'sanitization_cb' => 'dsi_sanitize_int',
         'escape_cb'       => 'dsi_sanitize_int',
     ) );
-	
-$setup_options->add_field(array(
-        'id' => $prefix . 'show_contatore_commenti',
-        'name' => __('Mostra il contatore dei commenti', 'design_scuole_italia'),
-        'desc' => __('Seleziona <b>Si</b> per mostrare il numero dei commenti pubblicati', 'design_scuole_italia'),
-        'type' => 'radio_inline',
-        'default' => 'true',
-        'options' => array(
-            'true' => __('Si', 'design_scuole_italia'),
-            'false' => __('No', 'design_scuole_italia'),
+    
+    $setup_options->add_field( array(
+        'id' => $prefix . 'servizi_richiesta_atti',
+        'name'        => __( 'Seleziona i servizi di richiesta atti', 'design_scuole_italia' ),
+        'desc' => __( 'Verranno mostrati in caso di atto scaduto. ' , 'design_scuole_italia' ),
+        'type'    => 'pw_multiselect',
+        'options' =>  dsi_get_servizi_options(),
+        'attributes' => array(
+            'placeholder' =>  __( 'Seleziona e ordina i servizi da mostrare', 'design_scuole_italia' ),
         ),
-    ));	
-
+    ) );
 }
 add_action( 'cmb2_admin_init', 'dsi_register_main_options_metabox' );
 
@@ -1877,11 +1898,11 @@ function dsi_check_media_htaccess(string $object_id, array $updated, CMB2 $cmb) 
 
     $basedir = wp_get_upload_dir()['basedir'];
 
-    unlink($basedir . '\.htaccess');
+    unlink($basedir . '/.htaccess');
 
     if($data != "") {
         $htaccesscontent = "RewriteRule \d{4}/(.*)[". $data . "]$ ". site_url( '', 'relative') ."/?action=reservedfilecheck&file=$0";
-        $htaccessfile = fopen($basedir . '\.htaccess', "w") or die("Unable to open file!");
+        $htaccessfile = fopen($basedir . '/.htaccess', "w") or die("Unable to open file!");
         fwrite($htaccessfile, $htaccesscontent);
         fclose($htaccessfile);
     }
