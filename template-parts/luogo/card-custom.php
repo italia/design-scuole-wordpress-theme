@@ -12,8 +12,6 @@ if (dsi_get_meta("circoscrizione_luogo_custom") != "")
 	$arrq[] = dsi_get_meta("circoscrizione_luogo_custom");
 ?>
 
-
-
 <div class="card card-bg rounded mb-5">
 	<div class="card-header">
 		<strong class="d-block"><?php echo  $nome_luogo_custom; ?></strong>
