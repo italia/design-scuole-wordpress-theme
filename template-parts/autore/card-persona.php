@@ -38,7 +38,8 @@ if($privacy_hidden == "false") {
 			</div><!-- /card-avatar-img -->
 			<div class="card-avatar-content">
 				<p class="font-weight-bold">
-					Componente della scuola
+					Personale scolastico
+
 				</p>
 				<small><?php echo dsi_get_user_role($autore); ?></small>
 			</div><!-- /card-avatar-content -->
