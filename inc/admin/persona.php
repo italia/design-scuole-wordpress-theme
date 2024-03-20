@@ -143,7 +143,7 @@ function dsi_add_persone_metaboxes() {
 	$cmb_user->add_field( array(
 		'name'    => __( 'Protezione privacy', 'design_scuole_italia' ),
 		'id'      => $prefix . 'privacy_hidden',
-		'desc'     => __( 'L\'opzione permette di impostare come nascoste le informazioni dell\'utente.' , 'design_scuole_italia' ),
+		'desc'     => __( 'L\'opzione permette di nascondere le informazioni sensibili dell\'utente.' , 'design_scuole_italia' ),
 		'type'    => 'radio_inline',
 		'options'          => array(
 			'true' => __( 'Si', 'design_scuole_italia' ),
