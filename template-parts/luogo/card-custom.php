@@ -21,14 +21,16 @@ if (dsi_get_meta("circoscrizione_luogo_custom") != "")
 	<div class="card-body p-0">
 		<div class="row variable-gutters">
 			<div class="col-lg-12">
+			<?php if ($posizione_gps["lat"]) { ?>
 				<div class="map-wrapper map-min-height">
 					<div class="map" id="map_<?php echo $c; ?>"></div>
 				</div>
+			<?php } ?>	
 			</div><!-- /col-lg-12 -->
 		</div><!-- /row -->
 	</div><!-- /card-body -->
 </div><!-- /card card-bg rounded -->
-
+<?php if ($posizione_gps["lat"]) { ?>
 <script>
 	window.addEventListener('load', function() {
 		var mymap = L.map('map_<?php echo $c; ?>', {
@@ -45,3 +47,4 @@ if (dsi_get_meta("circoscrizione_luogo_custom") != "")
 		}).addTo(mymap);
 	});
 </script>
+<?php } ?>
