@@ -61,13 +61,33 @@ if(isset($_GET["post_terms"]))
         <ul data-element="all-topics">
             <?php
             $terms = get_terms( array(
-	            'taxonomy' => 'post_tag',
-	            'hide_empty' => true,
-	            'orderby'    => 'count',
-                'order'   => 'DESC',
-                'number' => 20,
+                'taxonomy' => 'post_tag',
+                'hide_empty' => true,
+                'orderby'    => 'count',
+                'order'   => 'DESC'
             ) );
-            foreach ($terms as $term){
+            $idTerms = array_column($terms, 'term_id');
+
+            foreach($post_terms as $post_term) {
+                $found = array_search($post_term, $idTerms);
+                if($found && $found >= 20) {
+                    $term = $terms[$found];
+                    ?>
+                <li>
+                    <div class="custom-control custom-checkbox custom-checkbox-outline">
+               	             <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()">
+                             <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+               	         </div>
+                        </li>
+                    <?php
+                }
+            }
+
+            $terms_count = count($terms);
+            if($terms_count > 20) $terms_count = 20;
+
+            for ($i = 0; $i < $terms_count; $i++) {
+                $term = $terms[$i];
                 ?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
