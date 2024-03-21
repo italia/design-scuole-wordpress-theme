@@ -471,6 +471,22 @@ function insert_data_attribute_note_legali( $content ) {
 	}
 add_filter('the_content', 'insert_data_attribute_note_legali');
 
+// anonimizza i dati in caso di opzione privacy attiva
+function rest_remove_extra_user_data($response, $user, $request) {
+	$privacy_hidden = get_user_meta( $response->data['id'], '_dsi_persona_privacy_hidden', true);
+
+	if(!$privacy_hidden || $privacy_hidden == 'true') {
+		$response->data['name'] = 'Protected user';
+
+    	unset($response->data['link']);
+    	unset($response->data['slug']);
+    	unset($response->data['avatar_urls']);
+	}
+
+	return $response;
+}
+add_filter("rest_prepare_user", "rest_remove_extra_user_data", 12, 3);
+
 //redireziona gli utenti alla pagina iniziale dopo il login (se non sono impostati redirect)
 function dsi_login_redirect( $redirect_to, $request, $user ) {
 	// Senza impostare il redirect a 'wp-admin' (nonostante $redirect_to punti a quella pagina di default),
