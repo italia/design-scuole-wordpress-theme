@@ -84,6 +84,7 @@ function dsi_add_circolare_metaboxes() {
         'name'        => '<span class="_dsi_circolare_tipologia">'.__( 'Tipologia circolare *', 'design_scuole_italia' ).'<span>',
         'type'             => 'taxonomy_radio_inline',
         'taxonomy'       => 'tipologia-circolare',
+        'show_option_none' => false,
        'remove_default' => 'true',
 		'attributes'    => array(
 			'required' => 'required'

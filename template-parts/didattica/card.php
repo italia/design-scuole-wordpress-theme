@@ -60,7 +60,7 @@ if(!$image_url)
             <?php
                 } else {
             ?>
-                <p class="text-dark">curato dal personale della scuola</p>
+                <p class="text-dark">curato dal personale scolastico</p>
             <?php
                 }
             ?>

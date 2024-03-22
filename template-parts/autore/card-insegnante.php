@@ -24,7 +24,7 @@ if($privacy_hidden == "false") {  ?>
 		<?php dsi_get_img_from_id_url( $image_id, $image_url ); ?>
 	</div><!-- /card-avatar-img -->
 	<div class="card-avatar-content">
-		<p class="font-weight-normal">Componente della scuola</p>
+		<p class="font-weight-normal">Personale scolastico</p>
 	</div><!-- /card-avatar-content -->
 	<?php
 	}

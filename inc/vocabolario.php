@@ -1,6 +1,32 @@
 <?php
 
+//////////////////////////////////////////////
+function get_amministrazione_array(){
+	$myterms = get_terms( array( 'taxonomy' => 'amministrazione-trasparente', 'orderby'=>'term_order', 'parent' => 0,'hide_empty' => false ) );
+	$data = [];
+	
+	foreach($myterms as $term){
+		$data[] = scanInner($term,0);
+	}
+	
+	return $data;
+}
 
+function scanInner($term,$starting){
+	$inner[]=$term->name;
+	$inner["count"]=$starting+$term->count;
+	$sub=[];
+	if(count(get_term_children($term->term_id,'amministrazione-trasparente'))>0){
+		foreach(get_terms( array( 'taxonomy' => 'amministrazione-trasparente', 'orderby'=>'term_order', 'parent' => $term->term_id,'hide_empty' => false ))as $subT){
+			$sub[]=scanInner($subT,0);
+		}
+	}
+	$inner[]=$sub;
+	foreach($sub as $s){
+		$inner["count"] += $s["count"];
+	}
+	return $inner;
+}
 /** funzioni di popolamento didattica */
 if(!function_exists("dsi_didattica_array")){
     function dsi_didattica_array() {
