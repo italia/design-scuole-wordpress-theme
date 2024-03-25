@@ -293,7 +293,7 @@ Cliccando su “Configurazione" è possibile definire:
 -	**organizzazione**: area di configurazione della pagina di presentazione dell’organizzazione scolastica, tramite la selezione delle strutture organizzative da mostrare;
 -	**luoghi**: area in cui configurare la tipologia e l’ordine delle tipologie di luoghi da mostrare;
 -	**documenti**: area di configurazione dei documenti, organizzati in base alle tipologie selezionate;
--	**servizi esterni**: area per configurare i servizi esterni alla scuola da mostrare nella modale di accesso (registro elettronico o altri);
+-	**accesso ai servizi**: area per configurare i servizi esterni alla scuola da mostrare nella modale di accesso (registro elettronico o altri) e le informazioni del modulo di login all'area riservata di Wordpress;
 -	**socialmedia**: collegamenti ai social mostrati nell'intestazione e nel piè di pagina.
 -	**altro**: la descrizione della sezione Argomenti, i contenuti ulteriori del piè di pagina, il token mapbox (da creare per utilizzare le mappe openstreetmap dei luoghi), la configurazione delle estensioni protette dall'accesso esterno, il testo delle mail delle circolari e il setup della sezione albo.
 
