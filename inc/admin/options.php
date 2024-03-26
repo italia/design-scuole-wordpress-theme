@@ -1498,7 +1498,7 @@ function dsi_register_main_options_metabox() {
     $login_options->add_field( array(
         'id' => $prefix . 'login_istruzioni',
         'name'        => __( 'Area riservata di Wordpress', 'design_scuole_italia' ),
-        'desc' => __( 'Area di configurazione della sezione di accesso all\'area riservata di Wordpress, da mostrare nella maschera di login.' , 'design_scuole_italia' ),
+        'desc' => __( 'Configurazione della sezione di accesso all\'area riservata di Wordpress.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
