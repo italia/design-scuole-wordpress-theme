@@ -1514,7 +1514,7 @@ function dsi_register_main_options_metabox() {
 	$login_options->add_field( array(
 		'id' => $prefix . 'login_desc',
 		'name' => 'Descrizione per il modulo di login',
-		'desc' => __( 'Introduzione visualizzata nella sezione di accesso all\'area riservata di Wordpress, nella maschera di login (Se non compilato, viene valorizzato con "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.")', 'design_scuole_italia' ),
+		'desc' => __( 'Introduzione visualizzata nella sezione di accesso all\'area riservata di Wordpress (se non compilato, viene mostrato "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.")', 'design_scuole_italia' ),
 		'type' => 'text',
         'default' => 'Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.',
     ) );
