@@ -1505,7 +1505,7 @@ function dsi_register_main_options_metabox() {
 	$login_options->add_field( array(
 		'id' => $prefix . 'login_title',
 		'name' => 'Titolo per il modulo di login',
-		'desc' => __( 'Titolo visualizzato nella sezione di accesso all\'area riservata di Wordpress, nella maschera di login (Se non compilato, viene valorizzato con "Personale scolastico")', 'design_scuole_italia' ),
+		'desc' => __( 'Titolo visualizzato nella sezione di accesso all\'area riservata di Wordpress (se non compilato viene mostrato "Personale scolastico")', 'design_scuole_italia' ),
 		'type' => 'text',
         'default' => 'Personale scolastico',
     ) );
