@@ -460,7 +460,7 @@ function add_logo_Login_page() {
 	background-image: url(https://www.liceopitagoracrotone.edu.it/wp-content/uploads/2023/03/LOGO-LICEO-CLASSICO.jpg);
 	background-position: center center;
 	background-size: contain !important;
-	width: 300px !important;
+	width: 100% !important;
 	}
 	</style>';
 }
