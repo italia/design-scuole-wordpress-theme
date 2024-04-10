@@ -8944,7 +8944,7 @@ a {
 
 .card.card-avatar .card-avatar-content small {
     font-size: .88rem;
-    color: #455b71
+    color: #000
 }
 
 .card.card-avatar.card-comments .card-body .comments {
@@ -13597,7 +13597,7 @@ a.read-more:before {
 .search-btn {
     background-color: transparent;
     border: 0;
-    color: #455b71
+    color: #000
 }
 
 .icon-text {
@@ -13623,7 +13623,7 @@ button.icon-text {
 }
 
 #main-header {
-    color: #455b71;
+    color: #000;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -17923,7 +17923,7 @@ button.icon-text {
 }
 
 .header-social a svg {
-    fill: #455b71;
+    fill: #000;
     width: 18px;
     height: 18px;
     display: block
