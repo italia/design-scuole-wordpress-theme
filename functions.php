@@ -453,3 +453,15 @@ function reserved_file_check(){
 	}
 }
 add_action( 'init', 'reserved_file_check', 10, 2);
+
+function add_logo_Login_page() {
+	echo '<style>.login h1 a {
+	background-repeat: no-repeat;
+	background-image: url(https://www.liceopitagoracrotone.edu.it/wp-content/uploads/2023/03/LOGO-LICEO-CLASSICO.jpg);
+	background-position: center center;
+	background-size: contain !important;
+	width: 100% !important;
+	}
+	</style>';
+}
+	add_action( 'login_head', 'add_logo_Login_page' );
