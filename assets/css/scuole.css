@@ -6792,7 +6792,7 @@ a {
 }
 
 .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
-    color: #17324d
+    color: #000
 }
 
 .semi-bold {
@@ -9866,7 +9866,7 @@ a {
 
 .card-comments-wrapper .card-avatar-content small {
     font-size: .88rem;
-    color: #455b71
+    color: #000
 }
 
 .card-comments-wrapper .comments {
