@@ -5388,7 +5388,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .bg-petrol {
-    background-color: #51758d !important
+    background-color: #bdd6e8 !important
 }
 
 a.bg-petrol:focus, a.bg-petrol:hover, button.bg-petrol:focus, button.bg-petrol:hover {
@@ -13785,7 +13785,7 @@ button.icon-text {
     margin: 0;
     font-weight: 700;
     line-height: 40px;
-    color: #fff;
+    color: #000;
     font-size: .875rem
 }
 
