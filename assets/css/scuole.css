@@ -9669,8 +9669,11 @@ a {
 }
 
 .card-body {
-    padding-right: 20px;
     overflow: hidden;
+}
+
+.card-bg{
+    padding-right: 20px;
 }
 
 .card-deck.card-deck-spaced {
