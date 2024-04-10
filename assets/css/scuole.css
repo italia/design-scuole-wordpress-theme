@@ -5388,7 +5388,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .bg-petrol {
-    background-color: #e6876a !important
+    background-color: #EA7653 !important
 }
 
 a.bg-petrol:focus, a.bg-petrol:hover, button.bg-petrol:focus, button.bg-petrol:hover {
@@ -15405,7 +15405,7 @@ button.icon-text {
 }
 
 .footer-wrapper {
-    background-color: #e6876a;
+    background-color: #EA7653;
     color: #fff;
     padding: 50px 0 50px 0
 }
