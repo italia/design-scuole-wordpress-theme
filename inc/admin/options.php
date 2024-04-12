@@ -1067,15 +1067,6 @@ function dsi_register_main_options_metabox() {
 		),
 	) );
 
-    $notizie_options->add_field( array(
-		'id' => $prefix . 'testo_eventi',
-		'name'        => __( 'Descrizione Sezione Calendario eventi', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Calendario scolastico"<br>Il testo compare nella pagina <a href="'.get_post_type_archive_link("evento").'">Calendario evento</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
-		'type' => 'textarea',
-		'attributes'    => array(
-			'maxlength'  => '140'
-		),
-	) );
 
 	$notizie_options->add_field( array(
 			'name'       => __('Tipologie Articoli', 'design_scuole_italia' ),
@@ -1088,6 +1079,17 @@ function dsi_register_main_options_metabox() {
 			),
 		)
 	);
+
+    $notizie_options->add_field( array(
+		'id' => $prefix . 'testo_eventi',
+		'name'        => __( 'Descrizione Sezione Calendario eventi', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Calendario scolastico"<br>Il testo compare nella pagina <a href="'.get_post_type_archive_link("evento").'">Calendario eventi</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
 
 	$notizie_options->add_field(array(
 	        'id' => $prefix . 'notizie_show_circolari_panoramica',
