@@ -1059,8 +1059,18 @@ function dsi_register_main_options_metabox() {
 
     $notizie_options->add_field( array(
 		'id' => $prefix . 'testo_notizie',
-		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione Sezione Notizie', 'design_scuole_italia' ),
 		'desc' => __( 'es: "Le notizie del liceo scientifico Enriques dedicate a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
+    $notizie_options->add_field( array(
+		'id' => $prefix . 'testo_eventi',
+		'name'        => __( 'Descrizione Sezione Calendario eventi', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Calendario scolastico"' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'maxlength'  => '140'
