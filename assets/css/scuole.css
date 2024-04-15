@@ -60,27 +60,27 @@
 
 .bg-blue-dark {
     background-color: #001a33;
-    color: #fff
+    color: #000
 }
 
 .bg-blue-dark a {
-    color: #fff
+    color: #000
 }
 
 .bg-blue-dark .h, .bg-blue-dark .h2, .bg-blue-dark .h3, .bg-blue-dark h2 {
-    color: #fff
+    color: #000
 }
 
 .bg-blue-dark p {
-    color: #fff
+    color: #000
 }
 
 .bg-blue-dark .title-section p {
-    color: #fff
+    color: #000
 }
 
 .bg-bluelectric {
-    color: #fff
+    color: #000
 }
 
 .bg-bluelectricdark {
