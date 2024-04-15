@@ -14996,13 +14996,13 @@ button.icon-text {
     font-size: 1rem
 }
 
-.access-login a {
+/* .access-login a {
     color: #fff
 }
 
 .access-login .h3, .access-login h3, .access-login p {
-    color: #fff
-}
+    color: #000
+} */
 
 .access-login .text-large {
     font-size: 1.17rem !important;
