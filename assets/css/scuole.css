@@ -14909,7 +14909,7 @@ button.icon-text {
     font-size: 1.2rem;
     height: 42px;
     background-color: transparent;
-    border-color: #fff
+    border-color: #000
 }
 
 @media (max-width:767.98px) {
@@ -15004,13 +15004,17 @@ button.icon-text {
     color: #000
 } */
 
+.form-group input, .form-group optgroup, .form-group textarea{
+    color: #000
+}
+
 .access-login .text-large {
     font-size: 1.17rem !important;
     opacity: .7
 }
 
 .access-login .form-check, .access-login label {
-    color: #fff
+    color: #000
 }
 
 .access-login .form-check [type=checkbox]:not(:checked)+label::after {
