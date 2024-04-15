@@ -14918,7 +14918,7 @@ button.icon-text {
         height: 42px
     }
 }
-
+/* 
 #access-modal .form-group .form-control {
     color: #fff
 }
@@ -14933,7 +14933,7 @@ button.icon-text {
 
 #access-modal .form-group .form-control::placeholder {
     color: #fff !important
-}
+} */
 
 #access-modal .form-group svg {
     position: absolute;
