@@ -14864,7 +14864,7 @@ button.icon-text {
 @media (min-width:992px) {
     #access-modal.modal .modal-dialog .modal-content .modal-body:before {
         content: "";
-        background-color: #455b71;
+        background-color: #EA7653;
         width: 50%;
         height: 100%;
         display: block;
