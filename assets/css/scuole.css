@@ -15005,7 +15005,7 @@ button.icon-text {
 } */
 
 .form-group input, .form-group optgroup, .form-group textarea{
-    color: #000
+    color: #000 !important
 }
 
 .access-login .text-large {
@@ -15018,12 +15018,12 @@ button.icon-text {
 }
 
 .access-login .form-check [type=checkbox]:not(:checked)+label::after {
-    border-color: #fff
+    border-color: #000
 }
 
 .access-login .form-check [type=checkbox]:checked+label::after {
-    border-color: #fff;
-    background-color: #fff
+    border-color: #000;
+    background-color: #000
 }
 
 .access-login .form-check [type=checkbox]:checked+label::before {
