@@ -15023,7 +15023,8 @@ button.icon-text {
 
 .access-login .form-check [type=checkbox]:checked+label::after {
     border-color: #000;
-    background-color: #000
+    background-color: #000;
+    color: #fff
 }
 
 .access-login .form-check [type=checkbox]:checked+label::before {
