@@ -1060,7 +1060,7 @@ function dsi_register_main_options_metabox() {
     $notizie_options->add_field( array(
 		'id' => $prefix . 'testo_notizie',
 		'name'        => __( 'Descrizione Sezione Notizie', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Le notizie della scuola dedicate a tutti i genitori, studenti, personale ATA e docenti".<br>Il testo compare nella <a href="'.$notizie_landing_url.'">pagina di panoramica delle Novità</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
+		'desc' => __( 'es: "Le notizie della scuola dedicate a tutti i genitori, studenti, personale ATA e docenti". Il testo compare nella <a href="'.$notizie_landing_url.'">pagina di panoramica delle Novità</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'maxlength'  => '140'
