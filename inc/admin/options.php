@@ -1171,7 +1171,7 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
-    $progetti_landing_url = dsi_get_template_page_url("page-templates/progetti.php");
+    $progetti_landing_url = get_post_type_archive_link("scheda-progetto");
     $didattica_options->add_field( array(
         'id' => $prefix . 'progetti_istruzioni',
         'name'        => __( 'Sezione Progetti', 'design_scuole_italia' ),
@@ -1186,7 +1186,7 @@ function dsi_register_main_options_metabox() {
         'type'             => 'select',
         'default'          => 'realizzato',
         'options'          => array(
-            'realizzato'       => __('Realizzato', 'design_scuole_italia'),
+            'realizzato'       => __('Realizzato / non realizzato', 'design_scuole_italia'),
             'anno_scolastico'  => __('Anno scolastico', 'design_scuole_italia'),
             'date'             => __('Data di pubblicazione', 'design_scuole_italia'),
             'timestamp_inizio' => __('Data di inizio del progetto', 'design_scuole_italia'),
@@ -1197,7 +1197,7 @@ function dsi_register_main_options_metabox() {
 
     $didattica_options->add_field(array(
         'name'             => __("Direzione dell'ordinamento", 'design_scuole_italia'),
-        'desc'             => __('Scegli se ordinare i progetti in ordine crescente o descrescente (se l\'ordine è in base a "Realizzato", l\'opzione "Decrescente" mostra prima i progetti realizzati).', 'design_scuole_italia'),
+        'desc'             => __('Scegli se ordinare i progetti in ordine crescente o descrescente (se l\'ordine è in base a "Realizzato / non realizzato", l\'opzione "Decrescente" mostra prima i progetti realizzati).', 'design_scuole_italia'),
         'id'               => $prefix . 'direzione_ordinamento_progetti',
         'type'             => 'radio_inline',
         'options'          => array(
