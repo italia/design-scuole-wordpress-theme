@@ -1171,7 +1171,7 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
-    $progetti_landing_url = get_post_type_archive_link("scheda-progetto");
+    $progetti_landing_url = get_post_type_archive_link("scheda_progetto");
     $didattica_options->add_field( array(
         'id' => $prefix . 'progetti_istruzioni',
         'name'        => __( 'Sezione Progetti', 'design_scuole_italia' ),
