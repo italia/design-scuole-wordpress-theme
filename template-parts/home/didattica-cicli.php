@@ -136,7 +136,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                             <div id="tab-dirigenza" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
 
-                                    <h3 class="mb-0" style="color: white">Dirigenza e amministrazione</h3>
+                                    <h3 class="mb-0">Dirigenza e amministrazione</h3>
                                     <ul style="background-color: transparent !important">
                                         <li><strong>Sede principale</strong> Piazza Umberto I, 15 - 88900 Crotone (KR)</li>
                                         <li><strong>Telefono</strong> 0962-905731</li>
@@ -145,7 +145,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         <li><strong>Codice Fiscale</strong> 81004910790</li>
                                         <li><strong>Codice Meccanografico</strong> KRPC02000L</li>
                                     </ul>
-                                    <h4 style="color: white">Dirigente</h4>
+                                    <h4>Dirigente</h4>
                                     <p>Natascia Senatore</p>
 
                                     <p>
@@ -172,7 +172,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
 
                             <div id="tab-albo" class="responsive-tabs-content">
                                 <div class="accordion-large accordion-wrapper">
-                                <h3 class="mb-0" style="margin-bottom: 25px; color: white">Albo online e trasparenza</h3>
+                                <h3 class="">Albo online e trasparenza</h3>
                                 <p>
                                         <a href="/tipologia-documento/albo-online/" class="btn" style="background-color:#0a00cb; text-decoration:none; color: white">Visita l'albo online</a>
                                 </p>
