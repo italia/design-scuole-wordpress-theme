@@ -79,13 +79,13 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 
                 <?php
                 if((count($tipologie_notizie) == 1) && ($column > 1))
-                    echo '<div class="row variable-gutters" style="display: flex; justify-content: space-between" id="row-circolare">';
+                    echo '<div class="row variable-gutters">';
 
                 $set_card_top_margin = false;
 
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($column > 1))
-                        echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
+                        echo '<div style="display: flex; justify-content: space-between" id="row-circolare">';
 
                     get_template_part("template-parts/single/card", "vertical-thumb");
 
