@@ -9903,7 +9903,7 @@ a {
 }
 
 .card-vertical-thumb .card-body {
-    display: flex;
+    /* display: flex; */
     padding: 0
 }
 
