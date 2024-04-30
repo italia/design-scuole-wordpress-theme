@@ -9908,7 +9908,7 @@ a {
 }
 
 .card-vertical-thumb .card-body .card-thumb {
-    width: 95px;
+    width: 100%;
     flex-shrink: 0;
     height: auto
 }
@@ -9916,12 +9916,13 @@ a {
 .card-vertical-thumb .card-body .card-thumb img {
     display: block;
     width: 100%;
-    height: auto
+    height: auto;
+    object-fit: cover;
 }
 
 .card-vertical-thumb .card-body .card-content {
     padding: 15px 15px 10px 20px;
-    min-height: 165px
+    /*min-height: 165px*/
 }
 
 .card-vertical-thumb .card-body .card-content .h4, .card-vertical-thumb .card-body .card-content .h5, .card-vertical-thumb .card-body .card-content h4, .card-vertical-thumb .card-body .card-content h5 {
