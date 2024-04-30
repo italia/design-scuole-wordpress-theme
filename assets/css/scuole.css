@@ -9910,13 +9910,13 @@ a {
 .card-vertical-thumb .card-body .card-thumb {
     width: 100%;
     flex-shrink: 0;
-    max-height: 150px
+    max-height: 200px
 }
 
 .card-vertical-thumb .card-body .card-thumb img {
     display: block;
     width: 100%;
-    height: auto;
+    max-height: 200px;
     object-fit: cover;
 }
 
