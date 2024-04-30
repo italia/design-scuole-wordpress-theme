@@ -76,9 +76,10 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                     <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
+                
                 <?php
                 if((count($tipologie_notizie) == 1) && ($column > 1))
-                    echo '<div class="row variable-gutters">';
+                    echo '<div class="row variable-gutters" style="display: flex; justify-content: space-between" id="row-circolare">';
 
                 $set_card_top_margin = false;
 
