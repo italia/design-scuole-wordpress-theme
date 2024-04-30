@@ -109,7 +109,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
     if($home_show_events != "false") { ?>
 
-        <div class="col-lg-4">
+        <div class="col-lg-12">
 
         <!-- <div class="title-section <?php if($home_show_events == "true_event") echo 'pb-4'; ?>"> -->
         <div class="title-section pb-4">
