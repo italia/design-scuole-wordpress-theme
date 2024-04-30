@@ -71,7 +71,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
             if (is_array($posts) && count($posts)) { 
             ?>
-            <div class="col-lg-<?php echo $lg; ?>">
+            <div class="col-lg-12">
                 <div class="title-section pb-4">
                     <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
