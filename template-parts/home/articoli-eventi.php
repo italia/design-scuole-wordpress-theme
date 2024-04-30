@@ -76,7 +76,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                     <h2><?php echo $tipologia_notizia->name; ?></h2>
                 </div><!-- /title-section -->
 
-                
+                <div style="display: flex; justify-content: space-between" id="row-circolare">
                 <?php
                 if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '<div class="row variable-gutters">';
@@ -86,7 +86,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 foreach ($posts as $post) {
                     if((count($tipologie_notizie) == 1) && ($column > 1))
                         echo '<div class="col-lg-' . (12/$column) . ' mb-4">';
-
+                    
                     get_template_part("template-parts/single/card", "vertical-thumb");
 
                     if((count($tipologie_notizie) == 1) && ($column > 1))
@@ -98,6 +98,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 if((count($tipologie_notizie) == 1) && ($column > 1))
                     echo '</div>';
                 ?>
+                </div>
                 <div class="py-4">
                     <a class="text-underline" href="<?php echo get_term_link($tipologia_notizia); ?>"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
                 </div>
