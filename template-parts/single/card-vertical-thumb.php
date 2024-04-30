@@ -47,5 +47,5 @@ $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
         }
             ?>
 	</div><!-- /card-comments-wrapper -->
+    */?>
 </div><!-- /card --><?php
-*/?>
