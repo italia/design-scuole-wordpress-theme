@@ -34,6 +34,7 @@ $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
 			</div>
 		<?php  } ?>
 	</div><!-- /card-body -->
+    <?php /*
 	<div class="card-comments-wrapper">
 		<?php get_template_part("template-parts/autore/card"); ?>
         <?php
@@ -47,3 +48,4 @@ $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
             ?>
 	</div><!-- /card-comments-wrapper -->
 </div><!-- /card --><?php
+*/?>
