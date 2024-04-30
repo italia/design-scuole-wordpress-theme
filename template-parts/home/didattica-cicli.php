@@ -99,7 +99,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                                     <div tabindex="0" class="accordion-large-content accordion-content">
                                                         <?php echo wpautop($descrizione); ?>
                                                         <p><a href="<?php echo get_permalink($indirizzo); ?>"
-                                                              class="btn"
+                                                              class="btn"  style="background-color: #EA7653;"
                                                               ><?php _e("Per saperne di più", "design_scuole_italia"); ?></a>
                                                         </p>
                                                     </div><!-- /accordion-large-content -->
@@ -116,7 +116,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                         ?>
 
                                         <div class="text-center text-sm-left">
-                                            <a class="btn mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
+                                            <a class="btn mt-4 mb-2" href="<?php echo get_permalink($idstruttura); ?>" style="background-color: #EA7653;"><?php _e("Vai alla presentazione della scuola", "design_scuole_italia"); ?></a>
                                         </div>
 
                                     </div>
@@ -149,7 +149,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                     <p>Natascia Senatore</p>
 
                                     <p>
-                                        <a href="/la-scuola/" class="btn" style="background-color: #0a00cb; text-decoration:none; color: white">Tutto sulla nostra Scuola</a>
+                                        <a href="/la-scuola/" class="btn">Tutto sulla nostra Scuola</a>
                                     </p>
                                 </div>
                             </div><!-- /accordion-large-content -->
@@ -174,11 +174,11 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 <div class="accordion-large accordion-wrapper">
                                 <h3 class="">Albo online e trasparenza</h3>
                                 <p>
-                                        <a href="/tipologia-documento/albo-online/" class="btn" style="background-color:#0a00cb; text-decoration:none; color: white">Visita l'albo online</a>
+                                        <a href="/tipologia-documento/albo-online/" class="btn">Visita l'albo online</a>
                                 </p>
 
                                 <p>
-                                        <a href="/amministrazione-trasparente/" class="btn" style="background-color:#0a00cb; text-decoration:none; color: white">Amministrazione trasparente</a>
+                                        <a href="/amministrazione-trasparente/" class="btn">Amministrazione trasparente</a>
                                 </p>
                                     
                                 </div>
