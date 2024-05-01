@@ -184,7 +184,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>
             </div>
 
-            <?php echo do_shortcode('[wp-rss-aggregator feeds="albo-online"]'); ?>
+            
         </div>
 
       
@@ -196,6 +196,13 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
          Modifica per Liceo Pitagora     
          */
         ?>
+
+        <div class="col-lg-12">
+        <div class="title-section pb-4">
+                <h2><?php _e("Albo Online", "design_scuole_italia"); ?></h2>
+            </div><!-- /title-section -->
+            <?php echo do_shortcode('[wp-rss-aggregator feeds="albo-online"]'); ?>
+        </div>
     <?php
     }
     ?>
