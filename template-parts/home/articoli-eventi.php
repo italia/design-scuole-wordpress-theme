@@ -202,6 +202,10 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 <h2><?php _e("Albo Online", "design_scuole_italia"); ?></h2>
             </div><!-- /title-section -->
             <?php echo do_shortcode('[wp-rss-aggregator feeds="albo-online"]'); ?>
+
+            <div class="py-4">
+                <a class="text-underline" href="https://nuvola.madisoft.it/bacheca-digitale/bacheca/KRPC02000L/1/IN_PUBBLICAZIONE/0/show"><strong><?php _e("Vedi tutti", "design_scuole_italia"); ?></strong></a>
+            </div>
         </div>
     <?php
     }
