@@ -14076,7 +14076,8 @@ button.icon-text {
 }
 
 .logo-header a:hover {
-    text-decoration: none
+    text-decoration: none;
+    color: #000;
 }
 
 .is-sticky .logo-header {
