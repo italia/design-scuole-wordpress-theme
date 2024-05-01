@@ -149,7 +149,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                     <p>Natascia Senatore</p>
 
                                     <p>
-                                        <a href="/la-scuola/" class="btn">Tutto sulla nostra Scuola</a>
+                                        <a href="/la-scuola/" class="btn" style="background-color: #EA7653;">Tutto sulla nostra Scuola</a>
                                     </p>
                                 </div>
                             </div><!-- /accordion-large-content -->
@@ -174,11 +174,11 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                 <div class="accordion-large accordion-wrapper">
                                 <h3 class="">Albo online e trasparenza</h3>
                                 <p>
-                                        <a href="/tipologia-documento/albo-online/" class="btn">Visita l'albo online</a>
+                                        <a href="/tipologia-documento/albo-online/" class="btn" style="background-color: #EA7653;">Visita l'albo online</a>
                                 </p>
 
                                 <p>
-                                        <a href="/amministrazione-trasparente/" class="btn">Amministrazione trasparente</a>
+                                        <a href="/amministrazione-trasparente/" class="btn" style="background-color: #EA7653;">Amministrazione trasparente</a>
                                 </p>
                                     
                                 </div>
