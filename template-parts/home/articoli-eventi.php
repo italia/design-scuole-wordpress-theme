@@ -184,6 +184,7 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
                 <a class="text-underline" href="<?php echo get_post_type_archive_link("circolare"); ?>"><strong><?php _e("Vedi tutte", "design_scuole_italia"); ?></strong></a>
             </div>
 
+            <?php echo do_shortcode('[wp-rss-aggregator feeds="albo-online"]'); ?>
         </div>
 
       
