@@ -5745,7 +5745,7 @@ a.text-petrol:focus, a.text-petrol:hover {
 }
 
 .text-redbrown {
-    color: #d1344c !important
+    color: #EA7653 !important
 }
 
 a.text-redbrown:focus, a.text-redbrown:hover {
@@ -16993,7 +16993,7 @@ button.icon-text {
     font-size: 3.32rem;
     font-weight: 400;
     letter-spacing: -1.8px;
-    color: #455b71;
+    color: #000;
     padding: 0 20px 0 20px;
     line-height: 1.17
 }
