@@ -13,7 +13,7 @@ $image_url = get_the_post_thumbnail_url($post, "vertical-card");
 			</div>
 		<?php  } ?>
 		<div class="card-content flex-grow-1">
-			<h3 class="h5"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
+			<h3 class="h5" style="font-weight: 600"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
 
 <?php
         if($post->post_type == "post") {
