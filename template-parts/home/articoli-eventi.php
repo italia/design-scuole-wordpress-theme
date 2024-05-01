@@ -186,6 +186,8 @@ if(is_array($tipologie_notizie) && count($tipologie_notizie)){
 
         </div>
 
+        <?php echo do_shortcode['[wp-rss-aggregator feeds="albo-online"]']; ?>
+
         <?php
          /*
          END
