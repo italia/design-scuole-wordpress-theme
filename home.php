@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-    <main id="main-container" class="main-container redbrown" style="background-image: url('https://www.liceopitagoracrotone.edu.it/wp-content/themes/design-scuole-wordpress-theme/assets/img/Background_Full.png')">
+    <main id="main-container" class="main-container redbrown" style="background-image: url('https://www.liceopitagoracrotone.edu.it/wp-content/themes/design-scuole-wordpress-theme/assets/img/Background_Full.png'); background-size: cover">
         <?php
         if ( have_posts() ) :
             $messages = dsi_get_option( "messages", "home_messages" );
