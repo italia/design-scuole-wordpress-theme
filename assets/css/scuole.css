@@ -3114,6 +3114,7 @@
     background-color: #EA7653;
     display: inline-block;
     font-weight: 600;
+    text-transform: uppercase;
     color: #19191a;
     text-align: center;
     vertical-align: middle;
@@ -14202,10 +14203,6 @@ button.icon-text {
     position: relative;
     z-index: 2;
     display: inline-block
-}
-
-#sub-nav ul.nav-list>li>a:hover{
-    
 }
 
 #sub-nav ul.nav-list>li>a::after {
