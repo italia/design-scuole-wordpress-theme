@@ -50,8 +50,8 @@ if(!$image_url)
         <?php
         }
         ?>
-        <div class="card-author">
+        <!-- <div class="card-author">
             <p>da <a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php echo dsi_get_display_name($autore->ID); ?></a></p>
-        </div><!-- /card-author -->
+        </div>/card-author -->
     </div><!-- /card-body -->
 </div><!-- /card -->
