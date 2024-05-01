@@ -6831,7 +6831,7 @@ a {
 }
 
 .icon-bluelectric {
-    fill: #bdd6e8 !important
+    fill: #3c87bd !important
 }
 
 .form-check [type=checkbox]:focus+label, .form-check [type=radio]:focus+label, .toggles label input[type=checkbox]:focus+.lever, :focus {
