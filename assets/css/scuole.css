@@ -6831,7 +6831,7 @@ a {
 }
 
 .icon-bluelectric {
-    fill: #0D00FF !important
+    fill: #bdd6e8 !important
 }
 
 .form-check [type=checkbox]:focus+label, .form-check [type=radio]:focus+label, .toggles label input[type=checkbox]:focus+.lever, :focus {
@@ -9508,7 +9508,7 @@ a {
 .card.card-article .card-article-img .icon-bluelectric {
     bottom: -27px;
     right: -50px;
-    fill: #0D00FF;
+    fill: #bdd6e8;
     width: 230px;
     height: 230px
 }
