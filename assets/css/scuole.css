@@ -15438,7 +15438,7 @@ button.icon-text {
     width: 64px;
     height: 72px;
     display: block;
-    fill: white
+    fill: black
 }
 
 @media (max-width:991.98px) {
