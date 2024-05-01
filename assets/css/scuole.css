@@ -5439,8 +5439,7 @@ a.bg-gray100:focus, a.bg-gray100:hover, button.bg-gray100:focus, button.bg-gray1
 }
 
 .bg-white {
-    background-image: url('https://www.liceopitagoracrotone.edu.it/wp-content/themes/design-scuole-wordpress-theme/assets/img/Background_Full.png');
-    background-size: contain;
+    background-color: #fff !important
 }
 
 a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover {
@@ -5535,9 +5534,9 @@ a.bg-900:focus, a.bg-900:hover, button.bg-900:focus, button.bg-900:hover {
     background-color: #000 !important
 }
 
-.bg-white {
+/* .bg-white {
     background-color: #fff !important
-}
+} */
 
 .bg-transparent {
     background-color: transparent !important
