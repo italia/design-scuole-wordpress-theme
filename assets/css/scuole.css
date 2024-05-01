@@ -15475,6 +15475,7 @@ button.icon-text {
 
 .footer-wrapper .h3, .footer-wrapper h3 {
     color: #000;
+    opacity: 87%;
     font-size: 1.13rem
 }
 
@@ -16194,7 +16195,7 @@ button.icon-text {
     letter-spacing: -1.8px;
     line-height: 1.17;
     padding: 0;
-    color: #17324d
+    color: #000
 }
 
 @media (max-width:1199.98px) {
@@ -16225,7 +16226,7 @@ button.icon-text {
     font-size: 1.34rem;
     line-height: 1.37;
     font-weight: 400;
-    color: #17324d
+    color: #000
 }
 
 .article-title .title-content .h2, .article-title .title-content h2 {
