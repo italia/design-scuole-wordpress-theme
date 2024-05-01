@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-    <main id="main-container" class="main-container redbrown" style="background-image: url(assets/css/images/Background_Full.png)">
+    <main id="main-container" class="main-container redbrown" style="background-image: url('assets/css/images/Background_Full.png')">
         <?php
         if ( have_posts() ) :
             $messages = dsi_get_option( "messages", "home_messages" );
