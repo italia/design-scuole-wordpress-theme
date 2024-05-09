@@ -1248,6 +1248,10 @@ label > span {
   color: #0073E6;
 }
 
+article.article-wrapper ul {
+  list-style-type: disc;
+}
+
 .post-type-archive-circolare .form-check [type=checkbox], .post-type-archive-circolare .form-check [type=radio], .tax-tipologia-documento .form-check [type=checkbox], .tax-tipologia-documento .form-check [type=radio], .tax-tipologia-circolare .form-check [type=checkbox], .tax-tipologia-circolare .form-check [type=radio], .tax-tipologia-struttura .form-check [type=checkbox], .tax-tipologia-struttura .form-check [type=radio] {
   opacity: 1;
 }
