@@ -1183,7 +1183,41 @@ function dsi_register_main_options_metabox() {
         ),
     ) );
 
+    $progetti_landing_url = get_post_type_archive_link("scheda_progetto");
+    $didattica_options->add_field( array(
+        'id' => $prefix . 'progetti_istruzioni',
+        'name'        => __( 'Sezione Progetti', 'design_scuole_italia' ),
+        'desc' => __( 'Inserisci qui le informazioni utili a popolare <a href="'.$progetti_landing_url.'">la pagina di panoramica dei progetti</a>.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
 
+    $didattica_options->add_field(array(
+        'name'             => __('Ordinamento dei progetti', 'design_scuole_italia'),
+        'desc'             => __('Scegli il criterio in base a cui ordinare i progetti nella pagina di panoramica.', 'design_scuole_italia'),
+        'id'               => $prefix . 'ordinamento_progetti',
+        'type'             => 'select',
+        'default'          => 'realizzato',
+        'options'          => array(
+            'realizzato'       => __('Realizzato / non realizzato', 'design_scuole_italia'),
+            'anno_scolastico'  => __('Anno scolastico', 'design_scuole_italia'),
+            'date'             => __('Data di pubblicazione', 'design_scuole_italia'),
+            'timestamp_inizio' => __('Data di inizio del progetto', 'design_scuole_italia'),
+            'timestamp_fine'   => __('Data di fine del progetto', 'design_scuole_italia'),
+            'title'            => __('Titolo', 'design_scuole_italia'),
+        ),
+    ));
+
+    $didattica_options->add_field(array(
+        'name'             => __("Direzione dell'ordinamento", 'design_scuole_italia'),
+        'desc'             => __('Scegli se ordinare i progetti in ordine crescente o descrescente (se l\'ordine è in base a "Realizzato / non realizzato", l\'opzione "Decrescente" mostra prima i progetti realizzati).', 'design_scuole_italia'),
+        'id'               => $prefix . 'direzione_ordinamento_progetti',
+        'type'             => 'radio_inline',
+        'options'          => array(
+            'desc'             => __('Decrescente', 'cmb2'),
+            'asc'              => __('Crescente', 'cmb2'),
+        ),
+        'default' => 'desc',
+    ));
 
 /*
     $didattica_options->add_field( array(
