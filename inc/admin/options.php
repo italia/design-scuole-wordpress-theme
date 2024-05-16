@@ -1452,7 +1452,7 @@ function dsi_register_main_options_metabox() {
         'title'        => esc_html__( 'Login', 'design_scuole_italia' ),
         'object_types' => array( 'options-page' ),
         'option_key'   => 'login',
-        'tab_title'    => __('Servizi esterni', "design_scuole_italia"),
+        'tab_title'    => __('Accesso ai servizi', "design_scuole_italia"),
         'parent_slug'  => 'dsi_options',
         'tab_group'    => 'dsi_options',
         'capability'    => 'manage_options',
@@ -1466,15 +1466,15 @@ function dsi_register_main_options_metabox() {
     $login_options = new_cmb2_box( $args );
 
     $login_options->add_field( array(
-        'id' => $prefix . 'login_istruzioni',
-        'name'        => __( 'Servizi esterni: informazioni di login', 'design_scuole_italia' ),
+        'id' => $prefix . 'link_esterni_istruzioni',
+        'name'        => __( 'Servizi esterni', 'design_scuole_italia' ),
         'desc' => __( 'Area di configurazione dei link di login ai servizi esterni, da mostrare nella maschera di login .' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
-
+    
     $login_options->add_field( array(
         'id' => $prefix . 'login_messaggio',
-        'name' => 'Testo da mostrare nell\'area di login',
+        'name' => 'Introduzione alla lista dei servizi esterni',
         'type' => 'textarea',
         'default' => 'Da qui puoi accedere ai diversi servizi della scuola che richiedono una autenticazione personale.',
     ) );
@@ -1506,6 +1506,30 @@ function dsi_register_main_options_metabox() {
         'type' => 'text_url',
     ) );
 
+    
+    $login_options->add_field( array(
+        'id' => $prefix . 'login_istruzioni',
+        'name'        => __( 'Area riservata di Wordpress', 'design_scuole_italia' ),
+        'desc' => __( 'Configurazione della sezione di accesso all\'area riservata di Wordpress.' , 'design_scuole_italia' ),
+        'type' => 'title',
+    ) );
+
+	$login_options->add_field( array(
+		'id' => $prefix . 'login_title',
+		'name' => 'Titolo per il modulo di login',
+		'desc' => __( 'Titolo presente nella sezione di accesso all\'area riservata di Wordpress (se non compilato viene mostrato "Personale scolastico")', 'design_scuole_italia' ),
+		'type' => 'text',
+        'default' => 'Personale scolastico',
+    ) );
+
+    
+	$login_options->add_field( array(
+		'id' => $prefix . 'login_desc',
+		'name' => 'Descrizione per il modulo di login',
+		'desc' => __( 'Introduzione presente nella sezione di accesso all\'area riservata di Wordpress (se non compilato, viene mostrato "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.")', 'design_scuole_italia' ),
+		'type' => 'text',
+        'default' => 'Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.',
+    ) );
 
     /**
      * Registers options page "Socials".
