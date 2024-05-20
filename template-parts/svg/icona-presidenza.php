@@ -2,7 +2,7 @@
 global $icon_color;
 global $second_icon_color;
 if(!$icon_color)
-	$icon_color = "#D1344C";
+	$icon_color = "#EA7653";
 
 if(!$second_icon_color)
 	$second_icon_color = "#ffccd4";
