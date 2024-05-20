@@ -144,7 +144,7 @@ if ( ! function_exists( 'dsi_setup' ) ) :
             add_image_size( 'article-simple-thumb', 500, 384 , true);
             add_image_size( 'item-thumb', 280, 280 , true);
             add_image_size( 'item-gallery', 730, 485 , true);
-            add_image_size( 'vertical-card', 190, 290 , true);
+            add_image_size( 'vertical-card', 350, 200 , true);
 
             add_image_size( 'banner', 600, 250 , false);
         }
