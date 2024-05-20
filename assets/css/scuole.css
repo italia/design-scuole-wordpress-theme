@@ -17303,7 +17303,7 @@ button.icon-text {
 .big-quote .h2, .big-quote h2 {
     font-size: 6rem;
     font-weight: 600;
-    color: #fff;
+    color: #000;
     position: relative;
     z-index: 0;
     padding: 180px 0 180px 0;
