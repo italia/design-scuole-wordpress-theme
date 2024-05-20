@@ -7965,14 +7965,14 @@ a {
 }
 
 .badge-outline-petrol {
-    color: #51758d;
-    border-color: #51758d
+    color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-petrol:hover {
     color: #fff;
-    background-color: #51758d;
-    border-color: #51758d
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-petrol.focus, .badge-outline-petrol:focus {
@@ -7980,14 +7980,14 @@ a {
 }
 
 .badge-outline-petrol.disabled, .badge-outline-petrol:disabled {
-    color: #51758d;
+    color: #3C7CAA;
     background-color: transparent
 }
 
 .badge-outline-petrol:not(:disabled):not(.disabled).active, .badge-outline-petrol:not(:disabled):not(.disabled):active, .show>.badge-outline-petrol.dropdown-toggle {
     color: #fff;
-    background-color: #51758d;
-    border-color: #51758d
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-petrol:not(:disabled):not(.disabled).active:focus, .badge-outline-petrol:not(:disabled):not(.disabled):active:focus, .show>.badge-outline-petrol.dropdown-toggle:focus {
@@ -7995,14 +7995,14 @@ a {
 }
 
 .badge-outline-redbrown {
-    color: #d1344c;
-    border-color: #d1344c
+    color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-redbrown:hover {
     color: #fff;
-    background-color: #d1344c;
-    border-color: #d1344c
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-redbrown.focus, .badge-outline-redbrown:focus {
@@ -8010,14 +8010,14 @@ a {
 }
 
 .badge-outline-redbrown.disabled, .badge-outline-redbrown:disabled {
-    color: #d1344c;
+    color: #3C7CAA;
     background-color: transparent
 }
 
 .badge-outline-redbrown:not(:disabled):not(.disabled).active, .badge-outline-redbrown:not(:disabled):not(.disabled):active, .show>.badge-outline-redbrown.dropdown-toggle {
     color: #fff;
-    background-color: #d1344c;
-    border-color: #d1344c
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-redbrown:not(:disabled):not(.disabled).active:focus, .badge-outline-redbrown:not(:disabled):not(.disabled):active:focus, .show>.badge-outline-redbrown.dropdown-toggle:focus {
@@ -8025,14 +8025,14 @@ a {
 }
 
 .badge-outline-purplelight {
-    color: #b21dd0;
-    border-color: #b21dd0
+    color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-purplelight:hover {
     color: #fff;
-    background-color: #b21dd0;
-    border-color: #b21dd0
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-purplelight.focus, .badge-outline-purplelight:focus {
@@ -8040,14 +8040,14 @@ a {
 }
 
 .badge-outline-purplelight.disabled, .badge-outline-purplelight:disabled {
-    color: #b21dd0;
+    color: #3C7CAA;
     background-color: transparent
 }
 
 .badge-outline-purplelight:not(:disabled):not(.disabled).active, .badge-outline-purplelight:not(:disabled):not(.disabled):active, .show>.badge-outline-purplelight.dropdown-toggle {
     color: #fff;
-    background-color: #b21dd0;
-    border-color: #b21dd0
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-purplelight:not(:disabled):not(.disabled).active:focus, .badge-outline-purplelight:not(:disabled):not(.disabled):active:focus, .show>.badge-outline-purplelight.dropdown-toggle:focus {
@@ -8055,14 +8055,14 @@ a {
 }
 
 .badge-outline-greendark {
-    color: #0e865c;
-    border-color: #0e865c
+    color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-greendark:hover {
     color: #fff;
-    background-color: #0e865c;
-    border-color: #0e865c
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-greendark.focus, .badge-outline-greendark:focus {
@@ -8070,14 +8070,14 @@ a {
 }
 
 .badge-outline-greendark.disabled, .badge-outline-greendark:disabled {
-    color: #0e865c;
+    color: #3C7CAA;
     background-color: transparent
 }
 
 .badge-outline-greendark:not(:disabled):not(.disabled).active, .badge-outline-greendark:not(:disabled):not(.disabled):active, .show>.badge-outline-greendark.dropdown-toggle {
     color: #fff;
-    background-color: #0e865c;
-    border-color: #0e865c
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-greendark:not(:disabled):not(.disabled).active:focus, .badge-outline-greendark:not(:disabled):not(.disabled):active:focus, .show>.badge-outline-greendark.dropdown-toggle:focus {
@@ -8085,14 +8085,14 @@ a {
 }
 
 .badge-outline-bluelectric {
-    color: #0d00ff;
-    border-color: #0d00ff
+    color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-bluelectric:hover {
     color: #fff;
-    background-color: #0d00ff;
-    border-color: #0d00ff
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-bluelectric.focus, .badge-outline-bluelectric:focus {
@@ -8100,14 +8100,14 @@ a {
 }
 
 .badge-outline-bluelectric.disabled, .badge-outline-bluelectric:disabled {
-    color: #0d00ff;
+    color: #3C7CAA;
     background-color: transparent
 }
 
 .badge-outline-bluelectric:not(:disabled):not(.disabled).active, .badge-outline-bluelectric:not(:disabled):not(.disabled):active, .show>.badge-outline-bluelectric.dropdown-toggle {
     color: #fff;
-    background-color: #0d00ff;
-    border-color: #0d00ff
+    background-color: #3C7CAA;
+    border-color: #3C7CAA
 }
 
 .badge-outline-bluelectric:not(:disabled):not(.disabled).active:focus, .badge-outline-bluelectric:not(:disabled):not(.disabled):active:focus, .show>.badge-outline-bluelectric.dropdown-toggle:focus {
