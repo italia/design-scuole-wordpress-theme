@@ -13,7 +13,7 @@ $codice_meccanografico = dsi_get_meta("codice_meccanografico", "", $struttura->I
 		<div class="card-body">
 			<?php get_template_part("template-parts/svg/icona",$tipologia); ?>
             <div class="card-icon-content"  id="card-desc-<?php echo $struttura->ID; ?>">
-                <p><strong class="text-white"><?php echo $struttura->post_title; ?></strong></p>
+                <p><strong><?php echo $struttura->post_title; ?></strong></p>
                 <?php
                 if($codice_meccanografico != "") {
                     ?>
