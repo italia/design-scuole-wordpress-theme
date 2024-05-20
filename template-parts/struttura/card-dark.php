@@ -6,7 +6,7 @@ if($tipologie){
 	$tipologia = $tipologie[0]->slug;
 }
 ?>
-<div class="card card-bg  bg-color bg-dark card-icon-main rounded">
+<div class="card card-bg card-icon-main rounded" style="color: black; background-color: #EA7653">
     <a href="<?php echo get_permalink($struttura); ?>" aria-describedby="card-desc-<?php echo $struttura->ID; ?>">
 		<div class="card-body">
 			<?php get_template_part("template-parts/svg/icona",$tipologia); ?>
