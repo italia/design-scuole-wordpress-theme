@@ -11,7 +11,7 @@ if($tipologie){
 		<div class="card-body">
 			<?php get_template_part("template-parts/svg/icona",$tipologia); ?>
             <div class="card-icon-content"  id="card-desc-<?php echo $struttura->ID; ?>">
-                <p><?php echo $struttura->post_title; ?></strong></p>
+                <p><strong><?php echo $struttura->post_title; ?></strong></p>
 			</div><!-- /card-icon-content -->
 		</div><!-- /card-body -->
 	</a>
