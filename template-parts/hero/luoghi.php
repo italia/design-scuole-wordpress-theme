@@ -1,7 +1,7 @@
 <?php
 $testo_sezione_luoghi = dsi_get_option("testo_sezione_luoghi", "luoghi");
 ?>
-<section class="section bg-bluelectric bg-red-gradient py-5 position-relative d-flex align-items-center overflow-hidden" >
+<section class="section bg-bluelectric py-5 position-relative d-flex align-items-center overflow-hidden" >
     <div class="container">
         <div class="row variable-gutters">
             <div class="col-md-5">
