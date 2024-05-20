@@ -26,7 +26,7 @@ get_header();
 
                     $classcolor = "bg-white";
                     if ($i % 2)
-                        $classcolor = "bg-white";
+                        $classcolor = "bg-gray-light";
 
                     $responsabile = dsi_get_meta("responsabile", "_dsi_struttura_", $struttura->ID);
                     $persone = dsi_get_meta("persone", "_dsi_struttura_", $struttura->ID);
