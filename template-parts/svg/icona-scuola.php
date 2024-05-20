@@ -1,10 +1,10 @@
 <?php
 global $icon_color;
 if(!$icon_color)
-    $icon_color = "#D1344C";
+    $icon_color = "#000";
 
 if(!isset($second_icon_color))
-	$second_icon_color = "#ffccd4";
+	$second_icon_color = "#F0A18A";
 ?>
 
 <svg class="icon" width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"  aria-hidden="true">
