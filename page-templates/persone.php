@@ -26,7 +26,7 @@ get_header();
 
                     $classcolor = "bg-white";
                     if ($i % 2)
-                        $classcolor = "bg-gray-light";
+                        $classcolor = "bg-white";
 
                     $responsabile = dsi_get_meta("responsabile", "_dsi_struttura_", $struttura->ID);
                     $persone = dsi_get_meta("persone", "_dsi_struttura_", $struttura->ID);
@@ -77,7 +77,7 @@ get_header();
                                                 $autore = get_user_by("ID", $idutente);
                                                 ?>
                                                 <div class="col-lg-4">
-                                                    <div class="card card-bg bg-color bg-dark card-avatar rounded mb-3">
+                                                    <div class="card card-bg card-avatar rounded mb-3" style="color: black; background-color: #EA7653">
                                                         <div class="card-body">
                                                             <?php get_template_part("template-parts/autore/card"); ?>
                                                         </div><!-- /card-body -->
