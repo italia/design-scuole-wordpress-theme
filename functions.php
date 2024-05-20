@@ -465,3 +465,7 @@ function add_logo_Login_page() {
 	</style>';
 }
 	add_action( 'login_head', 'add_logo_Login_page' );
+
+
+	
+add_filter('jpeg_quality', function($arg){return 100;});
