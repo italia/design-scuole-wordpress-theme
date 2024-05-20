@@ -17998,7 +17998,7 @@ button.icon-text {
 
 .menu-dropdown .link-list .list-item:hover, .nav-link.dropdown-toggle.active, .nav-link:hover, .toggle-dropdown.active {
     text-decoration: underline;
-    color: #3C7CAA;
+    color: #3C7CAA !important;
 }
 
 .text-underline-hover {
