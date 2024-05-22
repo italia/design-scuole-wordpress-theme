@@ -3492,9 +3492,9 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-purplelight {
-    color: #fff;
-    background-color: #b21dd0;
-    border-color: #b21dd0;
+    color: #000;
+    background-color: #EA7653;
+    border-color: #EA7653;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075)
 }
 
@@ -3525,9 +3525,9 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-greendark {
-    color: #fff;
-    background-color: #0e865c;
-    border-color: #0e865c;
+    color: #000;
+    background-color: #EA7653;
+    border-color: #EA7653;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075)
 }
 
@@ -3558,9 +3558,9 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-bluelectric {
-    color: #fff;
-    background-color: #0d00ff;
-    border-color: #0d00ff;
+    color: #000;
+    background-color: #EA7653;
+    border-color: #EA7653;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075)
 }
 
