@@ -15952,19 +15952,19 @@ button.icon-text {
 }
 
 .purplelight .calendar-vertical .calendar-date .calendar-date-day {
-    color: #b21dd0
+    color: #D1451A
 }
 
 .redbrown .calendar-vertical .calendar-date .calendar-date-day {
-    color: #d1344c
+    color: #D1451A
 }
 
 .greendark .calendar-vertical .calendar-date .calendar-date-day {
-    color: #0e865c
+    color: #D1451A
 }
 
 .bluelectric .calendar-vertical .calendar-date .calendar-date-day {
-    color: #0d00ff
+    color: #D1451A
 }
 
 .calendar-vertical .calendar-date .calendar-date-day p {
@@ -16046,19 +16046,19 @@ button.icon-text {
 }
 
 .purplelight .calendar-vertical .calendar-date .calendar-date-day:after {
-    background-color: #b21dd0
+    background-color: #D1451A
 }
 
 .redbrown .calendar-vertical .calendar-date .calendar-date-day:after {
-    background-color: #d1344c
+    background-color: #D1451A
 }
 
 .greendark .calendar-vertical .calendar-date .calendar-date-day:after {
-    background-color: #0e865c
+    background-color: #D1451A
 }
 
 .bluelectric .calendar-vertical .calendar-date .calendar-date-day:after {
-    background-color: #0d00ff
+    background-color: #D1451A
 }
 
 .calendar-vertical .calendar-date .calendar-date-description {
