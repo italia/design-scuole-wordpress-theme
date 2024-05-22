@@ -16104,19 +16104,19 @@ button.icon-text {
 }
 
 .purplelight .calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
-    background-color: #fbeaff
+    background-color: #F0BCAD
 }
 
 .redbrown .calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
-    background-color: #f7d2d8
+    background-color: #F0BCAD
 }
 
 .greendark .calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
-    background-color: #c0ffb8
+    background-color: #F0BCAD
 }
 
 .bluelectric .calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
-    background-color: #0d00ff
+    background-color: #F0BCAD
 }
 
 .calendar-vertical .calendar-date:last-child .calendar-date-description {
