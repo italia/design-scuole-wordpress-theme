@@ -10250,7 +10250,7 @@ body.push-body.push-body-search #main-header:after, body.push-body.push-body-tol
 
 .splide .splide__arrow [class*=splide__arrow--]:hover {
     background: 0 0;
-    color: #51758d;
+    color: #000;
     text-decoration: none
 }
 
