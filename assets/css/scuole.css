@@ -3499,9 +3499,9 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-purplelight:hover {
-    color: #fff;
-    background-color: #9518ae;
-    border-color: #8c17a3
+    color: #EA7653;
+    background-color: #000;
+    border-color: #000
 }
 
 .btn-purplelight.focus, .btn-purplelight:focus {
