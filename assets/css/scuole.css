@@ -10366,7 +10366,7 @@ body.push-body.push-body-search #main-header:after, body.push-body.push-body-tol
 }
 
 .bluelectric .splide .splide__arrows .splide__arrow--next svg, .bluelectric .splide .splide__arrows .splide__arrow--prev svg {
-    fill: #000
+    fill: #000 !important
 }
 
 .bluelectric .didascalia-text {
@@ -10374,7 +10374,7 @@ body.push-body.push-body-search #main-header:after, body.push-body.push-body-tol
 }
 
 .bluelectric .splide__arrow {
-    color: #000
+    color: #000 !important
 }
 
 .bg-bluelectric .splide .splide__arrows .splide__arrow--next svg, .bg-bluelectric .splide .splide__arrows .splide__arrow--prev svg {
