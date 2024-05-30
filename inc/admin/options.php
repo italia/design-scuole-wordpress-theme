@@ -1066,13 +1066,14 @@ function dsi_register_main_options_metabox() {
 
     $notizie_options->add_field( array(
 		'id' => $prefix . 'testo_notizie',
-		'name'        => __( 'Descrizione Sezione', 'design_scuole_italia' ),
-		'desc' => __( 'es: "Le notizie del liceo scientifico Enriques dedicate a tutti i genitori, studenti, personale ATA e docenti"' , 'design_scuole_italia' ),
+		'name'        => __( 'Descrizione Sezione Notizie', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Le notizie della scuola dedicate a tutti i genitori, studenti, personale ATA e docenti". Il testo compare nella <a href="'.$notizie_landing_url.'">pagina di panoramica delle Novità</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
 		'type' => 'textarea',
 		'attributes'    => array(
 			'maxlength'  => '140'
 		),
 	) );
+
 
 	$notizie_options->add_field( array(
 			'name'       => __('Tipologie Articoli', 'design_scuole_italia' ),
@@ -1085,6 +1086,17 @@ function dsi_register_main_options_metabox() {
 			),
 		)
 	);
+
+    $notizie_options->add_field( array(
+		'id' => $prefix . 'testo_eventi',
+		'name'        => __( 'Descrizione Sezione Calendario eventi', 'design_scuole_italia' ),
+		'desc' => __( 'es: "Calendario scolastico"<br>Il testo compare nella pagina <a href="'.get_post_type_archive_link("evento").'">Calendario eventi</a>. Max 140 caratteri.' , 'design_scuole_italia' ),
+		'type' => 'textarea',
+		'attributes'    => array(
+			'maxlength'  => '140'
+		),
+	) );
+
 
 	$notizie_options->add_field(array(
 	        'id' => $prefix . 'notizie_show_circolari_panoramica',
@@ -1539,14 +1551,14 @@ function dsi_register_main_options_metabox() {
     $login_options->add_field( array(
         'id' => $prefix . 'login_istruzioni',
         'name'        => __( 'Area riservata di Wordpress', 'design_scuole_italia' ),
-        'desc' => __( 'Area di configurazione della sezione di accesso all\'area riservata di Wordpress, da mostrare nella maschera di login.' , 'design_scuole_italia' ),
+        'desc' => __( 'Configurazione della sezione di accesso all\'area riservata di Wordpress.' , 'design_scuole_italia' ),
         'type' => 'title',
     ) );
 
 	$login_options->add_field( array(
 		'id' => $prefix . 'login_title',
 		'name' => 'Titolo per il modulo di login',
-		'desc' => __( 'Titolo visualizzato nella sezione di accesso all\'area riservata di Wordpress, nella maschera di login (Se non compilato, viene valorizzato con "Personale scolastico")', 'design_scuole_italia' ),
+		'desc' => __( 'Titolo presente nella sezione di accesso all\'area riservata di Wordpress (se non compilato viene mostrato "Personale scolastico")', 'design_scuole_italia' ),
 		'type' => 'text',
         'default' => 'Personale scolastico',
     ) );
@@ -1555,7 +1567,7 @@ function dsi_register_main_options_metabox() {
 	$login_options->add_field( array(
 		'id' => $prefix . 'login_desc',
 		'name' => 'Descrizione per il modulo di login',
-		'desc' => __( 'Introduzione visualizzata nella sezione di accesso all\'area riservata di Wordpress, nella maschera di login (Se non compilato, viene valorizzato con "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.")', 'design_scuole_italia' ),
+		'desc' => __( 'Introduzione presente nella sezione di accesso all\'area riservata di Wordpress (se non compilato, viene mostrato "Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.")', 'design_scuole_italia' ),
 		'type' => 'text',
         'default' => 'Entra nel sito della scuola con le tue credenziali per gestire contenuti, visualizzare circolari e altre funzionalità.',
     ) );
