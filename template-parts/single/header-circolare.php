@@ -26,6 +26,13 @@ $autore = get_user_by("ID", $post->post_author);
                 <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
                 <div class="section-title">
                     <h1 class="h2"><?php the_title(); ?></h1>
+                    <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare');
+						if ($post_tags) {
+							foreach($post_tags as $tag) { ?>
+                                <a class="h4 mb-3 text-greendark d-block" href="<?= get_tag_link($tag->term_id) ?>" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
+							<?php }
+						}
+					?>
                     <p><?php echo dsi_get_meta("descrizione"); ?></p>
                 </div><!-- /title-section -->
             </div><!-- /col-lg-5 col-md-8 -->
