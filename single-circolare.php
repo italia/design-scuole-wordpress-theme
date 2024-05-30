@@ -139,16 +139,6 @@ $file_documenti = dsi_get_meta("file_documenti");
                                     ?>
                                 </div><!-- /cards-avatar -->
                             <?php } */ ?>
-				<aside class="badges-wrapper badges-main mt-4">
-					<?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare');
-						if ($post_tags) {
-							echo '<h2 class="h4">Tipologia</h2>';
-							foreach($post_tags as $tag) {
-                                echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a><br>';
-							}
-						}
-					?>
-				</aside>		
                         </div><!-- /col-lg-3 -->
                     </div><!-- /row -->
 

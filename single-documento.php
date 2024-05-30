@@ -48,8 +48,16 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                         </div><!-- /col-lg-2 -->
                         <div class="col-12 col-sm-9 col-lg-5 col-md-8">
                             <div class="section-title">
-                                <?php if(dsi_is_albo($post) && $numerazione_albo){ ?>
-                                    <small class="h6 text-redbrown"><?php echo $numerazione_albo; ?></small>
+                                <?php if ($post_tags = get_the_terms(get_the_ID(), 'tipologia-documento')) {
+                                    $count = 0;
+                                    foreach ($post_tags as $tag) {
+                                        echo $count++ ? ' - ' : '';
+                                ?>
+                                        <a href="<?= get_tag_link($tag->term_id) ?>" class="h6 text-redbrown" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
+                                <?php }
+                                } ?>
+                                <?php if (dsi_is_albo($post) && $numerazione_albo) { ?>
+                                    <p class="h5 mb-1 mt-1"><?= $numerazione_albo ?></p>
                                 <?php } ?>
                                 <h1 class="h2 mb-3"><?php the_title(); ?></h1>
                                 <p><?php if(!post_password_required()) echo dsi_get_meta( "descrizione" ); ?></p>
@@ -63,17 +71,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                             <?php
                                 $badgeclass = "badge-outline-redbrown";
                                 get_template_part( "template-parts/common/badges-argomenti" ); 
-                            ?>
-                        <div class="badges-wrapper badges-main mt-4">
-                            <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-documento');
-                                if ($post_tags) {
-                                    echo '<h2 class="h4">Tipologia</h2>';
-                                    foreach($post_tags as $tag) {
-                                        echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-redbrown" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a> ';
-                                    }
-                                }
-                            ?>
-				        </div>		
+                            ?>	
                     </div><!-- /col-lg-3 col-md-4 offset-lg-1 -->
                 </div><!-- /row -->
                 </div><!-- /container -->
