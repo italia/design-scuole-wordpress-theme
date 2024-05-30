@@ -29,7 +29,7 @@ $autore = get_user_by("ID", $post->post_author);
                     <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare');
 						if ($post_tags) {
 							foreach($post_tags as $tag) { ?>
-                                <a class="h4 mb-3 text-greendark d-block" href="<?= get_tag_link($tag->term_id) ?>" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
+                                <a class="h4 mb-3 text-greendark text-uppercase d-block" href="<?= get_tag_link($tag->term_id) ?>" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
 							<?php }
 						}
 					?>

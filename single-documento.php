@@ -53,7 +53,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                     foreach ($post_tags as $tag) {
                                         echo $count++ ? ' - ' : '';
                                 ?>
-                                        <a href="<?= get_tag_link($tag->term_id) ?>" class="h6 text-redbrown" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
+                                        <a href="<?= get_tag_link($tag->term_id) ?>" class="h6 text-redbrown text-uppercase" aria-label="Tipologia: <?= $tag->name ?>"><?= $tag->name ?></a>
                                 <?php }
                                 } ?>
                                 <?php if (dsi_is_albo($post) && $numerazione_albo) { ?>
