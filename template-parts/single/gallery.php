@@ -35,7 +35,7 @@ foreach ($gallery as $ida => $urlg) {
 							bottom: 0;
 							width: 100%;
 							height: 100%;
-							opacity: 30%;
+							opacity: 50%;
 							">
 						</div>
 						<svg class="svg-play" style="
@@ -44,7 +44,7 @@ foreach ($gallery as $ida => $urlg) {
 							left: calc(50% - 40px);
 							height: 80px;
 							width: 80px;
-							fill: #FFFFFFCC;">
+							fill: #FFFFFFDD;">
 							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-play"></use>
 						</svg>
 					</a>
