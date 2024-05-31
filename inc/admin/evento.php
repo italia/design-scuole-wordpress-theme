@@ -255,7 +255,7 @@ function dsi_add_eventi_metaboxes() {
 	$cmb_undercontent->add_field( array(
 		'id'         => $prefix . 'gallery',
 		'name'       => __( 'Galleria', 'design_scuole_italia' ),
-		'desc'       => __( 'Galleria di immagini e video. I video verranno mostrati con un\'immagine di copertina, da impostare tramite la sezione "Media" di WordPress (se non presente verrà usata la copertina dell\'evento).', 'design_scuole_italia' ),
+		'desc'       => __( 'Galleria di immagini e video. I video verranno mostrati con un\'immagine di copertina, da impostare tramite la sezione "Media" di WordPress e scegliendo un\'immagine in evidenza (se non presente verrà usata l\'immagine in evidenza dell\'evento).', 'design_scuole_italia' ),
 		'type' => 'file_list',
 		// 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
 		'query_args' => array( 'type' => 'image' ), // Only images attachment
