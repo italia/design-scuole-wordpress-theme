@@ -11,6 +11,7 @@
                 <a href="tel:00390962905731" style="margin-right: 10px" target="_blank" aria-label="Numero di telefono del liceo">
                     <strong> <i class="fa fa-phone" aria-hidden="true"></i> 0962905731</strong>
                 </a>
+                <p>codice meccanografico</p>
             </div><!-- /col-6 -->
             <div class="col-4 header-utils-wrapper">
                 <div class="header-utils">
