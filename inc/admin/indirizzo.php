@@ -344,7 +344,6 @@ function dsi_add_indirizzo_metaboxes() {
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
             'textarea_rows' => 4, // rows="..."
-            'teeny' => false,
             'wpautop' => false // output the minimal editor config used in Press This
         ),
 
