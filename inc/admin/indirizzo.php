@@ -337,12 +337,16 @@ function dsi_add_indirizzo_metaboxes() {
         'id' => $prefix . 'libri_testo_descrizione',
         'name'        => __( 'Libri di testo', 'design_scuole_italia' ),
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
-        'type' => 'wysiwyg',
+        'type'    => 'wysiwyg',
+        'attributes'    => array(
+            'required'    => 'required'
+        ),
         'options' => array(
             'media_buttons' => false, // show insert/upload button(s)
             'textarea_rows' => 4, // rows="..."
-            'teeny' => true, // output the minimal editor config used in Press This
+            'teeny' => false, // output the minimal editor config used in Press This
         ),
+
     ) );
     $cmb_undercontent->add_field( array(
         'id' => $prefix . 'libri_testo_file',
