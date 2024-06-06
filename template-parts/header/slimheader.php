@@ -6,7 +6,7 @@
                     <strong>MIUR</strong>
                 </a>
                 <a href="mailto:KRPC02000L@istruzione.it" target="_blank" aria-label="Indirizzo email del liceo">
-                    <strong> <i class="fa-solid fa-envelope"></i> KRPC02000L@istruzione.it</strong>
+                    <strong> <i class="fa fa-envelope" aria-hidden="true"></i> KRPC02000L@istruzione.it</strong>
                 </a>
             </div><!-- /col-6 -->
             <div class="col-4 header-utils-wrapper">
