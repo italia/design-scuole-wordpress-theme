@@ -339,7 +339,7 @@ function dsi_add_indirizzo_metaboxes() {
         'desc' => __( 'Testo introduttivo' , 'design_scuole_italia' ),
         'type'    => 'wysiwyg',
         'attributes'    => array(
-            'required'    => 'required'
+            'required'    => 'required',
         ),
 
     ) );
