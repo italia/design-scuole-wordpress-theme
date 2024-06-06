@@ -341,11 +341,6 @@ function dsi_add_indirizzo_metaboxes() {
         'attributes'    => array(
             'required'    => 'required'
         ),
-        'options' => array(
-            'media_buttons' => false, // show insert/upload button(s)
-            'textarea_rows' => 4, // rows="..."
-            'wpautop' => false // output the minimal editor config used in Press This
-        ),
 
     ) );
     $cmb_undercontent->add_field( array(
