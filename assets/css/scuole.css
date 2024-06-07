@@ -4399,15 +4399,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-bluelectric {
-    color: #0d00ff;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #0d00ff
 }
 
 .btn-outline-bluelectric:hover {
-    color: #140ac2;
-    box-shadow: inset 0 0 0 1px #140ac2
+    color: #bdd6e8;
+    background-color: #000;
 }
 
 .btn-outline-bluelectric.focus, .btn-outline-bluelectric:focus {
@@ -4415,15 +4414,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-bluelectric.disabled, .btn-outline-bluelectric:disabled {
-    color: #0d00ff;
-    background-color: transparent
+    background-color: #aaa;
+    color: #000;
 }
 
 .btn-outline-bluelectric:not(:disabled):not(.disabled).active, .btn-outline-bluelectric:not(:disabled):not(.disabled):active, .show>.btn-outline-bluelectric.dropdown-toggle {
-    color: #0d00ff;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #0d00ff
 }
 
 .btn-outline-bluelectric:not(:disabled):not(.disabled).active:focus, .btn-outline-bluelectric:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-bluelectric.dropdown-toggle:focus {
@@ -4431,15 +4429,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-gray100 {
-    color: #e3e4e6;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #e3e4e6
 }
 
 .btn-outline-gray100:hover {
-    color: #cbcbcb;
-    box-shadow: inset 0 0 0 1px #cbcbcb
+    color: #bdd6e8;
+    background-color: #000;
 }
 
 .btn-outline-gray100.focus, .btn-outline-gray100:focus {
@@ -4447,15 +4444,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-gray100.disabled, .btn-outline-gray100:disabled {
-    color: #e3e4e6;
-    background-color: transparent
+    background-color: #aaa;
+    color: #000;
 }
 
 .btn-outline-gray100:not(:disabled):not(.disabled).active, .btn-outline-gray100:not(:disabled):not(.disabled):active, .show>.btn-outline-gray100.dropdown-toggle {
-    color: #e3e4e6;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #e3e4e6
 }
 
 .btn-outline-gray100:not(:disabled):not(.disabled).active:focus, .btn-outline-gray100:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-gray100.dropdown-toggle:focus {
