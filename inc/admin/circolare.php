@@ -17,7 +17,7 @@ function dsi_register_circolare_post_type()
     $args = array(
         'label' => __('Circolare', 'design_scuole_italia'),
         'labels' => $labels,
-        'supports' => array('title', 'editor'),
+        'supports' => array('title', 'editor', 'author'),
         'taxonomies' => array('post_tag'),
         'hierarchical' => false,
         'public' => true,
