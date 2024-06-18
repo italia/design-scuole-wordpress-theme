@@ -4335,15 +4335,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-purplelight {
-    color: #b21dd0;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #b21dd0
 }
 
 .btn-outline-purplelight:hover {
-    color: #86209a;
-    box-shadow: inset 0 0 0 1px #86209a
+    color: #bdd6e8;
+    background-color: #000;
 }
 
 .btn-outline-purplelight.focus, .btn-outline-purplelight:focus {
@@ -4351,15 +4350,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-purplelight.disabled, .btn-outline-purplelight:disabled {
-    color: #b21dd0;
-    background-color: transparent
+    background-color: #aaa;
+    color: #000;
 }
 
 .btn-outline-purplelight:not(:disabled):not(.disabled).active, .btn-outline-purplelight:not(:disabled):not(.disabled):active, .show>.btn-outline-purplelight.dropdown-toggle {
-    color: #b21dd0;
-    background-color: transparent;
+    color: #000;
+    background-color: #bdd6e8;
     background-image: none;
-    box-shadow: inset 0 0 0 1px #b21dd0
 }
 
 .btn-outline-purplelight:not(:disabled):not(.disabled).active:focus, .btn-outline-purplelight:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-purplelight.dropdown-toggle:focus {
