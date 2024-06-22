@@ -1,3 +1,10 @@
+#pre-header.mobile{display: none}
+
+@media (max-width: 1180px) {
+    #pre-header.desktop{display: none}
+    #pre-header.mobile{display: flex}
+}
+
 .bg-orange{background-color: #EA7653}
 
 .bg-gray-gradient {
