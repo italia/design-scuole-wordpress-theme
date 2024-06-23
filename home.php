@@ -29,6 +29,19 @@ get_header();
             }
 
             ?>
+        <section class="section py-4 bg-redbrown big-quote-wrapper">
+		<div class="big-quote-bg quote">
+		</div>
+		<div class="container">
+			<div class="row variable-gutters justify-content-center">
+				<div class="col-md-10">
+					<div class="big-quote">
+						<h2 style="font-size: 5rem">Da sempre una realtà differente nel sistema scolastico italiano</h2>
+					</div><!-- /big-quote -->
+				</div><!-- /col-md-10 -->
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</section><!-- /section -->    
         <section class="section bg-white">
         <?php get_template_part("template-parts/hero/servizi"); ?>
         <?php get_template_part("template-parts/home/list", "servizi"); ?>
