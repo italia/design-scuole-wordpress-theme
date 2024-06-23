@@ -23,7 +23,7 @@ get_header();
 
             ?>
 
-<section class="section py-4 bg-redbrown big-quote-wrapper">
+<section class="section py-4 bg-white big-quote-wrapper">
 		<div class="big-quote-bg quote">
 		</div>
 		<div class="container">
@@ -37,7 +37,7 @@ get_header();
 		</div><!-- /container -->
 	</section><!-- /section -->    
 
-    
+
             <?php
 
             $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
