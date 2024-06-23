@@ -23,7 +23,7 @@ get_header();
 
             ?>
 
-<section class="section py-4 big-quote-wrapper" style="background-image: url('https://www.liceopitagoracrotone.edu.it/design-scuole-wordpress-theme/assets/css/images'); background-size: cover">
+<section class="section py-4 big-quote-wrapper" style="background-image: url('https://www.liceopitagoracrotone.edu.it/design-scuole-wordpress-theme/assets/css/images/Background.webp'); background-size: cover">
 		<div class="big-quote-bg quote">
 		</div>
 		<div class="container">
