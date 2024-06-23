@@ -21,15 +21,9 @@ get_header();
 
             get_template_part("template-parts/home/banner");
 
-            $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
-            if($home_is_selezione_automatica == "false"){
-                get_template_part("template-parts/home/articoli", "manuali");
-            }else{
-                get_template_part("template-parts/home/articoli", "eventi");
-            }
-
             ?>
-        <section class="section py-4 bg-redbrown big-quote-wrapper">
+
+<section class="section py-4 bg-redbrown big-quote-wrapper">
 		<div class="big-quote-bg quote">
 		</div>
 		<div class="container">
@@ -42,6 +36,18 @@ get_header();
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</section><!-- /section -->    
+
+    
+            <?php
+
+            $home_is_selezione_automatica = dsi_get_option("home_is_selezione_automatica", "homepage");
+            if($home_is_selezione_automatica == "false"){
+                get_template_part("template-parts/home/articoli", "manuali");
+            }else{
+                get_template_part("template-parts/home/articoli", "eventi");
+            }
+
+            ?>
         <section class="section bg-white">
         <?php get_template_part("template-parts/hero/servizi"); ?>
         <?php get_template_part("template-parts/home/list", "servizi"); ?>
