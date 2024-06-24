@@ -387,7 +387,7 @@ global $wp_query;
 /**
  * fix plugin amministrazione aperta
  */
-
+/*
 function dsi_ammap_getJs(){
     wp_deregister_script('ammap_functions');
     wp_dequeue_script('ammap_functions');
@@ -396,7 +396,7 @@ function dsi_ammap_getJs(){
     wp_enqueue_script( 'ammap_functions');
 }
 add_filter('admin_footer', 'dsi_ammap_getJs', 100);
-
+*/
 
 /**
  * Fix plugin bandi
