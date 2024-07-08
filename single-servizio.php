@@ -379,27 +379,31 @@ get_header();
                                             <?php } ?>
                                             <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                                                 <?php
-                                                foreach ($fasi_scadenze as $fase){
-                                                    $arrdata =  explode("-", $fase["data_fase"]);
-                                                    $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
+                                                if (is_array($fasi_scadenze) || is_object($fasi_scadenze)) {
+                                                    foreach ($fasi_scadenze as $fase){
+                                                        $arrdata =  explode("-", $fase["data_fase"]);
+                                                        $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
 
-                                                    ?>
-                                                    <div class="calendar-date">
-                                                        <div class="calendar-date-description rounded">
-                                                            <div class="calendar-date-description-content">
-                                                                <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
-                                                                    <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
-                                                                    <?php
-                                                                }
-                                                                echo wpautop($fase["desc_fase"]); ?>
-                                                            </div><!-- /calendar-date-description-content -->
-                                                        </div><!-- /calendar-date-description -->
-                                                        <h4 class="calendar-date-day">
-                                                            <p><?php echo $arrdata[0]; ?></p>
-                                                            <small><b><?php echo $monthName; ?></b></small>
-                                                        </h4><!-- /calendar-date-day -->
-                                                    </div><!-- /calendar-date -->
-                                                    <?php
+                                                        ?>
+                                                        <div class="calendar-date">
+                                                            <div class="calendar-date-description rounded">
+                                                                <div class="calendar-date-description-content">
+                                                                    <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
+                                                                        <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
+                                                                        <?php
+                                                                    }
+                                                                    echo wpautop($fase["desc_fase"]); ?>
+                                                                </div><!-- /calendar-date-description-content -->
+                                                            </div><!-- /calendar-date-description -->
+                                                            <h4 class="calendar-date-day">
+                                                                <p><?php echo $arrdata[0]; ?></p>
+                                                                <small><b><?php echo $monthName; ?></b></small>
+                                                            </h4><!-- /calendar-date-day -->
+                                                        </div><!-- /calendar-date -->
+                                                        <?php
+                                                    }
+                                                } else {
+
                                                 }
                                                 ?>
                                             </div><!-- /calendar-vertical -->
@@ -468,7 +472,7 @@ get_header();
                                     <?php if(is_array($struttura_responsabile) && count($struttura_responsabile) > 0){
                                     global $struttura;
                                         //$struttura = get_post($struttura_responsabile[0]);
-                                        echo "<h5>".__("Struttura responsabile del servizio", "design_scuole_italia")."</h5>";
+                                        echo "<h3 class=\"h6\">".__("Struttura responsabile del servizio", "design_scuole_italia")."</h3>";
                                         ?>
                                         <div class="row variable-gutters">
                                             <div class="col-lg-9">
