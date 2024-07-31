@@ -20,7 +20,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                         <p><?php _e("A.S.", "design_scuole_italia"); ?> <?php echo dsi_convert_anno_scuola(dsi_get_current_anno_scolastico()) ; ?></p>
                     </div><!-- /title-section -->
                     <div class="tabs-img">
-                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/didattica-mockup.png">
+                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/didattica-mockup.png" alt="">
                     </div>
                     <div class="responsive-tabs responsive-tabs-aside padding-bottom-200">
                             <ul>
