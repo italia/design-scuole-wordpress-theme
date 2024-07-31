@@ -11,7 +11,7 @@ $testo_sezione_organizzazione = dsi_get_option("testo_sezione_organizzazione", "
             <div class="col-md-5">
                 <div class="hero-title text-left">
                     <h1 class="p-0 mb-2"><?php _e("Organizzazione", "design_scuole_italia"); ?></h1>
-                    <h2 class="h4 font-weight-normal"><?php echo $testo_sezione_organizzazione; ?></h2>
+                    <p class="h4 font-weight-normal"><?php echo $testo_sezione_organizzazione; ?></p>
                 </div><!-- /hero-title -->
             </div><!-- /col-md-5 -->
         </div><!-- /row -->
