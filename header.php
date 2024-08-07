@@ -67,7 +67,6 @@ if(is_search() || is_archive())
 
 
 <?php $active_page = dsi_get_current_group(); ?>
-
 <div id="main-wrapper" class="push_container">
     <?php get_template_part("template-parts/common/skiplink"); ?>
     <header id="main-header" class="bg-white">
@@ -82,16 +81,14 @@ if(is_search() || is_archive())
                     </button>
                     <!-- Left menu element-->
                     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left perfect-scrollbar">
-                        <div class="logo-header">
+                    <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="Vai alla homepage" class="logo-header">
                             <?php get_template_part("template-parts/common/logo"); ?>
                             <div class="h1">
-                                <a href="<?php echo home_url(); ?>">
                                     <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                     <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                     <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
-                                </a>
                             </div>
-                        </div><!-- /logo-header -->
+                        </a><!-- /logo-header -->
                         <div class="nav-list-mobile dl-menuwrapper">
                             <nav aria-label="Principale">
                                 <ul class="dl-menu nav-list nav-list-primary" data-element="menu">
@@ -225,16 +222,14 @@ if(is_search() || is_archive())
                         </div>
                     </div>
                     <!-- End Left menu element-->
-                    <div class="logo-header">
-						<?php get_template_part("template-parts/common/logo"); ?>
-                        <div class="h1">
-                            <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="vai alla homepage" >
-                                <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
-                                <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
-                                <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
-                            </a>
-                        </div>
-                    </div><!-- /logo-header -->
+                    <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="Vai alla homepage" class="logo-header">
+                            <?php get_template_part("template-parts/common/logo"); ?>
+                            <div class="h1">
+                                    <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
+                                    <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
+                                    <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                            </div>
+                        </a><!-- /logo-header -->
                     <div class="sticky-main-nav">
 
                     </div><!-- /sticky-main-nav -->
