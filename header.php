@@ -67,7 +67,18 @@ if(is_search() || is_archive())
 
 
 <?php $active_page = dsi_get_current_group(); ?>
-
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('.hamburger');
+            document.addEventListener('keyup', function (event) {
+                if (event.keyCode === 27) { 
+                    if (menuButton.classList.contains('is-active')) {
+                        menuButton.click();
+                    }
+                }
+            });
+        });
+</script>
 <div id="main-wrapper" class="push_container">
     <?php get_template_part("template-parts/common/skiplink"); ?>
     <header id="main-header" class="bg-white">
