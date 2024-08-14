@@ -11,7 +11,7 @@ $media = intval($studenti / $classi);
 			<div class="row variable-gutters">
 				<div class="col-md-6">
 					<div class="title-section">
-						<h3 class="mb-3 mb-xl-5"><?php _e("La scuola in numeri", "design_scuole_italia"); ?></h3>
+						<h2 class="h3 mb-3 mb-xl-5"><?php _e("La scuola in numeri", "design_scuole_italia"); ?></h2>
 						<p class="mb-0"><?php echo dsi_get_option("numeri_descrizione", "la_scuola"); ?></p>
 					</div><!-- /title-section -->
 				</div><!-- /col-md-6 -->
