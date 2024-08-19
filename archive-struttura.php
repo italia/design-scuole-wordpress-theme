@@ -43,10 +43,10 @@ get_header();
                                 ?>
                                 <?php if($haschild){ // adotto la struttura a 2 colonne ?>
                                     <div class="title-section mb-5">
-                                        <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>">
+                                        <h2 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>">
                                             <?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?>
                                         </a>
-                                        </h3>
+                                        </h2>
                                     </div><!-- /title-large -->
                                     <?php foreach ($strutture_parent as $struttura) { ?>
     
@@ -86,8 +86,8 @@ get_header();
                                         ?>
     
                                         <div class="title-section mb-5">
-                                            <h3 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
-                                            </h3>
+                                            <h2 class="h4"><a href="<?php echo get_term_link($tipologia_struttura); ?>"><?php if (count($strutture) > 1) echo dsi_pluralize_string($tipologia_struttura->name); else echo $tipologia_struttura->name; ?></a>
+                                            </h2>
                                         </div><!-- /title-large -->
     
                                         <div class="row variable-gutters mt-4">
