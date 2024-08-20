@@ -9,7 +9,7 @@
 get_header();
 
 function printUl($data){
-	echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '" style="font-weight-bold">'.$data[0].'<span class="counterA text-danger"> ('.$data["count"].')</span></a>';
+	echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '" class="font-weight-bold">'.$data[0].'<span class="counterA text-danger"> ('.$data["count"].')</span></a>';
 	echo "<ul>";
 	foreach($data[1] as $inner){
 		printLi($inner);
