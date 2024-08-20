@@ -9,7 +9,7 @@
 get_header();
 
 function printUl($data){
-	echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '" class="font-weight-bold">'.$data[0].'<span class="counterA text-danger"> ('.$data["count"].')</span></a>';
+	echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" class="font-weight-bold">'.$data[0].'<span class="counterA text-danger"> ('.$data["count"].')</span></a>';
 	echo "<ul>";
 	foreach($data[1] as $inner){
 		printLi($inner);
@@ -18,7 +18,7 @@ function printUl($data){
 }
 function printLi($data){
 	if(count($data[1])==0){
-		echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $data[0] . '">' . $data[0] . '</a> <span class="counterA text-danger"> ('.$data["count"].')</span></li>';
+		echo '<li><a href="' . get_term_link( get_term_by('name', $data[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '">' . $data[0] . '</a> <span class="counterA text-danger"> ('.$data["count"].')</span></li>';
 	}
 	else{
 		printUl($data);
@@ -67,7 +67,7 @@ function printLi($data){
                                     echo '<div class="ammtrasm-tableclass" id="at-s-'.++$atct.'">';
 
                                     $sez_l = strtolower(preg_replace('/[^a-zA-Z]+/', '', $inner[0]));
-                                    echo '<h2 class="h3"><a href="' . get_term_link( get_term_by('name', $inner[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '" title="' . $inner[0] . '">';
+                                    echo '<h2 class="h3"><a href="' . get_term_link( get_term_by('name', $inner[0], 'amministrazione-trasparente'), 'amministrazione-trasparente' ) . '">';
                                     echo '<span id="'.$sez_l.'" href="#'.$sez_l.'">'.$inner[0].'</span><span class="counterA text-danger"> ('.$inner["count"].')</span></a></h2>';
                                     echo '<ul>';
 
