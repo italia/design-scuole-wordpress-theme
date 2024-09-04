@@ -18,15 +18,14 @@
                     alt="Finanziato dall' Unione Europea - Next generation EU"
                 >
                 <div class="logo-footer">
+                    <a href="<?php echo home_url(); ?>" aria-label="Vai alla homepage" title="Vai alla homepage" class="logo-header">
                     <?php get_template_part("template-parts/common/logo", null, array( 'ignora_stemma_scuola' => true )); ?>
-
-                    <h2 class="h1">
-                        <a href="<?php echo home_url(); ?>">
+                    <h2 class="h1">     
                             <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                             <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                             <span><?php echo dsi_get_option("luogo_scuola"); ?></span>
-                        </a>
                     </h2>
+                    </a>
                 </div><!-- /logo-footer -->
             </div><!-- /col -->
         </div><!-- /row -->
