@@ -4,12 +4,12 @@
 $timeline = dsi_get_option( "timeline", "la_scuola" );
 if(is_array($timeline) && count($timeline) > 0) {
 	?>
-	<section class="section section-padding bg-blue-dark">
-		<div class="container">
+	<section class="section-hero bg-blue-dark py-5">
+		<div class="container section-padding bg-blue-dark">
 			<div class="row variable-gutters mt-0 mt-xl-2">
 				<div class="col">
 					<div class="title-section text-center mb-5">
-						<h3 class="mb-2" style="color: #ffffff;"><?php _e( "La storia della scuola", "design_scuole_italia" ); ?></h3>
+						<h2 class="mb-2" style="color: #ffffff;"><?php _e( "La storia della scuola", "design_scuole_italia" ); ?></h2>
 						<p style="color: #ffffff;"><?php echo dsi_get_option( "descrizione_scuola", "la_scuola" ); ?></p>
 					</div><!-- /title-section -->
 				</div><!-- /col -->
@@ -28,9 +28,9 @@ if(is_array($timeline) && count($timeline) > 0) {
 									<div class="it-single-slide-wrapper h-100">	
 										<div class="card card-img card-serif">
 											<div class="card-body px-0">
-												<h5><?php echo date_i18n("F Y", $timestamp); ?></h5>
-												<h3><?php echo $item["titolo_timeline"] ?></h3>
-												<p><?php echo $item["descrizione_timeline"] ?></p>
+												<h3 class="mb-1"><?php echo $item["titolo_timeline"] ?></h3>
+												<span class="h5"><?php echo date_i18n("F Y", $timestamp); ?></span>
+												<p class="mt-3"><?php echo $item["descrizione_timeline"] ?></p>
 											</div><!-- /card-body -->
 										</div><!-- /card -->
 									</div><!-- /item -->

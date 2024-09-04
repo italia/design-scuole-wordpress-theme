@@ -8,7 +8,7 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 			<div class="row variable-gutters mt-0 mt-xl-5">
 				<div class="col">
 					<div class="title-section text-center mb-5">
-						<h3 class="mb-2"><?php _e( "Le carte della scuola", "design_scuole_italia" ); ?></h3>
+						<h2 class="h3 mb-2"><?php _e( "Le carte della scuola", "design_scuole_italia" ); ?></h2>
 						<p><?php echo dsi_get_option( "descrizione_carte", "la_scuola" ); ?></p>
 					</div><!-- /title-section -->
 				</div><!-- /col -->
