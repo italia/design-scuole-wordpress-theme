@@ -39,7 +39,7 @@ global $struttura;
 		<div class="row variable-gutters">
 			<div class="col-md-6">
 				<div class="big-quote big-quote-secondary">
-					<h3><?php echo $descrizione_strutture; ?></h3>
+					<h2 class="h3"><?php echo $descrizione_strutture; ?></h2>
 				</div><!-- /big-quote -->
 			</div><!-- /col-md-6 -->
 			<div class="col-md-5 offset-md-1 cards-wrapper-center">
