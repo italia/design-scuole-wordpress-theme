@@ -12,7 +12,7 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
-                            <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                            <?php get_template_part("template-parts/didattica/section-title") ?>
                             <p class="h4 text-white label-didattica"><?php _e("la nostra offerta formativa", "design_scuole_italia"); ?></p>
                         </div><!-- /title-large -->
                         <div class="title-small">
@@ -74,8 +74,17 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                                 $sottotitolo = dsi_get_meta("sottotitolo", "", $struttura->ID);
                                         ?>
                                         <hr/>
-                                                <div class="accordion-large-title accordion-header">
-                                                    <h3><a href="javascript:void(0)"><?php echo $struttura->post_title; ?></a></h3>
+                                                <div class="accordion-large-title accordion-header">                                                        <?php
+                                                    if (is_home()) {
+                                                    ?>
+                                                        <h3><a href="javascript:void(0)"><?php echo $struttura->post_title; ?></a></h3>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <h2><a href="javascript:void(0)"><?php echo $struttura->post_title; ?></a></h2>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div><!-- /accordion-large-title -->
                                                 <div class="accordion-large-content accordion-content">
                                                     <?php echo wpautop($descrizione); ?>

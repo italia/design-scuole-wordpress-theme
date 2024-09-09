@@ -12,7 +12,7 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                 <div class="col">
                     <div class="responsive-tabs-wrapper padding-top-200">
                         <div class="title-large">
-                            <h2 class="h3"><?php _e("La didattica", "design_scuole_italia"); ?></h2>
+                            <?php get_template_part("template-parts/didattica/section-title") ?>
                             <div class="h4 text-white"><?php _e("Cicli scolastici e percorsi di studio e formazione che trovi nell'istituto.", "design_scuole_italia"); ?></div>
                         </div><!-- /title-large -->
                         <div class="title-small">
@@ -47,8 +47,17 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                             foreach ($percorsi as $percorso){
                                         ?>
                                                 <hr/>
-                                                <div class="accordion-large-title accordion-header">
-                                                    <h3><a href="javascript:void(0)"><?php echo $percorso->name; ?></a></h3>
+                                                <div class="accordion-large-title accordion-header">                                                        <?php
+                                                    if (is_home()) {
+                                                    ?>
+                                                        <h3><a href="javascript:void(0)"><?php echo $percorso->name; ?></a></h3>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <h2><a href="javascript:void(0)"><?php echo $percorso->name; ?></a></h2>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div><!-- /accordion-large-title -->
                                                 <div class="accordion-large-content accordion-content">
                                                     <?php echo wpautop($percorso->description); ?>
