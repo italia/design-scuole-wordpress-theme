@@ -47,7 +47,8 @@ if(is_array($scuole_didattica) && count($scuole_didattica)>0) {
                                             foreach ($percorsi as $percorso){
                                         ?>
                                                 <hr/>
-                                                <div class="accordion-large-title accordion-header">                                                        <?php
+                                                <div class="accordion-large-title accordion-header">
+                                                    <?php
                                                     if (is_home()) {
                                                     ?>
                                                         <h3><a href="javascript:void(0)"><?php echo $percorso->name; ?></a></h3>

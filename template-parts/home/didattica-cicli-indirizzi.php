@@ -74,7 +74,8 @@ if(is_array($indirizzi_didattica) && count($indirizzi_didattica)>0) {
                                                 $sottotitolo = dsi_get_meta("sottotitolo", "", $struttura->ID);
                                         ?>
                                         <hr/>
-                                                <div class="accordion-large-title accordion-header">                                                        <?php
+                                                <div class="accordion-large-title accordion-header">
+                                                    <?php
                                                     if (is_home()) {
                                                     ?>
                                                         <h3><a href="javascript:void(0)"><?php echo $struttura->post_title; ?></a></h3>
