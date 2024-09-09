@@ -39,16 +39,16 @@ $current_term = get_queried_object();
         <ul>
             <?php
             foreach ( $types as $type ) {
-	            $name = get_post_type_object( $type )->labels->name;
-                if ($name) {
-                ?>
-                <li>
-                    <div class="form-check my-0">
-                        <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
-                        <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
-                    </div>
-                </li>
-            <?php
+                $type_object = get_post_type_object( $type );
+                if($type_object && $name = $type_object->labels->name){
+                    ?>
+                    <li>
+                        <div class="form-check my-0">
+                            <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
+                            <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
+                        </div>
+                    </li>
+                <?php
                 }
             }
             ?>
