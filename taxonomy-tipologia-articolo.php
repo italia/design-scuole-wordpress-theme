@@ -22,7 +22,7 @@ if($slug == "articoli")
         <?php get_template_part("template-parts/hero/notizie", "archive"); ?>
 
         <?php 
-        get_template_part( 'template-parts/header/toggle-search-filters-mobile' );
+        get_template_part( 'template-parts/search/toggle-search-filters-mobile' );
         ?>
 		
 		<section class="section bg-gray-light">
