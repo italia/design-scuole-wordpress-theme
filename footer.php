@@ -18,7 +18,7 @@
                     alt="Finanziato dall' Unione Europea - Next generation EU"
                 >
                 <div class="logo-footer">
-                    <a href="<?php echo home_url(); ?>" aria-description="Vai alla pagina iniziale" title="Vai alla pagina iniziale" class="logo-header">
+                    <a href="<?php echo home_url(); ?>" title="Vai alla pagina iniziale" class="logo-header">
                     <?php get_template_part("template-parts/common/logo", null, array( 'ignora_stemma_scuola' => true )); ?>
                     <span class="h1">     
                         <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
