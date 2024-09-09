@@ -5,6 +5,7 @@ if(isset($_REQUEST["archive"]))
 ?>
 <aside class="aside-list sticky-sidebar search-results-filters">
     <form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
+        <h2 class="sr-only">Filtri</h2>
         <?php if(isset($post_type) && !is_array($post_type) && $post_type != ""){ ?>
         <input type="hidden" name="post_type" value="<?php echo $post_type; ?>">
         <?php } ?>

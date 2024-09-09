@@ -30,6 +30,7 @@ if(isset($_GET["post_terms"]))
 
 <aside class="aside-list sticky-sidebar search-results-filters">
     <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+    <h2 class="sr-only">Filtri</h2>
     <input type="hidden" name="s" value="<?php echo get_search_query(); ?>" >
     <?php
     foreach ($groups as $key => $value){
