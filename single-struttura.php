@@ -221,7 +221,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php
                                 if((dsi_is_scuola($post) && $link_servizi_didattici) || $link_schede_servizi){
                                     ?>
-                                    <h4 id="art-par-servizi"><?php _e("Servizi", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h4" id="art-par-servizi"><?php _e("Servizi", "design_scuole_italia"); ?></h2>
 
                                     <?php
                                 }
