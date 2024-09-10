@@ -294,7 +294,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 $classi = dsi_get_meta("classi");
                                 if(is_array($classi) && count($classi)>0) {
                                     ?>
-                                    <h4><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h4>
+                                    <h3 class="h4"><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
 
@@ -315,13 +315,13 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 <?php if($is_realizzato == "true"){ ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
-                                            <h4 id="art-par-risultati"><?php _e("Risultati", "design_scuole_italia"); ?></h4>
+                                            <h2 class="h3" id="art-par-risultati"><?php _e("Risultati", "design_scuole_italia"); ?></h3>
                                             <?php echo wpautop($risultati); ?>
                                         </div>
                                     </div>
                                 <?php }  ?>
                                 <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ ?>
-                                    <h4  id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h3" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -351,7 +351,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 }
                                 ?>
                                 <?php if($link_schede_servizi){ ?>
-                                    <h4 id="art-par-servizi"><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h3" id="art-par-servizi"><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_servizi as $idservizio){
