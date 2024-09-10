@@ -19,7 +19,7 @@ $testo_eventi = dsi_get_option("testo_eventi", "notizie");
                             the_archive_description("<h2 class=\"h4 font-weight-normal\">","</h2>");
                             add_filter( 'get_the_post_type_description', 'wpautop' );
                         } else if ($testo_eventi) { ?>
-                            <h2 class="h4 font-weight-normal"><?php echo $testo_eventi ?></h2>
+                            <p class="h4 font-weight-normal"><?php echo $testo_eventi ?></p>
                         <?php }
                         ?>
                     </div><!-- /hero-title -->
