@@ -138,7 +138,7 @@
         }
         get_template_part("template-parts/common/copy");
         ?>
-
+    </div>
 </footer>
 </div><!-- /push_container -->
 
