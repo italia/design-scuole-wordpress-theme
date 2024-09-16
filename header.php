@@ -35,7 +35,7 @@ $theme_locations = get_nav_menu_locations();
     if ($og_image_url) { ?>
         <meta property="og:image" content="<?= $og_image_url ?>">
         <?php
-        $og_image_url_alt = get_post_meta(attachment_url_to_postid($og_image_url), '_wp_attachment_image_alt', true);
+        $og_image_url_alt = htmlspecialchars(get_post_meta(attachment_url_to_postid($og_image_url), '_wp_attachment_image_alt', true));
 
         if ($og_image_url_alt) { ?>
             <meta property="og:image:alt" content="<?= $og_image_url_alt ?>">
