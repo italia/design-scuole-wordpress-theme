@@ -56,7 +56,7 @@
 
                                         <div class="row variable-gutters mb-4">
                                             <div class="col text-right text-underline">
-                                                <p><a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" arial-label="<?php _e( 'Lost your password?' ); ?>"><?php _e( 'Lost your password?' ); ?></a></p>
+                                                <p><a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" aria-label="<?php _e( 'Lost your password?' ); ?>"><?php _e( 'Lost your password?' ); ?></a></p>
                                             </div>
                                         </div>
 
