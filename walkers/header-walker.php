@@ -48,6 +48,10 @@ class Header_Menu_Walker extends Walker_Nav_Menu {
 		$output .= $item->title;
         
         $output .= '</a>';
+	}
+
+	function end_el(&$output, $data_object, $depth = 0, $args = \null)
+	{
         $output .= '</li>';
 	}
 }
