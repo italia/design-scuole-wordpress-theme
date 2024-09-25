@@ -85,7 +85,7 @@ if(is_singular()){
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="list-item" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode($current_uri); ?>&title=<?php echo urlencode($current_title); ?>&source=<?php echo dsi_get_option("nome_scuola"); ?>" title="<?php _e("Condividi su", "design_scuole_italia"); ?>: Linkedin"  target="_blank">
+                                        <a class="list-item" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode($current_uri); ?>&title=<?php echo urlencode($current_title); ?>&source=<?php echo urlencode(dsi_get_option("nome_scuola")); ?>" title="<?php _e("Condividi su", "design_scuole_italia"); ?>: Linkedin"  target="_blank">
                                             <svg class="icon it-social-linkedin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#it-social-linkedin"></use></svg>
                                             <span>Linkedin</span>
                                         </a>

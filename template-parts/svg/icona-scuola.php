@@ -7,7 +7,7 @@ if(!isset($second_icon_color))
 	$second_icon_color = "#ffccd4";
 ?>
 
-<svg class="icon" width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"  aria-hidden="true">
+<svg class="icon" width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"  aria-hidden="true">
                                 <g>
 	                                <path d="M99.219,68.716l-9.745,-6.497l0,-18.359c0,-0.97 -0.786,-1.755 -1.755,-1.755l-7.017,0l0,-7.017c0,-0.97 -0.786,-1.755 -1.755,-1.755l-14.132,0c-0.796,-7.578 -6.677,-13.537 -13.938,-13.988l0,-3.556l10.527,0c0.968,0 1.754,-0.784 1.754,-1.754l0,-8.772c0,-0.97 -0.786,-1.754 -1.754,-1.754l-10.527,0l-1.754,0l-1.755,0l0,16.051c-6.436,1.22 -11.452,6.815 -12.183,13.773l-14.132,0c-0.969,0 -1.755,0.785 -1.755,1.755l0,7.017l-7.017,0c-0.969,0 -1.755,0.785 -1.755,1.755l0,18.359l-9.745,6.497c-0.488,0.325 -0.781,0.874 -0.781,1.459l0,24.562c0,0.97 0.786,1.754 1.754,1.754l96.492,0c0.968,0 1.754,-0.784 1.754,-1.754l0,-24.562c0,-0.585 -0.293,-1.134 -0.781,-1.459Z" style="fill:<?php echo $icon_color; ?>;fill-rule:nonzero;"/>
 	                                <rect x="50.877" y="7.018" width="8.772" height="5.263" style="fill:<?php echo $second_icon_color; ?>;"/>
