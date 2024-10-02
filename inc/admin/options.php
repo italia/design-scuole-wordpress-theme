@@ -307,7 +307,7 @@ function dsi_register_main_options_metabox() {
             'filter_boxes'    => true, // Show a text box for filtering the results
             'query_args'      => array(
                 'posts_per_page' => -1,
-                'post_type'      => array('post', 'page', 'evento', 'circolare', 'documento'),
+                'post_type'      => array('post', 'page', 'evento', 'circolare', 'documento', 'scheda_progetto'),
                 ), // override the get_posts args
             )
         )
