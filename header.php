@@ -81,13 +81,17 @@ if(is_search() || is_archive())
                     </button>
                     <!-- Left menu element-->
                     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left perfect-scrollbar">
-                    <a href="<?php echo home_url(); ?>" title="Vai alla pagina iniziale" class="logo-header">
+                    <a href="<?php echo home_url(); ?>" class="logo-header" <?php echo is_front_page() ? 'aria-current="page"' : ''; ?>>
                             <?php get_template_part("template-parts/common/logo"); ?>
                             <div class="h1">
                                     <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                     <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                     <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                                    <?php if (!is_front_page()): ?>
+                                    <span class="sr-only">— Visita la pagina iniziale della scuola</span>
+                                    <?php endif; ?>
                             </div>
+
                         </a><!-- /logo-header -->
                         <div class="nav-list-mobile dl-menuwrapper">
                             <nav aria-label="Principale">
@@ -222,12 +226,15 @@ if(is_search() || is_archive())
                         </div>
                     </div>
                     <!-- End Left menu element-->
-                    <a href="<?php echo home_url(); ?>" title="Vai alla pagina iniziale" class="logo-header">
+                    <a href="<?php echo home_url(); ?>" class="logo-header" <?php echo is_front_page() ? 'aria-current="page"' : ''; ?>>
                             <?php get_template_part("template-parts/common/logo"); ?>
                             <div class="h1">
                                     <span><?php echo dsi_get_option("tipologia_scuola"); ?></span>
                                     <span><strong><?php echo dsi_get_option("nome_scuola"); ?></strong></span>
                                     <span class="d-none d-lg-block"><?php echo dsi_get_option("luogo_scuola"); ?></span>
+                                    <?php if (!is_front_page()): ?>
+                                    <span class="sr-only">— Visita la pagina iniziale della scuola</span>
+                                    <?php endif; ?>
                             </div>
                         </a><!-- /logo-header -->
                     <div class="sticky-main-nav">

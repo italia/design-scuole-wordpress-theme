@@ -13,7 +13,7 @@ $tempo_apprendimento = dsi_get_meta("tempo_apprendimento", "_dsi_scheda_didattic
                         the_post_thumbnail("item-thumb");
                     }else{
                     ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholders/logo-service.png" alt="logo della Repubblica italiana">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/placeholders/logo-service.png" alt="Stemma Repubblica italiana">
                     <?php } ?>
             </a>
         </div><!-- /card-thumb -->
