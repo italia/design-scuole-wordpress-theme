@@ -27,7 +27,17 @@ $testo_servizi = dsi_get_option("testo_servizi", "servizi");
 		<div class="row variable-gutters">
 			<div class="col-md-5">
 				<div class="hero-title text-left">
-					<h2 class="p-0 mb-2"><?php _e("Servizi", "design_scuole_italia"); ?></h2>
+					<?php
+					if (is_home()) {
+					?>
+						<h2 class="p-0 mb-2"><?php _e("Servizi", "design_scuole_italia"); ?></h2>
+					<?php
+					} else {
+					?>
+						<h1 class="p-0 mb-2"><?php _e("Servizi", "design_scuole_italia"); ?></h1>
+					<?php
+					}
+					?>
 					<?php if ($testo_servizi) { ?>
 						<p class="h4 font-weight-normal"><?php echo $testo_servizi; ?></p>
 					<?php } ?>

@@ -81,7 +81,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                         <div class="col-lg-3 col-md-4 aside-border px-0">
                             <aside class="aside-main aside-sticky">
                                 <div class="aside-title" id="project-legend">
-                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="apri/chiudi indice della pagina">
+                                    <a class="toggle-link-list" data-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="true" aria-controls="lista-paragrafi" aria-label="apri/chiudi indice del progetto">
                                         <span><?php _e("Indice del progetto", "design_scuole_italia"); ?></span>
                                         <svg class="icon icon-toggle svg-arrow-down-small"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down-small"></use></svg>
                                     </a>
@@ -294,7 +294,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 $classi = dsi_get_meta("classi");
                                 if(is_array($classi) && count($classi)>0) {
                                     ?>
-                                    <h4><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h4>
+                                    <h3 class="h4"><?php _e( "Classi coinvolte", "design_scuole_italia" ); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
 
@@ -315,13 +315,13 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 <?php if($is_realizzato == "true"){ ?>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-9 wysiwig-text">
-                                            <h4 id="art-par-risultati"><?php _e("Risultati", "design_scuole_italia"); ?></h4>
+                                            <h2 class="h3" id="art-par-risultati"><?php _e("Risultati", "design_scuole_italia"); ?></h3>
                                             <?php echo wpautop($risultati); ?>
                                         </div>
                                     </div>
                                 <?php }  ?>
                                 <?php if((is_array($link_schede_documenti) && count($link_schede_documenti)>0) /*|| (is_array($file_documenti) && count($file_documenti)>0)*/){ ?>
-                                    <h4  id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h3" id="art-par-documenti"><?php _e("Documenti", "design_scuole_italia"); ?></h3>
                                     <div class="row variable-gutters">
                                         <div class="col-lg-12">
                                             <div class="card-deck card-deck-spaced">
@@ -351,7 +351,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                 }
                                 ?>
                                 <?php if($link_schede_servizi){ ?>
-                                    <h4 id="art-par-servizi"><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h4>
+                                    <h2 class="h3" id="art-par-servizi"><?php _e("Servizi associati al progetto", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-4">
                                         <?php
                                         foreach ($link_schede_servizi as $idservizio){

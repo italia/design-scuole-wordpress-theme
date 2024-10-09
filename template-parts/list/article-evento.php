@@ -26,7 +26,7 @@ if($dataora_inizio <= $dataora_adesso && $dataora_adesso <= $dataora_fine)
 	$in_corso = true;
 ?> 
 <a class="presentation-card-link" href="<?php the_permalink(); ?>">
-    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" role="region" aria-description="Card dell'articolo">
+    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" role="region">
         <div class="card-body">
             <div class="card-article-img"  <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?> aria-hidden=true>
                 <div class="date" aria-hidden=true>

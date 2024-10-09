@@ -224,7 +224,7 @@ add_action( 'pre_get_posts', 'dsi_eventi_filters' );
  */
 function dsi_schede_progetti_filters( WP_Query $query ) {
 
-    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("scheda_progetto") || get_queried_object()?->taxonomy == "tipologia-progetto") ) {
+    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("scheda_progetto") || (get_queried_object()?->taxonomy ?? null) == "tipologia-progetto") ) {
 
         $orderby = dsi_get_option("ordinamento_progetti", "didattica") ?? 'date';
         $order_direction = dsi_get_option("direzione_ordinamento_progetti", "didattica") === 'asc' ? 'asc' : 'desc';
