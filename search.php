@@ -26,7 +26,7 @@ get_header();
                                                     else
                                                         _e("Ricerca generica", "design-scuole-italia");
 
-                            ?></h2>
+                            ?></h1>
                             <p>
 								<?php
                                 $str = "";
