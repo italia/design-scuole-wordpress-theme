@@ -47,7 +47,7 @@ $post_type = get_query_var("post_type");
                         $collapsed = false;
                     }
                     $atreturn_body .= ' onChange="this.form.submit()">';
-                    $atreturn_body .= ' <label class="mb-0" for="check-'.$term->slug.'"><a href="' . get_term_link( get_term_by('name', $value, 'tipologie'), 'tipologie' ) . '">'.$term->name.'</a></label>';
+                    $atreturn_body .= ' <label class="mb-0 h-auto" for="check-'.$term->slug.'"><a href="' . get_term_link( get_term_by('name', $value, 'tipologie'), 'tipologie' ) . '">'.$term->name.'</a></label>';
                     $atreturn_body .= '</div>';
 
                     $atreturn_body .= '</li>';
@@ -55,7 +55,7 @@ $post_type = get_query_var("post_type");
                 $atreturn_foot = '</ul>';
 
 
-                echo '<h3 class="h6 text-uppercase"><strong>';
+                echo '<h3 class="h6"><strong>';
                 echo '<a data-toggle="collapse"  href="#'.$sez_l.'">'.$inner[0].'</a></strong></h3>';
                 if($collapsed)
                     echo $atreturn_head;
