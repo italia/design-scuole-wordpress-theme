@@ -45,7 +45,7 @@ if(isset($_GET["post_terms"]))
                 ?>
                 <li>
                     <div class="form-check my-0">
-                        <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
+                        <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
                         <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                     </div>
                 </li>
@@ -76,7 +76,7 @@ if(isset($_GET["post_terms"]))
                     ?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
-               	             <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()">
+               	             <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
                              <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
                	         </div>
                         </li>
@@ -92,7 +92,7 @@ if(isset($_GET["post_terms"]))
                 ?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
-                        <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()">
+                        <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
                         <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
                     </div>
                 </li>
