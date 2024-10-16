@@ -20,7 +20,7 @@ get_header();
                         <h1>
                             <?php
                             global $wp_query;
-// Modifico la risposta in base a quanti risultati sono disponibili
+// Modifico la risposta in base al numero di risultati
                             if ($wp_query->found_posts < 1) {
                                 $result = "Nessun risultato";
                             } else if ($wp_query->found_posts < 2) {
@@ -31,7 +31,7 @@ get_header();
                             echo $result . " ";
                             ?>
                             <?php if (get_search_query() != "")
-// Aggiungo il parametro di ricerca preceduto da "per" (disponibile)
+// Aggiungo il parametro di ricerca preceduto da "per" solo quando serve
                                 echo "per \"" . get_search_query() . "\""; ?>
                         </h1>
 
@@ -43,6 +43,7 @@ get_header();
                             } ?>
 
                             <?php
+// Aggiungo i badge dei filtri corrispondenti al "type"
                             if (!isset($_GET["post_types"])) {
 
                                 $post_type_links = array();
@@ -94,9 +95,7 @@ get_header();
                                 echo implode(' ', $post_type_links);
                             }
 
-                            ?>
 
-                            <?php
                             if (isset($_GET["post_types"])) {
                                 // Sanitize input
                                 $post_types = array_map('sanitize_text_field', $_GET["post_types"]);

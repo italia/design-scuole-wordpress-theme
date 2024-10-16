@@ -58,16 +58,23 @@ if(isset($_GET["post_terms"]))
     <?php
     }
     ?>
-        <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_scuole_italia"); ?></strong></h3>
-        <ul data-element="all-topics">
-            <?php
-            $terms = get_terms( array(
+
+    <?php           
+                $terms = get_terms( array(
                 'taxonomy' => 'post_tag',
                 'hide_empty' => true,
                 'orderby'    => 'count',
                 'order'   => 'DESC'
             ) );
             $idTerms = array_column($terms, 'term_id');
+            
+            if (!empty($terms)) { ?>   
+
+
+        <h3 class="h6 text-uppercase"><strong><?php _e("Argomenti", "design_scuole_italia"); ?></strong></h3>
+        <ul data-element="all-topics">
+            <?php
+
 
             foreach($post_terms as $post_term) {
                 $found = array_search($post_term, $idTerms);
@@ -100,5 +107,8 @@ if(isset($_GET["post_terms"]))
             }
             ?>
         </ul>
+    <?php
+        }
+    ?>
     </form>
 </aside>
