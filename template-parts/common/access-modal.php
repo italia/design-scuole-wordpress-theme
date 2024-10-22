@@ -71,6 +71,11 @@
                                                 <button type="submit" class="btn btn-white btn-block rounded" name="login" value="Accedi"><?php _e("Accedi", "design_scuole_italia"); ?></button>
                                             </div>
                                         </div>
+                                        <?php if(in_array('daggerhart-openid-connect-generic/openid-connect-generic.php', apply_filters('active_plugins', get_option('active_plugins')))){?>
+                                            <div class="col text-center btn btn-primary p-0">
+                                                <?php echo do_shortcode("[openid_connect_generic_login_button]"); ?>
+                                            </div>
+                                        <?php }?>
                                         <!-- <div class="row variable-gutters">
                                             <div class="col text-center">
                                                 <p>Non hai un account? <a href="#">Iscriviti</a></p>
