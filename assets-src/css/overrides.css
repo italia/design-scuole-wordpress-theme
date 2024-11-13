@@ -23,18 +23,3 @@
     max-width: 100%;
     height: auto;
 }
-
-.home .card {
-    min-height: 250px;
-    max-height: 250px;
-}
-
-.home .card-noicon {
-    min-height: 100px;
-    max-height: 100px;
-}
-
-.home .card-icon-main {
-    min-height: 100px;
-    max-height: 100px;
-}
