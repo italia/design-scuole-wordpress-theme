@@ -45,7 +45,7 @@ $current_term = get_queried_object();
                     ?>
                     <li>
                         <div class="form-check my-0">
-                            <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()">
+                            <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
                             <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
                         </div>
                     </li>
