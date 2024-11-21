@@ -100,7 +100,7 @@
                     <div class="col-lg-12 text-left text-md-center footer-text">
                             
                             <?php if($contatti_indirizzo) { ?>
-                                Indirizzo: <a class="text-underline-hover" href="https://www.google.com/maps/search/<?php echo $contatti_indirizzo; ?>" title="Visualizza su Google Maps"><?php echo $contatti_indirizzo; ?></a>
+                                Indirizzo: <a class="text-underline-hover" href="https://www.google.com/maps/search/<?php echo urlencode($contatti_indirizzo); ?>" title="Visualizza su Google Maps"><?php echo $contatti_indirizzo; ?></a>
                             <?php } ?>
                             
                             <?php if($contatti_centralino || $contatti_PEO || $contatti_PEC) { ?>
@@ -141,7 +141,7 @@
         }
         get_template_part("template-parts/common/copy");
         ?>
-
+    </div>
 </footer>
 </div><!-- /push_container -->
 
