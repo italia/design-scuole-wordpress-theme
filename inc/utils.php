@@ -1232,3 +1232,26 @@ if(!function_exists("dsi_get_progetti_in_luogo")) {
         return $progetti;
     }
 }
+
+
+
+if(!function_exists("get_page_by_title_new")){
+	function get_page_by_title_new( $page_title, $output = OBJECT, $post_type = 'page' ) {
+		$query = new WP_Query([
+            'post_type' => 'page',
+            'title'     => $page_title,
+            'post_status' => 'publish', // Opzionale: solo pagine pubblicate
+            'posts_per_page' => 1, // Opzionale: limitare a un risultato
+        ]);
+        
+        $page = null;
+
+        if ($query->have_posts()) {
+            $query->the_post();
+            $page = get_post(); // Recupera l'oggetto del post corrente
+            wp_reset_postdata(); // Resetta i dati del loop di WordPress
+        }
+
+        return $page;
+	}
+}
