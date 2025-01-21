@@ -123,7 +123,7 @@
                                         <li>Codice fiscale: <?php echo $contatti_CF; ?></li>
                                     <?php } ?>
                                     <?php if($contatti_meccanografico) { ?>
-                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://cercalatuascuola.istruzione.it/cercalatuascuola/ricerca/risultati?tipoRicerca=RAPIDA&rapida=<?php echo str_replace(' ', '', $contatti_meccanografico); ?>"><?php echo $contatti_meccanografico; ?></a></li>
+                                        <li>Codice meccanografico: <a class="text-underline-hover" href="https://unica.istruzione.gov.it/cercalatuascuola/istituti/<?php echo str_replace(' ', '', $contatti_meccanografico); ?>/scheda"><?php echo $contatti_meccanografico; ?></a></li>
                                     <?php } ?>
                                     <?php if($contatti_IPA) { ?>
                                         <li>Codice Indice delle Pubbliche Amministrazioni (IPA): <?php echo $contatti_IPA; ?></li>
