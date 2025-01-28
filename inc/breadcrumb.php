@@ -641,7 +641,7 @@ class Breadcrumb_Trail {
 		if ( false !== $taxonomy->rewrite ) {
 
 			// If 'with_front' is true, dd $wp_rewrite->front to the trail.
-			if ( $taxonomy->rewrite['with_front'] && $wp_rewrite->front )
+			if ( array_key_exists('with_front', $taxonomy->rewrite) && $taxonomy->rewrite['with_front'] && $wp_rewrite->front )
 				$this->add_rewrite_front_items();
 
 			// Get parent pages by path if they exist.
@@ -1112,7 +1112,7 @@ class Breadcrumb_Trail {
 
 		foreach ( $post_types as $type ) {
 
-			if ( $slug === $type->has_archive || ( true === $type->has_archive && $slug === $type->rewrite['slug'] ) )
+			if ( $slug === $type->has_archive || ( true === $type->has_archive && is_array($type->rewrite) && isset($type->rewrite['slug']) && $slug === $type->rewrite['slug']))
 				$return[] = $type;
 		}
 

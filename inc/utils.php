@@ -1232,3 +1232,16 @@ if(!function_exists("dsi_get_progetti_in_luogo")) {
         return $progetti;
     }
 }
+
+
+
+if (!function_exists("dsi_get_page_by_title")) {
+    function dsi_get_page_by_title( $page_title ) {
+        return (new WP_Query([
+            'post_type' => 'page',
+            'title'     => $page_title,
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+        ]))->post;
+    }
+}
