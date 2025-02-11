@@ -16,7 +16,7 @@ $autore = get_user_by("ID", $post->post_author);
         $didascalia = wp_get_attachment_caption($attachment_id);
         $alt_text = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
     ?>
-    <div class="title-img d-flex align-items-end" <?php if ($image_url) { ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?><?php if ($alt_text) { ?> role="img" aria-label="<?php echo $alt_text ?>" <?php } ?>><?php if ($didascalia) { ?><div class="w-100 p-4 bg-black text-white"><?php echo $didascalia; ?></div><?php } ?></div>
+    <div class="title-img d-flex align-items-end" <?php if ($image_url) { ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?><?php if ($alt_text) { ?> role="img" aria-label="<?php echo $alt_text ?>" <?php } ?>><?php if ($didascalia) { ?><div class="w-100 p-4 bg-greendark text-white"><?php echo $didascalia; ?></div><?php } ?></div>
     <?php
     $colsize = 6;
     }else{
