@@ -72,7 +72,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                     $didascalia = wp_get_attachment_caption($attachment_id);
                     $alt_text = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
                 ?>
-                <div class="title-img d-flex align-items-end" <?php if ($image_url) { ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?><?php if ($alt_text) { ?> role="img" aria-label="<?php echo $alt_text ?>" <?php } ?>><?php if ($didascalia) { ?><div class="w-100 p-4 bg-redbrown text-white"><?php echo $didascalia; ?></div><?php } ?></div>
+                <div class="title-img d-flex align-items-end" <?php if ($image_url) { ?>style="background-image: url('<?php echo $image_url; ?>');" <?php } ?><?php if ($alt_text) { ?> role="img" aria-label="<?php echo $alt_text ?>" <?php } ?>><?php if ($didascalia) { ?><div class="w-100 p-4 bg-black text-white"><?php echo $didascalia; ?></div><?php } ?></div>
             <?php
             
             } else { ?>
