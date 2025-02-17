@@ -752,3 +752,36 @@ add_filter( 'anac_filter_basexmlurl', function( $string ) { // Base URL
 
 }, 10, 3 );
 
+
+function block_profile_editing() {
+    $role = get_role( 'administrator' );
+
+    if( $role->has_cap( 'edit_own_profile' ) ) {
+        if (is_admin() && !current_user_can('edit_own_profile') && strpos($_SERVER['REQUEST_URI'], 'profile.php') !== false) {
+            wp_die(__('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito. <br /><a href="index.php">Torna alla bacheca</a>'));
+        }
+    }
+}
+add_action('admin_init', 'block_profile_editing');
+
+function remove_profile_menu_for_users() {
+    $role = get_role( 'administrator' );
+
+    if( $role->has_cap( 'edit_own_profile' ) ) {
+        if (!current_user_can('edit_own_profile')) {
+            remove_menu_page('profile.php'); // Removes the profile page from the menu
+        }
+    }
+}
+add_action('admin_menu', 'remove_profile_menu_for_users');
+
+function prevent_profile_update($errors, $update, $user) {
+    $role = get_role( 'administrator' );
+
+    if( $role->has_cap( 'edit_own_profile' ) ) {
+        if (!$update || !current_user_can('edit_own_profile')) {
+            $errors->add('no_profile_edit', __('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito.'));
+        }
+    }
+}
+add_action('user_profile_update_errors', 'prevent_profile_update', 10, 3);
