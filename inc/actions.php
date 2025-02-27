@@ -754,18 +754,20 @@ add_filter( 'anac_filter_basexmlurl', function( $string ) { // Base URL
 
 
 function block_profile_editing() {
-    $role = get_role( 'administrator' );
+    $user = wp_get_current_user();
+    $user_role = trim($user->roles[0]);
+    $role = get_role($user_role);
+    if( (! $role->has_cap( 'edit_own_profile' )) && strpos($_SERVER['REQUEST_URI'], 'profile.php') !== false) {
+        wp_die(__('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito. <br /><a href="index.php">Torna alla bacheca</a>'));
 
-    if( $role->has_cap( 'edit_own_profile' ) ) {
-        if (is_admin() && !current_user_can('edit_own_profile') && strpos($_SERVER['REQUEST_URI'], 'profile.php') !== false) {
-            wp_die(__('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito. <br /><a href="index.php">Torna alla bacheca</a>'));
-        }
     }
 }
 add_action('admin_init', 'block_profile_editing');
 
 function remove_profile_menu_for_users() {
-    $role = get_role( 'administrator' );
+    $user = wp_get_current_user();
+    $user_role = trim($user->roles[0]);
+    $role = get_role( $user_role );
 
     if( $role->has_cap( 'edit_own_profile' ) ) {
         if (!current_user_can('edit_own_profile')) {
@@ -776,7 +778,9 @@ function remove_profile_menu_for_users() {
 add_action('admin_menu', 'remove_profile_menu_for_users');
 
 function prevent_profile_update($errors, $update, $user) {
-    $role = get_role( 'administrator' );
+    $user = wp_get_current_user();
+    $user_role = trim($user->roles[0]);
+    $role = get_role( $user_role );
 
     if( $role->has_cap( 'edit_own_profile' ) ) {
         if (!$update || !current_user_can('edit_own_profile')) {
