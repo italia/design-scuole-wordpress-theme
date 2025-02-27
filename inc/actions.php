@@ -755,21 +755,33 @@ add_filter( 'anac_filter_basexmlurl', function( $string ) { // Base URL
 
 function block_profile_editing() {
     $user = wp_get_current_user();
-    $user_role = trim($user->roles[0]);
-    $role = get_role($user_role);
-    if( (! $role->has_cap( 'edit_own_profile' )) && strpos($_SERVER['REQUEST_URI'], 'profile.php') !== false) {
-        wp_die(__('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito. <br /><a href="index.php">Torna alla bacheca</a>'));
 
+    $has_cap = false;
+
+    foreach($user->roles as $user_role) {
+        $role = get_role($user_role);
+        $has_cap = ($has_cap || isset($role->capabilities['edit_own_profile']));
+    }
+
+    if( $has_cap ) {
+        if (strpos($_SERVER['REQUEST_URI'], 'profile.php') !== false && !current_user_can('edit_own_profile')) {
+            wp_die(__('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito. <br /><a href="index.php">Torna alla bacheca</a>'));
+        }
     }
 }
 add_action('admin_init', 'block_profile_editing');
 
 function remove_profile_menu_for_users() {
     $user = wp_get_current_user();
-    $user_role = trim($user->roles[0]);
-    $role = get_role( $user_role );
+    
+    $has_cap = false;
 
-    if( $role->has_cap( 'edit_own_profile' ) ) {
+    foreach($user->roles as $user_role) {
+        $role = get_role($user_role);
+        $has_cap = ($has_cap || isset($role->capabilities['edit_own_profile']));
+    }
+    
+    if( $has_cap ) {
         if (!current_user_can('edit_own_profile')) {
             remove_menu_page('profile.php'); // Removes the profile page from the menu
         }
@@ -779,10 +791,15 @@ add_action('admin_menu', 'remove_profile_menu_for_users');
 
 function prevent_profile_update($errors, $update, $user) {
     $user = wp_get_current_user();
-    $user_role = trim($user->roles[0]);
-    $role = get_role( $user_role );
 
-    if( $role->has_cap( 'edit_own_profile' ) ) {
+    $has_cap = false;
+
+    foreach($user->roles as $user_role) {
+        $role = get_role($user_role);
+        $has_cap = ($has_cap || isset($role->capabilities['edit_own_profile']));
+    }
+
+    if( $has_cap ) {
         if (!$update || !current_user_can('edit_own_profile')) {
             $errors->add('no_profile_edit', __('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito.'));
         }
