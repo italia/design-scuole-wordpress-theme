@@ -14,9 +14,9 @@ add_action( 'wp_dashboard_setup', 'dsi_add_dashboard_widget' );
 
 function dsi_add_dashboard_widget() {
 
-    wp_add_dashboard_widget('dsi_circolari_widget', 'Notifiche di nuove circolari da leggere / firmare', 'dsi_circolari_dashboard_widget');
-
     wp_add_dashboard_widget('dsi_circolari_not_signed_widget', 'Circolari non firmate', 'dsi_circolari_not_signed_dashboard_widget');
+
+    wp_add_dashboard_widget('dsi_circolari_widget', 'Notifiche di nuove circolari da leggere / firmare', 'dsi_circolari_dashboard_widget');
 
     wp_add_dashboard_widget('dsi_circolari_signed_widget', 'Circolari firmate', 'dsi_circolari_signed_dashboard_widget');
     
@@ -38,8 +38,12 @@ function dsi_circolari_dashboard_widget() {
     
         foreach ($lista_circolari  as $idcircolare) {
             if ( get_post_status( $idcircolare ) ) {
-                $real_circolari[] = $idcircolare;
-            }    
+                $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare) != "false";
+                $scadenza = dsi_get_meta("timestamp_scadenza_feedback", "", $idcircolare);
+
+                if($require_feedback && ($scadenza = '' || $scadenza > time()))
+                    $real_circolari[] = $idcircolare;
+            }
         }
         
         if(count($lista_circolari) != count($real_circolari)){
@@ -58,26 +62,17 @@ function dsi_circolari_dashboard_widget() {
         echo "<ul>";
         foreach ($lista_circolari  as $idcircolare) {
             $circolare = get_post($idcircolare);
-            $scadenza = $circolare ? dsi_get_meta("timestamp_scadenza_feedback", "", $idcircolare) : null;
 
             if($circolare) {
                 $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
                 $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
                 $feedback_array = dsi_get_circolari_feedback_options();
 
-                if ($scadenza = '' || $scadenza > time()) {
-                    echo "<li>";
-                    echo "Circolare " . $numerazione_circolare . "<br>";
-                    echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
-                    echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
-                    echo "</li>";
-                } else {
-                    echo "<li>";
-                    echo "Circolare " . $numerazione_circolare . "<br>";
-                    echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
-                    echo 'Non è più possibile fornire un feedback, contattare la segreteria <hr>';
-                    echo "</li>";
-                }
+                echo "<li>";
+                echo "Circolare " . $numerazione_circolare . "<br>";
+                echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
+                echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
+                echo "</li>";
             } 
         }
         echo "</ul>";
