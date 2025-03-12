@@ -22,9 +22,6 @@ function scanInner($term,$starting){
 		}
 	}
 	$inner[]=$sub;
-	foreach($sub as $s){
-		$inner["count"] += $s["count"];
-	}
 	return $inner;
 }
 /** funzioni di popolamento didattica */
