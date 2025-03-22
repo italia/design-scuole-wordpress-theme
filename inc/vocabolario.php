@@ -22,10 +22,8 @@ function scanInner($term,$starting){
 		}
 	}
 	$inner[]=$sub;
-	foreach($sub as $s){
-		$inner["count"] += $s["count"];
-	}
 	return $inner;
+    
 }
 /** funzioni di popolamento didattica */
 if(!function_exists("dsi_didattica_array")){
