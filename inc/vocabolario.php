@@ -23,6 +23,7 @@ function scanInner($term,$starting){
 	}
 	$inner[]=$sub;
 	return $inner;
+    
 }
 /** funzioni di popolamento didattica */
 if(!function_exists("dsi_didattica_array")){

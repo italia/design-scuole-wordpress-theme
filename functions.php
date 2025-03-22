@@ -511,3 +511,40 @@ function custom_search_title($title) {
     return $title;
 }
 add_filter('document_title_parts', 'custom_search_title');
+
+
+function seleziona_termini_genitore($post_id) {
+    // Verifica se il salvataggio è automatico per evitare loop
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Verifica se l'utente ha i permessi per modificare il post
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Definisci le tassonomie per cui vuoi applicare questa logica
+    $tassonomie_da_controllare = ['amministrazione-trasparente']; // Sostituisci con la tua tassonomia
+
+	
+	foreach ($tassonomie_da_controllare as $tassonomia) {
+        $termini = wp_get_post_terms($post_id, $tassonomia, ['fields' => 'all']);
+        if (!empty($termini) && !is_wp_error($termini)) {
+            $termini_da_aggiungere = [];
+            foreach ($termini as $termine) {
+                $termini_da_aggiungere[] = $termine->term_id;
+
+                // Se il termine ha un genitore, aggiungilo all'array
+                if ($termine->parent != 0) {
+                    $termini_da_aggiungere[] = $termine->parent;
+                }
+            }
+			
+            // Rimuove i duplicati e assegna i termini al post
+            wp_set_post_terms($post_id, array_unique($termini_da_aggiungere), $tassonomia);
+        }
+    }
+}
+
+add_action('save_post', 'seleziona_termini_genitore');
