@@ -790,17 +790,17 @@ function remove_profile_menu_for_users() {
 add_action('admin_menu', 'remove_profile_menu_for_users');
 
 function prevent_profile_update($errors, $update, $user) {
-    $user = wp_get_current_user();
+    $current_user = wp_get_current_user();
 
     $has_cap = false;
 
-    foreach($user->roles as $user_role) {
+    foreach($current_user->roles as $user_role) {
         $role = get_role($user_role);
         $has_cap = ($has_cap || isset($role->capabilities['edit_own_profile']));
     }
 
     if( $has_cap ) {
-        if (!$update || !current_user_can('edit_own_profile')) {
+        if ($update && !current_user_can('edit_own_profile') && $user->ID == $current_user->ID) {
             $errors->add('no_profile_edit', __('Non hai i permessi per modificare il tuo profilo, contatta l\'amministrazione del sito.'));
         }
     }
