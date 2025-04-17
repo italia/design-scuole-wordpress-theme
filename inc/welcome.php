@@ -38,10 +38,6 @@ function dsi_circolari_dashboard_widget() {
     
         foreach ($lista_circolari  as $idcircolare) {
             if ( get_post_status( $idcircolare ) ) {
-                $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare) != "false";
-                $scadenza = dsi_get_meta("timestamp_scadenza_feedback", "", $idcircolare);
-
-                if($require_feedback && ($scadenza = '' || $scadenza > time()))
                     $real_circolari[] = $idcircolare;
             }
         }
@@ -64,15 +60,20 @@ function dsi_circolari_dashboard_widget() {
             $circolare = get_post($idcircolare);
 
             if($circolare) {
-                $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
-                $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
-                $feedback_array = dsi_get_circolari_feedback_options();
+                $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare) != "false";
+                $scadenza = dsi_get_meta("timestamp_scadenza_feedback", "", $idcircolare);
 
-                echo "<li>";
-                echo "Circolare " . $numerazione_circolare . "<br>";
-                echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
-                echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
-                echo "</li>";
+                if($require_feedback && ($scadenza = '' || $scadenza > time())) {
+                    $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $idcircolare);
+                    $require_feedback = dsi_get_meta("require_feedback", "", $idcircolare);
+                    $feedback_array = dsi_get_circolari_feedback_options();
+    
+                    echo "<li>";
+                    echo "Circolare " . $numerazione_circolare . "<br>";
+                    echo " <a href='" . get_permalink($circolare) . "'>" . $circolare->post_title . '</a><br>';
+                    echo "Feedback richiesto: " . $feedback_array[$require_feedback] . '<hr>';
+                    echo "</li>";
+                }
             } 
         }
         echo "</ul>";
