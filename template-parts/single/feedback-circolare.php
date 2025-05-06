@@ -27,7 +27,7 @@ if(is_user_logged_in()){
             <div class="col-12">
             <?php
              if(($require_feedback == "si_no_visione") || ($require_feedback == "si_no")  || ($require_feedback == "presa_visione") ) {
-                echo "Conferma la presa visione della circolare: <br/><br/>";
+                echo "Invia una risposta alla circolare <br/><br/>";
              }
 
             if(($require_feedback == "si_no_visione") || ($require_feedback == "si_no") ) {
