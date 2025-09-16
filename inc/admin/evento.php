@@ -209,13 +209,13 @@ function dsi_add_eventi_metaboxes() {
 
     $group_field_id = $cmb_undercontent->add_field( array(
         'id'          => $prefix . 'date',
-        'name'        => __('<h1>Date</h1>' , 'design_scuole_italia' ),
+        'name'        => __('<h1>Date e Orari</h1>' , 'design_scuole_italia' ),
         'type'        => 'group',
-        'description' => __( 'Se l\'evento si svolge in più giorni o fasi indica qui di seguito i diversi appuntamenti. Es: inizo attività, pausa pranzo, seconda sessione, etc', 'design_scuole_italia' ),
+        'description' => __( 'Se l\'evento si svolge in più giorni o fasi indica qui di seguito i diversi appuntamenti. Es: inizio attività, pausa pranzo, seconda sessione, etc.', 'design_scuole_italia' ),
         'options'     => array(
             'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
-            'add_button'     => __( 'Aggiungi una data evento', 'design_scuole_italia' ),
-            'remove_button'  => __( 'Rimuovi', 'design_scuole_italia' ),
+            'add_button'     => __( 'Aggiungi fase', 'design_scuole_italia' ),
+            'remove_button'  => __( 'Rimuovi fase', 'design_scuole_italia' ),
             'sortable'       => true,
             'closed'      => false, // true to have the groups closed by default
             //'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.

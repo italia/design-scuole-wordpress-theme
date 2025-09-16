@@ -385,13 +385,13 @@ function dsi_add_documento_metaboxes() {
     $timeline_group_id = $cmb_aftercontent->add_field( array(
         'id'           => $prefix . 'timeline',
         'type'        => 'group',
-        'name'        => '<h3>Fasi</h3>',
+        'name'        => '<h3>Tempi e scadenze</h3>',
         'desc' => __( 'Suddividere i contenuti del documento in fasi e relative date. Es data di apertura della partecipazione a un bando, data di scadenza della possibilità di partecipare al bando' , 'design_scuole_italia' ),
         'repeatable'  => true,
         'options'     => array(
             'group_title'   => __( 'Fase {#}', 'design_scuole_italia' ),
-            'add_button'    => __( 'Aggiungi un elemento', 'design_scuole_italia' ),
-            'remove_button' => __( 'Rimuovi l\'elemento ', 'design_scuole_italia' ),
+            'add_button'    => __( 'Aggiungi fase', 'design_scuole_italia' ),
+            'remove_button' => __( 'Rimuovi fase', 'design_scuole_italia' ),
             'sortable'      => true,  // Allow changing the order of repeated groups.
         ),
     ) );

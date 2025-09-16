@@ -349,13 +349,13 @@ function dsi_add_servizi_metaboxes() {
     /**  repeater fasi_scadenze **/
 	$group_field_id = $cmb_undercontent->add_field( array(
 		'id'          => $prefix . 'fasi_scadenze',
-		'name'        => __('<h1>Fasi e Scadenze</h1>', 'design_scuole_italia' ),
+		'name'        => __('<h1>Tempi e scadenze</h1>', 'design_scuole_italia' ),
 		'type'        => 'group',
-		'description' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il Servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione dei tempi " - data)', 'design_scuole_italia' ),
+		'description' => __( 'Prevedere una data di scadenza del Servizio (ad es. "iscrizione asilo nido entro..."). Se il servizio è diviso in fasi, prevedere un campo per ciascuna fase del Servizio e relativa indicazione della data', 'design_scuole_italia' ),
 		'options'     => array(
 			'group_title'    => __( 'Fase {#}', 'design_scuole_italia' ), // {#} gets replaced by row number
-			'add_button'     => __( 'Aggiungi una fase', 'design_scuole_italia' ),
-			'remove_button'  => __( 'Rimuovi la fase', 'design_scuole_italia' ),
+			'add_button'     => __( 'Aggiungi fase', 'design_scuole_italia' ),
+			'remove_button'  => __( 'Rimuovi fase', 'design_scuole_italia' ),
 			'sortable'       => true,
 			// 'closed'      => true, // true to have the groups closed by default
 			//'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
