@@ -377,36 +377,50 @@ get_header();
                                             	    <?php echo apply_filters("the_content", $fasi_scadenze_intro); ?>
                                                 </div>
                                             <?php } ?>
-                                            <div class="calendar-vertical mb-5" data-element="service-calendar-list">
-                                                <?php
-                                                if (is_array($fasi_scadenze) || is_object($fasi_scadenze)) {
-                                                    foreach ($fasi_scadenze as $fase){
-                                                        $arrdata =  explode("-", $fase["data_fase"]);
-                                                        $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10)); // March
+<div class="calendar-vertical mb-5" data-element="service-calendar-list">
+    <?php
+    if (is_array($fasi_scadenze) || is_object($fasi_scadenze)) {
+        $old_data = "";
+        foreach ($fasi_scadenze as $fase) {
+            $arrdata = explode("-", $fase["data_fase"]);
+            $day = $arrdata[0];
+            $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
+            $sr_date = $day . " " . date_i18n('F', mktime(0, 0, 0, $arrdata[1], 10));
 
-                                                        ?>
-                                                        <div class="calendar-date">
-                                                            <div class="calendar-date-description rounded">
-                                                                <div class="calendar-date-description-content">
-                                                                    <?php if(isset($fase["titolo_fase"]) && ($fase["titolo_fase"] != "")) { ?>
-                                                                        <h3 class="h5" class="text-purplelight"><?php echo $fase["titolo_fase"]; ?></h3>
-                                                                        <?php
-                                                                    }
-                                                                    echo wpautop($fase["desc_fase"]); ?>
-                                                                </div><!-- /calendar-date-description-content -->
-                                                            </div><!-- /calendar-date-description -->
-                                                            <h4 class="calendar-date-day">
-                                                                <p><?php echo $arrdata[0]; ?></p>
-                                                                <small><b><?php echo $monthName; ?></b></small>
-                                                            </h4><!-- /calendar-date-day -->
-                                                        </div><!-- /calendar-date -->
-                                                        <?php
-                                                    }
-                                                } else {
+            // Use the full date string for comparison
+            $current_date = $fase["data_fase"];
+            ?>
+            
+            <div class="calendar-date <?php echo ($current_date === $old_data) ? 'same-date' : ''; ?>">
+                <?php if ($current_date !== $old_data): ?>
+                    <!-- Normal date block -->
+                    <h3 class="calendar-date-day order-1" aria-label="<?php echo esc_attr($sr_date); ?>">
+                        <span aria-hidden="true"><?php echo esc_html($day); ?></span>
+                        <small aria-hidden="true"><b><?php echo esc_html($monthName); ?></b></small>
+                    </h3>
+                <?php else: ?>
+                    <!-- Different content if date matches previous -->
+                    <div class="calendar-date-day order-1">
 
-                                                }
-                                                ?>
-                                            </div><!-- /calendar-vertical -->
+                </div>
+                <?php endif; ?>
+
+                <div class="calendar-date-description rounded">
+                    <div class="calendar-date-description-content orded-2">
+                        <?php if (!empty($fase["titolo_fase"])): ?>
+                            <span class="h5 d-block"><?php echo esc_html($fase["titolo_fase"]); ?></span>
+                        <?php endif; ?>
+                        <?php if ( !empty($fase['desc_fase']) ) {echo esc_html($fase['desc_fase']);} ?>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+            $old_data = $current_date; // update previous date
+        }
+    }
+    ?>
+</div>
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
