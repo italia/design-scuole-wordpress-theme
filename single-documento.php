@@ -291,21 +291,39 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                         <div class="col-lg-9">
                                             <div class="calendar-vertical mb-5">
                                                 <?php
+                                                $old_date = "";
                                                 foreach ( $timeline as $item ) {
+                                                    $readableDate = $item['data_timeline'];
+                                                    setlocale(LC_TIME, 'it_IT.UTF-8', 'it_IT', 'italian');
+                                                    $date = DateTime::createFromFormat('d-m-Y', $readableDate);
+                                                    $day = $date->format('j'); 
+                                                    $month = ucfirst(strftime('%B', $date->getTimestamp()));
+                                                    $current_date = $item["data_timeline"]; 
                                                     ?>
-                                                    <div class="calendar-date">
-                                                        <div class="calendar-date-description rounded">
-                                                            <div class="calendar-date-description-content">
-                                                                <p><?php echo $item["titolo_timeline"] ?></p>
-                                                            </div><!-- /calendar-date-description-content -->
-                                                        </div><!-- /calendar-date-description -->
-                                                        <h4 class="calendar-date-day">
-                                                            <p><?php echo date_i18n( "d", strtotime( $item["data_timeline"] ) ); ?></p>
-                                                            <small><b><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></b></small>
-                                                        </h4><!-- /calendar-date-day -->
-                                                    </div><!-- /calendar-date -->
-                                                <?php } ?>
-                                            </div><!-- /calendar-vertical -->
+                                                    <div class="calendar-date <?php echo ($current_date === $old_date) ? 'same-date' : ''; ?>">
+            <?php if ($current_date !== $old_date): ?>
+                <!-- Normal date heading -->
+                <h3 class="calendar-date-day order-1" aria-label="<?php echo esc_attr("$day $month"); ?>">
+                    <p><?php echo date_i18n( "d", strtotime( $item["data_timeline"] ) ); ?></p>
+                    <small><b><?php echo date_i18n( "M", strtotime( $item["data_timeline"] ) ); ?></b></small>
+                </h3>
+            <?php else: ?>
+                <div class="calendar-date-day order-1">
+
+                </div>
+            <?php endif; ?>
+
+            <div class="calendar-date-description rounded">
+                <div class="calendar-date-description-content order-2">
+                    <p><?php echo esc_html($item["titolo_timeline"]); ?></p>
+                </div>
+            </div>
+        </div>
+        <?php
+        $old_date = $current_date; // update previous date
+    }
+    ?>
+</div><!-- /calendar-vertical -->
                                         </div><!-- /col-lg-9 -->
                                     </div><!-- /row -->
                                     <?php
