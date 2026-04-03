@@ -15,9 +15,13 @@ function dsi_pdf_generator(){
     global $post, $type;
     if(is_singular("circolare") && isset($_GET["pdf"]) && ($_GET["pdf"] == "true")){
 
-        $image_url = get_template_directory_uri() ."/assets/placeholders/logo-service.png";
-        $data = file_get_contents($image_url);
-        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        if ( circolare_access($post->ID) === 'false' ) {
+            wp_die( __('Non hai i permessi per accedere a questa circolare.', 'design_scuole_italia'), 403 );
+        }
+
+        $image_path = get_template_directory() . "/assets/placeholders/logo-service.png";
+        $data = file_exists($image_path) ? file_get_contents($image_path) : '';
+        $base64 = 'data:image/png;base64,' . base64_encode($data);
 
         $numerazione_circolare = dsi_get_meta("numerazione_circolare", "", $post->ID);
 
@@ -38,7 +42,7 @@ function dsi_pdf_generator(){
                     font-size: 12px;
                 }
             </style>
-            <title><?php echo $post->post_title; ?></title>
+            <title><?php echo esc_html($post->post_title); ?></title>
         </head>
         <body>
         <img src="<?php echo $base64; ?>" style="width:90px; height: 90px; float:left; ">
@@ -55,11 +59,11 @@ function dsi_pdf_generator(){
 
             <span ><?php echo date_i18n("d F Y", strtotime($post->post_date)); ?></span>
             <?php if($numerazione_circolare){ ?>
-                <h3>Circolare numero <?php echo $numerazione_circolare; ?></h3>
+                <h3>Circolare numero <?php echo esc_html($numerazione_circolare); ?></h3>
             <?php }  ?>
 
         </div>
-        <h3><?php echo $post->post_title; ?></h3>
+        <h3><?php echo esc_html($post->post_title); ?></h3>
 
 
         <?php
@@ -88,6 +92,9 @@ function dsi_pdf_generator(){
 
         $options->set('defaultMediaType', 'all');
         $options->set('isFontSubsettingEnabled', true);
+        $options->set('isRemoteEnabled', false);
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('chroot', get_template_directory());
 
         // instantiate and use the dompdf class
         $dompdf = new Dompdf($options);

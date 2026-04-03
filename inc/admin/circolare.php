@@ -355,7 +355,13 @@ function dsi_save_sign_init(){
                 }
                 update_post_meta($post->ID, "_dsi_has_signed", $signed);
                 // registro la tipologia di firma sull'utente
-                update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $_REQUEST["sign"]);
+                $allowed_sign_values = array_keys( dsi_get_circolari_feedback_options() );
+                $sign_value = sanitize_key( $_REQUEST["sign"] );
+                if ( in_array( $sign_value, $allowed_sign_values, true ) ) {
+                    update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $sign_value);
+                } else {
+                    die( 'Valore non valido' );
+                }
 
                 // tolgo l'id post dalla lista circolari utente
                 $lista_circolari = get_user_meta($current_user->ID, "_dsi_circolari", true);
@@ -551,6 +557,10 @@ if(!function_exists('dsi_csv_generator')) {
     function dsi_csv_generator(){
         if(is_singular("circolare") && isset($_GET["csv"]) && ($_GET["csv"] == "true")) {
             global $post;
+
+            if ( ! current_user_can('manage_options') ) {
+                wp_die( __('Accesso negato: permessi insufficienti per scaricare l\'elenco firmatari.', 'design_scuole_italia'), 403 );
+            }
 
             // output headers so that the file is downloaded rather than displayed
             header('Content-type: text/csv');

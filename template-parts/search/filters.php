@@ -36,7 +36,7 @@ if(isset($_GET["post_terms"]))
     foreach ($groups as $key => $value){
         $types = dsi_get_post_types_grouped($key);
         ?>
-        <h3 class="h6 text-uppercase"><strong><?php echo $value; ?></strong></h3>
+        <h3 class="h6 text-uppercase"><strong><?php echo esc_html($value); ?></strong></h3>
         <ul>
             <?php
             foreach ( $types as $type ) {
@@ -45,8 +45,8 @@ if(isset($_GET["post_terms"]))
                 ?>
                 <li>
                     <div class="form-check my-0">
-                        <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo $type; ?>" id="check-<?php echo $type; ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
-                        <label class="mb-0" for="check-<?php echo $type; ?>"><?php echo $name; ?></label>
+                        <input type="checkbox" class="custom-control-input" name="post_types[]" value="<?php echo esc_attr($type); ?>" id="check-<?php echo esc_attr($type); ?>" <?php if(in_array($type, $post_types)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
+                        <label class="mb-0" for="check-<?php echo esc_attr($type); ?>"><?php echo esc_html($name); ?></label>
                     </div>
                 </li>
             <?php
@@ -83,8 +83,8 @@ if(isset($_GET["post_terms"]))
                     ?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
-               	             <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
-                             <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+               	             <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo esc_attr($term->term_id); ?>" id="check-<?php echo esc_attr($term->slug); ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
+                             <label class="custom-control-label" for="check-<?php echo esc_attr($term->slug); ?>"><?php echo esc_html($term->name); ?></label>
                	         </div>
                         </li>
                     <?php
@@ -99,8 +99,8 @@ if(isset($_GET["post_terms"]))
                 ?>
                 <li>
                     <div class="custom-control custom-checkbox custom-checkbox-outline">
-                        <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo $term->term_id; ?>" id="check-<?php echo $term->slug; ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
-                        <label class="custom-control-label" for="check-<?php echo $term->slug; ?>"><?php echo $term->name; ?></label>
+                        <input type="checkbox" class="custom-control-input" name="post_terms[]" value="<?php echo esc_attr($term->term_id); ?>" id="check-<?php echo esc_attr($term->slug); ?>" <?php if(in_array($term->term_id, $post_terms)) echo " checked "; ?> onChange="this.form.submit()" autocomplete="off">
+                        <label class="custom-control-label" for="check-<?php echo esc_attr($term->slug); ?>"><?php echo esc_html($term->name); ?></label>
                     </div>
                 </li>
             <?php

@@ -15,11 +15,11 @@ $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
 <?php
         if($post->post_type == "post") {
 	        ?>
-            <p><?php echo $post->_dsi_articolo_descrizione; ?></p>
+            <p><?php echo esc_html($post->_dsi_articolo_descrizione); ?></p>
             <?php
         } else if($post->post_type == "circolare") {
 	        ?>
-            <p><?php echo $post->_dsi_circolare_descrizione; ?></p>
+            <p><?php echo esc_html($post->_dsi_circolare_descrizione); ?></p>
             <?php
         } else {                        
             ?>
@@ -40,7 +40,7 @@ $show_contatore_commenti = dsi_get_option("show_contatore_commenti", "setup");
         if($post->post_type == "post" && $show_contatore_commenti != "false") {
 	        ?>
             <div class="comments">
-                <p><?php echo $post->comment_count; ?></p>
+                <p><?php echo intval($post->comment_count); ?></p>
             </div><!-- /comments -->
 	        <?php
         }

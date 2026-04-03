@@ -8,12 +8,12 @@ $accesso_circolare = circolare_access($post->ID);
 	<div class="card-body">
 		<div class="card-content">
 		<?php if($accesso_circolare != "false") { ?>
-			<h3 class="h5"><a href="<?php echo get_permalink($post); ?>"><?php echo get_the_title($post); ?></a></h3>
-            <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
-			<p><?php echo $post->_dsi_circolare_descrizione; ?></p>
+			<h3 class="h5"><a href="<?php echo esc_url(get_permalink($post)); ?>"><?php echo esc_html(get_the_title($post)); ?></a></h3>
+            <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo esc_html($numerazione_circolare); ?></small>
+			<p><?php echo esc_html($post->_dsi_circolare_descrizione); ?></p>
 		<?php } else { ?>
 				<div class="card-article-content">
-				<p class="font-weight-bold pl-2">Il contenuto della circolare numero <?php echo$numerazione_circolare?> (<?php echo date_i18n("j F Y", strtotime($post->post_date)); ?>) è riservato.</p>
+				<p class="font-weight-bold pl-2">Il contenuto della circolare numero <?php echo esc_html($numerazione_circolare)?> (<?php echo date_i18n("j F Y", strtotime($post->post_date)); ?>) è riservato.</p>
 				</div>
 		<?php } ?>
 		</div>

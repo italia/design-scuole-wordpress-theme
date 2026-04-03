@@ -300,7 +300,7 @@ add_action( 'pre_get_posts', 'dsi_schede_progetti_filters' );
  */
 function dsi_circolari_filters( $query ) {
 
-    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("circolari") )) {
+    if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("circolare") )) {
         if(!is_user_logged_in()){
             $query->set( 'meta_query', array(
                 'relation' => 'OR',
@@ -427,7 +427,7 @@ function dsi_bandi_shortcode($atts) {
         <table class="order-table table table-striped" id="gare">
             <thead>
             <tr><td colspan="6">
-                    Bandi di gara - <strong><?php if ($anno != 'all') { echo $anno; } else { echo 'Tutti gli anni'; } ?></strong>
+                    Bandi di gara - <strong><?php if ($anno != 'all') { echo esc_html($anno); } else { echo 'Tutti gli anni'; } ?></strong>
                     <input style="float:right;" type="search" id="s" class="light-table-filter" data-table="order-table" placeholder="Cerca...">
                 </td></tr>
             <tr>

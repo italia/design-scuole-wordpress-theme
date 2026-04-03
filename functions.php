@@ -342,13 +342,16 @@ add_filter( 'breadcrumb_trail', 'breadcrumb_fix', 10, 3);
 // Verifica se l'utente è abilitato a vedere il contenuto della circolare
 function circolare_access($post_ID) {
 
-$is_pubblica = dsi_get_meta("is_pubblica");
+// SECURITY FIX (VULN-03): pass $post_ID explicitly to all dsi_get_meta() calls
+// so that access is evaluated against the requested post, not the global $post.
+$is_pubblica = dsi_get_meta("is_pubblica", "", $post_ID);
 $destinatari_circolari = "";
-$destinatari_circolari =  dsi_get_meta("destinatari_circolari");
+$destinatari_circolari =  dsi_get_meta("destinatari_circolari", "", $post_ID);
 $user = wp_get_current_user();
 $current_user_roles = (array) $user->roles;
+$can_view = "false";
 if($destinatari_circolari == "ruolo"){
-	$allowed_roles = dsi_get_meta("ruoli_circolari"); 
+	$allowed_roles = dsi_get_meta("ruoli_circolari", "", $post_ID);
 	
 	if ($allowed_roles) {
 		$c = array_intersect($allowed_roles,$current_user_roles);
@@ -366,7 +369,7 @@ if($destinatari_circolari == "ruolo"){
 if($destinatari_circolari == "gruppo"){
 	$users = array();
 	
-	$gruppi_circolari = dsi_get_meta("gruppi_circolari");
+	$gruppi_circolari = dsi_get_meta("gruppi_circolari", "", $post_ID);
 	
 	$users = get_objects_in_term( $gruppi_circolari, "gruppo-utente" );
 	if (in_array($user->ID,$users )) {
@@ -548,3 +551,77 @@ function seleziona_termini_genitore($post_id) {
 }
 
 add_action('save_post', 'seleziona_termini_genitore');
+
+add_action( 'init', 'dsi_register_secure_download_rewrite' );
+function dsi_register_secure_download_rewrite() {
+    add_rewrite_rule(
+        '^dsi-download/([0-9]+)/([0-9]+)/?$',
+        'index.php?dsi_download_post=$matches[1]&dsi_download_file=$matches[2]',
+        'top'
+    );
+}
+
+add_filter( 'query_vars', 'dsi_secure_download_query_vars' );
+function dsi_secure_download_query_vars( $vars ) {
+    $vars[] = 'dsi_download_post';
+    $vars[] = 'dsi_download_file';
+    return $vars;
+}
+
+add_action( 'template_redirect', 'dsi_secure_download_handler' );
+function dsi_secure_download_handler() {
+    $post_id = get_query_var('dsi_download_post');
+    $file_id = get_query_var('dsi_download_file');
+
+    if ( ! $post_id || ! $file_id ) {
+        return;
+    }
+
+    $post_id = absint( $post_id );
+    $file_id = absint( $file_id );
+
+    // Verifica che il post sia una circolare
+    if ( get_post_type( $post_id ) !== 'circolare' ) {
+        wp_die( __('Risorsa non trovata.', 'design_scuole_italia'), 404 );
+    }
+
+    if ( circolare_access( $post_id ) === 'false' ) {
+        wp_die( __('Non hai i permessi per accedere a questo allegato.', 'design_scuole_italia'), 403 );
+    }
+
+    // Verifica che il file_id sia effettivamente allegato a questa circolare
+    $file_documenti = get_post_meta( $post_id, '_dsi_circolare_file_documenti', true );
+    if ( ! is_array( $file_documenti ) || ! array_key_exists( $file_id, $file_documenti ) ) {
+        wp_die( __('File non trovato.', 'design_scuole_italia'), 404 );
+    }
+
+    // Serve il file
+    $filepath = get_attached_file( $file_id );
+    if ( ! $filepath || ! file_exists( $filepath ) ) {
+        wp_die( __('File non trovato sul server.', 'design_scuole_italia'), 404 );
+    }
+
+    $mime = mime_content_type( $filepath );
+    $filename = basename( $filepath );
+
+    header( 'Content-Type: ' . $mime );
+    header( 'Content-Disposition: attachment; filename="' . sanitize_file_name( $filename ) . '"' );
+    header( 'Content-Length: ' . filesize( $filepath ) );
+    header( 'Cache-Control: private, no-store, no-cache' );
+    header( 'Pragma: no-cache' );
+    header( 'X-Content-Type-Options: nosniff' );
+
+    readfile( $filepath );
+    exit();
+}
+
+/**
+ * Genera l'URL sicuro per il download di un allegato di una circolare.
+ *
+ * @param int $post_id   ID della circolare
+ * @param int $file_id   ID del file allegato (attachment)
+ * @return string        URL del proxy di download
+ */
+function dsi_get_secure_download_url( $post_id, $file_id ) {
+    return home_url( 'dsi-download/' . absint($post_id) . '/' . absint($file_id) . '/' );
+}

@@ -14,8 +14,8 @@ $accesso_circolare = circolare_access($post->ID);
 
 <?php if($accesso_circolare != "false") { ?>
 <a class="presentation-card-link" href="<?php the_permalink(); ?>">
-    <article class="card card-bg card-article card-article-<?php echo $class; ?> cursorhand" role="region" aria-label="Card della circolare">
-       <div class="card-body" aria-label="data pubblicazione <?php echo date_i18n("y", strtotime($post->post_date)); ?>">
+    <article class="card card-bg card-article card-article-<?php echo esc_attr($class); ?> cursorhand" role="region" aria-label="Card della circolare">
+       <div class="card-body" aria-label="data pubblicazione <?php echo esc_attr(date_i18n('y', strtotime($post->post_date))); ?>">
                 <?php if($accesso_circolare == "true" ) { ?>
 				<div class="card-article-img" aria-hidden="true" <?php if($image_url) echo 'style="background-image: url(\''.$image_url.'\');"'; ?>>
                     <div class="date">
@@ -24,18 +24,18 @@ $accesso_circolare = circolare_access($post->ID);
                         <span class="month" aria-hidden="true"><?php echo date_i18n("M", strtotime($post->post_date)); ?></span>
                     </div>
                     <?php if(!$image_url){ ?>
-                        <svg  aria-hidden="true" class="icon-<?php echo $class; ?> svg-<?php echo $icon; ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo $icon; ?>"></use></svg>
+                        <svg  aria-hidden="true" class="icon-<?php echo esc_attr($class); ?> svg-<?php echo esc_attr($icon); ?>"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-<?php echo esc_attr($icon); ?>"></use></svg>
                     <?php } ?>
                 </div>
 				<?php } ?>
 				<div class="card-article-content"> 
-                    <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
+                    <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo esc_html($numerazione_circolare); ?></small>
 					<h2 class="h3"><?php the_title(); ?></h2>
-				        <p><?php echo $excerpt; ?></p>
+				        <p><?php echo wp_kses_post($excerpt); ?></p>
          <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
 		if ($post_tags) {
 			foreach($post_tags as $tag) {
-			echo '<a href="'.get_tag_link($tag->term_id).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.$tag->name.'">'. $tag->name .'</a> ';
+			echo '<a href="'.esc_url(get_tag_link($tag->term_id)).'" class="badge badge-sm badge-pill badge-outline-greendark" aria-label="Tipologia: '.esc_attr($tag->name).'">'. esc_html($tag->name) .'</a> ';
 			}
 		}
         ?>
@@ -48,7 +48,7 @@ $accesso_circolare = circolare_access($post->ID);
        <div class="card-body">
 			<div class="card-content">
 				<div class="card-article-content">
-				<p class="font-weight-bold pl-2">Il contenuto della circolare n.<?php echo$numerazione_circolare?> è riservato.</p>
+				<p class="font-weight-bold pl-2">Il contenuto della circolare n.<?php echo esc_html($numerazione_circolare)?> è riservato.</p>
 				</div>
 			</div>	
 		</div>

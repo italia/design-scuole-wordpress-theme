@@ -63,9 +63,9 @@ $file_documenti = dsi_get_meta("file_documenti");
                                                     }
                                                 }
 
-                                                global $idfile, $nomefile;
+                                                global $idfile, $nomefile, $dsi_circolare_post_id;
                                                 if(is_array($file_documenti) && count($file_documenti)>0) {
-
+                                                    $dsi_circolare_post_id = $post->ID;
                                                     foreach ( $file_documenti as $idfile => $nomefile ) {
                                                         get_template_part( "template-parts/documento/file" );
                                                     }
@@ -168,7 +168,7 @@ $file_documenti = dsi_get_meta("file_documenti");
 						    <article class="article-wrapper pt-4">
                                 <div class="row variable-gutters">
                                     <div class="col-lg-8 wysiwig-text">
-										<p class="article-wrapper">Il contenuto della circolare n.<?php echo $numerazione_circolare?> è riservato.</p>
+										<p class="article-wrapper">Il contenuto della circolare n.<?php echo esc_html($numerazione_circolare)?> è riservato.</p>
 									</div>
 								</div>
 							</article>

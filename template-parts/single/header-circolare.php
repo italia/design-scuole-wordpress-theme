@@ -23,10 +23,10 @@ $autore = get_user_by("ID", $post->post_author);
                 </div><!-- /section-thumb -->
             </div><!-- /col-lg-2 -->
             <div class="col-12 col-sm-9 col-lg-5 col-md-8">
-                <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo $numerazione_circolare; ?></small>
+                <small class="h6 text-greendark"><?php _e("Circolare ", "design_scuole_italia"); echo esc_html($numerazione_circolare); ?></small>
                 <div class="section-title">
                     <h1 class="h2"><?php the_title(); ?></h1>
-                    <p><?php echo dsi_get_meta("descrizione"); ?></p>
+                    <p><?php echo esc_html(dsi_get_meta("descrizione")); ?></p>
                 </div><!-- /title-section -->
             </div><!-- /col-lg-5 col-md-8 -->
             <div class="col-lg-3 col-md-4 offset-lg-1">
@@ -35,7 +35,7 @@ $autore = get_user_by("ID", $post->post_author);
                         $privacy_hidden = get_user_meta( $autore->ID, '_dsi_persona_privacy_hidden', true);
                         
                         if($privacy_hidden == "false") {
-                            ?><a href="<?php echo get_author_posts_url( $autore->ID);  ?>"><?php
+                            ?><a href="<?php echo esc_url(get_author_posts_url( $autore->ID));  ?>"><?php
                         }
                         ?>
                         <div class="card-body p-0">
