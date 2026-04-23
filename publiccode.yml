@@ -1,19 +1,21 @@
 publiccodeYmlVersion: 0.5.0
-name: Template HTML per i siti scolastici
+name: Design Scuole Italia (WordPress)
 applicationSuite: Modello Scuole di Designers Italia
-url: https://github.com/italia/design-scuole-pagine-statiche
-isBasedOn: https://github.com/italia/bootstrap-italia
-softwareVersion: "v2.4.3 "
-releaseDate: 2024-09-25
+url: https://github.com/italia/design-scuole-wordpress-theme
+isBasedOn: https://github.com/italia/design-scuole-pagine-statiche
+softwareVersion: "v1.12.5 "
+releaseDate: 2026-01-29
 platforms:
   - web
 categories:
   - it-development
   - design
+  - content-management
 organisation:
   uri: https://github.com/italia
   name: Dipartimento per la trasformazione digitale
-roadmap: https://github.com/orgs/italia/projects/16/views/1?filterQuery=repo%3Aitalia%2Fdesign-scuole-pagine-statiche
+roadmap: "https://github.com/orgs/italia/projects/16/views/1?filterQuery=repo%3\
+  Aitalia%2Fdesign-scuole-wordpress-theme "
 developmentStatus: stable
 softwareType: standalone/web
 intendedAudience:
@@ -21,37 +23,30 @@ intendedAudience:
     - IT
 description:
   it-IT:
-    shortDescription: Codice pronto all'uso per creare rapidamente il front-end dei
-      siti scolastici in modo accessibile e coerente.
-    longDescription: >-
-      I template HTML del Modello Scuole mettono a disposizione pagine statiche
-      esemplificative e codice pronto all'uso per realizzare il front-end del
-      sito scolastico. Sono costruiti sulle fondamenta di UI Kit Italia e
-      Bootstrap Italia e permettono di lavorare in modo indipendente dalle
-      soluzioni tecnologiche adottate dall'amministrazione. I template sono già
-      validati in termini di accessibilità e conformità alle Linee guida di
-      design per i siti internet e i servizi digitali della PA e Linee guida
-      sull'accessibilità degli strumenti informatici, facilitando l'adozione del
-      modello di sito istituzionale delle scuole e velocizzando la realizzazione
-      delle interfacce web.
-
-
-      [Vai alle anteprime dei template
-      HTML](https://italia.github.io/design-scuole-pagine-statiche/)
-
-      [Vai alla documentazione del Modello
-      Scuole](https://designers.italia.it/modelli/scuole/)
-    documentation: https://github.com/italia/design-scuole-pagine-statiche/blob/main/README.md
+    shortDescription: Tema WordPress per realizzare e gestire siti web scolastici
+      basati sul Modello Scuole di Designers Italia.
+    longDescription: Il tema WordPress del Modello Scuole è una soluzione pronta
+      all'uso per il content management system (CMS) WordPress per realizzare e
+      gestire i siti web delle istituzioni scolastiche. Basato sul modello di
+      sito istituzionale delle scuole italiane di Designers Italia, consente di
+      adottare rapidamente una struttura informativa coerente e di gestire i
+      contenuti tramite il CMS WordPress. Il tema definisce automaticamente
+      l'organizzazione del sito, i layout delle pagine e la navigazione,
+      permettendo di concentrarsi sulla creazione e gestione dei contenuti.
+      Supporta inoltre diverse tipologie di contenuto, come servizi, circolari,
+      eventi e informazioni sull'organizzazione scolastica, facilitando la
+      pubblicazione e l'aggiornamento delle informazioni.
+    documentation: https://github.com/italia/design-scuole-wordpress-theme/blob/main/README.md
     features:
-      - Codice HTML, CSS e JavaScript pronto all'uso per realizzare il front-end
-        del sito scolastico
-      - Esempi di pagine e interfacce per il sito scolastico
-      - Integra i fondamenti di UI Kit Italia e Bootstrap Italia
-      - Garantisce accessibilità e conformità alle Linee guida di design per i
-        siti internet e servizi digitali della PA
-      - Aderenza al modello di sito scolastico di Designers Italia
+      - Tema WordPress pronto all'uso per i siti web delle scuole
+      - Permette di creare, aggiornare e organizzare i contenuti tramite CMS
+      - Struttura automaticamente navigazione e pagine sulla base del Modello
+        Scuole di Designers Italia
+      - Supporta tipologie di contenuto dedicate
+      - Consente la gestione dei contenuti da parte degli editor senza
+        interventi tecnici
 legal:
-  license: BSD-3-Clause-Clear
+  license: AGPL-3.0-only
 maintenance:
   type: community
   contacts:
