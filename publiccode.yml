@@ -3,8 +3,8 @@ name: Design Scuole Italia (WordPress)
 applicationSuite: Modello Scuole di Designers Italia
 url: https://github.com/italia/design-scuole-wordpress-theme
 isBasedOn: https://github.com/italia/design-scuole-pagine-statiche
-softwareVersion: "v1.12.5 "
-releaseDate: 2026-01-29
+softwareVersion: v1.12.5
+releaseDate: '2026-01-29'
 platforms:
   - web
 categories:
