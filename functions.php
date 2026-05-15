@@ -439,11 +439,17 @@ function reserved_file_check(){
 
 		if(file_exists($filepath)) {			
 			//Define header information
-			header('Content-Description: File Transfer');
-			header('Content-Type: application/octet-stream');
+			$_mime = mime_content_type( $filepath );
+			$_inline_types = [
+				'application/pdf',
+				'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml',
+				'text/plain',
+			];
+			$_disposition = in_array( $_mime, $_inline_types, true ) ? 'inline' : 'attachment';
+			header('Content-Type: ' . $_mime);
 			header("Cache-Control: no-cache, must-revalidate");
 			header("Expires: 0");
-			header('Content-Disposition: attachment; filename="'.basename($filepath).'"');
+			header('Content-Disposition: ' . $_disposition . '; filename="'.basename($filepath).'"');
 			header('Content-Length: ' . filesize($filepath));
 			header('Pragma: public');
 
@@ -561,6 +567,29 @@ function dsi_register_secure_download_rewrite() {
     );
 }
 
+/**
+ * Flush delle rewrite rules all'attivazione del tema e dopo un aggiornamento,
+ * così /dsi-download/{post_id}/{file_id}/ è subito raggiungibile senza dover
+ * salvare manualmente i permalink.
+ */
+add_action( 'after_switch_theme', 'dsi_flush_rewrite_on_activate' );
+function dsi_flush_rewrite_on_activate() {
+    dsi_register_secure_download_rewrite();
+    flush_rewrite_rules();
+}
+
+add_action( 'upgrader_process_complete', 'dsi_flush_rewrite_on_update', 10, 2 );
+function dsi_flush_rewrite_on_update( $upgrader, $options ) {
+    if (
+        isset( $options['type'], $options['action'] ) &&
+        $options['type']   === 'theme' &&
+        $options['action'] === 'update'
+    ) {
+        dsi_register_secure_download_rewrite();
+        flush_rewrite_rules();
+    }
+}
+
 add_filter( 'query_vars', 'dsi_secure_download_query_vars' );
 function dsi_secure_download_query_vars( $vars ) {
     $vars[] = 'dsi_download_post';
@@ -601,11 +630,24 @@ function dsi_secure_download_handler() {
         wp_die( __('File non trovato sul server.', 'design_scuole_italia'), 404 );
     }
 
-    $mime = mime_content_type( $filepath );
+    $mime     = mime_content_type( $filepath );
     $filename = basename( $filepath );
 
+    // Tipi MIME che i browser sanno renderizzare inline (PDF, immagini, testo).
+    // Per qualsiasi altro tipo si forza il download via attachment.
+    $inline_types = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'image/webp',
+        'image/svg+xml',
+        'text/plain',
+    ];
+    $disposition = in_array( $mime, $inline_types, true ) ? 'inline' : 'attachment';
+
     header( 'Content-Type: ' . $mime );
-    header( 'Content-Disposition: attachment; filename="' . sanitize_file_name( $filename ) . '"' );
+    header( 'Content-Disposition: ' . $disposition . '; filename="' . sanitize_file_name( $filename ) . '"' );
     header( 'Content-Length: ' . filesize( $filepath ) );
     header( 'Cache-Control: private, no-store, no-cache' );
     header( 'Pragma: no-cache' );
