@@ -421,52 +421,55 @@ add_filter('attachment_fields_to_save', 'save_protect_from_public_access_attachm
 
 function reserved_file_check(){
 	if($_GET && isset($_GET['action']) && $_GET['action'] == "reservedfilecheck"){
-		$baseurl = wp_get_upload_dir()['baseurl'];
-		$basedir = wp_get_upload_dir()['basedir'];
-		$filename = $baseurl . '/' . $_GET['file'];
+		$upload   = wp_get_upload_dir();
+		$baseurl  = $upload['baseurl'];
+		$basedir  = $upload['basedir'];
 		$filepath = $basedir . '/' . $_GET['file'];
 
-		$fileid = attachment_url_to_postid( $filename );
+		$realbasedir = realpath( $basedir );
+		$realpath    = realpath( $filepath );
 
-		if($fileid != 0) {
-			$filedata = get_post($fileid);
-
-			$protect_from_public_access = (bool) get_post_meta($filedata->ID, 'protect_from_public_access', true);
-
-			if($protect_from_public_access && !is_user_logged_in()) 
-				die();
+		if ( $realpath === false || $realbasedir === false ||
+		     strncmp( $realpath, $realbasedir . DIRECTORY_SEPARATOR, strlen( $realbasedir ) + 1 ) !== 0 ) {
+			wp_die( '', '', [ 'response' => 404 ] );
 		}
 
-		if(file_exists($filepath)) {			
-			//Define header information
-			$_mime = mime_content_type( $filepath );
+		$relative = substr( $realpath, strlen( $realbasedir ) + 1 );
+		$filename = $baseurl . '/' . $relative;
+		$fileid   = attachment_url_to_postid( $filename );
+
+		if ( $fileid != 0 ) {
+			$filedata = get_post( $fileid );
+
+			$protect_from_public_access = (bool) get_post_meta( $filedata->ID, 'protect_from_public_access', true );
+
+			if ( $protect_from_public_access && ! is_user_logged_in() )
+				wp_die( '', '', [ 'response' => 403 ] );
+		}
+
+		if ( file_exists( $realpath ) ) {
+			$_mime = mime_content_type( $realpath );
 			$_inline_types = [
 				'application/pdf',
 				'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml',
 				'text/plain',
 			];
 			$_disposition = in_array( $_mime, $_inline_types, true ) ? 'inline' : 'attachment';
-			header('Content-Type: ' . $_mime);
-			header("Cache-Control: no-cache, must-revalidate");
-			header("Expires: 0");
-			header('Content-Disposition: ' . $_disposition . '; filename="'.basename($filepath).'"');
-			header('Content-Length: ' . filesize($filepath));
-			header('Pragma: public');
 
+			header( 'Content-Type: ' . $_mime );
+			header( "Cache-Control: no-cache, must-revalidate" );
+			header( "Expires: 0" );
+			header( 'Content-Disposition: ' . $_disposition . '; filename="' . basename( $realpath ) . '"' );
+			header( 'Content-Length: ' . filesize( $realpath ) );
+			header( 'Pragma: public' );
 			ob_clean();
-
-			//Clear system output buffer
 			flush();
-
-			//Read the size of the file
-			readfile($filepath);
-
-			//Terminate from the script
+			readfile( $realpath );
 			die();
 		}
 	}
 }
-add_action( 'init', 'reserved_file_check', 10, 2);
+add_action( 'init', 'reserved_file_check', 10, 2 );
 
 // aggiungi data elements alla pagina note-legali
 function insert_data_attribute_note_legali( $content ) {
