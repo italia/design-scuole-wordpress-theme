@@ -13,3 +13,12 @@
 .calendar-vertical .calendar-date .calendar-date-description .calendar-date-description-content:before {
 margin:0
 }
+
+
+.home-message.green {
+background-color: #008055;
+}
+
+.home-message.green svg {
+background-color: #008055;
+}
