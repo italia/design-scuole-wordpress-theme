@@ -382,17 +382,20 @@ get_header();
     if (is_array($fasi_scadenze) || is_object($fasi_scadenze)) {
         $old_data = "";
         foreach ($fasi_scadenze as $fase) {
-            $arrdata = explode("-", $fase["data_fase"]);
-            $day = $arrdata[0];
-            $monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
-            $sr_date = $day . " " . date_i18n('F', mktime(0, 0, 0, $arrdata[1], 10));
+			if($fase["data_fase"] != "") {
+				$arrdata = explode("-", $fase["data_fase"]);
+				$day = $arrdata[0];
+				$monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));
+				$sr_date = $day . " " . date_i18n('F', mktime(0, 0, 0, $arrdata[1], 10));
+			}
 
             // Use the full date string for comparison
             $current_date = $fase["data_fase"];
             ?>
             
             <div class="calendar-date <?php echo ($current_date === $old_data) ? 'same-date' : ''; ?>">
-                <?php if ($current_date !== $old_data): ?>
+                <?php if ($current_date !== $old_data && $fase["data_fase"] != ""): ?>
+			
                     <!-- Normal date block -->
                     <h3 class="calendar-date-day order-1" aria-label="<?php echo esc_attr($sr_date); ?>">
                         <span aria-hidden="true"><?php echo esc_html($day); ?></span>
@@ -402,7 +405,7 @@ get_header();
                     <!-- Different content if date matches previous -->
                     <div class="calendar-date-day order-1">
 
-                </div>
+                	</div>
                 <?php endif; ?>
 
                 <div class="calendar-date-description rounded">
