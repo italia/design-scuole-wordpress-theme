@@ -561,6 +561,14 @@ function seleziona_termini_genitore($post_id) {
 
 add_action('save_post', 'seleziona_termini_genitore');
 
+/**
+ * Incrementare quando si aggiungono o modificano rewrite rules, per forzare
+ * un flush al primo caricamento dopo l'aggiornamento del tema.
+ */
+if ( ! defined( 'DSI_REWRITE_VERSION' ) ) {
+    define( 'DSI_REWRITE_VERSION', '1' );
+}
+
 add_action( 'init', 'dsi_register_secure_download_rewrite' );
 function dsi_register_secure_download_rewrite() {
     add_rewrite_rule(
@@ -571,26 +579,25 @@ function dsi_register_secure_download_rewrite() {
 }
 
 /**
- * Flush delle rewrite rules all'attivazione del tema e dopo un aggiornamento,
- * così /dsi-download/{post_id}/{file_id}/ è subito raggiungibile senza dover
- * salvare manualmente i permalink.
+ * Flush delle rewrite rules. after_switch_theme copre attivazione/cambio tema;
+ * upgrader_process_complete NON basta: gira ancora il codice della versione
+ * precedente, quindi il flush non viene registrato (vedi #786, commento su 2.18.2).
+ * Il confronto di versione su init copre update, ZIP/FTP e child theme.
  */
-add_action( 'after_switch_theme', 'dsi_flush_rewrite_on_activate' );
-function dsi_flush_rewrite_on_activate() {
+function dsi_flush_secure_download_rewrite() {
     dsi_register_secure_download_rewrite();
-    flush_rewrite_rules();
+    flush_rewrite_rules( false );
+    update_option( 'dsi_rewrite_version', DSI_REWRITE_VERSION );
 }
 
-add_action( 'upgrader_process_complete', 'dsi_flush_rewrite_on_update', 10, 2 );
-function dsi_flush_rewrite_on_update( $upgrader, $options ) {
-    if (
-        isset( $options['type'], $options['action'] ) &&
-        $options['type']   === 'theme' &&
-        $options['action'] === 'update'
-    ) {
-        dsi_register_secure_download_rewrite();
-        flush_rewrite_rules();
+add_action( 'after_switch_theme', 'dsi_flush_secure_download_rewrite' );
+
+add_action( 'init', 'dsi_maybe_flush_rewrite_rules', 20 );
+function dsi_maybe_flush_rewrite_rules() {
+    if ( get_option( 'dsi_rewrite_version' ) === DSI_REWRITE_VERSION ) {
+        return;
     }
+    dsi_flush_secure_download_rewrite();
 }
 
 add_filter( 'query_vars', 'dsi_secure_download_query_vars' );
@@ -606,7 +613,12 @@ function dsi_secure_download_handler() {
     $file_id = get_query_var('dsi_download_file');
 
     if ( ! $post_id || ! $file_id ) {
-        return;
+        $path = wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH );
+        if ( ! $path || ! preg_match( '#/dsi-download/([0-9]+)/([0-9]+)/?$#', $path, $matches ) ) {
+            return;
+        }
+        $post_id = $matches[1];
+        $file_id = $matches[2];
     }
 
     $post_id = absint( $post_id );
