@@ -345,6 +345,13 @@ function dsi_save_sign_init(){
             if ( ! wp_verify_nonce( $nonce, 'sign' ) ) {
                 die( 'Security check' );
             } else {
+                $require_feedback = dsi_get_meta("require_feedback", "", $post->ID);
+                $allowed_sign_values = dsi_get_circolare_allowed_sign_values( $require_feedback );
+                $sign_value = sanitize_key( $_REQUEST["sign"] );
+                if ( ! in_array( $sign_value, $allowed_sign_values, true ) ) {
+                    die( 'Valore non valido' );
+                }
+
                 // registro la firma sul post
                 $signed = get_post_meta($post->ID, "_dsi_has_signed", true);
                 if(!$signed)
@@ -355,13 +362,7 @@ function dsi_save_sign_init(){
                 }
                 update_post_meta($post->ID, "_dsi_has_signed", $signed);
                 // registro la tipologia di firma sull'utente
-                $allowed_sign_values = array_keys( dsi_get_circolari_feedback_options() );
-                $sign_value = sanitize_key( $_REQUEST["sign"] );
-                if ( in_array( $sign_value, $allowed_sign_values, true ) ) {
-                    update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $sign_value);
-                } else {
-                    die( 'Valore non valido' );
-                }
+                update_user_meta($current_user->ID, "_dsi_signed_".$post->ID, $sign_value);
 
                 // tolgo l'id post dalla lista circolari utente
                 $lista_circolari = get_user_meta($current_user->ID, "_dsi_circolari", true);
