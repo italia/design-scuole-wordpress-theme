@@ -705,6 +705,26 @@ function dsi_get_circolari_feedback_options(){
 }
 
 /**
+ * Valori di risposta ammessi per il tipo di feedback richiesto dalla circolare.
+ * Diversi dalle chiavi di dsi_get_circolari_feedback_options() (tipologia di richiesta).
+ *
+ * @param string $require_feedback presa_visione | si_no | si_no_visione
+ * @return string[]
+ */
+function dsi_get_circolare_allowed_sign_values( $require_feedback ) {
+	switch ( $require_feedback ) {
+		case 'si_no':
+			return array( 'si', 'no' );
+		case 'presa_visione':
+			return array( 'presa_visione' );
+		case 'si_no_visione':
+			return array( 'si', 'no', 'presa_visione' );
+		default:
+			return array();
+	}
+}
+
+/**
  * controlla se l'utente è abilitato a firmare la circolare
  * @param $user
  * @param $post
