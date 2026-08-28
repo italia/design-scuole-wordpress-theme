@@ -4,7 +4,7 @@ if(!$post_type)
     $post_type = "scheda_didattica";
 
 if(isset($_REQUEST["archive"]))
-    $archive = $_REQUEST["archive"];
+    $archive = sanitize_text_field( wp_unslash( $_REQUEST["archive"] ) );
 ?>
 
 
@@ -12,11 +12,11 @@ if(isset($_REQUEST["archive"]))
     <form role="search" method="get" class="search-form" action="<?php echo home_url(""); ?>">
     	<h2 class="sr-only">Filtri</h2>
         <?php if(isset($post_type) && !is_array($post_type) && $post_type != ""){ ?>
-        <input type="hidden" name="post_type" value="<?php echo $post_type; ?>">
+        <input type="hidden" name="post_type" value="<?php echo esc_attr($post_type); ?>">
         <?php } ?>
 
         <?php if(isset($archive) && $archive != ""){ ?>
-            <input type="hidden" name="archive" value="<?php echo $archive; ?>">
+            <input type="hidden" name="archive" value="<?php echo esc_attr($archive); ?>">
         <?php } ?>
         <h3 class="h6 text-uppercase"><strong><?php _e("Livelli", "design_scuole_italia"); ?></strong></h3>
         <ul>
