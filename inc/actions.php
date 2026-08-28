@@ -227,33 +227,54 @@ function dsi_schede_progetti_filters( WP_Query $query ) {
     if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("scheda_progetto") || is_tax("tipologia-progetto")) ) {
     //if ( ! is_admin() && $query->is_main_query() && (is_post_type_archive("scheda_progetto") || (get_queried_object()?->taxonomy ?? null) == "tipologia-progetto") ) {
 
-        $orderby = dsi_get_option("ordinamento_progetti", "didattica") ?? 'date';
-        $order_direction = dsi_get_option("direzione_ordinamento_progetti", "didattica") === 'asc' ? 'asc' : 'desc';
+        $orderby = dsi_get_option("ordinamento_progetti", "didattica");
+        if (empty($orderby)) {
+            $orderby = 'realizzato';
+        }
+        $order_direction = dsi_get_option("direzione_ordinamento_progetti", "didattica") === 'asc' ? 'ASC' : 'DESC';
 
-        $query->set("meta_key", "_dsi_scheda_progetto_timestamp_fine");
-        $query->set("orderby", "meta_value_num");
-
+        // Secondo criterio sempre il titolo: evita ordine instabile quando il meta è uguale (es. tutti "non realizzato").
         switch ($orderby) {
             case 'timestamp_inizio':
-                $query->set("orderby", "meta_value_num");
                 $query->set("meta_key", "_dsi_scheda_progetto_timestamp_inizio");
+                $query->set("orderby", array(
+                    "meta_value_num" => $order_direction,
+                    "title"          => "ASC",
+                ));
                 break;
             case 'timestamp_fine':
-                $query->set("orderby", "meta_value_num");
                 $query->set("meta_key", "_dsi_scheda_progetto_timestamp_fine");
+                $query->set("orderby", array(
+                    "meta_value_num" => $order_direction,
+                    "title"          => "ASC",
+                ));
                 break;
             case 'anno_scolastico':
-                $query->set("orderby", "meta_value_num");
                 $query->set("meta_key", "_dsi_scheda_progetto_anno_scolastico");
+                $query->set("orderby", array(
+                    "meta_value_num" => $order_direction,
+                    "title"          => "ASC",
+                ));
                 break;
             case 'title':
+                $query->set("orderby", array(
+                    "title" => $order_direction,
+                    "ID"    => "ASC",
+                ));
+                break;
             case 'date':
-                $query->set("orderby", $orderby);
+                $query->set("orderby", array(
+                    "date"  => $order_direction,
+                    "title" => "ASC",
+                ));
                 break;
             case 'realizzato':
             default:
-                $query->set("orderby", "meta_value");
                 $query->set("meta_key", "_dsi_scheda_progetto_is_realizzato");
+                $query->set("orderby", array(
+                    "meta_value" => $order_direction,
+                    "title"      => "ASC",
+                ));
                 break;
         }
 
