@@ -247,7 +247,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                 $count = 0;
                                                 foreach ($elementi_di_interesse as $elemento){
                                                     $descrizione_more = '';
-                                                    $descrizione = $elemento["descrizione"];
+                                                    $descrizione = $elemento["descrizione"] ?? "";
                                                     $description_length = dsi_get_option("excerpt_length", "luoghi");
                                                     $descrizione_excerpt = dsi_truncate($descrizione, $description_length, ' ', '');
                                                     if(strlen($descrizione)>$description_length) {
@@ -259,12 +259,14 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                                         <div class="card-body">
                                                             <div id="dsi_description_container_<?php echo $count; ?>">
                                                                 <p><?php echo $elemento["titolo"]; ?></p>
+																<?php if($descrizione != "") { ?>
                                                                 <small>
                                                                     <span id="dsi_description_<?php echo $count; ?>"><?php echo $descrizione_excerpt; ?></span>
                                                                     <?php if(!empty($descrizione_more)): ?>
                                                                     <span class="collapse" id="dsi_description_more_<?php echo $count; ?>"><?php echo $descrizione_more; ?></span>
                                                                     <?php endif; ?>
                                                                 </small>
+																<?php } ?>
                                                             </div>
                                                             <?php if(strlen($descrizione_more)>0){ ?>
                                                                 <button type="button" class="btn btn-link btn-sm text-underline p-0 mt-2 float-right dsi_more" data-toggle="collapse" data-target="#dsi_description_more_<?php echo $count; ?>">Visualizza altro</button>

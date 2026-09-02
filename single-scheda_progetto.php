@@ -7,7 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore, $luogo, $c, $struttura, $gallery;
-get_template_part("template-parts/single/related-posts", $args = array( "scheda_progetto")); 
+get_template_part("template-parts/single/related-posts", null, $args = array( "scheda_progetto")); 
 get_header();
 
 $is_luogo_scuola = dsi_get_meta("is_luogo_scuola");
@@ -18,6 +18,8 @@ $link_strutture = dsi_get_meta("link_strutture");
 $link_schede_documenti = dsi_get_meta("link_schede_documenti");
 $link_schede_servizi = dsi_get_meta("link_schede_servizi");
 $partecipanti = dsi_get_meta("partecipanti");
+$partecipanti_utenti = dsi_get_meta("partecipanti_utenti");
+$collaborazione = dsi_get_meta("collaborazione");
 
 //$file_documenti = dsi_get_meta("file_documenti");
 $is_realizzato = dsi_get_meta("is_realizzato");
@@ -110,7 +112,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
 											<a class="list-item scroll-anchor-offset" href="#art-par-luogo" title="Vai al paragrafo <?php _e("Luogo", "design_scuole_italia"); ?>"><?php _e("Luogo", "design_scuole_italia"); ?></a>
 										</li>
 										<?php } ?>
-                                        <?php if(is_array($link_strutture) || (is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { 
+                                        <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { 
                                         ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-responsabili" title="Vai al paragrafo <?php _e("Responsabili", "design_scuole_italia"); ?>"><?php _e("Responsabili", "design_scuole_italia"); ?></a>
@@ -212,7 +214,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                     </div><!-- /row -->
                                     <?php } ?>
 
-                                    <?php if(is_array($link_strutture) || (is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { ?>
+                                    <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { ?>
                                         <h2 class="h3 mb-3" id="art-par-responsabili"><?php _e("Responsabili", "design_scuole_italia"); ?></h2>
                                     <?php  } ?>
 
@@ -234,9 +236,8 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                     <?php
                                     }
 
-                                    $partecipanti_utenti = dsi_get_meta("partecipanti_utenti");
 
-                                    if(is_array($partecipanti_utenti) && count($partecipanti_utenti)>0 && $persone_show_card != "false"){ ?>
+                                    if(isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0 && $persone_show_card != "false"){ ?>
                                     <h3 class="h4"><?php _e("Referenti", "design_scuole_italia"); ?></h3>
                                     <div class="card-deck card-deck-spaced mb-2">
                                         <?php
@@ -266,7 +267,6 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                     </div><!-- /card-deck -->
                                     <?php }
 
-                                    $collaborazione = dsi_get_meta("collaborazione");
                                     if(trim($collaborazione) != "") {
                                         ?>
                                         <h3 class="h4"><?php _e( "In collaborazione con", "design_scuole_italia" ); ?></h3>

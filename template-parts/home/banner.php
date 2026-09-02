@@ -18,6 +18,11 @@ if($visualizza_banner == "si") {
                             <ul class="splide__list it-carousel-all">
                                 <?php
                                 foreach ($banner_group as $banner){
+
+                                    if (empty($banner['banner_id'])) {
+                                        continue;
+                                    }
+
                                     $image_url = wp_get_attachment_image_url($banner["banner_id"], ($forza_dimensione_banner == "si" ? 'banner-cropped' : 'banner') );
                                     $image_alt = get_post_meta( $banner["banner_id"], '_wp_attachment_image_alt', true);
                                     ?>

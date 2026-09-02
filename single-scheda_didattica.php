@@ -7,7 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore;
-get_template_part("template-parts/single/related-posts", $args = array( "scheda_didattica")); 
+get_template_part("template-parts/single/related-posts", null, $args = array( "scheda_didattica")); 
 get_header();
 
 $link_schede_materiale_didattico = dsi_get_meta("link_schede_materiale_didattico");
@@ -154,6 +154,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 								<?php } ?>
                                 <?php
                                 $descrizione_attivita = dsi_get_meta("descrizione_attivita");
+                                $attivita = dsi_get_meta("fasi_attivita");
                                 ?>
 								<?php if(is_array($attivita) && count($attivita) > 0)  {   ?>
                                 <h2 class="h4"><?php _e("Attività", "design_scuole_italia"); ?></h2>
@@ -162,7 +163,6 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                 <?php
                                 echo wpautop($descrizione_attivita);
 
-                                $attivita = dsi_get_meta("fasi_attivita");
                                 if(is_array($attivita) && count($attivita) > 0){
                                     ?>
                                     <?php

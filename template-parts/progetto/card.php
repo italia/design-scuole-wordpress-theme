@@ -1,6 +1,7 @@
 <?php
 global $progetto;
 
+if ($progetto) {
 ?>
 
 	<div class="card card-bg card-icon rounded">
@@ -15,3 +16,4 @@ global $progetto;
 		</a>
 	</div><!-- /card card-bg card-icon rounded -->
 <?php
+}

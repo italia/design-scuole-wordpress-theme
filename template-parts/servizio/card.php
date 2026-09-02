@@ -1,6 +1,6 @@
 <?php
 global $servizio;
-if($servizio->post_status == "publish") {
+if ($servizio !== null && $servizio->post_status == "publish") {
     ?>
     <div class="card card-bg card-icon rounded">
         <a href="<?php echo get_permalink($servizio); ?>">
