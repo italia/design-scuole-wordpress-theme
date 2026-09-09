@@ -2,7 +2,7 @@
 /**
  * Box correlati per tassonomia argomento
  */
-global $post, $args, $posts_array;
+global $post, $posts_array;
 $argomenti = dsi_get_argomenti_of_post();
 if(is_array($argomenti) && count($argomenti)) {
 	// estraggo gli id

@@ -453,7 +453,7 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
                                             	$struttura = $post;
                                                 $luogo = get_post($idluogo);
 												
-												if($luogo) {
+												if ($luogo instanceof WP_Post) {
                                                 	get_template_part( "template-parts/luogo/card", "nophone");
 												}
                                             }

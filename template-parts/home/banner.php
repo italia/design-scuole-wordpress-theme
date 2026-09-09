@@ -2,10 +2,9 @@
 
 $visualizza_banner = dsi_get_option("visualizza_banner", "homepage");
 $forza_dimensione_banner = dsi_get_option("forza_dimensione_banner", "homepage") ?? "no";
+$banner_group = dsi_get_option("banner_group", "homepage");
 
-
-if($visualizza_banner == "si") {
-    $banner_group = dsi_get_option("banner_group", "homepage");
+if ($visualizza_banner == "si" && is_array($banner_group)) {
     $class = "single-banner";
     ?>
     <section class="section bg-gray-light py-3">
@@ -19,9 +18,9 @@ if($visualizza_banner == "si") {
                                 <?php
                                 foreach ($banner_group as $banner){
 
-                                    if (empty($banner['banner_id'])) {
-                                        continue;
-                                    }
+									if (!is_array($banner) || empty($banner['banner_id'])) {
+										continue;
+									}
 
                                     $image_url = wp_get_attachment_image_url($banner["banner_id"], ($forza_dimensione_banner == "si" ? 'banner-cropped' : 'banner') );
                                     $image_alt = get_post_meta( $banner["banner_id"], '_wp_attachment_image_alt', true);

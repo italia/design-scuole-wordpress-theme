@@ -7,7 +7,7 @@
  * @package Design_Scuole_Italia
  */
 global $post, $autore;
-get_template_part("template-parts/single/related-posts", $args = array( "programma_materia")); 
+get_template_part("template-parts/single/related-posts", null, $args = array( "programma_materia")); 
 get_header();
 
 $link_schede_materiale_didattico = dsi_get_meta("link_schede_materiale_didattico");

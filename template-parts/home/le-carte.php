@@ -21,7 +21,7 @@ if(is_array($gruppo_carte) && count($gruppo_carte) > 0) {
 							<?php
 							foreach ( $gruppo_carte as $carta ) {
 								$doc = get_post($carta);
-								if ($doc !== null && $doc->post_status == "publish") {
+								if ($doc instanceof WP_Post && $doc->post_status == "publish") {
 									$desc = dsi_get_meta("descrizione", '', $doc->ID);
 									?>
 									<li class="splide__slide">

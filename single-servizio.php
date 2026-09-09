@@ -382,7 +382,7 @@ get_header();
     if (is_array($fasi_scadenze) || is_object($fasi_scadenze)) {
         $old_data = "";
         foreach ($fasi_scadenze as $fase) {
-			if($fase["data_fase"] != "") {
+			if(!empty($fase['data_fase'])) {
 				$arrdata = explode("-", $fase["data_fase"]);
 				$day = $arrdata[0];
 				$monthName = date_i18n('M', mktime(0, 0, 0, $arrdata[1], 10));

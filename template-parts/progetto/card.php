@@ -1,7 +1,7 @@
 <?php
 global $progetto;
 
-if ($progetto) {
+if ($progetto instanceof WP_Post) {
 ?>
 
 	<div class="card card-bg card-icon rounded">

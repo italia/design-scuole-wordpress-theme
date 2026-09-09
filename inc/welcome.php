@@ -288,8 +288,12 @@ function dsi_remove_all_dashboard_meta_boxes()
 {
     global $wp_meta_boxes;
 
+    if (!isset($wp_meta_boxes['dashboard'])) {
+        return;
+    }
+
     $keep_boxes = array();
-    foreach ($wp_meta_boxes['dashboard']['normal']['core'] as $wp_meta_box) {
+    foreach ($wp_meta_boxes['dashboard']['normal']['core'] ?? array() as $wp_meta_box) {
 		if (!is_array($wp_meta_box) || !isset($wp_meta_box['id'])) {
 			continue;
 		}
@@ -301,7 +305,7 @@ function dsi_remove_all_dashboard_meta_boxes()
     $wp_meta_boxes['dashboard']['normal']['core'] = $keep_boxes;
 
     $keep_boxes = array();
-    foreach ($wp_meta_boxes['dashboard']['side']['core'] as $wp_meta_box) {
+    foreach ($wp_meta_boxes['dashboard']['side']['core'] ?? array() as $wp_meta_box) {
 		if (!is_array($wp_meta_box) || !isset($wp_meta_box['id'])) {
 			continue;
 		}

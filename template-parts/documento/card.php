@@ -1,6 +1,6 @@
 <?php
 global $documento;
-if ($documento !== null && $documento->post_status == "publish") {
+if ($documento instanceof WP_Post && $documento->post_status == "publish") {
 ?>
 	<div class="card card-bg card-icon rounded">
 			<div class="card-body">

@@ -112,7 +112,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
 											<a class="list-item scroll-anchor-offset" href="#art-par-luogo" title="Vai al paragrafo <?php _e("Luogo", "design_scuole_italia"); ?>"><?php _e("Luogo", "design_scuole_italia"); ?></a>
 										</li>
 										<?php } ?>
-                                        <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { 
+                                        <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || (isset($collaborazione) && trim($collaborazione) !== "") ) { 
                                         ?>
                                             <li>
                                                 <a class="list-item scroll-anchor-offset" href="#art-par-responsabili" title="Vai al paragrafo <?php _e("Responsabili", "design_scuole_italia"); ?>"><?php _e("Responsabili", "design_scuole_italia"); ?></a>
@@ -214,7 +214,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                     </div><!-- /row -->
                                     <?php } ?>
 
-                                    <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || trim($collaborazione) != "" ) { ?>
+                                    <?php if(is_array($link_strutture) || (isset($partecipanti_utenti) && is_array($partecipanti_utenti) && count($partecipanti_utenti)>0) || (isset($collaborazione) && trim($collaborazione) !== "") ) { ?>
                                         <h2 class="h3 mb-3" id="art-par-responsabili"><?php _e("Responsabili", "design_scuole_italia"); ?></h2>
                                     <?php  } ?>
 
@@ -267,7 +267,7 @@ $persone_show_card = dsi_get_option("persone_show_card", "persone");
                                     </div><!-- /card-deck -->
                                     <?php }
 
-                                    if(trim($collaborazione) != "") {
+                                    if(isset($collaborazione) && trim($collaborazione) !== "") {
                                         ?>
                                         <h3 class="h4"><?php _e( "In collaborazione con", "design_scuole_italia" ); ?></h3>
                                         <div class="row variable-gutters">

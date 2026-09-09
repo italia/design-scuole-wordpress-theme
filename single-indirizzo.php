@@ -382,7 +382,7 @@ get_header();
                                             foreach ($luoghi as $idluogo){
                                                 $c++;
                                                 $luogo = get_post($idluogo);
-                                                if($luogo) {
+                                                if ($luogo instanceof WP_Post) {
                                                     get_template_part( "template-parts/luogo/card" , "nophone");
                                                 }
                                             }
