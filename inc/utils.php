@@ -493,8 +493,8 @@ function dsi_bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 		foreach ($pages as $page) {
             $exploded = explode('>',$page);
             $i = 0;
-            $aria_label = 'aria-label=';
-            $data_element = 'data-element="pager-link"';
+            $aria_label = ' aria-label=';
+            $data_element = ' data-element="pager-link" ';
             foreach ($exploded as $str) {
                 if (strpos($str, '<a') !== false) {
                     if (strpos($str, 'next') !== false) $aria_label .= "'Vai alla pagina successiva'";
