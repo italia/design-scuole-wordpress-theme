@@ -315,7 +315,9 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 
             <div class="calendar-date-description rounded">
                 <div class="calendar-date-description-content order-2">
-                    <p><?php echo esc_html($item["titolo_timeline"]); ?></p>
+                    <?php if (!empty($item["titolo_timeline"])): ?>
+                        <p><?php echo esc_html($item["titolo_timeline"]); ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

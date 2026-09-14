@@ -878,9 +878,17 @@ function dsi_annulla_doc_link( $actions, $post ) {
 add_filter( 'post_row_actions', 'dsi_annulla_doc_link', 10, 2 );
 
 function dsi_documento_add_title_status( $actions, $post ){
+    if ( is_numeric( $post ) ) {
+        $post = get_post( $post );
+    }
+
+    if ( ! $post instanceof WP_Post ) {
+        return $actions;
+    }
+
     if ( 'documento' === $post->post_type ) {
-        $cont = get_the_title();
-        $status = get_post_status();
+        $cont = get_the_title( $post->ID );
+        $status = get_post_status( $post->ID );
         ?>
         <?php
         echo "<strong>";

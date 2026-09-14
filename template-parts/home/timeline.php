@@ -30,7 +30,9 @@ if(is_array($timeline) && count($timeline) > 0) {
 											<div class="card-body px-0">
 												<h3 class="mb-1"><?php echo $item["titolo_timeline"] ?></h3>
 												<span class="h5"><?php echo date_i18n("F Y", $timestamp); ?></span>
-												<p class="mt-3"><?php echo $item["descrizione_timeline"] ?></p>
+												<?php if (!empty($item["descrizione_timeline"])): ?>
+													<p class="mt-3"><?php echo $item["descrizione_timeline"]; ?></p>
+												<?php endif; ?>
 											</div><!-- /card-body -->
 										</div><!-- /card -->
 									</div><!-- /item -->

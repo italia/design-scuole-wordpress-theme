@@ -270,20 +270,22 @@ $user_can_view_post = dsi_members_can_user_view_post(get_current_user_id(), $pos
 								if($tipo_evento == "gratis"){
 									echo "<p>Evento Gratuito</p>";
 								}else {
-									foreach ($prezzo as $biglietto) {
-										?>
-                                        <div class="text-border-left">
-                                            <div class="text-icon">
-                                                <svg class="icon svg-ticket">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                         xlink:href="#svg-ticket"></use>
-                                                </svg>
-                                                <span><?php echo $biglietto["tipo_biglietto"]; ?></span>
-                                            </div>
-                                            <p class="price"><strong>€ <?php echo $biglietto["prezzo"]; ?></strong></p>
-                                            <p><?php echo $biglietto["descrizione"]; ?></p>
-                                        </div><!-- /text-border-left -->
-										<?php
+                                    if (is_array($prezzo)) {
+                                        foreach ($prezzo as $biglietto) {
+                                            ?>
+                                            <div class="text-border-left">
+                                                <div class="text-icon">
+                                                    <svg class="icon svg-ticket">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            xlink:href="#svg-ticket"></use>
+                                                    </svg>
+                                                    <span><?php echo $biglietto["tipo_biglietto"]; ?></span>
+                                                </div>
+                                                <p class="price"><strong>€ <?php echo $biglietto["prezzo"]; ?></strong></p>
+                                                <p><?php echo $biglietto["descrizione"]; ?></p>
+                                            </div><!-- /text-border-left -->
+                                            <?php
+                                        }
 									}
 								}
 								?>
