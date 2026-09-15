@@ -13,7 +13,6 @@ $accesso_circolare = circolare_access($post->ID);
 ?>
 
 <?php if($accesso_circolare != "false") { ?>
-<a class="presentation-card-link" href="<?php the_permalink(); ?>">
     <article class="card card-bg card-article card-article-<?php echo esc_attr($class); ?> cursorhand" role="region" aria-label="Card della circolare">
        <div class="card-body" aria-label="data pubblicazione <?php echo esc_attr(date_i18n('y', strtotime($post->post_date))); ?>">
                 <?php if($accesso_circolare == "true" ) { ?>
@@ -30,7 +29,7 @@ $accesso_circolare = circolare_access($post->ID);
 				<?php } ?>
 				<div class="card-article-content"> 
                     <small class="h6 text-greendark"><?php _e("circ. n.", "design_scuole_italia"); echo esc_html($numerazione_circolare); ?></small>
-					<h2 class="h3"><?php the_title(); ?></h2>
+					<h2 class="h3"><a href="<?php the_permalink(); ?>" class="text-underline"><?php the_title(); ?></a></h2>
 				        <p><?php echo wp_kses_post($excerpt); ?></p>
          <?php $post_tags = get_the_terms(get_the_ID(), 'tipologia-circolare'); 
 		if ($post_tags) {
@@ -42,7 +41,6 @@ $accesso_circolare = circolare_access($post->ID);
                 </div><!-- /card-avatar-content -->
         </div><!-- /card-body -->	    
     </article><!-- /card card-bg card-article -->
-</a>
 <?php } else { ?>
 	<article class="card card-bg card-article" tabindex="0" role="region" aria-label="Card della circolare" >
        <div class="card-body">
