@@ -8,15 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Setup NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: 16
+          node-version: 20
       - name: Setup Git
-        uses: fregante/setup-git-user@v1
+        uses: fregante/setup-git-user@v2
       - name: Run assets update
         run: | 
           git clone https://github.com/italia/design-scuole-pagine-statiche
@@ -27,7 +27,7 @@ jobs:
           git add assets/css/scuole.css assets/js/scuole.js
           git commit -m "chore(deps): update assets"
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v8
         with:
           title: "chore(deps) update scuole.css"
           branch: feature/update-scuole-css
